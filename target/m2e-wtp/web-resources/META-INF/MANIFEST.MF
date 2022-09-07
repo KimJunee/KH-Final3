@@ -1,5 +1,0 @@
-Manifest-Version: 1.0
-Built-By: kimjisu
-Build-Jdk: 11.0.13
-Created-By: Maven Integration for Eclipse
-
