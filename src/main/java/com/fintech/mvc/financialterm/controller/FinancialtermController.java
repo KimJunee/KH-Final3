@@ -24,5 +24,10 @@ public class FinancialtermController {
 		System.out.println("¿Ï·á");
 	} 
 	
+	public static void main(String[] args) {
+		FinancialtermController controller = new FinancialtermController();
+		controller.initFinancialtermData();
+	}
+	
 	
 }

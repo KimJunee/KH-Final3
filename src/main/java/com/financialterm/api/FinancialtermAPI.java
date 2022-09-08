@@ -91,6 +91,7 @@ public class FinancialtermAPI {
 				if(pageNo == 2) {
 					break;
 				}
+				return list;
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
