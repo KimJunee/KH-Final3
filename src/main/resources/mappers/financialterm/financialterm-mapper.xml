@@ -5,7 +5,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="com.fintech.mvc.financialterm.model.vo.Financialterm">
-  <insert id="insertFinancialterm" parameterType="Financialterm">
+  <insert id="insertFinancialterm" parameterType="com.fintech.mvc.financialterm.model.vo.Financialterm">
   	INSERT INTO FINANCIALTERM(
   	fnceDictNm, ksdFnceDictDescContent) VALUES
 		(#{fnceDictNm}, #{ksdFnceDictDescContent})
