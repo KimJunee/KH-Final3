@@ -37,9 +37,9 @@
 		p:basePackage="com.fintech.mvc.*.model.mapper"	
 	/>
 	
-	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+	<!-- <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg index="0" ref="sqlSessionFactoryBean"/>	
-	</bean>
+	</bean> -->
 	
 	<!-- 트랜잭션 매니저 설정 -->
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
