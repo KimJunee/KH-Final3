@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import com.financialterm.api.FinancialtermAPI;
+import com.fintech.mvc.financialterm.api.FinancialtermAPI;
 import com.fintech.mvc.financialterm.model.service.FinancialtermService;
 import com.fintech.mvc.financialterm.model.service.FinancialtermServiceImpl;
 import com.fintech.mvc.financialterm.model.vo.Financialterm;

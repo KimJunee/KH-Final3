@@ -1,4 +1,4 @@
-package com.financialterm.api;
+package com.fintech.mvc.financialterm.api;
 
 import java.net.HttpURLConnection;
 import java.net.URL;

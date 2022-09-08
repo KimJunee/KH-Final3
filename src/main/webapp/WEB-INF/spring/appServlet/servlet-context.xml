@@ -21,7 +21,9 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.kh.realfinal" />
+	<context:component-scan base-package="com.fintech.mvc" />
+	
+
 	
 	
 	
