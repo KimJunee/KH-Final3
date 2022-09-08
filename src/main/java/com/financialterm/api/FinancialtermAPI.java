@@ -81,7 +81,11 @@ public class FinancialtermAPI {
 						System.out.println("fnceDictNm : "  + eElement.getElementsByTagName("fnceDictNm").item(0).getTextContent());
 						
 						String fnceDictNm = eElement.getElementsByTagName("fnceDictNm").item(0).getTextContent();
-						String ksdFnceDictDescContent = eElement.getElementsByTagName("ksdFnceDictDescContent").item(0).getTextContent();
+						
+						String ksdFnceDictDescContent = "";
+						if(eElement.getElementsByTagName("ksdFnceDictDescContent").item(0) != null){
+							ksdFnceDictDescContent = eElement.getElementsByTagName("ksdFnceDictDescContent").item(0).getTextContent();
+						}
 					
 					Financialterm ft = new Financialterm(fnceDictNm, ksdFnceDictDescContent);
 					list.add(ft);
@@ -91,7 +95,6 @@ public class FinancialtermAPI {
 				if(pageNo == 2) {
 					break;
 				}
-				return list;
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
