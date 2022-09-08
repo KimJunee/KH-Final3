@@ -30,7 +30,7 @@ public class FinancialtermServiceImpl implements FinancialtermService{
 		int result = 0;
 		
 		result = mapper.insertFinancialterm(ft);
-		System.out.println(result);
+		System.out.println(result); //µð¹ö±ë¿ë
 		
 		return result;
 		

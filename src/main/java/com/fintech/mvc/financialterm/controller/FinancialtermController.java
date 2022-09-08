@@ -14,8 +14,8 @@ import com.fintech.mvc.financialterm.model.vo.Financialterm;
 @Controller
 public class FinancialtermController {
 	
-	
-	private FinancialtermService service = new FinancialtermServiceImpl();
+	@Autowired
+	private FinancialtermService service;
 		
 	
 	
