@@ -25,7 +25,7 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" 
 		p:configuration-ref="mybatisConfig"
 		p:mapperLocations="classpath:mappers/**/*.xml"
-		p:typeAliasesPackage="com.fintech.mvc.*.model.vo"
+		p:typeAliasesPackage="com.kh.realfinal.*.model.vo"
 		p:dataSource-ref="dataSource"
 	/>
 	<!-- 실제 마이바티스에서 사용할 Session 정의 -->
@@ -34,7 +34,7 @@
 	/> 
 	<!-- DAO를 대처할 Mapper Scanning -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"
-		p:basePackage="com.fintech.mvc.*.model.mapper"	
+		p:basePackage="com.kh.realfinal.*.model.mapper"	
 	/>
 	
 	<!-- <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
