@@ -1,8 +1,8 @@
-package com.fintech.mvc.financialterm.model.mapper;
+package com.kh.realfinal.financialterm.model.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.fintech.mvc.financialterm.model.vo.Financialterm;
+import com.kh.realfinal.financialterm.model.vo.Financialterm;
 
 @Mapper
 public interface FinancialtermMapper {

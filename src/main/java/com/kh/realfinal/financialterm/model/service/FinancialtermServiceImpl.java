@@ -1,4 +1,4 @@
-package com.fintech.mvc.financialterm.model.service;
+package com.kh.realfinal.financialterm.model.service;
 
 import org.mybatis.spring.SqlSessionTemplate;
 
@@ -7,10 +7,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.fintech.mvc.financialterm.model.dao.FinancialtermDao;
-import com.fintech.mvc.financialterm.model.dao.FinancialtermDaoImpl;
-import com.fintech.mvc.financialterm.model.mapper.FinancialtermMapper;
-import com.fintech.mvc.financialterm.model.vo.Financialterm;
+import com.kh.realfinal.financialterm.model.dao.FinancialtermDao;
+import com.kh.realfinal.financialterm.model.dao.FinancialtermDaoImpl;
+import com.kh.realfinal.financialterm.model.mapper.FinancialtermMapper;
+import com.kh.realfinal.financialterm.model.vo.Financialterm;
 
 @Service
 public class FinancialtermServiceImpl implements FinancialtermService{

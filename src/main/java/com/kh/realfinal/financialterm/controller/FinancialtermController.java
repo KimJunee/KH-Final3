@@ -1,14 +1,14 @@
-package com.fintech.mvc.financialterm.controller;
+package com.kh.realfinal.financialterm.controller;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import com.fintech.mvc.financialterm.api.FinancialtermAPI;
-import com.fintech.mvc.financialterm.model.service.FinancialtermService;
-import com.fintech.mvc.financialterm.model.service.FinancialtermServiceImpl;
-import com.fintech.mvc.financialterm.model.vo.Financialterm;
+import com.kh.realfinal.financialterm.api.FinancialtermAPI;
+import com.kh.realfinal.financialterm.model.service.FinancialtermService;
+import com.kh.realfinal.financialterm.model.service.FinancialtermServiceImpl;
+import com.kh.realfinal.financialterm.model.vo.Financialterm;
 
 
 @Controller

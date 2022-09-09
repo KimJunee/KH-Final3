@@ -1,4 +1,4 @@
-package com.fintech.mvc.financialterm.api;
+package com.kh.realfinal.financialterm.api;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -14,8 +14,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-
-import com.fintech.mvc.financialterm.model.vo.Financialterm;
+import com.kh.realfinal.financialterm.model.vo.Financialterm;
 
 public class FinancialtermAPI {
 	

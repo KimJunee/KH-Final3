@@ -1,4 +1,4 @@
-package com.fintech.mvc.financialterm.model.vo;
+package com.kh.realfinal.financialterm.model.vo;
 
 
 import lombok.AllArgsConstructor;

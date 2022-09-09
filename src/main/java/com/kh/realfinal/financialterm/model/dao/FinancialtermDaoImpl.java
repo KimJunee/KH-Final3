@@ -1,9 +1,9 @@
-package com.fintech.mvc.financialterm.model.dao;
+package com.kh.realfinal.financialterm.model.dao;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.fintech.mvc.financialterm.model.vo.Financialterm;
+import com.kh.realfinal.financialterm.model.vo.Financialterm;
 
 @Repository("FinancialtermDao")
 public class FinancialtermDaoImpl implements FinancialtermDao{
