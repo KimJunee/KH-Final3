@@ -25,9 +25,8 @@ public class FinancialtermServiceImpl implements FinancialtermService{
 	@Transactional(rollbackFor = Exception.class)
 	public int saveFinancialterm(Financialterm ft) {
 		int result = 0;
-		
 		result = mapper.insertFinancialterm(ft);
-		System.out.println(result); //µð¹ö±ë¿ë
+//		System.out.println(result); //µð¹ö±ë¿ë
 		
 		return result;
 	}

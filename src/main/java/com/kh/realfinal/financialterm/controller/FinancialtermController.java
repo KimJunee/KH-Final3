@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.kh.realfinal.financialterm.api.FinancialtermAPI;
@@ -19,17 +20,27 @@ public class FinancialtermController {
 		
 	
 	@RequestMapping("/financialterm/insert.do")
-	public void initFinancialtermData() {
+	public String initFinancialtermData(Model model) {
 		List<Financialterm> list = FinancialtermAPI.callFinancialtermByXML();
 		System.out.println(list.toString());
+		int result = 0;
 		for(Financialterm ft : list) {
-			System.out.println(ft == null);
-			System.out.println("체크포인트1");
+//			System.out.println(ft == null);
+//			System.out.println("체크포인트1");
 //			System.out.println(service.saveFinancialterm(ft));
-			int result = service.saveFinancialterm(ft);
-			System.out.println(result);
+			result = service.saveFinancialterm(ft);
+//			System.out.println(result);
 		}
-		System.out.println("완료");
+	
+		if(result > 0) {
+			model.addAttribute("msg", "금융용어를 DB에 정상적으로 넣었습니다.");
+			model.addAttribute("location", "/");
+		}else {
+			model.addAttribute("msg", "금융용어를 DB에 넣는걸 실패했습니다.");
+			model.addAttribute("location", "/");
+		}
+		return "/common/msg";
+		
 	} 
 	
 //	public static void main(String[] args) {
