@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="path" value="${pageContext.request.contextPath }"/>    
 <html>
 <head>
 	<title>Home</title>
@@ -8,6 +12,7 @@
 <h1>
 	헬로리방구리!!
 </h1>
+<!-- <a href="${path}/financialterm/insert.do">금융용어 DB INSERT</a> -->
 <h2>응애 김지수 커밋테스트</h2>
 <h2>응애 이상일살일 커밋테스트</h2>
 <h2>이미향 커밋 테스트!! 세 번째</h2>

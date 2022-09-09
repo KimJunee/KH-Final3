@@ -2,10 +2,9 @@ package com.kh.realfinal.financialterm.controller;
 
 import java.util.List;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.kh.realfinal.financialterm.api.FinancialtermAPI;
 import com.kh.realfinal.financialterm.model.service.FinancialtermService;
@@ -19,7 +18,7 @@ public class FinancialtermController {
 	private FinancialtermService service;
 		
 	
-	
+	@RequestMapping("/financialterm/insert.do")
 	public void initFinancialtermData() {
 		List<Financialterm> list = FinancialtermAPI.callFinancialtermByXML();
 		System.out.println(list.toString());
@@ -33,10 +32,10 @@ public class FinancialtermController {
 		System.out.println("¿Ï·á");
 	} 
 	
-	public static void main(String[] args) {
-		FinancialtermController controller = new FinancialtermController();
-		controller.initFinancialtermData();
-	}
+//	public static void main(String[] args) {
+//		FinancialtermController controller = new FinancialtermController();
+//		controller.initFinancialtermData();
+//	}
 	
 	
 }

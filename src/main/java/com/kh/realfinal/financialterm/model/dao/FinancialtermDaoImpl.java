@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.kh.realfinal.financialterm.model.vo.Financialterm;
 
-@Repository("FinancialtermDao")
+@Repository
 public class FinancialtermDaoImpl implements FinancialtermDao{
 
 	@Override
