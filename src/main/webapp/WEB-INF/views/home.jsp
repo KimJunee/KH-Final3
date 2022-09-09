@@ -12,7 +12,7 @@
 <h1>
 	헬로리방구리!!
 </h1>
-<!-- <a href="${path}/financialterm/insert.do">금융용어 DB INSERT</a> -->
+<a href="${path}/financialterm/insert.do">금융용어 DB INSERT</a>
 <h2>응애 김지수 커밋테스트</h2>
 <h2>응애 이상일살일 커밋테스트</h2>
 <h2>이미향 커밋 테스트!! 세 번째</h2>

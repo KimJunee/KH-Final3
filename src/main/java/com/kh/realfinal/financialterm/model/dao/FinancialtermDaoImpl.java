@@ -11,7 +11,7 @@ public class FinancialtermDaoImpl implements FinancialtermDao{
 	@Override
 	public int insertFinancialterm(SqlSessionTemplate session, Financialterm ft) {
 		System.out.println(ft);
-		return session.insert("com.fintech.mvc.financialterm.model.vo.Financialterm.insertFinancialterm", ft);
+		return session.insert("FinancialtermMapper.insertFinancialterm", ft);
 	}
 
 }
