@@ -8,21 +8,28 @@ import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import com.kh.realfinal.financialterm.controller.FinancialtermController;
 import com.kh.realfinal.financialterm.model.vo.Financialterm;
+
 
 public class FinancialtermAPI {
 	
 	public static String key = "PCNxso2TMGeSrjPMsBxvOscmyUmaYllFFoSb%2BN%2BjMnDf4gSitSdIZjC3290UCja4ki92iGwbCXZv6utvCT0IAg%3D%3D";
 	// 기본 정보 url
 		public static String Financialterm_XML_URL = "http://api.seibro.or.kr/openapi/service/FnTermSvc/getFinancialTermMeaning";
-	public static void main(String[] args) {
+	
+	
+		
+		public static void main(String[] args) {
 		FinancialtermAPI.callFinancialtermByXML();
+		
 	}
 		
 	public static List<Financialterm> callFinancialtermByXML() {
