@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 매퍼를 쓸려면 이렇게 가야된다. -->
+<mapper	namespace="com.kh.realfinal.landterm.model.mapper.LandTermMapper">
+	<insert id="insertLandTerm"
+		parameterType="LandTerm">
+		INSERT INTO LANDTERM(
+		DIC_TITLE, DIC_CONTENT) VALUES
+		(#{dic_title},
+		#{dic_content})
+	</insert>
+
+
+</mapper>
+

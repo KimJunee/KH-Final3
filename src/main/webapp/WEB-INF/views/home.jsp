@@ -12,6 +12,9 @@
 <h1>
 	헬로리방구리!!
 </h1>
+
+
+
 <a href="${path}/financialterm/insert.do">금융용어 DB INSERT</a>
 <h2>응애 김지수 커밋테스트</h2>
 <h2>응애 이상일살일 커밋테스트</h2>
@@ -28,6 +31,10 @@
 <h2>소피야 자자</h2>
 <h2>tktktktktktktktktktktㅏ사사사사사상일님 커밋제발</h2>
 <h2>남꺼 도와주다가 정작 내꺼는 안되고 서럽다 김지수</h2>
+
+<h2>궁금해서 따라해본 파싱 테스트 예에!</h2>
+<a href="${path}/landterm/insert.do">부동산용어 DB INSERT</a>
+<br><br><br>
 
 <P>  The time on the server is ${serverTime}. </P>
 </body>
