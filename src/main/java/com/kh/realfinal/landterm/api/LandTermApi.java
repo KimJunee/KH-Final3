@@ -17,13 +17,10 @@ import com.kh.realfinal.landterm.model.vo.LandTerm;
 
 public class LandTermApi {
 
-	// ¼¼¹Ì ÆÄ½Ì ÄÚµå : http://api.visitkorea.or.kr/openapi/service/rest/GoCamping/basedList?serviceKey=PCNxso2TMGeSrjPMsBxvOscmyUmaYllFFoSb%2BN%2BjMnDf4gSitSdIZjC3290UCja4ki92iGwbCXZv6utvCT0IAg%3D%3D&pageNo=1&numOfRows=1000&MobileOS=ETC&MobileApp=AppTest
-	// ¿¹½Ã ÆÄ½Ì ÄÚµå : https://www.hf.go.kr/research/openapi/DicApiList.do?Key=124fa56d876c45688f2bc91682280456&Type=xml&pIndex=8&pSize=100
-
 	
 	public static String Key = "124fa56d876c45688f2bc91682280456";
 
-	// ÁÖÅÃ±ÝÀ¶Åë°è½Ã½ºÅÛ URL
+
 	public static String LAND_TERM_XML_URL = "https://www.hf.go.kr/research/openapi/DicApiList.do";
 
 	public static void main(String[] args) {
@@ -41,23 +38,22 @@ public class LandTermApi {
 
 		while (true) {
 
-			// 1. URLÀ» °¡°øÇÏ´Â ÄÚµå ½ÃÀÛ
+		
 			System.out.println("pageNumber : " + pageNo);
 			StringBuilder urlBuilder = new StringBuilder(LAND_TERM_XML_URL); /* URL */
-			// encode = ÇÑ±ÛÀÌ µé¾î°¬À»¶§´Â ¾Æ·¡ ÁÖ¼®ÄÚµå Ç®¾î¼­ ½á¾ßÇÑ´Ù!
 //			urlBuilder.append("?" + URLEncoder.encode("key","UTF-8") + "=" + URLEncoder.encode(key, "UTF-8"));
 //			urlBuilder.append("&" + URLEncoder.encode("targetDt","UTF-8") + "=" + URLEncoder.encode("20211011", "UTF-8")); 
 
-			// ¿µ¹®ÀÏ¶§´Â °£´ÜÇÏ°Ô »ç¿ëÇÒ¼öµµ ÀÖ´Ù.
-			urlBuilder.append("?" + "Key=" + Key); // Ã¹ ¹øÂ°¸¸ ¹°À½Ç¥·Î ¼³Á¤
+	
+			urlBuilder.append("?" + "Key=" + Key); 
 			urlBuilder.append("&" + "Type=" + Type);
 			urlBuilder.append("&" + "pIndex=" + pIndex);
 			urlBuilder.append("&" + "pSize=" + pSize);
 			System.out.println(urlBuilder);
-//			// 1. URLÀ» °¡°øÇÏ´Â ÄÚµå ³¡!
+
 
 			try {
-				// 2. URLÀ» http °´Ã¼¸¦ ÅëÇØ ¿äÃ»
+				
 				URL url = new URL(urlBuilder.toString());
 				HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 				conn.setRequestMethod("GET");
@@ -67,21 +63,21 @@ public class LandTermApi {
 				int code = conn.getResponseCode();
 				System.out.println("Response code: " + code);
 				if (code < 200 || code >= 300) {
-					System.out.println("ÆäÀÌÁö°¡ Àß¸øµÇ¾ú½À´Ï´Ù.");
+					System.out.println("íŽ˜ì´ì§€ê°€ ìž˜ëª»ë˜ì—ˆìŠµë‹ˆë‹¤.");
 					return null;
 				}
 
-				// 3. ÇØ¼®ºÎ
+				
 				DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 				DocumentBuilder db = dbf.newDocumentBuilder();
 				Document doc = db.parse(conn.getInputStream());
 				doc.getDocumentElement().normalize();
 
-				System.out.println("Root Element : " + doc.getDocumentElement().getNodeName()); // XMLÀÇ ÃÖ»óÀ§ tag°ªÀ» °¡Á®¿Â´Ù.
-				System.out.println("=======================" + pageNo + "ÆäÀÌÁö ½ÃÀÛ==============================");
+				System.out.println("Root Element : " + doc.getDocumentElement().getNodeName()); 
+				System.out.println("=======================" + pageNo + "íŽ˜ì´ì§€ì‹œìž‘==============================");
 
 				NodeList nList = doc.getElementsByTagName("row");
-				// nList >> °¡Á®¿À´Â ¾ÆÀÌÅÛ ÀÌ°í ¾ê°¡ ¾øÀ¸¸é. break; while¹® Á¾·á
+
 				System.out.println("nList.getLength() : " + nList.getLength());
 				if (nList.getLength() < 1) {
 					break;
@@ -96,12 +92,12 @@ public class LandTermApi {
 						String dic_title = eElement.getElementsByTagName("DIC_TITLE").item(0).getTextContent();
 						String dic_content = eElement.getElementsByTagName("DIC_CONTENT").item(0).getTextContent();
 
-						// °ø¹é ¹æ¹ý1
+						
 //					String lt_content = eElement.getElementsByTagName("DIC_CONTENT").getLength() == 0 ? ""
 //							: eElement.getElementsByTagName("DIC_CONTENT").item(0).getTextContent();
 //					System.out.printf("%s : %s", "DIC_CONTENT", lt_content);
 
-						// °ø¹é ¹æ¹ý2
+						
 //					String lt_content = "";
 //					if(eElement.getElementsByTagName("DIC_CONTENT").item(0)!=null) {
 //						lt_content = eElement.getElementsByTagName("DIC_CONTENT").item(0).getTextContent();
@@ -135,6 +131,5 @@ public class LandTermApi {
 		}
 		return list;
 		// <list_total_count>840</list_total_count>
-		// ÃÑ 840°³
 	}
 }

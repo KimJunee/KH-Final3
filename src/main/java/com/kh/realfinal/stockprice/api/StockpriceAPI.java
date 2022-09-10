@@ -31,11 +31,10 @@ public class StockpriceAPI {
 		//&numOfRows=2645&pageNo=5&beginBasDt=20220901&endBasDt=20220908
 		int pageNo = 1;
 		int numOfRows = 2645;
-		String beginBasDt= "20220901"; //½ÃÀÛ³¯Â¥ 09/01~ 09/07
-		String endBasDt= "20220908"; //³¡³ª´Â ³¯Â¥  09/08À» Æ÷ÇÔÇÏÁö ¾ÊÀ½
+		String beginBasDt= "20220901"; //ì‹œì‘ì¼ì 09/01~ 09/07
+		String endBasDt= "20220908"; //ëë‚˜ëŠ” ì¼ì  09/01~09/07 9ì›”8ì¼ì€ í¬í•¨ì•ˆí•¨
 		
 		while (true) {
-			// 1. URL °¡°ø
 			System.out.println();
 			System.out.println("pageNumber : " + pageNo);
 			StringBuilder urlBuilder = new StringBuilder(Stockprice_XML_URL);
@@ -48,7 +47,7 @@ public class StockpriceAPI {
 			System.out.println(urlBuilder);
 			
 			try {
-				// 2. URLÀ» http °´Ã¼¸¦ ÅëÇØ ¿äÃ»
+				
 				URL url = new URL(urlBuilder.toString());
 				HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 				conn.setRequestMethod("GET");
@@ -58,21 +57,19 @@ public class StockpriceAPI {
 				int code = conn.getResponseCode();
 				System.out.println("Response code: " + code);
 				if (code < 200 || code >= 300) {
-					System.out.println("ÆäÀÌÁö°¡ Àß¸øµÇ¾ú½À´Ï´Ù.");
+					System.out.println("í˜ì´ì§€ê°€ ì˜ëª»ë˜ì—ˆìŠµë‹ˆë‹¤.");
 					return null;
 				}
 				
-				// 3. ÇØ¼®ºÎ
 				DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 				DocumentBuilder db = dbf.newDocumentBuilder();
 				Document doc = db.parse(conn.getInputStream());
 				doc.getDocumentElement().normalize();
 				
-				System.out.println("Root Element : " + doc.getDocumentElement().getNodeName()); // XMLÀÇ ÃÖ»óÀ§ tag°ªÀ» °¡Á®¿Â´Ù.
-				System.out.println("=======================" + pageNo + "ÆäÀÌÁö ½ÃÀÛ==============================");
+				System.out.println("Root Element : " + doc.getDocumentElement().getNodeName()); 
+				System.out.println("=======================" + pageNo + "í˜ì´ì§€ì‹œì‘=========================");
 				
 				NodeList nList = doc.getElementsByTagName("item");
-				//nList >> °¡Á®¿À´Â ¾ÆÀÌÅÛ ÀÌ°í  ¾ê°¡ ¾øÀ¸¸é. break; while¹® Á¾·á
 				System.out.println("nList.getLength() : "+nList.getLength());
 				if(nList.getLength() < 1) {
 					break;

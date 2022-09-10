@@ -19,8 +19,7 @@ import com.kh.realfinal.financialterm.model.vo.Financialterm;
 public class FinancialtermAPI {
 	
 	public static String key = "PCNxso2TMGeSrjPMsBxvOscmyUmaYllFFoSb%2BN%2BjMnDf4gSitSdIZjC3290UCja4ki92iGwbCXZv6utvCT0IAg%3D%3D";
-	// ±âº» Á¤º¸ url
-		public static String Financialterm_XML_URL = "http://api.seibro.or.kr/openapi/service/FnTermSvc/getFinancialTermMeaning";
+	public static String Financialterm_XML_URL = "http://api.seibro.or.kr/openapi/service/FnTermSvc/getFinancialTermMeaning";
 	
 	
 		
@@ -35,7 +34,7 @@ public class FinancialtermAPI {
 		int numOfRows = 1349;
 		
 		while (true) {
-			// 1. URL °¡°ø
+
 			System.out.println();
 			System.out.println("pageNumber : " + pageNo);
 			StringBuilder urlBuilder = new StringBuilder(Financialterm_XML_URL);
@@ -46,7 +45,7 @@ public class FinancialtermAPI {
 			System.out.println(urlBuilder);
 			
 			try {
-				// 2. URLÀ» http °´Ã¼¸¦ ÅëÇØ ¿äÃ»
+				
 				URL url = new URL(urlBuilder.toString());
 				HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 				conn.setRequestMethod("GET");
@@ -56,21 +55,21 @@ public class FinancialtermAPI {
 				int code = conn.getResponseCode();
 				System.out.println("Response code: " + code);
 				if (code < 200 || code >= 300) {
-					System.out.println("ÆäÀÌÁö°¡ Àß¸øµÇ¾ú½À´Ï´Ù.");
+					System.out.println("íŽ˜ì´ì§€ê°€ ìž˜ëª»ë˜ì—ˆìŠµë‹ˆë‹¤.");
 					return null;
 				}
 				
-				// 3. ÇØ¼®ºÎ
+			
 				DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 				DocumentBuilder db = dbf.newDocumentBuilder();
 				Document doc = db.parse(conn.getInputStream());
 				doc.getDocumentElement().normalize();
 				
-				System.out.println("Root Element : " + doc.getDocumentElement().getNodeName()); // XMLÀÇ ÃÖ»óÀ§ tag°ªÀ» °¡Á®¿Â´Ù.
-				System.out.println("=======================" + pageNo + "ÆäÀÌÁö ½ÃÀÛ==============================");
+				System.out.println("Root Element : " + doc.getDocumentElement().getNodeName()); 
+				System.out.println("=======================" + pageNo + "íŽ˜ì´ì§€ ì‹œìž‘==============================");
 				
 				NodeList nList = doc.getElementsByTagName("item");
-				//nList >> °¡Á®¿À´Â ¾ÆÀÌÅÛ ÀÌ°í  ¾ê°¡ ¾øÀ¸¸é. break; while¹® Á¾·á
+		
 				System.out.println("nList.getLength() : "+nList.getLength());
 				if(nList.getLength() < 1) {
 					break;
