@@ -92,16 +92,16 @@ public class StockpriceAPI {
 						String isinCd = eElement.getElementsByTagName("isinCd").item(0).getTextContent();
 						String itmsNm = eElement.getElementsByTagName("itmsNm").item(0).getTextContent();
 						String mrktCtg = eElement.getElementsByTagName("mrktCtg").item(0).getTextContent();
-						String clpr = eElement.getElementsByTagName("clpr").item(0).getTextContent();
-						String vs = eElement.getElementsByTagName("vs").item(0).getTextContent();
+						int clpr = Integer.parseInt(eElement.getElementsByTagName("clpr").item(0).getTextContent());
+						int vs = Integer.parseInt(eElement.getElementsByTagName("vs").item(0).getTextContent());
 						String fltRt = eElement.getElementsByTagName("fltRt").item(0).getTextContent();
-						String mkp = eElement.getElementsByTagName("mkp").item(0).getTextContent();
-						String hipr = eElement.getElementsByTagName("hipr").item(0).getTextContent();
-						String lopr = eElement.getElementsByTagName("lopr").item(0).getTextContent();
-						String trqu = eElement.getElementsByTagName("trqu").item(0).getTextContent();
-						String trPrc = eElement.getElementsByTagName("trPrc").item(0).getTextContent();
-						String lstgStCnt = eElement.getElementsByTagName("lstgStCnt").item(0).getTextContent();
-						String mrktTotAmt = eElement.getElementsByTagName("mrktTotAmt").item(0).getTextContent();
+						int mkp = Integer.parseInt(eElement.getElementsByTagName("mkp").item(0).getTextContent());
+						int hipr = Integer.parseInt(eElement.getElementsByTagName("hipr").item(0).getTextContent());
+						int lopr = Integer.parseInt(eElement.getElementsByTagName("lopr").item(0).getTextContent());
+						int trqu = Integer.parseInt(eElement.getElementsByTagName("trqu").item(0).getTextContent());
+						Double trPrc = Double.parseDouble(eElement.getElementsByTagName("trPrc").item(0).getTextContent());
+						Double lstgStCnt = Double.parseDouble(eElement.getElementsByTagName("lstgStCnt").item(0).getTextContent());
+						Double mrktTotAmt = Double.parseDouble(eElement.getElementsByTagName("mrktTotAmt").item(0).getTextContent());
 						
 						
 						Stockprice sp = new Stockprice(basDt, srtnCd ,isinCd ,itmsNm ,mrktCtg ,clpr ,vs ,fltRt ,mkp      

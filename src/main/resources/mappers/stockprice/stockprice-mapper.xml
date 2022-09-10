@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 매퍼를 쓸려면 이렇게 가야된다. -->
+<!-- com.kh.realfinal.stockprice.model.mapper.StockpriceMapper.insertStockprice -->
+<mapper	namespace="com.kh.realfinal.stockprice.model.mapper.StockpriceMapper">
+	<insert id="insertStockprice"
+		parameterType="Stockprice">
+		INSERT INTO STOCKPRICE (BASDT, SRTNCD, ISINCD, ITMSNM, 
+								MRKTCTG, CLPR, VS, FLTRT, MKP, 
+								HIPR, LOPR, TRQU, TRPRC, LSTGSTCNT, MRKTTOTAMT) 
+					    VALUES(#{basDt}, #{srtnCd}, #{isinCd}, #{itmsNm}
+								,#{mrktCtg}, #{clpr}, #{vs}, #{fltRt}, #{mkp},
+								#{hipr}, #{lopr}, #{trqu}, #{trPrc}, #{lstgStCnt}, #{mrktTotAmt})
+	</insert>
+</mapper>

@@ -1,0 +1,38 @@
+package com.kh.realfinal.stockprice.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.kh.realfinal.stockprice.api.StockpriceAPI;
+import com.kh.realfinal.stockprice.model.service.StockpriceService;
+import com.kh.realfinal.stockprice.model.vo.Stockprice;
+
+@Controller
+public class StockpriceController {
+	
+	@Autowired
+	private StockpriceService service;
+	
+	@RequestMapping("/stockprice/insert.do")
+	public String initStockpriceData(Model model) {
+		List<Stockprice> list = StockpriceAPI.callStockpriceByXML();
+		int result = 0;
+		
+		for(Stockprice sp : list) {
+			result = service.saveStockprice(sp);
+		}
+		
+		if(result > 0) {
+			model.addAttribute("msg", "주식시세를 DB에 정상적으로 넣었습니다.");
+			model.addAttribute("location", "/");
+		}else {
+			model.addAttribute("msg", "주식시세를 DB에 넣는걸 실패했습니다.");
+			model.addAttribute("location", "/");
+		}
+		return "/common/msg";
+	}
+}
