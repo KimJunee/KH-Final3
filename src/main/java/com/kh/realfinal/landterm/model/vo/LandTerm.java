@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class LandTerm {
 	
-	private String dic_title;
-	private String dic_content;
+	private String dic_title; //부동산 용어명
+	private String dic_content;// 부동산 용어설명
 	
 	
 }
