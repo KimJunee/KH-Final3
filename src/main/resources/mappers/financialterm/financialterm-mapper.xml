@@ -16,6 +16,7 @@
 </mapper>
 
 <!-- dao 쓸거면 이렇게 가야된다
+return session.insert("FinancialtermMapper.insertFinancialterm", ft);
 <mapper	namespace="FinancialtermMapper">
 	<insert id="insertFinancialterm"
 		parameterType="Financialterm">
