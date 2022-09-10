@@ -9,21 +9,22 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Stockprice { //ÁÖ½Ä½Ã¼¼ Á¤º¸
-	private String basDt;     // ±âÁØÀÏÀÚ                                  
-	private String srtnCd;    // Á¾¸ñ ÄÚµåº¸´Ù ÂªÀ¸¸é¼­ À¯ÀÏ¼ºÀÌ º¸ÀåµÇ´Â ÄÚµå(6ÀÚ¸®)       
-	private String isinCd;    // ±¹Á¦ Ã¤±Ç ½Äº° ¹øÈ£. À¯°¡Áõ±Ç(Ã¤±Ç)ÀÇ ±¹Á¦ÀÎÁõ °íÀ¯¹øÈ£    
-	private String itmsNm;    // À¯°¡Áõ±Ç ±¹Á¦ÀÎÁõ °íÀ¯¹øÈ£ ÄÚµå ÀÌ¸§                
-	private String mrktCtg;   // ÁÖ½ÄÀÇ ½ÃÀå ±¸ºĞ (KOSPI/KOSDAQ/KONEX Áß 1)  
-	private int clpr;      // - Á¤±Ô½ÃÀåÀÇ ¸Å¸Å½Ã°£Á¾·á½Ã±îÁö Çü¼ºµÇ´Â ÃÖÁ¾°¡°İ      
-	private int vs;        // ÀüÀÏ ´ëºñ µî¶ô                         
-	private String fltRt;     // -- ÀüÀÏ ´ëºñ µî¶ô¿¡ µû¸¥ ºñÀ²               
-	private int mkp;       //  Á¤±Ô½ÃÀåÀÇ ¸Å¸Å½Ã°£°³½ÃÈÄ Çü¼ºµÇ´Â ÃÖÃÊ°¡°İ         
-	private int hipr;      // - ÇÏ·ç Áß °¡°İÀÇ ÃÖ°íÄ¡                   
-	private int lopr;      // - ÇÏ·ç Áß °¡°İÀÇ ÃÖÀúÄ¡                   
-	private int trqu;      // - Ã¼°á¼ö·®ÀÇ ´©Àû ÇÕ°è                    
-	private Double trPrc;     // -- °Å·¡°Ç º° Ã¼°á°¡°İ * Ã¼°á¼ö·®ÀÇ ´©Àû ÇÕ°è      
-	private Double lstgStCnt; // -- Á¾¸ñÀÇ »óÀåÁÖ½Ä¼ö                 
-	private Double mrktTotAmt;// --Á¾°¡ * »óÀåÁÖ½Ä¼ö                 
+public class Stockprice {     // ì£¼ì‹ì‹œì„¸ì •ë³´
+	private String basDt;     // ê¸°ì¤€ì¼ì                                 
+	private String srtnCd;    // ì¢…ëª© ì½”ë“œë³´ë‹¤ ì§§ìœ¼ë©´ì„œ ìœ ì¼ì„±ì´ ë³´ì¥ë˜ëŠ” ì½”ë“œ(6ìë¦¬)       
+	private String isinCd;    // êµ­ì œ ì±„ê¶Œ ì‹ë³„ ë²ˆí˜¸. ìœ ê°€ì¦ê¶Œ(ì±„ê¶Œ)ì˜ êµ­ì œì¸ì¦ ê³ ìœ ë²ˆí˜¸     
+	private String itmsNm;    // ìœ ê°€ì¦ê¶Œ êµ­ì œì¸ì¦ ê³ ìœ ë²ˆí˜¸ ì½”ë“œ ì´ë¦„                 
+	private String mrktCtg;   // ì£¼ì‹ì˜ ì‹œì¥ êµ¬ë¶„ (KOSPI/KOSDAQ/KONEX ì¤‘ 1)   
+	private int clpr;         // ì •ê·œì‹œì¥ì˜ ë§¤ë§¤ì‹œê°„ì¢…ë£Œì‹œê¹Œì§€ í˜•ì„±ë˜ëŠ” ìµœì¢…ê°€ê²©            
+	private int vs;           // ì „ì¼ ëŒ€ë¹„ ë“±ë½                             
+	private String fltRt;     // ì „ì¼ ëŒ€ë¹„ ë“±ë½ì— ë”°ë¥¸ ë¹„ìœ¨                      
+	private int mkp;          // ì •ê·œì‹œì¥ì˜ ë§¤ë§¤ì‹œê°„ê°œì‹œí›„ í˜•ì„±ë˜ëŠ” ìµœì´ˆê°€ê²©              
+	private int hipr;         // í•˜ë£¨ ì¤‘ ê°€ê²©ì˜ ìµœê³ ì¹˜                         
+	private int lopr;         // í•˜ë£¨ ì¤‘ ê°€ê²©ì˜ ìµœì €ì¹˜                         
+	private int trqu;         // ì²´ê²°ìˆ˜ëŸ‰ì˜ ëˆ„ì  í•©ê³„                          
+	private Double trPrc;     // ê±°ë˜ê±´ ë³„ ì²´ê²°ê°€ê²© * ì²´ê²°ìˆ˜ëŸ‰ì˜ ëˆ„ì  í•©ê³„             
+	private Double lstgStCnt; // ì¢…ëª©ì˜ ìƒì¥ì£¼ì‹ìˆ˜                            
+	private Double mrktTotAmt;// ì¢…ê°€ * ìƒì¥ì£¼ì‹ìˆ˜    ì‹œê°€ì´ì•¡                       
+	
 }
 

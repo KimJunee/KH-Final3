@@ -23,28 +23,19 @@ public class LandTermController {
 		System.out.println(list.toString());
 		int result = 0;
 		for(LandTerm lt : list) {
-//			System.out.println(ft == null);
-//			System.out.println("Ã¼Å©Æ÷ÀÎÆ®1");
-//			System.out.println(service.saveFinancialterm(ft));
 			result = service.saveLandTerm(lt);
-//			System.out.println(result);
 		}
 	
 		if(result > 0) {
-			model.addAttribute("msg", "ºÎµ¿»ê ¿ë¾î¸¦ DB¿¡ Á¤»óÀûÀ¸·Î ³Ö¾ú½À´Ï´Ù.");
+			model.addAttribute("msg", "ë¶€ë™ì‚° ìš©ì–´ë¥¼ DBì— ì„±ê³µì ìœ¼ë¡œ ë„£ì—ˆìŠµë‹ˆë‹¤.");
 			model.addAttribute("location", "/");
 		}else {
-			model.addAttribute("msg", "ºÎµ¿»ê ¿ë¾î DB ÀúÀå ½ÇÆĞ");
+			model.addAttribute("msg", "ë¶€ë™ì‚° ìš©ì–´ë¥¼ DBì— ë„£ì§€ ëª»í–ˆìŠµë‹ˆë‹¤.");
 			model.addAttribute("location", "/");
 		}
 		return "/common/msg";
 		
 	} 
-	
-//	public static void main(String[] args) {
-//		LandTermController controller = new LandTermController();
-//		controller.initLandTermData();
-//	}
 	
 	
 }

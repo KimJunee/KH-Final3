@@ -25,18 +25,14 @@ public class FinancialtermController {
 		System.out.println(list.toString());
 		int result = 0;
 		for(Financialterm ft : list) {
-//			System.out.println(ft == null);
-//			System.out.println("Ã¼Å©Æ÷ÀÎÆ®1");
-//			System.out.println(service.saveFinancialterm(ft));
 			result = service.saveFinancialterm(ft);
-//			System.out.println(result);
 		}
 	
 		if(result > 0) {
-			model.addAttribute("msg", "±İÀ¶¿ë¾î¸¦ DB¿¡ Á¤»óÀûÀ¸·Î ³Ö¾ú½À´Ï´Ù.");
+			model.addAttribute("msg", "ê¸ˆìœµìš©ì–´ë¥¼ DBì— ì„±ê³µì ìœ¼ë¡œ ë„£ì—ˆìŠµë‹ˆë‹¤.");
 			model.addAttribute("location", "/");
 		}else {
-			model.addAttribute("msg", "±İÀ¶¿ë¾î¸¦ DB¿¡ ³Ö´Â°É ½ÇÆĞÇß½À´Ï´Ù.");
+			model.addAttribute("msg", "ê¸ˆìœµìš©ì–´ë¥¼ DBì— ë„£ì§€ ëª»í–ˆìŠµë‹ˆë‹¤.");
 			model.addAttribute("location", "/");
 		}
 		return "/common/msg";

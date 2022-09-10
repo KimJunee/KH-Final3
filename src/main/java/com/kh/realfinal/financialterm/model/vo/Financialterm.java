@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Financialterm {
 	
-	private String fnceDictNm; //±İÀ¶¿ë¾î¸í
-	private String ksdFnceDictDescContent; //±İÀ¶¿ë¾î¼³¸í
+	private String fnceDictNm; //ê¸ˆìœµìš©ì–´ì´ë¦„
+	private String ksdFnceDictDescContent; //ê¸ˆìœµìš©ì–´ ì„¤ëª…
 	
 	
 }

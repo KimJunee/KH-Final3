@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class LandTerm {
 	
-	private String dic_title; //ºÎµ¿»ê ¿ë¾î¸í
-	private String dic_content;// ºÎµ¿»ê ¿ë¾î¼³¸í
+	private String dic_title; //ë¶€ë™ì‚° ìš©ì–´ ì´ë¦„
+	private String dic_content;//ë¶€ë™ì‚° ìš©ì–´ ì„¤ëª…
 	
 	
 }

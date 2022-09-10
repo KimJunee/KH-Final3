@@ -26,7 +26,6 @@ public class FinancialtermServiceImpl implements FinancialtermService{
 	public int saveFinancialterm(Financialterm ft) {
 		int result = 0;
 		result = mapper.insertFinancialterm(ft);
-//		System.out.println(result); //µð¹ö±ë¿ë
 		
 		return result;
 	}

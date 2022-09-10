@@ -27,10 +27,10 @@ public class StockpriceController {
 		}
 		
 		if(result > 0) {
-			model.addAttribute("msg", "ÁÖ½Ä½Ã¼¼¸¦ DB¿¡ Á¤»óÀûÀ¸·Î ³Ö¾ú½À´Ï´Ù.");
+			model.addAttribute("msg", "ì£¼ì‹ì‹œì„¸ ì •ë³´ë¥¼ DBì— ë„£ì—ˆìŠµë‹ˆë‹¤.");
 			model.addAttribute("location", "/");
 		}else {
-			model.addAttribute("msg", "ÁÖ½Ä½Ã¼¼¸¦ DB¿¡ ³Ö´Â°É ½ÇÆĞÇß½À´Ï´Ù.");
+			model.addAttribute("msg", "ì£¼ì‹ì‹œì„¸ ì •ë³´ë¥¼ DBì— ë„£ì§€ ëª»í–ˆìŠµë‹ˆë‹¤.");
 			model.addAttribute("location", "/");
 		}
 		return "/common/msg";
