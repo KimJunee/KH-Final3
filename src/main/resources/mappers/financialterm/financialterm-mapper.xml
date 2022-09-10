@@ -4,6 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- 매퍼를 쓸려면 이렇게 가야된다. -->
+<!-- com.kh.realfinal.financialterm.model.mapper.FinancialtermMapper.insertFinancialterm -->
 <mapper	namespace="com.kh.realfinal.financialterm.model.mapper.FinancialtermMapper">
 	<insert id="insertFinancialterm"
 		parameterType="Financialterm">
@@ -12,8 +13,6 @@
 		(#{fnceDictNm},
 		#{ksdFnceDictDescContent})
 	</insert>
-
-
 </mapper>
 
 <!-- dao 쓸거면 이렇게 가야된다
@@ -25,6 +24,4 @@
 		(#{fnceDictNm},
 		#{ksdFnceDictDescContent})
 	</insert>
-
-
 </mapper> -->
