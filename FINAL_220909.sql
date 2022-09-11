@@ -147,3 +147,37 @@ SELECT * FROM LANDTERM;
 -- DELETE FROM LANDTERM;
 commit;
 
+------------------------------------------------------------------------------------------------
+--김지수 주식시세정보 파싱
+DROP TABLE STOCKPRICE;  주식 시세 정보
+CREATE TABLE STOCKPRICE( --주식시세정보 테이블
+basDt VARCHAR2(1000), -- 기준일자
+srtnCd VARCHAR2(1000), -- 종목 코드보다 짧으면서 유일성이 보장되는 코드(6자리)
+isinCd 	VARCHAR2(1000), -- 국제 채권 식별 번호. 유가증권(채권)의 국제인증 고유번호
+itmsNm 	VARCHAR2(1000), -- 유가증권 국제인증 고유번호 코드 이름
+mrktCtg VARCHAR2(1000), -- 주식의 시장 구분 (KOSPI/KOSDAQ/KONEX 중 1)
+clpr number, -- 정규시장의 매매시간종료시까지 형성되는 최종가격
+vs number, -- 전일 대비 등락
+fltRt number, -- 전일 대비 등락에 따른 비율
+mkp number, -- 정규시장의 매매시간개시후 형성되는 최초가격
+hipr number, -- 하루 중 가격의 최고치
+lopr number, -- 하루 중 가격의 최저치
+trqu number, -- 체결수량의 누적 합계
+trPrc number, -- 거래건 별 체결가격 * 체결수량의 누적 합계
+lstgStCnt number, -- 종목의 상장주식수
+mrktTotAmt number --종가 * 상장주식수
+);
+INSERT INTO STOCKPRICE (basDt, srtnCd, isinCd, itmsNm, mrktCtg, clpr, vs, fltRt, mkp, hipr, lopr, trqu
+, trPrc, lstgStCnt, mrktTotAmt) 
+VALUES('20220907','900110','HK0000057197','이스트아시아홀딩스'
+,'KOSDAQ', 184,-5,-2.65,190,190,183,831756,153893148,219932050,40467497200);
+
+SELECT * FROM STOCKPRICE;
+
+--코스피이면서 시가총액순으로 나열한것
+SELECT * FROM STOCKPRICE WHERE MRKTCTG ='KOSPI' AND basDt ='20220907' ORDER BY mrktTotAmt DESC;
+
+DELETE FROM STOCKPRICE;
+
+commit;
+
