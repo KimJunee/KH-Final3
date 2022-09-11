@@ -82,7 +82,7 @@ public class ExchangeRateAPI {
 				for (int j = 0; j < nList.getLength(); j++) {
 					Node node = nList.item(j);
 //					System.out.println("\nCurrent Element : " + node.getNodeName());
-
+ 
 					if (node.getNodeType() == Node.ELEMENT_NODE) {
 						Element eElement = (Element) node;
 						String date="";
