@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ExchangeRate {
 	
-	private String dollar;  //달러(원)
-	private String yuan;  //위안(원)
+	private Double dollar;  //달러(원)
+	private Double yuan;  //위안(원)
 	private String date;  //일자(년월일)
 						
 }

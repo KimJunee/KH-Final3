@@ -149,7 +149,7 @@ commit;
 
 ------------------------------------------------------------------------------------------------
 --김지수 주식시세정보 파싱
-DROP TABLE STOCKPRICE;  주식 시세 정보
+DROP TABLE STOCKPRICE;  --주식 시세 정보
 CREATE TABLE STOCKPRICE( --주식시세정보 테이블
 basDt VARCHAR2(1000), -- 기준일자
 srtnCd VARCHAR2(1000), -- 종목 코드보다 짧으면서 유일성이 보장되는 코드(6자리)
@@ -180,4 +180,4 @@ SELECT * FROM STOCKPRICE WHERE MRKTCTG ='KOSPI' AND basDt ='20220907' ORDER BY m
 DELETE FROM STOCKPRICE;
 
 commit;
-
+------------------------------------------------------------------------------------------------

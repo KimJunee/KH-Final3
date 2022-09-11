@@ -89,32 +89,32 @@ public class ExchangeRateAPI {
 						if(eElement.getElementsByTagName("col").item(0).getTextContent().length() == 10) {
 							date = eElement.getElementsByTagName("col").item(0).getTextContent();
 						}
-						String dollar="";
+						Double dollar= 0.00;
 						if(eElement.getElementsByTagName("col").item(0).getTextContent().length() == 7) {
-							dollar = eElement.getElementsByTagName("col").item(0).getTextContent();
+							dollar = Double.parseDouble(eElement.getElementsByTagName("col").item(0).getTextContent());
 						}
-						String yuan="";
+						Double yuan= 0.00;
 						if(eElement.getElementsByTagName("col").item(0).getTextContent().length() == 6) {
-							yuan = eElement.getElementsByTagName("col").item(0).getTextContent();
+							yuan = Double.parseDouble(eElement.getElementsByTagName("col").item(0).getTextContent());
 						}
 						
 						if(eElement.getElementsByTagName("col").item(1).getTextContent().length() == 10) {
 							date = eElement.getElementsByTagName("col").item(1).getTextContent();
 						}
 						if(eElement.getElementsByTagName("col").item(1).getTextContent().length() == 7) {
-							dollar = eElement.getElementsByTagName("col").item(1).getTextContent();
+							dollar = Double.parseDouble(eElement.getElementsByTagName("col").item(1).getTextContent());
 						}
 						if(eElement.getElementsByTagName("col").item(1).getTextContent().length() == 6) {
-							yuan = eElement.getElementsByTagName("col").item(1).getTextContent();
+							yuan = Double.parseDouble(eElement.getElementsByTagName("col").item(1).getTextContent());
 						}
 						if(eElement.getElementsByTagName("col").item(2).getTextContent().length() == 10) {
 							date = eElement.getElementsByTagName("col").item(2).getTextContent();
 						}
 						if(eElement.getElementsByTagName("col").item(2).getTextContent().length() == 7) {
-							dollar = eElement.getElementsByTagName("col").item(2).getTextContent();
+							dollar = Double.parseDouble(eElement.getElementsByTagName("col").item(2).getTextContent());
 						}
 						if(eElement.getElementsByTagName("col").item(2).getTextContent().length() == 6) {
-							yuan = eElement.getElementsByTagName("col").item(2).getTextContent();
+							yuan = Double.parseDouble(eElement.getElementsByTagName("col").item(2).getTextContent());
 						}
 						
 //						System.out.println("달러(원) : "  + eElement.getElementsByTagName("col").item(0).getTextContent());
