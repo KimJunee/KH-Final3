@@ -13,9 +13,21 @@ ALTER USER FINAL DEFAULT TABLESPACE USERS;
 */
 
 -- 정기예금 API
+
+DROP SEQUENCE SEQ_FIXDEPOSIT_NO;
+CREATE SEQUENCE SEQ_FIXDEPOSIT_NO
+  START WITH 1 INCREMENT BY 1
+  MINVALUE 1
+  MAXVALUE 9999   
+  CYCLE 
+  NOCACHE;
+
+DROP TABLE FIXDEPOSIT;
 CREATE TABLE FIXDEPOSIT (
-    FIXDEPO_DCLS_MONTH DATE,                    -- 공시 제출월 [YYYYMM]
-    FIXDEPO_FIN_CO_NO NUMBER PRIMARY KEY,	    -- 금융회사 코드
+    FIXDEPOSIT_ID NUMBER PRIMARY KEY,           -- 
+    FIXDEPO_TOP_FIN_GRP_NO NUMBER,              -- 권역코드
+    FIXDEPO_DCLS_MONTH VARCHAR2(1000),          -- 공시 제출월 [YYYYMM]
+    FIXDEPO_FIN_CO_NO NUMBER,	                -- 금융회사 코드
     FIXDEPO_KOR_CO_NM VARCHAR2(1000),		    -- 금융회사명
     FIXDEPO_FIN_PRDT_CD VARCHAR2(1000),	        -- 금융상품 코드
     FIXDEPO_FIN_PRDT_NM VARCHAR2(1000),	        -- 금융 상품명
@@ -26,18 +38,47 @@ CREATE TABLE FIXDEPOSIT (
     FIXDEPO_JOIN_MEMBER VARCHAR2(1000),	        -- 가입대상
     FIXDEPO_ETC_NOTE VARCHAR2(1000),		    -- 기타 유의사항
     FIXDEPO_MAX_LIMIT VARCHAR2(1000),		    -- 최고한도
-    FIXDEPO_DCLS_STRT_DAY DATE,	                -- 공시 시작일 [YYYYMMDD]
-    FIXDEPO_DCLS_END_DAY DATE,	                -- 공시 종료일
-    FIXDEPO_FIN_CO_SUBM_DAY DATE,               -- 금융회사 제출일 [YYYYMMDDHH24MI]
+    FIXDEPO_DCLS_STRT_DAY VARCHAR2(1000),	    -- 공시 시작일 [YYYYMMDD]
+    FIXDEPO_DCLS_END_DAY VARCHAR2(1000),	    -- 공시 종료일
+    FIXDEPO_FIN_CO_SUBM_DAY VARCHAR2(1000),     -- 금융회사 제출일 [YYYYMMDDHH24MI]
     FIXDEPO_INTR_RATE_TYPE VARCHAR2(10),	    -- 저축 금리 유형
     FIXDEPO_INTR_RATE_TYPE_NM VARCHAR2(100),    -- 저축 금리 유형명
     FIXDEPO_SAVE_TRM NUMBER,		            -- 저축 기간 [단위: 개월]
     FIXDEPO_INTR_RATE NUMBER,		            -- 저축 금리 [소수점 2자리]
     FIXDEPO_INTR_RATE2 NUMBER		            -- 최고 우대금리 [소수점 2자리]
     );
+    
+DROP TABLE FIXDEPOSIT_OPTION;
+CREATE TABLE FIXDEPOSIT_OPTION(
+    FIXDEPOSIT_ID number, 
+    INTR_RATE_TYPE VARCHAR2(10),
+    INTR_RATE_TYPE_NM CLOB,
+    SAVE_TRM number,
+    INTR_RATE number,
+    INTR_RATE2 number
+);
+
+commit;
+
+/* 정기예금 데이터 확인 (Total 342건 : 은행 - 49건 / 여신전문금융 - 0건 / 저축은행 - 293건 / 보험 - 0건 / 금융투자 - 0건)
+select count(*)
+from fixdeposit
+;
+
+-- 옵션 확인
+select count(*)
+from(
+select fixdeposit_id
+from fixdeposit_option
+group by fixdeposit_id
+order by fixdeposit_id
+);
+*/
 
 -- 적금 API
+DROP TABLE INSTLSAVING;
 CREATE TABLE INSTLSAVING (
+    INSSVN_TOP_FIN_GRP_NO NUMBER,           -- 권역코드
     INSSVN_DCLS_MONTH DATE,			        -- 공시 제출월 [YYYYMM]
     INSSVN_FIN_CO_NO NUMBER PRIMARY KEY,	-- 금융회사 코드
     INSSVN_KOR_CO_NM VARCHAR2(1000),		-- 금융회사 명
@@ -63,7 +104,9 @@ CREATE TABLE INSTLSAVING (
 );
 
 -- 전세자금대출 API
+DROP TABLE LEASELOAN;
 CREATE TABLE LEASELOAN (
+    LEASELOAN_TOP_FIN_GRP_NO NUMBER,            -- 권역코드
     LEASELOAN_DCLS_MONTH DATE,		            -- 공시 제출월 [YYYYMM]
     LEASELOAN_FIN_CO_NO NUMBER PRIMARY KEY,		-- 금융회사 코드
     LEASELOAN_KOR_CO_NM VARCHAR2(1000),			-- 금융회사 명
@@ -87,7 +130,9 @@ CREATE TABLE LEASELOAN (
 );
 
 -- 개인신용대출 API
+DROP TABLE CREDITLOAN;
 CREATE TABLE CREDITLOAN (
+    CREDITLOAN_TOP_FIN_GRP_NO NUMBER,                   -- 권역코드
     CREDITLOAN_DCLS_MONTH DATE,				            -- 공시 제출월 [YYYYMM]
     CREDITLOAN_FIN_CO_NO NUMBER PRIMARY KEY,			-- 금융회사코드
     CREDITLOAN_KOR_CO_NM VARCHAR2(1000),				-- 금융회사 명
@@ -113,7 +158,7 @@ CREATE TABLE CREDITLOAN (
     CREDITLOAN_CRDT_GRAD_AVG NUMBER			            -- 평균 금리 [소수점 2자리]
 );
 --------------------------------------------------------------------------------
--- 지수님 금융용어
+-- 지수님 금융용어 (1350건)
 DROP TABLE FINANCIALTERM;
 CREATE TABLE FINANCIALTERM(
 fnceDictNm VARCHAR2(1000), --금융용어명
@@ -131,7 +176,7 @@ commit;
 
 ------------------------------------------
 
--- 안예은 부동산 용어 파싱 테스트
+-- 안예은 부동산 용어 파싱 테스트 (840건)
 DROP TABLE LANDTERM;
 CREATE TABLE LANDTERM(
 

@@ -18,6 +18,12 @@
 <a href="${path}/financialterm/insert.do">금융용어 DB INSERT</a><br>
 <a href="${path}/stockprice/insert.do">주식시세 DB INSERT</a><br>
 <a href="${path}/landterm/insert.do">부동산용어 DB INSERT</a><br>
+<a href="${path}/fixdeposit/insert.do">금융감독원-정기예금API DB INSERT</a><br>
+
+<iframe id="ytplayer" type="text/html" width="720" height="405"
+src="https://www.youtube.com/embed/qZVTkn2NjS0/default"
+frameborder="0" allowfullscreen></iframe>
+
 <h2>응애 김지수 커밋테스트</h2>
 <h2>응애 이상일살일 커밋테스트</h2>
 <h2>이미향 커밋 테스트!! 세 번째</h2>
