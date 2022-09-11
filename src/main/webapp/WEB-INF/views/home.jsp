@@ -21,6 +21,12 @@
 
 <h2><a href="${path}/ExchangeRate/insert.do">환율정보 DB INSERT</a></h2>
 
+<a href="${path}/fixdeposit/insert.do">금융감독원-정기예금API DB INSERT</a><br>
+
+<iframe id="ytplayer" type="text/html" width="720" height="405"
+src="https://www.youtube.com/embed/qZVTkn2NjS0/default"
+frameborder="0" allowfullscreen></iframe>
+
 <br><br><br>
 
 </body>
