@@ -11,6 +11,6 @@ public class ExchangeRate {
 	
 	private Double dollar;  //달러(원)
 	private Double yuan;  //위안(원)
-	private String date;  //일자(년월일)
+	private String theDate;  //일자(년월일)
 						
 }

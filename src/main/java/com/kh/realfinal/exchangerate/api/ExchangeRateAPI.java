@@ -85,9 +85,9 @@ public class ExchangeRateAPI {
  
 					if (node.getNodeType() == Node.ELEMENT_NODE) {
 						Element eElement = (Element) node;
-						String date="";
+						String theDate="";
 						if(eElement.getElementsByTagName("col").item(0).getTextContent().length() == 10) {
-							date = eElement.getElementsByTagName("col").item(0).getTextContent();
+							theDate = eElement.getElementsByTagName("col").item(0).getTextContent();
 						}
 						Double dollar= 0.00;
 						if(eElement.getElementsByTagName("col").item(0).getTextContent().length() == 7) {
@@ -99,7 +99,7 @@ public class ExchangeRateAPI {
 						}
 						
 						if(eElement.getElementsByTagName("col").item(1).getTextContent().length() == 10) {
-							date = eElement.getElementsByTagName("col").item(1).getTextContent();
+							theDate = eElement.getElementsByTagName("col").item(1).getTextContent();
 						}
 						if(eElement.getElementsByTagName("col").item(1).getTextContent().length() == 7) {
 							dollar = Double.parseDouble(eElement.getElementsByTagName("col").item(1).getTextContent());
@@ -108,7 +108,7 @@ public class ExchangeRateAPI {
 							yuan = Double.parseDouble(eElement.getElementsByTagName("col").item(1).getTextContent());
 						}
 						if(eElement.getElementsByTagName("col").item(2).getTextContent().length() == 10) {
-							date = eElement.getElementsByTagName("col").item(2).getTextContent();
+							theDate = eElement.getElementsByTagName("col").item(2).getTextContent();
 						}
 						if(eElement.getElementsByTagName("col").item(2).getTextContent().length() == 7) {
 							dollar = Double.parseDouble(eElement.getElementsByTagName("col").item(2).getTextContent());
@@ -126,7 +126,7 @@ public class ExchangeRateAPI {
 //						String date = eElement.getElementsByTagName("col").item(2).getTextContent();
 						
 					
-						ExchangeRate er = new ExchangeRate(dollar, yuan ,date);
+						ExchangeRate er = new ExchangeRate(dollar, yuan ,theDate);
 					list.add(er);
 					}
 				}
