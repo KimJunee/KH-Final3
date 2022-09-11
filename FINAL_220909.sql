@@ -181,3 +181,20 @@ DELETE FROM STOCKPRICE;
 
 commit;
 ------------------------------------------------------------------------------------------------
+--환율정보 DB
+
+DROP TABLE EXCHANGERATE; -- 환율정보
+CREATE TABLE EXCHANGERATE(
+DOLLAR NUMBER, --달러(원)
+YUAN NUMBER,   --위안(원)
+THEDATE VARCHAR2(1000) --일자(년월일)
+);
+
+SELECT * FROM EXCHANGERATE;
+
+INSERT INTO EXCHANGERATE (DOLLAR, YUAN, THEDATE) 
+VALUES(1157.20, 179.20, '2021-09-01');
+
+
+DELETE FROM EXCHANGERATE;
+commit;
