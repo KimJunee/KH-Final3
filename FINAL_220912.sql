@@ -141,11 +141,20 @@ order by INSSVN_ID
 */
 
 -- 전세자금대출 API
+DROP SEQUENCE SEQ_LEASELOAN_NO;
+CREATE SEQUENCE SEQ_LEASELOAN_NO
+  START WITH 1 INCREMENT BY 1
+  MINVALUE 1
+  MAXVALUE 9999   
+  CYCLE 
+  NOCACHE;
+
 DROP TABLE LEASELOAN;
 CREATE TABLE LEASELOAN (
+    LEASELOAN_ID NUMBER PRIMARY KEY,            -- 
     LEASELOAN_TOP_FIN_GRP_NO NUMBER,            -- 권역코드
-    LEASELOAN_DCLS_MONTH DATE,		            -- 공시 제출월 [YYYYMM]
-    LEASELOAN_FIN_CO_NO NUMBER PRIMARY KEY,		-- 금융회사 코드
+    LEASELOAN_DCLS_MONTH VARCHAR2(1000),		-- 공시 제출월 [YYYYMM]
+    LEASELOAN_FIN_CO_NO NUMBER,		            -- 금융회사 코드
     LEASELOAN_KOR_CO_NM VARCHAR2(1000),			-- 금융회사 명
     LEASELOAN_FIN_PRDT_CD VARCHAR2(1000), 		-- 금융상품 코드
     LEASELOAN_FIN_PRDT_NM VARCHAR2(1000),		-- 금융상품명
@@ -154,9 +163,9 @@ CREATE TABLE LEASELOAN (
     LEASELOAN_ERLY_RPAY_FEE VARCHAR2(1000),		-- 중도상환 수수료
     LEASELOAN_DLY_RATE VARCHAR2(1000),	    	-- 연체 이자율
     LEASELOAN_LOAN_LMT VARCHAR2(1000),			-- 대출한도
-    LEASELOAN_DCLS_STRT_DAY DATE,		        -- 공시 시작일
-    LEASELOAN_DCLS_END_DAY DATE,		        -- 공시 종료일
-    LEASELOAN_FIN_CO_SUBM_DAY DATE,	            -- 금융회사 제출일 [YYYYMMDDHH24MI]
+    LEASELOAN_DCLS_STRT_DAY VARCHAR2(1000),		-- 공시 시작일
+    LEASELOAN_DCLS_END_DAY VARCHAR2(1000),		-- 공시 종료일
+    LEASELOAN_FIN_CO_SUBM_DAY VARCHAR2(1000),	-- 금융회사 제출일 [YYYYMMDDHH24MI]
     LEASELOAN_RPAY_TYPE VARCHAR2(10),			-- 대출상환유형 코드
     LEASELOAN_RPAY_TYPE_NM VARCHAR2(1000),		-- 대출상환유형
     LEASELOAN_LEND_RATE_TYPE VARCHAR2(10),	    -- 대출금리유형 코드
@@ -165,6 +174,33 @@ CREATE TABLE LEASELOAN (
     LEASELOAN_LEND_RATE_MAX NUMBER,		        -- 대출금리_최고 [소수점 2자리]
     LEASELOAN_LEND_RATE_AVG NUMBER		        -- 전월 취급 평균금리 [소수점 2자리]
 );
+
+DROP TABLE LEASELOAN_OPTION;
+CREATE TABLE LEASELOAN_OPTION(
+    LEASELOAN_ID NUMBER,                        -- 
+    LEASELOAN_RPAY_TYPE VARCHAR2(10),			-- 대출상환유형 코드
+    LEASELOAN_RPAY_TYPE_NM VARCHAR2(1000),		-- 대출상환유형
+    LEASELOAN_LEND_RATE_TYPE VARCHAR2(10),	    -- 대출금리유형 코드
+    LEASELOAN_LEND_RATE_TYPE_NM VARCHAR2(100),	-- 대출금리유형
+    LEASELOAN_LEND_RATE_MIN	NUMBER,	            -- 대출금리_최저 [소수점 2자리]
+    LEASELOAN_LEND_RATE_MAX NUMBER,		        -- 대출금리_최고 [소수점 2자리]
+    LEASELOAN_LEND_RATE_AVG NUMBER		        -- 전월 취급 평균금리 [소수점 2자리]
+);
+
+/* 전세자금대출 데이터 확인 (Total 47건 : 은행 - 32건 / 여신전문금융 - 0건 / 저축은행 - 6건 / 보험 - 9건 / 금융투자 - 0건)
+select count(*)
+from LEASELOAN
+;
+
+-- 옵션 확인
+select count(*)
+from(
+select LEASELOAN_ID
+from LEASELOAN_OPTION
+group by LEASELOAN_ID
+order by LEASELOAN_ID
+);
+*/
 
 -- 개인신용대출 API
 DROP TABLE CREDITLOAN;

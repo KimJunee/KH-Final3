@@ -16,18 +16,18 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 // 정기예금 API
-public class FixDeposit {
+public class LeaseLoan {
 	
 	public static String Key = "8e90a3481bea63b624725bdad9c42e9a";
-	public static String FIX_DEPOSIT_XML_URL = "http://finlife.fss.or.kr/finlifeapi/depositProductsSearch.xml";
+	public static String LEASE_LOAN_XML_URL = "http://finlife.fss.or.kr/finlifeapi/rentHouseLoanProductsSearch.xml";
 
 	public static void main(String[] args) {
 
-		FixDeposit.callFixDepositByXML();
+		LeaseLoan.callLeaseLoanByXML();
 		System.out.println("-----------------------------------------");
 	}
 
-	public static List<Map<String,Object>>callFixDepositByXML() {
+	public static List<Map<String,Object>>callLeaseLoanByXML() {
 		List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
 		String[] topFinGrpNo = {"020000", "030200", "030300", "050000", "060000"};
 		int pageNo = 1;
@@ -39,7 +39,7 @@ public class FixDeposit {
 			while (true) {
 			
 				System.out.println("pageNumber : " + pageNo);
-				StringBuilder urlBuilder = new StringBuilder(FIX_DEPOSIT_XML_URL); /* URL */
+				StringBuilder urlBuilder = new StringBuilder(LEASE_LOAN_XML_URL); /* URL */
 	
 				urlBuilder.append("?" + "auth=" + Key); 
 				urlBuilder.append("&" + "topFinGrpNo=" + topFinGrp);
@@ -90,18 +90,16 @@ public class FixDeposit {
 							map.put("fin_prdt_cd", eElement.getElementsByTagName("fin_prdt_cd").item(0).getTextContent());
 							map.put("fin_prdt_nm", eElement.getElementsByTagName("fin_prdt_nm").item(0).getTextContent());
 							map.put("join_way", eElement.getElementsByTagName("join_way").item(0).getTextContent());
-							map.put("mtrt_int", eElement.getElementsByTagName("mtrt_int").item(0).getTextContent());
-							map.put("spcl_cnd", eElement.getElementsByTagName("spcl_cnd").item(0).getTextContent());
-							map.put("join_deny", eElement.getElementsByTagName("join_deny").item(0).getTextContent());
-							map.put("join_member", eElement.getElementsByTagName("join_member").item(0).getTextContent());
-							map.put("etc_note", eElement.getElementsByTagName("etc_note").item(0).getTextContent());
-							map.put("max_limit", eElement.getElementsByTagName("max_limit").item(0).getTextContent());
+							map.put("loan_inci_expn", eElement.getElementsByTagName("loan_inci_expn").item(0).getTextContent());
+							map.put("erly_rpay_fee", eElement.getElementsByTagName("erly_rpay_fee").item(0).getTextContent());
+							map.put("dly_rate", eElement.getElementsByTagName("dly_rate").item(0).getTextContent());
+							map.put("loan_lmt", eElement.getElementsByTagName("loan_lmt").item(0).getTextContent());
 							map.put("dcls_strt_day", eElement.getElementsByTagName("dcls_strt_day").item(0).getTextContent());
 							map.put("dcls_end_day", eElement.getElementsByTagName("dcls_end_day").item(0).getTextContent());
 							map.put("fin_co_subm_day", eElement.getElementsByTagName("fin_co_subm_day").item(0).getTextContent());
 							
 							map.put("top_find_grp_no",topFinGrp);
-							map.put("fixdeposit_id", j);
+							map.put("leaseloan_id", j);
 							
 							NodeList nOption = eElement.getElementsByTagName("option");
 							
@@ -112,12 +110,14 @@ public class FixDeposit {
 									Map<String,Object> option = new HashMap<String,Object>();
 									Element oElement = (Element) oNode;
 									
-									option.put("fixdeposit_id",j);
-									option.put("intr_rate_type", oElement.getElementsByTagName("intr_rate_type").item(0).getTextContent());
-									option.put("intr_rate_type_nm", oElement.getElementsByTagName("intr_rate_type_nm").item(0).getTextContent());
-									option.put("save_trm", oElement.getElementsByTagName("save_trm").item(0).getTextContent());
-									option.put("intr_rate", oElement.getElementsByTagName("intr_rate").item(0).getTextContent());
-									option.put("intr_rate2", oElement.getElementsByTagName("intr_rate2").item(0).getTextContent());
+									option.put("leaseloan_id",j);
+									option.put("rpay_type", oElement.getElementsByTagName("rpay_type").item(0).getTextContent());
+									option.put("rpay_type_nm", oElement.getElementsByTagName("rpay_type_nm").item(0).getTextContent());
+									option.put("lend_rate_type", oElement.getElementsByTagName("lend_rate_type").item(0).getTextContent());
+									option.put("lend_rate_type_nm", oElement.getElementsByTagName("lend_rate_type_nm").item(0).getTextContent());
+									option.put("lend_rate_min", oElement.getElementsByTagName("lend_rate_min").item(0).getTextContent());
+									option.put("lend_rate_max", oElement.getElementsByTagName("lend_rate_max").item(0).getTextContent());
+									option.put("lend_rate_avg", oElement.getElementsByTagName("lend_rate_avg").item(0).getTextContent());
 								
 									optionList.add(option);
 								}
@@ -140,12 +140,12 @@ public class FixDeposit {
 				
 				System.out.println("어디지");
 				System.out.println("pageNo : " + pageNo);
-				if(i != 2) {
+				if(i != 3) {
 					if(pageNo == 1) { //마지막 페이지
 						break;
 					}
 				}else {
-					if(pageNo == 3) { //마지막 페이지
+					if(pageNo == 4) { //마지막 페이지
 						break;
 					}
 				}
