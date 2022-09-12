@@ -28,19 +28,11 @@
 	<insert id="insertFixDepositOption"
 		parameterType="hashMap">
 		INSERT INTO FIXDEPOSIT_OPTION(
-			FIXDEPOSIT_ID,
-			INTR_RATE_TYPE,
-			INTR_RATE_TYPE_NM,
-			SAVE_TRM,
-			INTR_RATE,
-    		INTR_RATE2
+			FIXDEPOSIT_ID, INTR_RATE_TYPE, INTR_RATE_TYPE_NM,
+			SAVE_TRM, INTR_RATE, INTR_RATE2
 		) VALUES(
-			#{fixdeposit_id},
-			#{intr_rate_type},
-			#{intr_rate_type_nm},
-			#{save_trm},
-			#{intr_rate},
-			#{intr_rate2}
+			#{fixdeposit_id}, #{intr_rate_type}, #{intr_rate_type_nm},
+			#{save_trm}, #{intr_rate}, #{intr_rate2}
 		)
 	</insert>
 </mapper>
