@@ -15,7 +15,7 @@ import org.w3c.dom.NodeList;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-// 정기예금 API
+// 적금 API
 public class InstallmentSavings {
 	
 	public static String Key = "8e90a3481bea63b624725bdad9c42e9a";

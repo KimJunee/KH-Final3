@@ -8,23 +8,23 @@
 		parameterType="hashMap">
 		INSERT INTO LEASELOAN(
 		
-		LEASELOAN_ID, LEASELOAN_TOP_FIN_GRP_NO, LEASELOAN_DCLS_MONTH, LEASELOAN_FIN_CO_NO, LEASELOAN_KOR_CO_NM, 
-		LEASELOAN_FIN_PRDT_CD, LEASELOAN_FIN_PRDT_NM, LEASELOAN_JOIN_WAY, 
-		LEASELOAN_LOAN_INCI_EXPN, LEASELOAN_ERLY_RPAY_FEE, LEASELOAN_DLY_RATE, LEASELOAN_LOAN_LMT, 
-		LEASELOAN_DCLS_STRT_DAY, LEASELOAN_DCLS_END_DAY, LEASELOAN_FIN_CO_SUBM_DAY, 
-		LEASELOAN_RPAY_TYPE, LEASELOAN_RPAY_TYPE_NM, LEASELOAN_LEND_RATE_TYPE, LEASELOAN_LEND_RATE_TYPE_NM, 
-		LEASELOAN_LEND_RATE_MIN, LEASELOAN_LEND_RATE_MAX, LEASELOAN_LEND_RATE_AVG
+			LEASELOAN_ID, LEASELOAN_TOP_FIN_GRP_NO, LEASELOAN_DCLS_MONTH, LEASELOAN_FIN_CO_NO, LEASELOAN_KOR_CO_NM, 
+			LEASELOAN_FIN_PRDT_CD, LEASELOAN_FIN_PRDT_NM, LEASELOAN_JOIN_WAY, 
+			LEASELOAN_LOAN_INCI_EXPN, LEASELOAN_ERLY_RPAY_FEE, LEASELOAN_DLY_RATE, LEASELOAN_LOAN_LMT, 
+			LEASELOAN_DCLS_STRT_DAY, LEASELOAN_DCLS_END_DAY, LEASELOAN_FIN_CO_SUBM_DAY, 
+			LEASELOAN_RPAY_TYPE, LEASELOAN_RPAY_TYPE_NM, LEASELOAN_LEND_RATE_TYPE, LEASELOAN_LEND_RATE_TYPE_NM, 
+			LEASELOAN_LEND_RATE_MIN, LEASELOAN_LEND_RATE_MAX, LEASELOAN_LEND_RATE_AVG
 		) VALUES
 		<!-- 중복컬럼 -->
-		(#{leaseloan_id}, #{topFinGrpNo}, #{dcls_month}, #{fin_co_no}, #{kor_co_nm}, 
-		#{fin_prdt_cd}, #{fin_prdt_nm}, #{join_way},
-		<!-- 비중복컬럼 -->
-		#{loan_inci_expn}, #{erly_rpay_fee}, #{dly_rate}, #{loan_lmt}, 
-		<!-- 중복컬럼 -->
-		#{dcls_strt_day}, #{dcls_end_day}, #{fin_co_subm_day},
-		<!-- 옵션 -->
-		#{rpay_type}, #{rpay_type_nm}, #{lend_rate_type}, #{lend_rate_type_nm}, 
-		#{lend_rate_min}, #{lend_rate_max}, #{lend_rate_avg})
+			(#{leaseloan_id}, #{topFinGrpNo}, #{dcls_month}, #{fin_co_no}, #{kor_co_nm}, 
+			#{fin_prdt_cd}, #{fin_prdt_nm}, #{join_way},
+			<!-- 비중복컬럼 -->
+			#{loan_inci_expn}, #{erly_rpay_fee}, #{dly_rate}, #{loan_lmt}, 
+			<!-- 중복컬럼 -->
+			#{dcls_strt_day}, #{dcls_end_day}, #{fin_co_subm_day},
+			<!-- 옵션 -->
+			#{rpay_type}, #{rpay_type_nm}, #{lend_rate_type}, #{lend_rate_type_nm}, 
+			#{lend_rate_min}, #{lend_rate_max}, #{lend_rate_avg})
 	</insert>
 	
 	<insert id="insertLeaseLoanOption"

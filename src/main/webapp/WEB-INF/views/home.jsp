@@ -27,6 +27,8 @@
 
 <h2><a href="${path}/leaseloan/insert.do">금융감독원-전세자금대출API DB INSERT</a></h2>
 
+<h2><a href="${path}/creditloan/insert.do">금융감독원-개인신용대출API DB INSERT</a></h2>
+
 
 <iframe id="ytplayer" type="text/html" width="720" height="405"
 src="https://www.youtube.com/embed/qZVTkn2NjS0/default"

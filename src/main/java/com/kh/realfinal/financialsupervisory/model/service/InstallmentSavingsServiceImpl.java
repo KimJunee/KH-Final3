@@ -24,7 +24,6 @@ public class InstallmentSavingsServiceImpl implements InstallmentSavingsService{
 		for (Map<String, Object> option : optionList) {
 			mapper.insertInstallmentSavingsOption(option);
 		}
-		
 		return result;
 	}
 }

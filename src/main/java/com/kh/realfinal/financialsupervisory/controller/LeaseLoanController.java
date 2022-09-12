@@ -6,9 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.kh.realfinal.financialsupervisory.api.FixDeposit;
 import com.kh.realfinal.financialsupervisory.api.LeaseLoan;
-import com.kh.realfinal.financialsupervisory.model.service.FixDepositService;
 import com.kh.realfinal.financialsupervisory.model.service.LeaseLoanService;
 
 @Controller

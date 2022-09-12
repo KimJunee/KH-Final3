@@ -8,22 +8,22 @@
 		parameterType="hashMap">
 		INSERT INTO INSTLSAVING(
 		
-		INSSVN_ID, INSSVN_TOP_FIN_GRP_NO, INSSVN_DCLS_MONTH, INSSVN_FIN_CO_NO, INSSVN_KOR_CO_NM, 
-		INSSVN_FIN_PRDT_CD, INSSVN_FIN_PRDT_NM, INSSVN_JOIN_WAY, 
-		INSSVN_MTRT_INT, INSSVN_SPCL_CND, INSSVN_JOIN_DENY, INSSVN_JOIN_MEMBER, INSSVN_ETC_NOTE, INSSVN_MAX_LIMIT, 
-		INSSVN_DCLS_STRT_DAY, INSSVN_DCLS_END_DAY, INSSVN_FIN_CO_SUBM_DAY, 
-		INSSVN_INTR_RATE_TYPE, INSSVN_INTR_RATE_TYPE_NM, INSSVN_RSRV_TYPE, INSSVN_RSRV_TYPE_NM, 
-		INSSVN_SAVE_TRM, INSSVN_INTR_RATE, INSSVN_INTR_RATE2
+			INSSVN_ID, INSSVN_TOP_FIN_GRP_NO, INSSVN_DCLS_MONTH, INSSVN_FIN_CO_NO, INSSVN_KOR_CO_NM, 
+			INSSVN_FIN_PRDT_CD, INSSVN_FIN_PRDT_NM, INSSVN_JOIN_WAY, 
+			INSSVN_MTRT_INT, INSSVN_SPCL_CND, INSSVN_JOIN_DENY, INSSVN_JOIN_MEMBER, INSSVN_ETC_NOTE, INSSVN_MAX_LIMIT, 
+			INSSVN_DCLS_STRT_DAY, INSSVN_DCLS_END_DAY, INSSVN_FIN_CO_SUBM_DAY, 
+			INSSVN_INTR_RATE_TYPE, INSSVN_INTR_RATE_TYPE_NM, INSSVN_RSRV_TYPE, INSSVN_RSRV_TYPE_NM, 
+			INSSVN_SAVE_TRM, INSSVN_INTR_RATE, INSSVN_INTR_RATE2
 		) VALUES
 		<!-- 중복컬럼 -->
-		(#{inssvn_id}, #{topFinGrpNo}, #{dcls_month}, #{fin_co_no}, #{kor_co_nm}, 
-		#{fin_prdt_cd}, #{fin_prdt_nm}, #{join_way},
-		<!-- 비중복컬럼 -->
-		#{mtrt_int}, #{spcl_cnd}, #{join_deny}, #{join_member}, #{etc_note}, #{max_limit}, 
-		<!-- 중복컬럼 -->
-		#{dcls_strt_day}, #{dcls_end_day}, #{fin_co_subm_day},
-		<!-- 옵션 -->
-		#{intr_rate_type}, #{intr_rate_type_nm}, #{rsrv_type}, #{rsrv_type_nm}, #{save_trm}, #{intr_rate}, #{intr_rate2})
+			(#{inssvn_id}, #{topFinGrpNo}, #{dcls_month}, #{fin_co_no}, #{kor_co_nm}, 
+			#{fin_prdt_cd}, #{fin_prdt_nm}, #{join_way},
+			<!-- 비중복컬럼 -->
+			#{mtrt_int}, #{spcl_cnd}, #{join_deny}, #{join_member}, #{etc_note}, #{max_limit}, 
+			<!-- 중복컬럼 -->
+			#{dcls_strt_day}, #{dcls_end_day}, #{fin_co_subm_day},
+			<!-- 옵션 -->
+			#{intr_rate_type}, #{intr_rate_type_nm}, #{rsrv_type}, #{rsrv_type_nm}, #{save_trm}, #{intr_rate}, #{intr_rate2})
 	</insert>
 	
 	<insert id="insertInstallmentSavingsOption"

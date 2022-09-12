@@ -203,11 +203,20 @@ order by LEASELOAN_ID
 */
 
 -- 개인신용대출 API
+DROP SEQUENCE SEQ_CREDITLOAN_NO;
+CREATE SEQUENCE SEQ_CREDITLOAN_NO
+  START WITH 1 INCREMENT BY 1
+  MINVALUE 1
+  MAXVALUE 9999   
+  CYCLE 
+  NOCACHE;
+
 DROP TABLE CREDITLOAN;
 CREATE TABLE CREDITLOAN (
+    CREDITLOAN_ID NUMBER PRIMARY KEY,                   -- 
     CREDITLOAN_TOP_FIN_GRP_NO NUMBER,                   -- 권역코드
-    CREDITLOAN_DCLS_MONTH DATE,				            -- 공시 제출월 [YYYYMM]
-    CREDITLOAN_FIN_CO_NO NUMBER PRIMARY KEY,			-- 금융회사코드
+    CREDITLOAN_DCLS_MONTH VARCHAR2(1000),				-- 공시 제출월 [YYYYMM]
+    CREDITLOAN_FIN_CO_NO NUMBER,			            -- 금융회사코드
     CREDITLOAN_KOR_CO_NM VARCHAR2(1000),				-- 금융회사 명
     CREDITLOAN_FIN_PRDT_CD VARCHAR2(1000),				-- 금융상품코드
     CREDITLOAN_FIN_PRDT_NM VARCHAR2(1000),			    -- 금융상품명
@@ -215,9 +224,9 @@ CREATE TABLE CREDITLOAN (
     CREDITLOAN_CRDT_PRDT_TYPE NUMBER,			        -- 대출종류 코드
     CREDITLOAN_CRDT_PRDT_TYPE_NM VARCHAR2(1000),		-- 대출종류명
     CREDITLOAN_CB_NAME VARCHAR2(1000),					-- CB 회사명
-    CREDITLOAN_DCLS_STRT_DAY DATE,			            -- 공시 시작일
-    CREDITLOAN_DCLS_END_DAY	DATE,			            -- 공시 종료일
-    CREDITLOAN_FIN_CO_SUBM_DAY DATE,			        -- 금융회사 제출일 [YYYYMMDDHH24MI]
+    CREDITLOAN_DCLS_STRT_DAY VARCHAR2(1000),			-- 공시 시작일
+    CREDITLOAN_DCLS_END_DAY	VARCHAR2(1000),			    -- 공시 종료일
+    CREDITLOAN_FIN_CO_SUBM_DAY VARCHAR2(1000),			-- 금융회사 제출일 [YYYYMMDDHH24MI]
     CREDITLOAN_CRDT_LEND_RATE_TYPE VARCHAR2(10),		-- 금리구분 코드
     CREDITLOAN_CRDT_LEND_TYPE_NM VARCHAR2(1000),	    -- 금리구분
     CREDITLOAN_CRDT_GRAD_1	NUMBER,			            -- 900점 초과 [소수점 2자리]
@@ -230,6 +239,37 @@ CREATE TABLE CREDITLOAN (
     CREDITLOAN_CRDT_GRAD_13	NUMBER,			            -- 300점 이하 [소수점 2자리]
     CREDITLOAN_CRDT_GRAD_AVG NUMBER			            -- 평균 금리 [소수점 2자리]
 );
+
+DROP TABLE CREDITLOAN_OPTION;
+CREATE TABLE CREDITLOAN_OPTION(
+    CREDITLOAN_ID NUMBER,                               -- 
+    CREDITLOAN_CRDT_LEND_RATE_TYPE VARCHAR2(10),		-- 금리구분 코드
+    CREDITLOAN_CRDT_LEND_TYPE_NM VARCHAR2(1000),	    -- 금리구분
+    CREDITLOAN_CRDT_GRAD_1	NUMBER,			            -- 900점 초과 [소수점 2자리]
+    CREDITLOAN_CRDT_GRAD_4	NUMBER,			            -- 801~900점 [소수점 2자리]
+    CREDITLOAN_CRDT_GRAD_5	NUMBER,			            -- 701~800점 [소수점 2자리]
+    CREDITLOAN_CRDT_GRAD_6	NUMBER,			            -- 601~700점 [소수점 2자리]
+    CREDITLOAN_CRDT_GRAD_10	NUMBER,			            -- 501~600점 [소수점 2자리]
+    CREDITLOAN_CRDT_GRAD_11	NUMBER,			            -- 401~500점 [소수점 2자리]
+    CREDITLOAN_CRDT_GRAD_12	NUMBER,			            -- 301~400점 [소수점 2자리]
+    CREDITLOAN_CRDT_GRAD_13	NUMBER,			            -- 300점 이하 [소수점 2자리]
+    CREDITLOAN_CRDT_GRAD_AVG NUMBER			            -- 평균 금리 [소수점 2자리]
+);
+
+/* 개인신용대출 데이터 확인 (Total 119건 : 은행 - 45건 / 여신전문금융 - 31건 / 저축은행 - 34건 / 보험 - 9건 / 금융투자 - 0건)
+select count(*)
+from CREDITLOAN
+;
+
+-- 옵션 확인 (은행 4건, 보험 1건 옵션 없음 - 114건이 정상)
+select count(*)
+from(
+select CREDITLOAN_ID
+from CREDITLOAN_OPTION
+group by CREDITLOAN_ID
+order by CREDITLOAN_ID
+);
+*/
 --------------------------------------------------------------------------------
 -- 지수님 금융용어 (1350건)
 DROP TABLE FINANCIALTERM;

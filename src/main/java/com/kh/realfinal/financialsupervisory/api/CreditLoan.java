@@ -15,19 +15,19 @@ import org.w3c.dom.NodeList;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-// 전세자금대출 API
-public class LeaseLoan {
+// 개인신용대출 API
+public class CreditLoan {
 	
 	public static String Key = "8e90a3481bea63b624725bdad9c42e9a";
-	public static String LEASE_LOAN_XML_URL = "http://finlife.fss.or.kr/finlifeapi/rentHouseLoanProductsSearch.xml";
+	public static String CREDIT_LOAN_XML_URL = "http://finlife.fss.or.kr/finlifeapi/creditLoanProductsSearch.xml";
 
 	public static void main(String[] args) {
 
-		LeaseLoan.callLeaseLoanByXML();
+		CreditLoan.callCreditLoanByXML();
 		System.out.println("-----------------------------------------");
 	}
 
-	public static List<Map<String,Object>>callLeaseLoanByXML() {
+	public static List<Map<String,Object>>callCreditLoanByXML() {
 		List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
 		String[] topFinGrpNo = {"020000", "030200", "030300", "050000", "060000"};
 		int pageNo = 1;
@@ -39,7 +39,7 @@ public class LeaseLoan {
 			while (true) {
 			
 				System.out.println("pageNumber : " + pageNo);
-				StringBuilder urlBuilder = new StringBuilder(LEASE_LOAN_XML_URL); /* URL */
+				StringBuilder urlBuilder = new StringBuilder(CREDIT_LOAN_XML_URL); /* URL */
 	
 				urlBuilder.append("?" + "auth=" + Key); 
 				urlBuilder.append("&" + "topFinGrpNo=" + topFinGrp);
@@ -90,16 +90,15 @@ public class LeaseLoan {
 							map.put("fin_prdt_cd", eElement.getElementsByTagName("fin_prdt_cd").item(0).getTextContent());
 							map.put("fin_prdt_nm", eElement.getElementsByTagName("fin_prdt_nm").item(0).getTextContent());
 							map.put("join_way", eElement.getElementsByTagName("join_way").item(0).getTextContent());
-							map.put("loan_inci_expn", eElement.getElementsByTagName("loan_inci_expn").item(0).getTextContent());
-							map.put("erly_rpay_fee", eElement.getElementsByTagName("erly_rpay_fee").item(0).getTextContent());
-							map.put("dly_rate", eElement.getElementsByTagName("dly_rate").item(0).getTextContent());
-							map.put("loan_lmt", eElement.getElementsByTagName("loan_lmt").item(0).getTextContent());
+							map.put("crdt_prdt_type", eElement.getElementsByTagName("crdt_prdt_type").item(0).getTextContent());
+							map.put("crdt_prdt_type_nm", eElement.getElementsByTagName("crdt_prdt_type_nm").item(0).getTextContent());
+							map.put("cb_name", eElement.getElementsByTagName("cb_name").item(0).getTextContent());
 							map.put("dcls_strt_day", eElement.getElementsByTagName("dcls_strt_day").item(0).getTextContent());
 							map.put("dcls_end_day", eElement.getElementsByTagName("dcls_end_day").item(0).getTextContent());
 							map.put("fin_co_subm_day", eElement.getElementsByTagName("fin_co_subm_day").item(0).getTextContent());
 							
 							map.put("top_find_grp_no",topFinGrp);
-							map.put("leaseloan_id", j);
+							map.put("creditloan_id", j);
 							
 							NodeList nOption = eElement.getElementsByTagName("option");
 							
@@ -110,14 +109,18 @@ public class LeaseLoan {
 									Map<String,Object> option = new HashMap<String,Object>();
 									Element oElement = (Element) oNode;
 									
-									option.put("leaseloan_id",j);
-									option.put("rpay_type", oElement.getElementsByTagName("rpay_type").item(0).getTextContent());
-									option.put("rpay_type_nm", oElement.getElementsByTagName("rpay_type_nm").item(0).getTextContent());
-									option.put("lend_rate_type", oElement.getElementsByTagName("lend_rate_type").item(0).getTextContent());
-									option.put("lend_rate_type_nm", oElement.getElementsByTagName("lend_rate_type_nm").item(0).getTextContent());
-									option.put("lend_rate_min", oElement.getElementsByTagName("lend_rate_min").item(0).getTextContent());
-									option.put("lend_rate_max", oElement.getElementsByTagName("lend_rate_max").item(0).getTextContent());
-									option.put("lend_rate_avg", oElement.getElementsByTagName("lend_rate_avg").item(0).getTextContent());
+									option.put("creditloan_id",j);
+									option.put("crdt_lend_rate_type", oElement.getElementsByTagName("crdt_lend_rate_type").item(0).getTextContent());
+									option.put("crdt_lend_rate_type_nm", oElement.getElementsByTagName("crdt_lend_rate_type_nm").item(0).getTextContent());
+									option.put("crdt_grad_1", oElement.getElementsByTagName("crdt_grad_1").item(0).getTextContent());
+									option.put("crdt_grad_4", oElement.getElementsByTagName("crdt_grad_4").item(0).getTextContent());
+									option.put("crdt_grad_5", oElement.getElementsByTagName("crdt_grad_5").item(0).getTextContent());
+									option.put("crdt_grad_6", oElement.getElementsByTagName("crdt_grad_6").item(0).getTextContent());
+									option.put("crdt_grad_10", oElement.getElementsByTagName("crdt_grad_10").item(0).getTextContent());
+									option.put("crdt_grad_11", oElement.getElementsByTagName("crdt_grad_11").item(0).getTextContent());
+									option.put("crdt_grad_12", oElement.getElementsByTagName("crdt_grad_12").item(0).getTextContent());
+									option.put("crdt_grad_13", oElement.getElementsByTagName("crdt_grad_13").item(0).getTextContent());
+									option.put("crdt_grad_avg", oElement.getElementsByTagName("crdt_grad_avg").item(0).getTextContent());
 								
 									optionList.add(option);
 								}
@@ -140,7 +143,7 @@ public class LeaseLoan {
 				
 				System.out.println("어디지");
 				System.out.println("pageNo : " + pageNo);
-				if(i != 3) {
+				if(i != 4) {
 					if(pageNo == 1) { //마지막 페이지
 						break;
 					}

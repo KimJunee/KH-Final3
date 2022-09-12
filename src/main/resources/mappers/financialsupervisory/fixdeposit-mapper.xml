@@ -8,21 +8,21 @@
 		parameterType="hashMap">
 		INSERT INTO FIXDEPOSIT(
 		
-		FIXDEPOSIT_ID, FIXDEPO_TOP_FIN_GRP_NO, FIXDEPO_DCLS_MONTH, FIXDEPO_FIN_CO_NO, FIXDEPO_KOR_CO_NM, 
-		FIXDEPO_FIN_PRDT_CD, FIXDEPO_FIN_PRDT_NM, FIXDEPO_JOIN_WAY, 
-		FIXDEPO_MTRT_INT, FIXDEPO_SPCL_CND, FIXDEPO_JOIN_DENY, FIXDEPO_JOIN_MEMBER, FIXDEPO_ETC_NOTE, FIXDEPO_MAX_LIMIT, 
-		FIXDEPO_DCLS_STRT_DAY, FIXDEPO_DCLS_END_DAY, FIXDEPO_FIN_CO_SUBM_DAY, 
-		FIXDEPO_INTR_RATE_TYPE, FIXDEPO_INTR_RATE_TYPE_NM, FIXDEPO_SAVE_TRM, FIXDEPO_INTR_RATE, FIXDEPO_INTR_RATE2
+			FIXDEPOSIT_ID, FIXDEPO_TOP_FIN_GRP_NO, FIXDEPO_DCLS_MONTH, FIXDEPO_FIN_CO_NO, FIXDEPO_KOR_CO_NM, 
+			FIXDEPO_FIN_PRDT_CD, FIXDEPO_FIN_PRDT_NM, FIXDEPO_JOIN_WAY, 
+			FIXDEPO_MTRT_INT, FIXDEPO_SPCL_CND, FIXDEPO_JOIN_DENY, FIXDEPO_JOIN_MEMBER, FIXDEPO_ETC_NOTE, FIXDEPO_MAX_LIMIT, 
+			FIXDEPO_DCLS_STRT_DAY, FIXDEPO_DCLS_END_DAY, FIXDEPO_FIN_CO_SUBM_DAY, 
+			FIXDEPO_INTR_RATE_TYPE, FIXDEPO_INTR_RATE_TYPE_NM, FIXDEPO_SAVE_TRM, FIXDEPO_INTR_RATE, FIXDEPO_INTR_RATE2
 		) VALUES
 		<!-- 중복컬럼 -->
-		(#{fixdeposit_id}, #{topFinGrpNo}, #{dcls_month}, #{fin_co_no}, #{kor_co_nm}, 
-		#{fin_prdt_cd}, #{fin_prdt_nm}, #{join_way},
-		<!-- 비중복컬럼 -->
-		#{mtrt_int}, #{spcl_cnd}, #{join_deny}, #{join_member}, #{etc_note}, #{max_limit}, 
-		<!-- 중복컬럼 -->
-		#{dcls_strt_day}, #{dcls_end_day}, #{fin_co_subm_day},
-		<!-- 옵션 -->
-		#{intr_rate_type}, #{intr_rate_type_nm}, #{save_trm}, #{intr_rate}, #{intr_rate2})
+			(#{fixdeposit_id}, #{topFinGrpNo}, #{dcls_month}, #{fin_co_no}, #{kor_co_nm}, 
+			#{fin_prdt_cd}, #{fin_prdt_nm}, #{join_way},
+			<!-- 비중복컬럼 -->
+			#{mtrt_int}, #{spcl_cnd}, #{join_deny}, #{join_member}, #{etc_note}, #{max_limit}, 
+			<!-- 중복컬럼 -->
+			#{dcls_strt_day}, #{dcls_end_day}, #{fin_co_subm_day},
+			<!-- 옵션 -->
+			#{intr_rate_type}, #{intr_rate_type_nm}, #{save_trm}, #{intr_rate}, #{intr_rate2})
 	</insert>
 	
 	<insert id="insertFixDepositOption"

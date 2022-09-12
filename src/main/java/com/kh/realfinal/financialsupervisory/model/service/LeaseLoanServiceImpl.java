@@ -2,12 +2,9 @@ package com.kh.realfinal.financialsupervisory.model.service;
 
 import java.util.List;
 import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import com.kh.realfinal.financialsupervisory.model.mapper.FixDepositMapper;
 import com.kh.realfinal.financialsupervisory.model.mapper.LeaseLoanMapper;
 
 @Service
@@ -27,7 +24,6 @@ public class LeaseLoanServiceImpl implements LeaseLoanService{
 		for (Map<String, Object> option : optionList) {
 			mapper.insertLeaseLoanOption(option);
 		}
-		
 		return result;
 	}
 }
