@@ -304,8 +304,8 @@ ksdFnceDictDescContent CLOB --용어설명
 
 SELECT * FROM financialterm;
 
-INSERT INTO financialterm (fnceDictNm, ksdFnceDictDescContent) VALUES
-('직접청약(直接請約)', '유가증권예탁관련 실무용어로서 신주인수권이 배정된 실질주주가 발행회사에 대하여 그 주식을 인수할 것을 직접 신청하는 행위를 말한다.');
+--INSERT INTO financialterm (fnceDictNm, ksdFnceDictDescContent) VALUES
+--('직접청약(直接請約)', '유가증권예탁관련 실무용어로서 신주인수권이 배정된 실질주주가 발행회사에 대하여 그 주식을 인수할 것을 직접 신청하는 행위를 말한다.');
 
 DELETE FROM financialterm;
 commit;
@@ -351,10 +351,10 @@ trPrc number, -- 거래건 별 체결가격 * 체결수량의 누적 합계
 lstgStCnt number, -- 종목의 상장주식수
 mrktTotAmt number --종가 * 상장주식수
 );
-INSERT INTO STOCKPRICE (basDt, srtnCd, isinCd, itmsNm, mrktCtg, clpr, vs, fltRt, mkp, hipr, lopr, trqu
-, trPrc, lstgStCnt, mrktTotAmt) 
-VALUES('20220907','900110','HK0000057197','이스트아시아홀딩스'
-,'KOSDAQ', 184,-5,-2.65,190,190,183,831756,153893148,219932050,40467497200);
+--INSERT INTO STOCKPRICE (basDt, srtnCd, isinCd, itmsNm, mrktCtg, clpr, vs, fltRt, mkp, hipr, lopr, trqu
+--, trPrc, lstgStCnt, mrktTotAmt) 
+--VALUES('20220907','900110','HK0000057197','이스트아시아홀딩스'
+--,'KOSDAQ', 184,-5,-2.65,190,190,183,831756,153893148,219932050,40467497200);
 
 SELECT * FROM STOCKPRICE;
 
@@ -376,8 +376,8 @@ THEDATE VARCHAR2(1000) --일자(년월일)
 
 SELECT * FROM EXCHANGERATE;
 
-INSERT INTO EXCHANGERATE (DOLLAR, YUAN, THEDATE) 
-VALUES(1157.20, 179.20, '2021-09-01');
+--INSERT INTO EXCHANGERATE (DOLLAR, YUAN, THEDATE) 
+--VALUES(1157.20, 179.20, '2021-09-01');
 
 
 DELETE FROM EXCHANGERATE;
