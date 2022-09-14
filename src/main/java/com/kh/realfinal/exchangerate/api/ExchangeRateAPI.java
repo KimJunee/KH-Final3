@@ -21,10 +21,10 @@ public class ExchangeRateAPI {
 	public static String ExchangeRate_XML_URL = "http://api.odcloud.kr/api/15105540/v1/uddi:759b90cf-dbcb-4a1e-a269-be8faeb0c380";
 	
 	
-	public static void main(String[] args) {
-		System.out.println(ExchangeRateAPI.callExchangeRateByXML());
-		
-	}
+//	public static void main(String[] args) {
+//		System.out.println(ExchangeRateAPI.callExchangeRateByXML());
+//		
+//	}
 	
 	
 	
