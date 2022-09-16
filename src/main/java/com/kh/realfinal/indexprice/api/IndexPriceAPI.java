@@ -66,7 +66,7 @@ public class IndexPriceAPI {
 				
 				
 				InputStreamReader isr = new InputStreamReader(conn.getInputStream(),"UTF-8");
-				System.out.println("isr.read = " + isr);
+//				System.out.println("isr.read = " + isr);
 				BufferedReader br = new BufferedReader(isr);
 //				System.out.println("br.readline = " + br.readLine());
 //				System.out.println("br.toString = " + br.toString());
