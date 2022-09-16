@@ -45,9 +45,9 @@ public class IndexPriceAPI {
 				urlBuilder.append("?" + "serviceKey=" + key);
 				urlBuilder.append("&" + "resultType=" + resultType);
 				urlBuilder.append("&" + "pageNo=" + pageNo);
-				urlBuilder.append("&" + "&numOfRows=" + numOfRows);
-				urlBuilder.append("&" + "&idxNm=" + idxNm1);
-//				urlBuilder.append("&" + "&idxNm=" + idxNm2);
+				urlBuilder.append("&" + "numOfRows=" + numOfRows);
+				urlBuilder.append("&" + "idxNm=" + idxNm1);
+//				urlBuilder.append("&" + "idxNm=" + idxNm2);
 				System.out.println(urlBuilder);
 				
 				URL url = new URL(urlBuilder.toString());
@@ -68,7 +68,7 @@ public class IndexPriceAPI {
 				InputStreamReader isr = new InputStreamReader(conn.getInputStream(),"UTF-8");
 //				System.out.println("isr.read = " + isr);
 				BufferedReader br = new BufferedReader(isr);
-//				System.out.println("br.readline = " + br.readLine());
+				System.out.println("br.readline = " + br.readLine());
 //				System.out.println("br.toString = " + br.toString());
 //				System.out.println("br.getClass = " + br.getClass());
 //				System.out.println("br.read = " + br.read());
