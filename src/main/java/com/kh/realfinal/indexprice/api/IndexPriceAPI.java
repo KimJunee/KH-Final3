@@ -1,9 +1,12 @@
 package com.kh.realfinal.indexprice.api;
 
 import java.io.BufferedReader;
+
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,32 +32,33 @@ public class IndexPriceAPI {
 //	public static String IndexPrice_XML_URL = "http://apis.data.go.kr/1160100/service/GetMarketIndexInfoService";
 
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws UnsupportedEncodingException {
 		System.out.println(IndexPriceAPI.callIndexPriceByXML());
 	}
 	
-	public static List<IndexPrice> callIndexPriceByXML(){
+	public static List<IndexPrice> callIndexPriceByXML() throws UnsupportedEncodingException{
 		List<IndexPrice> list = new ArrayList<IndexPrice>();
 		//?serviceKey=PCNxso2TMGeSrjPMsBxvOscmyUmaYllFFoSb%2BN%2BjMnDf4gSitSdIZjC3290UCja4ki92iGwbCXZv6utvCT0IAg%3D%3D
 		//&resultType=json
 		//&pageNo=1
 		//&numOfRows=2000
-		//&idxNm=코스피
+//		&idxNm=코스피
 //		String resultType = "json";
 		int pageNo = 1;
-		int numOfRows = 670;
+		int numOfRows = 2000;
 		String idxNm1 = "코스피";
+		String idxNmURL = URLEncoder.encode(idxNm1, "UTF-8");
 //		String idxNm2 = "코스닥";
 		
 		while (true) {
 			System.out.println();
-			System.out.println("pageNumber : " + pageNo);
+//			System.out.println("pageNumber : " + pageNo);
 			StringBuilder urlBuilder = new StringBuilder(IndexPrice_XML_URL);
 			urlBuilder.append("?" + "serviceKey=" + key);
 //			urlBuilder.append("&" + "resultType=" + resultType);
-			urlBuilder.append("&" + "pageNo=" + pageNo);
+//			urlBuilder.append("&" + "pageNo=" + pageNo);
 			urlBuilder.append("&" + "numOfRows=" + numOfRows);
-			urlBuilder.append("&" + "idxNm=" + idxNm1);
+			urlBuilder.append("&" + "idxNm=" + idxNmURL);
 //			urlBuilder.append("&" + "idxNm=" + idxNm2);
 			System.out.println(urlBuilder);
 			try {
@@ -102,9 +106,9 @@ public class IndexPriceAPI {
 						Double mkp   = Double.parseDouble(eElement.getElementsByTagName("mkp").item(0).getTextContent());         
 						Double hipr  = Double.parseDouble(eElement.getElementsByTagName("hipr").item(0).getTextContent());         
 						Double lopr  = Double.parseDouble(eElement.getElementsByTagName("lopr").item(0).getTextContent());         
-						Long   trqu  = Long.parseLong(eElement.getElementsByTagName("lopr").item(0).getTextContent());         
-						Long   trPrc  = Long.parseLong(eElement.getElementsByTagName("lopr").item(0).getTextContent());        
-						Long   lstgMrktTotAmt = Long.parseLong(eElement.getElementsByTagName("lopr").item(0).getTextContent());
+						Long trqu  = Long.parseLong(eElement.getElementsByTagName("trqu").item(0).getTextContent());         
+						Long   trPrc  = Long.parseLong(eElement.getElementsByTagName("trPrc").item(0).getTextContent());        
+						Long   lstgMrktTotAmt = Long.parseLong(eElement.getElementsByTagName("lstgMrktTotAmt").item(0).getTextContent());
 						Double lsYrEdVsFltRg  = Double.parseDouble(eElement.getElementsByTagName("lsYrEdVsFltRg").item(0).getTextContent());
 						Double lsYrEdVsFltRt  = Double.parseDouble(eElement.getElementsByTagName("lsYrEdVsFltRt").item(0).getTextContent());
 						Double yrWRcrdHgst   = Double.parseDouble(eElement.getElementsByTagName("yrWRcrdHgst").item(0).getTextContent()); 
@@ -119,7 +123,7 @@ public class IndexPriceAPI {
 					}
 				}
 				pageNo++;
-				if(pageNo == 12) {
+				if(pageNo == 2) {
 					break;
 				}
 			} catch (Exception e) {
@@ -215,7 +219,7 @@ public class IndexPriceAPI {
 					Double mkp             = (Double) obj.get("mkp");           
 					Double hipr            = (Double) obj.get("hipr");          
 					Double lopr            = (Double) obj.get("lopr");          
-					Long   trqu            = (Long) obj.get("trqu");          
+					Long trqu            = (Long) obj.get("trqu");          
 					Long   trPrc           = (Long) obj.get("trPrc");       
 					Long   lstgMrktTotAmt  = (Long) obj.get("lstgMrktTotAmt"); 
 					Double lsYrEdVsFltRg   = (Double) obj.get("lsYrEdVsFltRg"); 
