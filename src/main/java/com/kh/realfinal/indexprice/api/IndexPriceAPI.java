@@ -7,22 +7,144 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 import com.kh.realfinal.indexprice.model.vo.IndexPrice;
 
 public class IndexPriceAPI {
 	
 	public static String key = "PCNxso2TMGeSrjPMsBxvOscmyUmaYllFFoSb%2BN%2BjMnDf4gSitSdIZjC3290UCja4ki92iGwbCXZv6utvCT0IAg%3D%3D";
+//	public static String key = "PCNxso2TMGeSrjPMsBxvOscmyUmaYllFFoSb+N+jMnDf4gSitSdIZjC3290UCja4ki92iGwbCXZv6utvCT0IAg==";
 	public static String IndexPrice_JSON_URL = "http://apis.data.go.kr/1160100/service/GetMarketIndexInfoService/getStockMarketIndex";
+	public static String IndexPrice_XML_URL = "http://apis.data.go.kr/1160100/service/GetMarketIndexInfoService/getStockMarketIndex";
+//	public static String IndexPrice_XML_URL = "http://apis.data.go.kr/1160100/service/GetMarketIndexInfoService";
 
 	
 	public static void main(String[] args) {
-		System.out.println(IndexPriceAPI.callIndexPriceByJSON());
+		System.out.println(IndexPriceAPI.callIndexPriceByXML());
 	}
+	
+	public static List<IndexPrice> callIndexPriceByXML(){
+		List<IndexPrice> list = new ArrayList<IndexPrice>();
+		//?serviceKey=PCNxso2TMGeSrjPMsBxvOscmyUmaYllFFoSb%2BN%2BjMnDf4gSitSdIZjC3290UCja4ki92iGwbCXZv6utvCT0IAg%3D%3D
+		//&resultType=json
+		//&pageNo=1
+		//&numOfRows=2000
+		//&idxNm=코스피
+//		String resultType = "json";
+		int pageNo = 1;
+		int numOfRows = 670;
+		String idxNm1 = "코스피";
+//		String idxNm2 = "코스닥";
+		
+		while (true) {
+			System.out.println();
+			System.out.println("pageNumber : " + pageNo);
+			StringBuilder urlBuilder = new StringBuilder(IndexPrice_XML_URL);
+			urlBuilder.append("?" + "serviceKey=" + key);
+//			urlBuilder.append("&" + "resultType=" + resultType);
+			urlBuilder.append("&" + "pageNo=" + pageNo);
+			urlBuilder.append("&" + "numOfRows=" + numOfRows);
+			urlBuilder.append("&" + "idxNm=" + idxNm1);
+//			urlBuilder.append("&" + "idxNm=" + idxNm2);
+			System.out.println(urlBuilder);
+			try {
+				URL url = new URL(urlBuilder.toString());
+				HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+				conn.setRequestMethod("GET");
+				// conn.setRequestProperty("Content-type", "application/json");
+				conn.setRequestProperty("Accept", "application/xml");
+				
+				int code = conn.getResponseCode();
+				System.out.println("Response code: " + code);
+				if (code < 200 || code >= 300) {
+					System.out.println("페이지가 잘못되었습니다.");
+					return null;
+				}
+				
+				DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+				DocumentBuilder db = dbf.newDocumentBuilder();
+				Document doc = db.parse(conn.getInputStream());
+				doc.getDocumentElement().normalize();
+				
+				System.out.println("Root Element : " + doc.getDocumentElement().getNodeName()); 
+				System.out.println("=======================" + pageNo + "페이지시작=========================");
+				
+				NodeList nList = doc.getElementsByTagName("item");
+				System.out.println("nList.getLength() : "+nList.getLength());
+				if(nList.getLength() < 1) {
+					break;
+				}
+				for (int j = 0; j < nList.getLength(); j++) {
+					Node node = nList.item(j);
+//					System.out.println("\nCurrent Element : " + node.getNodeName());
+
+					if (node.getNodeType() == Node.ELEMENT_NODE) {
+						Element eElement = (Element) node;
+						System.out.println(eElement.getElementsByTagName("basDt").item(0).getTextContent());
+						System.out.println(eElement.getElementsByTagName("idxNm").item(0).getTextContent());
+						
+						String basDt = eElement.getElementsByTagName("basDt").item(0).getTextContent();
+						String idxNm = eElement.getElementsByTagName("idxNm").item(0).getTextContent();
+						String idxCsf = eElement.getElementsByTagName("idxCsf").item(0).getTextContent();
+						Double clpr  = Double.parseDouble(eElement.getElementsByTagName("clpr").item(0).getTextContent());       
+						Double vs  = Double.parseDouble(eElement.getElementsByTagName("vs").item(0).getTextContent());           
+						Double fltRt  = Double.parseDouble(eElement.getElementsByTagName("fltRt").item(0).getTextContent());        
+						Double mkp   = Double.parseDouble(eElement.getElementsByTagName("mkp").item(0).getTextContent());         
+						Double hipr  = Double.parseDouble(eElement.getElementsByTagName("hipr").item(0).getTextContent());         
+						Double lopr  = Double.parseDouble(eElement.getElementsByTagName("lopr").item(0).getTextContent());         
+						Long   trqu  = Long.parseLong(eElement.getElementsByTagName("lopr").item(0).getTextContent());         
+						Long   trPrc  = Long.parseLong(eElement.getElementsByTagName("lopr").item(0).getTextContent());        
+						Long   lstgMrktTotAmt = Long.parseLong(eElement.getElementsByTagName("lopr").item(0).getTextContent());
+						Double lsYrEdVsFltRg  = Double.parseDouble(eElement.getElementsByTagName("lsYrEdVsFltRg").item(0).getTextContent());
+						Double lsYrEdVsFltRt  = Double.parseDouble(eElement.getElementsByTagName("lsYrEdVsFltRt").item(0).getTextContent());
+						Double yrWRcrdHgst   = Double.parseDouble(eElement.getElementsByTagName("yrWRcrdHgst").item(0).getTextContent()); 
+						String yrWRcrdHgstDt  = eElement.getElementsByTagName("yrWRcrdHgstDt").item(0).getTextContent();
+						Double yrWRcrdLwst   = Double.parseDouble(eElement.getElementsByTagName("yrWRcrdLwst").item(0).getTextContent()); 
+						String yrWRcrdLwstDt  = eElement.getElementsByTagName("yrWRcrdLwstDt").item(0).getTextContent();
+	
+					IndexPrice ip = new IndexPrice(basDt, idxNm, idxCsf, clpr, vs, fltRt, mkp, hipr, lopr, trqu 
+							, trPrc, lstgMrktTotAmt, lsYrEdVsFltRg, lsYrEdVsFltRt, yrWRcrdHgst, yrWRcrdHgstDt, 
+							yrWRcrdLwst, yrWRcrdLwstDt);
+					list.add(ip);	
+					}
+				}
+				pageNo++;
+				if(pageNo == 12) {
+					break;
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return list;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	public static List<IndexPrice> callIndexPriceByJSON(){
@@ -68,7 +190,7 @@ public class IndexPriceAPI {
 				InputStreamReader isr = new InputStreamReader(conn.getInputStream(),"UTF-8");
 //				System.out.println("isr.read = " + isr);
 				BufferedReader br = new BufferedReader(isr);
-				System.out.println("br.readline = " + br.readLine());
+//				System.out.println("br.readline = " + br.readLine());
 //				System.out.println("br.toString = " + br.toString());
 //				System.out.println("br.getClass = " + br.getClass());
 //				System.out.println("br.read = " + br.read());
