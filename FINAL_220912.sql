@@ -382,3 +382,25 @@ SELECT * FROM EXCHANGERATE;
 
 DELETE FROM EXCHANGERATE;
 commit;
+---------------------------------------------------------------------------
+DROP TABLE INDEXPRICE; --지수시세 테이블
+CREATE TABLE INDEXPRICE(
+BASDT  VARCHAR2(1000), --기준일자         
+IDXNM  VARCHAR2(1000), --지수의 명칭       
+IDXCSF VARCHAR2(1000), --지수의 분류명칭   
+CLPR   NUMBER, --정규시장의 매매시간종료시까지 형성되는 최종가격(종가)       
+VS     NUMBER, --전일 대비 등락            
+FLTRT  NUMBER, --전일 대비 등락에 따른 비율     
+MKP    NUMBER, --정규시장의 매매시간개시후 형성되는 최초가격       
+HIPR   NUMBER, --하루 중 지수의 최고치     
+LOPR   NUMBER, --하루 중 지수의 최저치
+TRQU   NUMBER, --지수에 포함된 종목의 거래량 총합
+TRPRC  NUMBER, --지수에 포함된 종목의 거래대금 총합
+LSTGMRKTTOTAMT NUMBER, --지수에 포함된 종목의 시가총액
+LSYREDVSFLTRG NUMBER, --지수의 전년말대비 등락폭
+LSYREDVSFLTRT NUMBER, --지수의 전년말대비 등락율
+YRWRCRDHGST   NUMBER, --지수의 연중최고치
+YRWRCRDHGSTDT VARCHAR2(1000), --지수가 연중최고치를 기록한 날짜
+YRWRCRDLWST NUMBER,  --지수의 연중최저치
+YRWRCRDLWSTDT VARCHAR2(1000) --지수가 연중최저치를 기록한 날짜
+);
