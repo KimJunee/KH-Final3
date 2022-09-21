@@ -16,8 +16,7 @@ public class UrbtyOfctlLttotPblancDetail {
 	private String house_dtl_secd; // 주택상세구분코드
 	private String house_dtl_secd_nm; // 주택상세구분코드명
 	private String search_house_secd; // 주택구분 - 0201:도시형생활주택, 0202:오피스텔, 0203:민간임대, 0303:공공지원민간임대
-	private int hssply_zip; // 공급위치 우편번호
-	private String hssply_hshldco; // 공급위치
+	private String hssply_zip; // 공급위치 우편번호
 	private String hssply_adres; // 주소
 	private String tot_suply_hshldco; // 공급규모
 	private String rcrit_pblanc_de; // 모집공고일

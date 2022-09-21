@@ -74,7 +74,6 @@ public class ApplyApi {
 					String house_dtl_secd_nm = jsonObjToString(obj, "HOUSE_DTL_SECD_NM");
 					String search_house_secd = jsonObjToString(obj, "SEARCH_HOUSE_SECD");
 					String hssply_zip = jsonObjToString(obj, "HSSPLY_ZIP");
-					String hssply_hshldco = jsonObjToString(obj, "HSSPLY_HSHLDCO");
 					String hssply_adres = jsonObjToString(obj, "HSSPLY_ADRES");
 					String tot_suply_hshldco = jsonObjToString(obj, "TOT_SUPLY_HSHLDCO");
 					String rcrit_pblanc_de = jsonObjToString(obj, "RCRIT_PBLANC_DE");
@@ -88,7 +87,7 @@ public class ApplyApi {
 					String mdhs_telno = jsonObjToString(obj, "MDHS_TELNO");
 					String mvn_prearnge_ym = jsonObjToString(obj, "MVN_PREARNGE_YM");
 					
-					UrbtyOfctlLttotPblancDetail ud = new UrbtyOfctlLttotPblancDetail(house_manage_no, pblanc_no, house_nm, house_secd, house_secd_nm, house_dtl_secd, house_dtl_secd_nm, search_house_secd, i, hssply_hshldco, hssply_adres, tot_suply_hshldco, rcrit_pblanc_de, subscrpt_rcept_bgnde, subscrpt_rcept_endde, przwner_presnatn_de, cntrct_cncls_bgnde, cntrct_cncls_endde, hmpg_adres, bsns_mby_nm, mdhs_telno, mvn_prearnge_ym);
+					UrbtyOfctlLttotPblancDetail ud = new UrbtyOfctlLttotPblancDetail(house_manage_no, pblanc_no, house_nm, house_secd, house_secd_nm, house_dtl_secd, house_dtl_secd_nm, search_house_secd, hssply_zip, hssply_adres, tot_suply_hshldco, rcrit_pblanc_de, subscrpt_rcept_bgnde, subscrpt_rcept_endde, przwner_presnatn_de, cntrct_cncls_bgnde, cntrct_cncls_endde, hmpg_adres, bsns_mby_nm, mdhs_telno, mvn_prearnge_ym);
 					list.add(ud);	
 				}
 //				System.out.println("*****************");
@@ -102,6 +101,7 @@ public class ApplyApi {
 			}
 		}
 		return list;
+//	총 데이터 303
 	}
 	
 	
@@ -112,6 +112,5 @@ public class ApplyApi {
 			return "";
 		}		
 	}
-	
 	
 }
