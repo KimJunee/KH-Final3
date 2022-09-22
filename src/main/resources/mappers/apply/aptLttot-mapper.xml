@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.kh.realfinal.apply.model.mapper.AptLttotPblancDetailMapper">
+	<insert id="insertAptLtto" parameterType="com.kh.realfinal.apply.model.vo.AptLttotPblancDetail">
+	  	INSERT INTO APT_LTTOT_PBLANC_DETAIL (
+	  		bsns_mby_nm,
+	  		cnstrct_entrps_nm,
+	  		cntrct_cncls_bgnde,
+	  		cntrct_cncls_endde,
+	  		gnrl_rnk1_crsparea_rcept_pd,
+	  		gnrl_rnk1_etc_area_rcptde_pd,
+	  		gnrl_rnk1_etc_gg_rcptde_pd,
+	  		gnrl_rnk2_crsparea_rcept_pd,
+	  		gnrl_rnk2_etc_area_rcptde_pd,
+	  		gnrl_rnk2_etc_gg_rcptde_pd,
+	  		hmpg_adres,
+	  		house_dtl_secd,
+	  		house_dtl_secd_nm,
+	  		house_manage_no,
+	  		house_nm,
+	  		house_secd,
+	  		house_secd_nm,
+	  		hssply_adres,
+	  		hssply_zip,
+	  		imprmn_bsns_at,
+	  		lrscl_bldlnd_at,
+	  		mdat_trget_area_secd,
+	  		mdhs_telno,
+	  		mvn_prearnge_ym,
+	  		npln_prvopr_public_house_at,
+	  		parcprc_uls_at,
+	  		pblanc_no,
+	  		przwner_presnatn_de,
+	  		public_house_earth_at,
+	  		rcept_bgnde,
+	  		rcept_endde,
+	  		rcrit_pblanc_de,
+	  		rent_secd,
+	  		rent_secd_nm,
+	  		speclt_rdn_earth_at,
+	  		spsply_rcept_bgnde,
+	  		spsply_rcept_endde,
+	  		subscrpt_area_code,
+	  		subscrpt_area_code_nm,
+	  		tot_suply_hshldco
+	  	)
+		VALUES(
+			#{bsns_mby_nm},#{cnstrct_entrps_nm},#{cntrct_cncls_bgnde},#{cntrct_cncls_endde},#{gnrl_rnk1_crsparea_rcept_pd},
+			#{gnrl_rnk1_etc_area_rcptde_pd},#{gnrl_rnk1_etc_gg_rcptde_pd},#{gnrl_rnk2_crsparea_rcept_pd},#{gnrl_rnk2_etc_area_rcptde_pd},#{gnrl_rnk2_etc_gg_rcptde_pd},
+			#{hmpg_adres},#{house_dtl_secd},#{house_dtl_secd_nm},#{house_manage_no},#{house_nm},
+			#{house_secd},#{house_secd_nm},#{hssply_adres},#{hssply_zip},#{imprmn_bsns_at},
+			#{lrscl_bldlnd_at},#{mdat_trget_area_secd},#{mdhs_telno},#{mvn_prearnge_ym},#{npln_prvopr_public_house_at},
+			#{parcprc_uls_at},#{pblanc_no},#{przwner_presnatn_de},#{public_house_earth_at},#{rcept_bgnde},
+			#{rcept_endde},#{rcrit_pblanc_de},#{rent_secd},#{rent_secd_nm},#{speclt_rdn_earth_at},
+			#{spsply_rcept_bgnde},#{spsply_rcept_endde},#{subscrpt_area_code},#{subscrpt_area_code_nm},#{tot_suply_hshldco}
+		)
+	</insert>
+	
+	<insert id="insertAptLttoMdl" parameterType="com.kh.realfinal.apply.model.vo.AptLttotPblancMdl">
+	  	INSERT INTO APT_LTTOT_PBLANC_MDL (
+	  		etc_hshldco,
+	  		house_manage_no,
+	  		house_ty,
+	  		instt_recomend_hshldco,
+	  		lfe_frst_hshldco,
+	  		lttot_top_amount,
+	  		mnych_hshldco,
+	  		model_no,
+	  		nwwds_hshldco,
+	  		old_parnts_suport_hshldco,
+	  		pblanc_no,
+	  		spsply_hshldco,
+	  		suply_ar,
+	  		suply_hshldco,
+	  		transr_instt_enfsn_hshldco
+	  	)
+		VALUES(
+			#{etc_hshldco},#{house_manage_no},#{house_ty},#{instt_recomend_hshldco},#{lfe_frst_hshldco},
+			#{lttot_top_amount},#{mnych_hshldco},#{model_no},#{nwwds_hshldco},#{old_parnts_suport_hshldco},
+			#{pblanc_no},#{spsply_hshldco},#{suply_ar},#{suply_hshldco},#{transr_instt_enfsn_hshldco}
+		)
+	</insert>
+
+
+</mapper>
