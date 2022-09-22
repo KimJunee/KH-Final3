@@ -377,26 +377,6 @@ DELETE FROM financialterm;
 commit;
 
 
-------------------------------------------
-
--- 안예은 부동산 용어 파싱 테스트 (840건)
-DROP TABLE LANDTERM;
-CREATE TABLE LANDTERM(
-
-DIC_TITLE VARCHAR2(1000), --부동산용어명
-DIC_CONTENT CLOB --용어설명
-);
-
-SELECT * FROM LANDTERM;
-
---INSERT INTO LANDTERM (DIC_TITLE, DIC_CONTENT) VALUES
---('부동산 용어', '840개 잘 들어갔니?');
-
--- DELETE FROM LANDTERM;
-commit;
-
-
-
 ------------------------------------------------------------------------------------------------
 --김지수 주식시세정보 파싱
 DROP TABLE STOCKPRICE;  --주식 시세 정보
