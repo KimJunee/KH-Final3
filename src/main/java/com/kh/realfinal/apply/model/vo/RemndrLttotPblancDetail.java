@@ -17,8 +17,8 @@ public class RemndrLttotPblancDetail {
 	private String	hssply_adres	        ; // 주소
 	private int		tot_suply_hshldco	    ; // 공급규모
 	private String	rcrit_pblanc_de	        ; // 모집공고일
-	private String	subscrpt_rcept_bgnd     ; // 청약접수시작일
-	private String	subscrpt_rcept_endd     ; // 청약접수종료일
+	private String	subscrpt_rcept_bgnde     ; // 청약접수시작일
+	private String	subscrpt_rcept_endde     ; // 청약접수종료일
 	private String	spsply_rcept_bgnde	    ; // 특별공급접수시작일
 	private String	spsply_rcept_endde	    ; // 특별공급접수종료일
 	private String	gnrl_rcept_rcptde	    ; // 일반공급접수시작일

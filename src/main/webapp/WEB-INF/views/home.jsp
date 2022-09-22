@@ -35,8 +35,9 @@
 
 <h2><a href="${path}/landterm/insert.do">부동산용어 DB INSERT</a></h2>
 
-<h2><a href="${path}/UrbtyOfctlLttotPblancDetail/insert.do">청약 도시형/오피스텔/민간임대 DB INSERT</a></h2>
+<h2><a href="${path}/UrbtyOfctlLttotPblancDetail/insert.do">청약 도시형/오피스텔/민간임대 분양정보 DB INSERT</a></h2>
 
+<h2><a href="${path}/RemndrLttotPblancDetail/insert.do">청약 APT 무순위/잔여세대 분양정보 DB INSERT</a></h2>
 
 <iframe id="ytplayer" type="text/html" width="720" height="405"
 src="https://www.youtube.com/embed/qZVTkn2NjS0/default"

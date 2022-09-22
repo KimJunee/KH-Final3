@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper	namespace="com.kh.realfinal.apply.model.mapper.RemndrLttotPblancDetailMapper">
+	<insert id="insertRemndrLttotPblancDetail"
+		parameterType="hashMap">
+	INSERT INTO REMNDRLTTOTPBLANCDETAIL(
+		HOUSE_MANAGE_NO,
+		PBLANC_NO,
+		HOUSE_NM,
+		HOUSE_SECD,
+		HOUSE_SECD_NM,
+		HSSPLY_ZIP,
+		HSSPLY_ADRES,
+		TOT_SUPLY_HSHLDCO,
+		RCRIT_PBLANC_DE,
+		SUBSCRPT_RCEPT_BGNDE,
+		SUBSCRPT_RCEPT_ENDDE,
+		SPSPLY_RCEPT_BGNDE,
+		SPSPLY_RCEPT_ENDDE,
+		GNRL_RCEPT_RCPTDE,
+		GNRL_RCEPT_ENDDE,
+		PRZWNER_PRESNATN_DE,
+		CNTRCT_CNCLS_BGNDE,
+		CNTRCT_CNCLS_ENDDE,
+		HMPG_ADRES,
+		BSNS_MBY_NM,
+		MDHS_TELNO,
+		MVN_PREARNGE_YM
+	)
+	VALUES(#{house_manage_no}, #{pblanc_no}, 
+	#{house_nm}, #{house_secd}, #{house_secd_nm}, #{hssply_zip}, 
+	#{hmpg_adres}, #{tot_suply_hshldco}, #{rcrit_pblanc_de},
+	#{subscrpt_rcept_bgnde}, #{subscrpt_rcept_endde},
+	#{spsply_rcept_bgnde}, #{spsply_rcept_endde}, 
+	#{gnrl_rcept_rcptde}, #{gnrl_rcept_endde},
+	#{przwner_presnatn_de}, 
+	#{cntrct_cncls_bgnde}, #{cntrct_cncls_endde}, 
+	#{hmpg_adres}, #{bsns_mby_nm}, 
+	#{mdhs_telno}, #{mvn_prearnge_ym})
+	</insert>
+</mapper>
