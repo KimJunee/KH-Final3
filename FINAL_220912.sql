@@ -16,7 +16,27 @@ ALTER USER FINAL DEFAULT TABLESPACE USERS;
 
 ----------------------------------------------------------------
 
--- 주택형별 - APT 무순위/잔여세대 분양정보 상세 [총 데이터 1760개]
+-- 주택형별 - 오피스텔/도시형/민간임대 분양정보 상세 [총 데이터 2096개] (안예은)
+DROP TABLE URBTYMDL;
+CREATE TABLE URBTYMDL (
+    PBLANC_NO	VARCHAR2(1000)	NULL,
+	HOUSE_MANAGE_NO	NUMBER	NULL,
+	MODEL_NO	NUMBER	NULL,
+	GP	VARCHAR2(1000)	NULL,
+	TP	VARCHAR2(1000)	NULL,
+	EXCLUSE_AR	NUMBER	NULL,
+	SUPLY_HSHLDCO	NUMBER	NULL,
+	SUPLY_AMOUNT	VARCHAR2(1000)	NULL,
+	SUBSCRPT_REQST_AMOUNT	VARCHAR2(1000)	NULL
+);
+
+SELECT * FROM URBTYMDL;
+SELECT COUNT(*) FROM URBTYMDL;
+
+
+----------------------------------------------------------------
+
+-- 주택형별 - APT 무순위/잔여세대 분양정보 상세 [총 데이터 1760개] (안예은)
 DROP TABLE REMNDRMDL;
 CREATE TABLE REMNDRMDL (
 	HOUSE_MANAGE_NO	NUMBER	NOT NULL,
@@ -44,7 +64,7 @@ SELECT COUNT(*) FROM REMNDRMDL;
 
 ----------------------------------------------------------------
 
--- APT 무순위/잔여세대 분양정보 상세 [총 데이터 547개]
+-- APT 무순위/잔여세대 분양정보 상세 [총 데이터 547개] (안예은)
 DROP TABLE REMNDRLTTOTPBLANCDETAIL;
 CREATE TABLE REMNDRLTTOTPBLANCDETAIL (
     HOUSE_MANAGE_NO	NUMBER	NOT NULL,
@@ -76,7 +96,7 @@ SELECT * FROM REMNDRLTTOTPBLANCDETAIL;
 
 ----------------------------------------------------------------
 
--- 청약 오피스텔/도시형/민간임대 분양정보 상세 [총 데이터 303개]
+-- 청약 오피스텔/도시형/민간임대 분양정보 상세 [총 데이터 303개] (안예은)
 -- HSSPLY_HSHLDCO - null 데이터라서 삭제
 -- MDHS_TELNO - 파싱시 문제 발생, string으로 설정 
 DROP TABLE URBTYOFCTLLTTOTPBLANCDETAIL;

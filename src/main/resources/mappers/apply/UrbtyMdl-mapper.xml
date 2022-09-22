@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper	namespace="com.kh.realfinal.apply.model.mapper.UrbtyMdlMapper">
+	<insert id="insertUrbtyMdl"
+		parameterType="hashMap">
+	INSERT INTO URBTYMDL(
+		PBLANC_NO,
+		HOUSE_MANAGE_NO,			
+		MODEL_NO,				
+		GP,						
+		TP,						
+		EXCLUSE_AR,				
+		SUPLY_HSHLDCO,			
+		SUPLY_AMOUNT,			
+	    SUBSCRPT_REQST_AMOUNT
+	)
+	VALUES
+	(#{pblanc_no}, #{house_manage_no},
+	#{model_no}, #{gp}, #{tp},
+	#{excluse_ar}, #{suply_hshldco}, 
+	#{suply_amount}, #{subscrpt_reqst_amount})
+	</insert>
+</mapper>
+
