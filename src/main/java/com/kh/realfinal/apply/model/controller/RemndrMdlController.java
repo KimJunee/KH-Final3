@@ -10,20 +10,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.kh.realfinal.apply.api.ApplyApi;
 import com.kh.realfinal.apply.model.service.RemndrLttotPblancDetailService;
+import com.kh.realfinal.apply.model.service.RemndrMdlService;
 import com.kh.realfinal.apply.model.vo.RemndrLttotPblancDetail;
+import com.kh.realfinal.apply.model.vo.RemndrMdl;
 
 @Controller
-public class RemndrLttotPblancDetailController {
+public class RemndrMdlController {
 	@Autowired
-	private RemndrLttotPblancDetailService service;
+	private RemndrMdlService service;
 	
-	@RequestMapping("/RemndrLttotPblancDetail/insert.do")
-	public String initRemndrLttotPblancDetailData(Model model) {
-		List<RemndrLttotPblancDetail> list = ApplyApi.RemndrLttotPblancDetailByJSON();
+	@RequestMapping("/RemndrMdl/insert.do")
+	public String initRemndrMdlData(Model model) {
+		List<RemndrMdl> list = ApplyApi.RemndrMdlByJSON();
 		
 		int result = 0;
-		for(RemndrLttotPblancDetail rd : list) {
-			result = service.saveRemndrLttotPblancDetailService(rd);
+		for(RemndrMdl rm : list) {
+			result = service.saveRemndrMdlService(rm);
 		}
 		
 		

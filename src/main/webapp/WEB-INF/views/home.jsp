@@ -39,6 +39,8 @@
 
 <h2><a href="${path}/RemndrLttotPblancDetail/insert.do">청약 APT 무순위/잔여세대 분양정보 DB INSERT</a></h2>
 
+<h2><a href="${path}/RemndrMdl/insert.do">청약 APT 무순위/잔여세대 분양정보 주택형별 상세  DB INSERT</a></h2>
+
 <iframe id="ytplayer" type="text/html" width="720" height="405"
 src="https://www.youtube.com/embed/qZVTkn2NjS0/default"
 frameborder="0" allowfullscreen></iframe>

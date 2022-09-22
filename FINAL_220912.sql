@@ -12,6 +12,36 @@ GRANT CREATE TABLE TO FINAL;
 ALTER USER FINAL DEFAULT TABLESPACE USERS;
 */
 
+
+
+----------------------------------------------------------------
+
+-- 주택형별 - APT 무순위/잔여세대 분양정보 상세 [총 데이터 1760개]
+DROP TABLE REMNDRMDL;
+CREATE TABLE REMNDRMDL (
+	HOUSE_MANAGE_NO	NUMBER	NOT NULL,
+	PBLANC_NO	VARCHAR2(1000)	NULL,
+	MODEL_NO	NUMBER	NULL,
+	HOUSE_TY	VARCHAR2(1000)	NULL,
+	SUPPLY_AR	VARCHAR2(1000)	NULL,
+	SUPLY_HSHLDCO	VARCHAR2(1000)	NULL,
+	SPSPLY_HSHLDCO	VARCHAR2(1000)	NULL,
+	LTTOT_TOP_AMOUNT	VARCHAR2(1000)	NULL
+);
+
+SELECT * FROM REMNDRMDL;
+SELECT COUNT(*) FROM REMNDRMDL;
+
+-- 주택관리번호 = 공고번호 : 주키 
+--select PBLANC_NO from URBTYOFCTLLTTOTPBLANCDETAIL
+--order by PBLANC_NO desc;
+
+-- 공고번호에 포함된 다수의 MODEL_NO 확인
+--select MODEL_NO
+--from REMNDRMDL
+--where PBLANC_NO = '2022910218';
+
+
 ----------------------------------------------------------------
 
 -- APT 무순위/잔여세대 분양정보 상세 [총 데이터 547개]
