@@ -34,7 +34,7 @@ public class IndexPriceAPI {
 	
 	public static void main(String[] args) throws UnsupportedEncodingException {
 //		System.out.println(IndexPriceAPI.callIndexPriceByXML());
-//		System.out.println(IndexPriceAPI.callIndexPriceByJSON());
+		System.out.println(IndexPriceAPI.callIndexPriceByJSON());
 	}
 	
 	public static List<IndexPrice> callIndexPriceByXML1() throws UnsupportedEncodingException{
@@ -235,18 +235,7 @@ public class IndexPriceAPI {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	public static List<IndexPrice> callIndexPriceByJSON() throws UnsupportedEncodingException{
 		List<IndexPrice> list = new ArrayList<IndexPrice>();
@@ -302,8 +291,10 @@ public class IndexPriceAPI {
 				
 				JSONParser jsonParser = new JSONParser();
 				JSONObject rootObj = (JSONObject) jsonParser.parse(br);
-				JSONObject childObj = (JSONObject) rootObj.get("response");
-				JSONArray indexpriceArray = (JSONArray)childObj.get("item");
+				JSONObject childObj1 = (JSONObject) rootObj.get("response");
+				JSONObject childObj2 = (JSONObject) childObj1.get("body");
+				JSONObject childObj3 = (JSONObject) childObj2.get("items");
+				JSONArray indexpriceArray = (JSONArray)childObj3.get("item");
 				if(indexpriceArray == null) {
 					System.out.println("안에 뭐가 없는데??");
 					continue;
@@ -317,20 +308,20 @@ public class IndexPriceAPI {
 					String basDt           = (String) obj.get("basDt");         
 					String idxNm           = (String) obj.get("idxNm");           
 					String idxCsf          = (String) obj.get("idxCsf");          
-					Double clpr            = (Double) obj.get("clpr");          
-					Double vs              = (Double) obj.get("vs");            
-					Double fltRt           = (Double) obj.get("fltRt");        
-					Double mkp             = (Double) obj.get("mkp");           
-					Double hipr            = (Double) obj.get("hipr");          
-					Double lopr            = (Double) obj.get("lopr");          
-					Long trqu            = (Long) obj.get("trqu");          
-					Long   trPrc           = (Long) obj.get("trPrc");       
-					Long   lstgMrktTotAmt  = (Long) obj.get("lstgMrktTotAmt"); 
-					Double lsYrEdVsFltRg   = (Double) obj.get("lsYrEdVsFltRg"); 
-					Double lsYrEdVsFltRt   = (Double) obj.get("lsYrEdVsFltRt"); 
-					Double yrWRcrdHgst     = (Double) obj.get("yrWRcrdHgst");    
+					Double clpr            = Double.valueOf((String) obj.get("clpr"));          
+					Double vs              = Double.valueOf((String) obj.get("vs"));            
+					Double fltRt           = Double.valueOf((String) obj.get("fltRt"));        
+					Double mkp             = Double.valueOf((String) obj.get("mkp"));           
+					Double hipr            = Double.valueOf((String) obj.get("hipr"));          
+					Double lopr            = Double.valueOf((String) obj.get("lopr"));          
+					Long trqu              = Long.valueOf((String) obj.get("trqu"));          
+					Long   trPrc           = Long.valueOf((String) obj.get("trPrc"));       
+					Long   lstgMrktTotAmt  = Long.valueOf((String) obj.get("lstgMrktTotAmt")); 
+					Double lsYrEdVsFltRg   = Double.valueOf((String) obj.get("lsYrEdVsFltRg")); 
+					Double lsYrEdVsFltRt   = Double.valueOf((String) obj.get("lsYrEdVsFltRt")); 
+					Double yrWRcrdHgst     = Double.valueOf((String) obj.get("yrWRcrdHgst"));    
 					String yrWRcrdHgstDt   = (String) obj.get("yrWRcrdHgstDt");  
-					Double yrWRcrdLwst     = (Double) obj.get("yrWRcrdLwst");   
+					Double yrWRcrdLwst     = Double.valueOf((String) obj.get("yrWRcrdLwst"));   
 					String yrWRcrdLwstDt   = (String) obj.get("yrWRcrdLwstDt");  
 					
 					IndexPrice ip = new IndexPrice(basDt, idxNm, idxCsf, clpr, vs, fltRt, mkp, hipr, lopr, trqu 
