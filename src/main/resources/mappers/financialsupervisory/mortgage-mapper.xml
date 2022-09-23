@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kh.realfinal.financialsupervisory.model.mapper.MortgageMapper">
+	<resultMap type="MortgageLoan" id="mortgageResultMap">
+		<id property="mortgageId" column="MORTGAGE_ID"/>
+		<result property="dclsMonth" column="MORTGAGE_DCLS_MONTH"/>
+		<result property="finCoNo" column="MORTGAGE_FIN_CO_NO"/>
+		<result property="korCoNm" column="MORTGAGE_KOR_CO_NM"/>
+		<result property="finPrdtCd" column="MORTGAGE_FIN_PRDT_CD"/>
+		<result property="finPrdtNm" column="MORTGAGE_FIN_PRDT_NM"/>
+		<result property="joinWay" column="MORTGAGE_JOIN_WAY"/>
+		<result property="loanInciExpn" column="MORTGAGE_LOAN_INCI_EXPN"/>
+		<result property="erlyRpayFee" column="MORTGAGE_ERLY_RPAY_FEE"/>
+		<result property="dlyRate" column="MORTGAGE_DLY_RATE"/>
+		<result property="loanLmt" column="MORTGAGE_LOAN_LMT"/>
+		<result property="dclsStrtDay" column="MORTGAGE_DCLS_STRT_DAY"/>
+		<result property="dclsEndDay" column="MORTGAGE_DCLS_END_DAY"/>
+		<result property="finCoSubmDay" column="MORTGAGE_FIN_CO_SUBM_DAY"/>
+	</resultMap>
+	
+	<resultMap type="MortgageLoan" id="mortgageListResultMap" extends="mortgageResultMap">
+		<collection property="mortgageList" javaType="arrayList" columnPrefix="MO_" resultMap="mortgageOptionMap"/>
+	</resultMap>
+	
+	<resultMap type="MortgageLoanOption" id="mortgageOptionMap">
+		<id property="mrtgNo" column="MORTGAGE_NO"/>
+		<result property="mrtgId" column="MORTGAGE_ID"/>
+		<result property="mrtgType" column="MORTGAGE_MRTG_TYPE"/>
+		<result property="mrtgTypeNm" column="MORTGAGE_MRTG_TYPE_NM"/>
+		<result property="rpayType" column="MORTGAGE_RPAY_TYPE"/>
+		<result property="rpayTypeNm" column="MORTGAGE_RPAY_TYPE_NM"/>
+		<result property="lendRateType" column="MORTGAGE_LEND_RATE_TYPE"/>
+		<result property="lendRateTypeNm" column="MORTGAGE_LEND_RATE_TYPE_NM"/>
+		<result property="lendRateMin" column="MORTGAGE_LEND_RATE_MIN"/>
+		<result property="lendRateMax" column="MORTGAGE_LEND_RATE_MAX"/>
+		<result property="lendRateAvg" column="MORTGAGE_LEND_RATE_AVG"/>
+	</resultMap>
+	
+	
+	<insert id="insertMortgageLoan" parameterType="MortgageLoan">
+		INSERT INTO MORTGAGELOAN(MORTGAGE_ID, MORTGAGE_DCLS_MONTH, MORTGAGE_FIN_CO_NO, MORTGAGE_KOR_CO_NM,
+	        MORTGAGE_FIN_PRDT_CD, MORTGAGE_FIN_PRDT_NM, MORTGAGE_JOIN_WAY, MORTGAGE_LOAN_INCI_EXPN,
+	        MORTGAGE_ERLY_RPAY_FEE, MORTGAGE_DLY_RATE, MORTGAGE_LOAN_LMT, MORTGAGE_DCLS_STRT_DAY,
+	        MORTGAGE_DCLS_END_DAY, MORTGAGE_FIN_CO_SUBM_DAY)
+		VALUES(
+			#{mortgageId}, #{dclsMonth}, #{finCoNo}, #{korCoNm}, #{finPrdtCd}, #{finPrdtNm}, #{joinWay},
+			#{loanInciExpn}, #{erlyRpayFee}, #{dlyRate}, #{loanLmt}, #{dclsStrtDay}, #{dclsEndDay}, #{finCoSubmDay}		
+		) 	
+	</insert>
+	
+	<insert id="insertMortgageOption" parameterType="MortgageLoanOption">
+		INSERT INTO MORTGAGELOAN_OPTION(MORTGAGE_NO, MORTGAGE_ID, MORTGAGE_MRTG_TYPE, MORTGAGE_MRTG_TYPE_NM,
+	        MORTGAGE_RPAY_TYPE, MORTGAGE_RPAY_TYPE_NM, MORTGAGE_LEND_RATE_TYPE, MORTGAGE_LEND_RATE_TYPE_NM,
+	        MORTGAGE_LEND_RATE_MIN, MORTGAGE_LEND_RATE_MAX, MORTGAGE_LEND_RATE_AVG)
+		VALUES(
+			#{mrtgNo}, #{mrtgId}, #{mrtgType}, #{mrtgTypeNm}, #{rpayType}, #{rpayTypeNm},
+			#{lendRateType}, #{lendRateTypeNm}, #{lendRateMin}, #{lendRateMax}, #{lendRateAvg}		
+		) 	
+	</insert>
+
+
+</mapper>
