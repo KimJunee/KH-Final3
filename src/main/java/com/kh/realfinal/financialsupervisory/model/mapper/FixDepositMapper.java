@@ -1,10 +1,12 @@
 package com.kh.realfinal.financialsupervisory.model.mapper;
 
-import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
+
+import com.kh.realfinal.financialsupervisory.model.vo.FixDeposit;
+import com.kh.realfinal.financialsupervisory.model.vo.FixDepositOption;
 
 @Mapper
 public interface FixDepositMapper {
-	int insertFixDeposit(Map<String,Object> map);
-	int insertFixDepositOption(Map<String,Object> map);
+	int insertFixDeposit(FixDeposit fixDeposit);
+	int insertFixDepositOption(FixDepositOption fixDepositOption);
 }

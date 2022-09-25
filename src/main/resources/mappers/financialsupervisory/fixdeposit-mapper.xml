@@ -4,35 +4,62 @@
 <!-- 매퍼를 쓸려면 이렇게 가야된다. -->
 <!-- com.kh.realfinal.financialterm.model.mapper.FinancialtermMapper.insertFinancialterm -->
 <mapper	namespace="com.kh.realfinal.financialsupervisory.model.mapper.FixDepositMapper">
+	<resultMap type="FixDeposit" id="fixDepositResultMap">
+		<id property="fixdepositId" column="FIXDEPOSIT_ID"/>
+		<result property="dclsMonth" column="FIXDEPO_DCLS_MONTH"/>
+		<result property="finCoNo" column="FIXDEPO_FIN_CO_NO"/>
+		<result property="korCoNm" column="FIXDEPO_KOR_CO_NM"/>
+		<result property="finPrdtCd" column="FIXDEPO_FIN_PRDT_CD"/>
+		<result property="finPrdtNm" column="FIXDEPO_FIN_PRDT_NM"/>
+		<result property="joinWay" column="FIXDEPO_JOIN_WAY"/>
+		<result property="mtrtInt" column="FIXDEPO_MTRT_INT"/>
+		<result property="spclCnd" column="FIXDEPO_SPCL_CND"/>
+		<result property="joinDeny" column="FIXDEPO_JOIN_DENY"/>
+		<result property="joinMember" column="FIXDEPO_JOIN_MEMBER"/>
+		<result property="etcNote" column="FIXDEPO_ETC_NOTE"/>
+		<result property="maxLimit" column="FIXDEPO_MAX_LIMIT"/>
+		<result property="dclsStrtDay" column="FIXDEPO_DCLS_STRT_DAY"/>
+		<result property="dclsEndDay" column="FIXDEPO_DCLS_END_DAY"/>
+		<result property="finCoSubmDay" column="FIXDEPO_FIN_CO_SUBM_DAY"/>
+	</resultMap>
+	
+	<resultMap type="FixDeposit" id="fixDepositListResultMap" extends="fixDepositResultMap">
+		<collection property="fixOptionList" javaType="arrayList" resultMap="fixDepositOptionMap"/>
+	</resultMap>
+	
+	<resultMap type="FixDepositOption" id="fixDepositOptionMap">
+		<id property="fixdepositNo" column="FIXDEPOSIT_NO"/>
+		<result property="fixId" column="FIXDEPOSIT_ID"/>
+		<result property="intrRateType" column="INTR_RATE_TYPE"/>
+		<result property="intrRateTypeNm" column="INTR_RATE_TYPE_NM"/>
+		<result property="saveTrm" column="SAVE_TRM"/>
+		<result property="intrRate" column="INTR_RATE"/>
+		<result property="intrRate2" column="INTR_RATE2"/>
+	</resultMap>
+
+
 	<insert id="insertFixDeposit"
-		parameterType="hashMap">
-		INSERT INTO FIXDEPOSIT(
-		
-			FIXDEPOSIT_ID, FIXDEPO_TOP_FIN_GRP_NO, FIXDEPO_DCLS_MONTH, FIXDEPO_FIN_CO_NO, FIXDEPO_KOR_CO_NM, 
-			FIXDEPO_FIN_PRDT_CD, FIXDEPO_FIN_PRDT_NM, FIXDEPO_JOIN_WAY, 
-			FIXDEPO_MTRT_INT, FIXDEPO_SPCL_CND, FIXDEPO_JOIN_DENY, FIXDEPO_JOIN_MEMBER, FIXDEPO_ETC_NOTE, FIXDEPO_MAX_LIMIT, 
-			FIXDEPO_DCLS_STRT_DAY, FIXDEPO_DCLS_END_DAY, FIXDEPO_FIN_CO_SUBM_DAY, 
-			FIXDEPO_INTR_RATE_TYPE, FIXDEPO_INTR_RATE_TYPE_NM, FIXDEPO_SAVE_TRM, FIXDEPO_INTR_RATE, FIXDEPO_INTR_RATE2
-		) VALUES
-		<!-- 중복컬럼 -->
-			(#{fixdeposit_id}, #{topFinGrpNo}, #{dcls_month}, #{fin_co_no}, #{kor_co_nm}, 
-			#{fin_prdt_cd}, #{fin_prdt_nm}, #{join_way},
-			<!-- 비중복컬럼 -->
-			#{mtrt_int}, #{spcl_cnd}, #{join_deny}, #{join_member}, #{etc_note}, #{max_limit}, 
-			<!-- 중복컬럼 -->
-			#{dcls_strt_day}, #{dcls_end_day}, #{fin_co_subm_day},
-			<!-- 옵션 -->
-			#{intr_rate_type}, #{intr_rate_type_nm}, #{save_trm}, #{intr_rate}, #{intr_rate2})
+		parameterType="FixDeposit">
+		INSERT INTO FIXDEPOSIT(		
+			FIXDEPOSIT_ID, FIXDEPO_DCLS_MONTH, FIXDEPO_FIN_CO_NO, FIXDEPO_KOR_CO_NM, 
+			FIXDEPO_FIN_PRDT_CD, FIXDEPO_FIN_PRDT_NM, FIXDEPO_JOIN_WAY, FIXDEPO_MTRT_INT, 
+			FIXDEPO_SPCL_CND, FIXDEPO_JOIN_DENY, FIXDEPO_JOIN_MEMBER, FIXDEPO_ETC_NOTE, 
+			FIXDEPO_MAX_LIMIT, FIXDEPO_DCLS_STRT_DAY, FIXDEPO_DCLS_END_DAY, FIXDEPO_FIN_CO_SUBM_DAY
+		) VALUES(
+			#{fixdepositId}, #{dclsMonth}, #{finCoNo}, #{korCoNm}, #{finPrdtCd}, 
+			#{finPrdtNm}, #{joinWay},#{mtrtInt}, #{spclCnd}, #{joinDeny}, #{joinMember}, 
+			#{etcNote}, #{maxLimit}, #{dclsStrtDay}, #{dclsEndDay}, #{finCoSubmDay}
+		)
 	</insert>
 	
 	<insert id="insertFixDepositOption"
-		parameterType="hashMap">
+		parameterType="FixDepositOption">
 		INSERT INTO FIXDEPOSIT_OPTION(
-			FIXDEPOSIT_ID, INTR_RATE_TYPE, INTR_RATE_TYPE_NM,
-			SAVE_TRM, INTR_RATE, INTR_RATE2
+			FIXDEPOSIT_NO, FIXDEPOSIT_ID, INTR_RATE_TYPE, 
+			INTR_RATE_TYPE_NM, SAVE_TRM, INTR_RATE, INTR_RATE2
 		) VALUES(
-			#{fixdeposit_id}, #{intr_rate_type}, #{intr_rate_type_nm},
-			#{save_trm}, #{intr_rate}, #{intr_rate2}
+			#{fixdepositNo}, #{fixId}, #{intrRateType}, 
+			#{intrRateTypeNm}, #{saveTrm}, #{intrRate}, #{intrRate2}
 		)
 	</insert>
 </mapper>

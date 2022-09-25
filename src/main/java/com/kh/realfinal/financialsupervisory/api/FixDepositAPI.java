@@ -3,35 +3,37 @@ package com.kh.realfinal.financialsupervisory.api;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
+import com.kh.realfinal.financialsupervisory.model.vo.FixDeposit;
+import com.kh.realfinal.financialsupervisory.model.vo.FixDepositOption;
+
 // 정기예금 API
-public class FixDeposit {
+public class FixDepositAPI {
 	
 	public static String Key = "8e90a3481bea63b624725bdad9c42e9a";
 	public static String FIX_DEPOSIT_XML_URL = "http://finlife.fss.or.kr/finlifeapi/depositProductsSearch.xml";
 
 	public static void main(String[] args) {
 
-		FixDeposit.callFixDepositByXML();
+		FixDepositAPI.callFixDepositByXML();
 		System.out.println("-----------------------------------------");
 	}
 
-	public static List<Map<String,Object>>callFixDepositByXML() {
-		List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
+	public static List<FixDeposit>callFixDepositByXML() {
+		List<FixDeposit> list = new ArrayList<>();
 		String[] topFinGrpNo = {"020000", "030200", "030300", "050000", "060000"};
 		int pageNo = 1;
 		int count = 0;
+		int no = 1;
 		for (int i = 0; i < topFinGrpNo.length; i++) {
 			System.out.println("topFingrpNo >> " + i);
 			String topFinGrp = topFinGrpNo[i];
@@ -76,69 +78,61 @@ public class FixDeposit {
 					}
 					System.out.println("count !! : "+count);
 					for (int j = count ; j < count + nList.getLength(); j++) {
-						//System.out.println("for J >> "+j);
-						//System.out.println("for J >> "+(j - count));
 						Node node = nList.item(j-count);
 	
 						if (node.getNodeType() == Node.ELEMENT_NODE) {
-							Map<String,Object> map = new HashMap<String,Object>();
 							Element eElement = (Element) node;
 							
-							map.put("dcls_month", eElement.getElementsByTagName("dcls_month").item(0).getTextContent());
-							map.put("fin_co_no", eElement.getElementsByTagName("fin_co_no").item(0).getTextContent());
-							map.put("kor_co_nm", eElement.getElementsByTagName("kor_co_nm").item(0).getTextContent());
-							map.put("fin_prdt_cd", eElement.getElementsByTagName("fin_prdt_cd").item(0).getTextContent());
-							map.put("fin_prdt_nm", eElement.getElementsByTagName("fin_prdt_nm").item(0).getTextContent());
-							map.put("join_way", eElement.getElementsByTagName("join_way").item(0).getTextContent());
-							map.put("mtrt_int", eElement.getElementsByTagName("mtrt_int").item(0).getTextContent());
-							map.put("spcl_cnd", eElement.getElementsByTagName("spcl_cnd").item(0).getTextContent());
-							map.put("join_deny", eElement.getElementsByTagName("join_deny").item(0).getTextContent());
-							map.put("join_member", eElement.getElementsByTagName("join_member").item(0).getTextContent());
-							map.put("etc_note", eElement.getElementsByTagName("etc_note").item(0).getTextContent());
-							map.put("max_limit", eElement.getElementsByTagName("max_limit").item(0).getTextContent());
-							map.put("dcls_strt_day", eElement.getElementsByTagName("dcls_strt_day").item(0).getTextContent());
-							map.put("dcls_end_day", eElement.getElementsByTagName("dcls_end_day").item(0).getTextContent());
-							map.put("fin_co_subm_day", eElement.getElementsByTagName("fin_co_subm_day").item(0).getTextContent());
-							
-							map.put("top_find_grp_no",topFinGrp);
-							map.put("fixdeposit_id", j);
+							int fixdepositId = j;
+							String dclsMonth = getStrData(eElement, "dcls_month"); 
+							int finCoNo = getIntData(eElement, "fin_co_no"); 
+							String korCoNm = getStrData(eElement, "kor_co_nm");
+							String finPrdtCd = getStrData(eElement, "fin_prdt_cd");
+							String finPrdtNm = getStrData(eElement, "fin_prdt_nm");
+							String joinWay = getStrData(eElement, "join_way");
+							String mtrtInt = getStrData(eElement, "mtrt_int");
+							String spclCnd = getStrData(eElement, "spcl_cnd");
+							int joinDeny = getIntData(eElement, "join_deny");
+							String joinMember = getStrData(eElement, "join_member");
+							String etcNote = getStrData(eElement, "etc_note");
+							int maxLimit = getIntData(eElement, "max_limit");
+							String dclsStrtDay = getStrData(eElement, "dcls_strt_day");
+							String dclsEndDay = getStrData(eElement, "dcls_end_day");
+							String finCoSubmDay = getStrData(eElement, "fin_co_subm_day");
 							
 							NodeList nOption = eElement.getElementsByTagName("option");
 							
-							List<Map<String,Object>> optionList = new ArrayList<Map<String,Object>>();
+							List<FixDepositOption> optionList = new ArrayList<>();
+							FixDepositOption fixDepositOption = null;
 							for (int k = 0; k < nOption.getLength(); k++) {
 								Node oNode = nOption.item(k);
 								if (oNode.getNodeType() == Node.ELEMENT_NODE) {
-									Map<String,Object> option = new HashMap<String,Object>();
 									Element oElement = (Element) oNode;
 									
-									option.put("fixdeposit_id",j);
-									option.put("intr_rate_type", oElement.getElementsByTagName("intr_rate_type").item(0).getTextContent());
-									option.put("intr_rate_type_nm", oElement.getElementsByTagName("intr_rate_type_nm").item(0).getTextContent());
-									option.put("save_trm", oElement.getElementsByTagName("save_trm").item(0).getTextContent());
-									option.put("intr_rate", oElement.getElementsByTagName("intr_rate").item(0).getTextContent());
-									option.put("intr_rate2", oElement.getElementsByTagName("intr_rate2").item(0).getTextContent());
-								
-									optionList.add(option);
+									int fixdepositNo = no; 
+									int fixId = j;
+									String intrRateType = getStrData(oElement, "intr_rate_type");
+									String intrRateTypeNm = getStrData(oElement, "intr_rate_type_nm");
+									int saveTrm = getIntData(oElement, "save_trm");
+									double intrRate = getDoubleData(oElement, "intr_rate");
+									double intrRate2 = getDoubleData(oElement, "intr_rate2");
+									
+									fixDepositOption = new FixDepositOption(fixdepositNo, fixId, intrRateType, intrRateTypeNm, saveTrm, intrRate, intrRate2);
 								}
+								no++;
+								optionList.add(fixDepositOption);
 							}
-							map.put("optionList",optionList);
-							
-							//System.out.println(map.toString());
-							//log.info("API야!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-							list.add(map);
-						}
-						
-						if(j == count + nList.getLength() - 1 ) {
-							count = j+1;
-							break;
-						}
+							FixDeposit fixDeposit = new FixDeposit(fixdepositId, dclsMonth, finCoNo, korCoNm, finPrdtCd, finPrdtNm, joinWay, mtrtInt, spclCnd, joinDeny, joinMember, etcNote, maxLimit, dclsStrtDay, dclsEndDay, finCoSubmDay, optionList);
+							list.add(fixDeposit);
+							if(j == count + nList.getLength() - 1 ) {
+								count = j+1;
+								break;
+							}
+						}					
 					}
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				
-				System.out.println("어디지");
 				System.out.println("pageNo : " + pageNo);
 				if(i != 2) {
 					if(pageNo == 1) { //마지막 페이지
@@ -153,5 +147,29 @@ public class FixDeposit {
 			}
 		}
 		return list;
+	}
+	
+	private static String getStrData(Element eElement, String tagName) {
+		try {
+			return eElement.getElementsByTagName(tagName).item(0).getTextContent();
+		} catch (Exception e) {
+			return "-";
+		}
+	}
+
+	private static int getIntData(Element eElement, String tagName) {
+		try {
+			return Integer.parseInt(eElement.getElementsByTagName(tagName).item(0).getTextContent());
+		} catch (Exception e) {
+			return 0;
+		}
+	}
+	
+	private static double getDoubleData(Element eElement, String tagName) {
+		try {
+			return Double.parseDouble(eElement.getElementsByTagName(tagName).item(0).getTextContent());
+		} catch (Exception e) {
+			return 0;
+		}
 	}
 }

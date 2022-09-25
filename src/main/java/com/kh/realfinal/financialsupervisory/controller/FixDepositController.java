@@ -1,13 +1,15 @@
 package com.kh.realfinal.financialsupervisory.controller;
 
 import java.util.List;
-import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.kh.realfinal.financialsupervisory.api.FixDeposit;
+
+import com.kh.realfinal.financialsupervisory.api.FixDepositAPI;
 import com.kh.realfinal.financialsupervisory.model.service.FixDepositService;
+import com.kh.realfinal.financialsupervisory.model.vo.FixDeposit;
 
 @Controller
 public class FixDepositController {
@@ -17,12 +19,12 @@ public class FixDepositController {
 	
 	@RequestMapping("/fixdeposit/insert.do")
 	public String initFixDepositData(Model model) throws Exception {
-		List<Map<String,Object>> list = FixDeposit.callFixDepositByXML();
+		List<FixDeposit> list = FixDepositAPI.callFixDepositByXML();
 		//System.out.println(list.toString());
 		int result = 0;
 		
-		for (Map map : list) {
-			result = service.saveFixDeposit(map);
+		for (FixDeposit fix : list) {
+			result = service.saveFixDeposit(fix);
 		}
 		
 		if (result > 0) {
