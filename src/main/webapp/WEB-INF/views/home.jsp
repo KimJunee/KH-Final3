@@ -46,6 +46,9 @@
 <h2><a href="${path}/AptLttot/insert.do">청약 - APT분양정보 상세 및 APT 분양정보 주택형별 상세 DB INSERT</a></h2>
 
 <h2><a href="${path}/mortgage/insert.do"> 주택담보대출 DB INSERT</a></h2>
+
+<%-- <h2><a href="${path}/cardcut/insert.do"> 카드한컷 DB INSERT</a></h2>--%>
+
 <iframe id="ytplayer" type="text/html" width="720" height="405"
 src="https://www.youtube.com/embed/qZVTkn2NjS0/default"
 frameborder="0" allowfullscreen></iframe>
