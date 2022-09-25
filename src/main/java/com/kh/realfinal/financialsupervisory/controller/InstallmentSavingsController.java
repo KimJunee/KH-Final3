@@ -1,13 +1,15 @@
 package com.kh.realfinal.financialsupervisory.controller;
 
 import java.util.List;
-import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.kh.realfinal.financialsupervisory.api.InstallmentSavings;
+
+import com.kh.realfinal.financialsupervisory.api.InstallmentSavingsAPI;
 import com.kh.realfinal.financialsupervisory.model.service.InstallmentSavingsService;
+import com.kh.realfinal.financialsupervisory.model.vo.InstallmentSavings;
 
 @Controller
 public class InstallmentSavingsController {
@@ -17,12 +19,12 @@ public class InstallmentSavingsController {
 	
 	@RequestMapping("/installmentSavings/insert.do")
 	public String initInstallmentSavingsData(Model model) throws Exception {
-		List<Map<String,Object>> list = InstallmentSavings.callInstallmentSavingsByXML();
+		List<InstallmentSavings> list = InstallmentSavingsAPI.callInstallmentSavingsByXML();
 		//System.out.println(list.toString());
 		int result = 0;
 		
-		for (Map map : list) {
-			result = service.saveInstallmentSavings(map);
+		for (InstallmentSavings install : list) {
+			result = service.saveInstallmentSavings(install);
 		}
 		
 		if (result > 0) {

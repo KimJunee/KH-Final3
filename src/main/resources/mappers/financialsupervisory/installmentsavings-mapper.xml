@@ -4,36 +4,64 @@
 <!-- 매퍼를 쓸려면 이렇게 가야된다. -->
 <!-- com.kh.realfinal.financialterm.model.mapper.FinancialtermMapper.insertFinancialterm -->
 <mapper	namespace="com.kh.realfinal.financialsupervisory.model.mapper.InstallmentSavingsMapper">
+		<resultMap type="InstallmentSavings" id="installmentResultMap">
+		<id property="inssvnId" column="INSSVN_ID"/>
+		<result property="dclsMonth" column="INSSVN_DCLS_MONTH"/>
+		<result property="finCoNo" column="INSSVN_FIN_CO_NO"/>
+		<result property="korCoNm" column="INSSVN_KOR_CO_NM"/>
+		<result property="finPrdtCd" column="INSSVN_FIN_PRDT_CD"/>
+		<result property="finPrdtNm" column="INSSVN_FIN_PRDT_NM"/>
+		<result property="joinWay" column="INSSVN_JOIN_WAY"/>
+		<result property="mtrtInt" column="INSSVN_MTRT_INT"/>
+		<result property="spclCnd" column="INSSVN_SPCL_CND"/>
+		<result property="joinDeny" column="INSSVN_JOIN_DENY"/>
+		<result property="joinMember" column="INSSVN_JOIN_MEMBER"/>
+		<result property="etcNote" column="INSSVN_ETC_NOTE"/>
+		<result property="maxLimit" column="INSSVN_MAX_LIMIT"/>
+		<result property="dclsStrtDay" column="INSSVN_DCLS_STRT_DAY"/>
+		<result property="dclsEndDay" column="INSSVN_DCLS_END_DAY"/>
+		<result property="finCoSubmDay" column="INSSVN_FIN_CO_SUBM_DAY"/>
+	</resultMap>
+	
+	<resultMap type="InstallmentSavings" id="installListResultMap" extends="installmentResultMap">
+		<collection property="installOptionList" javaType="arrayList" resultMap="installOptionMap"/>
+	</resultMap>
+	
+	<resultMap type="InstallmentSavingsOption" id="installOptionMap">
+		<id property="inssvnNo" column="INSSVN_NO"/>
+		<result property="insId" column="INSSVN_ID"/>
+		<result property="intrRateType" column="INTR_RATE_TYPE"/>
+		<result property="intrRateTypeNm" column="INTR_RATE_TYPE_NM"/>
+		<result property="rsrvType" column="RSRV_TYPE"/>
+		<result property="rsrvTypeNm" column="RSRV_TYPE_NM"/>
+		<result property="saveTrm" column="SAVE_TRM"/>
+		<result property="intrRate" column="INTR_RATE"/>
+		<result property="intrRate2" column="INTR_RATE2"/>
+	</resultMap>
+
+
 	<insert id="insertInstallmentSavings"
-		parameterType="hashMap">
-		INSERT INTO INSTLSAVING(
-		
-			INSSVN_ID, INSSVN_TOP_FIN_GRP_NO, INSSVN_DCLS_MONTH, INSSVN_FIN_CO_NO, INSSVN_KOR_CO_NM, 
+		parameterType="InstallmentSavings">
+		INSERT INTO INSTLSAVING(		
+			INSSVN_ID, INSSVN_DCLS_MONTH, INSSVN_FIN_CO_NO, INSSVN_KOR_CO_NM, 
 			INSSVN_FIN_PRDT_CD, INSSVN_FIN_PRDT_NM, INSSVN_JOIN_WAY, 
 			INSSVN_MTRT_INT, INSSVN_SPCL_CND, INSSVN_JOIN_DENY, INSSVN_JOIN_MEMBER, INSSVN_ETC_NOTE, INSSVN_MAX_LIMIT, 
-			INSSVN_DCLS_STRT_DAY, INSSVN_DCLS_END_DAY, INSSVN_FIN_CO_SUBM_DAY, 
-			INSSVN_INTR_RATE_TYPE, INSSVN_INTR_RATE_TYPE_NM, INSSVN_RSRV_TYPE, INSSVN_RSRV_TYPE_NM, 
-			INSSVN_SAVE_TRM, INSSVN_INTR_RATE, INSSVN_INTR_RATE2
-		) VALUES
-		<!-- 중복컬럼 -->
-			(#{inssvn_id}, #{topFinGrpNo}, #{dcls_month}, #{fin_co_no}, #{kor_co_nm}, 
-			#{fin_prdt_cd}, #{fin_prdt_nm}, #{join_way},
-			<!-- 비중복컬럼 -->
-			#{mtrt_int}, #{spcl_cnd}, #{join_deny}, #{join_member}, #{etc_note}, #{max_limit}, 
-			<!-- 중복컬럼 -->
-			#{dcls_strt_day}, #{dcls_end_day}, #{fin_co_subm_day},
-			<!-- 옵션 -->
-			#{intr_rate_type}, #{intr_rate_type_nm}, #{rsrv_type}, #{rsrv_type_nm}, #{save_trm}, #{intr_rate}, #{intr_rate2})
+			INSSVN_DCLS_STRT_DAY, INSSVN_DCLS_END_DAY, INSSVN_FIN_CO_SUBM_DAY
+		) VALUES(
+			#{inssvnId}, #{dclsMonth}, #{finCoNo}, #{korCoNm}, #{finPrdtCd}, #{finPrdtNm}, 
+			#{joinWay}, #{mtrtInt}, #{spclCnd}, #{joinDeny}, #{joinMember}, #{etcNote}, 
+			#{maxLimit}, #{dclsStrtDay}, #{dclsEndDay}, #{finCoSubmDay}
+		)
 	</insert>
 	
 	<insert id="insertInstallmentSavingsOption"
-		parameterType="hashMap">
+		parameterType="InstallmentSavingsOption">
 		INSERT INTO INSSVN_OPTION(
-			INSSVN_ID, INTR_RATE_TYPE, INTR_RATE_TYPE_NM, RSRV_TYPE, 
+			INSSVN_NO, INSSVN_ID, INTR_RATE_TYPE, INTR_RATE_TYPE_NM, RSRV_TYPE, 
 			RSRV_TYPE_NM, SAVE_TRM, INTR_RATE, INTR_RATE2
 		) VALUES(
-			#{inssvn_id}, #{intr_rate_type}, #{intr_rate_type_nm}, #{rsrv_type}, 
-			#{rsrv_type_nm}, #{save_trm}, #{intr_rate}, #{intr_rate2}
+			#{inssvnNo}, #{insId}, #{intrRateType}, #{intrRateTypeNm}, 
+			#{rsrvType}, #{rsrvTypeNm}, #{saveTrm}, #{intrRate}, #{intrRate2}
 		)
 	</insert>
 </mapper>
