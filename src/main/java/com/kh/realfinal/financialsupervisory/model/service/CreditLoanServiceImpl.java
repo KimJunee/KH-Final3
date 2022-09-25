@@ -1,11 +1,14 @@
 package com.kh.realfinal.financialsupervisory.model.service;
 
 import java.util.List;
-import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import com.kh.realfinal.financialsupervisory.model.mapper.CreditLoanMapper;
+import com.kh.realfinal.financialsupervisory.model.vo.CreditLoan;
+import com.kh.realfinal.financialsupervisory.model.vo.CreditLoanOption;
 
 @Service
 public class CreditLoanServiceImpl implements CreditLoanService{
@@ -15,14 +18,17 @@ public class CreditLoanServiceImpl implements CreditLoanService{
 
 	@Override
 	@Transactional(rollbackFor = Exception.class)
-	public int saveCreditLoan(Map<String, Object> map) throws Exception {
-		int result = 0;
-		result = mapper.insertCreditLoan(map);
-		System.out.println(map.get("creditloan_id"));
-		List<Map<String,Object>> optionList = (List<Map<String, Object>>) map.get("optionList");
-		
-		for (Map<String, Object> option : optionList) {
-			mapper.insertCreditLoanOption(option);
+	public int saveCreditLoan(CreditLoan creditLoan) throws Exception {
+		List<CreditLoanOption> options = creditLoan.getCreditOptionList();
+		for(CreditLoanOption opt : options) {
+			int result = mapper.insertCreditLoanOption(opt);
+			if(result == 0) {
+				throw new Exception();
+			}
+		}
+		int result = mapper.insertCreditLoan(creditLoan);
+		if(result == 0) {
+			throw new Exception();
 		}
 		return result;
 	}

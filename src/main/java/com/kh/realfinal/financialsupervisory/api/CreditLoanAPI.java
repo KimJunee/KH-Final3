@@ -6,32 +6,36 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
+import com.kh.realfinal.financialsupervisory.model.vo.CreditLoan;
+import com.kh.realfinal.financialsupervisory.model.vo.CreditLoanOption;
+
 // 개인신용대출 API
-public class CreditLoan {
+public class CreditLoanAPI {
 	
 	public static String Key = "8e90a3481bea63b624725bdad9c42e9a";
 	public static String CREDIT_LOAN_XML_URL = "http://finlife.fss.or.kr/finlifeapi/creditLoanProductsSearch.xml";
 
 	public static void main(String[] args) {
 
-		CreditLoan.callCreditLoanByXML();
+		CreditLoanAPI.callCreditLoanByXML();
 		System.out.println("-----------------------------------------");
 	}
 
-	public static List<Map<String,Object>>callCreditLoanByXML() {
-		List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
+	public static List<CreditLoan> callCreditLoanByXML() {
+		List<CreditLoan> list = new ArrayList<>();
 		String[] topFinGrpNo = {"020000", "030200", "030300", "050000", "060000"};
 		int pageNo = 1;
 		int count = 0;
+		int no = 1;
 		for (int i = 0; i < topFinGrpNo.length; i++) {
 			System.out.println("topFingrpNo >> " + i);
 			String topFinGrp = topFinGrpNo[i];
@@ -76,33 +80,29 @@ public class CreditLoan {
 					}
 					System.out.println("count !! : "+count);
 					for (int j = count ; j < count + nList.getLength(); j++) {
-						//System.out.println("for J >> "+j);
-						//System.out.println("for J >> "+(j - count));
 						Node node = nList.item(j-count);
 	
 						if (node.getNodeType() == Node.ELEMENT_NODE) {
-							Map<String,Object> map = new HashMap<String,Object>();
 							Element eElement = (Element) node;
 							
-							map.put("dcls_month", eElement.getElementsByTagName("dcls_month").item(0).getTextContent());
-							map.put("fin_co_no", eElement.getElementsByTagName("fin_co_no").item(0).getTextContent());
-							map.put("kor_co_nm", eElement.getElementsByTagName("kor_co_nm").item(0).getTextContent());
-							map.put("fin_prdt_cd", eElement.getElementsByTagName("fin_prdt_cd").item(0).getTextContent());
-							map.put("fin_prdt_nm", eElement.getElementsByTagName("fin_prdt_nm").item(0).getTextContent());
-							map.put("join_way", eElement.getElementsByTagName("join_way").item(0).getTextContent());
-							map.put("crdt_prdt_type", eElement.getElementsByTagName("crdt_prdt_type").item(0).getTextContent());
-							map.put("crdt_prdt_type_nm", eElement.getElementsByTagName("crdt_prdt_type_nm").item(0).getTextContent());
-							map.put("cb_name", eElement.getElementsByTagName("cb_name").item(0).getTextContent());
-							map.put("dcls_strt_day", eElement.getElementsByTagName("dcls_strt_day").item(0).getTextContent());
-							map.put("dcls_end_day", eElement.getElementsByTagName("dcls_end_day").item(0).getTextContent());
-							map.put("fin_co_subm_day", eElement.getElementsByTagName("fin_co_subm_day").item(0).getTextContent());
-							
-							map.put("top_find_grp_no",topFinGrp);
-							map.put("creditloan_id", j);
-							
+							int creditId = j;
+							String dclsMonth = getStrData(eElement, "dcls_month");
+							int finCoNo = getIntData(eElement, "fin_co_no");
+							String korCoNm = getStrData(eElement, "kor_co_nm");
+							String finPrdtCd = getStrData(eElement, "fin_prdt_cd");
+							String finPrdtNm = getStrData(eElement, "fin_prdt_nm");
+							String joinWay = getStrData(eElement, "join_way");
+							int crdtPrdtType = getIntData(eElement, "crdt_prdt_type");
+							String crdtPrdtTypeNm = getStrData(eElement, "crdt_prdt_type_nm");
+							String cbName = getStrData(eElement, "cb_name");
+							String dclsStrtDay = getStrData(eElement, "dcls_strt_day");
+							String dclsEndDay = getStrData(eElement, "dcls_end_day");
+							String finCoSubmDay = getStrData(eElement, "fin_co_subm_day");
+										
 							NodeList nOption = eElement.getElementsByTagName("option");
 							
-							List<Map<String,Object>> optionList = new ArrayList<Map<String,Object>>();
+							List<CreditLoanOption> optionList = new ArrayList<>();
+							CreditLoanOption creditOption = null;
 							for (int k = 0; k < nOption.getLength(); k++) {
 								Node oNode = nOption.item(k);
 								if (oNode.getNodeType() == Node.ELEMENT_NODE) {
@@ -122,14 +122,31 @@ public class CreditLoan {
 									option.put("crdt_grad_13", oElement.getElementsByTagName("crdt_grad_13").item(0).getTextContent());
 									option.put("crdt_grad_avg", oElement.getElementsByTagName("crdt_grad_avg").item(0).getTextContent());
 								
-									optionList.add(option);
+									int creditNo = no;	               
+									int creId = j;               
+									String crdtLendRateType = getStrData(eElement, "crdt_lend_rate_type");
+									String crdtLendTypeNm = getStrData(eElement, "crdt_lend_rate_type_nm");
+									double crdtGrad1 = getDoubleData(eElement, "crdt_grad_1");	       
+									double crdtGrad4 = getDoubleData(eElement, "crdt_grad_4");	       
+									double crdtGrad5 = getDoubleData(eElement, "crdt_grad_5");	       
+									double crdtGrad6 = getDoubleData(eElement, "crdt_grad_6");	       
+									double crdtGrad10 = getDoubleData(eElement, "crdt_grad_10");       
+									double crdtGrad11 = getDoubleData(eElement, "crdt_grad_11");	       
+									double crdtGrad12 = getDoubleData(eElement, "crdt_grad_12");	       
+									double crdtGrad13 = getDoubleData(eElement, "crdt_grad_13");       
+									double crdtGradAvg = getDoubleData(eElement, "crdt_grad_avg");	
+									
+									creditOption = new CreditLoanOption(creditNo, creId, crdtLendRateType, crdtLendTypeNm, crdtGrad1, crdtGrad4, crdtGrad5, crdtGrad6, crdtGrad10, crdtGrad11, crdtGrad12, crdtGrad13, crdtGradAvg);
 								}
+								no++;
+								optionList.add(creditOption);
 							}
-							map.put("optionList",optionList);
-							
-							//System.out.println(map.toString());
-							//log.info("API야!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-							list.add(map);
+							CreditLoan creditLoan = new CreditLoan(creditId, dclsMonth, finCoNo, korCoNm, finPrdtCd, finPrdtNm, joinWay, crdtPrdtType, crdtPrdtTypeNm, cbName, dclsStrtDay, dclsEndDay, finCoSubmDay, optionList);
+							list.add(creditLoan);
+							if(j == count + nList.getLength() - 1 ) {
+								count = j+1;
+								break;
+							}
 						}
 						
 						if(j == count + nList.getLength() - 1 ) {
@@ -140,8 +157,7 @@ public class CreditLoan {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				
-				System.out.println("어디지");
+
 				System.out.println("pageNo : " + pageNo);
 				if(i != 4) {
 					if(pageNo == 1) { //마지막 페이지
@@ -156,5 +172,29 @@ public class CreditLoan {
 			}
 		}
 		return list;
+	}
+	
+	private static String getStrData(Element eElement, String tagName) {
+		try {
+			return eElement.getElementsByTagName(tagName).item(0).getTextContent();
+		} catch (Exception e) {
+			return "-";
+		}
+	}
+
+	private static int getIntData(Element eElement, String tagName) {
+		try {
+			return Integer.parseInt(eElement.getElementsByTagName(tagName).item(0).getTextContent());
+		} catch (Exception e) {
+			return 0;
+		}
+	}
+	
+	private static double getDoubleData(Element eElement, String tagName) {
+		try {
+			return Double.parseDouble(eElement.getElementsByTagName(tagName).item(0).getTextContent());
+		} catch (Exception e) {
+			return 0;
+		}
 	}
 }

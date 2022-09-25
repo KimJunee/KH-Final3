@@ -1,7 +1,7 @@
 package com.kh.realfinal.financialsupervisory.model.service;
 
-import java.util.Map;
+import com.kh.realfinal.financialsupervisory.model.vo.CreditLoan;
 
 public interface CreditLoanService {
-	int saveCreditLoan(Map<String,Object> map) throws Exception;
+	int saveCreditLoan(CreditLoan creditLoan) throws Exception;
 }

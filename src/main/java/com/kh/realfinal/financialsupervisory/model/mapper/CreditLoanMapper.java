@@ -1,10 +1,12 @@
 package com.kh.realfinal.financialsupervisory.model.mapper;
 
-import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
+
+import com.kh.realfinal.financialsupervisory.model.vo.CreditLoan;
+import com.kh.realfinal.financialsupervisory.model.vo.CreditLoanOption;
 
 @Mapper
 public interface CreditLoanMapper {
-	int insertCreditLoan(Map<String,Object> map);
-	int insertCreditLoanOption(Map<String,Object> map);
+	int insertCreditLoan(CreditLoan creditLoan);
+	int insertCreditLoanOption(CreditLoanOption options);
 }
