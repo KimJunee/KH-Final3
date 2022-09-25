@@ -1,13 +1,15 @@
 package com.kh.realfinal.financialsupervisory.controller;
 
 import java.util.List;
-import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.kh.realfinal.financialsupervisory.api.LeaseLoan;
+
+import com.kh.realfinal.financialsupervisory.api.LeaseLoanAPI;
 import com.kh.realfinal.financialsupervisory.model.service.LeaseLoanService;
+import com.kh.realfinal.financialsupervisory.model.vo.LeaseLoan;
 
 @Controller
 public class LeaseLoanController {
@@ -17,12 +19,12 @@ public class LeaseLoanController {
 	
 	@RequestMapping("/leaseloan/insert.do")
 	public String initLeaseLoanData(Model model) throws Exception {
-		List<Map<String,Object>> list = LeaseLoan.callLeaseLoanByXML();
+		List<LeaseLoan> list = LeaseLoanAPI.callLeaseLoanByXML();
 		//System.out.println(list.toString());
 		int result = 0;
 		
-		for (Map map : list) {
-			result = service.saveLeaseLoan(map);
+		for (LeaseLoan ll : list) {
+			result = service.saveLeaseLoan(ll);
 		}
 		
 		if (result > 0) {
