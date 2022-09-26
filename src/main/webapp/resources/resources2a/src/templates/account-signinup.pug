@@ -1,0 +1,94 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var pageTitle = 'Account - Sign In / Up'
+
+
+//- Page Content
+block content
+  .d-flex.flex-column.position-relative.h-100.pt-5
+
+    // Home button
+    a(href='index.html' data-bs-toggle='tooltip' data-bs-placement='left' title='Back to home').text-nav.btn.btn-icon.bg-light.border.rounded-circle.position-absolute.top-0.end-0.zindex-2.p-0.mt-3.me-3.mt-sm-4.me-sm-4
+      i.ai-home
+    
+    .container.mt-auto
+      .row.align-items-center
+
+        // Sign in form
+        .col-md-6.mb-5.mb-md-0
+          .card.dark-mode.border-0.bg-primary.py-md-3.py-lg-4.px-lg-4.px-xl-5
+            .card-body
+              h1.py-2.pb-lg-3 Sign in to Around
+              form
+                .pb-3.mb-3
+                  .position-relative
+                    i.ai-mail.fs-lg.position-absolute.top-50.start-0.translate-middle-y.text-light.opacity-80.ms-3
+                    input(type='email' placeholder='Email address' required).form-control.form-control-lg.ps-5
+                .mb-4
+                  .position-relative
+                    i.ai-lock-closed.fs-lg.position-absolute.top-50.start-0.translate-middle-y.text-light.opacity-80.ms-3
+                    .password-toggle
+                      input(type='password' placeholder='Password' required).form-control.form-control-lg.ps-5
+                      label(aria-label='Show/hide password').password-toggle-btn
+                        input(type='checkbox').password-toggle-check
+                        span.password-toggle-indicator
+                .d-flex.flex-wrap.align-items-center.justify-content-between.pb-4
+                  form-check.my-1
+                    input(type='checkbox')#keep-signedin.form-check-input
+                    label(for='keep-signedin').form-check-label.ms-1 Keep me signed in
+                  a(href='account-password-recovery.html').text-light.fs-sm.fw-semibold.text-decoration-none.my-1 Forgot password?
+                button(type='submit').btn.btn-lg.btn-light.w-100.mb-4 Sign in
+                h2.h6.text-center.pt-3.pt-lg-4.mb-4 Or sign in with your social account
+                .row.row-cols-1.row-cols-sm-2.gy-3.pb-2
+                  .col
+                    a(href='#').btn.btn-icon.btn-outline-secondary.btn-google.btn-lg.w-100
+                      i.ai-google.fs-xl.me-2
+                      | Google
+                  .col
+                    a(href='#').btn.btn-icon.btn-outline-secondary.btn-facebook.btn-lg.w-100
+                      i.ai-facebook.fs-xl.me-2
+                      | Facebook
+
+
+        .col-md-6.col-xl-5.offset-xl-1
+          .ps-md-3.ps-lg-5.ps-xl-0
+            h2.h1.pb-2.pb-lg-3 No account? Sign up
+            form(novalidate).needs-validation
+              .row.row-cols-1.row-cols-sm-2.row-cols-md-1.row-cols-lg-2
+                .col.mb-4
+                  input(type='text' placeholder='Your name' required).form-control.form-control-lg
+                .col.mb-4
+                  input(type='email' placeholder='Email address' required).form-control.form-control-lg
+              .password-toggle.mb-4
+                input(type='password' placeholder='Password' required).form-control.form-control-lg
+                label(aria-label='Show/hide password').password-toggle-btn
+                  input(type='checkbox').password-toggle-check
+                  span.password-toggle-indicator
+              .password-toggle.mb-4
+                input(type='password' placeholder='Confirm password' required).form-control.form-control-lg
+                label(aria-label='Show/hide password').password-toggle-btn
+                  input(type='checkbox').password-toggle-check
+                  span.password-toggle-indicator
+              .pb-4
+                .form-check.my-2
+                  input(type='checkbox')#terms.form-check-input
+                  label(for='terms').form-check-label.ms-1 I agree to <a href="#">Terms &amp; Conditions</a>
+              button(type='submit').btn.btn-lg.btn-primary.w-100.mb-4 Sign up
+              h2.h6.text-center.pt-3.pt-lg-4.mb-4 Or sign in with your social account
+              .row.row-cols-1.row-cols-sm-2.gy-3
+                .col
+                  a(href='#').btn.btn-icon.btn-outline-secondary.btn-google.btn-lg.w-100
+                    i.ai-google.fs-xl.me-2
+                    | Google
+                .col
+                  a(href='#').btn.btn-icon.btn-outline-secondary.btn-facebook.btn-lg.w-100
+                    i.ai-facebook.fs-xl.me-2
+                    | Facebook
+
+
+    // Copyright
+    .container.fs-sm.pt-5.mt-auto.mb-5
+      span.text-muted &copy; All rights reserved. Made by
+      a(href='https://createx.studio/' target='_blank' rel='noopener').nav-link.d-inline-block.p-0.ms-1 Createx Studio

@@ -1,0 +1,225 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var parentMenu = 'Account'
+  - var pageTitle = 'Job Board | Post Resume - Work Experience'
+  - var bodyClass = 'bg-secondary'
+
+//- Navbar
+block navbar
+  include partials/navbar-job-board
+
+//- Page Content
+block content
+
+  // Page container
+  .container.mt-5.mb-md-4.py-5
+    
+    // Breadcrumb
+    nav(aria-label='Breadcrumb').mb-3.mb-md-4.pt-md-3
+      ol.breadcrumb
+        li.breadcrumb-item
+          a(href='job-board-home-v1.html') Home
+        li(aria-current='page').breadcrumb-item.active
+          | Post resume
+
+
+    // Page content
+    .row.justify-content-center.pb-sm-2
+      .col-lg-11.col-xl-10
+
+        // Page title
+        h1.h2.text-center.pb-4.mb-3 Create online resume
+        
+        // Steps
+        .bg-light.rounded-3.py-4.px-md-4.mb-3
+          .steps.pt-4.pb-1
+            .step.active
+              .step-progress
+                span.step-progress-start
+                span.step-progress-end
+                span.step-number 1
+              .step-label Basic info
+            .step.active
+              .step-progress
+                span.step-progress-start
+                span.step-progress-end
+                span.step-number 2
+              .step-label Education
+            .step.active
+              .step-progress
+                span.step-progress-start
+                span.step-progress-end
+                span.step-number 3
+              .step-label Experience
+            .step
+              .step-progress
+                span.step-progress-start
+                span.step-progress-end
+                span.step-number 4
+              .step-label Skills
+            .step
+              .step-progress
+                span.step-progress-start
+                span.step-progress-end
+                span.step-number 5
+              .step-label Review
+
+
+        // Step 3: Work Experience
+        .bg-light.rounded-3.p-4.p-md-5.mb-3
+          h2.h4.mb-4
+            i.fi-briefcase.text-primary.fs-5.mt-n1.me-2.pe-1
+            | Work experience
+          .alert.alert-info.mb-4(role='alert')
+            .d-flex
+              i.fi-alert-circle.me-2.me-sm-3
+              p.fs-sm.mb-1 Filling out 2 or more work experiences will double your chances of being contacted by an employer.
+          .form-check.mb-4
+            input(type='checkbox' id='no-experience').form-check-input
+            label(for='no-experience').form-check-label
+              | I don't have any work experience yet
+          label(for='pr-title').form-label
+            | Job title <span class='text-danger'>*</span>
+          input(type='text' id='pr-title' placeholder='Enter job title' required).form-control.form-control-lg.mb-4
+          .row
+            .col-sm-6.mb-4
+              label(for='pr-company').form-label
+                | Company name <span class='text-danger'>*</span>
+              input(type='text' id='pr-company' placeholder='Enter company name' required).form-control.form-control-lg
+            .col-sm-6.mb-4
+              label(for='pr-activity').form-label
+                | Field of activity <span class='text-danger'>*</span>
+              select(id='pr-activity' required).form-select.form-select-lg
+                option(value='' disabled selected) Choose field
+                option(value='Accounting') Accounting
+                option(value='Marketing & PR') Marketing &amp; PR
+                option(value='Medicine') Medicine
+                option(value='Agriculture') Agriculture
+                option(value='Internet technology') Internet technology
+                option(value='Security') Security
+                option(value='Management') Management
+                option(value='HoReCa') HoReCa
+                option(value='Insurance') Insurance
+            .col-sm-6.mb-4
+              label(for='pr-country').form-label Country
+              select(id='pr-country').form-select.form-select-lg
+                option(value='' disabled selected) Choose country
+                option(value='Australia') Australia
+                option(value='Belgium') Belgium
+                option(value='Canada') Canada
+                option(value='China') China
+                option(value='Denmark') Denmark
+                option(value='France') France
+                option(value='Germany') Germany
+                option(value='Japan') Japan
+                option(value='UK') UK
+                option(value='USA') USA
+            .col-sm-6.mb-4
+              label(for='pr-city').form-label City
+              select(id='pr-city').form-select.form-select-lg
+                option(value='' disabled selected) Choose city
+                option(value='Beijing') Beijing
+                option(value='Berlin') Berlin
+                option(value='Brussels') Brussels
+                option(value='Copenhagen') Copenhagen
+                option(value='London') London
+                option(value='Ottawa') Ottawa
+                option(value='Paris') Paris
+                option(value='Sydney') Sydney
+                option(value='Tokyo') Tokyo
+                option(value='Washington') Washington
+            .col-lg-6.mb-4
+              label(for='pr-period-from').form-label
+                | Time period from <span class='text-danger'>*</span>
+              .row.gx-2.gx-sm-3
+                .col-7.col-sm-8
+                  select(id='pr-period-from' required).form-select.form-select-lg
+                    option(value='' disabled selected) Month
+                    option(value='January') January
+                    option(value='February') February
+                    option(value='March') March
+                    option(value='April') April
+                    option(value='May') May
+                    option(value='June') June
+                    option(value='July') July
+                    option(value='August') August
+                    option(value='September') September
+                    option(value='October') October
+                    option(value='November') November
+                    option(value='December') December
+                .col-5.col-sm-4
+                  select(required).form-select.form-select-lg
+                    option(value='' disabled selected) Year
+                    option(value='2021') 2021
+                    option(value='2020') 2020
+                    option(value='2019') 2019
+                    option(value='2018') 2018
+                    option(value='2017') 2017
+                    option(value='2016') 2016
+                    option(value='2015') 2015
+                    option(value='2014') 2014
+                    option(value='2013') 2013
+                    option(value='2012') 2012
+                    option(value='2011') 2011
+                    option(value='2010') 2010
+            .col-lg-6.mb-4
+              label(for='pr-period-to').form-label
+                | To <span class='text-danger'>*</span>
+              .row.gx-2.gx-sm-3
+                .col-7.col-sm-8
+                  select(id='pr-period-to' required).form-select.form-select-lg
+                    option(value='' disabled selected) Month
+                    option(value='January') January
+                    option(value='February') February
+                    option(value='March') March
+                    option(value='April') April
+                    option(value='May') May
+                    option(value='June') June
+                    option(value='July') July
+                    option(value='August') August
+                    option(value='September') September
+                    option(value='October') October
+                    option(value='November') November
+                    option(value='December') December
+                .col-5.col-sm-4
+                  select(required).form-select.form-select-lg
+                    option(value='' disabled selected) Year
+                    option(value='2021') 2021
+                    option(value='2020') 2020
+                    option(value='2019') 2019
+                    option(value='2018') 2018
+                    option(value='2017') 2017
+                    option(value='2016') 2016
+                    option(value='2015') 2015
+                    option(value='2014') 2014
+                    option(value='2013') 2013
+                    option(value='2012') 2012
+                    option(value='2011') 2011
+                    option(value='2010') 2010
+          .form-check.mb-4
+            input(type='checkbox' id='still-work').form-check-input
+            label(for='still-work').form-check-label
+              | I currently work here
+          .mb-4
+            label(for='pr-description').form-label Description
+            textarea(rows='5' id='pr-description' placeholder='Describe your position and any significant accomplishments').form-control
+            .form-text.pt-1 8,000 characters left
+          button(type='button').btn.btn-link.btn-lg.text-primary.py-2.px-0.mb-md-n2
+            i.fi-plus.fs-sm.me-2
+            | Add experience
+
+        // Navigation
+        .d-flex.flex-column.flex-sm-row.bg-light.rounded-3.p-4.px-md-5
+          a(href='job-board-post-resume-2.html').btn.btn-outline-primary.btn-lg.rounded-pill.mb-3.mb-sm-0
+            i.fi-chevron-left.fs-sm.me-2
+            | Previous step
+          a(href='job-board-post-resume-4.html').btn.btn-primary.btn-lg.rounded-pill.ms-sm-auto
+            | Next step
+            i.fi-chevron-right.fs-sm.ms-2
+
+
+//- Footer
+block footer
+  include partials/footer-job-board

@@ -1,0 +1,235 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css', 'vendor/prismjs/themes/prism.css', 'vendor/prismjs/plugins/toolbar/prism-toolbar.css', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js', 'vendor/prismjs/components/prism-core.min.js', 'vendor/prismjs/components/prism-markup.min.js', 'vendor/prismjs/components/prism-clike.min.js', 'vendor/prismjs/components/prism-javascript.min.js', 'vendor/prismjs/components/prism-pug.min.js', 'vendor/prismjs/plugins/toolbar/prism-toolbar.min.js', 'vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Accordion'
+  - var pageSubtitle = 'Vertically stacked list of headers that can be clicked to reveal or hide content associated with them.'
+  - var pageTitleLink = {'title': 'Bootstrap docs', 'link': 'https://getbootstrap.com/docs/5.2/components/accordion/'}
+  - var anchorNav = [{'title': 'Default style', 'link': '#accordion-default'}, {'title': 'Alternative style', 'link': '#accordion-alternative'}]
+    
+//- Page Content
+block content
+
+  // Default style
+  section#accordion-default.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Default style
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview1' data-bs-toggle='tab' role='tab' aria-controls='preview1' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview1.tab-pane.fade.show.active(role='tabpanel' style='max-width: 44rem;')
+          #accordionDefault.accordion
+            .accordion-item
+              h3#headingOne.accordion-header
+                button(type='button' data-bs-toggle='collapse' data-bs-target='#collapseOne' aria-expanded='true' aria-controls='collapseOne').accordion-button Accordion Item #1
+              #collapseOne.accordion-collapse.collapse.show(aria-labelledby='headingOne' data-bs-parent='#accordionDefault')
+                .accordion-body.fs-sm
+                  | This is the first item's accordion body. It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+            .accordion-item
+              h3#headingTwo.accordion-header
+                button(type='button' data-bs-toggle='collapse' data-bs-target='#collapseTwo' aria-expanded='false' aria-controls='collapseTwo').accordion-button.collapsed Accordion Item #2
+              #collapseTwo.accordion-collapse.collapse(aria-labelledby='headingTwo' data-bs-parent='#accordionDefault')
+                .accordion-body.fs-sm
+                  | This is the second item's accordion body. It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+            .accordion-item
+              h3#headingThree.accordion-header
+                button(type='button' data-bs-toggle='collapse' data-bs-target='#collapseThree' aria-expanded='false' aria-controls='collapseThree').accordion-button.collapsed Accordion Item #3
+              #collapseThree.accordion-collapse.collapse(aria-labelledby='headingThree' data-bs-parent='#accordionDefault')
+                .accordion-body.fs-sm
+                  | This is the third item's accordion body. It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+        #html1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Default accordion --&gt;
+              &lt;div class=&quot;accordion&quot; id=&quot;accordionDefault&quot;&gt;
+
+                &lt;!-- Item --&gt;
+                &lt;div class=&quot;accordion-item&quot;&gt;
+                  &lt;h3 class=&quot;accordion-header&quot; id=&quot;headingOne&quot;&gt;
+                    &lt;button class=&quot;accordion-button&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#collapseOne&quot; aria-expanded=&quot;true&quot; aria-controls=&quot;collapseOne&quot;&gt;Accordion Item #1&lt;/button&gt;
+                  &lt;/h3&gt;
+                  &lt;div class=&quot;accordion-collapse collapse show&quot; id=&quot;collapseOne&quot; aria-labelledby=&quot;headingOne&quot; data-bs-parent=&quot;#accordionDefault&quot;&gt;
+                    &lt;div class=&quot;accordion-body fs-sm&quot;&gt;This is the first item's accordion body. It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element.&lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Item --&gt;
+                &lt;div class=&quot;accordion-item&quot;&gt;
+                  &lt;h3 class=&quot;accordion-header&quot; id=&quot;headingTwo&quot;&gt;
+                    &lt;button class=&quot;accordion-button collapsed&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#collapseTwo&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;collapseTwo&quot;&gt;Accordion Item #2&lt;/button&gt;
+                  &lt;/h3&gt;
+                  &lt;div class=&quot;accordion-collapse collapse&quot; id=&quot;collapseTwo&quot; aria-labelledby=&quot;headingTwo&quot; data-bs-parent=&quot;#accordionDefault&quot;&gt;
+                    &lt;div class=&quot;accordion-body fs-sm&quot;&gt;This is the second item's accordion body. It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element.&lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Item --&gt;
+                &lt;div class=&quot;accordion-item&quot;&gt;
+                  &lt;h3 class=&quot;accordion-header&quot; id=&quot;headingThree&quot;&gt;
+                    &lt;button class=&quot;accordion-button collapsed&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#collapseThree&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;collapseThree&quot;&gt;Accordion Item #3&lt;/button&gt;
+                  &lt;/h3&gt;
+                  &lt;div class=&quot;accordion-collapse collapse&quot; id=&quot;collapseThree&quot; aria-labelledby=&quot;headingThree&quot; data-bs-parent=&quot;#accordionDefault&quot;&gt;
+                    &lt;div class=&quot;accordion-body fs-sm&quot;&gt;This is the third item's accordion body. It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element.&lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Default accordion
+              #accordionDefault.accordion
+
+                // Item
+                .accordion-item
+                  h2#headingOne.accordion-header
+                    button(type=&quot;button&quot;, data-bs-toggle=&quot;collapse&quot;, data-bs-target=&quot;#collapseOne&quot;, aria-expanded=&quot;true&quot;, aria-controls=&quot;collapseOne&quot;).accordion-button
+                      | Accordion Item #1
+                  #collapseOne.accordion-collapse.collapse.show(aria-labelledby=&quot;headingOne&quot;, data-bs-parent=&quot;#accordionDefault&quot;)
+                    .accordion-body.fs-sm
+                      | This is the first item's accordion body. It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element.
+                
+                // Item
+                .accordion-item
+                  h2#headingTwo.accordion-header
+                    button(type=&quot;button&quot;, data-bs-toggle=&quot;collapse&quot;, data-bs-target=&quot;#collapseTwo&quot;, aria-expanded=&quot;false&quot;, aria-controls=&quot;collapseTwo&quot;).accordion-button.collapsed
+                      | Accordion Item #2
+                  #collapseTwo.accordion-collapse.collapse(aria-labelledby=&quot;headingTwo&quot;, data-bs-parent=&quot;#accordionDefault&quot;)
+                    .accordion-body.fs-sm
+                      | This is the second item's accordion body. It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element.
+                
+                // Item
+                .accordion-item
+                  h2#headingThree.accordion-header
+                    button(type=&quot;button&quot;, data-bs-toggle=&quot;collapse&quot;, data-bs-target=&quot;#collapseThree&quot;, aria-expanded=&quot;false&quot;, aria-controls=&quot;collapseThree&quot;).accordion-button.collapsed
+                      | Accordion Item #3
+                  #collapseThree.accordion-collapse.collapse(aria-labelledby=&quot;headingThree&quot;, data-bs-parent=&quot;#accordionDefault&quot;)
+                    .accordion-body.fs-sm
+                      | This is the third item's accordion body. It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element.
+
+  // Alternative style
+  section#accordion-alternative.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Alternative style
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview2' data-bs-toggle='tab' role='tab' aria-controls='preview2' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview2.tab-pane.fade.show.active(role='tabpanel' style='max-width: 44rem;')
+          #accordionAlternative.accordion.accordion-alt
+            .accordion-item
+              h3#headingOneAlt.accordion-header
+                button(type='button' data-bs-toggle='collapse' data-bs-target='#collapseOneAlt' aria-expanded='true' aria-controls='collapseOneAlt').accordion-button Accordion Item #1
+              #collapseOneAlt.accordion-collapse.collapse.show(aria-labelledby='headingOneAlt' data-bs-parent='#accordionAlternative')
+                .accordion-body
+                  | This is the first item's accordion body. It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+            .accordion-item
+              h3#headingTwoAlt.accordion-header
+                button(type='button' data-bs-toggle='collapse' data-bs-target='#collapseTwoAlt' aria-expanded='false' aria-controls='collapseTwoAlt').accordion-button.collapsed Accordion Item #2
+              #collapseTwoAlt.accordion-collapse.collapse(aria-labelledby='headingTwoAlt' data-bs-parent='#accordionAlternative')
+                .accordion-body
+                  | This is the second item's accordion body. It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+            .accordion-item
+              h3#headingThreeAlt.accordion-header
+                button(type='button' data-bs-toggle='collapse' data-bs-target='#collapseThreeAlt' aria-expanded='false' aria-controls='collapseThreeAlt').accordion-button.collapsed Accordion Item #3
+              #collapseThreeAlt.accordion-collapse.collapse(aria-labelledby='headingThreeAlt' data-bs-parent='#accordionAlternative')
+                .accordion-body
+                  | This is the third item's accordion body. It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+        #html2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Alternative accordion --&gt;
+              &lt;div class=&quot;accordion accordion-alt&quot; id=&quot;accordionAlternative&quot;&gt;
+
+                &lt;!-- Item --&gt;
+                &lt;div class=&quot;accordion-item&quot;&gt;
+                  &lt;h3 class=&quot;accordion-header&quot; id=&quot;headingOne&quot;&gt;
+                    &lt;button class=&quot;accordion-button&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#collapseOne&quot; aria-expanded=&quot;true&quot; aria-controls=&quot;collapseOne&quot;&gt;Accordion Item #1&lt;/button&gt;
+                  &lt;/h3&gt;
+                  &lt;div class=&quot;accordion-collapse collapse show&quot; id=&quot;collapseOne&quot; aria-labelledby=&quot;headingOne&quot; data-bs-parent=&quot;#accordionAlternative&quot;&gt;
+                    &lt;div class=&quot;accordion-body fs-sm&quot;&gt;This is the first item's accordion body. It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element.&lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Item --&gt;
+                &lt;div class=&quot;accordion-item&quot;&gt;
+                  &lt;h3 class=&quot;accordion-header&quot; id=&quot;headingTwo&quot;&gt;
+                    &lt;button class=&quot;accordion-button collapsed&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#collapseTwo&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;collapseTwo&quot;&gt;Accordion Item #2&lt;/button&gt;
+                  &lt;/h3&gt;
+                  &lt;div class=&quot;accordion-collapse collapse&quot; id=&quot;collapseTwo&quot; aria-labelledby=&quot;headingTwo&quot; data-bs-parent=&quot;#accordionAlternative&quot;&gt;
+                    &lt;div class=&quot;accordion-body fs-sm&quot;&gt;This is the second item's accordion body. It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element.&lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Item --&gt;
+                &lt;div class=&quot;accordion-item&quot;&gt;
+                  &lt;h3 class=&quot;accordion-header&quot; id=&quot;headingThree&quot;&gt;
+                    &lt;button class=&quot;accordion-button collapsed&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#collapseThree&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;collapseThree&quot;&gt;Accordion Item #3&lt;/button&gt;
+                  &lt;/h3&gt;
+                  &lt;div class=&quot;accordion-collapse collapse&quot; id=&quot;collapseThree&quot; aria-labelledby=&quot;headingThree&quot; data-bs-parent=&quot;#accordionAlternative&quot;&gt;
+                    &lt;div class=&quot;accordion-body fs-sm&quot;&gt;This is the third item's accordion body. It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element.&lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Alternative accordion
+              #accordionAlternative.accordion.accordion-alt
+
+                // Item
+                .accordion-item
+                  h2#headingOne.accordion-header
+                    button(type=&quot;button&quot;, data-bs-toggle=&quot;collapse&quot;, data-bs-target=&quot;#collapseOne&quot;, aria-expanded=&quot;true&quot;, aria-controls=&quot;collapseOne&quot;).accordion-button
+                      | Accordion Item #1
+                  #collapseOne.accordion-collapse.collapse.show(aria-labelledby=&quot;headingOne&quot;, data-bs-parent=&quot;#accordionAlternative&quot;)
+                    .accordion-body.fs-sm
+                      | This is the first item's accordion body. It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element.
+                
+                // Item
+                .accordion-item
+                  h2#headingTwo.accordion-header
+                    button(type=&quot;button&quot;, data-bs-toggle=&quot;collapse&quot;, data-bs-target=&quot;#collapseTwo&quot;, aria-expanded=&quot;false&quot;, aria-controls=&quot;collapseTwo&quot;).accordion-button.collapsed
+                      | Accordion Item #2
+                  #collapseTwo.accordion-collapse.collapse(aria-labelledby=&quot;headingTwo&quot;, data-bs-parent=&quot;#accordionAlternative&quot;)
+                    .accordion-body.fs-sm
+                      | This is the second item's accordion body. It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element.
+                
+                // Item
+                .accordion-item
+                  h2#headingThree.accordion-header
+                    button(type=&quot;button&quot;, data-bs-toggle=&quot;collapse&quot;, data-bs-target=&quot;#collapseThree&quot;, aria-expanded=&quot;false&quot;, aria-controls=&quot;collapseThree&quot;).accordion-button.collapsed
+                      | Accordion Item #3
+                  #collapseThree.accordion-collapse.collapse(aria-labelledby=&quot;headingThree&quot;, data-bs-parent=&quot;#accordionAlternative&quot;)
+                    .accordion-body.fs-sm
+                      | This is the third item's accordion body. It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element.

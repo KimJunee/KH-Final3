@@ -24,8 +24,9 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		//test();
-		return "home";
+		return "mypageBoardList";
+		//return "signIn";
+		//return "communityMain";
 	}
-	
 	
 }

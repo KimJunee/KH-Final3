@@ -1,0 +1,615 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css', 'vendor/prismjs/themes/prism.css', 'vendor/prismjs/plugins/toolbar/prism-toolbar.css', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js', 'vendor/prismjs/components/prism-core.min.js', 'vendor/prismjs/components/prism-markup.min.js', 'vendor/prismjs/components/prism-clike.min.js', 'vendor/prismjs/components/prism-javascript.min.js', 'vendor/prismjs/components/prism-pug.min.js', 'vendor/prismjs/plugins/toolbar/prism-toolbar.min.js', 'vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Buttons'
+  - var pageSubtitle = 'Custom button styles for actions in forms, dialogs, etc.'
+  - var pageTitleLink = {'title': 'Bootstrap docs', 'link': 'https://getbootstrap.com/docs/5.2/components/buttons/'}
+  - var anchorNav = [{'title': 'Solid (default)', 'link': '#buttons-solid'}, {'title': 'Outline', 'link': '#buttons-outline'}, {'title': 'Icons', 'link': '#buttons-icons'}, {'title': 'Market buttons', 'link': '#buttons-market'}, {'title': 'Shapes', 'link': '#buttons-shapes'}, {'title': 'Sizes', 'link': '#buttons-sizes'}, {'title': 'States', 'link': '#buttons-states'}]
+    
+//- Page Content
+block content
+
+  // Solid (default)
+  section#buttons-solid.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Solid (default)
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview1' data-bs-toggle='tab' role='tab' aria-controls='preview1' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview1.tab-pane.fade.show.active(role='tabpanel')
+          button(type='button').btn.btn-primary.mb-2.me-1 Primary
+          button(type='button').btn.btn-secondary.mb-2.me-1 Secondary
+          button(type='button').btn.btn-success.mb-2.me-1 Success
+          button(type='button').btn.btn-danger.mb-2.me-1 Danger
+          button(type='button').btn.btn-warning.mb-2.me-1 Warning
+          button(type='button').btn.btn-info.mb-2.me-1 Info
+          .d-inline-block.mb-2.me-1.p-2.bg-dark
+            button(type='button').btn.btn-light Light
+          button(type='button').btn.btn-dark.mb-2 Dark
+          button(type='button').btn.btn-link.mb-2 Link
+        #html1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Primary solid button --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Primary&lt;/button&gt;
+
+              &lt;!-- Secondary solid button --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-secondary&quot;&gt;Secondary&lt;/button&gt;
+
+              &lt;!-- Success solid button --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-success&quot;&gt;Success&lt;/button&gt;
+
+              &lt;!-- Danger solid button --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-danger&quot;&gt;Danger&lt;/button&gt;
+
+              &lt;!-- Warning solid button --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-warning&quot;&gt;Warning&lt;/button&gt;
+
+              &lt;!-- Info solid button --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-info&quot;&gt;Info&lt;/button&gt;
+
+              &lt;!-- Light solid button --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-light&quot;&gt;Info&lt;/button&gt;
+
+              &lt;!-- Dark solid button --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-dark&quot;&gt;Dark&lt;/button&gt;
+
+              &lt;!-- Link button --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-link&quot;&gt;Link&lt;/button&gt;
+        #pug1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Primary solid button
+              button(type=&quot;button&quot;).btn.btn-primary
+                | Primary
+
+              // Secondary solid button
+              button(type=&quot;button&quot;).btn.btn-secondary
+                | Secondary
+
+              // Success solid button
+              button(type=&quot;button&quot;).btn.btn-success
+                | Success
+
+              // Danger solid button
+              button(type=&quot;button&quot;).btn.btn-danger
+                | Danger
+
+              // Warning solid button
+              button(type=&quot;button&quot;).btn.btn-warning
+                | Warning
+
+              // Info solid button
+              button(type=&quot;button&quot;).btn.btn-info
+                | Info
+
+              // Light solid button
+              button(type=&quot;button&quot;).btn.btn-light
+                | Light
+
+              // Dark solid button
+              button(type=&quot;button&quot;).btn.btn-dark
+                | Dark
+
+              // Link button
+              button(type=&quot;button&quot;).btn.btn-link
+                | Link
+
+  // Outline
+  section#buttons-outline.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Outline
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview2' data-bs-toggle='tab' role='tab' aria-controls='preview2' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview2.tab-pane.fade.show.active(role='tabpanel')
+          button(type='button').btn.btn-outline-primary.mb-2.me-1 Primary
+          button(type='button').btn.btn-outline-secondary.mb-2.me-1 Secondary
+          button(type='button').btn.btn-outline-success.mb-2.me-1 Success
+          button(type='button').btn.btn-outline-danger.mb-2.me-1 Danger
+          button(type='button').btn.btn-outline-warning.mb-2.me-1 Warning
+          button(type='button').btn.btn-outline-info.mb-2.me-1 Info
+          .d-inline-block.mb-2.me-1.p-2.bg-dark
+            button(type='button').btn.btn-outline-light Light
+          button(type='button').btn.btn-outline-dark.mb-2 Dark
+        #html2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Primary outline button --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-primary&quot;&gt;Primary&lt;/button&gt;
+
+              &lt;!-- Secondary outline button --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-secondary&quot;&gt;Secondary&lt;/button&gt;
+
+              &lt;!-- Success outline button --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-success&quot;&gt;Success&lt;/button&gt;
+
+              &lt;!-- Danger outline button --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-danger&quot;&gt;Danger&lt;/button&gt;
+
+              &lt;!-- Warning outline button --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-warning&quot;&gt;Warning&lt;/button&gt;
+
+              &lt;!-- Info outline button --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-info&quot;&gt;Info&lt;/button&gt;
+
+              &lt;!-- Light outline button --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-light&quot;&gt;Info&lt;/button&gt;
+
+              &lt;!-- Dark outline button --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-dark&quot;&gt;Dark&lt;/button&gt;
+        #pug2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Primary outline button
+              button(type=&quot;button&quot;).btn.btn-outline-primary
+                | Primary
+
+              // Secondary outline button
+              button(type=&quot;button&quot;).btn.btn-outline-secondary
+                | Secondary
+
+              // Success outline button
+              button(type=&quot;button&quot;).btn.btn-outline-success
+                | Success
+
+              // Danger outline button
+              button(type=&quot;button&quot;).btn.btn-outline-danger
+                | Danger
+
+              // Warning outline button
+              button(type=&quot;button&quot;).btn.btn-outline-warning
+                | Warning
+
+              // Info outline button
+              button(type=&quot;button&quot;).btn.btn-outline-info
+                | Info
+
+              // Light outline button
+              button(type=&quot;button&quot;).btn.btn-outline-light
+                | Light
+
+              // Dark outline button
+              button(type=&quot;button&quot;).btn.btn-outline-dark
+                | Dark
+
+  // Icons
+  section#buttons-icons.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Icons
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview3' data-bs-toggle='tab' role='tab' aria-controls='preview3' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview3.tab-pane.fade.show.active(role='tabpanel')
+          button(type='button').btn.btn-primary.mb-2.me-2
+            i.ai-user.me-2
+            | Profile
+          button(type='button').btn.btn-secondary.btn-icon.mb-2.me-2
+            i.ai-edit-alt
+          button(type='button').btn.btn-outline-danger.btn-icon.mb-2.me-2
+            i.ai-trash
+          button(type='button').btn.btn-success.btn-icon.mb-2.me-2
+            i.ai-check
+          button(type='button').btn.btn-warning.btn-icon.rounded-pill.mb-2.me-2
+            i.ai-star-filled
+          button(type='button').btn.btn-outline-info.btn-icon.rounded-pill.mb-2.me-2
+            i.ai-bookmark
+        #html3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Primary button with text and icon --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;
+                &lt;i class=&quot;ai-user me-2&quot;&gt;&lt;/i&gt;
+                Profile
+              &lt;/button&gt;
+
+              &lt;!-- Secondary solid icon button --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-secondary btn-icon&quot;&gt;
+                &lt;i class=&quot;ai-edit-alt&quot;&gt;&lt;/i&gt;
+              &lt;/button&gt;
+
+              &lt;!-- Danger outline icon button --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-danger btn-icon&quot;&gt;
+                &lt;i class=&quot;ai-trash&quot;&gt;&lt;/i&gt;
+              &lt;/button&gt;
+
+              &lt;!-- Success solid icon button --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-success btn-icon&quot;&gt;
+                &lt;i class=&quot;ai-check&quot;&gt;&lt;/i&gt;
+              &lt;/button&gt;
+
+              &lt;!-- Warning pill solid icon button --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-warning btn-icon rounded-pill&quot;&gt;
+                &lt;i class=&quot;ai-star-filled&quot;&gt;&lt;/i&gt;
+              &lt;/button&gt;
+
+              &lt;!-- Info pill outline icon button --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-info btn-icon rounded-pill&quot;&gt;
+                &lt;i class=&quot;ai-bookmark&quot;&gt;&lt;/i&gt;
+              &lt;/button&gt;
+        #pug3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Primary button with text and icon
+              button(type=&quot;button&quot;).btn.btn-primary
+                i.ai-user.me-2
+                | Profile
+
+              // Secondary solid icon button
+              button(type=&quot;button&quot;).btn.btn-secondary.btn-icon
+                i.ai-edit-alt
+
+              // Danger outline icon button
+              button(type=&quot;button&quot;).btn.btn-outline-danger.btn-icon
+                i.ai-trash
+
+              // Success solid icon button
+              button(type=&quot;button&quot;).btn.btn-success.btn-icon
+                i.ai-check
+
+              // Warning pill solid icon button
+              button(type=&quot;button&quot;).btn.btn-warning.btn-icon.rounded-pill
+                i.ai-star-filled
+
+              // Info pill outline icon button
+              button(type=&quot;button&quot;).btn.btn-outline-info.btn-icon.rounded-pill
+                i.ai-bookmark
+
+  // Market buttons
+  section#buttons-market.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Market buttons
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview4' data-bs-toggle='tab' role='tab' aria-controls='preview4' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview4.tab-pane.fade.show.active(role='tabpanel')
+          a(href='#').btn.btn-dark.btn-lg.px-3.py-2.me-3.mb-3
+            img(src='../assets/img/market/appstore-light.svg' width='136' alt='App Store').d-dark-mode-none.mx-1
+            img(src='../assets/img/market/appstore-dark.svg' width='136' alt='App Store').d-none.d-dark-mode-block.mx-1
+          a(href='#').btn.btn-dark.btn-lg.px-3.py-2.mb-3
+            img(src='../assets/img/market/googleplay-light.svg' width='135' alt='Google Play').d-dark-mode-none.mx-1
+            img(src='../assets/img/market/googleplay-dark.svg' width='135' alt='Google Play').d-none.d-dark-mode-block.mx-1
+          br
+          a(href='#').btn.btn-primary.btn-lg.px-3.py-2.me-3.mb-3
+            img(src='../assets/img/market/appstore-light.svg' width='136' alt='App Store').mx-1
+          a(href='#').btn.btn-primary.btn-lg.px-3.py-2.mb-3
+            img(src='../assets/img/market/googleplay-light.svg' width='135' alt='Google Play').mx-1
+        #html4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- App Store button (Dark) --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-dark btn-lg px-3 py-2&quot;&gt;
+                &lt;img src=&quot;assets/img/market/appstore-light.svg&quot; class=&quot;d-dark-mode-none mx-1&quot; width=&quot;136&quot; alt=&quot;App Store&quot;&gt;
+                &lt;img src=&quot;assets/img/market/appstore-dark.svg&quot; class=&quot;d-none d-dark-mode-block mx-1&quot; width=&quot;136&quot; alt=&quot;App Store&quot;&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Google Play button (Dark) --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-dark btn-lg px-3 py-2&quot;&gt;
+                &lt;img src=&quot;assets/img/market/googleplay-light.svg&quot; class=&quot;d-dark-mode-none mx-1&quot; width=&quot;135&quot; alt=&quot;Google Play&quot;&gt;
+                &lt;img src=&quot;assets/img/market/googleplay-dark.svg&quot; class=&quot;d-none d-dark-mode-block mx-1&quot; width=&quot;135&quot; alt=&quot;Google Play&quot;&gt;
+              &lt;/a&gt;
+
+              &lt;!-- App Store button (Primary) --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-primary btn-lg px-3 py-2&quot;&gt;
+                &lt;img src=&quot;assets/img/market/appstore-light.svg&quot; class=&quot;mx-1&quot; width=&quot;136&quot; alt=&quot;App Store&quot;&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Google Play button (Primary) --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-primary btn-lg px-3 py-2&quot;&gt;
+                &lt;img src=&quot;assets/img/market/googleplay-light.svg&quot; class=&quot;mx-1&quot; width=&quot;135&quot; alt=&quot;Google Play&quot;&gt;
+              &lt;/a&gt;
+        #pug4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // App Store button (Dark)
+              a(href=&quot;#&quot;).btn.btn-dark.btn-lg.px-3.py-2
+                img(src=&quot;assets/img/market/appstore-light.svg&quot;, width=&quot;136&quot;, alt=&quot;App Store&quot;).d-dark-mode-none.mx-1
+                img(src=&quot;assets/img/market/appstore-dark.svg&quot;, width=&quot;136&quot;, alt=&quot;App Store&quot;).d-none.d-dark-mode-block.mx-1
+
+              // Google Play button (Dark)
+              a(href=&quot;#&quot;).btn.btn-dark.btn-lg.px-3.py-2
+                img(src=&quot;assets/img/market/googleplay-light.svg&quot;, width=&quot;135&quot;, alt=&quot;Google Play&quot;).d-dark-mode-none.mx-1
+                img(src=&quot;assets/img/market/googleplay-dark.svg&quot;, width=&quot;135&quot;, alt=&quot;Google Play&quot;).d-none.d-dark-mode-block.mx-1
+
+              // App Store button (Primary)
+              a(href=&quot;#&quot;).btn.btn-primary.btn-lg.px-3.py-2
+                img(src=&quot;assets/img/market/appstore-light.svg&quot;, width=&quot;136&quot;, alt=&quot;App Store&quot;).mx-1
+
+              // Google Play button (Primary)
+              a(href=&quot;#&quot;).btn.btn-primary.btn-lg.px-3.py-2
+                img(src=&quot;assets/img/market/googleplay-light.svg&quot;, width=&quot;135&quot;, alt=&quot;Google Play&quot;).mx-1
+
+  // Shapes
+  section#buttons-shapes.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Shapes
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview5' data-bs-toggle='tab' role='tab' aria-controls='preview5' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html5' data-bs-toggle='tab' role='tab' aria-controls='html5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug5' data-bs-toggle='tab' role='tab' aria-controls='pug5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview5.tab-pane.fade.show.active(role='tabpanel')
+          button(type='button').btn.btn-primary.mb-2.me-1 Rounded
+          button(type='button').btn.btn-primary.rounded-pill.mb-2.me-1 Pill button
+          button(type='button').btn.btn-primary.rounded-0.mb-2 Square
+          .pt-2
+          button(type='button').btn.btn-outline-primary.mb-2.me-1 Rounded
+          button(type='button').btn.btn-outline-primary.rounded-pill.mb-2.me-1 Pill button
+          button(type='button').btn.btn-outline-primary.rounded-0.mb-2 Square
+        #html5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Rounded solid button --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Rounded&lt;/button&gt;
+
+              &lt;!-- Pill solid button --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-primary rounded-pill&quot;&gt;Pill button&lt;/button&gt;
+
+              &lt;!-- Square solid button --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-primary rounded-0&quot;&gt;Square&lt;/button&gt;
+              
+              &lt;!-- Rounded outline button --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-primary&quot;&gt;Rounded&lt;/button&gt;
+
+              &lt;!-- Pill outline button --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-primary rounded-pill&quot;&gt;Pill button&lt;/button&gt;
+
+              &lt;!-- Square outline button --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-primary rounded-0&quot;&gt;Square&lt;/button&gt;
+        #pug5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Rounded solid button
+              button(type=&quot;button&quot;).btn.btn-primary
+                | Rounded
+
+              // Pill solid button
+              button(type=&quot;button&quot;).btn.btn-primary.rounded-pill
+                | Pill button
+
+              // Square solid button
+              button(type=&quot;button&quot;).btn.btn-primary.rounded-0
+                | Square
+
+              // Rounded outline button
+              button(type=&quot;button&quot;).btn.btn-outline-primary
+                | Rounded
+
+              // Pill outline button
+              button(type=&quot;button&quot;).btn.btn-outline-primary.rounded-pill
+                | Pill button
+
+              // Square outline button
+              button(type=&quot;button&quot;).btn.btn-outline-primary.rounded-0
+                | Square
+
+  // Sizes
+  section#buttons-sizes.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Sizes
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview6' data-bs-toggle='tab' role='tab' aria-controls='preview6' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html6' data-bs-toggle='tab' role='tab' aria-controls='html6' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug6' data-bs-toggle='tab' role='tab' aria-controls='pug6' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview6.tab-pane.fade.show.active(role='tabpanel')
+          button(type='button').btn.btn-primary.btn-lg.mb-2.me-1 Large button
+          button(type='button').btn.btn-primary.mb-2.me-1 Normal button
+          button(type='button').btn.btn-primary.btn-sm.mb-2 Small button
+          .pt-2
+          button(type='button').btn.btn-outline-primary.btn-lg.mb-2.me-1 Large button
+          button(type='button').btn.btn-outline-primary.mb-2.me-1 Normal button
+          button(type='button').btn.btn-outline-primary.btn-sm.mb-2 Small button
+          .row.pt-2
+            .col-sm-6
+              button(type='button').btn.btn-primary.w-100.mb-3 Block level button
+            .col-sm-6
+              button(type='button').btn.btn-outline-primary.w-100.mb-3 Block level button
+        #html6.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Large solid button --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-lg&quot;&gt;Large button&lt;/button&gt;
+
+              &lt;!-- Normal solid button --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Normal button&lt;/button&gt;
+
+              &lt;!-- Small solid button --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-sm&quot;&gt;Small button&lt;/button&gt;
+
+              &lt;!-- Large outline button --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-primary btn-lg&quot;&gt;Large button&lt;/button&gt;
+
+              &lt;!-- Normal outline button --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-primary&quot;&gt;Normal button&lt;/button&gt;
+
+              &lt;!-- Small outline button --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-primary btn-sm&quot;&gt;Small button&lt;/button&gt;
+
+              &lt;!-- Block solid button --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-primary w-100&quot;&gt;Block level button&lt;/button&gt;
+
+              &lt;!-- Block outline button --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-primary w-100&quot;&gt;Block level button&lt;/button&gt;
+        #pug6.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Large solid button
+              button(type=&quot;button&quot;).btn.btn-primary.btn-lg Large button
+
+              // Normal solid button
+              button(type=&quot;button&quot;).btn.btn-primary Normal button
+
+              // Small solid button
+              button(type=&quot;button&quot;).btn.btn-primary.btn-sm Small button
+
+              // Large outline button
+              button(type=&quot;button&quot;).btn.btn-outline-primary.btn-lg Large button
+
+              // Normal outline button
+              button(type=&quot;button&quot;).btn.btn-outline-primary Normal button
+
+              // Small outline button
+              button(type=&quot;button&quot;).btn.btn-outline-primary.btn-sm Small button
+
+              // Block solid button
+              button(type=&quot;button&quot;).btn.btn-primary.w-100 Block level button
+
+              // Block outline button
+              button(type=&quot;button&quot;).btn.btn-outline-primary.w-100 Block level button
+
+  // States
+  section#buttons-states.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 States
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview7' data-bs-toggle='tab' role='tab' aria-controls='preview7' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html7' data-bs-toggle='tab' role='tab' aria-controls='html7' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug7' data-bs-toggle='tab' role='tab' aria-controls='pug7' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview7.tab-pane.fade.show.active(role='tabpanel')
+          button(type='button').btn.btn-primary.active.mb-2.me-1 Active
+          button(type='button').btn.btn-secondary.active.mb-2.me-1 Active
+          button(type='button' disabled).btn.btn-primary.mb-2.me-1 Disabled
+          button(type='button' disabled).btn.btn-secondary.mb-2.me-1 Disabled
+          button(type='button' data-bs-toggle='button').btn.btn-primary.mb-2.me-1 Button toggle
+          button(type='button').btn.btn-primary.pe-none.mb-2.me-1
+            span(role='status' aria-hidden='true').spinner-border.spinner-border-sm.me-2
+            | Loading...
+          button(type=type='button').btn.btn-secondary.pe-none.mb-2
+            span(role='status' aria-hidden='true').spinner-grow.spinner-grow-sm.me-2
+            | Loading...  
+        #html7.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Button states --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-primary active&quot;&gt;Active&lt;/button&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-secondary active&quot;&gt;Active&lt;/button&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; disabled&gt;Disabled&lt;/button&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-secondary&quot; disabled&gt;Disabled&lt;/button&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; data-bs-toggle=&quot;button&quot;&gt;Button toggle&lt;/button&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-primary pe-none&quot;&gt;
+                &lt;span class=&quot;spinner-border spinner-border-sm me-2&quot; role=&quot;status&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+                Loading...
+              &lt;/button&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-secondary pe-none&quot;&gt;
+                &lt;span class=&quot;spinner-grow spinner-grow-sm me-2&quot; role=&quot;status&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+                Loading...
+              &lt;/button&gt;
+        #pug7.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Button states
+              button(type=&quot;button&quot;).btn.btn-primary.active Active
+              button(type=&quot;button&quot;).btn.btn-secondary.active Active
+              button(type=&quot;button&quot;, disabled).btn.btn-primary Disabled
+              button(type=&quot;button&quot;, disabled).btn.btn-secondary Disabled
+              button(type=&quot;button&quot;, data-bs-toggle=&quot;button&quot;).btn.btn-primary Button toggle
+              button(type=&quot;button&quot;).btn.btn-primary.pe-none
+                span(role=&quot;status&quot;, aria-hidden=&quot;true&quot;).spinner-border.spinner-border-sm.me-2
+                | Loading...
+              button(type=&quot;button&quot;).btn.btn-secondary.pe-none
+                span(role=&quot;status&quot;, aria-hidden=&quot;true&quot;).spinner-grow.spinner-grow-sm.me-2
+                | Loading...  

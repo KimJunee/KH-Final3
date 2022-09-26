@@ -1,0 +1,187 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var parentMenu = 'Account'
+  - var pageTitle = 'Job Board | Post Resume - Education'
+  - var bodyClass = 'bg-secondary'
+
+//- Navbar
+block navbar
+  include partials/navbar-job-board
+
+//- Page Content
+block content
+
+  // Page container
+  .container.mt-5.mb-md-4.py-5
+    
+    // Breadcrumb
+    nav(aria-label='Breadcrumb').mb-3.mb-md-4.pt-md-3
+      ol.breadcrumb
+        li.breadcrumb-item
+          a(href='job-board-home-v1.html') Home
+        li(aria-current='page').breadcrumb-item.active
+          | Post resume
+
+
+    // Page content
+    .row.justify-content-center.pb-sm-2
+      .col-lg-11.col-xl-10
+
+        // Page title
+        h1.h2.text-center.pb-4.mb-3 Create online resume
+        
+        // Steps
+        .bg-light.rounded-3.py-4.px-md-4.mb-3
+          .steps.pt-4.pb-1
+            .step.active
+              .step-progress
+                span.step-progress-start
+                span.step-progress-end
+                span.step-number 1
+              .step-label Basic info
+            .step.active
+              .step-progress
+                span.step-progress-start
+                span.step-progress-end
+                span.step-number 2
+              .step-label Education
+            .step
+              .step-progress
+                span.step-progress-start
+                span.step-progress-end
+                span.step-number 3
+              .step-label Experience
+            .step
+              .step-progress
+                span.step-progress-start
+                span.step-progress-end
+                span.step-number 4
+              .step-label Skills
+            .step
+              .step-progress
+                span.step-progress-start
+                span.step-progress-end
+                span.step-number 5
+              .step-label Review
+
+
+        // Step 2: Education
+        .bg-light.rounded-3.p-4.p-md-5.mb-3
+          h2.h4.mb-4
+            i.fi-education.text-primary.fs-4.mt-n1.me-2.pe-1
+            | Education
+          .row
+            .col-sm-6.mb-4
+              label(for='pr-education-level').form-label
+                | Level of education <span class='text-danger'>*</span>
+              select(id='pr-education-level' required).form-select.form-select-lg
+                option(value='' disabled selected) Choose your level of education
+                option(value='Associate Degree') Associate Degree
+                option(value='Bachelor\'s Degree') Bachelor's Degree
+                option(value='Graduate Degree') Graduate Degree
+                option(value='Professional Degree') Professional Degree
+                option(value='Master Degree') Master Degree
+                option(value='PhD') PhD
+            .col-sm-6.mb-4
+              label(for='pr-study-field').form-label
+                | Field of study <span class='text-danger'>*</span>
+              input(type='text' id='pr-study-field' placeholder='Enter field of study' required).form-control.form-control-lg
+            .col-sm-6.mb-4
+              label(for='pr-college').form-label
+                | College / University <span class='text-danger'>*</span>
+              input(type='text' id='pr-college' placeholder='Enter your college name' required).form-control.form-control-lg
+            .col-sm-6.mb-4
+              label(for='pr-country').form-label
+                | Country &amp; city <span class='text-danger'>*</span>
+              input(type='text' id='pr-country' placeholder='Enter country, city of your college' required).form-control.form-control-lg
+            .col-lg-6.mb-4
+              label(for='pr-period-from').form-label
+                | Study period from <span class='text-danger'>*</span>
+              .row.gx-2.gx-sm-3
+                .col-7.col-sm-8
+                  select(id='pr-period-from' required).form-select.form-select-lg
+                    option(value='' disabled selected) Month
+                    option(value='January') January
+                    option(value='February') February
+                    option(value='March') March
+                    option(value='April') April
+                    option(value='May') May
+                    option(value='June') June
+                    option(value='July') July
+                    option(value='August') August
+                    option(value='September') September
+                    option(value='October') October
+                    option(value='November') November
+                    option(value='December') December
+                .col-5.col-sm-4
+                  select(required).form-select.form-select-lg
+                    option(value='' disabled selected) Year
+                    option(value='2021') 2021
+                    option(value='2020') 2020
+                    option(value='2019') 2019
+                    option(value='2018') 2018
+                    option(value='2017') 2017
+                    option(value='2016') 2016
+                    option(value='2015') 2015
+                    option(value='2014') 2014
+                    option(value='2013') 2013
+                    option(value='2012') 2012
+                    option(value='2011') 2011
+                    option(value='2010') 2010
+            .col-lg-6.mb-4
+              label(for='pr-period-to').form-label
+                | To <span class='text-danger'>*</span>
+              .row.gx-2.gx-sm-3
+                .col-7.col-sm-8
+                  select(id='pr-period-to' required).form-select.form-select-lg
+                    option(value='' disabled selected) Month
+                    option(value='January') January
+                    option(value='February') February
+                    option(value='March') March
+                    option(value='April') April
+                    option(value='May') May
+                    option(value='June') June
+                    option(value='July') July
+                    option(value='August') August
+                    option(value='September') September
+                    option(value='October') October
+                    option(value='November') November
+                    option(value='December') December
+                .col-5.col-sm-4
+                  select(required).form-select.form-select-lg
+                    option(value='' disabled selected) Year
+                    option(value='2021') 2021
+                    option(value='2020') 2020
+                    option(value='2019') 2019
+                    option(value='2018') 2018
+                    option(value='2017') 2017
+                    option(value='2016') 2016
+                    option(value='2015') 2015
+                    option(value='2014') 2014
+                    option(value='2013') 2013
+                    option(value='2012') 2012
+                    option(value='2011') 2011
+                    option(value='2010') 2010
+          .form-check.mb-4
+            input(type='checkbox' id='still-visiting').form-check-input
+            label(for='still-visiting').form-check-label
+              | I currently go here
+          button(type='button').btn.btn-link.btn-lg.text-primary.py-2.px-0.mb-md-n2
+            i.fi-plus.fs-sm.me-2
+            | Add education
+
+        // Navigation
+        .d-flex.flex-column.flex-sm-row.bg-light.rounded-3.p-4.px-md-5
+          a(href='job-board-post-resume-1.html').btn.btn-outline-primary.btn-lg.rounded-pill.mb-3.mb-sm-0
+            i.fi-chevron-left.fs-sm.me-2
+            | Previous step
+          a(href='job-board-post-resume-3.html').btn.btn-primary.btn-lg.rounded-pill.ms-sm-auto
+            | Next step
+            i.fi-chevron-right.fs-sm.ms-2
+
+
+//- Footer
+block footer
+  include partials/footer-job-board

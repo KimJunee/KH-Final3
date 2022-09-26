@@ -1,0 +1,45 @@
+//- Include config.pug file that holds all variables
+block config
+  include ../helpers/config
+
+//- Mixins - reusable code snippets
+include ../helpers/mixins
+
+doctype html
+html(lang="en")
+
+  //- head.pug template
+  include head 
+  
+  // Body
+  body()&attributes(bodyClass ? {'class': bodyClass} : '')
+
+    if isPageLoading
+      // Page loading spinner
+      .page-loading.active
+        .page-loading-inner
+          .page-spinner
+          span Loading...
+      
+    main.page-wrapper
+
+      //- Navbar template
+      block navbar
+
+      // Page content
+      block content
+
+    //- Footer template
+    block footer
+
+
+    // Back to top button
+    a(href='#top' data-scroll).btn-scroll-top
+      span.btn-scroll-top-tooltip.text-muted.fs-sm.me-2 Top
+      i.btn-scroll-top-icon.fi-chevron-up    
+    
+    // Vendor scrits: js libraries and plugins
+    +vendor-scripts
+
+    // Main theme script
+    script()&attributes(isNestedFile ? {'src': '../js/theme.min.js'} : {'src': 'js/theme.min.js'})

@@ -1,0 +1,110 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var parentMenu = 'Pages'
+  - var pageTitle = 'Contacts v.2'
+  - var navbarExtraClass = 'bg-light'
+
+
+//- Navbar
+block navbar
+  include partials/navbar.pug
+
+
+//- Page Content
+block content
+
+  // Page title + contact form
+  section.container.pt-5.pb-lg-2.pb-xl-4.py-xxl-5.my-5
+    
+    // Breadcrumb
+    +breadcrumb([{'title': 'Contacts v.2'}]).pt-lg-3.pb-lg-4.pb-2
+
+    .row.pb-1.pb-sm-3.pb-lg-4
+
+      // Page title
+      .col-lg-4.pe-xxl-4
+        h1.display-2 Contacts
+        p.fs-lg.pb-4.mb-0.mb-sm-2 Get in touch with us by completing the below form or call us now
+      .col-lg-8.col-xl-7.offset-xl-1
+        form(novalidate).row.g-4.needs-validation
+          .col-sm-6
+            label(for='name').form-label.fs-base Name
+            input(type='text' placeholder='Your name' required)#name.form-control.form-control-lg
+            .invalid-feedback Please enter your name!
+          .col-sm-6
+            label(for='email').form-label.fs-base Email
+            input(type='email' placeholder='Email address' required)#email.form-control.form-control-lg
+            .invalid-feedback Please provide a valid email address!
+          .col-sm-6
+            label(for='phone').form-label.fs-base Phone
+            input(type='text' placeholder='Phone number')#phone.form-control.form-control-lg
+          .col-sm-6
+            label(for='location').form-label.fs-base Location
+            select#location.form-select.form-select-lg
+              option(value='All locations') All locations
+              option(value='Asia and Pacific') Asia and Pacific
+              option(value='Central Europe') Central Europe
+              option(value='Eastern Europe') Eastern Europe
+              option(value='North America') North America
+              option(value='South America') South America
+          .col-sm-12
+            label(for='message').form-label.fs-base How can we help?
+            textarea(rows='5' placeholder='Enter your message here...' required)#message.form-control.form-control-lg
+            .invalid-feedback Please enter your message!
+          .col-sm-12
+            .form-check.form-check-inline
+              input(type='checkbox' id='agree').form-check-input
+              label(for='agree').form-check-label
+                | I agree to the 
+                a(href='#').nav-link.d-inline.fs-normal.text-decoration-underline.p-0 Terms &amp; Conditions
+          .col-sm-12.pt-2
+            button(type='submit').btn.btn-lg.btn-primary Send a request
+
+
+  // Contact details
+  section.bg-secondary.py-5
+    .container.py-lg-3.py-xl-4.py-xxl-5
+      .row.row-cols-1.row-cols-sm-2.row-cols-lg-3.g-4.py-sm-2.py-md-3.py-lg-4
+        .col
+          h2.h4.mb-4 Orlando
+          ul.list-unstyled.mb-0
+            li.d-flex.mb-3
+              i.ai-phone.lead.text-primary.me-2
+              a(href='tel:+178632256040').nav-link.fw-normal.p-0.mt-n1 +1 (786) 322 560 40
+            li.d-flex.mb-3
+              i.ai-mail.lead.text-primary.me-2
+              a(href='mailto:orlando@example.com').nav-link.fw-normal.p-0.mt-n1 orlando@example.com
+            li.d-flex.mb-3
+              i.ai-map-pin.lead.text-primary.me-2
+              a(href='#').nav-link.fw-normal.p-0.mt-n1 514 S. Magnolia St. Orlando, FL 32806
+        .col
+          h2.h4.mb-4 Chicago
+          ul.list-unstyled.mb-0
+            li.d-flex.mb-3
+              i.ai-phone.lead.text-primary.me-2
+              a(href='tel:+178632256040').nav-link.fw-normal.p-0.mt-n1 +1 (786) 322 560 40
+            li.d-flex.mb-3
+              i.ai-mail.lead.text-primary.me-2
+              a(href='mailto:chicago@example.com').nav-link.fw-normal.p-0.mt-n1 chicago@example.com
+            li.d-flex.mb-3
+              i.ai-map-pin.lead.text-primary.me-2
+              a(href='#').nav-link.fw-normal.p-0.mt-n1 76, Industrial Dr, West Chicago, 60185
+        .col
+          h2.h4.mb-4 New York
+          ul.list-unstyled.mb-0
+            li.d-flex.mb-3
+              i.ai-phone.lead.text-primary.me-2
+              a(href='tel:+178632256040').nav-link.fw-normal.p-0.mt-n1 +1 (786) 322 560 40
+            li.d-flex.mb-3
+              i.ai-mail.lead.text-primary.me-2
+              a(href='mailto:chicago@example.com').nav-link.fw-normal.p-0.mt-n1 newyork@example.com
+            li.d-flex.mb-3
+              i.ai-map-pin.lead.text-primary.me-2
+              a(href='#').nav-link.fw-normal.p-0.mt-n1 396 Lillian Blvd, Holbrook, NY 11741
+      
+
+//- Footer
+block footer
+  include partials/footer.pug

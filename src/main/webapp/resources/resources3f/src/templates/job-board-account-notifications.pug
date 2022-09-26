@@ -1,0 +1,105 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var parentMenu = 'Account'
+  - var pageTitle = 'Job Board | Account - Notifications'
+  - var bodyClass = 'bg-secondary'
+
+//- Navbar
+block navbar
+  include partials/navbar-job-board
+
+//- Page Content
+block content
+
+  // Page container
+  .position-absolute.top-0.start-0.w-100.bg-dark(style='height: 398px;')
+  .container.content-overlay.mt-5.mb-md-4.py-5
+    
+    // Breadcrumb
+    nav(aria-label='Breadcrumb').mb-3.mb-md-4.pt-md-3
+      ol.breadcrumb.breadcrumb-light
+        li.breadcrumb-item
+          a(href='job-board-home-v1.html') Home
+        li.breadcrumb-item
+          a(href='job-board-account-profile.html') Account
+        li(aria-current='page').breadcrumb-item.active
+          | Notifications
+
+
+    // Page card like wrapper
+    .bg-light.shadow-sm.rounded-3.p-4.p-md-5.mb-2
+
+      // Account header
+      .d-flex.align-items-start.justify-content-between.pb-4.mb-2
+        .d-flex.align-items-start
+          .position-relative.flex-shrink-0
+            img(src='img/avatars/37.png' width='100' alt='Annette Black').rounded-circle
+            button(type='button' data-bs-toggle='tooltip' title='Change image').btn.btn-icon.btn-light.btn-xs.rounded-circle.shadow-sm.position-absolute.end-0.bottom-0
+              i.fi-pencil.fs-xs
+          .ps-3.ps-sm-4
+            h3.h5 Annette Black
+            ul.list-unstyled.fs-sm.mb-0
+              li.d-flex.text-nav.text-break
+                i.fi-mail.opacity-60.mt-1.me-2
+                span annette_black@email.com
+              li.d-flex.text-nav.text-break
+                i.fi-phone.opacity-60.mt-1.me-2
+                span (302) 555-0107
+        a(href='signin-light.html').nav-link.p-0.d-none.d-md-block
+          i.fi-logout.mt-n1.me-2
+          | Sign out
+
+      // Account menu
+      include partials/nav-account-job-board
+      
+      // Page title
+      h1.h3.py-4.mt-3.mb-2 Notifications
+
+      // Notifications (switches)
+      .border-bottom.pb-4.mb-4
+        .form-check.form-switch
+          input(type='checkbox' id='all-notifications' data-master-checkbox-for='#notification-settings' checked).form-check-input
+          label(for='all-notifications').form-check-label.fw-bold.text-nav Enable / disable all notifications
+      #notification-settings
+        .d-flex.mb-4
+          .form-check.form-switch
+            input(type='checkbox' id='new-vacancy' checked).form-check-input
+            label(for='new-vacancy').form-check-label
+          .ps-2
+            .text-nav.fw-bold.mb-1 New vacancies notifications
+            p.fs-sm.mb-0 New vacancies alerts that match your <a href='job-board-account-saved-jobs.html'>Saved Jobs</a> list
+        .d-flex.mb-4
+          .form-check.form-switch
+            input(type='checkbox' id='new-article' checked).form-check-input
+            label(for='new-article').form-check-label
+          .ps-2
+            .text-nav.fw-bold.mb-1 New articles about job search and career development
+            p.fs-sm.mb-0 Get the most useful materials from our blog weekly
+        .d-flex.mb-4
+          .form-check.form-switch
+            input(type='checkbox' id='partner-news').form-check-input
+            label(for='partner-news').form-check-label
+          .ps-2
+            .text-nav.fw-bold.mb-1 Info letters from our partners
+            p.fs-sm.mb-0 Be the first to know about interesting career and development events, partner vacancies and new offers
+        .d-flex.mb-4
+          .form-check.form-switch
+            input(type='checkbox' id='resume-views' checked).form-check-input
+            label(for='resume-views').form-check-label
+          .ps-2
+            .text-nav.fw-bold.mb-1 Weekly statistics of your resume views
+            p.fs-sm.mb-0 Thanks to the statistics, you will be able to edit your resume and achieve higher results
+        .d-flex
+          .form-check.form-switch
+            input(type='checkbox' id='recommendations').form-check-input
+            label(for='recommendations').form-check-label
+          .ps-2
+            .text-nav.fw-bold.mb-1 Recommended vacancies for your profile
+            p.fs-sm.mb-0 You will receive recommended vacancies according to your interests
+
+
+//- Footer
+block footer
+  include partials/footer-job-board

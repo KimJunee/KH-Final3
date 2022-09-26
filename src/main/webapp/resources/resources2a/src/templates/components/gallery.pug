@@ -1,0 +1,466 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/lightgallery/css/lightgallery-bundle.min.css', 'vendor/simplebar/dist/simplebar.min.css', 'vendor/prismjs/themes/prism.css', 'vendor/prismjs/plugins/toolbar/prism-toolbar.css', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var scripts = ['vendor/lightgallery/lightgallery.min.js', 'vendor/lightgallery/plugins/video/lg-video.min.js', 'vendor/lightgallery/plugins/fullscreen/lg-fullscreen.min.js', 'vendor/lightgallery/plugins/zoom/lg-zoom.min.js', 'vendor/lightgallery/plugins/thumbnail/lg-thumbnail.min.js', 'vendor/simplebar/dist/simplebar.min.js', 'vendor/prismjs/components/prism-core.min.js', 'vendor/prismjs/components/prism-markup.min.js', 'vendor/prismjs/components/prism-clike.min.js', 'vendor/prismjs/components/prism-javascript.min.js', 'vendor/prismjs/components/prism-pug.min.js', 'vendor/prismjs/plugins/toolbar/prism-toolbar.min.js', 'vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Gallery (Lightbox)'
+  - var pageSubtitle = 'JavaScript based lightbox component for presenting various types of media.'
+  - var isPageTitleBadge = true
+  - var anchorNav = [{'title': 'Media: Image', 'link': '#gallery-image'}, {'title': 'Media: Video', 'link': '#gallery-video'}, {'title': 'Media: Iframe (Google map)', 'link': '#gallery-iframe'}, {'title': 'Zoom effect', 'link': '#gallery-zoom'}, {'title': 'Thumbnails', 'link': '#gallery-thumbnails'}, {'title': 'Inside card', 'link': '#gallery-card'}]
+    
+//- Page Content
+block content
+
+  // Info alert
+  .alert.alert-info.d-flex.mb-4(role='alert')
+    i.ai-circle-info.lead.me-2.me-sm-3
+    .text-break
+      p.mb-2 Gallery component relies on 3rd party plugin. Make sure to link to <span class='fw-semibold'>Light Gallery css and js</span> files in your document: <span class='fw-semibold'>assets/vendor/lightgallery/css/lightgallery-bundle.min.css</span> and <span class='fw-semibold'>assets/vendor/lightgallery/lightgallery.min.js</span>. If you need extra features like zooming, fullscreen view or video you need to include additional plugins:
+      ul.mb-3
+        li.fw-semibold assets/vendor/lightgallery/plugins/fullscreen/lg-fullscreen.min.js
+        li.fw-semibold assets/vendor/lightgallery/plugins/zoom/lg-zoom.min.js
+        li.fw-semibold assets/vendor/lightgallery/plugins/video/lg-video.min.js
+        li.fw-semibold assets/vendor/lightgallery/plugins/thumbnail/lg-thumbnail.min.js
+      p.mb-2 Use this page as a reference.
+
+  // Media: Image
+  section#gallery-image.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Media: Image
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview1' data-bs-toggle='tab' role='tab' aria-controls='preview1' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview1.tab-pane.fade.show.active(role='tabpanel')
+          .gallery
+            a(href='../assets/img/portfolio/single/v1/04.jpg' style='max-width: 460px;').gallery-item.d-block.card-hover
+              .d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100.rounded-4.overflow-hidden.zindex-2.opacity-0
+                i.ai-zoom-in.fs-2.text-white.position-relative.zindex-2
+                .position-absolute.bottom-0.start-0.w-100.text-center.text-white.fs-sm.fw-medium.zindex-2.pb-3 Image caption
+                .position-absolute.top-0.start-0.w-100.h-100.bg-dark.opacity-40
+              img(src='../assets/img/portfolio/single/v1/04.jpg' alt='Image caption').d-block.rounded-4
+        #html1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Image gallery --&gt;
+              &lt;div class=&quot;gallery&quot;&gt;
+                &lt;a href=&quot;assets/img/portfolio/single/v1/04.jpg&quot; class=&quot;gallery-item d-block card-hover&quot;&gt;
+                  &lt;div class=&quot;d-flex justify-content-center align-items-center position-absolute top-0 start-0 w-100 h-100 rounded-4 overflow-hidden zindex-2 opacity-0&quot;&gt;
+                    &lt;i class=&quot;ai-zoom-in fs-2 text-white position-relative zindex-2&quot;&gt;&lt;/i&gt;
+                    &lt;div class=&quot;position-absolute bottom-0 start-0 w-100 text-center text-white fs-sm fw-medium zindex-2 pb-3&quot;&gt;
+                      Image caption
+                    &lt;/div&gt;
+                    &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-40&quot;&gt;&lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;img src=&quot;assets/img/portfolio/single/v1/04.jpg&quot; class=&quot;d-block rounded-4&quot; alt=&quot;Image caption&quot;&gt;
+                &lt;/a&gt;
+              &lt;/div&gt;
+        #pug1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Image gallery
+              .gallery
+                a(href=&quot;assets/img/portfolio/single/v1/04.jpg&quot;).gallery-item.d-block.card-hover
+                  .d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100.rounded-4.overflow-hidden.zindex-2.opacity-0
+                    i.ai-zoom-in.fs-2.text-white.position-relative.zindex-2
+                    .position-absolute.bottom-0.start-0.w-100.text-center.text-white.fs-sm.fw-medium.zindex-2.pb-3
+                      | Image caption
+                    .position-absolute.top-0.start-0.w-100.h-100.bg-dark.opacity-40
+                  img(src=&quot;assets/img/portfolio/single/v1/04.jpg&quot;, alt=&quot;Image caption&quot;).d-block.rounded-4
+
+  // Media: Video
+  section#gallery-video.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Media: Video
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview2' data-bs-toggle='tab' role='tab' aria-controls='preview2' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview2.tab-pane.fade.show.active(role='tabpanel')
+          .gallery(data-video='true')
+            a(href='https://www.youtube.com/watch?v=udMULpKcnn8' style='max-width: 500px;').gallery-item.d-block.card-hover
+              .btn.btn-icon.btn-lg.btn-primary.rounded-circle.pe-none.position-absolute.top-50.start-50.translate-middle.zindex-3
+                i.ai-play-filled
+              .d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100.rounded-4.overflow-hidden.zindex-2.opacity-0
+                .position-absolute.bottom-0.start-0.w-100.text-center.text-white.fs-sm.fw-medium.zindex-2.pb-3 Video caption
+                .position-absolute.top-0.start-0.w-100.h-100.bg-dark.opacity-40
+              img(src='../assets/img/landing/product/video-cover.jpg' alt='Video caption').d-block.rounded-4
+        #html2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Video gallery --&gt;
+              &lt;div class=&quot;gallery&quot; data-video=&quot;true&quot;&gt;
+                &lt;a href=&quot;https://www.youtube.com/watch?v=udMULpKcnn8&quot; class=&quot;gallery-item d-block card-hover&quot;&gt;
+                  &lt;div class=&quot;btn btn-icon btn-lg btn-primary rounded-circle pe-none position-absolute top-50 start-50 translate-middle zindex-3&quot;&gt;
+                    &lt;i class=&quot;ai-play-filled&quot;&gt;&lt;/i&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;d-flex justify-content-center align-items-center position-absolute top-0 start-0 w-100 h-100 rounded-4 overflow-hidden zindex-2 opacity-0&quot;&gt;
+                    &lt;div class=&quot;position-absolute bottom-0 start-0 w-100 text-center text-white fs-sm fw-medium zindex-2 pb-3&quot;&gt;
+                      Video caption
+                    &lt;/div&gt;
+                    &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-40&quot;&gt;&lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;img src=&quot;assets/img/landing/product/video-cover.jpg&quot; class=&quot;d-block rounded-4&quot; alt=&quot;Video caption&quot;&gt;
+                &lt;/a&gt;
+              &lt;/div&gt;
+        #pug2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Video gallery
+              .gallery(data-video=&quot;true&quot;)
+                a(href=&quot;https://www.youtube.com/watch?v=udMULpKcnn8&quot;).gallery-item.d-block.card-hover
+                  .btn.btn-icon.btn-lg.btn-primary.rounded-circle.pe-none.position-absolute.top-50.start-50.translate-middle.zindex-3
+                    i.ai-play-filled
+                  .d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100.rounded-4.overflow-hidden.zindex-2.opacity-0
+                    .position-absolute.bottom-0.start-0.w-100.text-center.text-white.fs-sm.fw-medium.zindex-2.pb-3
+                      | Video caption
+                    .position-absolute.top-0.start-0.w-100.h-100.bg-dark.opacity-40
+                  img(src=&quot;assets/img/landing/product/video-cover.jpg&quot;, alt=&quot;Video caption&quot;).d-block.rounded-4
+
+  // Media: Iframe (Google map)
+  section#gallery-iframe.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Media: Iframe (Google map)
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview3' data-bs-toggle='tab' role='tab' aria-controls='preview3' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview3.tab-pane.fade.show.active(role='tabpanel')
+          .gallery
+            a(href='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.91476818218!2d-74.11976253858133!3d40.69740344296443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sua!4v1568574342685!5m2!1sen!2sua' data-iframe='true' style='max-width: 500px;').gallery-item.d-block.card-hover
+              .d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100.rounded-4.overflow-hidden.zindex-2.opacity-0
+                i.ai-zoom-in.fs-2.text-white.position-relative.zindex-2
+                .position-absolute.bottom-0.start-0.w-100.text-center.text-white.fs-sm.fw-medium.zindex-2.pb-3 Google map embed
+                .position-absolute.top-0.start-0.w-100.h-100.bg-dark.opacity-40
+              img(src='../assets/img/map.jpg' alt='Google map embed').d-block.rounded-4
+        #html3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Iframe (Google map) --&gt;
+              &lt;div class=&quot;gallery&quot;&gt;
+                &lt;a href=&quot;https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.91476818218!2d-74.11976253858133!3d40.69740344296443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sua!4v1568574342685!5m2!1sen!2sua&quot; class=&quot;gallery-item d-block card-hover&quot; data-iframe=&quot;true&quot;&gt;
+                  &lt;div class=&quot;d-flex justify-content-center align-items-center position-absolute top-0 start-0 w-100 h-100 rounded-4 overflow-hidden zindex-2 opacity-0&quot;&gt;
+                    &lt;i class=&quot;ai-zoom-in fs-2 text-white position-relative zindex-2&quot;&gt;&lt;/i&gt;
+                    &lt;div class=&quot;position-absolute bottom-0 start-0 w-100 text-center text-white fs-sm fw-medium zindex-2 pb-3&quot;&gt;
+                      Google map embed
+                    &lt;/div&gt;
+                    &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-40&quot;&gt;&lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;img src=&quot;assets/img/map.jpg&quot; class=&quot;d-block rounded-4&quot; alt=&quot;Google map embed&quot;&gt;
+                &lt;/a&gt;
+              &lt;/div&gt;
+        #pug3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Iframe (Google map)
+              .gallery
+                a(href=&quot;https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.91476818218!2d-74.11976253858133!3d40.69740344296443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sua!4v1568574342685!5m2!1sen!2sua&quot; data-iframe=&quot;true&quot;).gallery-item.d-block.card-hover
+                  .d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100.rounded-4.overflow-hidden.zindex-2.opacity-0
+                    i.ai-zoom-in.fs-2.text-white.position-relative.zindex-2
+                    .position-absolute.bottom-0.start-0.w-100.text-center.text-white.fs-sm.fw-medium.zindex-2.pb-3
+                      | Google map embed
+                    .position-absolute.top-0.start-0.w-100.h-100.bg-dark.opacity-40
+                  img(src=&quot;assets/img/map.jpg&quot;, alt=&quot;Google map embed&quot;).d-block.rounded-4
+
+  // Zoom effect
+  section#gallery-zoom.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Zoom effect
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview4' data-bs-toggle='tab' role='tab' aria-controls='preview4' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview4.tab-pane.fade.show.active(role='tabpanel')
+          .gallery
+            a(href='../assets/img/portfolio/single/v1/04.jpg' style='max-width: 460px;').gallery-item.d-block.card-hover.zoom-effect
+              .d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100.rounded-4.overflow-hidden.zindex-2.opacity-0
+                i.ai-zoom-in.fs-2.text-white.position-relative.zindex-2
+                .position-absolute.bottom-0.start-0.w-100.text-center.text-white.fs-sm.fw-medium.zindex-2.pb-3 Image caption
+                .position-absolute.top-0.start-0.w-100.h-100.bg-dark.opacity-40
+              .zoom-effect-wrapper.rounded-4
+                img(src='../assets/img/portfolio/single/v1/04.jpg' alt='Image caption').zoom-effect-img
+        #html4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Image gallery with zooming hover effect --&gt;
+              &lt;div class=&quot;gallery&quot;&gt;
+                &lt;a href=&quot;assets/img/portfolio/single/v1/04.jpg&quot; class=&quot;gallery-item d-block card-hover zoom-effect&quot;&gt;
+                  &lt;div class=&quot;d-flex justify-content-center align-items-center position-absolute top-0 start-0 w-100 h-100 rounded-4 overflow-hidden zindex-2 opacity-0&quot;&gt;
+                    &lt;i class=&quot;ai-zoom-in fs-2 text-white position-relative zindex-2&quot;&gt;&lt;/i&gt;
+                    &lt;div class=&quot;position-absolute bottom-0 start-0 w-100 text-center text-white fs-sm fw-medium zindex-2 pb-3&quot;&gt;
+                      Image caption
+                    &lt;/div&gt;
+                    &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-40&quot;&gt;&lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;zoom-effect-wrapper rounded-4&quot;&gt;
+                    &lt;img src=&quot;assets/img/portfolio/single/v1/04.jpg&quot; class=&quot;zoom-effect-img&quot; alt=&quot;Image caption&quot;&gt;
+                  &lt;/div&gt;
+                &lt;/a&gt;
+              &lt;/div&gt;
+        #pug4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Image gallery with zooming hover effect
+              .gallery
+                a(href=&quot;assets/img/portfolio/single/v1/04.jpg&quot;).gallery-item.d-block.card-hover.zoom-effect
+                  .d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100.rounded-4.overflow-hidden.zindex-2.opacity-0
+                    i.ai-zoom-in.fs-2.text-white.position-relative.zindex-2
+                    .position-absolute.bottom-0.start-0.w-100.text-center.text-white.fs-sm.fw-medium.zindex-2.pb-3
+                      | Image caption
+                    .position-absolute.top-0.start-0.w-100.h-100.bg-dark.opacity-40
+                  .zoom-effect-wrapper.rounded-4
+                    img(src=&quot;assets/img/portfolio/single/v1/04.jpg&quot;, alt=&quot;Image caption&quot;).zoom-effect-img
+
+  // Thumbnails
+  section#gallery-thumbnails.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Thumbnails
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3rounded-4
+          a(href='#preview5' data-bs-toggle='tab' role='tab' aria-controls='preview5' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html5' data-bs-toggle='tab' role='tab' aria-controls='html5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug5' data-bs-toggle='tab' role='tab' aria-controls='pug5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview5.tab-pane.fade.show.active(role='tabpanel')
+          .gallery.row.row-cols-1.row-cols-sm-2.row-cols-md-3.g-4(data-thumbnails='true')
+            .col
+              a(href='../assets/img/landing/corporate/features/01.jpg').gallery-item.d-block.card-hover
+                .d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100.rounded-4.overflow-hidden.zindex-2.opacity-0
+                  i.ai-zoom-in.fs-2.text-white.position-relative.zindex-2
+                  .position-absolute.bottom-0.start-0.w-100.text-center.text-white.fs-sm.fw-medium.zindex-2.pb-3 Image #1
+                  .position-absolute.top-0.start-0.w-100.h-100.bg-dark.opacity-40
+                img(src='../assets/img/landing/corporate/features/01.jpg' alt='Image #1').d-block.rounded-4
+            .col
+              a(href='../assets/img/landing/corporate/features/02.jpg').gallery-item.d-block.card-hover
+                .d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100.rounded-4.overflow-hidden.zindex-2.opacity-0
+                  i.ai-zoom-in.fs-2.text-white.position-relative.zindex-2
+                  .position-absolute.bottom-0.start-0.w-100.text-center.text-white.fs-sm.fw-medium.zindex-2.pb-3 Image #2
+                  .position-absolute.top-0.start-0.w-100.h-100.bg-dark.opacity-40
+                img(src='../assets/img/landing/corporate/features/02.jpg' alt='Image #2').d-block.rounded-4
+            .col
+              a(href='../assets/img/landing/corporate/features/03.jpg').gallery-item.d-block.card-hover
+                .d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100.rounded-4.overflow-hidden.zindex-2.opacity-0
+                  i.ai-zoom-in.fs-2.text-white.position-relative.zindex-2
+                  .position-absolute.bottom-0.start-0.w-100.text-center.text-white.fs-sm.fw-medium.zindex-2.pb-3 Image #3
+                  .position-absolute.top-0.start-0.w-100.h-100.bg-dark.opacity-40
+                img(src='../assets/img/landing/corporate/features/03.jpg' alt='Image #3').d-block.rounded-4
+        #html5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Gallery grid with enabled thumbnails --&gt;
+              &lt;div class=&quot;gallery row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4&quot; data-thumbnails=&quot;true&quot;&gt;
+
+                &lt;!-- Item --&gt;
+                &lt;div class=&quot;col&quot;&gt;
+                  &lt;a href=&quot;assets/img/landing/corporate/features/01.jpg&quot; class=&quot;gallery-item d-block card-hover&quot;&gt;
+                    &lt;div class=&quot;d-flex justify-content-center align-items-center position-absolute top-0 start-0 w-100 h-100 rounded-4 overflow-hidden zindex-2 opacity-0&quot;&gt;
+                      &lt;i class=&quot;ai-zoom-in fs-2 text-white position-relative zindex-2&quot;&gt;&lt;/i&gt;
+                      &lt;div class=&quot;position-absolute bottom-0 start-0 w-100 text-center text-white fs-sm fw-medium zindex-2 pb-3&quot;&gt;
+                        Image #1
+                      &lt;/div&gt;
+                      &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-40&quot;&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;img src=&quot;assets/img/landing/corporate/features/01.jpg&quot; class=&quot;d-block rounded-4&quot; alt=&quot;Image #1&quot;&gt;
+                  &lt;/a&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Item --&gt;
+                &lt;div class=&quot;col&quot;&gt;
+                  &lt;a href=&quot;assets/img/landing/corporate/features/02.jpg&quot; class=&quot;gallery-item d-block card-hover&quot;&gt;
+                    &lt;div class=&quot;d-flex justify-content-center align-items-center position-absolute top-0 start-0 w-100 h-100 rounded-4 overflow-hidden zindex-2 opacity-0&quot;&gt;
+                      &lt;i class=&quot;ai-zoom-in fs-2 text-white position-relative zindex-2&quot;&gt;&lt;/i&gt;
+                      &lt;div class=&quot;position-absolute bottom-0 start-0 w-100 text-center text-white fs-sm fw-medium zindex-2 pb-3&quot;&gt;
+                        Image #2
+                      &lt;/div&gt;
+                      &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-40&quot;&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;img src=&quot;assets/img/landing/corporate/features/02.jpg&quot; class=&quot;d-block rounded-4&quot; alt=&quot;Image #2&quot;&gt;
+                  &lt;/a&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Item --&gt;
+                &lt;div class=&quot;col&quot;&gt;
+                  &lt;a href=&quot;assets/img/landing/corporate/features/03.jpg&quot; class=&quot;gallery-item d-block card-hover&quot;&gt;
+                    &lt;div class=&quot;d-flex justify-content-center align-items-center position-absolute top-0 start-0 w-100 h-100 rounded-4 overflow-hidden zindex-2 opacity-0&quot;&gt;
+                      &lt;i class=&quot;ai-zoom-in fs-2 text-white position-relative zindex-2&quot;&gt;&lt;/i&gt;
+                      &lt;div class=&quot;position-absolute bottom-0 start-0 w-100 text-center text-white fs-sm fw-medium zindex-2 pb-3&quot;&gt;
+                        Image #3
+                      &lt;/div&gt;
+                      &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-40&quot;&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;img src=&quot;assets/img/landing/corporate/features/03.jpg&quot; class=&quot;d-block rounded-4&quot; alt=&quot;Image #3s&quot;&gt;
+                  &lt;/a&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Gallery grid with enabled thumbnails
+              .gallery.row.row-cols-1.row-cols-sm-2.row-cols-md-3.g-4(data-thumbnails=&quot;true&quot;)
+
+                // Item
+                .col
+                  a(href=&quot;assets/img/landing/corporate/features/01.jpg&quot;).gallery-item.d-block.card-hover
+                    .d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100.rounded-4.overflow-hidden.zindex-2.opacity-0
+                      i.ai-zoom-in.fs-2.text-white.position-relative.zindex-2
+                      .position-absolute.bottom-0.start-0.w-100.text-center.text-white.fs-sm.fw-medium.zindex-2.pb-3
+                        | Image #1
+                      .position-absolute.top-0.start-0.w-100.h-100.bg-dark.opacity-40
+                    img(src=&quot;assets/img/landing/corporate/features/01.jpg&quot;, alt=&quot;Image #1&quot;).d-block.rounded-4
+                
+                // Item
+                .col
+                  a(href=&quot;assets/img/landing/corporate/features/02.jpg&quot;).gallery-item.d-block.card-hover
+                    .d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100.rounded-4.overflow-hidden.zindex-2.opacity-0
+                      i.ai-zoom-in.fs-2.text-white.position-relative.zindex-2
+                      .position-absolute.bottom-0.start-0.w-100.text-center.text-white.fs-sm.fw-medium.zindex-2.pb-3
+                        | Image #2
+                      .position-absolute.top-0.start-0.w-100.h-100.bg-dark.opacity-40
+                    img(src=&quot;assets/img/landing/corporate/features/02.jpg&quot;, alt=&quot;Image #2&quot;).d-block.rounded-4
+                
+                // Item
+                .col
+                  a(href=&quot;assets/img/landing/corporate/features/03.jpg&quot;).gallery-item.d-block.card-hover
+                    .d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100.rounded-4.overflow-hidden.zindex-2.opacity-0
+                      i.ai-zoom-in.fs-2.text-white.position-relative.zindex-2
+                      .position-absolute.bottom-0.start-0.w-100.text-center.text-white.fs-sm.fw-medium.zindex-2.pb-3
+                        | Image #3
+                      .position-absolute.top-0.start-0.w-100.h-100.bg-dark.opacity-40
+                    img(src=&quot;assets/img/landing/corporate/features/03.jpg&quot;, alt=&quot;Image #3&quot;).d-block.rounded-4
+
+  // Inside card
+  section#gallery-card.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Inside card
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3rounded-4
+          a(href='#preview6' data-bs-toggle='tab' role='tab' aria-controls='preview6' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html6' data-bs-toggle='tab' role='tab' aria-controls='html6' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug6' data-bs-toggle='tab' role='tab' aria-controls='pug6' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview6.tab-pane.fade.show.active(role='tabpanel')
+          .card.gallery.overflow-hidden.rounded-5(style='max-width: 23rem;')
+            a(href='../assets/img/landing/web-studio/industries/03.jpg').gallery-item.d-block.card-hover
+              .d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100.zindex-2.opacity-0
+                i.ai-zoom-in.fs-2.text-white.position-relative.zindex-2
+                .position-absolute.top-0.start-0.w-100.h-100.bg-dark.opacity-40
+              img(src='../assets/img/landing/web-studio/industries/03.jpg' alt='Card image').card-img-top
+            .card-body
+              h4.card-title Card title
+              p.card-text Some quick example text to build on the card title and make up the bulk of the card's content.
+              a(href='#').btn.btn-primary
+                | Go somewhere
+        #html6.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Gallery inside card --&gt;
+              &lt;div class=&quot;card overflow-hidden rounded-5&quot;&gt;
+                &lt;a href=&quot;assets/img/landing/web-studio/industries/03.jpg&quot; class=&quot;gallery-item d-block card-hover&quot;&gt;
+                  &lt;div class=&quot;d-flex justify-content-center align-items-center position-absolute top-0 start-0 w-100 h-100 rounded-4 overflow-hidden zindex-2 opacity-0&quot;&gt;
+                    &lt;i class=&quot;ai-zoom-in fs-2 text-white position-relative zindex-2&quot;&gt;&lt;/i&gt;
+                    &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-40&quot;&gt;&lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;img src=&quot;assets/img/landing/web-studio/industries/03.jpg&quot; class=&quot;card-img-top&quot; alt=&quot;Card image&quot;&gt;
+                &lt;/a&gt;
+                &lt;div class=&quot;card-body&quot;&gt;
+                  &lt;h4 class=&quot;card-title&quot;&gt;Card title&lt;/h4&gt;
+                  &lt;p class=&quot;card-text&quot;&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;btn btn-primary&quot;&gt;Go somewhere&lt;/a&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug6.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Gallery inside card
+              .card.gallery.overflow-hidden.rounded-5
+                a(href=&quot;assets/img/landing/web-studio/industries/03.jpg&quot;).gallery-item.d-block.card-hover
+                  .d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100.zindex-2.opacity-0
+                    i.ai-zoom-in.fs-2.text-white.position-relative.zindex-2
+                    .position-absolute.top-0.start-0.w-100.h-100.bg-dark.opacity-40
+                  img(src=&quot;assets/img/landing/web-studio/industries/03.jpg&quot;, alt=&quot;Card image&quot;).card-img-top
+                .card-body
+                  h4.card-title Card title
+                  p.card-text Some quick example text to build on the card title and make up the bulk of the card&quot;s content.
+                  a(href=&quot;#&quot;).btn.btn-primary
+                    | Go somewhere

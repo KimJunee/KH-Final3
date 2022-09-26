@@ -1,0 +1,447 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['leaflet/dist/leaflet.css', 'tiny-slider/dist/tiny-slider.css', 'nouislider/dist/nouislider.min.css']
+  - var vendorScripts = ['leaflet/dist/leaflet.js', 'tiny-slider/dist/min/tiny-slider.js', 'nouislider/dist/nouislider.min.js']
+  - var parentMenu = 'Catalog'
+  - var pageTitle = 'Real Estate | Property for Rent'
+  - var bodyClass = 'fixed-bottom-btn'
+
+//- Navbar
+block navbar
+  include partials/navbar-real-estate
+
+//- Page Content
+block content
+
+  // Page container
+  .container-fluid.mt-5.pt-5.p-0
+    .row.g-0.mt-n3
+
+      // Filters sidebar (Offcanvas on mobile)
+      aside.col-lg-4.col-xl-3.border-top-lg.border-end-lg.shadow-sm.px-3.px-xl-4.px-xxl-5.pt-lg-2
+        include partials/sidebar-filters-real-estate
+          
+      // Page content
+      .col-lg-8.col-xl-9.position-relative.overflow-hidden.pb-5.pt-4.px-3.px-xl-4.px-xxl-5
+
+        // Map popup
+        #map.map-popup.invisible
+          button(type='button' data-bs-toggle-class='invisible' data-bs-target='#map').btn.btn-icon.btn-light.btn-sm.shadow-sm.rounded-circle
+            i.fi-x.fs-xs
+          .interactive-map(data-map-options-json='json/map-options-real-estate-rent.json')
+
+
+        // Breadcrumb
+        nav(aria-label='Breadcrumb').mb-3.pt-md-2
+          ol.breadcrumb
+            li.breadcrumb-item
+              a(href='real-estate-home-v1.html') Home
+            li(aria-current='page').breadcrumb-item.active
+              | Property for rent
+        
+        // Title
+        .d-sm-flex.align-items-center.justify-content-between.pb-3.pb-sm-4
+          h1.h2.mb-sm-0 Property for rent
+          a(href='#' data-bs-toggle-class='invisible' data-bs-target='#map').d-inline-block.fw-bold.text-decoration-none.py-1
+            i.fi-map.me-2
+            | Map view
+        
+        // Sorting
+        .d-flex.flex-sm-row.flex-column.align-items-sm-center.align-items-stretch.my-2
+          .d-flex.align-items-center.flex-shrink-0
+            label(for='sortby').fs-sm.me-2.pe-1.text-nowrap
+              i.fi-arrows-sort.text-muted.mt-n1.me-2
+              | Sort by:
+            select(id='sortby').form-select.form-select-sm
+              option Newest
+              option Popularity
+              option Low - High Price
+              option High - Low Price
+              option High rating
+              option Average Rating
+          hr.d-none.d-sm-block.w-100.mx-4
+          .d-none.d-sm-flex.align-items-center.flex-shrink-0.text-muted
+            i.fi-check-circle.me-2
+            span.fs-sm.mt-n1 148 results
+
+        
+        // Catalog grid
+        .row.g-4.py-4
+
+          // Item
+          .col-sm-6.col-xl-4
+            .card.shadow-sm.card-hover.border-0.h-100
+              .tns-carousel-wrapper.card-img-top.card-img-hover
+                a(href='real-estate-single-v1.html').img-overlay
+                .position-absolute.start-0.top-0.pt-3.ps-3
+                  span.d-table.badge.bg-success.mb-1 Verified
+                  span.d-table.badge.bg-info New
+                .content-overlay.end-0.top-0.pt-3.pe-3
+                  button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                    i.fi-heart
+                .tns-carousel-inner
+                  img(src='img/real-estate/catalog/06.jpg' alt='Image')
+                  img(src='img/real-estate/catalog/06.jpg' alt='Image')
+              .card-body.position-relative.pb-3
+                h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For rent
+                h3.h6.mb-2.fs-base
+                  a(href='real-estate-single-v1.html').nav-link.stretched-link 3-bed Apartment | 67 sq.m
+                p.mb-2.fs-sm.text-muted 3811 Ditmars Blvd Astoria, NY 11105
+                .fw-bold
+                  i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+                  | $1,650
+              .card-footer.d-flex.align-items-center.justify-content-center.mx-3.pt-3.text-nowrap
+                span.d-inline-block.mx-1.px-2.fs-sm 3
+                  i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 2
+                  i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 1
+                  i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+
+          // Item
+          .col-sm-6.col-xl-4
+            .card.shadow-sm.card-hover.border-0.h-100
+              .tns-carousel-wrapper.card-img-top.card-img-hover
+                a(href='real-estate-single-v1.html').img-overlay
+                .position-absolute.start-0.top-0.pt-3.ps-3
+                  span.d-table.badge.bg-info New
+                .content-overlay.end-0.top-0.pt-3.pe-3
+                  button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                    i.fi-heart
+                .tns-carousel-inner
+                  img(src='img/real-estate/catalog/07.jpg' alt='Image')
+                  img(src='img/real-estate/catalog/07.jpg' alt='Image')
+              .card-body.position-relative.pb-3
+                h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For rent
+                h3.h6.mb-2.fs-base
+                  a(href='real-estate-single-v1.html').nav-link.stretched-link Pine Apartments | 56 sq.m
+                p.mb-2.fs-sm.text-muted 3811 Ditmars Blvd Astoria, NY 11105
+                .fw-bold
+                  i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+                  | $2,000
+              .card-footer.d-flex.align-items-center.justify-content-center.mx-3.pt-3.text-nowrap
+                span.d-inline-block.mx-1.px-2.fs-sm 4
+                  i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 2
+                  i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 2
+                  i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+
+          // Item
+          .col-sm-6.col-xl-4
+            .card.shadow-sm.card-hover.border-0.h-100
+              .tns-carousel-wrapper.card-img-top.card-img-hover
+                a(href='real-estate-single-v1.html').img-overlay
+                .position-absolute.start-0.top-0.pt-3.ps-3
+                  span.d-table.badge.bg-info New
+                .content-overlay.end-0.top-0.pt-3.pe-3
+                  button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                    i.fi-heart
+                .tns-carousel-inner
+                  img(src='img/real-estate/catalog/08.jpg' alt='Image')
+                  img(src='img/real-estate/catalog/08.jpg' alt='Image')
+              .card-body.position-relative.pb-3
+                h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For rent
+                h3.h6.mb-2.fs-base
+                  a(href='real-estate-single-v1.html').nav-link.stretched-link Greenpoint Rentals | 85 sq.m
+                p.mb-2.fs-sm.text-muted 1510 Castle Hill Ave Bronx, NY 10462
+                .fw-bold
+                  i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+                  | $1,350
+              .card-footer.d-flex.align-items-center.justify-content-center.mx-3.pt-3.text-nowrap
+                span.d-inline-block.mx-1.px-2.fs-sm 2
+                  i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 1
+                  i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 0
+                  i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+
+          // Item
+          .col-sm-6.col-xl-4
+            .card.shadow-sm.card-hover.border-0.h-100
+              .tns-carousel-wrapper.card-img-top.card-img-hover
+                a(href='real-estate-single-v1.html').img-overlay
+                .position-absolute.start-0.top-0.pt-3.ps-3
+                  span.d-table.badge.bg-success Verified
+                .content-overlay.end-0.top-0.pt-3.pe-3
+                  button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                    i.fi-heart
+                .tns-carousel-inner
+                  img(src='img/real-estate/catalog/09.jpg' alt='Image')
+                  img(src='img/real-estate/catalog/09.jpg' alt='Image')
+              .card-body.position-relative.pb-3
+                h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For rent
+                h3.h6.mb-2.fs-base
+                  a(href='real-estate-single-v1.html').nav-link.stretched-link Terra Nova Apartments | 85 sq.m
+                p.mb-2.fs-sm.text-muted 21 India St Brooklyn, NY 11222
+                .fw-bold
+                  i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+                  | $2,400
+              .card-footer.d-flex.align-items-center.justify-content-center.mx-3.pt-3.text-nowrap
+                span.d-inline-block.mx-1.px-2.fs-sm 5
+                  i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 2
+                  i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 2
+                  i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+
+          // Item
+          .col-sm-6.col-xl-4
+            .card.shadow-sm.card-hover.border-0.h-100
+              .tns-carousel-wrapper.card-img-top.card-img-hover
+                a(href='real-estate-single-v1.html').img-overlay
+                .position-absolute.start-0.top-0.pt-3.ps-3
+                  span.d-table.badge.bg-success.mb-1 Verified
+                  span.d-table.badge.bg-danger Featured
+                .content-overlay.end-0.top-0.pt-3.pe-3
+                  button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                    i.fi-heart
+                .tns-carousel-inner
+                  img(src='img/real-estate/catalog/10.jpg' alt='Image')
+                  img(src='img/real-estate/catalog/10.jpg' alt='Image')
+              .card-body.position-relative.pb-3
+                h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For rent
+                h3.h6.mb-2.fs-base
+                  a(href='real-estate-single-v1.html').nav-link.stretched-link O’Farrell Rooms | 40 sq.m
+                p.mb-2.fs-sm.text-muted 460 E Fordham Rd Bronx, NY 10458
+                .fw-bold
+                  i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+                  | From $550
+              .card-footer.d-flex.align-items-center.justify-content-center.mx-3.pt-3.text-nowrap
+                span.d-inline-block.mx-1.px-2.fs-sm 2
+                  i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 1
+                  i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 0
+                  i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+
+          // Item
+          .col-sm-6.col-xl-4
+            .card.shadow-sm.card-hover.border-0.h-100
+              .tns-carousel-wrapper.card-img-top.card-img-hover
+                a(href='real-estate-single-v1.html').img-overlay
+                .position-absolute.start-0.top-0.pt-3.ps-3
+                  span.d-table.badge.bg-info New
+                .content-overlay.end-0.top-0.pt-3.pe-3
+                  button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                    i.fi-heart
+                .tns-carousel-inner
+                  img(src='img/real-estate/catalog/11.jpg' alt='Image')
+                  img(src='img/real-estate/catalog/11.jpg' alt='Image')
+              .card-body.position-relative.pb-3
+                h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For rent
+                h3.h6.mb-2.fs-base
+                  a(href='real-estate-single-v1.html').nav-link.stretched-link Studio | 32 sq.m
+                p.mb-2.fs-sm.text-muted 140-60 Beech Ave Flushing, NY 11355
+                .fw-bold
+                  i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+                  | $680
+              .card-footer.d-flex.align-items-center.justify-content-center.mx-3.pt-3.text-nowrap
+                span.d-inline-block.mx-1.px-2.fs-sm 1
+                  i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 1
+                  i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 1
+                  i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+
+          // Item
+          .col-sm-6.col-xl-4
+            .card.shadow-sm.card-hover.border-0.h-100
+              .tns-carousel-wrapper.card-img-top.card-img-hover
+                a(href='real-estate-single-v1.html').img-overlay
+                .position-absolute.start-0.top-0.pt-3.ps-3
+                  span.d-table.badge.bg-danger Featured
+                .content-overlay.end-0.top-0.pt-3.pe-3
+                  button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                    i.fi-heart
+                .tns-carousel-inner
+                  img(src='img/real-estate/catalog/12.jpg' alt='Image')
+                  img(src='img/real-estate/catalog/12.jpg' alt='Image')
+              .card-body.position-relative.pb-3
+                h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For rent
+                h3.h6.mb-2.fs-base
+                  a(href='real-estate-single-v1.html').nav-link.stretched-link Mason House | 150 sq.m
+                p.mb-2.fs-sm.text-muted 557 Grand Concourse Bronx, NY 10451
+                .fw-bold
+                  i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+                  | From $4,000
+              .card-footer.d-flex.align-items-center.justify-content-center.mx-3.pt-3.text-nowrap
+                span.d-inline-block.mx-1.px-2.fs-sm 3
+                  i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 2
+                  i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 2
+                  i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+
+          // Item
+          .col-sm-6.col-xl-4
+            .card.shadow-sm.card-hover.border-0.h-100
+              .tns-carousel-wrapper.card-img-top.card-img-hover
+                a(href='real-estate-single-v1.html').img-overlay
+                .position-absolute.start-0.top-0.pt-3.ps-3
+                  span.d-table.badge.bg-success Verified
+                .content-overlay.end-0.top-0.pt-3.pe-3
+                  button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                    i.fi-heart
+                .tns-carousel-inner
+                  img(src='img/real-estate/catalog/13.jpg' alt='Image')
+                  img(src='img/real-estate/catalog/13.jpg' alt='Image')
+              .card-body.position-relative.pb-3
+                h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For rent
+                h3.h6.mb-2.fs-base
+                  a(href='real-estate-single-v1.html').nav-link.stretched-link Office | 320 sq.m
+                p.mb-2.fs-sm.text-muted 159 20th Street Brooklyn, NY 11232
+                .fw-bold
+                  i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+                  | $8,000
+              .card-footer.d-flex.align-items-center.justify-content-center.mx-3.pt-3.text-nowrap
+                span.d-inline-block.mx-1.px-2.fs-sm 2
+                  i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 1
+                  i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 8
+                  i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+
+          // Item
+          .col-sm-6.col-xl-4
+            .card.shadow-sm.card-hover.border-0.h-100
+              .tns-carousel-wrapper.card-img-top.card-img-hover
+                a(href='real-estate-single-v1.html').img-overlay
+                .content-overlay.end-0.top-0.pt-3.pe-3
+                  button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                    i.fi-heart
+                .tns-carousel-inner
+                  img(src='img/real-estate/catalog/15.jpg' alt='Image')
+                  img(src='img/real-estate/catalog/15.jpg' alt='Image')
+              .card-body.position-relative.pb-3
+                h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For rent
+                h3.h6.mb-2.fs-base
+                  a(href='real-estate-single-v1.html').nav-link.stretched-link Lakewood Rentals | 90 sq.m
+                p.mb-2.fs-sm.text-muted 5 Brewster Street Glen Cove, NY 11542
+                .fw-bold
+                  i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+                  | $1,200
+              .card-footer.d-flex.align-items-center.justify-content-center.mx-3.pt-3.text-nowrap
+                span.d-inline-block.mx-1.px-2.fs-sm 2
+                  i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 1
+                  i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 8
+                  i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+
+          // Item
+          .col-sm-6.col-xl-4
+            .card.shadow-sm.card-hover.border-0.h-100
+              .tns-carousel-wrapper.card-img-top.card-img-hover
+                a(href='real-estate-single-v1.html').img-overlay
+                .content-overlay.end-0.top-0.pt-3.pe-3
+                  button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                    i.fi-heart
+                .tns-carousel-inner
+                  img(src='img/real-estate/catalog/14.jpg' alt='Image')
+                  img(src='img/real-estate/catalog/14.jpg' alt='Image')
+              .card-body.position-relative.pb-3
+                h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For rent
+                h3.h6.mb-2.fs-base
+                  a(href='real-estate-single-v1.html').nav-link.stretched-link Crystal Apartment| 60 sq.m
+                p.mb-2.fs-sm.text-muted 495 Henry St Brooklyn, NY 11231
+                .fw-bold
+                  i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+                  | $1,350
+              .card-footer.d-flex.align-items-center.justify-content-center.mx-3.pt-3.text-nowrap
+                span.d-inline-block.mx-1.px-2.fs-sm 2
+                  i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 1
+                  i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 1
+                  i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+
+          // Item
+          .col-sm-6.col-xl-4
+            .card.shadow-sm.card-hover.border-0.h-100
+              .tns-carousel-wrapper.card-img-top.card-img-hover
+                a(href='real-estate-single-v1.html').img-overlay
+                .position-absolute.start-0.top-0.pt-3.ps-3
+                  span.d-table.badge.bg-danger Featured
+                .content-overlay.end-0.top-0.pt-3.pe-3
+                  button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                    i.fi-heart
+                .tns-carousel-inner
+                  img(src='img/real-estate/catalog/16.jpg' alt='Image')
+                  img(src='img/real-estate/catalog/16.jpg' alt='Image')
+              .card-body.position-relative.pb-3
+                h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For rent
+                h3.h6.mb-2.fs-base
+                  a(href='real-estate-single-v1.html').nav-link.stretched-link Family Home | 120 sq.m
+                p.mb-2.fs-sm.text-muted 67-04 Myrtle Ave Glendale, NY 11385
+                .fw-bold
+                  i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+                  | From $4,500
+              .card-footer.d-flex.align-items-center.justify-content-center.mx-3.pt-3.text-nowrap
+                span.d-inline-block.mx-1.px-2.fs-sm 4
+                  i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 2
+                  i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 2
+                  i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+
+          // Item
+          .col-sm-6.col-xl-4
+            .card.shadow-sm.card-hover.border-0.h-100
+              .tns-carousel-wrapper.card-img-top.card-img-hover
+                a(href='real-estate-single-v1.html').img-overlay
+                .content-overlay.end-0.top-0.pt-3.pe-3
+                  button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                    i.fi-heart
+                .tns-carousel-inner
+                  img(src='img/real-estate/catalog/17.jpg' alt='Image')
+                  img(src='img/real-estate/catalog/17.jpg' alt='Image')
+              .card-body.position-relative.pb-3
+                h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For rent
+                h3.h6.mb-2.fs-base
+                  a(href='real-estate-single-v1.html').nav-link.stretched-link Tiffany Studio | 35 sq.m
+                p.mb-2.fs-sm.text-muted 3979 Albany Post Road Hyde Park, NY 12538
+                .fw-bold
+                  i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+                  | $700
+              .card-footer.d-flex.align-items-center.justify-content-center.mx-3.pt-3.text-nowrap
+                span.d-inline-block.mx-1.px-2.fs-sm 1
+                  i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 1
+                  i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 1
+                  i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+
+
+        // Pagination
+        nav.border-top.pb-md-4.pt-4.mt-2(aria-label='Pagination')
+          ul.pagination.mb-1
+            li.page-item.d-sm-none
+              span.page-link.page-link-static 1 / 5
+            li.page-item.active.d-none.d-sm-block(aria-current='page')
+              span.page-link
+                | 1
+                span.visually-hidden (current)
+            li.page-item.d-none.d-sm-block
+              a(href='#').page-link 2
+            li.page-item.d-none.d-sm-block
+              a(href='#').page-link 3
+            li.page-item.d-none.d-sm-block
+              | ...
+            li.page-item.d-none.d-sm-block
+              a(href='#').page-link 8
+            li.page-item
+              a(href='#' aria-label='Next').page-link
+                i.fi-chevron-right
+
+
+//- Footer
+block footer
+  include partials/footer-real-estate
+
+  // Filters sidebar toggle button (mobile)
+  button(type='button' data-bs-toggle='offcanvas' data-bs-target='#filters-sidebar').btn.btn-primary.btn-sm.w-100.rounded-0.fixed-bottom.d-lg-none
+    i.fi-filter.me-2
+    | Filters

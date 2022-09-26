@@ -1,0 +1,495 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/nouislider/dist/nouislider.min.css', 'vendor/swiper/swiper-bundle.min.css']
+  - var scripts = ['vendor/nouislider/dist/nouislider.min.js', 'vendor/swiper/swiper-bundle.min.js']
+  - var parentMenu = 'Pages'
+  - var pageTitle = 'Shop Catalog'
+  - var navbarExtraClass = 'bg-light'
+  - var isShopPage = 'true'
+  - var isFixedButton = true
+
+
+//- Navbar
+block navbar
+  include partials/navbar.pug
+
+
+//- Page Content
+block content
+  .container.py-5.mt-5.mb-lg-4.mb-xl-5
+    
+    // Breadcrumb
+    +breadcrumb([{'title': 'Shop catalog'}]).pt-lg-3.pb-2
+
+    // Banner
+    .ignore-dark-mode.rounded-1.overflow-hidden.mb-5(style='background-color: #e3e5e9;')
+      .row.align-items-center.g-0
+        .col-md-6.offset-xl-1.text-center.text-md-start
+          .py-4.px-4.px-sm-5.pe-md-0.ps-xl-4
+            p.fs-xs.text-uppercase.pt-3.pt-md-0.mb-3.mb-lg-4 Best selling
+            h2.h1.pb-2.pb-xl-3 Cozy corner for the living room at a <span class='text-primary'>discount up to 40%</span>
+            a(href='#').btn.btn-sm.btn-outline-dark.ignore-dark-mode Explore
+        .col-md-6.col-xl-5.d-flex.justify-content-end
+          img(src='assets/img/shop/banner.jpg' width='491' alt='Banner')
+    
+    // Page title
+    .row.pt-xl-3.mt-n1.mt-sm-0
+      .col-lg-9.offset-lg-3.pt-lg-3
+        h1.pb-2.pb-sm-3 Home decoration
+
+    .row.pb-2.pb-sm-4
+
+      // Sidebar (offcanvas on sreens < 992px)
+      aside.col-lg-3
+        include partials/sidebar-shop.pug
+
+
+      // Product grid
+      .col-lg-9
+
+        // Active filters + Sorting
+        .d-flex.align-items-start.justify-content-between.mb-4
+          .me-3
+            .nav.d-md-none: a(href='#activeFilters' data-bs-toggle='collapse').nav-link.dropdown-toggle.fs-sm.p-0.mb-2
+              | Active filters
+            #activeFilters.collapse.d-md-block
+              .pt-2.pt-md-0
+                a(href='#').d-inline-block.border.rounded-pill.fs-xs.fw-medium.text-body.text-decoration-none.py-1.px-2.me-2.mb-2
+                  span.d-inline-flex.align-items-center.text-nowrap.px-1
+                    | Vases
+                    i.ai-circle-x.fs-base.ms-1
+                a(href='#').d-inline-block.border.rounded-pill.fs-xs.fw-medium.text-body.text-decoration-none.py-1.px-2.me-2.mb-2
+                  span.d-inline-flex.align-items-center.text-nowrap.px-1
+                    | Clocks
+                    i.ai-circle-x.fs-base.ms-1
+                a(href='#').d-inline-block.border.rounded-pill.fs-xs.fw-medium.text-body.text-decoration-none.py-1.px-2.me-2.mb-2
+                  span.d-inline-flex.align-items-center.text-nowrap.px-1
+                    | Tither Room
+                    i.ai-circle-x.fs-base.ms-1
+                a(href='#').d-inline-block.border.rounded-pill.fs-xs.fw-medium.text-body.text-decoration-none.py-1.px-2.me-2.mb-2
+                  span.d-inline-flex.align-items-center.text-nowrap.px-1
+                    | $10 - $50
+                    i.ai-circle-x.fs-base.ms-1
+                button(type='button').btn.btn-sm.btn-secondary.rounded-pill.fw-medium.py-1.px-2
+                  span.px-1 Remove all filters
+
+          .d-flex.align-items-center.flex-shrink-0.mb-2
+            span.text-muted.text-nowrap.fs-sm Sort by:
+            select.form-select.form-select-flush.py-0
+              option(value='popular') Most popular
+              option(value='low-high') Low-High price
+              option(value='high-low') High-Low price
+              option(value='rating') Average rating
+              option(value='az') A-Z order
+              option(value='za') Z-A order
+
+        .row.row-cols-1.row-cols-sm-2.row-cols-md-3.g-4
+
+          // Item
+          .col.pb-2.pb-sm-3
+            .card-hover.position-relative.bg-secondary.rounded-1.p-3.mb-4
+              span.badge.bg-faded-danger.text-danger.position-absolute.top-0.start-0.mt-3.ms-3 Sale
+              button(type='button').btn.btn-icon.btn-sm.btn-light.bg-light.border-0.rounded-circle.position-absolute.top-0.end-0.mt-3.me-3.zindex-5.opacity-0
+                i.ai-heart.fs-xl.d-dark-mode-none
+                i.ai-heart.text-nav.fs-xl.d-none.d-dark-mode-block
+              .swiper.swiper-nav-onhover(data-swiper-options='{"loop": true, "navigation": {"prevEl": ".btn-prev", "nextEl": ".btn-next"}}')
+                a(href='shop-single.html').swiper-wrapper
+                  .swiper-slide.p-2.p-xl-4
+                    img(src='assets/img/shop/products/01.png' width='226' alt='Product').d-block.mx-auto
+                button(type='button').btn.btn-prev.btn-icon.btn-sm.btn-light.bg-light.border-0.rounded-circle.start-0
+                  i.ai-chevron-left.fs-xl.d-dark-mode-none
+                  i.ai-chevron-left.text-nav.fs-xl.d-none.d-dark-mode-block
+                button(type='button').btn.btn-next.btn-icon.btn-sm.btn-light.bg-light.border-0.rounded-circle.end-0
+                  i.ai-chevron-right.fs-xl.d-dark-mode-none
+                  i.ai-chevron-right.text-nav.fs-xl.d-none.d-dark-mode-block
+            .d-flex.mb-1
+              h3.h6.mb-0: a(href='shop-single.html') Loft style lamp
+              .d-flex.ps-2.mt-n1.ms-auto
+                .ms-1
+                  input(type='radio' name='color1' value='Dark gray' checked)#color1-1.btn-check
+                  label(for='color1-1').btn.btn-icon.btn-xs.btn-outline-secondary.rounded-circle
+                    span(style='width: .625rem; height: .625rem; background-color: #576071;').d-block.rounded-circle
+                .ms-1
+                  input(type='radio' name='color1' value='Light gray')#color1-2.btn-check
+                  label(for='color1-2').btn.btn-icon.btn-xs.btn-outline-secondary.rounded-circle
+                    span(style='width: .625rem; height: .625rem; background-color: #d5d4d3;').d-block.rounded-circle
+                .ms-1
+                  input(type='radio' name='color1' value='Blue')#color1-3.btn-check
+                  label(for='color1-3').btn.btn-icon.btn-xs.btn-outline-secondary.rounded-circle
+                    span(style='width: .625rem; height: .625rem; background-color: #a1b7d9;').d-block.rounded-circle
+            .d-flex.align-items-center
+              span.me-2 $21.00
+              del.fs-sm.text-muted $35.00
+              .nav.ms-auto(data-bs-toggle='tooltip' data-bs-template='<div class="tooltip fs-xs" role="tooltip"><div class="tooltip-inner bg-light text-muted p-0"></div></div>' data-bs-placement='left' title='Add to cart')
+                a(href='#').nav-link.fs-lg.py-2.px-1: i.ai-cart
+
+          // Item
+          .col.pb-2.pb-sm-3
+            .card-hover.position-relative.bg-secondary.rounded-1.p-3.mb-4
+              button(type='button').btn.btn-icon.btn-sm.btn-light.bg-light.border-0.rounded-circle.position-absolute.top-0.end-0.mt-3.me-3.zindex-5.opacity-0
+                i.ai-heart.fs-xl.d-dark-mode-none
+                i.ai-heart.text-nav.fs-xl.d-none.d-dark-mode-block
+              .swiper.swiper-nav-onhover(data-swiper-options='{"loop": true, "navigation": {"prevEl": ".btn-prev", "nextEl": ".btn-next"}}')
+                a(href='shop-single.html').swiper-wrapper
+                  .swiper-slide.p-2.p-xl-4
+                    img(src='assets/img/shop/products/02.png' width='226' alt='Product').d-block.mx-auto
+                button(type='button').btn.btn-prev.btn-icon.btn-sm.btn-light.bg-light.border-0.rounded-circle.start-0
+                  i.ai-chevron-left.fs-xl.d-dark-mode-none
+                  i.ai-chevron-left.text-nav.fs-xl.d-none.d-dark-mode-block
+                button(type='button').btn.btn-next.btn-icon.btn-sm.btn-light.bg-light.border-0.rounded-circle.end-0
+                  i.ai-chevron-right.fs-xl.d-dark-mode-none
+                  i.ai-chevron-right.text-nav.fs-xl.d-none.d-dark-mode-block
+            .d-flex.mb-1
+              h3.h6.mb-0: a(href='shop-single.html') Dispenser for soap
+            .d-flex.align-items-center
+              span.me-2 $16.00
+              .nav.ms-auto(data-bs-toggle='tooltip' data-bs-template='<div class="tooltip fs-xs" role="tooltip"><div class="tooltip-inner bg-light text-muted p-0"></div></div>' data-bs-placement='left' title='Add to cart')
+                a(href='#').nav-link.fs-lg.py-2.px-1: i.ai-cart
+
+          // Item
+          .col.pb-2.pb-sm-3
+            .card-hover.position-relative.bg-secondary.rounded-1.p-3.mb-4
+              span.badge.bg-faded-danger.text-danger.position-absolute.top-0.start-0.mt-3.ms-3 Sale
+              button(type='button').btn.btn-icon.btn-sm.btn-light.bg-light.border-0.rounded-circle.position-absolute.top-0.end-0.mt-3.me-3.zindex-5.opacity-0
+                i.ai-heart.fs-xl.d-dark-mode-none
+                i.ai-heart.text-nav.fs-xl.d-none.d-dark-mode-block
+              .swiper.swiper-nav-onhover(data-swiper-options='{"loop": true, "navigation": {"prevEl": ".btn-prev", "nextEl": ".btn-next"}}')
+                a(href='shop-single.html').swiper-wrapper
+                  .swiper-slide.p-2.p-xl-4
+                    img(src='assets/img/shop/products/03.png' width='226' alt='Product').d-block.mx-auto
+                button(type='button').btn.btn-prev.btn-icon.btn-sm.btn-light.bg-light.border-0.rounded-circle.start-0
+                  i.ai-chevron-left.fs-xl.d-dark-mode-none
+                  i.ai-chevron-left.text-nav.fs-xl.d-none.d-dark-mode-block
+                button(type='button').btn.btn-next.btn-icon.btn-sm.btn-light.bg-light.border-0.rounded-circle.end-0
+                  i.ai-chevron-right.fs-xl.d-dark-mode-none
+                  i.ai-chevron-right.text-nav.fs-xl.d-none.d-dark-mode-block
+            .d-flex.mb-1
+              h3.h6.mb-0: a(href='shop-single.html') Glossy round vase
+              .d-flex.ps-2.mt-n1.ms-auto
+                .ms-1
+                  input(type='radio' name='color2' value='Light gray' checked)#color2-1.btn-check
+                  label(for='color2-1').btn.btn-icon.btn-xs.btn-outline-secondary.rounded-circle
+                    span(style='width: .625rem; height: .625rem; background-color: #d5d4d3;').d-block.rounded-circle
+                .ms-1
+                  input(type='radio' name='color2' value='Dark gray')#color2-2.btn-check
+                  label(for='color2-2').btn.btn-icon.btn-xs.btn-outline-secondary.rounded-circle
+                    span(style='width: .625rem; height: .625rem; background-color: #576071;').d-block.rounded-circle
+                .ms-1
+                  input(type='radio' name='color2' value='Blue')#color2-3.btn-check
+                  label(for='color2-3').btn.btn-icon.btn-xs.btn-outline-secondary.rounded-circle
+                    span(style='width: .625rem; height: .625rem; background-color: #a1b7d9;').d-block.rounded-circle
+            .d-flex.align-items-center
+              span.me-2 $11.00
+              del.fs-sm.text-muted $15.00
+              .nav.ms-auto(data-bs-toggle='tooltip' data-bs-template='<div class="tooltip fs-xs" role="tooltip"><div class="tooltip-inner bg-light text-muted p-0"></div></div>' data-bs-placement='left' title='Add to cart')
+                a(href='#').nav-link.fs-lg.py-2.px-1: i.ai-cart
+
+          // Item
+          .col.pb-2.pb-sm-3
+            .card-hover.position-relative.bg-secondary.rounded-1.p-3.mb-4
+              span.badge.bg-faded-primary.text-primary.position-absolute.top-0.start-0.mt-3.ms-3 New
+              button(type='button').btn.btn-icon.btn-sm.btn-light.bg-light.border-0.rounded-circle.position-absolute.top-0.end-0.mt-3.me-3.zindex-5.opacity-0
+                i.ai-heart.fs-xl.d-dark-mode-none
+                i.ai-heart.text-nav.fs-xl.d-none.d-dark-mode-block
+              .swiper.swiper-nav-onhover(data-swiper-options='{"loop": true, "navigation": {"prevEl": ".btn-prev", "nextEl": ".btn-next"}}')
+                a(href='shop-single.html').swiper-wrapper
+                  .swiper-slide.p-2.p-xl-4
+                    img(src='assets/img/shop/products/04.png' width='226' alt='Product').d-block.mx-auto
+                button(type='button').btn.btn-prev.btn-icon.btn-sm.btn-light.bg-light.border-0.rounded-circle.start-0
+                  i.ai-chevron-left.fs-xl.d-dark-mode-none
+                  i.ai-chevron-left.text-nav.fs-xl.d-none.d-dark-mode-block
+                button(type='button').btn.btn-next.btn-icon.btn-sm.btn-light.bg-light.border-0.rounded-circle.end-0
+                  i.ai-chevron-right.fs-xl.d-dark-mode-none
+                  i.ai-chevron-right.text-nav.fs-xl.d-none.d-dark-mode-block
+            .d-flex.mb-1
+              h3.h6.mb-0: a(href='shop-single.html') Ceramic flower pot
+              .d-flex.ps-2.mt-n1.ms-auto
+                .ms-1
+                  input(type='radio' name='color3' value='Gray concrete' checked)#color3-1.btn-check
+                  label(for='color3-1').btn.btn-icon.btn-xs.btn-outline-secondary.rounded-circle
+                    span(style='width: .625rem; height: .625rem; background-color: #c0c0c0; background-image: url(assets/img/shop/pattern/marble.jpg);').d-block.bg-size-cover.bg-position-center.rounded-circle
+                .ms-1
+                  input(type='radio' name='color3' value='Beige')#color3-2.btn-check
+                  label(for='color3-2').btn.btn-icon.btn-xs.btn-outline-secondary.rounded-circle
+                    span(style='width: .625rem; height: .625rem; background-color: #d9c9a1;').d-block.rounded-circle
+                .ms-1
+                  input(type='radio' name='color3' value='Blue')#color3-3.btn-check
+                  label(for='color3-3').btn.btn-icon.btn-xs.btn-outline-secondary.rounded-circle
+                    span(style='width: .625rem; height: .625rem; background-color: #a1b7d9;').d-block.rounded-circle
+            .d-flex.align-items-center
+              span.me-2 $19.00
+              .nav.ms-auto(data-bs-toggle='tooltip' data-bs-template='<div class="tooltip fs-xs" role="tooltip"><div class="tooltip-inner bg-light text-muted p-0"></div></div>' data-bs-placement='left' title='Add to cart')
+                a(href='#').nav-link.fs-lg.py-2.px-1: i.ai-cart
+
+          // Item
+          .col.pb-2.pb-sm-3
+            .card-hover.position-relative.bg-secondary.rounded-1.p-3.mb-4
+              button(type='button').btn.btn-icon.btn-sm.btn-light.bg-light.border-0.rounded-circle.position-absolute.top-0.end-0.mt-3.me-3.zindex-5.opacity-0
+                i.ai-heart.fs-xl.d-dark-mode-none
+                i.ai-heart.text-nav.fs-xl.d-none.d-dark-mode-block
+              .swiper.swiper-nav-onhover(data-swiper-options='{"loop": true, "navigation": {"prevEl": ".btn-prev", "nextEl": ".btn-next"}}')
+                a(href='shop-single.html').swiper-wrapper
+                  .swiper-slide.p-2.p-xl-4
+                    img(src='assets/img/shop/products/05.png' width='226' alt='Product').d-block.mx-auto
+                button(type='button').btn.btn-prev.btn-icon.btn-sm.btn-light.bg-light.border-0.rounded-circle.start-0
+                  i.ai-chevron-left.fs-xl.d-dark-mode-none
+                  i.ai-chevron-left.text-nav.fs-xl.d-none.d-dark-mode-block
+                button(type='button').btn.btn-next.btn-icon.btn-sm.btn-light.bg-light.border-0.rounded-circle.end-0
+                  i.ai-chevron-right.fs-xl.d-dark-mode-none
+                  i.ai-chevron-right.text-nav.fs-xl.d-none.d-dark-mode-block
+            .d-flex.mb-1
+              h3.h6.mb-0: a(href='shop-single.html') Pendant lamp
+              .d-flex.ps-2.mt-n1.ms-auto
+                .ms-1
+                  input(type='radio' name='color4' value='Gray' checked)#color4-1.btn-check
+                  label(for='color4-1').btn.btn-icon.btn-xs.btn-outline-secondary.rounded-circle
+                    span(style='width: .625rem; height: .625rem; background-color: #bab8b7;').d-block.rounded-circle
+                .ms-1
+                  input(type='radio' name='color4' value='Woody brown')#color4-2.btn-check
+                  label(for='color4-2').btn.btn-icon.btn-xs.btn-outline-secondary.rounded-circle
+                    span(style='width: .625rem; height: .625rem; background-color: #c0c0c0; background-image: url(assets/img/shop/pattern/wood.jpg);').d-block.bg-size-cover.bg-position-center.rounded-circle
+                .ms-1
+                  input(type='radio' name='color4' value='Gray marble')#color4-3.btn-check
+                  label(for='color4-3').btn.btn-icon.btn-xs.btn-outline-secondary.rounded-circle
+                    span(style='width: .625rem; height: .625rem; background-color: #c0c0c0; background-image: url(assets/img/shop/pattern/marble.jpg);').d-block.bg-size-cover.bg-position-center.rounded-circle
+            .d-flex.align-items-center
+              span.me-2 $22.00
+              .nav.ms-auto(data-bs-toggle='tooltip' data-bs-template='<div class="tooltip fs-xs" role="tooltip"><div class="tooltip-inner bg-light text-muted p-0"></div></div>' data-bs-placement='left' title='Add to cart')
+                a(href='#').nav-link.fs-lg.py-2.px-1: i.ai-cart
+
+          // Item
+          .col.pb-2.pb-sm-3
+            .card-hover.position-relative.bg-secondary.rounded-1.p-3.mb-4
+              button(type='button').btn.btn-icon.btn-sm.btn-light.bg-light.border-0.rounded-circle.position-absolute.top-0.end-0.mt-3.me-3.zindex-5.opacity-0
+                i.ai-heart.fs-xl.d-dark-mode-none
+                i.ai-heart.text-nav.fs-xl.d-none.d-dark-mode-block
+              .swiper.swiper-nav-onhover(data-swiper-options='{"loop": true, "navigation": {"prevEl": ".btn-prev", "nextEl": ".btn-next"}}')
+                a(href='shop-single.html').swiper-wrapper
+                  .swiper-slide.p-2.p-xl-4
+                    img(src='assets/img/shop/products/06.png' width='226' alt='Product').d-block.mx-auto
+                button(type='button').btn.btn-prev.btn-icon.btn-sm.btn-light.bg-light.border-0.rounded-circle.start-0
+                  i.ai-chevron-left.fs-xl.d-dark-mode-none
+                  i.ai-chevron-left.text-nav.fs-xl.d-none.d-dark-mode-block
+                button(type='button').btn.btn-next.btn-icon.btn-sm.btn-light.bg-light.border-0.rounded-circle.end-0
+                  i.ai-chevron-right.fs-xl.d-dark-mode-none
+                  i.ai-chevron-right.text-nav.fs-xl.d-none.d-dark-mode-block
+            .d-flex.mb-1
+              h3.h6.mb-0: a(href='shop-single.html') Living room table
+            .d-flex.align-items-center
+              span.me-2 $46.00
+              .nav.ms-auto(data-bs-toggle='tooltip' data-bs-template='<div class="tooltip fs-xs" role="tooltip"><div class="tooltip-inner bg-light text-muted p-0"></div></div>' data-bs-placement='left' title='Add to cart')
+                a(href='#').nav-link.fs-lg.py-2.px-1: i.ai-cart
+
+          // Item
+          .col.pb-2.pb-sm-3
+            .card-hover.position-relative.bg-secondary.rounded-1.p-3.mb-4
+              button(type='button').btn.btn-icon.btn-sm.btn-light.bg-light.border-0.rounded-circle.position-absolute.top-0.end-0.mt-3.me-3.zindex-5.opacity-0
+                i.ai-heart.fs-xl.d-dark-mode-none
+                i.ai-heart.text-nav.fs-xl.d-none.d-dark-mode-block
+              .swiper.swiper-nav-onhover(data-swiper-options='{"loop": true, "navigation": {"prevEl": ".btn-prev", "nextEl": ".btn-next"}}')
+                a(href='shop-single.html').swiper-wrapper
+                  .swiper-slide.p-2.p-xl-4
+                    img(src='assets/img/shop/products/07.png' width='226' alt='Product').d-block.mx-auto
+                button(type='button').btn.btn-prev.btn-icon.btn-sm.btn-light.bg-light.border-0.rounded-circle.start-0
+                  i.ai-chevron-left.fs-xl.d-dark-mode-none
+                  i.ai-chevron-left.text-nav.fs-xl.d-none.d-dark-mode-block
+                button(type='button').btn.btn-next.btn-icon.btn-sm.btn-light.bg-light.border-0.rounded-circle.end-0
+                  i.ai-chevron-right.fs-xl.d-dark-mode-none
+                  i.ai-chevron-right.text-nav.fs-xl.d-none.d-dark-mode-block
+            .d-flex.mb-1
+              h3.h6.mb-0: a(href='shop-single.html') Teapot for hot drinks
+            .d-flex.align-items-center
+              span.me-2 $17.00
+              .nav.ms-auto(data-bs-toggle='tooltip' data-bs-template='<div class="tooltip fs-xs" role="tooltip"><div class="tooltip-inner bg-light text-muted p-0"></div></div>' data-bs-placement='left' title='Add to cart')
+                a(href='#').nav-link.fs-lg.py-2.px-1: i.ai-cart
+
+          // Item
+          .col.pb-2.pb-sm-3
+            .card-hover.position-relative.bg-secondary.rounded-1.p-3.mb-4
+              span.badge.bg-faded-primary.text-primary.position-absolute.top-0.start-0.mt-3.ms-3 New
+              button(type='button').btn.btn-icon.btn-sm.btn-light.bg-light.border-0.rounded-circle.position-absolute.top-0.end-0.mt-3.me-3.zindex-5.opacity-0
+                i.ai-heart.fs-xl.d-dark-mode-none
+                i.ai-heart.text-nav.fs-xl.d-none.d-dark-mode-block
+              .swiper.swiper-nav-onhover(data-swiper-options='{"loop": true, "navigation": {"prevEl": ".btn-prev", "nextEl": ".btn-next"}}')
+                a(href='shop-single.html').swiper-wrapper
+                  .swiper-slide.p-2.p-xl-4
+                    img(src='assets/img/shop/products/08.png' width='226' alt='Product').d-block.mx-auto
+                button(type='button').btn.btn-prev.btn-icon.btn-sm.btn-light.bg-light.border-0.rounded-circle.start-0
+                  i.ai-chevron-left.fs-xl.d-dark-mode-none
+                  i.ai-chevron-left.text-nav.fs-xl.d-none.d-dark-mode-block
+                button(type='button').btn.btn-next.btn-icon.btn-sm.btn-light.bg-light.border-0.rounded-circle.end-0
+                  i.ai-chevron-right.fs-xl.d-dark-mode-none
+                  i.ai-chevron-right.text-nav.fs-xl.d-none.d-dark-mode-block
+            .d-flex.mb-1
+              h3.h6.mb-0: a(href='shop-single.html') Analogue wall clock
+              .d-flex.ps-2.mt-n1.ms-auto
+                .ms-1
+                  input(type='radio' name='color5' value='Turquoise' checked)#color5-1.btn-check
+                  label(for='color5-1').btn.btn-icon.btn-xs.btn-outline-secondary.rounded-circle
+                    span(style='width: .625rem; height: .625rem; background-color: #a8c2c0;').d-block.rounded-circle
+                .ms-1
+                  input(type='radio' name='color5' value='Lilac')#color5-2.btn-check
+                  label(for='color5-2').btn.btn-icon.btn-xs.btn-outline-secondary.rounded-circle
+                    span(style='width: .625rem; height: .625rem; background-color: #b4a9c3;').d-block.rounded-circle
+                .ms-1
+                  input(type='radio' name='color5' value='Blue')#color5-3.btn-check
+                  label(for='color5-3').btn.btn-icon.btn-xs.btn-outline-secondary.rounded-circle
+                    span(style='width: .625rem; height: .625rem; background-color: #a1b7d9;').d-block.rounded-circle
+            .d-flex.align-items-center
+              span.me-2 $25.00
+              .nav.ms-auto(data-bs-toggle='tooltip' data-bs-template='<div class="tooltip fs-xs" role="tooltip"><div class="tooltip-inner bg-light text-muted p-0"></div></div>' data-bs-placement='left' title='Add to cart')
+                a(href='#').nav-link.fs-lg.py-2.px-1: i.ai-cart
+
+          // Item
+          .col.pb-2.pb-sm-3
+            .card-hover.position-relative.bg-secondary.rounded-1.p-3.mb-4
+              button(type='button').btn.btn-icon.btn-sm.btn-light.bg-light.border-0.rounded-circle.position-absolute.top-0.end-0.mt-3.me-3.zindex-5.opacity-0
+                i.ai-heart.fs-xl.d-dark-mode-none
+                i.ai-heart.text-nav.fs-xl.d-none.d-dark-mode-block
+              .swiper.swiper-nav-onhover(data-swiper-options='{"loop": true, "navigation": {"prevEl": ".btn-prev", "nextEl": ".btn-next"}}')
+                a(href='shop-single.html').swiper-wrapper
+                  .swiper-slide.p-2.p-xl-4
+                    img(src='assets/img/shop/products/09.png' width='226' alt='Product').d-block.mx-auto
+                button(type='button').btn.btn-prev.btn-icon.btn-sm.btn-light.bg-light.border-0.rounded-circle.start-0
+                  i.ai-chevron-left.fs-xl.d-dark-mode-none
+                  i.ai-chevron-left.text-nav.fs-xl.d-none.d-dark-mode-block
+                button(type='button').btn.btn-next.btn-icon.btn-sm.btn-light.bg-light.border-0.rounded-circle.end-0
+                  i.ai-chevron-right.fs-xl.d-dark-mode-none
+                  i.ai-chevron-right.text-nav.fs-xl.d-none.d-dark-mode-block
+            .d-flex.mb-1
+              h3.h6.mb-0: a(href='shop-single.html') Scented candle
+            .d-flex.align-items-center
+              span.me-2 $13.00
+              .nav.ms-auto(data-bs-toggle='tooltip' data-bs-template='<div class="tooltip fs-xs" role="tooltip"><div class="tooltip-inner bg-light text-muted p-0"></div></div>' data-bs-placement='left' title='Add to cart')
+                a(href='#').nav-link.fs-lg.py-2.px-1: i.ai-cart
+
+          // Item
+          .col.pb-2.pb-sm-3
+            .card-hover.position-relative.bg-secondary.rounded-1.p-3.mb-4
+              span.badge.bg-faded-danger.text-danger.position-absolute.top-0.start-0.mt-3.ms-3 Sale
+              button(type='button').btn.btn-icon.btn-sm.btn-light.bg-light.border-0.rounded-circle.position-absolute.top-0.end-0.mt-3.me-3.zindex-5.opacity-0
+                i.ai-heart.fs-xl.d-dark-mode-none
+                i.ai-heart.text-nav.fs-xl.d-none.d-dark-mode-block
+              .swiper.swiper-nav-onhover(data-swiper-options='{"loop": true, "navigation": {"prevEl": ".btn-prev", "nextEl": ".btn-next"}}')
+                a(href='shop-single.html').swiper-wrapper
+                  .swiper-slide.p-2.p-xl-4
+                    img(src='assets/img/shop/products/10.png' width='226' alt='Product').d-block.mx-auto
+                button(type='button').btn.btn-prev.btn-icon.btn-sm.btn-light.bg-light.border-0.rounded-circle.start-0
+                  i.ai-chevron-left.fs-xl.d-dark-mode-none
+                  i.ai-chevron-left.text-nav.fs-xl.d-none.d-dark-mode-block
+                button(type='button').btn.btn-next.btn-icon.btn-sm.btn-light.bg-light.border-0.rounded-circle.end-0
+                  i.ai-chevron-right.fs-xl.d-dark-mode-none
+                  i.ai-chevron-right.text-nav.fs-xl.d-none.d-dark-mode-block
+            .d-flex.mb-1
+              h3.h6.mb-0: a(href='shop-single.html') Matte color pitcher
+              .d-flex.ps-2.mt-n1.ms-auto
+                .ms-1
+                  input(type='radio' name='color6' value='Light brown' checked)#color6-1.btn-check
+                  label(for='color6-1').btn.btn-icon.btn-xs.btn-outline-secondary.rounded-circle
+                    span(style='width: .625rem; height: .625rem; background-color: #aea6a6;').d-block.rounded-circle
+                .ms-1
+                  input(type='radio' name='color6' value='Beige')#color6-2.btn-check
+                  label(for='color6-2').btn.btn-icon.btn-xs.btn-outline-secondary.rounded-circle
+                    span(style='width: .625rem; height: .625rem; background-color: #d9c9a1;').d-block.rounded-circle
+                .ms-1
+                  input(type='radio' name='color6' value='Blue')#color6-3.btn-check
+                  label(for='color6-3').btn.btn-icon.btn-xs.btn-outline-secondary.rounded-circle
+                    span(style='width: .625rem; height: .625rem; background-color: #a1b7d9;').d-block.rounded-circle
+            .d-flex.align-items-center
+              span.me-2 $11.00
+              del.fs-sm.text-muted $15.00
+              .nav.ms-auto(data-bs-toggle='tooltip' data-bs-template='<div class="tooltip fs-xs" role="tooltip"><div class="tooltip-inner bg-light text-muted p-0"></div></div>' data-bs-placement='left' title='Add to cart')
+                a(href='#').nav-link.fs-lg.py-2.px-1: i.ai-cart
+
+          // Item
+          .col.pb-2.pb-sm-3
+            .card-hover.position-relative.bg-secondary.rounded-1.p-3.mb-4
+              button(type='button').btn.btn-icon.btn-sm.btn-light.bg-light.border-0.rounded-circle.position-absolute.top-0.end-0.mt-3.me-3.zindex-5.opacity-0
+                i.ai-heart.fs-xl.d-dark-mode-none
+                i.ai-heart.text-nav.fs-xl.d-none.d-dark-mode-block
+              .swiper.swiper-nav-onhover(data-swiper-options='{"loop": true, "navigation": {"prevEl": ".btn-prev", "nextEl": ".btn-next"}}')
+                a(href='shop-single.html').swiper-wrapper
+                  .swiper-slide.p-2.p-xl-4
+                    img(src='assets/img/shop/products/11.png' width='226' alt='Product').d-block.mx-auto
+                button(type='button').btn.btn-prev.btn-icon.btn-sm.btn-light.bg-light.border-0.rounded-circle.start-0
+                  i.ai-chevron-left.fs-xl.d-dark-mode-none
+                  i.ai-chevron-left.text-nav.fs-xl.d-none.d-dark-mode-block
+                button(type='button').btn.btn-next.btn-icon.btn-sm.btn-light.bg-light.border-0.rounded-circle.end-0
+                  i.ai-chevron-right.fs-xl.d-dark-mode-none
+                  i.ai-chevron-right.text-nav.fs-xl.d-none.d-dark-mode-block
+            .d-flex.mb-1
+              h3.h6.mb-0: a(href='shop-single.html') Plate with granite print
+            .d-flex.align-items-center
+              span.me-2 $9.00
+              .nav.ms-auto(data-bs-toggle='tooltip' data-bs-template='<div class="tooltip fs-xs" role="tooltip"><div class="tooltip-inner bg-light text-muted p-0"></div></div>' data-bs-placement='left' title='Add to cart')
+                a(href='#').nav-link.fs-lg.py-2.px-1: i.ai-cart
+
+          // Item
+          .col.pb-2.pb-sm-3
+            .card-hover.position-relative.bg-secondary.rounded-1.p-3.mb-4
+              button(type='button').btn.btn-icon.btn-sm.btn-light.bg-light.border-0.rounded-circle.position-absolute.top-0.end-0.mt-3.me-3.zindex-5.opacity-0
+                i.ai-heart.fs-xl.d-dark-mode-none
+                i.ai-heart.text-nav.fs-xl.d-none.d-dark-mode-block
+              .swiper.swiper-nav-onhover(data-swiper-options='{"loop": true, "navigation": {"prevEl": ".btn-prev", "nextEl": ".btn-next"}}')
+                a(href='shop-single.html').swiper-wrapper
+                  .swiper-slide.p-2.p-xl-4
+                    img(src='assets/img/shop/products/12.png' width='226' alt='Product').d-block.mx-auto
+                button(type='button').btn.btn-prev.btn-icon.btn-sm.btn-light.bg-light.border-0.rounded-circle.start-0
+                  i.ai-chevron-left.fs-xl.d-dark-mode-none
+                  i.ai-chevron-left.text-nav.fs-xl.d-none.d-dark-mode-block
+                button(type='button').btn.btn-next.btn-icon.btn-sm.btn-light.bg-light.border-0.rounded-circle.end-0
+                  i.ai-chevron-right.fs-xl.d-dark-mode-none
+                  i.ai-chevron-right.text-nav.fs-xl.d-none.d-dark-mode-block
+            .d-flex.mb-1
+              h3.h6.mb-0: a(href='shop-single.html') Exquisite glass vase
+            .d-flex.align-items-center
+              span.me-2 $23.00
+              .nav.ms-auto(data-bs-toggle='tooltip' data-bs-template='<div class="tooltip fs-xs" role="tooltip"><div class="tooltip-inner bg-light text-muted p-0"></div></div>' data-bs-placement='left' title='Add to cart')
+                a(href='#').nav-link.fs-lg.py-2.px-1: i.ai-cart
+
+
+        // Pagination
+        .row.gy-3.align-items-center.pt-3.pt-sm-4.mt-md-2
+          .col.col-md-4.col-6.order-md-1.order-1
+            .d-flex.align-items-center
+              span.text-muted.fs-sm Show
+              select.form-select.form-select-flush.w-auto
+                option(value='12') 12
+                option(value='18') 18
+                option(value='24') 24
+                option(value='30') 30
+          .col.col-md-4.col-12.order-md-2.order-3.text-center
+            button(type='button').btn.btn-primary.w-md-auto.w-100
+              | Load more products
+          .col.col-md-4.col-6.order-md-3.order-2
+            nav(aria-label='Page navigation')
+              ul.pagination.pagination-sm.justify-content-end
+                li.page-item.active(aria-current='page')
+                  span.page-link
+                    | 1
+                    span.visually-hidden (current)
+                li.page-item
+                  a(href='#').page-link
+                    | 2
+                li.page-item
+                  a(href='#').page-link
+                    | 3
+                li.page-item
+                  a(href='#').page-link
+                    | 4
+                li.page-item
+                  a(href='#').page-link
+                    | 5
+
+
+  // Sidebar toggle button
+  button(data-bs-toggle='offcanvas' data-bs-target='#shopSidebar').d-lg-none.btn.btn-sm.fs-sm.btn-primary.w-100.rounded-0.fixed-bottom
+    i.ai-filter.me-2
+    | Filters
+
+
+//- Footer
+block footer
+  include partials/footer-shop.pug

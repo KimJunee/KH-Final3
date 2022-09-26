@@ -1,0 +1,355 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['tiny-slider/dist/tiny-slider.css']
+  - var vendorScripts = ['tiny-slider/dist/min/tiny-slider.js']
+  - var parentMenu = 'Pages'
+  - var pageTitle = 'Job Board | Blog'
+  - var bodyClass = 'fixed-bottom-btn'
+
+//- Navbar
+block navbar
+  include partials/navbar-job-board
+
+//- Page Content
+block content
+
+  // Page container
+  .container.mt-5.mb-md-4.py-5
+    
+    // Breadcrumb + Page title
+    nav(aria-label='Breadcrumb').mb-3.mb-md-4.pt-md-3
+      ol.breadcrumb
+        li.breadcrumb-item
+          a(href='job-board-home-v1.html') Home
+        li(aria-current='page').breadcrumb-item.active Blog
+    h1.pb-3 Blog
+
+    .row
+
+      // List of articles
+      .col-lg-8
+        .border-bottom.pb-2
+          .row
+
+            // Item
+            article.col-sm-6.mb-4
+              .card.card-hover.border-0.shadow-sm.h-100
+                a(href='job-board-blog-single.html').card-img-top.overflow-hidden.position-relative
+                  span.badge.bg-faded-info.position-absolute.top-0.end-0.fs-sm.rounded-pill.m-3 New
+                  img(src='img/job-board/blog/01.jpg' alt='Image').d-block
+                .card-body.pb-3
+                  a(href='#').fs-xs.text-uppercase.text-decoration-none Guides
+                  h3.fs-base.pt-1.mb-2
+                    a(href='job-board-blog-single.html').nav-link How to Hire World-Class Engineers
+                  p.fs-sm.text-muted.m-0 Nunc, hac augue ante in facilisi id. Consectetur egestas orci, arcu ac tellus. Morbi orci, nunc dictum...
+                a(href='#').card-footer.d-flex.align-items-center.text-decoration-none.border-top-0.pt-0.mb-1
+                  img(src='img/avatars/16.png' width='44' alt='Avatar').rounded-circle
+                  .ps-2
+                    h6.fs-sm.text-nav.lh-base.mb-1 Bessie Cooper
+                    .d-flex.text-body.fs-xs
+                      span.me-2.pe-1
+                        i.fi-calendar-alt.opacity-70.me-1
+                        | May 23
+                      span
+                        i.fi-chat-circle.opacity-70.me-1
+                        | 4 comments
+
+            // Item
+            article.col-sm-6.mb-4
+              .card.card-hover.border-0.shadow-sm.h-100
+                a(href='job-board-blog-single.html').card-img-top.overflow-hidden.position-relative
+                  span.badge.bg-faded-info.position-absolute.top-0.end-0.fs-sm.rounded-pill.m-3 New
+                  img(src='img/job-board/blog/02.jpg' alt='Image').d-block
+                .card-body.pb-3
+                  a(href='#').fs-xs.text-uppercase.text-decoration-none Tips &amp; Advice
+                  h3.fs-base.pt-1.mb-2
+                    a(href='job-board-blog-single.html').nav-link 15 Tips for a Better Resume
+                  p.fs-sm.text-muted.m-0 Fusce tristique vitae pulvinar potenti fermentum sapien. Vehicula ut faucibus quis neque at blandit...
+                a(href='#').card-footer.d-flex.align-items-center.text-decoration-none.border-top-0.pt-0.mb-1
+                  img(src='img/avatars/17.png' width='44' alt='Avatar').rounded-circle
+                  .ps-2
+                    h6.fs-sm.text-nav.lh-base.mb-1 Ralph Edwards
+                    .d-flex.text-body.fs-xs
+                      span.me-2.pe-1
+                        i.fi-calendar-alt.opacity-70.me-1
+                        | May 19
+                      span
+                        i.fi-chat-circle.opacity-70.me-1
+                        | 1 comment
+
+        .pt-4.pb-2.mt-2
+
+          // Item
+          article.card.border-0.shadow-sm.card-hover.card-horizontal.mb-4
+            a(href='job-board-blog-single.html' style='background-image: url(img/job-board/blog/06.jpg);').card-img-top
+            .card-body
+              a(href='#').fs-xs.text-uppercase.text-decoration-none Inspiration
+              h3.fs-base.pt-1.mb-2
+                a(href='job-board-blog-single.html').nav-link 10 Ways to Stay Ahead of the Curve
+              p.fs-sm.text-muted Ac sit tincidunt lacus dignissim volutpat dui scelerisque porttitor non. Elit at ullamcorper feugiat porta adipiscing...
+              a(href='#').d-flex.align-items-center.text-decoration-none
+                img(src='img/avatars/21.png' width='44' alt='Avatar').rounded-circle
+                .ps-2
+                  h6.fs-sm.text-nav.lh-base.mb-1 Kristin Watson
+                  .d-flex.text-body.fs-xs
+                    span.me-2.pe-1
+                      i.fi-calendar-alt.opacity-70.me-1
+                      | Apr 30
+                    span
+                      i.fi-chat-circle.opacity-70.me-1
+                      | No comments
+
+          // Item
+          article.card.border-0.shadow-sm.card-hover.card-horizontal.mb-4
+            a(href='job-board-blog-single.html' style='background-image: url(img/job-board/blog/07.jpg);').card-img-top
+            .card-body
+              a(href='#').fs-xs.text-uppercase.text-decoration-none Tips &amp; Advice
+              h3.fs-base.pt-1.mb-2
+                a(href='job-board-blog-single.html').nav-link The Stalker’s Guide to Highly Effective Guest Posting
+              p.fs-sm.text-muted Augue diam malesuada vitae id nisl. Fringilla egestas id proin quis consequat nibh quam sed. Ac vitae lectus placerat adipiscing ac...
+              a(href='#').d-flex.align-items-center.text-decoration-none
+                img(src='img/avatars/18.png' width='44' alt='Avatar').rounded-circle
+                .ps-2
+                  h6.fs-sm.text-nav.lh-base.mb-1 Annette Black
+                  .d-flex.text-body.fs-xs
+                    span.me-2.pe-1
+                      i.fi-calendar-alt.opacity-70.me-1
+                      | Apr 27
+                    span
+                      i.fi-chat-circle.opacity-70.me-1
+                      | 9 comments
+
+          // Item
+          article.card.border-0.shadow-sm.card-hover.card-horizontal.mb-4
+            a(href='job-board-blog-single.html' style='background-image: url(img/job-board/blog/08.jpg);').card-img-top
+            .card-body
+              a(href='#').fs-xs.text-uppercase.text-decoration-none Lifestyle
+              h3.fs-base.pt-1.mb-2
+                a(href='job-board-blog-single.html').nav-link You Are Never "Done" Innovating
+              p.fs-sm.text-muted Nunc, hac augue ante in facilisi id. Consectetur egestas orci, arcu ac tellus. Morbi orci, nunc dictum ullamcorper id id id arcu ut...
+              a(href='#').d-flex.align-items-center.text-decoration-none
+                img(src='img/avatars/19.png' width='44' alt='Avatar').rounded-circle
+                .ps-2
+                  h6.fs-sm.text-nav.lh-base.mb-1 Ralph Edwards
+                  .d-flex.text-body.fs-xs
+                    span.me-2.pe-1
+                      i.fi-calendar-alt.opacity-70.me-1
+                      | Apr 14
+                    span
+                      i.fi-chat-circle.opacity-70.me-1
+                      | 15 comments
+
+          // Item
+          article.card.border-0.shadow-sm.card-hover.card-horizontal.mb-4
+            a(href='job-board-blog-single.html' style='background-image: url(img/job-board/blog/09.jpg);').card-img-top
+            .card-body
+              a(href='#').fs-xs.text-uppercase.text-decoration-none Guides
+              h3.fs-base.pt-1.mb-2
+                a(href='job-board-blog-single.html').nav-link A Guide to the Most Inspiring Entrepreneurs
+              p.fs-sm.text-muted Aenean tortor sagittis bibendum amet et dui. A, tristique habitasse vestibulum mauris. Morbi elit luctus tincidunt elementum...
+              a(href='#').d-flex.align-items-center.text-decoration-none
+                img(src='img/avatars/20.png' width='44' alt='Avatar').rounded-circle
+                .ps-2
+                  h6.fs-sm.text-nav.lh-base.mb-1 Guy Hawkins
+                  .d-flex.text-body.fs-xs
+                    span.me-2.pe-1
+                      i.fi-calendar-alt.opacity-70.me-1
+                      | Apr 06
+                    span
+                      i.fi-chat-circle.opacity-70.me-1
+                      | 8 comments
+
+          // Item
+          article.card.border-0.shadow-sm.card-hover.card-horizontal.mb-4
+            a(href='job-board-blog-single.html' style='background-image: url(img/job-board/blog/10.jpg);').card-img-top
+            .card-body
+              a(href='#').fs-xs.text-uppercase.text-decoration-none Entertainment
+              h3.fs-base.pt-1.mb-2
+                a(href='job-board-blog-single.html').nav-link 5 Predictions From the Past About the Future
+              p.fs-sm.text-muted Venenatis neque ac in fusce. Enim id id in commodo et suscipit ipsum non. Consectetur risus adipiscing viverra ornare parturient...
+              a(href='#').d-flex.align-items-center.text-decoration-none
+                img(src='img/avatars/16.png' width='44' alt='Avatar').rounded-circle
+                .ps-2
+                  h6.fs-sm.text-nav.lh-base.mb-1 Bessie Cooper
+                  .d-flex.text-body.fs-xs
+                    span.me-2.pe-1
+                      i.fi-calendar-alt.opacity-70.me-1
+                      | Mar 27
+                    span
+                      i.fi-chat-circle.opacity-70.me-1
+                      | 5 comments
+
+          // Item
+          article.card.border-0.shadow-sm.card-hover.card-horizontal.mb-4
+            a(href='job-board-blog-single.html' style='background-image: url(img/job-board/blog/11.jpg);').card-img-top
+            .card-body
+              a(href='#').fs-xs.text-uppercase.text-decoration-none Tips &amp; Advice
+              h3.fs-base.pt-1.mb-2
+                a(href='job-board-blog-single.html').nav-link How to Walk Around the Office
+              p.fs-sm.text-muted Donec nullam eget lectus at varius in nisl. Ut feugiat tincidunt ultrices in sit. Nunc, vitae lorem scelerisque justo, posuere leo ac turpis...
+              a(href='#').d-flex.align-items-center.text-decoration-none
+                img(src='img/avatars/21.png' width='44' alt='Avatar').rounded-circle
+                .ps-2
+                  h6.fs-sm.text-nav.lh-base.mb-1 Bessie Cooper
+                  .d-flex.text-body.fs-xs
+                    span.me-2.pe-1
+                      i.fi-calendar-alt.opacity-70.me-1
+                      | Mar 16
+                    span
+                      i.fi-chat-circle.opacity-70.me-1
+                      | 3 comments
+
+        // Pagination
+        nav.pt-4.pb-2.border-top(aria-label='Blog pagination')
+          ul.pagination.mb-0
+            li.page-item.d-sm-none
+              span.page-link.page-link-static 1 / 8
+            li.page-item.active(aria-current='page').d-none.d-sm-block
+              span.page-link
+                | 1
+                span.visually-hidden (current)
+            li.page-item.d-none.d-sm-block
+              a(href='#').page-link 2
+            li.page-item.d-none.d-sm-block
+              a(href='#').page-link 3
+            li.page-item.d-none.d-sm-block
+              | ...
+            li.page-item.d-none.d-sm-block
+              a(href='#').page-link 8
+            li.page-item
+              a.page-link(href='#' aria-label='Next')
+                i.fi-chevron-right
+
+
+      // Sidebar
+      aside.col-lg-4
+        #blog-sidebar.offcanvas.offcanvas-end.offcanvas-collapse
+          .offcanvas-header.shadow-sm.mb-2
+            h2.h5.mb-0 Sidebar
+            button(type='button' data-bs-dismiss='offcanvas').btn-close
+          .offcanvas-body
+
+            // Sort
+            .d-flex.align-items-center.mb-4
+              label(for='sortby').me-2.mb-0.text-nowrap
+                i.fi-arrows-sort.mt-n1.me-2.align-middle.opacity-70
+                | Sort by:
+              select(id='sortby').form-select
+                option Newest
+                option Oldest
+                option Popular
+                option Sponsored
+            
+            // Search
+            .position-relative.pb-2.pb-lg-0.mb-4
+              input(type='text' placeholder='Search...').form-control.pe-5
+              i.fi-search.text-muted.position-absolute.top-50.end-0.translate-middle-y.me-3
+
+            // Categories
+            .card.card-flush.pb-2.pb-lg-0.mb-4
+              .card-body
+                h3.h5 Categories
+                a(href='#').nav-link.fw-normal.d-flex.justify-content-between.py-1.px-0
+                  | Inspiration
+                  span.text-muted.ms-2 (2)
+                a(href='#').nav-link.fw-normal.d-flex.justify-content-between.py-1.px-0
+                  | Tips &amp; Advice
+                  span.text-muted.ms-2 (4)
+                a(href='#').nav-link.fw-normal.d-flex.justify-content-between.py-1.px-0
+                  | Lifestyle
+                  span.text-muted.ms-2 (5)
+                a(href='#').nav-link.fw-normal.d-flex.justify-content-between.py-1.px-0
+                  | Entertainment
+                  span.text-muted.ms-2 (1)
+                a(href='#').nav-link.fw-normal.d-flex.justify-content-between.py-1.px-0
+                  | Guides
+                  span.text-muted.ms-2 (8)
+
+            // Tags
+            .card.card-flush.pb-2.pb-lg-0.mb-4
+              .card-body
+                h4.h5 Popular Tags
+                .d-flex.flex-wrap.mb-n1
+                  button.btn.btn-xs.btn-outline-secondary.rounded-pill.fs-sm.fw-normal.me-2.mb-2 Trends
+                  button.btn.btn-xs.btn-outline-secondary.rounded-pill.fs-sm.fw-normal.me-2.mb-2 Tutorials
+                  button.btn.btn-xs.btn-outline-secondary.rounded-pill.fs-sm.fw-normal.me-2.mb-2 Jobs
+                  button.btn.btn-xs.btn-outline-secondary.rounded-pill.fs-sm.fw-normal.me-2.mb-2 Resume
+                  button.btn.btn-xs.btn-outline-secondary.rounded-pill.fs-sm.fw-normal.me-2.mb-2 Tips
+                  button.btn.btn-xs.btn-outline-secondary.rounded-pill.fs-sm.fw-normal.me-2.mb-2 HR
+                  button.btn.btn-xs.btn-outline-secondary.rounded-pill.fs-sm.fw-normal.me-2.mb-2 Statistics
+                  button.btn.btn-xs.btn-outline-secondary.rounded-pill.fs-sm.fw-normal.me-2.mb-2 Hot vacancies
+
+            // Fetured posts (carousel)
+            .card.card-flush.pb-3.pb-lg-0.mb-4
+              .card-body
+                h4.h5 Editor's Choice
+                .tns-carousel-wrapper.mx-n3
+                  .tns-carousel-inner.d-block(data-carousel-options = '{"nav": false, "autoHeight": true, "controlsContainer": "#externalControls"}')
+                    article.px-3.pb-4
+                      .card.border-0.shadow-sm
+                        a(href='job-board-blog-single.html').card-img-top.overflow-hidden
+                          img(src='img/job-board/blog/12.jpg' alt='Image').d-block
+                        .card-body.pb-3
+                          a(href='#').fs-xs.text-uppercase.text-decoration-none Guides
+                          h3.fs-base.pt-1.mb-0
+                            a(href='job-board-blog-single.html').nav-link How to Win Your First Job In Tech
+                        a(href='#').card-footer.d-flex.align-items-center.text-decoration-none.border-top-0.pt-0.mb-1
+                          img(src='img/avatars/18.png' width='44' alt='Avatar').rounded-circle
+                          .ps-2
+                            h6.fs-sm.text-nav.lh-base.mb-1 Annette Black
+                            .d-flex.text-body.fs-xs
+                              span.me-2.pe-1
+                                i.fi-calendar-alt.opacity-70.me-1
+                                | May 18
+                              span
+                                i.fi-chat-circle.opacity-70.me-1
+                                | 3 comments
+                    article.px-3.pb-4
+                      .card.border-0.shadow-sm
+                        a(href='job-board-blog-single.html').card-img-top.overflow-hidden
+                          img(src='img/job-board/blog/13.jpg' alt='Image').d-block
+                        .card-body.pb-3
+                          a(href='#').fs-xs.text-uppercase.text-decoration-none Tips &amp; Advice
+                          h3.fs-base.pt-1.mb-0
+                            a(href='job-board-blog-single.html').nav-link How to Walk Around the Office
+                        a(href='#').card-footer.d-flex.align-items-center.text-decoration-none.border-top-0.pt-0.mb-1
+                          img(src='img/avatars/21.png' width='44' alt='Avatar').rounded-circle
+                          .ps-2
+                            h6.fs-sm.text-nav.lh-base.mb-1 Kristin Watson
+                            .d-flex.text-body.fs-xs
+                              span.me-2.pe-1
+                                i.fi-calendar-alt.opacity-70.me-1
+                                | Apr 25
+                              span
+                                i.fi-chat-circle.opacity-70.me-1
+                                | No comments
+                #externalControls.tns-carousel-controls.justify-content-center.mt-n2
+                  button(type='button').me-3
+                    i.fi-chevron-left.fs-xs
+                  button(type='button')
+                    i.fi-chevron-right.fs-xs
+            
+            // Subscription form
+            .card.card-flush.mb-4
+              .card-body
+                h4.h5.mb-3 Stay Informed
+                p.fs-sm.mb-3 Subscribe to our newsletter and be the first to see the latest posts and tips.
+                form.form-group.rounded-pill
+                  .input-group.input-group-sm
+                    span.input-group-text.text-muted
+                      i.fi-mail
+                    input(type='email' placeholder='Your email').form-control
+                  button(type='button').btn.btn-primary.btn-sm.rounded-pill Sign up
+                .form-text.fs-xs.pt-1 * By signing up you agree to our <a href='#'>Privacy Policy</a>
+
+
+//- Footer
+block footer
+  include partials/footer-job-board
+
+  // Filters sidebar toggle button (mobile)
+  button(type='button' data-bs-toggle='offcanvas' data-bs-target='#blog-sidebar').btn.btn-primary.btn-sm.w-100.rounded-0.fixed-bottom.d-lg-none
+    i.fi-sidebar-right.me-2
+    | Sidebar

@@ -1,0 +1,1375 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['prismjs/themes/prism.css', 'prismjs/plugins/toolbar/prism-toolbar.css', 'prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var vendorScripts = ['prismjs/components/prism-core.min.js', 'prismjs/components/prism-markup.min.js', 'prismjs/components/prism-clike.min.js', 'prismjs/components/prism-javascript.min.js', 'prismjs/components/prism-pug.min.js', 'prismjs/plugins/toolbar/prism-toolbar.min.js', 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Cards: Basic'
+  - var pageSubtitle = 'Flexible and extensible content container.'
+  - var pageTitleLink = {'title': 'Bootstrap docs', 'link': 'https://getbootstrap.com/docs/5.1/components/card/'}
+  - var anchorNav = [{'title': 'No image', 'link': '#card-no-image'}, {'title': 'Alternative card styles', 'link': '#card-alt-styles'}, {'title': 'Light version', 'link': '#card-light'}, {'title': 'Hover effect', 'link': '#card-hover'}, {'title': 'Image on top', 'link': '#card-top-image'}, {'title': 'Image on bottom', 'link': '#card-bottom-image'}, {'title': 'Horizontal layout', 'link': '#card-horizontal'}, {'title': 'Header and footer', 'link': '#card-header-footer'}, {'title': 'Text alignment', 'link': '#card-text-alignment'}, {'title': 'Navigation: Tabs', 'link': '#card-nav-tabs'}, {'title': 'Navigation: Pills', 'link': '#card-nav-pills'}, {'title': 'List group inside card', 'link': '#card-list-group'}, {'title': 'Card styles: Background and color', 'link': '#card-bg-color'}, {'title': 'Card styles: Border and color', 'link': '#card-border-color'}, {'title': 'Card group', 'link': '#card-group'}]
+  
+//- Page Content
+block content
+
+  // No image
+  section#card-no-image.pb-5.mb-md-2
+    h2.h5.mb-3 No image
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result1' data-bs-toggle='tab' role='tab' aria-controls='result1' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result1.tab-pane.fade.show.active(role='tabpanel')
+            .card(style='max-width: 20rem;')
+              .card-body
+                h5.card-title Card title
+                p.card-text.fs-sm Some quick example text to build on the card title and make up the bulk of the card's content within card's body.
+                a(href='#').btn.btn-sm.btn-primary Go somewhere
+          #html1.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- No image --&gt;
+                &lt;div class=&quot;card&quot;&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;h5 class=&quot;card-title&quot;&gt;Card title&lt;/h5&gt;
+                    &lt;p class=&quot;card-text fs-sm&quot;&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;btn btn-sm btn-primary&quot;&gt;Go somewhere&lt;/a&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+          #pug1.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // No image
+                .card
+                  .card-body
+                    h5.card-title
+                      | Card title
+                    p.card-text.fs-sm
+                      | Some quick example text to build on the card title and make up the bulk of the card's content.
+                    a.btn.btn-sm.btn-primary(href=&quot;#&quot;) Go somewhere
+
+  // Alternative card styles
+  section#card-alt-styles.pb-5.mb-md-2
+    h2.h5.mb-3 Alternative card styles
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result2' data-bs-toggle='tab' role='tab' aria-controls='result2' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result2.tab-pane.fade.show.active(role='tabpanel')
+            .row.g-4
+              .col-xxl-4.col-xl-5.col-sm-6
+                .card.border-0.shadow
+                  .card-body
+                    h5.card-title Card title
+                    p.card-text.fs-sm Some quick example text to build on the card title and make up the bulk of the card's content within card's body.
+                    a(href='#').btn.btn-sm.btn-primary Go somewhere
+              .col-xxl-4.col-xl-5.col-sm-6
+                .card.bg-secondary
+                  .card-body
+                    h5.card-title Card title
+                    p.card-text.fs-sm Some quick example text to build on the card title and make up the bulk of the card's content within card's body.
+                    a(href='#').btn.btn-sm.btn-primary Go somewhere
+          #html2.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Alternative card style: no border + shadow --&gt;
+                &lt;div class=&quot;card border-0 shadow&quot;&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;h5 class=&quot;card-title&quot;&gt;Card title&lt;/h5&gt;
+                    &lt;p class=&quot;card-text fs-sm&quot;&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;btn btn-sm btn-primary&quot;&gt;Go somewhere&lt;/a&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                
+                &lt;!-- Alternative card style: gray background --&gt;
+                &lt;div class=&quot;card bg-secondary&quot;&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;h5 class=&quot;card-title&quot;&gt;Card title&lt;/h5&gt;
+                    &lt;p class=&quot;card-text fs-sm&quot;&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;btn btn-sm btn-primary&quot;&gt;Go somewhere&lt;/a&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+          #pug2.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Alternative card style: no border + shadow
+                .card.border-0.shadow
+                  .card-body
+                    h5.card-title
+                      | Card title
+                    p.card-text.fs-sm
+                      | Some quick example text to build on the card title and make up the bulk of the card's content.
+                    a.btn.btn-sm.btn-primary(href=&quot;#&quot;) Go somewhere
+                
+                // Alternative card style: gray background
+                .card.bg-secondary
+                  .card-body
+                    h5.card-title
+                      | Card title
+                    p.card-text.fs-sm
+                      | Some quick example text to build on the card title and make up the bulk of the card's content.
+                    a.btn.btn-sm.btn-primary(href=&quot;#&quot;) Go somewhere
+
+  // Light version
+  section#card-light.pb-5.mb-md-2
+    h2.h5.mb-3 Light version
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result3' data-bs-toggle='tab' role='tab' aria-controls='result3' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result3.tab-pane.m-n3.p-4.bg-dark.fade.show.active(role='tabpanel')
+            .row.g-4
+              .col-xxl-4.col-xl-5.col-sm-6
+                .card.card-light
+                  .card-body
+                    h5.card-title Static card
+                    p.card-text.fs-sm.opacity-70 Some quick example text to build on the card title and make up the bulk of the card's content within card's body.
+                    a(href='#').btn.btn-sm.btn-primary Go somewhere
+              .col-xxl-4.col-xl-5.col-sm-6
+                .card.card-light.card-hover
+                  .card-body
+                    h5.card-title Hover effect
+                    p.card-text.fs-sm.opacity-70 Some quick example text to build on the card title and make up the bulk of the card's content within card's body.
+                    a(href='#').btn.btn-sm.btn-primary Go somewhere
+          #html3.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Light card: static --&gt;
+                &lt;div class=&quot;card card-light&quot;&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;h5 class=&quot;card-title&quot;&gt;Static card&lt;/h5&gt;
+                    &lt;p class=&quot;card-text fs-sm opacity-70&quot;&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;btn btn-sm btn-primary&quot;&gt;Go somewhere&lt;/a&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                
+                &lt;!-- Light card: hover effect --&gt;
+                &lt;div class=&quot;card card-light card-hover&quot;&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;h5 class=&quot;card-title&quot;&gt;Hover effect&lt;/h5&gt;
+                    &lt;p class=&quot;card-text fs-sm opacity-70&quot;&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;btn btn-sm btn-primary&quot;&gt;Go somewhere&lt;/a&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+          #pug3.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Light card: static
+                .card.card-light
+                  .card-body
+                    h5.card-title
+                      | Static card
+                    p.card-text.fs-sm.opacity-70
+                      | Some quick example text to build on the card title and make up the bulk of the card's content.
+                    a.btn.btn-sm.btn-primary(href=&quot;#&quot;) Go somewhere
+                
+                // Light card: hover effect
+                .card.card-light.card-hover
+                  .card-body
+                    h5.card-title
+                      | Hover effect
+                    p.card-text.fs-sm.opacity-70
+                      | Some quick example text to build on the card title and make up the bulk of the card's content.
+                    a.btn.btn-sm.btn-primary(href=&quot;#&quot;) Go somewhere
+
+  // Hover effect
+  section#card-hover.pb-5.mb-md-2
+    h2.h5.mb-3 Hover effect
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result4' data-bs-toggle='tab' role='tab' aria-controls='result4' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result4.tab-pane.fade.show.active(role='tabpanel')
+            .row.g-4
+              .col-xxl-4.col-xl-5.col-sm-6
+                .card.card-hover
+                  .card-body
+                    h5.card-title Hover over me!
+                    p.card-text.fs-sm Some quick example text to build on the card title and make up the bulk of the card's content within card's body.
+                    a(href='#').btn.btn-sm.btn-primary Go somewhere
+              .col-xxl-4.col-xl-5.col-sm-6
+                .card.border-0.shadow-sm.card-hover
+                  .card-body
+                    h5.card-title Hover over me!
+                    p.card-text.fs-sm Some quick example text to build on the card title and make up the bulk of the card's content within card's body.
+                    a(href='#').btn.btn-sm.btn-primary Go somewhere
+              .col-xxl-4.col-xl-5.col-sm-6
+                .card.bg-secondary.card-hover
+                  .card-body
+                    h5.card-title Hover over me!
+                    p.card-text.fs-sm Some quick example text to build on the card title and make up the bulk of the card's content within card's body.
+                    a(href='#').btn.btn-sm.btn-primary Go somewhere
+          #html4.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Hover effect on default card --&gt;
+                &lt;div class=&quot;card card-hover&quot;&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;h5 class=&quot;card-title&quot;&gt;Hover over me!&lt;/h5&gt;
+                    &lt;p class=&quot;card-text fs-sm&quot;&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;btn btn-sm btn-primary&quot;&gt;Go somewhere&lt;/a&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Hover effect on card with shadow --&gt;
+                &lt;div class=&quot;card border-0 shadow-sm card-hover&quot;&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;h5 class=&quot;card-title&quot;&gt;Hover over me!&lt;/h5&gt;
+                    &lt;p class=&quot;card-text fs-sm&quot;&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;btn btn-sm btn-primary&quot;&gt;Go somewhere&lt;/a&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Hover effect on card with gray backgroun --&gt;
+                &lt;div class=&quot;card bg-secondary card-hover&quot;&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;h5 class=&quot;card-title&quot;&gt;Hover over me!&lt;/h5&gt;
+                    &lt;p class=&quot;card-text fs-sm&quot;&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;btn btn-sm btn-primary&quot;&gt;Go somewhere&lt;/a&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+          #pug4.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Hover effect on default card
+                .card.card-hover
+                  .card-body
+                    h5.card-title
+                      | Hover over me!
+                    p.card-text.fs-sm
+                      | Some quick example text to build on the card title and make up the bulk of the card's content.
+                    a.btn.btn-sm.btn-primary(href=&quot;#&quot;) Go somewhere
+
+                // Hover effect on card with shadow
+                .card.border-0.shadow-sm.card-hover
+                  .card-body
+                    h5.card-title
+                      | Hover over me!
+                    p.card-text.fs-sm
+                      | Some quick example text to build on the card title and make up the bulk of the card's content.
+                    a.btn.btn-sm.btn-primary(href=&quot;#&quot;) Go somewhere
+
+                // Hover effect on card with gray backgroun
+                .card.bg-secondary.card-hover
+                  .card-body
+                    h5.card-title
+                      | Hover over me!
+                    p.card-text.fs-sm
+                      | Some quick example text to build on the card title and make up the bulk of the card's content.
+                    a.btn.btn-sm.btn-primary(href=&quot;#&quot;) Go somewhere
+
+  // Image on top
+  section#card-top-image.pb-5.mb-md-2
+    h2.h5.mb-3 Image on top
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result5' data-bs-toggle='tab' role='tab' aria-controls='result5' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html5' data-bs-toggle='tab' role='tab' aria-controls='html5' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug5' data-bs-toggle='tab' role='tab' aria-controls='pug5' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result5.tab-pane.fade.show.active(role='tabpanel')
+            .card(style='max-width: 308px;')
+              img(src='../img/real-estate/catalog/04.jpg' alt='Card image').card-img-top
+              .card-body
+                h5.card-title Card title
+                p.card-text.fs-sm Some quick example text to build on the card title and make up the bulk of the card's content within card's body.
+                a(href='#').btn.btn-sm.btn-primary Go somewhere
+          #html5.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Image on top --&gt;
+                &lt;div class=&quot;card&quot;&gt;
+                  &lt;img src=&quot;pat-to-image&quot; class=&quot;card-img-top&quot; alt=&quot;Card image&quot;&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;h5 class=&quot;card-title&quot;&gt;Card title&lt;/h5&gt;
+                    &lt;p class=&quot;card-text fs-sm&quot;&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;btn btn-sm btn-primary&quot;&gt;Go somewhere&lt;/a&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+          #pug5.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Image on top
+                .card
+                  img(src=&quot;path-to-image&quot;, alt=&quot;Card image&quot;).card-img-top
+                  .card-body
+                    h5.card-title
+                      | Card title
+                    p.card-text.fs-sm
+                      | Some quick example text to build on the card title and make up the bulk of the card's content.
+                    a.btn.btn-sm.btn-primary(href=&quot;#&quot;) Go somewhere
+
+  // Image on bottom
+  section#card-bottom-image.pb-5.mb-md-2
+    h2.h5.mb-3 Image on bottom
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result6' data-bs-toggle='tab' role='tab' aria-controls='result6' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html6' data-bs-toggle='tab' role='tab' aria-controls='html6' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug6' data-bs-toggle='tab' role='tab' aria-controls='pug6' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result6.tab-pane.fade.show.active(role='tabpanel')
+            .card(style='max-width: 308px;')
+              .card-body
+                h5.card-title Card title
+                p.card-text.fs-sm Some quick example text to build on the card title and make up the bulk of the card's content within card's body.
+                a(href='#').btn.btn-sm.btn-primary Go somewhere
+              img(src='../img/real-estate/catalog/01.jpg' alt='Card image').card-img-bottom
+          #html6.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Image on bottom --&gt;
+                &lt;div class=&quot;card&quot;&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;h5 class=&quot;card-title&quot;&gt;Card title&lt;/h5&gt;
+                    &lt;p class=&quot;card-text fs-sm&quot;&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;btn btn-sm btn-primary&quot;&gt;Go somewhere&lt;/a&gt;
+                  &lt;/div&gt;
+                  &lt;img src=&quot;pat-to-image&quot; class=&quot;card-img-bottom&quot; alt=&quot;Card image&quot;&gt;
+                &lt;/div&gt;
+          #pug6.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Image on bottom
+                .card
+                  .card-body
+                    h5.card-title
+                      | Card title
+                    p.card-text.fs-sm
+                      | Some quick example text to build on the card title and make up the bulk of the card's content.
+                    a.btn.btn-sm.btn-primary(href=&quot;#&quot;) Go somewhere
+                  img(src=&quot;path-to-image&quot;, alt=&quot;Card image&quot;).card-img-bottom
+
+  // Horizontal layout
+  section#card-horizontal.pb-5.mb-md-2
+    h2.h5.mb-3 Horizontal layout
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result7' data-bs-toggle='tab' role='tab' aria-controls='result7' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html7' data-bs-toggle='tab' role='tab' aria-controls='html7' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug7' data-bs-toggle='tab' role='tab' aria-controls='pug7' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result7.tab-pane.fade.show.active(role='tabpanel')
+            .card.card-horizontal(style='max-width: 40rem;')
+              .card-img-top(style='background-image: url(../img/real-estate/catalog/03.jpg);')
+              .card-body
+                h5.card-title Card title
+                p.card-text.fs-sm This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                a(href='#').btn.btn-sm.btn-primary Go somewhere
+          #html7.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Horizontal card layout --&gt;
+                &lt;div class=&quot;card card-horizontal&quot;&gt;
+                  &lt;div class=&quot;card-img-top&quot; style=&quot;background-image: url(pat-to-image);&quot;&gt;&lt;/div&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;h5 class=&quot;card-title&quot;&gt;Card title&lt;/h5&gt;
+                    &lt;p class=&quot;card-text fs-sm&quot;&gt;This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.&lt;/p&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;btn btn-sm btn-primary&quot;&gt;Go somewhere&lt;/a&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+          #pug7.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Horizontal card layout
+                .card.card-horizontal
+                  .card-img-top(style=&quot;background-image: url(path-to-image);&quot;)
+                  .card-body
+                    h5.card-title Card title
+                    p.card-text.fs-sm This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                    a(href=&quot;#&quot;).btn.btn-sm.btn-primary Go somewhere
+
+  // Header and footer
+  section#card-header-footer.pb-5.mb-md-2
+    h2.h5.mb-3 Header and footer
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result8' data-bs-toggle='tab' role='tab' aria-controls='result8' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html8' data-bs-toggle='tab' role='tab' aria-controls='html8' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug8' data-bs-toggle='tab' role='tab' aria-controls='pug8' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result8.tab-pane.fade.show.active(role='tabpanel')
+            .card.text-center
+              .card-header Featured
+              .card-body
+                h4.card-title Special title treatment
+                p.card-text With supporting text below as a natural lead-in to additional content.
+                a(href='#').btn.btn-sm.btn-primary Go somewhere
+              .card-footer.fs-sm.text-muted 3 days ago
+          #html8.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Header and footer --&gt;
+                &lt;div class=&quot;card text-center&quot;&gt;
+                  &lt;div class=&quot;card-header&quot;&gt;Featured&lt;/div&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;h4 class=&quot;card-title&quot;&gt;Special title treatment&lt;/h4&gt;
+                    &lt;p class=&quot;card-text&quot;&gt;With supporting text below as a natural lead-in to additional content.&lt;/p&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;btn btn-sm btn-primary&quot;&gt;Go somewhere&lt;/a&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;card-footer fs-sm text-muted&quot;&gt;3 days ago&lt;/div&gt;
+                &lt;/div&gt;
+          #pug8.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Header and footer
+                .card.text-center
+                  .card-header Featured
+                  .card-body
+                    h4.card-title
+                      | Special title treatment
+                    p.card-text
+                      | With supporting text below as a natural lead-in to additional content.
+                    a.btn.btn-sm.btn-primary(href=&quot;#&quot;) Go somewhere
+                  .card-footer.fs-sm.text-muted 3 days ago
+
+  // Text alignment
+  section#card-text-alignment.pb-5.mb-md-2
+    h2.h5.mb-3 Text alignment
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result9' data-bs-toggle='tab' role='tab' aria-controls='result9' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html9' data-bs-toggle='tab' role='tab' aria-controls='html9' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug9' data-bs-toggle='tab' role='tab' aria-controls='pug9' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result9.tab-pane.fade.show.active(role='tabpanel')
+            .row
+              .col-md-4.mb-4
+                .card
+                  .card-body
+                    h5.card-title Card title
+                    p.card-text.fs-sm With supporting text below as a natural lead-in to additional content.
+                    a(href='#').btn.btn-sm.btn-primary Go somewhere
+              .col-md-4.mb-4
+                .card.text-center
+                  .card-body
+                    h5.card-title Card title
+                    p.card-text.fs-sm With supporting text below as a natural lead-in to additional content.
+                    a(href='#').btn.btn-sm.btn-primary Go somewhere
+              .col-md-4.mb-4
+                .card.text-end
+                  .card-body
+                    h5.card-title Card title
+                    p.card-text.fs-sm With supporting text below as a natural lead-in to additional content.
+                    a(href='#').btn.btn-sm.btn-primary Go somewhere
+          #html9.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Left aligned (default) --&gt;
+                &lt;div class=&quot;card&quot;&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;h5 class=&quot;card-title&quot;&gt;Card title&lt;/h5&gt;
+                    &lt;p class=&quot;card-text fs-sm&quot;&gt;With supporting text below as a natural lead-in to additional content.&lt;/p&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;btn btn-sm btn-primary&quot;&gt;Go somewhere&lt;/a&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Center aligned --&gt;
+                &lt;div class=&quot;card text-center&quot;&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;h5 class=&quot;card-title&quot;&gt;Card title&lt;/h5&gt;
+                    &lt;p class=&quot;card-text fs-sm&quot;&gt;With supporting text below as a natural lead-in to additional content.&lt;/p&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;btn btn-sm btn-primary&quot;&gt;Go somewhere&lt;/a&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Right aligned --&gt;
+                &lt;div class=&quot;card text-end&quot;&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;h5 class=&quot;card-title&quot;&gt;Card title&lt;/h5&gt;
+                    &lt;p class=&quot;card-text fs-sm&quot;&gt;With supporting text below as a natural lead-in to additional content.&lt;/p&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;btn btn-sm btn-primary&quot;&gt;Go somewhere&lt;/a&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+          #pug9.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Left aligned (default)
+                .card
+                  .card-body
+                    h5.card-title
+                      | Card title
+                    p.card-text.fs-sm
+                      | With supporting text below as a natural lead-in to additional content.
+                    a.btn.btn-sm.btn-primary(href=&quot;#&quot;) Go somewhere
+                
+                // Center aligned
+                .card.text-center
+                  .card-body
+                    h5.card-title
+                      | Card title
+                    p.card-text.fs-sm
+                      | With supporting text below as a natural lead-in to additional content.
+                    a.btn.btn-sm.btn-primary(href=&quot;#&quot;) Go somewhere
+                
+                // Right aligned
+                .card.text-end
+                  .card-body
+                    h5.card-title
+                      | Card title
+                    p.card-text.fs-sm
+                      | With supporting text below as a natural lead-in to additional content.
+                    a.btn.btn-sm.btn-primary(href=&quot;#&quot;) Go somewhere
+
+  // Navigation: Tabs
+  section#card-nav-tabs.pb-5.mb-md-2
+    h2.h5.mb-3 Navigation: Tabs
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result10' data-bs-toggle='tab' role='tab' aria-controls='result10' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html10' data-bs-toggle='tab' role='tab' aria-controls='html10' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug10' data-bs-toggle='tab' role='tab' aria-controls='pug10' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result10.tab-pane.fade.show.active(role='tabpanel')
+            .card.text-center
+              .card-header
+                ul(role='tablist').nav.nav-tabs.card-header-tabs
+                  li.nav-item
+                    a(href='#' data-bs-toggle='tab' role='tab').nav-link.active Active
+                  li.nav-item
+                    a(href='#' data-bs-toggle='tab' role='tab').nav-link Link
+                  li.nav-item
+                    a(href='#' data-bs-toggle='tab' role='tab').nav-link.disabled Disabled
+              .card-body
+                h4.card-title Special title treatment
+                p.card-text With supporting text below as a natural lead-in to additional content.
+                a(href='#').btn.btn-sm.btn-primary Go somewhere
+          #html10.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Tabs inside card header --&gt;
+                &lt;div class=&quot;card text-center&quot;&gt;
+                  &lt;div class=&quot;card-header&quot;&gt;
+                    &lt;ul class=&quot;nav nav-tabs card-header-tabs&quot;&gt;
+                      &lt;li class=&quot;nav-item&quot;&gt;
+                        &lt;a href=&quot;#&quot; class=&quot;nav-link active&quot; data-bs-toggle=&quot;tab&quot; role=&quot;tab&quot;&gt;Active&lt;/a&gt;
+                      &lt;/li&gt;
+                      &lt;li class=&quot;nav-item&quot;&gt;
+                        &lt;a href=&quot;#&quot; class=&quot;nav-link&quot; data-bs-toggle=&quot;tab&quot; role=&quot;tab&quot;&gt;Link&lt;/a&gt;
+                      &lt;/li&gt;
+                      &lt;li class=&quot;nav-item&quot;&gt;
+                        &lt;a href=&quot;#&quot; class=&quot;nav-link disabled&quot; data-bs-toggle=&quot;tab&quot; role=&quot;tab&quot;&gt;Disabled&lt;/a&gt;
+                      &lt;/li&gt;
+                    &lt;/ul&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;h4 class=&quot;card-title&quot;&gt;Special title treatment&lt;/h4&gt;
+                    &lt;p class=&quot;card-text&quot;&gt;With supporting text below as a natural lead-in to additional content.&lt;/p&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;btn btn-sm btn-primary&quot;&gt;Go somewhere&lt;/a&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+          #pug10.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Tabs inside card header
+                .card.text-center
+                  .card-header
+                    ul.nav.nav-tabs.card-header-tabs
+                      li.nav-item
+                        a.nav-link.active(href=&quot;#&quot;, data-bs-toggle=&quot;tab&quot;, role=&quot;tab&quot;) Active
+                      li.nav-item
+                        a.nav-link(href=&quot;#&quot;, data-bs-toggle=&quot;tab&quot;, role=&quot;tab&quot;) Link
+                      li.nav-item
+                        a.nav-link.disabled(href=&quot;#&quot;, data-bs-toggle=&quot;tab&quot;, role=&quot;tab&quot;) Disabled
+                  .card-body
+                    h4.card-title Special title treatment
+                    p.card-text With supporting text below as a natural lead-in to additional content.
+                    a.btn.btn-sm.btn-primary(href=&quot;#&quot;) Go somewhere
+
+  // Navigation: Pills
+  section#card-nav-pills.pb-5.mb-md-2
+    h2.h5.mb-3 Navigation: Pills
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result11' data-bs-toggle='tab' role='tab' aria-controls='result11' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html11' data-bs-toggle='tab' role='tab' aria-controls='html11' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug11' data-bs-toggle='tab' role='tab' aria-controls='pug11' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result11.tab-pane.fade.show.active(role='tabpanel')
+            .card.text-center
+              .card-header
+                ul.nav.nav-pills.card-header-pills
+                  li.nav-item
+                    a(href='#').nav-link.active Active
+                  li.nav-item
+                    a(href='#').nav-link Link
+                  li.nav-item
+                    a(href='#').nav-link.disabled Disabled
+              .card-body
+                h4.card-title Special title treatment
+                p.card-text With supporting text below as a natural lead-in to additional content.
+                a(href='#').btn.btn-sm.btn-primary Go somewhere
+          #html11.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Pills inside card header --&gt;
+                &lt;div class=&quot;card text-center&quot;&gt;
+                  &lt;div class=&quot;card-header&quot;&gt;
+                    &lt;ul class=&quot;nav nav-pills card-header-pills&quot;&gt;
+                      &lt;li class=&quot;nav-item&quot;&gt;
+                        &lt;a href=&quot;#&quot; class=&quot;nav-link active&quot;&gt;Active&lt;/a&gt;
+                      &lt;/li&gt;
+                      &lt;li class=&quot;nav-item&quot;&gt;
+                        &lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;Link&lt;/a&gt;
+                      &lt;/li&gt;
+                      &lt;li class=&quot;nav-item&quot;&gt;
+                        &lt;a href=&quot;#&quot; class=&quot;nav-link disabled&quot;&gt;Disabled&lt;/a&gt;
+                      &lt;/li&gt;
+                    &lt;/ul&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;h4 class=&quot;card-title&quot;&gt;Special title treatment&lt;/h4&gt;
+                    &lt;p class=&quot;card-text&quot;&gt;With supporting text below as a natural lead-in to additional content.&lt;/p&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;btn btn-sm btn-primary&quot;&gt;Go somewhere&lt;/a&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+          #pug11.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Pills inside card header
+                .card.text-center
+                  .card-header
+                    ul.nav.nav-pills.card-header-pills
+                      li.nav-item
+                        a.nav-link.active(href=&quot;#&quot;) Active
+                      li.nav-item
+                        a.nav-link(href=&quot;#&quot;) Link
+                      li.nav-item
+                        a.nav-link.disabled(href=&quot;#&quot;) Disabled
+                  .card-body
+                    h4.card-title Special title treatment
+                    p.card-text With supporting text below as a natural lead-in to additional content.
+                    a.btn.btn-sm.btn-primary(href=&quot;#&quot;) Go somewhere
+
+  // List group inside card
+  section#card-list-group.pb-5.mb-md-2
+    h2.h5.mb-3 List group inside card
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result12' data-bs-toggle='tab' role='tab' aria-controls='result12' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html12' data-bs-toggle='tab' role='tab' aria-controls='html12' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug12' data-bs-toggle='tab' role='tab' aria-controls='pug12' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result12.tab-pane.fade.show.active(role='tabpanel')
+            .row
+              .col-md-6
+                .card
+                  .card-body
+                    h4.card-title Card title
+                    p.card-text.fs-sm.text-muted Some quick example text to build on the card title and make up the bulk of the card's content.
+                  ul.list-group.list-group-flush
+                    li.list-group-item Cras justo odio
+                    li.list-group-item Dapibus ac facilisis in
+                    li.list-group-item Vestibulum at eros
+                  .card-body
+                    a(href='#').btn.btn-sm.btn-primary Go somewhere
+              .col-md-6
+                .card
+                  .card-body
+                    h4.card-title Card title
+                    p.card-text.fs-sm.text-muted Some quick example text to build on the card title and make up the bulk of the card's content.
+                  .list-group.list-group-flush
+                    a(href='#').list-group-item.list-group-item-action Cras justo odio
+                    a(href='#').list-group-item.list-group-item-action Dapibus ac facilisis in
+                    a(href='#').list-group-item.list-group-item-action Vestibulum at eros
+                  .card-body
+                    a(href='#').btn.btn-sm.btn-primary Go somewhere
+          #html12.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Simple list group inside card --&gt;
+                &lt;div class=&quot;card&quot;&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;h4 class=&quot;card-title&quot;&gt;Card title&lt;/h4&gt;
+                    &lt;p class=&quot;card-text fs-sm text-muted&quot;&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;
+                  &lt;/div&gt;
+                  &lt;ul class=&quot;list-group list-group-flush&quot;&gt;
+                    &lt;li class=&quot;list-group-item&quot;&gt;Cras justo odio&lt;/li&gt;
+                    &lt;li class=&quot;list-group-item&quot;&gt;Dapibus ac facilisis in&lt;/li&gt;
+                    &lt;li class=&quot;list-group-item&quot;&gt;Vestibulum at eros&lt;/li&gt;
+                  &lt;/ul&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;btn btn-sm btn-primary&quot;&gt;Go somewhere&lt;/a&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Actionable list group inside card --&gt;
+                &lt;div class=&quot;card&quot;&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;h4 class=&quot;card-title&quot;&gt;Card title&lt;/h4&gt;
+                    &lt;p class=&quot;card-text fs-sm text-muted&quot;&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;list-group list-group-flush&quot;&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action&quot;&gt;Cras justo odio&lt;/a&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action&quot;&gt;Dapibus ac facilisis in&lt;/a&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action&quot;&gt;Vestibulum at eros&lt;/a&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;btn btn-sm btn-primary&quot;&gt;Go somewhere&lt;/a&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+          #pug12.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Simple list group inside card
+                .card
+                  .card-body
+                    h4.card-title
+                      | Card title
+                    p.card-text.fs-sm.text-muted
+                      | Some quick example text to build on the card title and make up the bulk of the card's content.
+                  ul.list-group.list-group-flush
+                    li.list-group-item Cras justo odio
+                    li.list-group-item Dapibus ac facilisis in
+                    li.list-group-item Dapibus ac facilisis in
+                  .card-body
+                    a.btn.btn-sm.btn-primary(href=&quot;#&quot;) Go somewhere
+                
+                // Actionable list group inside card
+                .card
+                  .card-body
+                    h4.card-title
+                      | Card title
+                    p.card-text.fs-sm.text-muted
+                      | Some quick example text to build on the card title and make up the bulk of the card's content.
+                  .list-group.list-group-flush
+                    a(href=&quot;#&quot;).list-group-item.list-group-item-action
+                      | Cras justo odio
+                    a(href=&quot;#&quot;).list-group-item.list-group-item-action
+                      | Dapibus ac facilisis in
+                    a(href=&quot;#&quot;).list-group-item.list-group-item-action
+                      | Dapibus ac facilisis in
+                  .card-body
+                    a.btn.btn-sm.btn-primary(href=&quot;#&quot;) Go somewhere
+
+  // Card styles: Background and color
+  section#card-bg-color.pb-5.mb-md-2
+    h2.h5.mb-3 Card styles: Background and color
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result13' data-bs-toggle='tab' role='tab' aria-controls='result13' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html13' data-bs-toggle='tab' role='tab' aria-controls='html13' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug13' data-bs-toggle='tab' role='tab' aria-controls='pug13' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result13.tab-pane.fade.show.active(role='tabpanel')
+            .row.g-4
+              .col-sm-6
+                .card.text-white.bg-primary
+                  .card-header.border-light Header
+                  .card-body
+                    h5.card-title.text-white Primary card title
+                    p.card-text.fs-sm Some quick example text to build on the card title and make up the bulk of the card's content within card's body.
+              .col-sm-6
+                .card.text-white.bg-accent
+                  .card-header.border-light Header
+                  .card-body
+                    h5.card-title.text-white Accent card title
+                    p.card-text.fs-sm Some quick example text to build on the card title and make up the bulk of the card's content within card's body.
+              .col-sm-6
+                .card.bg-secondary
+                  .card-header Header
+                  .card-body
+                    h5.card-title Secondary card title
+                    p.card-text.fs-sm Some quick example text to build on the card title and make up the bulk of the card's content within card's body.
+              .col-sm-6
+                .card.text-white.bg-success
+                  .card-header.border-light Header
+                  .card-body
+                    h5.card-title.text-white Success card title
+                    p.card-text.fs-sm Some quick example text to build on the card title and make up the bulk of the card's content within card's body.
+              .col-sm-6
+                .card.text-white.bg-danger
+                  .card-header.border-light Header
+                  .card-body
+                    h5.card-title.text-white Danger card title
+                    p.card-text.fs-sm Some quick example text to build on the card title and make up the bulk of the card's content within card's body.
+              .col-sm-6
+                .card.text-white.bg-warning
+                  .card-header.border-light Header
+                  .card-body
+                    h5.card-title.text-white Warning card title
+                    p.card-text.fs-sm Some quick example text to build on the card title and make up the bulk of the card's content within card's body.
+              .col-sm-6
+                .card.text-white.bg-info
+                  .card-header.border-light Header
+                  .card-body
+                    h5.card-title.text-white Info card title
+                    p.card-text.fs-sm Some quick example text to build on the card title and make up the bulk of the card's content within card's body.
+              .col-sm-6
+                .card.text-white.bg-dark
+                  .card-header.border-light Header
+                  .card-body
+                    h5.card-title.text-white Dark card title
+                    p.card-text.fs-sm Some quick example text to build on the card title and make up the bulk of the card's content within card's body.
+              .col-sm-6
+                .card.text-white.bg-gradient
+                  .card-header.border-light Header
+                  .card-body
+                    h5.card-title.text-white Gradient card title
+                    p.card-text.fs-sm Some quick example text to build on the card title and make up the bulk of the card's content within card's body.
+          #html13.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Primary card --&gt;
+                &lt;div class=&quot;card text-white bg-primary&quot;&gt;
+                  &lt;div class=&quot;card-header border-light&quot;&gt;Header&lt;/div&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;h5 class=&quot;card-title text-white&quot;&gt;Primary card title&lt;/h5&gt;
+                    &lt;p class=&quot;card-text fs-sm&quot;&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Accent card --&gt;
+                &lt;div class=&quot;card text-white bg-accent&quot;&gt;
+                  &lt;div class=&quot;card-header border-light&quot;&gt;Header&lt;/div&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;h5 class=&quot;card-title text-white&quot;&gt;Accent card title&lt;/h5&gt;
+                    &lt;p class=&quot;card-text fs-sm&quot;&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Secondary card --&gt;
+                &lt;div class=&quot;card bg-secondary&quot;&gt;
+                  &lt;div class=&quot;card-header&quot;&gt;Header&lt;/div&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;h5 class=&quot;card-title&quot;&gt;Accent card title&lt;/h5&gt;
+                    &lt;p class=&quot;card-text fs-sm&quot;&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Success card --&gt;
+                &lt;div class=&quot;card text-white bg-success&quot;&gt;
+                  &lt;div class=&quot;card-header border-light&quot;&gt;Header&lt;/div&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;h5 class=&quot;card-title text-white&quot;&gt;Success card title&lt;/h5&gt;
+                    &lt;p class=&quot;card-text fs-sm&quot;&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Danger card --&gt;
+                &lt;div class=&quot;card text-white bg-danger&quot;&gt;
+                  &lt;div class=&quot;card-header border-light&quot;&gt;Header&lt;/div&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;h5 class=&quot;card-title text-white&quot;&gt;Danger card title&lt;/h5&gt;
+                    &lt;p class=&quot;card-text fs-sm&quot;&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Warning card --&gt;
+                &lt;div class=&quot;card text-white bg-warning&quot;&gt;
+                  &lt;div class=&quot;card-header border-light&quot;&gt;Header&lt;/div&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;h5 class=&quot;card-title text-white&quot;&gt;Warning card title&lt;/h5&gt;
+                    &lt;p class=&quot;card-text fs-sm&quot;&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Info card --&gt;
+                &lt;div class=&quot;card text-white bg-info&quot;&gt;
+                  &lt;div class=&quot;card-header border-light&quot;&gt;Header&lt;/div&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;h5 class=&quot;card-title text-white&quot;&gt;Info card title&lt;/h5&gt;
+                    &lt;p class=&quot;card-text fs-sm&quot;&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Dark card --&gt;
+                &lt;div class=&quot;card text-white bg-dark&quot;&gt;
+                  &lt;div class=&quot;card-header border-light&quot;&gt;Header&lt;/div&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;h5 class=&quot;card-title text-white&quot;&gt;Dark card title&lt;/h5&gt;
+                    &lt;p class=&quot;card-text fs-sm&quot;&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Gradient card --&gt;
+                &lt;div class=&quot;card text-white bg-gradient&quot;&gt;
+                  &lt;div class=&quot;card-header border-light&quot;&gt;Header&lt;/div&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;h5 class=&quot;card-title text-white&quot;&gt;Gradient card title&lt;/h5&gt;
+                    &lt;p class=&quot;card-text fs-sm&quot;&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+          #pug13.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Primary card
+                .card.text-white.bg-primary
+                  .card-header.border-light Header
+                  .card-body
+                    h5.card-title.text-white
+                      | Primary card title
+                    p.card-text.fs-sm
+                      | Some quick example text to build on the card title and make up the bulk of the card's content.
+
+                // Accent card
+                .card.text-white.bg-accent
+                  .card-header.border-light Header
+                  .card-body
+                    h5.card-title.text-white
+                      | Accent card title
+                    p.card-text.fs-sm
+                      | Some quick example text to build on the card title and make up the bulk of the card's content.
+
+                // Secondary card
+                .card.bg-secondary
+                  .card-header Header
+                  .card-body
+                    h5.card-title
+                      | Accent card title
+                    p.card-text.fs-sm
+                      | Some quick example text to build on the card title and make up the bulk of the card's content.
+
+                // Success card
+                .card.text-white.bg-success
+                  .card-header.border-light Header
+                  .card-body
+                    h5.card-title.text-white
+                      | Success card title
+                    p.card-text.fs-sm
+                      | Some quick example text to build on the card title and make up the bulk of the card's content.
+                
+                // Danger card
+                .card.text-white.bg-danger
+                  .card-header.border-light Header
+                  .card-body
+                    h5.card-title.text-white
+                      | Danger card title
+                    p.card-text.fs-sm
+                      | Some quick example text to build on the card title and make up the bulk of the card's content.
+
+                // Warning card
+                .card.text-white.bg-warning
+                  .card-header.border-light Header
+                  .card-body
+                    h5.card-title.text-white
+                      | Warning card title
+                    p.card-text.fs-sm
+                      | Some quick example text to build on the card title and make up the bulk of the card's content.
+
+                // Info card
+                .card.text-white.bg-info
+                  .card-header.border-light Header
+                  .card-body
+                    h5.card-title.text-white
+                      | Info card title
+                    p.card-text.fs-sm
+                      | Some quick example text to build on the card title and make up the bulk of the card's content.
+                
+                // Dark card
+                .card.text-white.bg-dark
+                  .card-header.border-light Header
+                  .card-body
+                    h5.card-title.text-white
+                      | Dark card title
+                    p.card-text.fs-sm
+                      | Some quick example text to build on the card title and make up the bulk of the card's content.
+                
+                // Gradient card
+                .card.text-white.bg-gradient
+                  .card-header.border-light Header
+                  .card-body
+                    h5.card-title.text-white
+                      | Gradient card title
+                    p.card-text.fs-sm
+                      | Some quick example text to build on the card title and make up the bulk of the card's content.
+
+  // Card styles: Border and color
+  section#card-border-color.pb-5.mb-md-2
+    h2.h5.mb-3 Card styles: Border and color
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result14' data-bs-toggle='tab' role='tab' aria-controls='result14' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html14' data-bs-toggle='tab' role='tab' aria-controls='html14' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug14' data-bs-toggle='tab' role='tab' aria-controls='pug14' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result14.tab-pane.fade.show.active(role='tabpanel')
+            .row.g-4
+              .col-sm-6
+                .card.text-primary.border-primary
+                  .card-header.border-primary Header
+                  .card-body
+                    h5.card-title.text-primary Primary card title
+                    p.card-text.fs-sm Some quick example text to build on the card title and make up the bulk of the card's content.
+              .col-sm-6
+                .card
+                  .card-header Header
+                  .card-body
+                    h5.card-title Default card title
+                    p.card-text.fs-sm Some quick example text to build on the card title and make up the bulk of the card's content.
+              .col-sm-6
+                .card.text-accent.border-accent
+                  .card-header.border-accent Header
+                  .card-body.text-accent
+                    h5.card-title.text-accent Accent card title
+                    p.card-text.fs-sm Some quick example text to build on the card title and make up the bulk of the card's content.
+              .col-sm-6
+                .card.text-success.border-success
+                  .card-header.border-success Header
+                  .card-body
+                    h5.card-title.text-success Success card title
+                    p.card-text.fs-sm Some quick example text to build on the card title and make up the bulk of the card's content.
+              .col-sm-6
+                .card.text-danger.border-danger
+                  .card-header.border-danger Header
+                  .card-body
+                    h5.card-title.text-danger Danger card title
+                    p.card-text.fs-sm Some quick example text to build on the card title and make up the bulk of the card's content.
+              .col-sm-6
+                .card.text-warning.border-warning
+                  .card-header.border-warning Header
+                  .card-body
+                    h5.card-title.text-warning Warning card title
+                    p.card-text.fs-sm Some quick example text to build on the card title and make up the bulk of the card's content.
+              .col-sm-6
+                .card.text-info.border-info
+                  .card-header.border-info Header
+                  .card-body
+                    h5.card-title.text-info Info card title
+                    p.card-text.fs-sm Some quick example text to build on the card title and make up the bulk of the card's content.
+              .col-sm-6
+                .card.text-dark.border-dark
+                  .card-header.border-dark Header
+                  .card-body
+                    h5.card-title Dark card title
+                    p.card-text.fs-sm Some quick example text to build on the card title and make up the bulk of the card's content.
+          #html14.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Primary card --&gt;
+                &lt;div class=&quot;card text-primary border-primary&quot;&gt;
+                  &lt;div class=&quot;card-header border-primary&quot;&gt;Header&lt;/div&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;h5 class=&quot;card-title text-primary&quot;&gt;Primary card title&lt;/h5&gt;
+                    &lt;p class=&quot;card-text fs-sm&quot;&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Default card --&gt;
+                &lt;div class=&quot;card&quot;&gt;
+                  &lt;div class=&quot;card-header&quot;&gt;Header&lt;/div&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;h5 class=&quot;card-title&quot;&gt;Secondary card title&lt;/h5&gt;
+                    &lt;p class=&quot;card-text fs-sm&quot;&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Accent card --&gt;
+                &lt;div class=&quot;card text-accent border-accent&quot;&gt;
+                  &lt;div class=&quot;card-header border-accent&quot;&gt;Header&lt;/div&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;h5 class=&quot;card-title text-accent&quot;&gt;Accent card title&lt;/h5&gt;
+                    &lt;p class=&quot;card-text fs-sm&quot;&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Success card --&gt;
+                &lt;div class=&quot;card text-success border-success&quot;&gt;
+                  &lt;div class=&quot;card-header border-success&quot;&gt;Header&lt;/div&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;h5 class=&quot;card-title text-success&quot;&gt;Success card title&lt;/h5&gt;
+                    &lt;p class=&quot;card-text fs-sm&quot;&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Danger card --&gt;
+                &lt;div class=&quot;card text-danger border-danger&quot;&gt;
+                  &lt;div class=&quot;card-header border-danger&quot;&gt;Header&lt;/div&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;h5 class=&quot;card-title text-danger&quot;&gt;Danger card title&lt;/h5&gt;
+                    &lt;p class=&quot;card-text fs-sm&quot;&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Warning card --&gt;
+                &lt;div class=&quot;card text-warning border-warning&quot;&gt;
+                  &lt;div class=&quot;card-header border-warning&quot;&gt;Header&lt;/div&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;h5 class=&quot;card-title text-warning&quot;&gt;Warning card title&lt;/h5&gt;
+                    &lt;p class=&quot;card-text fs-sm&quot;&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Info card --&gt;
+                &lt;div class=&quot;card text-info border-info&quot;&gt;
+                  &lt;div class=&quot;card-header border-info&quot;&gt;Header&lt;/div&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;h5 class=&quot;card-title text-info&quot;&gt;Info card title&lt;/h5&gt;
+                    &lt;p class=&quot;card-text fs-sm&quot;&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Dark card --&gt;
+                &lt;div class=&quot;card text-dark border-dark&quot;&gt;
+                  &lt;div class=&quot;card-header border-dark&quot;&gt;Header&lt;/div&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;h5 class=&quot;card-title&quot;&gt;Dark card title&lt;/h5&gt;
+                    &lt;p class=&quot;card-text fs-sm&quot;&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+          #pug14.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Primary card
+                .card.text-primary.border-primary
+                  .card-header.border-primary
+                    | Header
+                  .card-body
+                    h5.card-title.text-primary
+                      | Primary card title
+                    p.card-text.fs-sm
+                      | Some quick example text to build on the card title and make up the bulk of the card's content.
+
+                // Default card
+                .card
+                  .card-header
+                    | Header
+                  .card-body
+                    h5.card-title
+                      | Secondary card title
+                    p.card-text.fs-sm
+                      | Some quick example text to build on the card title and make up the bulk of the card's content.
+
+                // Accent card
+                .card.text-accent.border-accent
+                  .card-header.border-accent
+                    | Header
+                  .card-body
+                    h5.card-title.text-accent
+                      | Accent card title
+                    p.card-text.fs-sm
+                      | Some quick example text to build on the card title and make up the bulk of the card's content.
+
+                // Success card
+                .card.text-success.border-success
+                  .card-header.border-success
+                    | Header
+                  .card-body
+                    h5.card-title.text-success
+                      | Success card title
+                    p.card-text.fs-sm
+                      | Some quick example text to build on the card title and make up the bulk of the card's content.
+                
+                // Danger card
+                .card.text-danger.border-danger
+                  .card-header.border-danger
+                    | Header
+                  .card-body
+                    h5.card-title.text-danger
+                      | Danger card title
+                    p.card-text.fs-sm
+                      | Some quick example text to build on the card title and make up the bulk of the card's content.
+
+                // Warning card
+                .card.text-warning.border-warning
+                  .card-header.border-warning
+                    | Header
+                  .card-body
+                    h5.card-title.text-warning
+                      | Warning card title
+                    p.card-text.fs-sm
+                      | Some quick example text to build on the card title and make up the bulk of the card's content.
+
+                // Info card
+                .card.text-info.border-info
+                  .card-header.border-info
+                    | Header
+                  .card-body
+                    h5.card-title.text-info
+                      | Info card title
+                    p.card-text.fs-sm
+                      | Some quick example text to build on the card title and make up the bulk of the card's content.
+                
+                // Dark card
+                .card.text-dark.border-dark
+                  .card-header.border-dark
+                    | Header
+                  .card-body
+                    h5.card-title
+                      | Dark card title
+                    p.card-text.fs-sm
+                      | Some quick example text to build on the card title and make up the bulk of the card's content.
+
+  // Card group
+  section#card-group.pb-5.mb-md-2
+    h2.h5.mb-3 Card group
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result15' data-bs-toggle='tab' role='tab' aria-controls='result15' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html15' data-bs-toggle='tab' role='tab' aria-controls='html15' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug15' data-bs-toggle='tab' role='tab' aria-controls='pug15' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result15.tab-pane.fade.show.active(role='tabpanel')
+            .card-group
+              .card
+                img(src='../img/real-estate/catalog/01.jpg' alt='Card image').card-img-top
+                .card-body
+                  h5.card-title Card title
+                  p.card-text.fs-sm This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                .card-footer.fs-xs.text-muted Last updated 3 mins ago
+              .card
+                img(src='../img/real-estate/catalog/04.jpg' alt='Card image').card-img-top
+                .card-body
+                  h5.card-title Card title
+                  p.card-text.fs-sm This card has supporting text below as a natural lead-in to additional content.
+                .card-footer.fs-xs.text-muted Last updated 3 mins ago
+              .card
+                img(src='../img/real-estate/catalog/03.jpg' alt='Card image').card-img-top
+                .card-body
+                  h5.card-title Card title
+                  p.card-text.fs-sm This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.
+                .card-footer.fs-xs.text-muted Last updated 3 mins ago
+          #html15.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Card group --&gt;
+                &lt;div class=&quot;card-group&quot;&gt;
+
+                  &lt;!-- Card --&gt;
+                  &lt;div class=&quot;card&quot;&gt;
+                    &lt;img src=&quot;pat-to-image&quot; class=&quot;card-img-top&quot; alt=&quot;Card image&quot;&gt;
+                    &lt;div class=&quot;card-body&quot;&gt;
+                      &lt;h5 class=&quot;card-title&quot;&gt;Card title&lt;/h5&gt;
+                      &lt;p class=&quot;card-text fs-sm&quot;&gt;This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.&lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;card-footer fs-xs text-muted&quot;&gt;Last updated 3 mins ago&lt;/div&gt;
+                  &lt;/div&gt;
+
+                  &lt;!-- Card --&gt;
+                  &lt;div class=&quot;card&quot;&gt;
+                    &lt;img src=&quot;pat-to-image&quot; class=&quot;card-img-top&quot; alt=&quot;Card image&quot;&gt;
+                    &lt;div class=&quot;card-body&quot;&gt;
+                      &lt;h5 class=&quot;card-title&quot;&gt;Card title&lt;/h5&gt;
+                      &lt;p class=&quot;card-text fs-sm&quot;&gt;This card has supporting text below as a natural lead-in to additional content.&lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;card-footer fs-xs text-muted&quot;&gt;Last updated 3 mins ago&lt;/div&gt;
+                  &lt;/div&gt;
+
+                  &lt;!-- Card --&gt;
+                  &lt;div class=&quot;card&quot;&gt;
+                    &lt;img src=&quot;pat-to-image&quot; class=&quot;card-img-top&quot; alt=&quot;Card image&quot;&gt;
+                    &lt;div class=&quot;card-body&quot;&gt;
+                      &lt;h5 class=&quot;card-title&quot;&gt;Card title&lt;/h5&gt;
+                      &lt;p class=&quot;card-text fs-sm&quot;&gt;This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.&lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;card-footer fs-xs text-muted&quot;&gt;Last updated 3 mins ago&lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+          #pug15.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Card group
+                .card-group
+
+                  // Card
+                  .card
+                    img(src=&quot;path-to-image&quot;, alt=&quot;Card image&quot;).card-img-top
+                    .card-body
+                      h5.card-title
+                        | Card title
+                      p.card-text.fs-sm
+                        | This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                    .card-footer.fs-xs.text-muted Last updated 3 mins ago
+
+                  // Card
+                  .card
+                    img(src=&quot;path-to-image&quot;, alt=&quot;Card image&quot;).card-img-top
+                    .card-body
+                      h5.card-title
+                        | Card title
+                      p.card-text.fs-sm
+                        | This card has supporting text below as a natural lead-in to additional content.
+                    .card-footer.fs-xs.text-muted Last updated 3 mins ago
+
+                  // Card
+                  .card
+                    img(src=&quot;path-to-image&quot;, alt=&quot;Card image&quot;).card-img-top
+                    .card-body
+                      h5.card-title
+                        | Card title
+                      p.card-text.fs-sm
+                        | This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.
+                    .card-footer.fs-xs.text-muted Last updated 3 mins ago

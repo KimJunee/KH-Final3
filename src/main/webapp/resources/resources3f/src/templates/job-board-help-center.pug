@@ -1,0 +1,112 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['tiny-slider/dist/tiny-slider.css']
+  - var vendorScripts = ['tiny-slider/dist/min/tiny-slider.js']
+  - var parentMenu = 'Pages'
+  - var pageTitle = 'Job Board | Help Center'
+
+//- Navbar
+block navbar
+  include partials/navbar-job-board
+
+//- Page Content
+block content
+
+  // Page header
+  section.bg-dark.py-5
+    .container.pt-5.pb-5
+
+      // Breadcrumbs + page title
+      nav(aria-label='breadcrumb').mb-4.pb-lg-3
+        ol.breadcrumb.breadcrumb-light
+          li.breadcrumb-item
+            a(href='job-board-home-v1.html') Home
+          li(aria-current='page').breadcrumb-item.active
+            | Help center
+
+      // Page title
+      div(style='max-width: 856px;').mb-lg-5.mx-auto.text-center
+        h1.text-light.mb-2.pb-1
+          | Need help?
+        p.mb-5.fs-3.text-light
+          | All answers are already here
+
+        // Search form
+        form.form-group.form-group-lg.form-group-light.rounded-pill
+          input(type='text' placeholder='What are you looking for?').form-control
+          button(type='submit').btn.btn-lg.btn-primary.rounded-pill.px-sm-4.px-3
+            i.fi-search.me-sm-2
+            span.d-sm-inline.d-none Search
+
+
+  // Help by category
+  section.position-relative.bg-white.rounded-xxl-4.mb-5.pt-md-3.pb-lg-5.zindex-5(style='margin-top: -30px;')
+    .container.pt-5
+      h2.mb-4.pb-2.text-center
+        | Help by category
+
+      .row.g-4
+
+        // Item
+        .col-md-4
+          .card.card.card-hover.border-0.shadow-sm.position-relative.h-100
+            .card-body.pb-0.icon-box
+              div(style='width: 4rem; height: 4rem;').icon-box-media.d-flex.align-items-center.justify-content-center.bg-secondary.text-body.rounded-circle.mb-3
+                i.fi-user.fs-3
+              h3.h4.pb-1.icon-box-title
+                | For job seekers
+              p.mb-1
+                | Make the most of our website: a list of the most frequently asked questions will help you find a job faster!
+            .card-footer.pt-0.border-0
+              a(href='job-board-help-center-single-topic.html').nav-link.my-1.px-0.stretched-link
+                | Find question
+                i.fi-chevron-right.ms-2.mt-n1.align-middle.fs-xs
+
+        // Item
+        .col-md-4
+          .card.card.card-hover.border-0.shadow-sm.position-relative.h-100
+            .card-body.pb-0.icon-box
+              div(style='width: 4rem; height: 4rem;').icon-box-media.d-flex.align-items-center.justify-content-center.bg-secondary.text-body.rounded-circle.mb-3
+                i.fi-briefcase.fs-3
+              h3.h4.pb-1.icon-box-title
+                | For employers
+              p.mb-1
+                | Make the most of our website: a list of the most frequently asked questions will help you find a job faster!
+            .card-footer.pt-0.border-0
+              a(href='job-board-help-center-single-topic.html').nav-link.my-1.px-0.stretched-link
+                | Find question
+                i.fi-chevron-right.ms-2.mt-n1.align-middle.fs-xs
+
+        // Item
+        .col-md-4
+          .card.card.card-hover.border-0.shadow-sm.position-relative.h-100
+            .card-body.pb-0.icon-box
+              div(style='width: 4rem; height: 4rem;').icon-box-media.d-flex.align-items-center.justify-content-center.bg-secondary.text-body.rounded-circle.mb-3
+                i.fi-help.fs-3
+              h3.h4.pb-1.icon-box-title
+                | Couldn't find an answer?
+              p.mb-1
+                | If you haven’t found the answer to your question, we will be happy to help you. Send your request to our support team.
+            .card-footer.pt-0.border-0
+              a(href='job-board-contacts.html').nav-link.my-1.px-0.stretched-link
+                | Ask our support team
+                i.fi-chevron-right.ms-2.mt-n1.align-middle.fs-xs
+
+
+  // Contact Us CTA
+  section.container.mb-5.pb-lg-5
+    .py-md-4.py-5.bg-secondary.rounded-3
+      .col-sm-10.col-11.d-flex.flex-md-row.flex-column.align-items-center.justify-content-between.mx-auto.px-0
+        div(style='max-width: 524px;').order-md-1.order-2.text-md-start.text-center
+          h2.mb-4.pb-md-3
+            | You can contact us and ask your questions directly
+          a(href='job-board-contacts.html').btn.btn-lg.btn-primary.rounded-pill.w-sm-auto.w-100
+            | Contact us
+        img(src='img/job-board/illustrations/mail.svg' alt='Illustration').order-md-2.order-1.ms-md-4
+
+
+//- Footer
+block footer
+  include partials/footer-job-board

@@ -1,0 +1,269 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/swiper/swiper-bundle.min.css']
+  - var scripts = ['vendor/jarallax/dist/jarallax.min.js', 'vendor/swiper/swiper-bundle.min.js']
+  - var parentMenu = 'Pages'
+  - var pageTitle = 'Services v.3'
+  - var navbarExtraClass = 'bg-light'
+
+
+//- Navbar
+block navbar
+  include partials/navbar.pug
+
+
+//- Page Content
+block content
+
+  // Hero
+  section.jarallax.dark-mode.bg-dark.py-5(data-jarallax data-speed='0.6')
+    .position-absolute.top-0.start-0.w-100.h-100.bg-black.opacity-60
+    .jarallax-img(style='background-image: url(assets/img/services/v3/hero-bg.jpg);')
+    .container.position-relative.zindex-2.pt-5.pb-md-2.pb-lg-3.pb-xl-4.pb-xxl-5
+
+      // Breadcrumb
+      +breadcrumb([{'title': 'Services v.3'}]).pt-lg-3.mb-0
+
+      // Page title
+      .d-none.d-xxl-block(style='height: 170px;')
+      .d-none.d-lg-block.d-xxl-none(style='height: 120px;')
+      .d-none.d-md-block.d-lg-none(style='height: 80px;')
+      .d-md-none(style='height: 40px;')
+      h1.display-2.mb-4 Our services
+      p(style='max-width: 480px;').mb-0 Web studio Around is a team that creates effective websites and applications that will help you grow your business.
+
+      // Features
+      .d-none.d-xxl-block(style='height: 220px;')
+      .d-none.d-lg-block.d-xxl-none(style='height: 160px;')
+      .d-none.d-md-block.d-lg-none(style='height: 100px;')
+      .d-md-none(style='height: 50px;')
+      .row.row-cols-1.row-cols-sm-2.row-cols-lg-4.g-4.pb-1.pb-md-3
+        .col
+          .d-flex.align-items-center
+            .position-rlative.flex-shrink-0.rounded-1.overflow-hidden.p-2
+              .bg-white.opacity-40.position-absolute.top-0.start-0.w-100.h-100
+              img(src='assets/img/services/v3/icons/time-white.svg' width='32' alt='Icon').d-block.m-1
+            h3.h5.ps-3.mb-0 Individual approach
+        .col
+          .d-flex.align-items-center
+            .position-rlative.flex-shrink-0.rounded-1.overflow-hidden.p-2
+              .bg-white.opacity-40.position-absolute.top-0.start-0.w-100.h-100
+              img(src='assets/img/services/v3/icons/cog-white.svg' width='32' alt='Icon').d-block.m-1
+            h3.h5.ps-3.mb-0 Integrated analytics
+        .col
+          .d-flex.align-items-center
+            .position-rlative.flex-shrink-0.rounded-1.overflow-hidden.p-2
+              .bg-white.opacity-40.position-absolute.top-0.start-0.w-100.h-100
+              img(src='assets/img/services/v3/icons/monitor-white.svg' width='32' alt='Icon').d-block.m-1
+            h3.h5.ps-3.mb-0 Step by step work
+        .col
+          .d-flex.align-items-center
+            .position-rlative.flex-shrink-0.rounded-1.overflow-hidden.p-2
+              .bg-white.opacity-40.position-absolute.top-0.start-0.w-100.h-100
+              img(src='assets/img/services/v3/icons/size-white.svg' width='32' alt='Icon').d-block.m-1
+            h3.h5.ps-3.mb-0 Full range of services
+
+
+  // Services
+  section.container.py-4.py-sm-5.my-md-2.my-lg-3.my-xl-4.my-xxl-5
+    
+    // Item
+    .row.align-items-center.py-4.py-xl-5.my-2
+      .col-md-6.offset-xl-1.order-md-2.pb-2.mb-4.mb-md-0
+        img(src='assets/img/services/v3/01.jpg' alt='Image').rounded-5
+      .col-md-6.col-xl-5.order-md-1
+        .pe-md-4.pe-xl-0
+          h2.h1.pb-2.pb-lg-3 Web &amp; App development
+          p.pb-2.pb-lg-0.mb-4.mb-lg-5 Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean auctor cursus tortor non fermentum. Fusce ornare pulvinar nibh, sed facilisis eros congue pretium. Suspendisse et fermentum massa.
+          .row.row-cols-2
+            .col
+              .d-table.bg-secondary.rounded-1.p-2.mb-3
+                img(src='assets/img/services/v3/icons/monitor-dark.svg' width='28' alt='Icon').d-block.d-dark-mode-none.m-1
+                img(src='assets/img/services/v3/icons/monitor-light.svg' width='28' alt='Icon').d-none.d-dark-mode-block.m-1
+              h3.h5.mb-2 Custom websites
+              p.fs-sm.mb-0 Eu dignissim arcu, iaculis orci hendrerit commodo leo eget
+            .col
+              .d-table.bg-secondary.rounded-1.p-2.mb-3
+                img(src='assets/img/services/v3/icons/cloud-dark.svg' width='28' alt='Icon').d-block.d-dark-mode-none.m-1
+                img(src='assets/img/services/v3/icons/cloud-light.svg' width='28' alt='Icon').d-none.d-dark-mode-block.m-1
+              h3.h5.mb-2 Cloud computing
+              p.fs-sm.mb-0 Adipiscing in aliquam iaculis  pellentesque facilisi commo
+    
+    // Item
+    .row.align-items-center.py-4.py-xl-5.my-2
+      .col-md-6.pb-2.mb-4.mb-md-0
+        img(src='assets/img/services/v3/02.jpg' alt='Image').rounded-5
+      .col-md-6.col-xl-5.offset-xl-1
+        .ps-md-4.pe-xl-0
+          h2.h1.pb-2.pb-lg-3 Mobile app design
+          p.pb-2.pb-lg-0.mb-4.mb-lg-5 More erat leo proin odio est sed sit felis facilisi integer sed congue neque turpis dictumst sit sed volutpat aliquet tortor. Adipiscing posuere dui, amet, augue nisl dictum justo, enim sed neque congue non quam ultrices interdum vitae.
+          .row.row-cols-2
+            .col
+              .d-table.bg-secondary.rounded-1.p-2.mb-3
+                img(src='assets/img/services/v3/icons/cog-dark.svg' width='28' alt='Icon').d-block.d-dark-mode-none.m-1
+                img(src='assets/img/services/v3/icons/cog-light.svg' width='28' alt='Icon').d-none.d-dark-mode-block.m-1
+              h3.h5.mb-2 For iOS &amp; Android
+              p.fs-sm.mb-0 Eu dignissim arcu, iaculis orci hendrerit commodo leo eget
+            .col
+              .d-table.bg-secondary.rounded-1.p-2.mb-3
+                img(src='assets/img/services/v3/icons/time-dark.svg' width='28' alt='Icon').d-block.d-dark-mode-none.m-1
+                img(src='assets/img/services/v3/icons/time-light.svg' width='28' alt='Icon').d-none.d-dark-mode-block.m-1
+              h3.h5.mb-2 Speed optimization
+              p.fs-sm.mb-0 Adipiscing in aliquam iaculis  pellentesque facilisi commo
+    
+    // Item
+    .row.align-items-center.py-4.py-xl-5.my-2
+      .col-md-6.offset-xl-1.order-md-2.pb-2.mb-4.mb-md-0
+        img(src='assets/img/services/v3/03.jpg' alt='Image').rounded-5
+      .col-md-6.col-xl-5.order-md-1
+        .pe-md-4.pe-xl-0
+          h2.h1.pb-2.pb-lg-3 UI &amp; UX design
+          p.pb-2.pb-lg-0.mb-4.mb-lg-5 Find aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur neque congue aliqua dolor do amet sint velit officia amet minim mollit non deserunt ullamco est sit aliqua dolor malesuada fames ac ante ipsum.
+          .row.row-cols-2
+            .col
+              .d-table.bg-secondary.rounded-1.p-2.mb-3
+                img(src='assets/img/services/v3/icons/monitor-dark.svg' width='28' alt='Icon').d-block.d-dark-mode-none.m-1
+                img(src='assets/img/services/v3/icons/monitor-light.svg' width='28' alt='Icon').d-none.d-dark-mode-block.m-1
+              h3.h5.mb-2 All business niches 
+              p.fs-sm.mb-0 Eu dignissim arcu, iaculis orci hendrerit commodo leo eget
+            .col
+              .d-table.bg-secondary.rounded-1.p-2.mb-3
+                img(src='assets/img/services/v3/icons/size-dark.svg' width='28' alt='Icon').d-block.d-dark-mode-none.m-1
+                img(src='assets/img/services/v3/icons/size-light.svg' width='28' alt='Icon').d-none.d-dark-mode-block.m-1
+              h3.h5.mb-2 Сustomer focus
+              p.fs-sm.mb-0 Adipiscing in aliquam iaculis  pellentesque facilisi commo
+
+
+  // Partners
+  section.container.pt-2.pt-sm-0
+    h2.h1.text-center We partner with more than 60 brands
+    p.text-center.pb-2.pb-sm-3 Clients who have become our friends for many years
+    .row.row-cols-3.row-cols-md-4.g-2.g-md-4
+      .col
+        img(src='assets/img/brands/auchan.svg' width='220' alt='Auchan').d-block.mx-auto
+      .col
+        img(src='assets/img/brands/suzuki.svg' width='220' alt='Suzuki').d-block.mx-auto
+      .col
+        img(src='assets/img/brands/champion-dark.svg' width='220' alt='Champion').d-block.d-dark-mode-none.mx-auto
+        img(src='assets/img/brands/champion-light.svg' width='220' alt='Champion').d-none.d-dark-mode-block.mx-auto
+      .col
+        img(src='assets/img/brands/starcraft-dark.svg' width='220' alt='Starcraft').d-block.d-dark-mode-none.mx-auto
+        img(src='assets/img/brands/starcraft-light.svg' width='220' alt='Starcraft').d-none.d-dark-mode-block.mx-auto
+      .col
+        img(src='assets/img/brands/klinos.svg' width='220' alt='Klinos').d-block.mx-auto
+      .col
+        img(src='assets/img/brands/puma-dark.svg' width='220' alt='Puma').d-block.d-dark-mode-none.mx-auto
+        img(src='assets/img/brands/puma-light.svg' width='220' alt='Puma').d-none.d-dark-mode-block.mx-auto
+      .col
+        img(src='assets/img/brands/airbnb.svg' width='220' alt='Airbnb').d-block.mx-auto
+      .col
+        img(src='assets/img/brands/philips.svg' width='220' alt='Philips').d-block.mx-auto
+
+  
+  // Skills (Carousel)
+  section.py-5.my-2.my-lg-3.my-xl-4.my-xxl-5
+    .container.d-flex.align-items-center.justify-content-between.pt-sm-3.pt-md-4.pt-xl-5.pb-4.mb-sm-2.mb-md-3
+      h2.h1.mb-0 Our skills
+      .d-flex
+        button(type='button')#prev-skill.btn.btn-sm.btn-icon.btn-outline-primary.rounded-circle
+          i.ai-arrow-left
+        button(type='button')#next-skill.btn.btn-sm.btn-icon.btn-outline-primary.rounded-circle.ms-3
+          i.ai-arrow-right
+    
+    // Swiper slider
+    .container-start.pb-2.pb-sm-3.pb-md-4.pb-lg-5
+      .swiper(data-swiper-options=`{
+        "slidesPerView": "auto",
+        "spaceBetween": 24,
+        "loop": true,
+        "navigation": {
+          "prevEl": "#prev-skill",
+          "nextEl": "#next-skill"
+        }
+      }`)
+        .swiper-wrapper.text-center
+
+          // Item
+          .swiper-slide.w-sm-auto.h-auto
+            .card.card-flip.card-hover.border-0.w-sm-auto.h-100.bg-secondary.rounded-5
+              .card-flip-inner.mx-auto(style='max-width: 306px;')
+                .card-flip-front.p-0
+                  .card-body.d-flex.flex-column.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100.opacity-100
+                    img(src='assets/img/landing/web-studio/skills/figma.svg' width='72' alt='Figma')
+                .card-flip-back.p-0.bg-transparent
+                  .card-body.d-flex.flex-column.justify-content-center.align-items-center.h-100
+                    img(src='assets/img/landing/web-studio/skills/figma.svg' width='52' alt='Figma')
+                    p.fs-sm.pt-3.mb-0 Figma is convenient online service for interface development and prototyping with the ability to work together in real time.
+
+          // Item
+          .swiper-slide.w-sm-auto.h-auto
+            .card.border-0.bg-secondary.h-100
+              .card-body.mx-auto(style='max-width: 416px;')
+                p.fs-lg.mb-1 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum posuere finibus dui, eget scelerisque ipsum suscipit nec. Praesent nec quam in ipsum ultricies ultricies et sagittis dui. Sed condimentum felis at pretium."
+                img(src='assets/img/brands/foster.svg' width='150' alt='Foster')
+
+          // Item
+          .swiper-slide.w-sm-auto.h-auto
+            .card.card-flip.card-hover.border-0.w-sm-auto.h-100.bg-secondary.rounded-5
+              .card-flip-inner.mx-auto(style='max-width: 306px;')
+                .card-flip-front.p-0
+                  .card-body.d-flex.flex-column.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100.opacity-100
+                    img(src='assets/img/landing/web-studio/skills/css3.svg' width='72' alt='CSS3')
+                .card-flip-back.p-0.bg-transparent
+                  .card-body.d-flex.flex-column.justify-content-center.align-items-center.h-100
+                    img(src='assets/img/landing/web-studio/skills/css3.svg' width='52' alt='CSS3')
+                    p.fs-sm.pt-3.mb-0 Cascading Style Sheets Level 3 is the iteration of the CSS standard used in the styling and formatting of Web pages.
+
+          // Item
+          .swiper-slide.w-sm-auto.h-auto
+            .card.border-0.bg-secondary.h-100
+              .card-body.mx-auto(style='max-width: 416px;')
+                p.fs-lg.mb-1 "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris tincidunt imperdiet hendrerit. Fusce tortor turpis, facilisis ac efficitur eget, aliquet ut odio. Curabitur in vestibulum tellus."
+                img(src='assets/img/brands/champion-dark.svg' width='150' alt='Champion').d-dark-mode-none
+                img(src='assets/img/brands/champion-light.svg' width='150' alt='Champion').d-none.d-dark-mode-inline-block
+
+          // Item
+          .swiper-slide.w-sm-auto.h-auto
+            .card.card-flip.card-hover.border-0.w-sm-auto.h-100.bg-secondary.rounded-5
+              .card-flip-inner.mx-auto(style='max-width: 306px;')
+                .card-flip-front.p-0
+                  .card-body.d-flex.flex-column.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100.opacity-100
+                    img(src='assets/img/landing/web-studio/skills/bootstrap.svg' width='72' alt='Bootstrap')
+                .card-flip-back.p-0.bg-transparent
+                  .card-body.d-flex.flex-column.justify-content-center.align-items-center.h-100
+                    img(src='assets/img/landing/web-studio/skills/bootstrap.svg' width='52' alt='Bootstrap')
+                    p.fs-sm.pt-3.mb-0 Powerful, extensible, and feature-packed frontend toolkit. Build and customize with Sass, utilize prebuilt grid system and components.
+
+          // Item
+          .swiper-slide.w-sm-auto.h-auto
+            .card.border-0.bg-secondary.h-100
+              .card-body.mx-auto(style='max-width: 416px;')
+                p.fs-lg.mb-1 "Nulla facilisi. Curabitur dictum sodales aliquam. Etiam tortor augue, ultrices in efficitur sit amet, luctus dapibus magna. Vivamus eu lacus elementum, ultrices massa vitae, elementum lorem. Proin feugiat egestas dolor."
+                img(src='assets/img/brands/alpine.svg' width='150' alt='Alpine')
+
+          // Item
+          .swiper-slide.w-sm-auto.h-auto
+            .card.card-flip.card-hover.border-0.w-sm-auto.h-100.bg-secondary.rounded-5
+              .card-flip-inner.mx-auto(style='max-width: 306px;')
+                .card-flip-front.p-0
+                  .card-body.d-flex.flex-column.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100.opacity-100
+                    img(src='assets/img/landing/web-studio/skills/python.svg' width='72' alt='Python')
+                .card-flip-back.p-0.bg-transparent
+                  .card-body.d-flex.flex-column.justify-content-center.align-items-center.h-100
+                    img(src='assets/img/landing/web-studio/skills/python.svg' width='52' alt='Python')
+                    p.fs-sm.pt-3.mb-0 Python is a programming language that lets you work quickly and integrate systems more effectively.
+
+          // Item
+          .swiper-slide.w-sm-auto.h-auto
+            .card.border-0.bg-secondary.h-100
+              .card-body.mx-auto(style='max-width: 416px;')
+                p.fs-lg.mb-1 "Suspendisse potenti. Nulla vel varius urna. Donec at libero ipsum. Nullam scelerisque tempus malesuada. Donec vehicula odio est, at faucibus purus sollicitudin ut. Fusce mollis ultrices ex sed pellentesque velit euismod."
+                img(src='assets/img/brands/deloitte-dark.svg' width='150' alt='Deloitte').d-dark-mode-none
+                img(src='assets/img/brands/deloitte-light.svg' width='150' alt='Deloitte').d-none.d-dark-mode-inline-block
+
+
+//- Footer
+block footer
+  include partials/footer-portfolio.pug

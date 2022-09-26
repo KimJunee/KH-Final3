@@ -1,0 +1,236 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['tiny-slider/dist/tiny-slider.css']
+  - var vendorScripts = ['tiny-slider/dist/min/tiny-slider.js']
+  - var parentMenu = 'Pages'
+  - var pageTitle = 'City Guide | Single Post'
+  - var bodyClass = 'fixed-bottom-btn'
+
+//- Navbar
+block navbar
+  include partials/navbar-city-guide
+
+//- Page Content
+block content
+
+  // Page container
+  .container.mt-5.mb-md-2.mb-lg-4.py-5
+
+    // Breadcrumb
+    nav(aria-label='breadcrumb').mb-3.pt-md-3
+      ol.breadcrumb
+        li.breadcrumb-item
+          a(href='city-guide-home-v1.html') Home
+        li.breadcrumb-item
+          a(href='city-guide-blog.html') Blog
+        li(aria-current='page').breadcrumb-item.active
+          | Air Travel in the Time of COVID-19
+
+    h1.h2.pb-3 Air Travel in the Time of COVID-19
+    img(src='img/city-guide/blog/single.jpg' alt='Post image').rounded-3
+
+    .row.mt-4.pt-3
+
+      // Sidebar (offcanvas)
+      aside.col-lg-4
+
+        // Offcanvas
+        #blog-sidebar.offcanvas.offcanvas-start.offcanvas-collapse.pe-lg-3
+          .offcanvas-header.shadow-sm.mb-2
+            h3.h5.offcanvas-title Sidebar
+            button(type='button' data-bs-dismiss='offcanvas').btn-close
+          .offcanvas-body
+
+            // Search
+            .position-relative.mb-4
+              input(type='text' placeholder='Search article by keywords...').form-control.pe-5
+              i.fi-search.position-absolute.top-50.end-0.translate-middle-y.me-3
+
+            // Author
+            .card.card-flush.py-2.py-lg-0.mb-4
+              .card-body.d-flex.align-items-start
+                img(src='img/avatars/28.png' width='80' alt='Avatar').me-3.rounded-circle
+                div
+                  h4.h5.mb-2
+                    a(href='#').nav-link.stretched-link.p-0.fw-bold Bessie Cooper
+                  span.d-block.mb-3.fs-sm Traveller, blogger
+                  .position-relative.zindex-5.text-nowrap
+                    a(href='#').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.me-2.mb-2
+                      i.fi-facebook
+                    a(href='#').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.me-2.mb-2
+                      i.fi-twitter
+                    a(href='#').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.me-2.mb-2
+                      i.fi-instagram
+
+            // Categories
+            .card.card-flush.pb-2.pb-lg-0.mb-4
+              .card-body
+                h4.h5 Categories
+                .mb-n2
+                  a(href='#').nav-link.mb-2.p-0.fw-normal.d-flex.justify-content-between
+                    | Inspiration
+                    span.opacity-70 (2)
+                  a(href='#').nav-link.mb-2.p-0.fw-normal.d-flex.justify-content-between
+                    | Transportation
+                    span.opacity-70 (4)
+                  a(href='#').nav-link.mb-2.p-0.fw-normal.d-flex.justify-content-between
+                    | Lifestyle
+                    span.opacity-70 (5)
+                  a(href='#').nav-link.mb-2.p-0.fw-normal.d-flex.justify-content-between
+                    | Entertainment
+                    span.opacity-70 (1)
+                  a(href='#').nav-link.mb-2.p-0.fw-normal.d-flex.justify-content-between
+                    | Accomodation
+                    span.opacity-70 (8)
+
+            // Tags
+            .card.card-flush.pb-2.pb-lg-0.mb-4
+              .card-body
+                h4.h5 Popular Tags
+                .d-flex.flex-wrap.mb-n1
+                  button.btn.btn-xs.btn-outline-secondary.rounded-pill.fs-sm.fw-normal.me-2.mb-2 Trending
+                  button.btn.btn-xs.btn-outline-secondary.rounded-pill.fs-sm.fw-normal.me-2.mb-2 Tutorial
+                  button.btn.btn-xs.btn-outline-secondary.rounded-pill.fs-sm.fw-normal.me-2.mb-2 Places
+                  button.btn.btn-xs.btn-outline-secondary.rounded-pill.fs-sm.fw-normal.me-2.mb-2 Urban
+                  button.btn.btn-xs.btn-outline-secondary.rounded-pill.fs-sm.fw-normal.me-2.mb-2 Tips
+                  button.btn.btn-xs.btn-outline-secondary.rounded-pill.fs-sm.fw-normal.me-2.mb-2 Travel
+                  button.btn.btn-xs.btn-outline-secondary.rounded-pill.fs-sm.fw-normal.me-2.mb-2 Restaurants
+
+            // Subscribe
+            .card.card-flush.mb-4
+              .card-body
+                h4.h5 Stay Informed
+                p.fs-sm.mb-3 Subscribe to our newsletter and be the first to see the latest news and advice.
+                form.form-group.rounded-pill
+                  .input-group.input-group-sm
+                    span.input-group-text.text-muted
+                      i.fi-mail
+                    input(type='email' placeholder='Your Email').form-control
+                  button(type='button').btn.btn-primary.btn-sm.rounded-pill Sign up
+                .form-text.fs-xs.pt-1 * By signing up you agree to our <a href='#'>Privacy Policy</a>
+
+
+      // Post content
+      .col-lg-8
+        // Post meta
+        .d-flex.flex-wrap.border-bottom.pb-3.mb-4
+          a(href='#').text-uppercase.text-decoration-none.border-end.pe-3.me-3.mb-2 Travelling
+          .d-flex.align-items-center.border-end.pe-3.me-3.mb-2
+            i.fi-calendar-alt.opacity-70.me-2
+            span May 24
+          .d-flex.align-items-center.border-end.pe-3.me-3.mb-2
+            i.fi-clock.opacity-70.me-2
+            span 8 min read
+          a(href='#').nav-link-muted.d-flex.align-items-center.mb-2
+            i.fi-chat-circle.opacity-70.me-2
+            span 3 comments
+
+        p.fs-lg.fw-bold.text-dark.mb-4 Feugiat eget gravida urna placerat posuere pulvinar. Id nibh hendrerit semper urna consequat. Mauris elit tellus risus ultricies ut consequat. Tempor tellus imperdiet nec velit fames pellentesque sed sed arcu. Neque quam id pellentesque in diam in.
+        p Purus ornare nisl est nec. Nunc, enim tellus pretium viverra quisque id in metus volutpat. Urna eget velit venenatis, commodo eget massa. Magna donec dictum cras nullam platea. Diam rhoncus massa lectus pellentesque tristique. Amet commodo, egestas vitae bibendum. Volutpat elit condimentum integer tortor porttitor justo vel lobortis risus. Lacinia pellentesque fermentum tellus orci mauris, velit duis eget. Commodo justo, hac ligula molestie felis, iaculis. Vitae dui at ante orci, dictum fusce. Urna, sed urna fringilla faucibus euismod aliquet nec. Quis libero, fermentum amet eu, condimentum auctor. Sit vel ipsum sem tempus gravida et. Scelerisque blandit orci, est quis. Nisi, tellus amet est nascetur habitant faucibus ornare et vivamus.
+        p Convallis massa nunc, tempus eget egestas sollicitudin mauris. Purus donec sed neque arcu, dictumst tortor nisi, odio. A sit lectus sem velit orci, rhoncus pharetra facilisis. Cras sodales a, dui pellentesque enim odio rutrum leo. Auctor viverra sit sit ut. Massa, elit venenatis, ultrices viverra at sagittis, velit. Cursus tempus phasellus consectetur suspendisse a blandit pellentesque diam neque. Massa est nibh congue elit amet, diam faucibus. Morbi non est semper ullamcorper quam iaculis at.
+        blockquote.blockquote.pb-2
+          p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          footer.fs-base — Annette Black
+        p Velit dignissim pharetra ut augue. Nunc felis neque non sagittis. Sodales eros suspendisse scelerisque varius neque elit elementum quis. Ut euismod id auctor donec consectetur massa. Sed vitae accumsan lorem pharetra dictum eget vestibulum. Non blandit viverra laoreet amet, maecenas auctor leo justo, sit. Vitae vulputate gravida est feugiat. Adipiscing tristique mauris, eu sit tortor. Velit in scelerisque sit tincidunt habitant urna nec. Justo, non massa metus convallis cursus lorem volutpat eu duis. Ipsum dolor feugiat est tristique.
+        p Praesent sed pulvinar posuere nisl tincidunt. Iaculis sit quam magna congue. Amet vel non aliquet habitasse. Egestas erat odio et, eleifend turpis etiam blandit interdum. Nec augue ut senectus quisque diam quis. At augue accumsan, in bibendum. A eget et, eget quisque egestas netus vel. Velit, aliquet turpis convallis ullamcorper. Scelerisque sagittis condimentum pretium in vitae etiam lacinia quis amet. Porttitor consequat, sollicitudin vivamus pharetra nibh faucibus neque, viverra. Praesent amet sed lacus vitae.
+        p Velit parturient tellus tellus, congue pulvinar tellus viverra. In cum massa mattis ac. Amet vitae massa ut mi etiam. Auctor aliquam tristique felis donec eu sit nisi. Accumsan mauris eget convallis mattis sed etiam scelerisque.
+
+        // Tags + Sharing
+        .pt-4
+          .d-md-flex.align-items-center.justify-content-between.border-top.pt-4
+            .d-flex.align-items-center.me-3.mb-3.mb-md-0
+              .d-none.d-sm-block.fw-bold.text-nowrap.mb-2.me-2.pe-1 Tags:
+              .d-flex.flex-wrap
+                a(href='#').btn.btn-xs.btn-outline-secondary.rounded-pill.fs-sm.fw-normal.me-2.mb-2 COVID-19
+                a(href='#').btn.btn-xs.btn-outline-secondary.rounded-pill.fs-sm.fw-normal.mb-2 Travel
+            .d-flex.align-items-center
+              .fw-bold.text-nowrap.pe-1.mb-2 Share:
+              .d-flex
+                a(href='#' data-bs-toggle='tooltip' title='Share with Facebook').btn.btn-icon.btn-light-primary.btn-xs.rounded-circle.shadow-sm.mb-2.ms-2
+                  i.fi-facebook
+                a(href='#' data-bs-toggle='tooltip' title='Share with Twitter').btn.btn-icon.btn-light-primary.btn-xs.rounded-circle.shadow-sm.mb-2.ms-2
+                  i.fi-twitter
+                a(href='#' data-bs-toggle='tooltip' title='Share with LinkedIn').btn.btn-icon.btn-light-primary.btn-xs.rounded-circle.shadow-sm.mb-2.ms-2
+                  i.fi-linkedin
+
+
+    // Recent posts
+    .pt-5.mt-md-4.mb-lg-2
+      .d-sm-flex.align-items-center.justify-content-between.mb-4.pb-2
+        h2.h3.mb-sm-0 You may be also interested in
+        a(href='city-guide-blog.html').btn.btn-link.fw-normal.ms-sm-3.p-0
+          | Go to blog
+          i.fi-arrow-long-right.ms-2
+
+      // Carousel
+      .tns-carousel-wrapper.tns-nav-outside
+        .tns-carousel-inner.d-block(data-carousel-options='{"controls": false, "gutter": 24, "autoHeight": true, "responsive": {"0":{"items":1,"nav":true},"500":{"items":2},"850":{"items":3},"1200":{"items":3}}}')
+
+          // Item
+          article
+            a(href='city-guide-blog-single.html').d-block.mb-3
+              img(src='img/city-guide/blog/12.jpg' alt='Post image').rounded-3
+            a(href='#').fs-xs.text-uppercase.text-decoration-none Travelling
+            h3.fs-base.pt-1
+              a(href='city-guide-blog-single.html').nav-link 10 Travel Mistakes to Avoid During Coronavirus
+            a(href='#').d-flex.align-items-center.text-decoration-none
+              img(src='img/avatars/16.png' width='44' alt='Avatar').rounded-circle
+              .ps-2
+                h6.fs-sm.text-nav.lh-base.mb-1 Bessie Cooper
+                .d-flex.text-body.fs-xs
+                  span.me-2.pe-1
+                    i.fi-calendar-alt.opacity-70.mt-n1.me-1.align-middle
+                    | May 24
+                  span
+                    i.fi-chat-circle.opacity-70.mt-n1.me-1.align-middle
+                    | No comments
+
+          // Item
+          article
+            a(href='#').d-block.mb-3
+              img(src='img/city-guide/blog/13.jpg' alt='Post image').rounded-3
+            a(href='#').fs-xs.text-uppercase.text-decoration-none Inspiration
+            h3.fs-base.pt-1
+              a(href='city-guide-blog-single.html').nav-link 10 World-Class Museums You Can Visit Online
+            a(href='#').d-flex.align-items-center.text-decoration-none
+              img(src='img/avatars/18.png' width='44' alt='Avatar').rounded-circle
+              .ps-2
+                h6.fs-sm.text-nav.lh-base.mb-1 Annette Black
+                .d-flex.text-body.fs-xs
+                  span.me-2.pe-1
+                    i.fi-calendar-alt.opacity-70.mt-n1.me-1.align-middle
+                    | Apr 28
+                  span
+                    i.fi-chat-circle.opacity-70.mt-n1.me-1.align-middle
+                    | 4 comments
+
+          // Item
+          article
+            a(href='#').d-block.mb-3
+              img(src='img/city-guide/blog/14.jpg' alt='Post image').rounded-3
+            a(href='#').fs-xs.text-uppercase.text-decoration-none Entertainment
+            h3.fs-base.pt-1
+              a(href='#').nav-link 7 Tips for Solo Travelers in Africa
+            a(href='#').d-flex.align-items-center.text-decoration-none
+              img(src='img/avatars/17.png' width='44' alt='Avatar').rounded-circle
+              .ps-2
+                h6.fs-sm.text-nav.lh-base.mb-1 Ralph Edwards
+                .d-flex.text-body.fs-xs
+                  span.me-2.pe-1
+                    i.fi-calendar-alt.opacity-70.mt-n1.me-1.align-middle
+                    | Mar 15
+                  span
+                    i.fi-chat-circle.opacity-70.mt-n1.me-1.align-middle
+                    | 2 comments
+
+
+//- Footer
+block footer
+  include partials/footer-city-guide
+
+  // Filters sidebar toggle button (mobile)
+  button(type='button' data-bs-toggle='offcanvas' data-bs-target='#blog-sidebar').btn.btn-primary.btn-sm.w-100.rounded-0.fixed-bottom.d-lg-none
+    i.fi-sidebar-left.me-2
+    | Sidebar

@@ -1,0 +1,17 @@
+extends ../partials/layout-docs
+
+//- Override default config variables
+append config
+  - var pageTitle = 'Components'
+  
+//- Page Content
+block content
+  .pb-5
+    .alert.alert-info.d-flex.mb-4(role='alert')
+      i.fi-alert-circle.lead.me-2.me-sm-3
+      div <span class='fw-bold'>Component</span> - is a snippet of HTML code with assosiated CSS classes and sometimes attached JavaScript functionality that is rendered by the browser as a standalone website element. They can be mixed together to produce more complex components.
+    p Along with all Bootstrap components Finder introduces new elements you can use across website. More than 40 components in total.
+    p: a(href='../components/accordion.html' class='fw-bold' target='_blank' rel='noopener') List of all Components as well as their visual reference and code snippets can be found here.
+    p.pb-3: a(href='https://getbootstrap.com/docs/5.1/components/accordion/' class='fw-bold' target='_blank' rel='noopener') Bootstrap Components and documentation.
+    p.pb-1: span.text-dark.fw-bold Below is the image showing how to see code snippet for each component:
+    img(src='../img/docs/component.png' alt='Component Show Code').d-block.img-thumbnail.shadow-none

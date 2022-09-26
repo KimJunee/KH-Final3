@@ -1,0 +1,457 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css', 'vendor/prismjs/themes/prism.css', 'vendor/prismjs/plugins/toolbar/prism-toolbar.css', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js', 'vendor/prismjs/components/prism-core.min.js', 'vendor/prismjs/components/prism-markup.min.js', 'vendor/prismjs/components/prism-clike.min.js', 'vendor/prismjs/components/prism-javascript.min.js', 'vendor/prismjs/components/prism-pug.min.js', 'vendor/prismjs/plugins/toolbar/prism-toolbar.min.js', 'vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Alerts'
+  - var pageSubtitle = 'Provide contextual feedback messages for typical user actions.'
+  - var pageTitleLink = {'title': 'Bootstrap docs', 'link': 'https://getbootstrap.com/docs/5.2/components/alerts/'}
+  - var anchorNav = [{'title': 'Basic example', 'link': '#alerts-basic'}, {'title': 'Alert with icon', 'link': '#alerts-icon'}, {'title': 'Dismissible alerts', 'link': '#alerts-dismissible'}, {'title': 'Additional content', 'link': '#alerts-additional-content'}]
+    
+//- Page Content
+block content
+
+  // Basic example
+  section#alerts-basic.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Basic example
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview1' data-bs-toggle='tab' role='tab' aria-controls='preview1' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview1.tab-pane.fade.show.active(role='tabpanel')
+          .alert.alert-primary(role='alert')
+            | A simple primary alert with <a href='#' class='alert-link'>an example link</a>. Give it a click if you like.
+          .alert.alert-secondary(role='alert')
+            | A simple secondary alert with <a href='#' class='alert-link'>an example link</a>. Give it a click if you like.
+          .alert.alert-success(role='alert')
+            | A simple success alert with <a href='#' class='alert-link'>an example link</a>. Give it a click if you like.
+          .alert.alert-danger(role='alert')
+            | A simple danger alert with <a href='#' class='alert-link'>an example link</a>. Give it a click if you like.
+          .alert.alert-warning(role='alert')
+            | A simple warning alert with <a href='#' class='alert-link'>an example link</a>. Give it a click if you like.
+          .alert.alert-info(role='alert')
+            | A simple info alert with <a href='#' class='alert-link'>an example link</a>. Give it a click if you like.
+          .alert.alert-light(role='alert')
+            | A simple light alert with <a href='#' class='alert-link'>an example link</a>. Give it a click if you like.
+          .alert.alert-dark.mb-0(role='alert')
+            | A simple dark alert with <a href='#' class='alert-link'>an example link</a>. Give it a click if you like.
+        #html1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Primary alert --&gt;
+              &lt;div class=&quot;alert alert-primary&quot; role=&quot;alert&quot;&gt;
+                A simple primary alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.
+              &lt;/div&gt;
+
+              &lt;!-- Secondary alert --&gt;
+              &lt;div class=&quot;alert alert-secondary&quot; role=&quot;alert&quot;&gt;
+                A simple secondary alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.
+              &lt;/div&gt;
+
+              &lt;!-- Success alert --&gt;
+              &lt;div class=&quot;alert alert-success&quot; role=&quot;alert&quot;&gt;
+                A simple success alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.
+              &lt;/div&gt;
+
+              &lt;!-- Danger alert --&gt;
+              &lt;div class=&quot;alert alert-danger&quot; role=&quot;alert&quot;&gt;
+                A simple danger alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.
+              &lt;/div&gt;
+
+              &lt;!-- Warning alert --&gt;
+              &lt;div class=&quot;alert alert-warning&quot; role=&quot;alert&quot;&gt;
+                A simple warning alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.
+              &lt;/div&gt;
+
+              &lt;!-- Info alert --&gt;
+              &lt;div class=&quot;alert alert-info&quot; role=&quot;alert&quot;&gt;
+                A simple info alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.
+              &lt;/div&gt;
+
+              &lt;!-- Light alert --&gt;
+              &lt;div class=&quot;alert alert-light&quot; role=&quot;alert&quot;&gt;
+                A simple light alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.
+              &lt;/div&gt;
+
+              &lt;!-- Dark alert --&gt;
+              &lt;div class=&quot;alert alert-dark&quot; role=&quot;alert&quot;&gt;
+                A simple dark alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.
+              &lt;/div&gt;
+        #pug1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Primary alert
+              .alert.alert-primary(role=&quot;alert&quot;)
+                | A simple primary alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.
+
+              // Secondary alert
+              .alert.alert-secondary(role=&quot;alert&quot;)
+                | A simple secondary alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.
+
+              // Success alert
+              .alert.alert-success(role=&quot;alert&quot;)
+                | A simple success alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.
+
+              // Danger alert
+              .alert.alert-danger(role=&quot;alert&quot;)
+                | A simple danger alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.
+
+              // Warning alert
+              .alert.alert-warning(role=&quot;alert&quot;)
+                | A simple warning alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.
+              
+              // Info alert
+              .alert.alert-info(role=&quot;alert&quot;)
+                | A simple info alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.
+
+              // Light alert
+              .alert.alert-light(role=&quot;alert&quot;)
+                | A simple light alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.
+
+              // Dark alert
+              .alert.alert-dark(role=&quot;alert&quot;)
+                | A simple dark alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.
+
+  // Alert with icon
+  section#alerts-icon.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Alert with icon
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview2' data-bs-toggle='tab' role='tab' aria-controls='preview2' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview2.tab-pane.fade.show.active(role='tabpanel')
+          .alert.d-flex.alert-primary(role='alert')
+            i.ai-bell.fs-xl.pe-1.me-2
+            div A simple primary alert with <a href='#' class='alert-link'>an example link</a>. Give it a click if you like.
+          .alert.d-flex.alert-secondary(role='alert')
+            i.ai-time.fs-xl.pe-1.me-2
+            div A simple secondary alert with <a href='#' class='alert-link'>an example link</a>. Give it a click if you like.
+          .alert.d-flex.alert-success(role='alert')
+            i.ai-circle-check.fs-xl.pe-1.me-2
+            div A simple success alert with <a href='#' class='alert-link'>an example link</a>. Give it a click if you like.
+          .alert.d-flex.alert-danger(role='alert')
+            i.ai-circle-slash.fs-xl.pe-1.me-2
+            div A simple danger alert with <a href='#' class='alert-link'>an example link</a>. Give it a click if you like.
+          .alert.d-flex.alert-warning(role='alert')
+            i.ai-triangle-alert.fs-xl.pe-1.me-2
+            div A simple warning alert with <a href='#' class='alert-link'>an example link</a>. Give it a click if you like.
+          .alert.d-flex.alert-info(role='alert')
+            i.ai-circle-info.fs-xl.pe-1.me-2
+            div A simple info alert with <a href='#' class='alert-link'>an example link</a>. Give it a click if you like.
+          .alert.d-flex.alert-light(role='alert')
+            i.ai-lock-open.fs-xl.pe-1.me-2
+            div A simple light alert with <a href='#' class='alert-link'>an example link</a>. Give it a click if you like.
+          .alert.d-flex.alert-dark.mb-0(role='alert')
+            i.ai-map-pin.fs-xl.pe-1.me-2
+            div A simple dark alert with <a href='#' class='alert-link'>an example link</a>. Give it a click if you like.
+        #html2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Primary alert --&gt;
+              &lt;div class=&quot;alert d-flex alert-primary&quot; role=&quot;alert&quot;&gt;
+                &lt;i class=&quot;ai-bell fs-xl pe-1 me-2&quot;&gt;&lt;/i&gt;
+                &lt;div&gt;A simple primary alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.&lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Secondary alert --&gt;
+              &lt;div class=&quot;alert d-flex alert-secondary&quot; role=&quot;alert&quot;&gt;
+                &lt;i class=&quot;ai-time fs-xl pe-1 me-2&quot;&gt;&lt;/i&gt;
+                &lt;div&gt;A simple secondary alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.&lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Success alert --&gt;
+              &lt;div class=&quot;alert d-flex alert-success&quot; role=&quot;alert&quot;&gt;
+                &lt;i class=&quot;ai-circle-check fs-xl pe-1 me-2&quot;&gt;&lt;/i&gt;
+                &lt;div&gt;A simple success alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.&lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Danger alert --&gt;
+              &lt;div class=&quot;alert d-flex alert-danger&quot; role=&quot;alert&quot;&gt;
+                &lt;i class=&quot;ai-circle-slash fs-xl pe-1 me-2&quot;&gt;&lt;/i&gt;
+                &lt;div&gt;A simple danger alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.&lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Warning alert --&gt;
+              &lt;div class=&quot;alert d-flex alert-warning&quot; role=&quot;alert&quot;&gt;
+                &lt;i class=&quot;ai-triangle-alert fs-xl pe-1 me-2&quot;&gt;&lt;/i&gt;
+                &lt;div&gt;A simple warning alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.&lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Info alert --&gt;
+              &lt;div class=&quot;alert d-flex alert-info&quot; role=&quot;alert&quot;&gt;
+                &lt;i class=&quot;ai-circle-info fs-xl pe-1 me-2&quot;&gt;&lt;/i&gt;
+                &lt;div&gt;A simple info alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.&lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Light alert --&gt;
+              &lt;div class=&quot;alert d-flex alert-light&quot; role=&quot;alert&quot;&gt;
+                &lt;i class=&quot;ai-lock-open fs-xl pe-1 me-2&quot;&gt;&lt;/i&gt;
+                &lt;div&gt;A simple light alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.&lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Dark alert --&gt;
+              &lt;div class=&quot;alert d-flex alert-dark&quot; role=&quot;alert&quot;&gt;
+                &lt;i class=&quot;ai-map-pin fs-xl pe-1 me-2&quot;&gt;&lt;/i&gt;
+                &lt;div&gt;A simple dark alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.&lt;/div&gt;
+              &lt;/div&gt;
+        #pug2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Primary alert
+              .alert.d-flex.alert-primary(role=&quot;alert&quot;)
+                i.ai-bell.fs-xl.pe-1.me-2
+                div A simple primary alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.
+
+              // Secondary alert
+              .alert.d-flex.alert-secondary(role=&quot;alert&quot;)
+                i.ai-time.fs-xl.pe-1.me-2
+                div A simple secondary alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.
+
+              // Success alert
+              .alert.d-flex.alert-success(role=&quot;alert&quot;)
+                i.ai-circle-check.fs-xl.pe-1.me-2
+                div A simple success alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.
+              
+              // Danger alert
+              .alert.d-flex.alert-danger(role=&quot;alert&quot;)
+                i.ai-circle-slash.fs-xl.pe-1.me-2
+                div A simple danger alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.
+
+              // Warning alert
+              .alert.d-flex.alert-warning(role=&quot;alert&quot;)
+                i.ai-triangle-alert.fs-xl.pe-1.me-2
+                div A simple warning alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.
+              
+              // Info alert
+              .alert.d-flex.alert-info(role=&quot;alert&quot;)
+                i.ai-circle-info.fs-xl.pe-1.me-2
+                div A simple info alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.
+              
+              // Light alert
+              .alert.d-flex.alert-light(role=&quot;alert&quot;)
+                i.ai-lock-open.fs-xl.pe-1.me-2
+                div A simple light alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.
+              
+              // Dark alert
+              .alert.d-flex.alert-dark(role=&quot;alert&quot;)
+                i.ai-map-pin.fs-xl.pe-1.me-2
+                div A simple dark alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.
+
+  // Dismissible alerts
+  section#alerts-dismissible.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Dismissible alerts
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview3' data-bs-toggle='tab' role='tab' aria-controls='preview3' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview3.tab-pane.fade.show.active(role='tabpanel')
+          .alert.alert-primary.alert-dismissible.fade.show(role='alert')
+            | <span class='fw-semibold'>Primary alert:</span> Dismiss me by clicking the close button on the right.
+            button(type='button' data-bs-dismiss='alert' aria-label='Close').btn-close
+          .alert.alert-secondary.alert-dismissible.fade.show(role='alert')
+            | <span class='fw-semibold'>Secondary alert:</span> Dismiss me by clicking the close button on the right.
+            button(type='button' data-bs-dismiss='alert' aria-label='Close').btn-close
+          .alert.alert-success.alert-dismissible.fade.show(role='alert')
+            | <span class='fw-semibold'>Success alert:</span> Dismiss me by clicking the close button on the right.
+            button(type='button' data-bs-dismiss='alert' aria-label='Close').btn-close
+          .alert.alert-danger.alert-dismissible.fade.show(role='alert')
+            | <span class='fw-semibold'>Danger alert:</span> Dismiss me by clicking the close button on the right.
+            button(type='button' data-bs-dismiss='alert' aria-label='Close').btn-close
+          .alert.alert-warning.alert-dismissible.fade.show(role='alert')
+            | <span class='fw-semibold'>Warning alert:</span> Dismiss me by clicking the close button on the right.
+            button(type='button' data-bs-dismiss='alert' aria-label='Close').btn-close
+          .alert.alert-info.alert-dismissible.fade.show(role='alert')
+            | <span class='fw-semibold'>Info alert:</span> Dismiss me by clicking the close button on the right.
+            button(type='button' data-bs-dismiss='alert' aria-label='Close').btn-close
+          .alert.alert-light.alert-dismissible.fade.show(role='alert')
+            | <span class='fw-semibold'>Light alert:</span> Dismiss me by clicking the close button on the right.
+            button(type='button' data-bs-dismiss='alert' aria-label='Close').btn-close
+          .alert.alert-dark.alert-dismissible.fade.show.mb-0(role='alert')
+            | <span class='fw-semibold'>Dark alert:</span> Dismiss me by clicking the close button on the right.
+            button(type='button' data-bs-dismiss='alert' aria-label='Close').btn-close.btn-close-white
+        #html3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Primary alert --&gt;
+              &lt;div class=&quot;alert alert-primary alert-dismissible fade show&quot; role=&quot;alert&quot;&gt;
+                &lt;span class=&quot;fw-semibold&quot;&gt;Primary alert:&lt;/span&gt; Dismiss me by clicking the close button on the right.
+                &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+              &lt;/div&gt;
+              
+              &lt;!-- Secondary alert --&gt;
+              &lt;div class=&quot;alert alert-secondary alert-dismissible fade show&quot; role=&quot;alert&quot;&gt;
+                &lt;span class=&quot;fw-semibold&quot;&gt;Secondary alert:&lt;/span&gt; Dismiss me by clicking the close button on the right.
+                &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+              &lt;/div&gt;
+              
+              &lt;!-- Success alert --&gt;
+              &lt;div class=&quot;alert alert-success alert-dismissible fade show&quot; role=&quot;alert&quot;&gt;
+                &lt;span class=&quot;fw-semibold&quot;&gt;Success alert:&lt;/span&gt; Dismiss me by clicking the close button on the right.
+                &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+              &lt;/div&gt;
+              
+              &lt;!-- Danger alert --&gt;
+              &lt;div class=&quot;alert alert-danger alert-dismissible fade show&quot; role=&quot;alert&quot;&gt;
+                &lt;span class=&quot;fw-semibold&quot;&gt;Danger alert:&lt;/span&gt; Dismiss me by clicking the close button on the right.
+                &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+              &lt;/div&gt;
+              
+              &lt;!-- Warning alert --&gt;
+              &lt;div class=&quot;alert alert-warning alert-dismissible fade show&quot; role=&quot;alert&quot;&gt;
+                &lt;span class=&quot;fw-semibold&quot;&gt;Warning alert:&lt;/span&gt; Dismiss me by clicking the close button on the right.
+                &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+              &lt;/div&gt;
+              
+              &lt;!-- Info alert --&gt;
+              &lt;div class=&quot;alert alert-info alert-dismissible fade show&quot; role=&quot;alert&quot;&gt;
+                &lt;span class=&quot;fw-semibold&quot;&gt;Info alert:&lt;/span&gt; Dismiss me by clicking the close button on the right.
+                &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+              &lt;/div&gt;
+              
+              &lt;!-- Light alert --&gt;
+              &lt;div class=&quot;alert alert-light alert-dismissible fade show&quot; role=&quot;alert&quot;&gt;
+                &lt;span class=&quot;fw-semibold&quot;&gt;Light alert:&lt;/span&gt; Dismiss me by clicking the close button on the right.
+                &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+              &lt;/div&gt;
+              
+              &lt;!-- Dark alert --&gt;
+              &lt;div class=&quot;alert alert-dark alert-dismissible fade show&quot; role=&quot;alert&quot;&gt;
+                &lt;span class=&quot;fw-semibold&quot;&gt;Dark alert:&lt;/span&gt; Dismiss me by clicking the close button on the right.
+                &lt;button type=&quot;button&quot; class=&quot;btn-close btn-close-white&quot; data-bs-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+              &lt;/div&gt;
+        #pug3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Primary alert
+              .alert.alert-primary.alert-dismissible.fade.show(role=&quot;alert&quot;)
+                | &lt;span class=&quot;fw-semibold&quot;&gt;Primary alert:&lt;/span&gt; Dismiss me by clicking the close button on the right.
+                button(type=&quot;button&quot;, data-bs-dismiss=&quot;alert&quot;, aria-label=&quot;Close&quot;).btn-close
+
+              // Secondary alert
+              .alert.alert-secondary.alert-dismissible.fade.show(role=&quot;alert&quot;)
+                | &lt;span class=&quot;fw-semibold&quot;&gt;Secondary alert:&lt;/span&gt; Dismiss me by clicking the close button on the right.
+                button(type=&quot;button&quot;, data-bs-dismiss=&quot;alert&quot;, aria-label=&quot;Close&quot;).btn-close
+
+              // Success alert
+              .alert.alert-success.alert-dismissible.fade.show(role=&quot;alert&quot;)
+                | &lt;span class=&quot;fw-semibold&quot;&gt;Success alert:&lt;/span&gt; Dismiss me by clicking the close button on the right.
+                button(type=&quot;button&quot;, data-bs-dismiss=&quot;alert&quot;, aria-label=&quot;Close&quot;).btn-close
+
+              // Danger alert
+              .alert.alert-danger.alert-dismissible.fade.show(role=&quot;alert&quot;)
+                | &lt;span class=&quot;fw-semibold&quot;&gt;Danger alert:&lt;/span&gt; Dismiss me by clicking the close button on the right.
+                button(type=&quot;button&quot;, data-bs-dismiss=&quot;alert&quot;, aria-label=&quot;Close&quot;).btn-close
+
+              // Warning alert
+              .alert.alert-warning.alert-dismissible.fade.show(role=&quot;alert&quot;)
+                | &lt;span class=&quot;fw-semibold&quot;&gt;Warning alert:&lt;/span&gt; Dismiss me by clicking the close button on the right.
+                button(type=&quot;button&quot;, data-bs-dismiss=&quot;alert&quot;, aria-label=&quot;Close&quot;).btn-close
+
+              // Info alert
+              .alert.alert-info.alert-dismissible.fade.show(role=&quot;alert&quot;)
+                | &lt;span class=&quot;fw-semibold&quot;&gt;Info alert:&lt;/span&gt; Dismiss me by clicking the close button on the right.
+                button(type=&quot;button&quot;, data-bs-dismiss=&quot;alert&quot;, aria-label=&quot;Close&quot;).btn-close
+              
+              // Light alert
+              .alert.alert-light.alert-dismissible.fade.show(role=&quot;alert&quot;)
+                | &lt;span class=&quot;fw-semibold&quot;&gt;Light alert:&lt;/span&gt; Dismiss me by clicking the close button on the right.
+                button(type=&quot;button&quot;, data-bs-dismiss=&quot;alert&quot;, aria-label=&quot;Close&quot;).btn-close
+
+              // Dark alert
+              .alert.alert-dark.alert-dismissible.fade.show(role=&quot;alert&quot;)
+                | &lt;span class=&quot;fw-semibold&quot;&gt;Dark alert:&lt;/span&gt; Dismiss me by clicking the close button on the right.
+                button(type=&quot;button&quot;, data-bs-dismiss=&quot;alert&quot;, aria-label=&quot;Close&quot;).btn-close.btn-close-white
+
+  // Additional content
+  section#alerts-additional-content.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Additional content
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview4' data-bs-toggle='tab' role='tab' aria-controls='preview4' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview4.tab-pane.fade.show.active(role='tabpanel')
+          .alert.alert-primary.mb-0(role='alert')
+            h4.pt-2.alert-heading Well done!
+            p Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+            hr.text-primary.opacity-25.mb-3
+            p.mb-2 Whenever you need to, be sure to use margin utilities to keep things nice and tidy.
+        #html4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Primary alert with additional content --&gt;
+              &lt;div class=&quot;alert alert-primary&quot; role=&quot;alert&quot;&gt;
+                &lt;h4 class=&quot;pt-2 alert-heading&quot;&gt;Well done!&lt;/h4&gt;
+                &lt;p&gt;Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.&lt;/p&gt;
+                &lt;hr class=&quot;text-primary opacity-25 mb-3&quot;&gt;
+                &lt;p class=&quot;mb-2&quot;&gt;Whenever you need to, be sure to use margin utilities to keep things nice and tidy.&lt;/p&gt;
+              &lt;/div&gt;
+        #pug4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Primary alert with additional content
+              .alert.alert-primary.mb-0(role=&quot;alert&quot;)
+                h4.pt-2.alert-heading Well done!
+                p Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+                hr.text-primary.opacity-25.mb-3
+                p.mb-2 Whenever you need to, be sure to use margin utilities to keep things nice and tidy.

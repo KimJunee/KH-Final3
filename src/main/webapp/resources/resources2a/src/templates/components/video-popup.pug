@@ -1,0 +1,461 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css', 'vendor/lightgallery/css/lightgallery-bundle.min.css', 'vendor/prismjs/themes/prism.css', 'vendor/prismjs/plugins/toolbar/prism-toolbar.css', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js', 'vendor/lightgallery/lightgallery.min.js', 'vendor/lightgallery/plugins/video/lg-video.min.js', 'vendor/prismjs/components/prism-core.min.js', 'vendor/prismjs/components/prism-markup.min.js', 'vendor/prismjs/components/prism-clike.min.js', 'vendor/prismjs/components/prism-javascript.min.js', 'vendor/prismjs/components/prism-pug.min.js', 'vendor/prismjs/plugins/toolbar/prism-toolbar.min.js', 'vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Video popup'
+  - var pageSubtitle = 'Responsive YouTube video player inside lightbox triggered by specially styled button.'
+  - var isPageTitleBadge = true
+  - var anchorNav = [{'title': 'Play button', 'link': '#video-btn'}, {'title': 'Types and colors', 'link': '#video-btn-types-colors'}, {'title': 'Sizing', 'link': '#video-btn-sizing'}, {'title': 'On top of the image', 'link': '#video-btn-image'}, {'title': 'Inside card', 'link': '#video-btn-card'}]
+    
+//- Page Content
+block content
+
+  // Play button
+  section#video-btn.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Play button
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview1' data-bs-toggle='tab' role='tab' aria-controls='preview1' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview1.tab-pane.fade.show.active(role='tabpanel')
+          .d-flex.align-items-center
+            a(href='https://www.youtube.com/watch?v=UHQPdP8qgrk' data-bs-toggle='video').btn.btn-icon.btn-primary.rounded-circle
+              i.ai-play-filled
+            span.fs-sm.ps-3 Click me to watch video!
+        #html1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Play button with label --&gt;
+              &lt;div class=&quot;d-flex align-items-center&quot;&gt;
+                &lt;a href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot; class=&quot;btn btn-icon btn-primary rounded-circle&quot; data-bs-toggle=&quot;video&quot;&gt;
+                  &lt;i class=&quot;ai-play-filled&quot;&gt;&lt;/i&gt;
+                &lt;/a&gt;
+                &lt;span class=&quot;fs-sm ps-3&quot;&gt;Click me to watch video!&lt;/span&gt;
+              &lt;/div&gt;
+        #pug1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Play button with label
+              .d-flex.align-items-center
+                a(href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot;, data-bs-toggle=&quot;video&quot;).btn.btn-icon.btn-primary.rounded-circle
+                  i.ai-play-filled
+                span.fs-sm.ps-3 Click me to watch video!
+
+  // Types and colors
+  section#video-btn-types-colors.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Types and colors
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview2' data-bs-toggle='tab' role='tab' aria-controls='preview2' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview2.tab-pane.fade.show.active(role='tabpanel')
+          .d-flex.flex-wrap.mb-4
+            a(href='https://www.youtube.com/watch?v=UHQPdP8qgrk' data-bs-toggle='video').btn.btn-icon.btn-primary.rounded-circle.m-2
+              i.ai-play-filled
+            a(href='https://www.youtube.com/watch?v=UHQPdP8qgrk' data-bs-toggle='video').btn.btn-icon.btn-secondary.rounded-circle.m-2
+              i.ai-play-filled
+            a(href='https://www.youtube.com/watch?v=UHQPdP8qgrk' data-bs-toggle='video').btn.btn-icon.btn-success.rounded-circle.m-2
+              i.ai-play-filled
+            a(href='https://www.youtube.com/watch?v=UHQPdP8qgrk' data-bs-toggle='video').btn.btn-icon.btn-danger.rounded-circle.m-2
+              i.ai-play-filled
+            a(href='https://www.youtube.com/watch?v=UHQPdP8qgrk' data-bs-toggle='video').btn.btn-icon.btn-warning.rounded-circle.m-2
+              i.ai-play-filled
+            a(href='https://www.youtube.com/watch?v=UHQPdP8qgrk' data-bs-toggle='video').btn.btn-icon.btn-info.rounded-circle.m-2
+              i.ai-play-filled
+            a(href='https://www.youtube.com/watch?v=UHQPdP8qgrk' data-bs-toggle='video').btn.btn-icon.btn-dark.rounded-circle.m-2.me-3
+              i.ai-play-filled
+            .bg-dark.p-2
+              a(href='https://www.youtube.com/watch?v=UHQPdP8qgrk' data-bs-toggle='video').btn.btn-icon.btn-light.rounded-circle
+                i.ai-play-filled
+          .d-flex.flex-wrap
+            a(href='https://www.youtube.com/watch?v=UHQPdP8qgrk' data-bs-toggle='video').btn.btn-icon.btn-outline-primary.rounded-circle.m-2
+              i.ai-play-filled
+            a(href='https://www.youtube.com/watch?v=UHQPdP8qgrk' data-bs-toggle='video').btn.btn-icon.btn-outline-secondary.rounded-circle.m-2
+              i.ai-play-filled
+            a(href='https://www.youtube.com/watch?v=UHQPdP8qgrk' data-bs-toggle='video').btn.btn-icon.btn-outline-success.rounded-circle.m-2
+              i.ai-play-filled
+            a(href='https://www.youtube.com/watch?v=UHQPdP8qgrk' data-bs-toggle='video').btn.btn-icon.btn-outline-danger.rounded-circle.m-2
+              i.ai-play-filled
+            a(href='https://www.youtube.com/watch?v=UHQPdP8qgrk' data-bs-toggle='video').btn.btn-icon.btn-outline-warning.rounded-circle.m-2
+              i.ai-play-filled
+            a(href='https://www.youtube.com/watch?v=UHQPdP8qgrk' data-bs-toggle='video').btn.btn-icon.btn-outline-info.rounded-circle.m-2
+              i.ai-play-filled
+            a(href='https://www.youtube.com/watch?v=UHQPdP8qgrk' data-bs-toggle='video').btn.btn-icon.btn-outline-dark.rounded-circle.m-2.me-3
+              i.ai-play-filled
+            .bg-dark.p-2
+              a(href='https://www.youtube.com/watch?v=UHQPdP8qgrk' data-bs-toggle='video').btn.btn-icon.btn-outline-light.rounded-circle
+                i.ai-play-filled
+        #html2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Primary solid video button --&gt;
+              &lt;a href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot; class=&quot;btn btn-icon btn-primary rounded-circle&quot; data-bs-toggle=&quot;video&quot;&gt;
+                &lt;i class=&quot;ai-play-filled&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Secondary solid video button --&gt;
+              &lt;a href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot; class=&quot;btn btn-icon btn-secondary rounded-circle&quot; data-bs-toggle=&quot;video&quot;&gt;
+                &lt;i class=&quot;ai-play-filled&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Success solid video button --&gt;
+              &lt;a href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot; class=&quot;btn btn-icon btn-success rounded-circle&quot; data-bs-toggle=&quot;video&quot;&gt;
+                &lt;i class=&quot;ai-play-filled&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Danger solid video button --&gt;
+              &lt;a href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot; class=&quot;btn btn-icon btn-danger rounded-circle&quot; data-bs-toggle=&quot;video&quot;&gt;
+                &lt;i class=&quot;ai-play-filled&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Warning solid video button --&gt;
+              &lt;a href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot; class=&quot;btn btn-icon btn-warning rounded-circle&quot; data-bs-toggle=&quot;video&quot;&gt;
+                &lt;i class=&quot;ai-play-filled&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Info solid video button --&gt;
+              &lt;a href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot; class=&quot;btn btn-icon btn-info rounded-circle&quot; data-bs-toggle=&quot;video&quot;&gt;
+                &lt;i class=&quot;ai-play-filled&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Dark solid video button --&gt;
+              &lt;a href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot; class=&quot;btn btn-icon btn-dark rounded-circle&quot; data-bs-toggle=&quot;video&quot;&gt;
+                &lt;i class=&quot;ai-play-filled&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Light solid video button --&gt;
+              &lt;a href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot; class=&quot;btn btn-icon btn-light rounded-circle&quot; data-bs-toggle=&quot;video&quot;&gt;
+                &lt;i class=&quot;ai-play-filled&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Primary outline video button --&gt;
+              &lt;a href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot; class=&quot;btn btn-icon btn-outline-primary rounded-circle&quot; data-bs-toggle=&quot;video&quot;&gt;
+                &lt;i class=&quot;ai-play-filled&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Secondary outline video button --&gt;
+              &lt;a href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot; class=&quot;btn btn-icon btn-outline-secondary rounded-circle&quot; data-bs-toggle=&quot;video&quot;&gt;
+                &lt;i class=&quot;ai-play-filled&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Success outline video button --&gt;
+              &lt;a href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot; class=&quot;btn btn-icon btn-outline-success rounded-circle&quot; data-bs-toggle=&quot;video&quot;&gt;
+                &lt;i class=&quot;ai-play-filled&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Danger outline video button --&gt;
+              &lt;a href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot; class=&quot;btn btn-icon btn-outline-danger rounded-circle&quot; data-bs-toggle=&quot;video&quot;&gt;
+                &lt;i class=&quot;ai-play-filled&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Warning outline video button --&gt;
+              &lt;a href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot; class=&quot;btn btn-icon btn-outline-warning rounded-circle&quot; data-bs-toggle=&quot;video&quot;&gt;
+                &lt;i class=&quot;ai-play-filled&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Info outline video button --&gt;
+              &lt;a href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot; class=&quot;btn btn-icon btn-outline-info rounded-circle&quot; data-bs-toggle=&quot;video&quot;&gt;
+                &lt;i class=&quot;ai-play-filled&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Dark outline video button --&gt;
+              &lt;a href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot; class=&quot;btn btn-icon btn-outline-dark rounded-circle&quot; data-bs-toggle=&quot;video&quot;&gt;
+                &lt;i class=&quot;ai-play-filled&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Light outline video button --&gt;
+              &lt;a href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot; class=&quot;btn btn-icon btn-outline-light rounded-circle&quot; data-bs-toggle=&quot;video&quot;&gt;
+                &lt;i class=&quot;ai-play-filled&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+        #pug2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Primary solid video button
+              a(href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot;, data-bs-toggle=&quot;video&quot;).btn.btn-icon.btn-primary.rounded-circle
+                i.ai-play-filled
+
+              // Secondary solid video button
+              a(href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot;, data-bs-toggle=&quot;video&quot;).btn.btn-icon.btn-secondary.rounded-circle
+                i.ai-play-filled
+
+              // Success solid video button
+              a(href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot;, data-bs-toggle=&quot;video&quot;).btn.btn-icon.btn-success.rounded-circle
+                i.ai-play-filled
+
+              // Danger solid video button
+              a(href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot;, data-bs-toggle=&quot;video&quot;).btn.btn-icon.btn-danger.rounded-circle
+                i.ai-play-filled
+
+              // Warning solid video button
+              a(href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot;, data-bs-toggle=&quot;video&quot;).btn.btn-icon.btn-warning.rounded-circle
+                i.ai-play-filled
+
+              // Info solid video button
+              a(href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot;, data-bs-toggle=&quot;video&quot;).btn.btn-icon.btn-info.rounded-circle
+                i.ai-play-filled
+
+              // Dark solid video button
+              a(href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot;, data-bs-toggle=&quot;video&quot;).btn.btn-icon.btn-dark.rounded-circle
+                i.ai-play-filled
+
+              // Light solid video button
+              a(href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot;, data-bs-toggle=&quot;video&quot;).btn.btn-icon.btn-light.rounded-circle
+                i.ai-play-filled
+
+              // Primary outline video button
+              a(href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot;, data-bs-toggle=&quot;video&quot;).btn.btn-icon.btn-outline-primary.rounded-circle
+                i.ai-play-filled
+
+              // Secondary outline video button
+              a(href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot;, data-bs-toggle=&quot;video&quot;).btn.btn-icon.btn-outline-secondary.rounded-circle
+                i.ai-play-filled
+
+              // Success outline video button
+              a(href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot;, data-bs-toggle=&quot;video&quot;).btn.btn-icon.btn-outline-success.rounded-circle
+                i.ai-play-filled
+
+              // Danger outline video button
+              a(href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot;, data-bs-toggle=&quot;video&quot;).btn.btn-icon.btn-outline-danger.rounded-circle
+                i.ai-play-filled
+
+              // Warning outline video button
+              a(href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot;, data-bs-toggle=&quot;video&quot;).btn.btn-icon.btn-outline-warning.rounded-circle
+                i.ai-play-filled
+
+              // Info outline video button
+              a(href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot;, data-bs-toggle=&quot;video&quot;).btn.btn-icon.btn-outline-info.rounded-circle
+                i.ai-play-filled
+
+              // Dark outline video button
+              a(href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot;, data-bs-toggle=&quot;video&quot;).btn.btn-icon.btn-outline-dark.rounded-circle
+                i.ai-play-filled
+
+              // Light outline video button
+              a(href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot;, data-bs-toggle=&quot;video&quot;).btn.btn-icon.btn-outline-light.rounded-circle
+                i.ai-play-filled
+
+  // Sizing
+  section#video-btn-sizing.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Sizing
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview3' data-bs-toggle='tab' role='tab' aria-controls='preview3' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview3.tab-pane.fade.show.active(role='tabpanel')
+          .d-flex.flex-wrap.align-items-center
+            a(href='https://www.youtube.com/watch?v=UHQPdP8qgrk' data-bs-toggle='video').btn.btn-icon.btn-xl.btn-primary.rounded-circle.m-2
+              i.ai-play-filled
+            a(href='https://www.youtube.com/watch?v=UHQPdP8qgrk' data-bs-toggle='video').btn.btn-icon.btn-lg.btn-primary.rounded-circle.m-2
+              i.ai-play-filled
+            a(href='https://www.youtube.com/watch?v=UHQPdP8qgrk' data-bs-toggle='video').btn.btn-icon.btn-primary.rounded-circle.m-2
+              i.ai-play-filled
+            a(href='https://www.youtube.com/watch?v=UHQPdP8qgrk' data-bs-toggle='video').btn.btn-icon.btn-sm.btn-primary.rounded-circle.m-2
+              i.ai-play-filled
+        #html3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Extra large video button --&gt;
+              &lt;a href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot; class=&quot;btn btn-icon btn-xl btn-primary rounded-circle&quot; data-bs-toggle=&quot;video&quot;&gt;
+                &lt;i class=&quot;ai-play-filled&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Large video button --&gt;
+              &lt;a href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot; class=&quot;btn btn-icon btn-lg btn-primary rounded-circle&quot; data-bs-toggle=&quot;video&quot;&gt;
+                &lt;i class=&quot;ai-play-filled&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Regular video button --&gt;
+              &lt;a href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot; class=&quot;btn btn-icon btn-primary rounded-circle&quot; data-bs-toggle=&quot;video&quot;&gt;
+                &lt;i class=&quot;ai-play-filled&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Small video button --&gt;
+              &lt;a href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot; class=&quot;btn btn-icon btn-sm btn-primary rounded-circle&quot; data-bs-toggle=&quot;video&quot;&gt;
+                &lt;i class=&quot;ai-play-filled&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+        #pug3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Extra large video button
+              a(href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot;, data-bs-toggle=&quot;video&quot;).btn.btn-icon.btn-xl.btn-primary.rounded-circle
+                i.ai-play-filled
+
+              // Large video button
+              a(href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot;, data-bs-toggle=&quot;video&quot;).btn.btn-icon.btn-lg.btn-primary.rounded-circle
+                i.ai-play-filled
+
+              // Regular video button
+              a(href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot;, data-bs-toggle=&quot;video&quot;).btn.btn-icon.btn-primary.rounded-circle
+                i.ai-play-filled
+
+              // Small video button
+              a(href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot;, data-bs-toggle=&quot;video&quot;).btn.btn-icon.btn-sm.btn-primary.rounded-circle
+                i.ai-play-filled
+
+  // On top of the image
+  section#video-btn-image.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 On top of the image
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview4' data-bs-toggle='tab' role='tab' aria-controls='preview4' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview4.tab-pane.fade.show.active(role='tabpanel')
+          .position-relative
+            img(src='../assets/img/landing/product/video-cover.jpg' alt='Video cover').d-block.rounded-5
+            .d-nline-flex.position-absolute.top-50.start-50.translate-middle.zindex-2.p-4
+              a(href='https://www.youtube.com/watch?v=udMULpKcnn8' data-bs-toggle='video').btn.btn-icon.btn-xl.btn-primary.rounded-circle.stretched-link
+                i.ai-play-filled
+        #html4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Video button on top of the image example --&gt;
+              &lt;div class=&quot;position-relative&quot;&gt;
+                &lt;img src=&quot;assets/img/landing/product/video-cover.jpg&quot; class=&quot;d-block rounded-5&quot; alt=&quot;Video cover&quot;&gt;
+                &lt;div class=&quot;d-nline-flex position-absolute top-50 start-50 translate-middle zindex-2 p-4&quot;&gt;
+                  &lt;a href=&quot;https://www.youtube.com/watch?v=udMULpKcnn8&quot; class=&quot;btn btn-icon btn-xl btn-primary rounded-circle stretched-link&quot; data-bs-toggle=&quot;video&quot;&gt;
+                    &lt;i class=&quot;ai-play-filled&quot;&gt;&lt;/i&gt;
+                  &lt;/a&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Video button on top of the image example
+              .position-relative
+                img(src=&quot;assets/img/landing/product/video-cover.jpg&quot;, alt=&quot;Video cover&quot;).d-block.rounded-5
+                .d-nline-flex.position-absolute.top-50.start-50.translate-middle.zindex-2.p-4
+                  a(href=&quot;https://www.youtube.com/watch?v=udMULpKcnn8&quot;, data-bs-toggle=&quot;video&quot;).btn.btn-icon.btn-xl.btn-primary.rounded-circle.stretched-link
+                    i.ai-play-filled
+
+  // Inside card
+  section#video-btn-card.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Inside card
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview5' data-bs-toggle='tab' role='tab' aria-controls='preview5' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html5' data-bs-toggle='tab' role='tab' aria-controls='html5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug5' data-bs-toggle='tab' role='tab' aria-controls='pug5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview5.tab-pane.fade.show.active(role='tabpanel')
+          .card.overflow-hidden(style='max-width: 23rem;')
+            .position-relative
+              span.position-absolute.top-0.start-0.w-100.h-100.bg-dark.opacity-20
+              .d-flex.align-items-center.justify-content-center.position-absolute.top-0.start-0.w-100.h-100.zindex-2
+                a(href='https://www.youtube.com/watch?v=UHQPdP8qgrk' data-bs-toggle='video').btn.btn-icon.btn-primary.rounded-circle.stretched-link
+                  i.ai-play-filled
+              img(src='../assets/img/landing/web-studio/industries/03.jpg' alt='Card image').card-img-top
+            .card-body
+              h4.card-title Card title
+              p.card-text Some quick example text to build on the card title and make up the bulk of the card's content.
+              a(href='#').btn.btn-primary Go somewhere
+        #html5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Video button on top of the card image --&gt;
+              &lt;div class=&quot;card overflow-hidden&quot;&gt;
+                &lt;div class=&quot;position-relative&quot;&gt;
+                  &lt;span class=&quot;position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-20&quot;&gt;&lt;/span&gt;
+                  &lt;div class=&quot;d-flex align-items-center justify-content-center position-absolute top-0 start-0 w-100 h-100 zindex-2&quot;&gt;
+                    &lt;a href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot; class=&quot;btn btn-icon btn-primary rounded-circle stretched-link&quot; data-bs-toggle=&quot;video&quot;&gt;
+                      &lt;i class=&quot;ai-play-filled&quot;&gt;&lt;/i&gt;
+                    &lt;/a&gt;
+                  &lt;/div&gt;
+                  &lt;img src=&quot;assets/img/landing/web-studio/industries/03.jpg&quot; class=&quot;card-img-top&quot; alt=&quot;Card image&quot;&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;card-body&quot;&gt;
+                  &lt;h4 class=&quot;card-title&quot;&gt;Card title&lt;/h4&gt;
+                  &lt;p class=&quot;card-text&quot;&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;btn btn-primary&quot;&gt;Go somewhere&lt;/a&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Video button on top of the card image
+              .card.overflow-hidden
+                .position-relative
+                  span.position-absolute.top-0.start-0.w-100.h-100.bg-dark.opacity-20
+                  .d-flex.align-items-center.justify-content-center.position-absolute.top-0.start-0.w-100.h-100.zindex-2
+                    a(href=&quot;https://www.youtube.com/watch?v=UHQPdP8qgrk&quot;, data-bs-toggle=&quot;video&quot;).btn.btn-icon.btn-primary.rounded-circle.stretched-link
+                      i.ai-play-filled
+                  img(src=&quot;assets/img/landing/web-studio/industries/03.jpg&quot;, alt=&quot;Card image&quot;).card-img-top
+                .card-body
+                  h4.card-title Card title
+                  p.card-text Some quick example text to build on the card title and make up the bulk of the card's content.
+                  a(href=&quot;#&quot;).btn.btn-primary
+                    | Go somewhere

@@ -1,0 +1,459 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['prismjs/themes/prism.css', 'prismjs/plugins/toolbar/prism-toolbar.css', 'prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var vendorScripts = ['prismjs/components/prism-core.min.js', 'prismjs/components/prism-markup.min.js', 'prismjs/components/prism-clike.min.js', 'prismjs/components/prism-javascript.min.js', 'prismjs/components/prism-pug.min.js', 'prismjs/plugins/toolbar/prism-toolbar.min.js', 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Spinners'
+  - var pageSubtitle = 'Indicate the loading state of a component or page.'
+  - var pageTitleLink = {'title': 'Bootstrap docs', 'link': 'https://getbootstrap.com/docs/5.1/components/spinners/'}
+  - var anchorNav = [{'title': 'Border spinner', 'link': '#spinners-border'}, {'title': 'Growing spinner', 'link': '#spinners-growing'}, {'title': 'Size', 'link': '#spinners-size'}, {'title': 'Inside button', 'link': '#spinners-button'}]
+  
+//- Page Content
+block content
+
+  // Border spinner
+  section#spinners-border.pb-5.mb-md-2
+    h2.h5.mb-3 Border spinner
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result1' data-bs-toggle='tab' role='tab' aria-controls='result1' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result1.tab-pane.fade.show.active(role='tabpanel')
+            div(role='status').spinner-border.m-2
+              span.visually-hidden Loading...
+            div(role='status').spinner-border.text-muted.m-2
+              span.visually-hidden Loading...
+            div(role='status').spinner-border.text-primary.m-2
+              span.visually-hidden Loading...
+            div(role='status').spinner-border.text-accent.m-2
+              span.visually-hidden Loading...
+            div(role='status').spinner-border.text-secondary.m-2
+              span.visually-hidden Loading...
+            div(role='status').spinner-border.text-success.m-2
+              span.visually-hidden Loading...
+            div(role='status').spinner-border.text-danger.m-2
+              span.visually-hidden Loading...
+            div(role='status').spinner-border.text-warning.m-2
+              span.visually-hidden Loading...
+            div(role='status').spinner-border.text-info.m-2
+              span.visually-hidden Loading...
+            .d-inline-block.bg-dark.mx-2
+              div(role='status').spinner-border.text-light.my-2.mx-3
+                span.visually-hidden Loading...
+            div(role='status').spinner-border.text-dark.m-2
+              span.visually-hidden Loading...
+          #html1.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Default border spinner --&gt;
+                &lt;div class=&quot;spinner-border&quot; role=&quot;status&quot;&gt;
+                  &lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Gray (muted) border spinner --&gt;
+                &lt;div class=&quot;spinner-border text-muted&quot; role=&quot;status&quot;&gt;
+                  &lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Primary border spinner --&gt;
+                &lt;div class=&quot;spinner-border text-primary&quot; role=&quot;status&quot;&gt;
+                  &lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Accent border spinner --&gt;
+                &lt;div class=&quot;spinner-border text-accent&quot; role=&quot;status&quot;&gt;
+                  &lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Secondary border spinner --&gt;
+                &lt;div class=&quot;spinner-border text-secondary&quot; role=&quot;status&quot;&gt;
+                  &lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Success border spinner --&gt;
+                &lt;div class=&quot;spinner-border text-success&quot; role=&quot;status&quot;&gt;
+                  &lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Danger border spinner --&gt;
+                &lt;div class=&quot;spinner-border text-danger&quot; role=&quot;status&quot;&gt;
+                  &lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Warning border spinner --&gt;
+                &lt;div class=&quot;spinner-border text-warning&quot; role=&quot;status&quot;&gt;
+                  &lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Info border spinner --&gt;
+                &lt;div class=&quot;spinner-border text-info&quot; role=&quot;status&quot;&gt;
+                  &lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Light border spinner --&gt;
+                &lt;div class=&quot;spinner-border text-light&quot; role=&quot;status&quot;&gt;
+                  &lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Dark border spinner --&gt;
+                &lt;div class=&quot;spinner-border text-dark&quot; role=&quot;status&quot;&gt;
+                  &lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;
+                &lt;/div&gt;
+          #pug1.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Default border spinner
+                div(role=&quot;status&quot;).spinner-border
+                  span.visually-hidden
+                    | Loading...
+
+                // Gray (muted) border spinner
+                div(role=&quot;status&quot;).spinner-border.text-muted
+                  span.visually-hidden
+                    | Loading...
+
+                // Primary border spinner
+                div(role=&quot;status&quot;).spinner-border.text-primary
+                  span.visually-hidden
+                    | Loading...
+
+                // Accent border spinner
+                div(role=&quot;status&quot;).spinner-border.text-accent
+                  span.visually-hidden
+                    | Loading...
+
+                // Secondary border spinner
+                div(role=&quot;status&quot;).spinner-border.text-secondary
+                  span.visually-hidden
+                    | Loading...
+                
+                // Success border spinner
+                div(role=&quot;status&quot;).spinner-border.text-success
+                  span.visually-hidden
+                    | Loading...
+
+                // Danger border spinner
+                div(role=&quot;status&quot;).spinner-border.text-danger
+                  span.visually-hidden
+                    | Loading...
+
+                // Warning border spinner
+                div(role=&quot;status&quot;).spinner-border.text-warning
+                  span.visually-hidden
+                    | Loading...
+
+                // Info border spinner
+                div(role=&quot;status&quot;).spinner-border.text-info
+                  span.visually-hidden
+                    | Loading...
+
+                // Light border spinner
+                div(role=&quot;status&quot;).spinner-border.text-light
+                  span.visually-hidden
+                    | Loading...
+
+                // Dark border spinner
+                div(role=&quot;status&quot;).spinner-border.text-dark
+                  span.visually-hidden
+                    | Loading...
+
+  // Growing spinner
+  section#spinners-growing.pb-5.mb-md-2
+    h2.h5.mb-3 Growing spinner
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result2' data-bs-toggle='tab' role='tab' aria-controls='result2' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result2.tab-pane.fade.show.active(role='tabpanel')
+            div(role='status').spinner-grow.m-2
+              span.visually-hidden Loading...
+            div(role='status').spinner-grow.text-muted.m-2
+              span.visually-hidden Loading...
+            div(role='status').spinner-grow.text-primary.m-2
+              span.visually-hidden Loading...
+            div(role='status').spinner-grow.text-accent.m-2
+              span.visually-hidden Loading...
+            div(role='status').spinner-grow.text-secondary.m-2
+              span.visually-hidden Loading...
+            div(role='status').spinner-grow.text-success.m-2
+              span.visually-hidden Loading...
+            div(role='status').spinner-grow.text-danger.m-2
+              span.visually-hidden Loading...
+            div(role='status').spinner-grow.text-warning.m-2
+              span.visually-hidden Loading...
+            div(role='status').spinner-grow.text-info.m-2
+              span.visually-hidden Loading...
+            .d-inline-block.bg-dark.mx-2
+              div(role='status').spinner-grow.text-light.my-2.mx-3
+                span.visually-hidden Loading...
+            div(role='status').spinner-grow.text-dark.m-2
+              span.visually-hidden Loading...
+          #html2.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Default growing spinner --&gt;
+                &lt;div class=&quot;spinner-grow&quot; role=&quot;status&quot;&gt;
+                  &lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Gray (muted) growing spinner --&gt;
+                &lt;div class=&quot;spinner-grow text-muted&quot; role=&quot;status&quot;&gt;
+                  &lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Primary growing spinner --&gt;
+                &lt;div class=&quot;spinner-grow text-primary&quot; role=&quot;status&quot;&gt;
+                  &lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Accent growing spinner --&gt;
+                &lt;div class=&quot;spinner-grow text-accent&quot; role=&quot;status&quot;&gt;
+                  &lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Secondary growing spinner --&gt;
+                &lt;div class=&quot;spinner-grow text-secondary&quot; role=&quot;status&quot;&gt;
+                  &lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Success growing spinner --&gt;
+                &lt;div class=&quot;spinner-grow text-success&quot; role=&quot;status&quot;&gt;
+                  &lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Danger growing spinner --&gt;
+                &lt;div class=&quot;spinner-grow text-danger&quot; role=&quot;status&quot;&gt;
+                  &lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Warning growing spinner --&gt;
+                &lt;div class=&quot;spinner-grow text-warning&quot; role=&quot;status&quot;&gt;
+                  &lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Info growing spinner --&gt;
+                &lt;div class=&quot;spinner-grow text-info&quot; role=&quot;status&quot;&gt;
+                  &lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Light growing spinner --&gt;
+                &lt;div class=&quot;spinner-grow text-light&quot; role=&quot;status&quot;&gt;
+                  &lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Dark growing spinner --&gt;
+                &lt;div class=&quot;spinner-grow text-dark&quot; role=&quot;status&quot;&gt;
+                  &lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;
+                &lt;/div&gt;
+          #pug2.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Default growing spinner
+                div(role=&quot;status&quot;).spinner-grow
+                  span.visually-hidden
+                    | Loading...
+
+                // Gray (muted) growing spinner
+                div(role=&quot;status&quot;).spinner-grow.text-muted
+                  span.visually-hidden
+                    | Loading...
+
+                // Primary growing spinner
+                div(role=&quot;status&quot;).spinner-grow.text-primary
+                  span.visually-hidden
+                    | Loading...
+
+                // Accent growing spinner
+                div(role=&quot;status&quot;).spinner-grow.text-accent
+                  span.visually-hidden
+                    | Loading...
+
+                // Secondary growing spinner
+                div(role=&quot;status&quot;).spinner-grow.text-secondary
+                  span.visually-hidden
+                    | Loading...
+                
+                // Success growing spinner
+                div(role=&quot;status&quot;).spinner-grow.text-success
+                  span.visually-hidden
+                    | Loading...
+
+                // Danger growing spinner
+                div(role=&quot;status&quot;).spinner-grow.text-danger
+                  span.visually-hidden
+                    | Loading...
+
+                // Warning growing spinner
+                div(role=&quot;status&quot;).spinner-grow.text-warning
+                  span.visually-hidden
+                    | Loading...
+
+                // Info growing spinner
+                div(role=&quot;status&quot;).spinner-grow.text-info
+                  span.visually-hidden
+                    | Loading...
+
+                // Light growing spinner
+                div(role=&quot;status&quot;).spinner-grow.text-light
+                  span.visually-hidden
+                    | Loading...
+
+                // Dark growing spinner
+                div(role=&quot;status&quot;).spinner-grow.text-dark
+                  span.visually-hidden
+                    | Loading...
+
+  // Size
+  section#spinners-size.pb-5.mb-md-2
+    h2.h5.mb-3 Size
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result3' data-bs-toggle='tab' role='tab' aria-controls='result3' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result3.tab-pane.fade.show.active(role='tabpanel')
+            .d-inline-block.align-middle.me-2
+              div(role='status').spinner-border.spinner-border-sm.m-2
+                span.visually-hidden Loading...
+              div(role='status').spinner-grow.spinner-grow-sm.m-2
+                span.visually-hidden Loading...
+            .d-inline-block.align-middle
+              div(style='width: 3rem; height: 3rem;' role='status').spinner-border.m-2
+                span.visually-hidden Loading...
+              div(style='width: 3rem; height: 3rem;' role='status').spinner-grow.m-2
+                span.visually-hidden Loading...
+          #html3.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Small border spinner --&gt;
+                &lt;div class=&quot;spinner-border spinner-border-sm&quot; role=&quot;status&quot;&gt;
+                  &lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Small growing spinner --&gt;
+                &lt;div class=&quot;spinner-grow spinner-grow-sm&quot; role=&quot;status&quot;&gt;
+                  &lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Custom size border spinner --&gt;
+                &lt;div class=&quot;spinner-border&quot; style=&quot;width: 3rem; height: 3rem;&quot; role=&quot;status&quot;&gt;
+                  &lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Custom size growing spinner --&gt;
+                &lt;div class=&quot;spinner-grow&quot; style=&quot;width: 3rem; height: 3rem;&quot; role=&quot;status&quot;&gt;
+                  &lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;
+                &lt;/div&gt;
+          #pug3.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Small border spinner
+                div(role=&quot;status&quot;).spinner-border.spinner-border-sm
+                  span.visually-hidden
+                    | Loading...
+
+                // Small growing spinner
+                div(role=&quot;status&quot;).spinner-grow.spinner-grow-sm
+                  span.visually-hidden
+                    | Loading...
+
+                // Custom size border spinner
+                div(style=&quot;width: 3rem; height: 3rem;&quot;, role=&quot;status&quot;).spinner-border
+                  span.visually-hidden
+                    | Loading...
+
+                // Custom size growing spinner
+                div(style=&quot;width: 3rem; height: 3rem;&quot;, role=&quot;status&quot;).spinner-grow
+                  span.visually-hidden
+                    | Loading...
+
+  // Inside button
+  section#spinners-button.pb-5.mb-md-2
+    h2.h5.mb-3 Inside button
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result4' data-bs-toggle='tab' role='tab' aria-controls='result4' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result4.tab-pane.fade.show.active(role='tabpanel')
+            button(type='button').btn.btn-primary.btn-icon.me-1.mb-3
+              span(role='status' aria-hidden='true').spinner-border.spinner-border-sm
+            button(type='button').btn.btn-primary.me-3.mb-3
+              span(role='status' aria-hidden='true').spinner-border.spinner-border-sm.me-2
+              | Loading...
+            button(type='button').btn.btn-secondary.btn-icon.me-1.mb-3
+              span(role='status' aria-hidden='true').spinner-grow.spinner-grow-sm
+            button(type='button').btn.btn-secondary.mb-3
+              span(role='status' aria-hidden='true').spinner-grow.spinner-grow-sm.me-2
+              | Loading...
+          #html4.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Button with border spinner --&gt;
+                &lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-icon&quot;&gt;
+                  &lt;span class=&quot;spinner-border spinner-border-sm&quot; role=&quot;status&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+                &lt;/button&gt;
+
+                &lt;!-- Button with border spinner and text --&gt;
+                &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;
+                  &lt;span class=&quot;spinner-border spinner-border-sm me-2&quot; role=&quot;status&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+                  Loading...
+                &lt;/button&gt;
+
+                &lt;!-- Button with growing spinner --&gt;
+                &lt;button type=&quot;button&quot; class=&quot;btn btn-secondary btn-icon&quot;&gt;
+                  &lt;span class=&quot;spinner-grow spinner-grow-sm&quot; role=&quot;status&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+                &lt;/button&gt;
+
+                &lt;!-- Button with growing spinner and text --&gt;
+                &lt;button type=&quot;button&quot; class=&quot;btn btn-secondary&quot;&gt;
+                  &lt;span class=&quot;spinner-grow spinner-grow-sm me-2&quot; role=&quot;status&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+                  Loading...
+                &lt;/button&gt;
+          #pug4.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Button with border spinner
+                button(type=&quot;button&quot;).btn.btn-primary.btn-icon
+                  span(role=&quot;status&quot;, aria-hidden=&quot;true&quot;).spinner-border.spinner-border-sm
+
+                // Button with border spinner and text
+                button(type=&quot;button&quot;).btn.btn-primary
+                  span(role=&quot;status&quot;, aria-hidden=&quot;true&quot;).spinner-border.spinner-border-sm.me-2
+                  | Loading...
+                
+                // Button with growing spinner
+                button(type=&quot;button&quot;).btn.btn-secondary.btn-icon
+                  span(role=&quot;status&quot;, aria-hidden=&quot;true&quot;).spinner-grow.spinner-grow-sm
+                
+                // Button with growing spinner and text
+                button(type=&quot;button&quot;).btn.btn-secondary
+                  span(role=&quot;status&quot;, aria-hidden=&quot;true&quot;).spinner-grow.spinner-grow-sm.me-2
+                  | Loading...

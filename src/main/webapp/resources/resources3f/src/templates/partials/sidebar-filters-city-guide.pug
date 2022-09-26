@@ -1,0 +1,302 @@
+#filters-sidebar.offcanvas.offcanvas-start.offcanvas-collapse
+  .offcanvas-header.d-flex.d-lg-none.align-items-center
+    h2.h5.mb-0 Filters
+    button(type='button' data-bs-dismiss='offcanvas').btn-close
+
+  // Search form
+  .offcanvas-header.d-block.border-bottom.pt-0.pt-lg-4.px-lg-0
+    form.form-group.mb-lg-2.rounded-pill
+      .input-group
+        span.input-group-text.text-muted
+          i.fi-search
+        input(type='text' placeholder='Search...').form-control
+      button(type='button').btn.btn-primary.rounded-pill.d-lg-inline-block.d-none Search
+      button(type='button').btn.btn-icon.btn-primary.rounded-circle.flex-shrink-0.d-lg-none.d-inline-flex
+        i.fi-search.mt-n2
+
+  // Nav tabs
+  .offcanvas-header.d-block.border-bottom.py-lg-4.py-3.px-lg-0
+    ul(class='nav nav-pills' role='tablist')
+      li.nav-item
+        a(href='#categories' data-bs-toggle='tab' role='tab').nav-link.d-flex.align-items-center.active
+          i.fi-list.me-2
+          | Categories
+      li.nav-item
+        a(href='#filters' data-bs-toggle='tab' role='tab').nav-link.d-flex.align-items-center
+          i.fi-filter-alt-horizontal.me-2
+          | Filters
+
+  .offcanvas-body.py-lg-4
+
+    // Tabs content
+    .tab-content
+
+      // Categories
+      div(id='categories' class='tab-pane fade show active' role='tabpanel')
+        .row.row-cols-lg-2.row-cols-1.g-3
+          .col
+            a(href='#').icon-box.card.card-body.h-100.border-0.shadow-sm.card-hover.text-center
+              .icon-box-media.bg-faded-accent.text-accent.rounded-circle.mb-3.mx-auto
+                i.fi-bed
+              h3.icon-box-title.fs-base.mb-0 Accommodation
+          .col
+            a(href='#').icon-box.card.card-body.h-100.border-0.shadow-sm.card-hover.text-center
+              .icon-box-media.bg-faded-primary.text-primary.rounded-circle.mb-3.mx-auto
+                i.fi-dumbell
+              h3.icon-box-title.fs-base.mb-0 Fitness &amp; Sport
+          .col
+            a(href='#').icon-box.card.card-body.h-100.border-0.shadow-sm.card-hover.text-center
+              .icon-box-media.bg-faded-warning.text-warning.rounded-circle.mb-3.mx-auto
+                i.fi-cafe
+              h3.icon-box-title.fs-base.mb-0 Food &amp; Drink
+          .col
+            a(href='#').icon-box.card.card-body.h-100.border-0.shadow-sm.card-hover.text-center
+              .icon-box-media.bg-faded-success.text-success.rounded-circle.mb-3.mx-auto
+                i.fi-disco-ball
+              h3.icon-box-title.fs-base.mb-0 Night Life
+          .col
+            a(href='#').icon-box.card.card-body.h-100.border-0.shadow-sm.card-hover.text-center
+              .icon-box-media.bg-faded-primary.text-primary.rounded-circle.mb-3.mx-auto
+                i.fi-shopping-bag
+              h3.icon-box-title.fs-base.mb-0 Shopping
+          .col
+            a(href='#').icon-box.card.card-body.h-100.border-0.shadow-sm.card-hover.text-center
+              .icon-box-media.bg-faded-info.text-info.rounded-circle.mb-3.mx-auto
+                i.fi-meds
+              h3.icon-box-title.fs-base.mb-0 Medicine
+          .col
+            a(href='#').icon-box.card.card-body.h-100.border-0.shadow-sm.card-hover.text-center
+              .icon-box-media.bg-faded-success.text-success.rounded-circle.mb-3.mx-auto
+                i.fi-museum
+              h3.icon-box-title.fs-base.mb-0 Art &amp; History
+          .col
+            a(href='#').icon-box.card.card-body.h-100.border-0.shadow-sm.card-hover.text-center
+              .icon-box-media.bg-faded-warning.text-warning.rounded-circle.mb-3.mx-auto
+                i.fi-makeup
+              h3.icon-box-title.fs-base.mb-0 Beauty
+          .col
+            a(href='#').icon-box.card.card-body.h-100.border-0.shadow-sm.card-hover.text-center
+              .icon-box-media.bg-faded-primary.text-primary.rounded-circle.mb-3.mx-auto
+                i.fi-entertainment
+              h3.icon-box-title.fs-base.mb-0 Entertainment
+          .col
+            a(href='#').icon-box.card.card-body.h-100.border-0.shadow-sm.card-hover.text-center
+              .icon-box-media.bg-faded-info.text-info.rounded-circle.mb-3.mx-auto
+                i.fi-car
+              h3.icon-box-title.fs-base.mb-0 Auto Service
+
+      // Filters
+      div(id='filters' class='tab-pane fade' role='tabpanel')
+        .pb-4.mb-2
+          h3.h6 Location
+          select.form-select.mb-2
+            option(value='' disabled) Choose city
+            option(value='Berlin' selected) Berlin
+            option(value='Hamburg') Hamburg
+            option(value='Munich') Munich
+            option(value='Koln') Koln
+            option(value='Frankfurt am Main') Frankfurt am Main
+          select.form-select
+            option(value='' selected disabled) Choose district
+            option(value='Berlin-Mitte') Berlin-Mitte
+            option(value='Charlottenburg') Charlottenburg
+            option(value='Prenzlauer Berg') Prenzlauer Berg
+            option(value='Friedrichshain') Friedrichshain
+            option(value='Kreuzberg') Kreuzberg
+        .pb-4.mb-2
+          h3.h6 Category
+          .dropdown(data-bs-toggle='select').mb-sm-0.mb-3
+            button(type='button' data-bs-toggle='dropdown').btn.btn-outline-secondary.d-flex.align-items-center.w-100.px-4.fw-normal.text-start.dropdown-toggle
+              i.fi-list.me-2.text-muted
+              span.dropdown-toggle-label.d-block.w-100 All categories
+            input(type='hidden')
+            ul.dropdown-menu.w-100
+              li: a(href='#').dropdown-item
+                i.fi-bed.me-2.fs-lg.opacity-60
+                span.dropdown-item-label Accomodation
+              li: a(href='#').dropdown-item
+                i.fi-cafe.me-2.fs-lg.opacity-60
+                span.dropdown-item-label Food &amp; Drink
+              li: a(href='#').dropdown-item
+                i.fi-shopping-bag.me-2.fs-lg.opacity-60
+                span.dropdown-item-label Shopping
+              li: a(href='#').dropdown-item
+                i.fi-museum.me-2.fs-lg.opacity-60
+                span.dropdown-item-label Art &amp; History
+              li: a(href='#').dropdown-item
+                i.fi-entertainment.me-2.fs-lg.opacity-60
+                span.dropdown-item-label Entertainment
+              li: a(href='#').dropdown-item
+                i.fi-meds.me-2.fs-lg.opacity-60
+                span.dropdown-item-label Medicine
+              li: a(href='#').dropdown-item
+                i.fi-makeup.me-2.fs-lg.opacity-60
+                span.dropdown-item-label Beauty
+              li: a(href='#').dropdown-item
+                i.fi-car.me-2.fs-lg.opacity-60
+                span.dropdown-item-label Auto Service
+        .pb-4.mb-2
+          h3.h6 Subcategory
+          .overflow-auto(data-simplebar data-simplebar-auto-hide='false' style='height: 11rem;')
+            .form-check
+              input(type='checkbox' id='hotel').form-check-input
+              label(for='hotel').form-check-label.fs-sm
+                | Hotel
+            .form-check
+              input(type='checkbox' id='hostel').form-check-input
+              label(for='hostel').form-check-label.fs-sm
+                | Hostel
+            .form-check
+              input(type='checkbox' id='motel').form-check-input
+              label(for='motel').form-check-label.fs-sm
+                | Motel
+            .form-check
+              input(type='checkbox' id='apartment' checked).form-check-input
+              label(for='apartment').form-check-label.fs-sm
+                | Apartment
+            .form-check
+              input(type='checkbox' id='cottage').form-check-input
+              label(for='cottage').form-check-label.fs-sm
+                | Cottage
+            .form-check
+              input(type='checkbox' id='boutique-hotel').form-check-input
+              label(for='boutique-hotel').form-check-label.fs-sm
+                | Boutique Hotel
+            .form-check
+              input(type='checkbox' id='room').form-check-input
+              label(for='room').form-check-label.fs-sm
+                | Room
+            .form-check
+              input(type='checkbox' id='land').form-check-input
+              label(for='land').form-check-label.fs-sm
+                | Land
+            .form-check
+              input(type='checkbox' id='commercial').form-check-input
+              label(for='commercial').form-check-label.fs-sm
+                | Commercial
+            .form-check
+              input(type='checkbox' id='parking-lot').form-check-input
+              label(for='parking-lot').form-check-label.fs-sm
+                | Parking lot
+        .pb-4.mb-2
+          h3.h6 Price
+          .range-slider(data-start-min='300' data-start-max='700' data-min='50' data-max='1000' data-step='20')
+            .range-slider-ui
+            .d-flex.align-items-center
+              .w-50.pe-2
+                .input-group
+                  span.input-group-text.fs-base $
+                  input(type='text').form-control.range-slider-value-min
+              .text-muted &mdash;
+              .w-50.ps-2
+                .input-group
+                  span.input-group-text.fs-base $
+                  input(type='text').form-control.range-slider-value-max
+        .pb-4.mb-2
+          h3.h6 Average rating
+          .form-check
+            input(type='checkbox' id='5-star').form-check-input
+            label(for='5-star').form-check-label.fs-sm.align-middle.mt-n2
+              +star-rating(5)
+          .form-check
+            input(type='checkbox' id='4-star').form-check-input
+            label(for='4-star').form-check-label.fs-sm.align-middle.mt-n2
+              +star-rating(4)
+          .form-check
+            input(type='checkbox' id='3-star').form-check-input
+            label(for='3-star').form-check-label.fs-sm.align-middle.mt-n2
+              +star-rating(3)
+          .form-check
+            input(type='checkbox' id='2-star').form-check-input
+            label(for='2-star').form-check-label.fs-sm.align-middle.mt-n2
+              +star-rating(2)
+          .form-check
+            input(type='checkbox' id='1-star').form-check-input
+            label(for='1-star').form-check-label.fs-sm.align-middle.mt-n2
+              +star-rating(1)
+        .pb-4.mb-2
+          h3.h6 Number of rooms
+          select.form-select.mb-2
+            option(value='1-room' selected) 1 room
+            option(value='2-rooms') 2 rooms
+            option(value='3-rooms') 3 rooms
+            option(value='4-rooms') 4 rooms
+            option(value='5-rooms') 5 rooms
+        .pb-4.mb-2
+          h3.h6 Amenities
+          .overflow-auto(data-simplebar data-simplebar-auto-hide='false' style='height: 11rem;')
+            .form-check
+              input(type='checkbox' id='parking').form-check-input
+              label(for='parking').form-check-label.fs-sm
+                | Parking
+            .form-check
+              input(type='checkbox' id='restaurant').form-check-input
+              label(for='restaurant').form-check-label.fs-sm
+                | Restaurant
+            .form-check
+              input(type='checkbox' id='pet-friendly').form-check-input
+              label(for='pet-friendly').form-check-label.fs-sm
+                | Pet Friendly
+            .form-check
+              input(type='checkbox' id='room-service' checked).form-check-input
+              label(for='room-service').form-check-label.fs-sm
+                | Room Service
+            .form-check
+              input(type='checkbox' id='fitness-center').form-check-input
+              label(for='fitness-center').form-check-label.fs-sm
+                | Fitness Center
+            .form-check
+              input(type='checkbox' id='free-wifi' checked).form-check-input
+              label(for='free-wifi').form-check-label.fs-sm
+                | Free WiFi
+            .form-check
+              input(type='checkbox' id='spa-lounge').form-check-input
+              label(for='spa-lounge').form-check-label.fs-sm
+                | Spa lounge
+            .form-check
+              input(type='checkbox' id='bar').form-check-input
+              label(for='bar').form-check-label.fs-sm
+                | Bar
+            .form-check
+              input(type='checkbox' id='swimming-pool').form-check-input
+              label(for='swimming-pool').form-check-label.fs-sm
+                | Swimming pool
+        .pb-4.mb-2
+          h3.h6 Room facilities
+          .overflow-auto(data-simplebar data-simplebar-auto-hide='false' style='height: 11rem;')
+            .form-check
+              input(type='checkbox' id='kitchen').form-check-input
+              label(for='kitchen').form-check-label.fs-sm
+                | Kitchen
+            .form-check
+              input(type='checkbox' id='private-bathroom').form-check-input
+              label(for='private-bathroom').form-check-label.fs-sm
+                | Private Bathroom
+            .form-check
+              input(type='checkbox' id='air-conditioning' checked).form-check-input
+              label(for='air-conditioning').form-check-label.fs-sm
+                | Air Conditioning
+            .form-check
+              input(type='checkbox' id='desk').form-check-input
+              label(for='desk').form-check-label.fs-sm
+                | Desk
+            .form-check
+              input(type='checkbox' id='terrace').form-check-input
+              label(for='terrace').form-check-label.fs-sm
+                | Terrace
+            .form-check
+              input(type='checkbox' id='washing-machine').form-check-input
+              label(for='washing-machine').form-check-label.fs-sm
+                | Washing Machine
+            .form-check
+              input(type='checkbox' id='heating').form-check-input
+              label(for='heating').form-check-label.fs-sm
+                | Heating
+            .form-check
+              input(type='checkbox' id='laundry-service').form-check-input
+              label(for='laundry-service').form-check-label.fs-sm
+                | Laundry Service
+        .border-top.py-4
+          button(type='button').btn.btn-outline-primary.rounded-pill
+            i.fi-rotate-right.me-2
+            | Reset filters

@@ -1,0 +1,228 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var parentMenu = 'Account'
+  - var pageTitle = 'Job Board | Account - My Resumes'
+  - var bodyClass = 'bg-secondary'
+
+//- Navbar
+block navbar
+  include partials/navbar-job-board
+
+//- Page Content
+block content
+
+  // Page container
+  .position-absolute.top-0.start-0.w-100.bg-dark(style='height: 398px;')
+  .container.content-overlay.mt-5.mb-md-4.py-5
+    
+    // Breadcrumb
+    nav(aria-label='Breadcrumb').mb-3.mb-md-4.pt-md-3
+      ol.breadcrumb.breadcrumb-light
+        li.breadcrumb-item
+          a(href='job-board-home-v1.html') Home
+        li.breadcrumb-item
+          a(href='job-board-account-profile.html') Account
+        li(aria-current='page').breadcrumb-item.active
+          | My resumes
+
+
+    // Page card like wrapper
+    .bg-light.shadow-sm.rounded-3.p-4.p-md-5.mb-2
+
+      // Account header
+      .d-flex.align-items-start.justify-content-between.pb-4.mb-2
+        .d-flex.align-items-start
+          .position-relative.flex-shrink-0
+            img(src='img/avatars/37.png' width='100' alt='Annette Black').rounded-circle
+            button(type='button' data-bs-toggle='tooltip' title='Change image').btn.btn-icon.btn-light.btn-xs.rounded-circle.shadow-sm.position-absolute.end-0.bottom-0
+              i.fi-pencil.fs-xs
+          .ps-3.ps-sm-4
+            h3.h5 Annette Black
+            ul.list-unstyled.fs-sm.mb-0
+              li.d-flex.text-nav.text-break
+                i.fi-mail.opacity-60.mt-1.me-2
+                span annette_black@email.com
+              li.d-flex.text-nav.text-break
+                i.fi-phone.opacity-60.mt-1.me-2
+                span (302) 555-0107
+        a(href='signin-light.html').nav-link.p-0.d-none.d-md-block
+          i.fi-logout.mt-n1.me-2
+          | Sign out
+
+      // Account menu
+      include partials/nav-account-job-board
+      
+
+      // Page title
+      .d-flex.align-items-center.justify-content-between.py-4.mt-3.mb-2
+        h1.h3.mb-0 My resumes
+        a(href='#').fw-bold.text-decoration-none
+          i.fi-trash.me-2
+          span.align-middle Delete all
+      
+      .row
+
+        // Sidebar
+        .col-md-3.mb-4.pb-3.pb-md-0
+          div(style='max-width: 13rem;')
+            ul.list-unstyled.fs-sm.pb-1.pb-md-3
+              li
+                a(href='#').nav-link.fw-normal.d-flex.align-items-center.px-0.py-1
+                  i.fi-file.opacity-70.me-2
+                  span Publihed
+                  span.text-muted.ms-auto (3)
+              li
+                a(href='#').nav-link.fw-normal.d-flex.align-items-center.px-0.py-1
+                  i.fi-file-clean.opacity-70.me-2
+                  span Drafts
+                  span.text-muted.ms-auto (0)
+              li
+                a(href='#').nav-link.fw-normal.d-flex.align-items-center.px-0.py-1
+                  i.fi-archive.opacity-70.me-2
+                  span Archived
+                  span.text-muted.ms-auto (0)
+            a(href='job-board-post-resume-1.html').btn.btn-primary.rounded-pill.w-100
+              i.fi-plus.fs-sm.me-2
+              | Post resume
+
+        
+        // List of resumes
+        .col-md-9
+
+          // Item
+          .card.bg-secondary.card-hover.mb-2
+            .card-body
+              .d-flex.justify-content-between
+                .d-flex.align-items-start
+                  img(src='img/avatars/38.png' width='100' alt='Resume picture').d-none.d-sm-block
+                  .ps-sm-3
+                    h3.h6.card-title.pb-1.mb-2
+                      a(href='#').stretched-link.text-nav.text-decoration-none Lead Web Designer
+                    .fs-sm
+                      .text-nowrap.mb-2
+                        i.fi-map-pin.text-muted.me-1 
+                        | New York
+                      .text-nowrap
+                        i.fi-cash.fs-base.text-muted.me-1
+                        | $4,000
+                .d-flex.flex-column.align-items-end.justify-content-between
+                  .dropdown.position-relative.zindex-10.mb-3
+                    button(type='button' id='contextMenu1' data-bs-toggle='dropdown' aria-expanded='false').btn.btn-icon.btn-light.btn-xs.rounded-circle.shadow-sm
+                      i.fi-dots-vertical
+                    ul(aria-labelledby='contextMenu1').dropdown-menu.my-1
+                      li
+                        button(type='button').dropdown-item
+                          i.fi-edit.opacity-60.me-2
+                          | Edit
+                      li
+                        button(type='button').dropdown-item
+                          i.fi-flame.opacity-60.me-2
+                          | Promote
+                      li
+                        button(type='button').dropdown-item
+                          i.fi-download-file.opacity-60.me-2
+                          | Download as PDF
+                      li
+                        button(type='button').dropdown-item
+                          i.fi-power.opacity-60.me-2
+                          | Deactivate
+                      li
+                        button(type='button').dropdown-item
+                          i.fi-trash.opacity-60.me-2
+                          | Delete
+                  strong.fs-sm 80 views
+
+          // Item
+          .card.bg-secondary.card-hover.mb-2
+            .card-body
+              .d-flex.justify-content-between
+                .d-flex.align-items-start
+                  img(src='img/avatars/37.png' width='100' alt='Resume picture').d-none.d-sm-block
+                  .ps-sm-3
+                    h3.h6.card-title.pb-1.mb-2
+                      a(href='#').stretched-link.text-nav.text-decoration-none
+                        span.me-3 Graphic Designer
+                        span.badge.bg-faded-accent.fs-sm.rounded-pill Featured
+                    .fs-sm
+                      .text-nowrap.mb-2
+                        i.fi-map-pin.text-muted.me-1 
+                        | New York
+                      .text-nowrap
+                        i.fi-cash.fs-base.text-muted.me-1
+                        | $2,000 - $2,500
+                .d-flex.flex-column.align-items-end.justify-content-between
+                  .dropdown.position-relative.zindex-5.mb-3
+                    button(type='button' id='contextMenu2' data-bs-toggle='dropdown' aria-expanded='false').btn.btn-icon.btn-light.btn-xs.rounded-circle.shadow-sm
+                      i.fi-dots-vertical
+                    ul(aria-labelledby='contextMenu2').dropdown-menu.my-1
+                      li
+                        button(type='button').dropdown-item
+                          i.fi-edit.opacity-60.me-2
+                          | Edit
+                      li
+                        button(type='button').dropdown-item
+                          i.fi-flame.opacity-60.me-2
+                          | Promote
+                      li
+                        button(type='button').dropdown-item
+                          i.fi-download-file.opacity-60.me-2
+                          | Download as PDF
+                      li
+                        button(type='button').dropdown-item
+                          i.fi-power.opacity-60.me-2
+                          | Deactivate
+                      li
+                        button(type='button').dropdown-item
+                          i.fi-trash.opacity-60.me-2
+                          | Delete
+                  strong.fs-sm 203 views
+
+          // Item
+          .card.bg-secondary.card-hover
+            .card-body
+              .d-flex.justify-content-between
+                .d-flex.align-items-start
+                  img(src='img/avatars/37.png' width='100' alt='Resume picture').d-none.d-sm-block
+                  .ps-sm-3
+                    h3.h6.card-title.pb-1.mb-2
+                      a(href='#').stretched-link.text-nav.text-decoration-none Identity Designer / Illustrator
+                    .fs-sm
+                      .text-nowrap.mb-2
+                        i.fi-map-pin.text-muted.me-1 
+                        | New York
+                      .text-nowrap
+                        i.fi-cash.fs-base.text-muted.me-1
+                        | $2,500
+                .d-flex.flex-column.align-items-end.justify-content-between
+                  .dropdown.position-relative.zindex-1.mb-3
+                    button(type='button' id='contextMenu3' data-bs-toggle='dropdown' aria-expanded='false').btn.btn-icon.btn-light.btn-xs.rounded-circle.shadow-sm
+                      i.fi-dots-vertical
+                    ul(aria-labelledby='contextMenu3').dropdown-menu.my-1
+                      li
+                        button(type='button').dropdown-item
+                          i.fi-edit.opacity-60.me-2
+                          | Edit
+                      li
+                        button(type='button').dropdown-item
+                          i.fi-flame.opacity-60.me-2
+                          | Promote
+                      li
+                        button(type='button').dropdown-item
+                          i.fi-download-file.opacity-60.me-2
+                          | Download as PDF
+                      li
+                        button(type='button').dropdown-item
+                          i.fi-power.opacity-60.me-2
+                          | Deactivate
+                      li
+                        button(type='button').dropdown-item
+                          i.fi-trash.opacity-60.me-2
+                          | Delete
+                  strong.fs-sm 92 views
+
+
+//- Footer
+block footer
+  include partials/footer-job-board

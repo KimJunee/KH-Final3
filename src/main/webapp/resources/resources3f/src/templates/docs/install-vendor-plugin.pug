@@ -1,0 +1,16 @@
+extends ../partials/layout-docs
+
+//- Override default config variables
+append config
+  - var pageTitle = 'Installing Vendor plugins with Npm and Gulp'
+  
+//- Page Content
+block content
+  .pb-5
+    h2.h5 Follow this 4 easy steps to install 3rd party plugin and use it in your Finder based project:
+    ol.mb-4.pb-2
+      li Open your Terminal window and navigate to the <span class='text-dark'>root directory</span> of your project (where you <span class='text-dark'>package.json</span> file is located).
+      li Run <kbd>npm install &lt;package name&gt; --save</kbd>. This command does two things: downloads package to <code>node_modules</code> folder and writes dependency to your <code>package.json</code> file inside <code>dependencies object</code>.
+      li Run <kbd>gulp vendor</kbd>. This command will clean <code>dist/vendor</code> folder and move all the dpendencies that are listed in <code>package.json</code> file in <code>dependencies object</code> to <code>dist/vendor</code> including your newly downloaded plugins.
+      li And last step is to link to plugin's scripts and styles in your document. If you use Pug templates you can link to plugin using array of dependencies. See the screenshot below:
+    img(src='../img/docs/vendor-plugin.png' alt='Link to vendor plugins in Pug template')

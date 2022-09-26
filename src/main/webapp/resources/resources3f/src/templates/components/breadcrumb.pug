@@ -1,0 +1,181 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['prismjs/themes/prism.css', 'prismjs/plugins/toolbar/prism-toolbar.css', 'prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var vendorScripts = ['prismjs/components/prism-core.min.js', 'prismjs/components/prism-markup.min.js', 'prismjs/components/prism-clike.min.js', 'prismjs/components/prism-javascript.min.js', 'prismjs/components/prism-pug.min.js', 'prismjs/plugins/toolbar/prism-toolbar.min.js', 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Breadcrumb'
+  - var pageSubtitle = 'Indicate the current page’s location within a navigational hierarchy.'
+  - var pageTitleLink = {'title': 'Bootstrap docs', 'link': 'https://getbootstrap.com/docs/5.1/components/breadcrumb/'}
+  - var anchorNav = [{'title': 'Dark (default) version', 'link': '#breadcrumb-dark'}, {'title': 'Light version', 'link': '#breadcrumb-light'}]
+  
+//- Page Content
+block content
+
+  // Dark (default) version
+  section#breadcrumb-dark.pb-5.mb-md-2
+    h2.h5.mb-3 Dark (default) version
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result1' data-bs-toggle='tab' role='tab' aria-controls='result1' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result1.tab-pane.fade.show.active(role='tabpanel')
+            nav(aria-label='breadcrumb').mb-3
+              ol.breadcrumb
+                li.breadcrumb-item: a(href='#') Home
+                li.breadcrumb-item: a(href='#') Library
+                li(aria-current='page').breadcrumb-item.active Data
+            nav(aria-label='breadcrumb')
+              ol.breadcrumb.mb-0
+                li.breadcrumb-item
+                  a(href='#')
+                    i.fi-home
+                    span.visually-hidden Home
+                li.breadcrumb-item: a(href='#') Library
+                li(aria-current='page').breadcrumb-item.active Data
+          #html1.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Basic example --&gt;
+                &lt;nav aria-label=&quot;breadcrumb&quot;&gt;
+                  &lt;ol class=&quot;breadcrumb&quot;&gt;
+                    &lt;li class=&quot;breadcrumb-item&quot;&gt;
+                      &lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;breadcrumb-item&quot;&gt;
+                      &lt;a href=&quot;#&quot;&gt;Library&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;breadcrumb-item active&quot; aria-current=&quot;page&quot;&gt;Data&lt;/li&gt;
+                  &lt;/ol&gt;
+                &lt;/nav&gt;
+
+                &lt;!-- Home icon --&gt;
+                &lt;nav aria-label=&quot;breadcrumb&quot;&gt;
+                  &lt;ol class=&quot;breadcrumb&quot;&gt;
+                    &lt;li class=&quot;breadcrumb-item&quot;&gt;
+                      &lt;a href=&quot;#&quot;&gt;
+                        &lt;i class=&quot;fi-home&quot;&gt;&lt;/i&gt;
+                        &lt;span class=&quot;visually-hidden&quot;&gt;Home&lt;/span&gt;
+                      &lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;breadcrumb-item&quot;&gt;
+                      &lt;a href=&quot;#&quot;&gt;Library&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;breadcrumb-item active&quot; aria-current=&quot;page&quot;&gt;Data&lt;/li&gt;
+                  &lt;/ol&gt;
+                &lt;/nav&gt;
+          #pug1.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Basic example
+                nav(aria-label=&quot;breadcrumb&quot;).mb-3
+                  ol.breadcrumb
+                    li.breadcrumb-item
+                      a(href=&quot;#&quot;) Home
+                    li.breadcrumb-item
+                      a(href=&quot;#&quot;) Library
+                    li(aria-current=&quot;page&quot;).breadcrumb-item.active
+                      | Data
+
+                // Home icon
+                nav(aria-label=&quot;breadcrumb&quot;)
+                  ol.breadcrumb
+                    li.breadcrumb-item
+                      a(href=&quot;#&quot;)
+                        i.fi-home
+                        span.visually-hidden Home
+                    li.breadcrumb-item
+                      a(href=&quot;#&quot;) Library
+                    li(aria-current=&quot;page&quot;).breadcrumb-item.active
+                      | Data
+
+  // Light version
+  section#breadcrumb-light.pb-5.mb-md-2
+    h2.h5.mb-3 Light version
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result2' data-bs-toggle='tab' role='tab' aria-controls='result2' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result2.tab-pane.m-n3.p-3.bg-dark.fade.show.active(role='tabpanel')
+            nav(aria-label='breadcrumb').mb-3
+              ol.breadcrumb.breadcrumb-light
+                li.breadcrumb-item: a(href='#') Home
+                li.breadcrumb-item: a(href='#') Library
+                li(aria-current='page').breadcrumb-item.active Data
+            nav(aria-label='breadcrumb')
+              ol.breadcrumb.breadcrumb-light.mb-0
+                li.breadcrumb-item
+                  a(href='#')
+                    i.fi-home
+                    span.visually-hidden Home
+                li.breadcrumb-item: a(href='#') Library
+                li(aria-current='page').breadcrumb-item.active Data
+          #html2.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Basic example --&gt;
+                &lt;nav aria-label=&quot;breadcrumb&quot;&gt;
+                  &lt;ol class=&quot;breadcrumb breadcrumb-light&quot;&gt;
+                    &lt;li class=&quot;breadcrumb-item&quot;&gt;
+                      &lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;breadcrumb-item&quot;&gt;
+                      &lt;a href=&quot;#&quot;&gt;Library&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;breadcrumb-item active&quot; aria-current=&quot;page&quot;&gt;Data&lt;/li&gt;
+                  &lt;/ol&gt;
+                &lt;/nav&gt;
+
+                &lt;!-- Home icon --&gt;
+                &lt;nav aria-label=&quot;breadcrumb&quot;&gt;
+                  &lt;ol class=&quot;breadcrumb breadcrumb-light&quot;&gt;
+                    &lt;li class=&quot;breadcrumb-item&quot;&gt;
+                      &lt;a href=&quot;#&quot;&gt;
+                        &lt;i class=&quot;fi-home&quot;&gt;&lt;/i&gt;
+                        &lt;span class=&quot;visually-hidden&quot;&gt;Home&lt;/span&gt;
+                      &lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;breadcrumb-item&quot;&gt;
+                      &lt;a href=&quot;#&quot;&gt;Library&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;breadcrumb-item active&quot; aria-current=&quot;page&quot;&gt;Data&lt;/li&gt;
+                  &lt;/ol&gt;
+                &lt;/nav&gt;
+          #pug2.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Basic example
+                nav(aria-label=&quot;breadcrumb&quot;).mb-3
+                  ol.breadcrumb.breadcrumb-light
+                    li.breadcrumb-item
+                      a(href=&quot;#&quot;) Home
+                    li.breadcrumb-item
+                      a(href=&quot;#&quot;) Library
+                    li(aria-current=&quot;page&quot;).breadcrumb-item.active
+                      | Data
+
+                // Home icon
+                nav(aria-label=&quot;breadcrumb&quot;)
+                  ol.breadcrumb.breadcrumb-light
+                    li.breadcrumb-item
+                      a(href=&quot;#&quot;)
+                        i.fi-home
+                        span.visually-hidden Home
+                    li.breadcrumb-item
+                      a(href=&quot;#&quot;) Library
+                    li(aria-current=&quot;page&quot;).breadcrumb-item.active
+                      | Data

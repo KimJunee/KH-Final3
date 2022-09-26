@@ -1,0 +1,48 @@
+extends ../partials/layout-docs
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css', 'vendor/prismjs/themes/prism.css', 'vendor/prismjs/plugins/toolbar/prism-toolbar.css', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js', 'vendor/prismjs/components/prism-core.min.js', 'vendor/prismjs/components/prism-markup.min.js', 'vendor/prismjs/components/prism-clike.min.js', 'vendor/prismjs/components/prism-javascript.min.js', 'vendor/prismjs/components/prism-pug.min.js', 'vendor/prismjs/plugins/toolbar/prism-toolbar.min.js', 'vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'UI icons (Icon font)'
+    
+//- Page Content
+block content
+
+  p Around includes the collection of vector based font icons to use across the website. See the code example below:
+  ul(role='tablist').nav.nav-tabs.flex-nowrap.align-items-center.mb-2
+    li.nav-item.me-3
+      a(href='#html' data-bs-toggle='tab' role='tab' aria-controls='html' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+        i.ai-code.fs-xl.opacity-90.me-2
+        | HTML
+    li.vr.opacity-20.my-3.me-3
+    li.nav-item.me-3
+      a(href='#pug' data-bs-toggle='tab' role='tab' aria-controls='pug' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+        i.ai-code-curly.opacity-90.me-2
+        | Pug
+    li.vr.opacity-20.my-3.me-3
+    li.nav-item
+      a(href='#preview' data-bs-toggle='tab' role='tab' aria-controls='preview' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+        i.ai-show.fs-lg.opacity-90.me-2
+        | Preview
+  .tab-content
+    #html.tab-pane.fade.show.active(role='tabpanel')
+      pre.line-numbers.rounded-3
+        code(class='lang-html').
+          &lt;i class=&quot;ai-anchor&quot;&gt;&lt;/i&gt;
+    #pug.tab-pane.fade(role='tabpanel')
+      pre.line-numbers.rounded-3
+        code(class='lang-pug').
+          i.ai-anchor
+    #preview.tab-pane.fade(role='tabpanel')
+      i.ai-anchor.fs-3
+  a(href='../components/icon-font.html' target='_blank' rel='noopener').d-inline-block.fw-bold.pt-4 You can find the list of all available icons as well as their respective CSS classes here.
+  h2.h3.pt-5 Add new icons to the set
+  p In order to add new icons to the set follow these easy steps:
+  ol.pb-3
+    li Upload this file to <a href='https://icomoon.io/app' class='fw-bold' target='_blank' rel='noopener'>Icomoon App</a>. See the screnshot below.
+    li Add new icons by dragging them to the end of the list (this is important to add icons to the end). Make sure you upload icons in <span class='fw-bold'>.svg format</span>. Each SVG icon should be <span class='fw-bold'>24x24px</span> and <span class='fw-bold'>all paths should be outlined (converted to shapes)</span> for better rendering.
+    li Make sure to select new icons with selection tool at the top and click <span class='fw-bold'>Generate Font</span>.
+    li Download generated font, extact .zip archive. Copy new font files as well as selection.json to <code>Around/assets/fonts</code>.
+    li Open <code>styles.css</code> or <code>styles.scss</code> (depending on whether you use CSS or SCSS) inside downloaded .zip, copy your new icons styles and add them to <code>Around/src/scss/components/icons.scss</code> to the end of the file.
+  img(src='../assets/img/docs/icomoon.png' alt='Icomoon App').border.rounded-3

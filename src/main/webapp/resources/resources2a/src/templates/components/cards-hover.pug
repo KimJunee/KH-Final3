@@ -1,0 +1,540 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css', 'vendor/prismjs/themes/prism.css', 'vendor/prismjs/plugins/toolbar/prism-toolbar.css', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js', 'vendor/prismjs/components/prism-core.min.js', 'vendor/prismjs/components/prism-markup.min.js', 'vendor/prismjs/components/prism-clike.min.js', 'vendor/prismjs/components/prism-javascript.min.js', 'vendor/prismjs/components/prism-pug.min.js', 'vendor/prismjs/plugins/toolbar/prism-toolbar.min.js', 'vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Cards: Hover effects'
+  - var pageSubtitle = 'Different types of effect when the user hovers over the card component.'
+  - var isPageTitleBadge = true
+  - var anchorNav = [{'title': 'Image zoom', 'link': '#card-image-zoom'}, {'title': 'Lift', 'link': '#card-lift'}, {'title': 'Flip 1', 'link': '#card-flip-1'}, {'title': 'Flip 2', 'link': '#card-flip-2'}, {'title': 'Color', 'link': '#card-color'}, {'title': 'Content overlay', 'link': '#card-content-overlay'}, {'title': 'Image overlay 1', 'link': '#card-image-1'}, {'title': 'Image overlay 2', 'link': '#card-image-2'}]
+    
+//- Page Content
+block content
+
+  // Image zoom
+  section#card-image-zoom.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Image zoom
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview1' data-bs-toggle='tab' role='tab' aria-controls='preview1' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview1.tab-pane.fade.show.active(role='tabpanel')
+          .card.zoom-effect.border-0.rounded-4.overflow-hidden(style='max-width: 460px;')
+            span.position-absolute.top-0.start-0.w-100.h-100.bg-dark.opacity-10.zindex-2
+            .zoom-effect-wrapper
+              img(src='../assets/img/shop/categories/04.jpg' alt='Category image').zoom-effect-img
+            a(href='#').card-body.d-flex.flex-column.justify-content-end.align-items-start.position-absolute.top-0.start-0.w-100.h-100.text-decoration-none.zindex-3
+              span.bg-light.text-dark.rounded-pill.fs-sm.fw-semibold.lh-1.py-3.px-4 For the bedroom
+        #html1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Image zoom effect on hover. Can be combined with other effects like content overlay and lift. --&gt;
+              &lt;div class=&quot;card zoom-effect border-0 rounded-4 overflow-hidden&quot;&gt;
+                &lt;span class=&quot;position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-10 zindex-2&quot;&gt;&lt;/span&gt;
+                &lt;div class=&quot;zoom-effect-wrapper&quot;&gt;
+                  &lt;img src=&quot;assets/img/shop/categories/04.jpg&quot; class=&quot;zoom-effect-img&quot; alt=&quot;Category image&quot;&gt;
+                &lt;/div&gt;
+                &lt;a href=&quot;#&quot; class=&quot;card-body d-flex flex-column justify-content-end align-items-start position-absolute top-0 start-0 w-100 h-100 text-decoration-none zindex-3&quot;&gt;
+                  &lt;span class=&quot;bg-light text-dark rounded-pill fs-sm fw-semibold lh-1 py-3 px-4&quot;&gt;
+                    For the bedroom
+                  &lt;/span&gt;
+                &lt;/a&gt;
+              &lt;/div&gt;
+        #pug1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Image zoom effect on hover. Can be combined with other effects like content overlay and lift
+              .card.zoom-effect.border-0.rounded-4.overflow-hidden
+                span.position-absolute.top-0.start-0.w-100.h-100.bg-dark.opacity-10.zindex-2
+                .zoom-effect-wrapper
+                  img(src=&quot;assets/img/shop/categories/04.jpg&quot;, alt=&quot;Category image&quot;).zoom-effect-img
+                a(href=&quot;#&quot;).card-body.d-flex.flex-column.justify-content-end.align-items-start.position-absolute.top-0.start-0.w-100.h-100.text-decoration-none.zindex-3
+                  span.bg-light.text-dark.rounded-pill.fs-sm.fw-semibold.lh-1.py-3.px-4
+                    | For the bedroom
+
+  // Lift
+  section#card-lift.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Lift
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview2' data-bs-toggle='tab' role='tab' aria-controls='preview2' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview2.tab-pane.fade.show.active(role='tabpanel')
+          a(href='#').card-hover.card-lifted.d-inline-block.text-center.text-decoration-none
+            img(src='../assets/img/landing/yoga-studio/trainers/01.jpg' width='340' alt='Michelle Yang').card-lifted.d-block.rounded-5.mb-3
+            h3.h5.mb-1 Michelle Yang
+            p.mb-0.text-muted Fly-yoga trainer
+        #html2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Lift card up on hover. Can be combined with other effects like content overlay and zoom --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;card-hover card-lifted d-inline-block text-center text-decoration-none&quot;&gt;
+                &lt;img src=&quot;assets/img/landing/yoga-studio/trainers/01.jpg&quot; class=&quot;card-lifted d-block rounded-5 mb-3&quot; width=&quot;340&quot; alt=&quot;Michelle Yang&quot;&gt;
+                &lt;h3 class=&quot;h5 mb-1&quot;&gt;Michelle Yang&lt;/h3&gt;
+                &lt;p class=&quot;text-muted mb-0&quot;&gt;Fly-yoga trainer&lt;/p&gt;
+              &lt;/a&gt;
+        #pug2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Lift card up on hover. Can be combined with other effects like content overlay and lift
+              a(href=&quot;#&quot;).card-hover.card-lifted.d-inline-block.text-center.text-decoration-none
+                img(src=&quot;assets/img/landing/yoga-studio/trainers/01.jpg&quot;, width=&quot;340&quot;, alt=&quot;Michelle Yang&quot;).card-lifted.d-block.rounded-5.mb-3
+                h3.h5.mb-1 Michelle Yang
+                p.text-muted.mb-0 Fly-yoga trainer
+
+  // Flip 1
+  section#card-flip-1.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Flip 1
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview3' data-bs-toggle='tab' role='tab' aria-controls='preview3' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview3.tab-pane.fade.show.active(role='tabpanel')
+          a(href='#' style='max-width: 316px;').card-flip
+            .card-flip-inner
+              .card-flip-front(style='background-image: url(../assets/img/landing/creative-agency/services/03.jpg);')
+                .d-flex.flex-column.h-100.ignore-dark-mode
+                  h2.fs-lg.fw-normal.mb-0.mt-auto Branding
+              .card-flip-back.bg-secondary
+                .d-flex.flex-column.h-100.px-sm-2.pt-sm-2.px-lg-0.pt-lg-0.px-xl-3.pt-xl-3
+                  h3.h4 Branding
+                  ul.text-body.ps-4.mb-3
+                    li.mb-2 Identity design
+                    li.mb-2 Brand book creation
+                    li.mb-2 Colors and fonts
+                    li.mb-2 Banners and covers
+                    li.mb-1 Visual style
+                  .text-end.pt-3.pt-sm-2.pt-xl-4.mt-auto.me-sm-n2.me-lg-0.me-xl-n3
+                    .btn.btn-sm.btn-icon.btn-outline-primary.rounded-circle
+                      i.ai-arrow-right
+        #html3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Flip card on hover to reveal more content --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;card-flip&quot;&gt;
+                &lt;div class=&quot;card-flip-inner&quot;&gt;
+                  &lt;div class=&quot;card-flip-front&quot; style=&quot;background-image: url(assets/img/landing/creative-agency/services/03.jpg);&quot;&gt;
+                    &lt;div class=&quot;d-flex flex-column h-100 ignore-dark-mode&quot;&gt;
+                      &lt;h2 class=&quot;fs-lg fw-normal mb-0 mt-auto&quot;&gt;Branding&lt;/h2&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;card-flip-back bg-secondary&quot;&gt;
+                    &lt;div class=&quot;d-flex flex-column h-100 px-sm-2 pt-sm-2 px-lg-0 pt-lg-0 px-xl-3 pt-xl-3&quot;&gt;
+                      &lt;h3 class=&quot;h4&quot;&gt;Branding&lt;/h3&gt;
+                      &lt;ul class=&quot;text-body ps-4 mb-3&quot;&gt;
+                        &lt;li class=&quot;mb-2&quot;&gt;Identity design&lt;/li&gt;
+                        &lt;li class=&quot;mb-2&quot;&gt;Brand book creation&lt;/li&gt;
+                        &lt;li class=&quot;mb-2&quot;&gt;Colors and fonts&lt;/li&gt;
+                        &lt;li class=&quot;mb-2&quot;&gt;Banners and covers&lt;/li&gt;
+                        &lt;li class=&quot;mb-1&quot;&gt;Visual style&lt;/li&gt;
+                      &lt;/ul&gt;
+                      &lt;div class=&quot;text-end pt-3 pt-sm-2 pt-xl-4 mt-auto me-sm-n2 me-lg-0 me-xl-n3&quot;&gt;
+                        &lt;div class=&quot;btn btn-sm btn-icon btn-outline-primary rounded-circle&quot;&gt;
+                          &lt;i class=&quot;ai-arrow-right&quot;&gt;&lt;/i&gt;
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/a&gt;
+        #pug3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Flip card on hover to reveal more content
+              a(href=&quot;#&quot;).card-flip
+                .card-flip-inner
+                  .card-flip-front(style=&quot;background-image: url(assets/img/landing/creative-agency/services/03.jpg);&quot;)
+                    .d-flex.flex-column.h-100.ignore-dark-mode
+                      h2.fs-lg.fw-normal.mb-0.mt-auto
+                        | Branding
+                  .card-flip-back.bg-secondary
+                    .d-flex.flex-column.h-100.px-sm-2.pt-sm-2.px-lg-0.pt-lg-0.px-xl-3.pt-xl-3
+                      h3.h4 Branding
+                      ul.text-body.ps-4.mb-3
+                        li.mb-2 Identity design
+                        li.mb-2 Brand book creation
+                        li.mb-2 Colors and fonts
+                        li.mb-2 Banners and covers
+                        li.mb-1 Visual style
+                      .text-end.pt-3.pt-sm-2.pt-xl-4.mt-auto.me-sm-n2.me-lg-0.me-xl-n3
+                        .btn.btn-sm.btn-icon.btn-outline-primary.rounded-circle
+                          i.ai-arrow-right
+
+  // Flip 2
+  section#card-flip-2.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Flip 2
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview4' data-bs-toggle='tab' role='tab' aria-controls='preview4' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview4.tab-pane.fade.show.active(role='tabpanel')
+          .card.card-flip.card-hover.border-0.bg-secondary.w-sm-auto.h-100.rounded-5.text-center(style='max-width: 306px;')
+            .card-flip-inner.mx-auto
+              .card-flip-front.p-0
+                .card-body.d-flex.flex-column.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100.opacity-100
+                  img(src='../assets/img/landing/web-studio/skills/figma.svg' width='72' alt='Figma')
+              .card-flip-back.p-0.bg-transparent
+                .card-body.d-flex.flex-column.justify-content-center.align-items-center.h-100
+                  img(src='../assets/img/landing/web-studio/skills/figma.svg' width='52' alt='Figma')
+                  p.fs-sm.pt-3.mb-0 Figma is convenient online service for interface development and prototyping with the ability to work together in real time.
+        #html4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Flip card on hover to reveal more content --&gt;
+              &lt;div class=&quot;card card-flip card-hover border-0 bg-secondary w-sm-auto h-100 rounded-5 text-center&quot; style=&quot;max-width: 306px;&quot;&gt;
+                &lt;div class=&quot;card-flip-inner mx-auto&quot;&gt;
+                  &lt;div class=&quot;card-flip-front p-0&quot;&gt;
+                    &lt;div class=&quot;card-body d-flex flex-column justify-content-center align-items-center position-absolute top-0 start-0 w-100 h-100 opacity-100&quot;&gt;
+                      &lt;img src=&quot;assets/img/landing/web-studio/skills/figma.svg&quot; width=&quot;72&quot; alt=&quot;Figma&quot;&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;card-flip-back p-0 bg-transparent&quot;&gt;
+                    &lt;div class=&quot;card-body d-flex flex-column justify-content-center align-items-center h-100&quot;&gt;
+                      &lt;img src=&quot;assets/img/landing/web-studio/skills/figma.svg&quot; width=&quot;52&quot; alt=&quot;Figma&quot;&gt;
+                      &lt;p class=&quot;fs-sm pt-3 mb-0&quot;&gt;Figma is convenient online service for interface development and prototyping with the ability to work together in real time.&lt;/p&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Flip card on hover to reveal more content
+              .card.card-flip.card-hover.border-0.bg-secondary.w-sm-auto.h-100.rounded-5.text-center(style=&quot;max-width: 306px;&quot;)
+                .card-flip-inner.mx-auto
+                  .card-flip-front.p-0
+                    .card-body.d-flex.flex-column.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100.opacity-100
+                      img(src=&quot;assets/img/landing/web-studio/skills/figma.svg&quot;, width=&quot;72&quot;, alt=&quot;Figma&quot;)
+                  .card-flip-back.p-0.bg-transparent
+                    .card-body.d-flex.flex-column.justify-content-center.align-items-center.h-100
+                      img(src=&quot;assets/img/landing/web-studio/skills/figma.svg&quot;, width=&quot;52&quot;, alt=&quot;Figma&quot;)
+                      p.fs-sm.pt-3.mb-0
+                        | Figma is convenient online service for interface development and prototyping with the ability to work together in real time.
+
+  // Color
+  section#card-color.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Color
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview5' data-bs-toggle='tab' role='tab' aria-controls='preview5' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html5' data-bs-toggle='tab' role='tab' aria-controls='html5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug5' data-bs-toggle='tab' role='tab' aria-controls='pug5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview5.tab-pane.fade.show.active(role='tabpanel')
+          a(href='#' style='max-width: 416px;').card.card-hover-primary.bg-secondary.border-0.h-100.text-decoration-none
+            .card-body.pb-0
+              svg(width='40' height='40' viewBox='0 0 40 40' fill='currentColor' xmlns='http://www.w3.org/2000/svg').d-block.text-warning.mb-4
+                path(d='M1.7276 27.5001C1.21683 28.3857 0.916576 29.3769 0.850062 30.3971C0.783549 31.4173 0.952558 32.4391 1.34402 33.3835C1.73548 34.328 2.33891 35.1697 3.10764 35.8437C3.87638 36.5177 4.78982 37.0058 5.77734 37.2704C6.76486 37.5349 7.8 37.5689 8.80272 37.3695C9.80544 37.1701 10.7489 36.7428 11.5601 36.1206C12.3713 35.4983 13.0285 34.6979 13.4809 33.7811C13.9334 32.8643 14.1689 31.8558 14.1693 30.8334C14.1698 29.3654 13.6858 27.9382 12.7924 26.7734C11.8989 25.6085 10.6459 24.7712 9.22787 24.3913C7.80984 24.0114 6.30606 24.1101 4.94991 24.6722C3.59375 25.2344 2.46105 26.2284 1.7276 27.5001Z')
+                path(d='M11.7344 10.1667L4.23438 23.1667C5.42383 22.6595 6.71498 22.4361 8.00568 22.5142C9.29638 22.5922 10.5512 22.9695 11.6709 23.6163C12.7906 24.263 13.7444 25.1615 14.4569 26.2405C15.1694 27.3196 15.621 28.5496 15.776 29.8333L19.0427 24.1667C12.8427 13.45 11.9427 12.425 11.7344 10.1667Z')
+                path(d='M38.2784 27.5C37.8534 26.7833 25.6701 5.6083 25.4284 5.29996C24.4255 3.9011 22.9204 2.94436 21.2281 2.62997C19.5358 2.31559 17.7875 2.66792 16.3491 3.61323C14.9107 4.55855 13.8936 6.02357 13.5108 7.70171C13.1279 9.37984 13.409 11.141 14.2951 12.6166C14.2118 12.6166 13.8784 11.9 26.7284 34.1666C27.1662 34.925 27.749 35.5898 28.4437 36.1229C29.1383 36.656 29.9311 37.0471 30.7769 37.2739C31.6227 37.5006 32.5049 37.5585 33.373 37.4443C34.2412 37.3301 35.0784 37.046 35.8368 36.6083C36.5952 36.1706 37.2599 35.5877 37.793 34.8931C38.3262 34.1984 38.7173 33.4056 38.944 32.5598C39.1707 31.714 39.2287 30.8319 39.1145 29.9637C39.0003 29.0955 38.7162 28.2583 38.2784 27.5Z')
+              h3.h4.card-title.mt-0 Advertising campaigns
+              p.card-text Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint velit officia consequat duis enim velit mollit.
+            .card-footer.border-0.py-3.my-3.mb-sm-4
+              .btn.btn-lg.btn-icon.btn-outline-primary.rounded-circle.pe-none
+                i.ai-arrow-right
+        #html5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Change background and content color of the card on hover --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;card card-hover-primary bg-secondary border-0 h-100 text-decoration-none&quot;&gt;
+                &lt;div class=&quot;card-body pb-0&quot;&gt;
+                  &lt;svg class=&quot;d-block text-warning mb-4&quot; width=&quot;40&quot; height=&quot;40&quot; viewBox=&quot;0 0 40 40&quot; fill=&quot;currentColor&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
+                    &lt;path d=&quot;M1.7276 27.5001C1.21683 28.3857 0.916576 29.3769 0.850062 30.3971C0.783549 31.4173 0.952558 32.4391 1.34402 33.3835C1.73548 34.328 2.33891 35.1697 3.10764 35.8437C3.87638 36.5177 4.78982 37.0058 5.77734 37.2704C6.76486 37.5349 7.8 37.5689 8.80272 37.3695C9.80544 37.1701 10.7489 36.7428 11.5601 36.1206C12.3713 35.4983 13.0285 34.6979 13.4809 33.7811C13.9334 32.8643 14.1689 31.8558 14.1693 30.8334C14.1698 29.3654 13.6858 27.9382 12.7924 26.7734C11.8989 25.6085 10.6459 24.7712 9.22787 24.3913C7.80984 24.0114 6.30606 24.1101 4.94991 24.6722C3.59375 25.2344 2.46105 26.2284 1.7276 27.5001Z&quot;&gt;&lt;/path&gt;
+                    &lt;path d=&quot;M11.7344 10.1667L4.23438 23.1667C5.42383 22.6595 6.71498 22.4361 8.00568 22.5142C9.29638 22.5922 10.5512 22.9695 11.6709 23.6163C12.7906 24.263 13.7444 25.1615 14.4569 26.2405C15.1694 27.3196 15.621 28.5496 15.776 29.8333L19.0427 24.1667C12.8427 13.45 11.9427 12.425 11.7344 10.1667Z&quot;&gt;&lt;/path&gt;
+                    &lt;path d=&quot;M38.2784 27.5C37.8534 26.7833 25.6701 5.6083 25.4284 5.29996C24.4255 3.9011 22.9204 2.94436 21.2281 2.62997C19.5358 2.31559 17.7875 2.66792 16.3491 3.61323C14.9107 4.55855 13.8936 6.02357 13.5108 7.70171C13.1279 9.37984 13.409 11.141 14.2951 12.6166C14.2118 12.6166 13.8784 11.9 26.7284 34.1666C27.1662 34.925 27.749 35.5898 28.4437 36.1229C29.1383 36.656 29.9311 37.0471 30.7769 37.2739C31.6227 37.5006 32.5049 37.5585 33.373 37.4443C34.2412 37.3301 35.0784 37.046 35.8368 36.6083C36.5952 36.1706 37.2599 35.5877 37.793 34.8931C38.3262 34.1984 38.7173 33.4056 38.944 32.5598C39.1707 31.714 39.2287 30.8319 39.1145 29.9637C39.0003 29.0955 38.7162 28.2583 38.2784 27.5Z&quot;&gt;&lt;/path&gt;
+                  &lt;/svg&gt;
+                  &lt;h3 class=&quot;h4 card-title mt-0&quot;&gt;Advertising campaigns&lt;/h3&gt;
+                  &lt;p class=&quot;card-text&quot;&gt;Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint velit officia consequat duis enim velit mollit.&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;card-footer border-0 py-3 my-3 mb-sm-4&quot;&gt;
+                  &lt;div class=&quot;btn btn-lg btn-icon btn-outline-primary rounded-circle pe-none&quot;&gt;&lt;i class=&quot;ai-arrow-right&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/a&gt;
+        #pug5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Change background and content color of the card on hover
+              a(href=&quot;#&quot;).card.card-hover-primary.bg-secondary.border-0.h-100.text-decoration-none
+                .card-body.pb-0
+                  svg(width=&quot;40&quot;, height=&quot;40&quot;, viewBox=&quot;0 0 40 40&quot;, fill=&quot;currentColor&quot;, xmlns=&quot;http://www.w3.org/2000/svg&quot;).d-block.text-warning.mb-4
+                    path(d=&quot;M1.7276 27.5001C1.21683 28.3857 0.916576 29.3769 0.850062 30.3971C0.783549 31.4173 0.952558 32.4391 1.34402 33.3835C1.73548 34.328 2.33891 35.1697 3.10764 35.8437C3.87638 36.5177 4.78982 37.0058 5.77734 37.2704C6.76486 37.5349 7.8 37.5689 8.80272 37.3695C9.80544 37.1701 10.7489 36.7428 11.5601 36.1206C12.3713 35.4983 13.0285 34.6979 13.4809 33.7811C13.9334 32.8643 14.1689 31.8558 14.1693 30.8334C14.1698 29.3654 13.6858 27.9382 12.7924 26.7734C11.8989 25.6085 10.6459 24.7712 9.22787 24.3913C7.80984 24.0114 6.30606 24.1101 4.94991 24.6722C3.59375 25.2344 2.46105 26.2284 1.7276 27.5001Z&quot;)
+                    path(d=&quot;M11.7344 10.1667L4.23438 23.1667C5.42383 22.6595 6.71498 22.4361 8.00568 22.5142C9.29638 22.5922 10.5512 22.9695 11.6709 23.6163C12.7906 24.263 13.7444 25.1615 14.4569 26.2405C15.1694 27.3196 15.621 28.5496 15.776 29.8333L19.0427 24.1667C12.8427 13.45 11.9427 12.425 11.7344 10.1667Z&quot;)
+                    path(d=&quot;M38.2784 27.5C37.8534 26.7833 25.6701 5.6083 25.4284 5.29996C24.4255 3.9011 22.9204 2.94436 21.2281 2.62997C19.5358 2.31559 17.7875 2.66792 16.3491 3.61323C14.9107 4.55855 13.8936 6.02357 13.5108 7.70171C13.1279 9.37984 13.409 11.141 14.2951 12.6166C14.2118 12.6166 13.8784 11.9 26.7284 34.1666C27.1662 34.925 27.749 35.5898 28.4437 36.1229C29.1383 36.656 29.9311 37.0471 30.7769 37.2739C31.6227 37.5006 32.5049 37.5585 33.373 37.4443C34.2412 37.3301 35.0784 37.046 35.8368 36.6083C36.5952 36.1706 37.2599 35.5877 37.793 34.8931C38.3262 34.1984 38.7173 33.4056 38.944 32.5598C39.1707 31.714 39.2287 30.8319 39.1145 29.9637C39.0003 29.0955 38.7162 28.2583 38.2784 27.5Z&quot;)
+                  h3.h4.card-title.mt-0 Advertising campaigns
+                  p.card-text Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint velit officia consequat duis enim velit mollit.
+                .card-footer.border-0.py-3.my-3.mb-sm-4
+                  .btn.btn-lg.btn-icon.btn-outline-primary.rounded-circle.pe-none
+                    i.ai-arrow-right
+
+  // Content overlay
+  section#card-content-overlay.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Content overlay
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview6' data-bs-toggle='tab' role='tab' aria-controls='preview6' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html6' data-bs-toggle='tab' role='tab' aria-controls='html6' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug6' data-bs-toggle='tab' role='tab' aria-controls='pug6' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview6.tab-pane.fade.show.active(role='tabpanel')
+          a(href='#' style='max-width: 526px;').card-hover.d-block
+            .d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100.rounded-5.overflow-hidden.zindex-2.opacity-0
+              .position-relative.zindex-2.text-center
+                i.ai-instagram.lead.text-white.mb-2
+                .fs-sm.fw-semibold.text-white #createx_std_image
+              .position-absolute.top-0.start-0.w-100.h-100.bg-black.opacity-30
+            img(src='../assets/img/landing/yoga-studio/instagram/02.jpg' alt='Instagram image').d-block.rounded-5
+        #html6.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Show hidden content on top of the image on hover --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;card-hover d-block&quot;&gt;
+                &lt;div class=&quot;d-flex justify-content-center align-items-center position-absolute top-0 start-0 w-100 h-100 rounded-5 overflow-hidden zindex-2 opacity-0&quot;&gt;
+                  &lt;div class=&quot;position-relative zindex-2 text-center&quot;&gt;
+                    &lt;i class=&quot;ai-instagram lead text-white mb-2&quot;&gt;&lt;/i&gt;
+                    &lt;div class=&quot;fs-sm fw-semibold text-white&quot;&gt;#createx_std_image&lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 bg-black opacity-30&quot;&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;img src=&quot;assets/img/landing/yoga-studio/instagram/02.jpg&quot; class=&quot;d-block rounded-5&quot; alt=&quot;Instagram image&quot;&gt;
+              &lt;/a&gt;
+        #pug6.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Show hidden content on top of the image on hover
+              a(href=&quot;#&quot;).card-hover.d-block
+                .d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100.rounded-5.overflow-hidden.zindex-2.opacity-0
+                  .position-relative.zindex-2.text-center
+                    i.ai-instagram.lead.text-white.mb-2
+                    .fs-sm.fw-semibold.text-white
+                      | #createx_std_image
+                  .position-absolute.top-0.start-0.w-100.h-100.bg-black.opacity-30
+                img(src=&quot;assets/img/landing/yoga-studio/instagram/02.jpg&quot;, alt=&quot;Instagram image&quot;).d-block.rounded-5
+
+  // Image overlay 1
+  section#card-image-1.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Image overlay 1
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview7' data-bs-toggle='tab' role='tab' aria-controls='preview7' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html7' data-bs-toggle='tab' role='tab' aria-controls='html7' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug7' data-bs-toggle='tab' role='tab' aria-controls='pug7' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview7.tab-pane.fade.show.active(role='tabpanel')
+          a(href='#' style='max-width: 416px;').card.card-hover.h-100.border-0.bg-secondary.rounded-4.text-decoration-none.overflow-hidden
+            .card-body.d-flex.align-items-end.position-absolute.top-0.start-0.w-100.h-100.opacity-0.bg-size-cover.bg-position-center.pb-4(style='background-image: url(../assets/img/landing/corporate/services/04.jpg);')
+              .btn.btn-icon.btn-lg.btn-outline-light.rounded-circle.pe-none.mb-3
+                i.ai-arrow-right
+            .card-body.pb-3
+              svg(width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg').d-block.mt-1.mt-sm-0.mb-4
+                g.text-info: path(d='M34.9811 16.2655C34.3635 26.3194 26.3194 34.3634 16.2656 34.981V40H40V16.2655H34.9811Z' fill='currentColor')
+                g.text-info: path(d='M15.0195 30.0413C23.3152 30.0413 30.0403 23.3163 30.0403 15.0205H15.0195V30.0413Z' fill='currentColor')
+                g.text-primary: path(d='M29.1953 10.0415C27.141 4.19328 21.571 0 15.0208 0C6.725 0 0 6.725 0 15.0208C0 21.571 4.19328 27.141 10.0415 29.1953V10.0415H29.1953Z' fill='currentColor')
+              h3.h4 Email marketing
+              p.mb-0 Adipiscing posuere dui, amet, augue nisl dictum justo enier sed neque congue non quam ultrices interdum vitae vestibulumaute irure dolor in reprehenderit in.
+            .card-footer.border-0.pt-3.mb-3
+              .btn.btn-icon.btn-lg.btn-outline-primary.rounded-circle.pe-none
+                i.ai-arrow-right
+        #html7.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Show hidden image on top of the content on hover --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;card card-hover h-100 border-0 bg-secondary rounded-4 text-decoration-none overflow-hidden&quot;&gt;
+                &lt;div class=&quot;card-body d-flex align-items-end position-absolute top-0 start-0 w-100 h-100 opacity-0 bg-size-cover bg-position-center pb-4&quot; style=&quot;background-image: url(assets/img/landing/corporate/services/04.jpg);&quot;&gt;
+                  &lt;div class=&quot;btn btn-icon btn-lg btn-outline-light rounded-circle pe-none mb-3&quot;&gt;
+                    &lt;i class=&quot;ai-arrow-right&quot;&gt;&lt;/i&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;card-body pb-3&quot;&gt;
+                  &lt;svg class=&quot;d-block mt-1 mt-sm-0 mb-4&quot; width=&quot;40&quot; height=&quot;40&quot; viewBox=&quot;0 0 40 40&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
+                    &lt;g class=&quot;text-info&quot;&gt;
+                      &lt;path d=&quot;M34.9811 16.2655C34.3635 26.3194 26.3194 34.3634 16.2656 34.981V40H40V16.2655H34.9811Z&quot; fill=&quot;currentColor&quot;&gt;&lt;/path&gt;
+                    &lt;/g&gt;
+                    &lt;g class=&quot;text-info&quot;&gt;
+                      &lt;path d=&quot;M15.0195 30.0413C23.3152 30.0413 30.0403 23.3163 30.0403 15.0205H15.0195V30.0413Z&quot; fill=&quot;currentColor&quot;&gt;&lt;/path&gt;
+                    &lt;/g&gt;
+                    &lt;g class=&quot;text-primary&quot;&gt;
+                      &lt;path d=&quot;M29.1953 10.0415C27.141 4.19328 21.571 0 15.0208 0C6.725 0 0 6.725 0 15.0208C0 21.571 4.19328 27.141 10.0415 29.1953V10.0415H29.1953Z&quot; fill=&quot;currentColor&quot;&gt;&lt;/path&gt;
+                    &lt;/g&gt;
+                  &lt;/svg&gt;
+                  &lt;h3 class=&quot;h4&quot;&gt;Email marketing&lt;/h3&gt;
+                  &lt;p class=&quot;mb-0&quot;&gt;Adipiscing posuere dui, amet, augue nisl dictum justo enier sed neque congue non quam ultrices interdum vitae vestibulumaute irure dolor in reprehenderit in.&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;card-footer border-0 pt-3 mb-3&quot;&gt;
+                  &lt;div class=&quot;btn btn-icon btn-lg btn-outline-primary rounded-circle pe-none&quot;&gt;
+                    &lt;i class=&quot;ai-arrow-right&quot;&gt;&lt;/i&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/a&gt;
+        #pug7.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Show hidden image on top of the content on hover
+              a(href=&quot;#&quot;).card.card-hover.h-100.border-0.bg-secondary.rounded-4.text-decoration-none.overflow-hidden
+                .card-body.d-flex.align-items-end.position-absolute.top-0.start-0.w-100.h-100.opacity-0.bg-size-cover.bg-position-center.pb-4(style=&quot;background-image: url(assets/img/landing/corporate/services/04.jpg);&quot;)
+                  .btn.btn-icon.btn-lg.btn-outline-light.rounded-circle.pe-none.mb-3
+                    i.ai-arrow-right
+                .card-body.pb-3
+                  svg(width=&quot;40&quot;, height=&quot;40&quot;, viewBox=&quot;0 0 40 40&quot;, xmlns=&quot;http://www.w3.org/2000/svg&quot;).d-block.mt-1.mt-sm-0.mb-4
+                    g.text-info
+                      path(d=&quot;M34.9811 16.2655C34.3635 26.3194 26.3194 34.3634 16.2656 34.981V40H40V16.2655H34.9811Z&quot;, fill=&quot;currentColor&quot;)
+                    g.text-info
+                      path(d=&quot;M15.0195 30.0413C23.3152 30.0413 30.0403 23.3163 30.0403 15.0205H15.0195V30.0413Z&quot;, fill=&quot;currentColor&quot;)
+                    g.text-primary
+                      path(d=&quot;M29.1953 10.0415C27.141 4.19328 21.571 0 15.0208 0C6.725 0 0 6.725 0 15.0208C0 21.571 4.19328 27.141 10.0415 29.1953V10.0415H29.1953Z&quot;, fill=&quot;currentColor&quot;)
+                  h3.h4 Email marketing
+                  p.mb-0 Adipiscing posuere dui, amet, augue nisl dictum justo enier sed neque congue non quam ultrices interdum vitae vestibulumaute irure dolor in reprehenderit in.
+                .card-footer.border-0.pt-3.mb-3
+                  .btn.btn-icon.btn-lg.btn-outline-primary.rounded-circle.pe-none
+                    i.ai-arrow-right
+
+  // Image overlay 2
+  section#card-image-2.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Image overlay 2
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview8' data-bs-toggle='tab' role='tab' aria-controls='preview8' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html8' data-bs-toggle='tab' role='tab' aria-controls='html8' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug8' data-bs-toggle='tab' role='tab' aria-controls='pug8' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview8.tab-pane.fade.show.active(role='tabpanel')
+          .card.border-0.bg-secondary.card-hover.h-100.py-4(style='max-width: 306px;')
+            .opacity-0.position-absolute.top-0.start-0.w-100.h-100.bg-size-cover.bg-position-center.rounded-5(style='background-image: url(../assets/img/landing/yoga-studio/features/spa-area.jpg);')
+            .card-body.text-center
+              i.ai-spa.h1.fw-normal.text-primary.d-block.mb-4
+              h3 Spa area
+              p.card-text Orci purus, in tellus sit bibendum scelerisque adipiscing venenatis.
+        #html8.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Show hidden image on top of the content on hover --&gt;
+              &lt;div class=&quot;card border-0 bg-secondary card-hover h-100 py-4&quot; style=&quot;max-width: 306px;&quot;&gt;
+                &lt;div class=&quot;opacity-0 position-absolute top-0 start-0 w-100 h-100 bg-size-cover bg-position-center rounded-5&quot; style=&quot;background-image: url(../assets/img/landing/yoga-studio/features/spa-area.jpg);&quot;&gt;&lt;/div&gt;
+                &lt;div class=&quot;card-body text-center&quot;&gt;
+                  &lt;i class=&quot;ai-spa h1 fw-normal text-primary d-block mb-4&quot;&gt;&lt;/i&gt;
+                  &lt;h3&gt;Spa area&lt;/h3&gt;
+                  &lt;p class=&quot;card-text&quot;&gt;Orci purus, in tellus sit bibendum scelerisque adipiscing venenatis.&lt;/p&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug8.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Show hidden image on top of the content on hover
+              .card.border-0.bg-secondary.card-hover.h-100.py-4(style=&quot;max-width: 306px;&quot;)
+                .opacity-0.position-absolute.top-0.start-0.w-100.h-100.bg-size-cover.bg-position-center.rounded-5(style=&quot;background-image: url(assets/img/landing/yoga-studio/features/spa-area.jpg);&quot;)
+                .card-body.text-center
+                  i.ai-spa.h1.fw-normal.text-primary.d-block.mb-4
+                  h3 Spa area
+                  p.card-text Orci purus, in tellus sit bibendum scelerisque adipiscing venenatis.

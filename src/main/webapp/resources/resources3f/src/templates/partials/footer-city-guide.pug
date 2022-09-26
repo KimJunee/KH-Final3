@@ -1,0 +1,96 @@
+// Footer
+footer.footer.pt-lg-5.pt-4.bg-dark.text-light
+  .container.mb-4.py-4.pb-lg-5
+    .row.gy-4
+
+      .col-lg-3.col-md-6.col-sm-4
+        .mb-4.pb-sm-3
+          a(href='city-guide-home-v1.html').d-inline-block
+            img(src='img/logo/logo-light.svg' width='116' alt='Logo')
+        ul.nav.nav-light.flex-column
+          li.nav-item.mb-2
+            a(href='mailto:example@gmail.com').nav-link.p-0.fw-normal.text-light.text-nowrap
+              i.fi-mail.mt-n1.me-1.align-middle.text-primary
+              | example@gmail.com
+          li.nav-item.mb-2
+            a(href='tel:4065550120').nav-link.p-0.fw-normal.text-light.text-nowrap
+              i.fi-device-mobile.mt-n1.me-1.align-middle.text-primary
+              | (406) 555-0120
+
+      // Links
+      .col-lg-2.col-md-3.col-sm-4
+        h3.fs-base.text-light Quick links
+        ul.list-unstyled.fs-sm
+          li: a(href='#').nav-link-light Top cities
+          li: a(href='#').nav-link-light Accommodation
+          li: a(href='#').nav-link-light Cafes &amp; restaurants
+          li: a(href='#').nav-link-light Events
+      
+      // Links
+      .col-lg-2.col-md-3.col-sm-4
+        h3.fs-base.text-light Profile
+        ul.list-unstyled.fs-sm
+          li: a(href='#').nav-link-light My account
+          li: a(href='#').nav-link-light Favorites
+          li: a(href='#').nav-link-light My listings
+          li: a(href='#').nav-link-light Add listing
+
+      // Subscription form
+      .col-lg-4.offset-lg-1
+        h3.h4.text-light Subscribe to our newsletter
+        p.fs-sm.mb-4.opacity-60 Don’t miss any relevant vacancies!
+        form.form-group.form-group-light.rounded-pill(style='max-width: 500px;')
+          .input-group.input-group-sm
+            span.input-group-text.text-muted
+              i.fi-mail
+            input(type='email' placeholder='Your email').form-control
+          button(type='button').btn.btn-primary.btn-sm.rounded-pill Subscribe
+
+  .py-4.border-top.border-light
+    .container.d-flex.flex-column.flex-lg-row.align-items-center.justify-content-between.py-2
+
+      // Copyright
+      p.order-lg-1.order-2.fs-sm.mb-2.mb-lg-0
+        span.text-light.opacity-60 &copy; All rights reserved. Made by 
+        a(href='https://createx.studio/' target='_blank' rel='noopener').nav-link-light.fw-bold Createx Studio
+
+      .d-flex.flex-lg-row.flex-column.align-items-center.order-lg-2.order-1.ms-lg-4.mb-lg-0.mb-4
+
+        // Links
+        .d-flex.flex-wrap.fs-sm.mb-lg-0.mb-4.pe-lg-4
+          a(href='#').nav-link-light.px-2.mx-1 About
+          a(href='#').nav-link-light.px-2.mx-1 Blog
+          a(href='#').nav-link-light.px-2.mx-1 Support
+          a(href='#').nav-link-light.px-2.mx-1 Contacts
+
+        .d-flex.align-items-center
+
+          // Language switcher
+          .dropdown
+            a(href='#' id='langSwitcher' data-bs-toggle='dropdown' role='button' aria-expanded='false').nav-link.nav-link-light.dropdown-toggle.fs-sm.align-items-center.p-0.fw-normal
+              i.fi-globe.mt-n1.me-2.align-middle
+              | Eng
+            ul(aria-labelledby='langSwitcher').dropdown-menu.dropdown-menu-dark.my-1
+              li
+                a(href='#').dropdown-item.text-nowrap.py-1
+                  img(src='img/flags/de.png' width='20' alt='Deutsch').me-2
+                  | Deutsch
+              li
+                a(href='#').dropdown-item.text-nowrap.py-1
+                  img(src='img/flags/fr.png' width='20' alt='Français').me-2
+                  | Français
+              li
+                a(href='#').dropdown-item.text-nowrap.py-1
+                  img(src='img/flags/es.png' width='20' alt='Español').me-2
+                  | Español
+
+          // Socials
+          .ms-4.ps-lg-2.text-nowrap
+            a(href='#').btn.btn-icon.btn-translucent-light.btn-xs.rounded-circle.ms-2
+              i.fi-facebook
+            a(href='#').btn.btn-icon.btn-translucent-light.btn-xs.rounded-circle.ms-2
+              i.fi-twitter
+            a(href='#').btn.btn-icon.btn-translucent-light.btn-xs.rounded-circle.ms-2
+              i.fi-telegram
+            a(href='#').btn.btn-icon.btn-translucent-light.btn-xs.rounded-circle.ms-2
+              i.fi-messenger

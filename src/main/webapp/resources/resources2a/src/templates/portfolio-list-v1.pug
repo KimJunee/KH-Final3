@@ -1,0 +1,101 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/aos/dist/aos.css']
+  - var scripts = ['vendor/aos/dist/aos.js']
+  - var parentMenu = 'Pages'
+  - var pageTitle = 'Portfolio List View v.1'
+  - var navbarExtraClass = 'bg-light'
+
+
+//- Navbar
+block navbar
+  include partials/navbar.pug
+
+
+//- Page Content
+block content
+  .overflow-hidden
+    .container.pt-5.pb-sm-3.mt-5.mb-2.mb-md-3.mb-lg-4.mb-xxl-5
+
+      // Breadcrumb
+      +breadcrumb([{'title': 'Portfolio list v.1'}]).pt-lg-3.pb-lg-4.pb-2
+
+      // Page title
+      h1.text-center.pb-3.pb-md-4.pb-lg-5.mb-lg-0.mb-xl-2.mb-xxl-4 Case studies
+
+      // Item
+      article.row.align-items-center.card-hover.pb-5.mb-md-2.mb-lg-3.mb-xl-4(data-aos='fade-up' data-aos-duration='600' data-aos-offset='280')
+        .col-md-7.offset-xxl-1.mb-4.mb-md-0
+          a(href='portfolio-single-v1.html')
+            img(src='assets/img/portfolio/list/01.jpg' width='700' alt='Image').rounded-5
+        .col-md-5.col-xl-4(data-aos='fade-up' data-aos-duration='850' data-aos-offset='180' data-disable-parallax-down='md')
+          .ms-md-4.ms-lg-5.ms-xxl-0(style='max-width: 330px;')
+            .text-muted.mb-2 Branding, Strategy
+            h2.mb-lg-4: a(href='portfolio-single-v1.html') Design for eco bags and merch
+            p.mb-0.mb-md-1.mb-lg-3 Morbi et massa fames ac scelerisque sit commodo dignissim faucibus vel quisque proin lectus. Morbi et massa fames ac scelerisque sit commodo dignissim vel.
+            a(href='portfolio-single-v1.html').btn.btn-lg.btn-link.px-0.opacity-0.d-none.d-md-inline-flex
+              | Read more
+              i.ai-arrow-right.ms-2
+
+      // Item
+      article.row.align-items-center.card-hover.pb-5.mb-md-2.mb-lg-3.mb-xl-4(data-aos='fade-up' data-aos-duration='600' data-aos-offset='280')
+        .col-md-7.order-md-2.mb-4.mb-md-0
+          a(href='portfolio-single-v1.html')
+            img(src='assets/img/portfolio/list/02.jpg' width='700' alt='Image').rounded-5
+        .col-md-5.col-xl-4.offset-xxl-1.order-md-1(data-aos='fade-up' data-aos-duration='850' data-aos-offset='180' data-disable-parallax-down='md')
+          .me-md-4.me-lg-5.me-xxl-0(style='max-width: 330px;')
+            .text-muted.mb-2 Branding
+            h2.mb-lg-4: a(href='portfolio-single-v1.html') Handmade tableware company
+            p.mb-0.mb-md-1.mb-lg-3 Feugiat elit tempor, malesuada rutrum amet quis duis facilisi viverra. Quam ut in gravida dignissim eget mauris pretium facilisi dui varius amet et quam massa auctor odio.
+            a(href='portfolio-single-v1.html').btn.btn-lg.btn-link.px-0.opacity-0.d-none.d-md-inline-flex
+              | Read more
+              i.ai-arrow-right.ms-2
+
+      // Item
+      article.row.align-items-center.card-hover.pb-5.mb-md-2.mb-lg-3.mb-xl-4(data-aos='fade-up' data-aos-duration='600' data-aos-offset='280')
+        .col-md-7.offset-xxl-1.mb-4.mb-md-0
+          a(href='portfolio-single-v1.html')
+            img(src='assets/img/portfolio/list/03.jpg' width='700' alt='Image').rounded-5
+        .col-md-5.col-xl-4(data-aos='fade-up' data-aos-duration='850' data-aos-offset='180' data-disable-parallax-down='md')
+          .ms-md-4.ms-lg-5.ms-xxl-0(style='max-width: 330px;')
+            .text-muted.mb-2 Identity, Packaging
+            h2.mb-lg-4: a(href='portfolio-single-v1.html') Bottle for French perfume brand
+            p.mb-0.mb-md-1.mb-lg-3 Egestas ultrices condimentum consectetur massa aliquam volutpat pulvinar aliquet nisi quam. Nibh commodo tristique nisi, justo, sed maecenas lectus ut nec eu.
+            a(href='portfolio-single-v1.html').btn.btn-lg.btn-link.px-0.opacity-0.d-none.d-md-inline-flex
+              | Read more
+              i.ai-arrow-right.ms-2
+
+      // Item
+      article.row.align-items-center.card-hover.pb-5.mb-md-2.mb-lg-3.mb-xl-4(data-aos='fade-up' data-aos-duration='600' data-aos-offset='280')
+        .col-md-7.order-md-2.mb-4.mb-md-0
+          a(href='portfolio-single-v1.html')
+            img(src='assets/img/portfolio/list/04.jpg' width='700' alt='Image').rounded-5
+        .col-md-5.col-xl-4.offset-xxl-1.order-md-1(data-aos='fade-up' data-aos-duration='850' data-aos-offset='180' data-disable-parallax-down='md')
+          .me-md-4.me-lg-5.me-xxl-0(style='max-width: 330px;')
+            .text-muted.mb-2 E-book, Branding
+            h2.mb-lg-4: a(href='portfolio-single-v1.html') Book cover design Twin Fish
+            p.mb-0.mb-md-1.mb-lg-3 Sed feugiat tristique enim aenean netus cum adipiscing est sem eget nulla leo vestibulum. Cras urna, proin ut ut dictum risus porttitor nulla consequat et iaculis.
+            a(href='portfolio-single-v1.html').btn.btn-lg.btn-link.px-0.opacity-0.d-none.d-md-inline-flex
+              | Read more
+              i.ai-arrow-right.ms-2
+
+      // Item
+      article.row.align-items-center.card-hover.pb-5.mb-md-2.mb-lg-3.mb-xl-4(data-aos='fade-up' data-aos-duration='600' data-aos-offset='280')
+        .col-md-7.offset-xxl-1.mb-4.mb-md-0
+          a(href='portfolio-single-v1.html')
+            img(src='assets/img/portfolio/list/05.jpg' width='700' alt='Image').rounded-5
+        .col-md-5.col-xl-4(data-aos='fade-up' data-aos-duration='850' data-aos-offset='180' data-disable-parallax-down='md')
+          .ms-md-4.ms-lg-5.ms-xxl-0(style='max-width: 330px;')
+            .text-muted.mb-2 Branding, Strategy
+            h2.mb-lg-4: a(href='portfolio-single-v1.html') Business cards and identity for Sen Jonson
+            p.mb-0.mb-md-1.mb-lg-3 Lectus lacus, ac justo, ullamcorper egestas at felis arcu arcu venenatis praesent odio. Odio vulputate purus placerat ultrices faucibus sem sed magna est elementum.
+            a(href='portfolio-single-v1.html').btn.btn-lg.btn-link.px-0.opacity-0.d-none.d-md-inline-flex
+              | Read more
+              i.ai-arrow-right.ms-2
+
+
+//- Footer
+block footer
+  include partials/footer-portfolio.pug

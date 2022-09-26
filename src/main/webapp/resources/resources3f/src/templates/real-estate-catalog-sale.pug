@@ -1,0 +1,448 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['leaflet/dist/leaflet.css', 'tiny-slider/dist/tiny-slider.css', 'nouislider/dist/nouislider.min.css']
+  - var vendorScripts = ['leaflet/dist/leaflet.js', 'tiny-slider/dist/min/tiny-slider.js', 'nouislider/dist/nouislider.min.js']
+  - var parentMenu = 'Catalog'
+  - var pageTitle = 'Real Estate | Property for Sale'
+  - var bodyClass = 'fixed-bottom-btn'
+
+//- Navbar
+block navbar
+  include partials/navbar-real-estate
+
+//- Page Content
+block content
+
+  // Page container
+  .container-fluid.mt-5.pt-5.p-0
+    .row.g-0.mt-n3
+
+      // Filters sidebar (Offcanvas on mobile)
+      aside.col-lg-4.col-xl-3.border-top-lg.border-end-lg.shadow-sm.px-3.px-xl-4.px-xxl-5.pt-lg-2
+        include partials/sidebar-filters-real-estate
+          
+      // Page content
+      .col-lg-8.col-xl-9.position-relative.overflow-hidden.pb-5.pt-4.px-3.px-xl-4.px-xxl-5
+
+        // Map popup
+        #map.map-popup.invisible
+          button(type='button' data-bs-toggle-class='invisible' data-bs-target='#map').btn.btn-icon.btn-light.btn-sm.shadow-sm.rounded-circle
+            i.fi-x.fs-xs
+          .interactive-map(data-map-options-json='json/map-options-real-estate-sale.json')
+
+
+        // Breadcrumb
+        nav(aria-label='Breadcrumb').mb-3.pt-md-2
+          ol.breadcrumb
+            li.breadcrumb-item
+              a(href='real-estate-home-v1.html') Home
+            li(aria-current='page').breadcrumb-item.active
+              | Property for sale
+        
+        // Title
+        .d-sm-flex.align-items-center.justify-content-between.pb-3.pb-sm-4
+          h1.h2.mb-sm-0 Property for sale
+          a(href='#' data-bs-toggle-class='invisible' data-bs-target='#map').d-inline-block.fw-bold.text-decoration-none.py-1
+            i.fi-map.me-2
+            | Map view
+        
+        // Sorting
+        .d-flex.flex-sm-row.flex-column.align-items-sm-center.align-items-stretch.my-2
+          .d-flex.align-items-center.flex-shrink-0
+            label(for='sortby').fs-sm.me-2.pe-1.text-nowrap
+              i.fi-arrows-sort.text-muted.mt-n1.me-2
+              | Sort by:
+            select(id='sortby').form-select.form-select-sm
+              option Newest
+              option Popularity
+              option Low - High Price
+              option High - Low Price
+              option High rating
+              option Average Rating
+          hr.d-none.d-sm-block.w-100.mx-4
+          .d-none.d-sm-flex.align-items-center.flex-shrink-0.text-muted
+            i.fi-check-circle.me-2
+            span.fs-sm.mt-n1 116 results
+
+        
+        // Catalog grid
+        .row.g-4.py-4
+
+          // Item
+          .col-sm-6.col-xl-4
+            .card.shadow-sm.card-hover.border-0.h-100
+              .tns-carousel-wrapper.card-img-top.card-img-hover
+                a(href='real-estate-single-v1.html').img-overlay
+                .position-absolute.start-0.top-0.pt-3.ps-3
+                  span.d-table.badge.bg-success.mb-1 Verified
+                  span.d-table.badge.bg-info New
+                .content-overlay.end-0.top-0.pt-3.pe-3
+                  button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                    i.fi-heart
+                .tns-carousel-inner
+                  img(src='img/real-estate/catalog/18.jpg' alt='Image')
+                  img(src='img/real-estate/catalog/18.jpg' alt='Image')
+              .card-body.position-relative.pb-3
+                h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For sale
+                h3.h6.mb-2.fs-base
+                  a(href='real-estate-single-v1.html').nav-link.stretched-link Ellis Studio | 40 sq.m
+                p.mb-2.fs-sm.text-muted 3 E Evergreen Rd New City, NY 10956
+                .fw-bold
+                  i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+                  | $50,000
+              .card-footer.d-flex.align-items-center.justify-content-center.mx-3.pt-3.text-nowrap
+                span.d-inline-block.mx-1.px-2.fs-sm 2
+                  i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 1
+                  i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 1
+                  i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+
+          // Item
+          .col-sm-6.col-xl-4
+            .card.shadow-sm.card-hover.border-0.h-100
+              .tns-carousel-wrapper.card-img-top.card-img-hover
+                a(href='real-estate-single-v1.html').img-overlay
+                .position-absolute.start-0.top-0.pt-3.ps-3
+                  span.d-table.badge.bg-info New
+                .content-overlay.end-0.top-0.pt-3.pe-3
+                  button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                    i.fi-heart
+                .tns-carousel-inner
+                  img(src='img/real-estate/catalog/19.jpg' alt='Image')
+                  img(src='img/real-estate/catalog/19.jpg' alt='Image')
+              .card-body.position-relative.pb-3
+                h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For sale
+                h3.h6.mb-2.fs-base
+                  a(href='real-estate-single-v1.html').nav-link.stretched-link Country House | 120 sq.m
+                p.mb-2.fs-sm.text-muted 6954 Grand AveMaspeth, NY 11378
+                .fw-bold
+                  i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+                  | $162,000
+              .card-footer.d-flex.align-items-center.justify-content-center.mx-3.pt-3.text-nowrap
+                span.d-inline-block.mx-1.px-2.fs-sm 4
+                  i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 2
+                  i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 2
+                  i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+
+          // Item
+          .col-sm-6.col-xl-4
+            .card.shadow-sm.card-hover.border-0.h-100
+              .tns-carousel-wrapper.card-img-top.card-img-hover
+                a(href='real-estate-single-v1.html').img-overlay
+                .position-absolute.start-0.top-0.pt-3.ps-3
+                  span.d-table.badge.bg-info New
+                .content-overlay.end-0.top-0.pt-3.pe-3
+                  button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                    i.fi-heart
+                .tns-carousel-inner
+                  img(src='img/real-estate/catalog/20.jpg' alt='Image')
+                  img(src='img/real-estate/catalog/20.jpg' alt='Image')
+              .card-body.position-relative.pb-3
+                h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For sale
+                h3.h6.mb-2.fs-base
+                  a(href='real-estate-single-v1.html').nav-link.stretched-link Condo | 70 sq.m
+                p.mb-2.fs-sm.text-muted 276 5th Avenue New York, NY 10001
+                .fw-bold
+                  i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+                  | $85,000
+              .card-footer.d-flex.align-items-center.justify-content-center.mx-3.pt-3.text-nowrap
+                span.d-inline-block.mx-1.px-2.fs-sm 2
+                  i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 1
+                  i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 1
+                  i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+
+          // Item
+          .col-sm-6.col-xl-4
+            .card.shadow-sm.card-hover.border-0.h-100
+              .tns-carousel-wrapper.card-img-top.card-img-hover
+                a(href='real-estate-single-v1.html').img-overlay
+                .position-absolute.start-0.top-0.pt-3.ps-3
+                  span.d-table.badge.bg-success Verified
+                .content-overlay.end-0.top-0.pt-3.pe-3
+                  button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                    i.fi-heart
+                .tns-carousel-inner
+                  img(src='img/real-estate/catalog/21.jpg' alt='Image')
+                  img(src='img/real-estate/catalog/21.jpg' alt='Image')
+              .card-body.position-relative.pb-3
+                h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For sale
+                h3.h6.mb-2.fs-base
+                  a(href='real-estate-single-v1.html').nav-link.stretched-link Luxury Rental Villa | 180 sq.m
+                p.mb-2.fs-sm.text-muted 118-11 Sutphin Blvd Jamaica, NY 11434
+                .fw-bold
+                  i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+                  | $300,500
+              .card-footer.d-flex.align-items-center.justify-content-center.mx-3.pt-3.text-nowrap
+                span.d-inline-block.mx-1.px-2.fs-sm 4
+                  i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 2
+                  i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 2
+                  i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+
+          // Item
+          .col-sm-6.col-xl-4
+            .card.shadow-sm.card-hover.border-0.h-100
+              .tns-carousel-wrapper.card-img-top.card-img-hover
+                a(href='real-estate-single-v1.html').img-overlay
+                .position-absolute.start-0.top-0.pt-3.ps-3
+                  span.d-table.badge.bg-success.mb-1 Verified
+                  span.d-table.badge.bg-danger Featured
+                .content-overlay.end-0.top-0.pt-3.pe-3
+                  button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                    i.fi-heart
+                .tns-carousel-inner
+                  img(src='img/real-estate/catalog/22.jpg' alt='Image')
+                  img(src='img/real-estate/catalog/22.jpg' alt='Image')
+              .card-body.position-relative.pb-3
+                h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For sale
+                h3.h6.mb-2.fs-base
+                  a(href='real-estate-single-v1.html').nav-link.stretched-link Cottage | 120 sq.m
+                p.mb-2.fs-sm.text-muted 42 Broadway New York, NY 10004
+                .fw-bold
+                  i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+                  | $184,000
+              .card-footer.d-flex.align-items-center.justify-content-center.mx-3.pt-3.text-nowrap
+                span.d-inline-block.mx-1.px-2.fs-sm 3
+                  i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 1
+                  i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 1
+                  i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+
+          // Item
+          .col-sm-6.col-xl-4
+            .card.shadow-sm.card-hover.border-0.h-100
+              .tns-carousel-wrapper.card-img-top.card-img-hover
+                a(href='real-estate-single-v1.html').img-overlay
+                .position-absolute.start-0.top-0.pt-3.ps-3
+                  span.d-table.badge.bg-info New
+                .content-overlay.end-0.top-0.pt-3.pe-3
+                  button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                    i.fi-heart
+                .tns-carousel-inner
+                  img(src='img/real-estate/catalog/23.jpg' alt='Image')
+                  img(src='img/real-estate/catalog/23.jpg' alt='Image')
+              .card-body.position-relative.pb-3
+                h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For sale
+                h3.h6.mb-2.fs-base
+                  a(href='real-estate-single-v1.html').nav-link.stretched-link Modern House | 170 sq.m
+                p.mb-2.fs-sm.text-muted 82 Nassau St New York, NY 10038
+                .fw-bold
+                  i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+                  | $620,400
+              .card-footer.d-flex.align-items-center.justify-content-center.mx-3.pt-3.text-nowrap
+                span.d-inline-block.mx-1.px-2.fs-sm 5
+                  i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 2
+                  i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 2
+                  i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+
+          // Item
+          .col-sm-6.col-xl-4
+            .card.shadow-sm.card-hover.border-0.h-100
+              .tns-carousel-wrapper.card-img-top.card-img-hover
+                a(href='real-estate-single-v1.html').img-overlay
+                .position-absolute.start-0.top-0.pt-3.ps-3
+                  span.d-table.badge.bg-danger Featured
+                .content-overlay.end-0.top-0.pt-3.pe-3
+                  button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                    i.fi-heart
+                .tns-carousel-inner
+                  img(src='img/real-estate/catalog/24.jpg' alt='Image')
+                  img(src='img/real-estate/catalog/24.jpg' alt='Image')
+              .card-body.position-relative.pb-3
+                h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For sale
+                h3.h6.mb-2.fs-base
+                  a(href='real-estate-single-v1.html').nav-link.stretched-link Duplex with Garage | 200 sq.m
+                p.mb-2.fs-sm.text-muted 21 Pulaski Road Kings Park, NY 11754
+                .fw-bold
+                  i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+                  | From $200,670
+              .card-footer.d-flex.align-items-center.justify-content-center.mx-3.pt-3.text-nowrap
+                span.d-inline-block.mx-1.px-2.fs-sm 4
+                  i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 2
+                  i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 3
+                  i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+
+          // Item
+          .col-sm-6.col-xl-4
+            .card.shadow-sm.card-hover.border-0.h-100
+              .tns-carousel-wrapper.card-img-top.card-img-hover
+                a(href='real-estate-single-v1.html').img-overlay
+                .position-absolute.start-0.top-0.pt-3.ps-3
+                  span.d-table.badge.bg-success Verified
+                .content-overlay.end-0.top-0.pt-3.pe-3
+                  button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                    i.fi-heart
+                .tns-carousel-inner
+                  img(src='img/real-estate/catalog/25.jpg' alt='Image')
+                  img(src='img/real-estate/catalog/25.jpg' alt='Image')
+              .card-body.position-relative.pb-3
+                h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For sale
+                h3.h6.mb-2.fs-base
+                  a(href='real-estate-single-v1.html').nav-link.stretched-link Studio | 40 sq.m
+                p.mb-2.fs-sm.text-muted 1879 Whitehaven Road Grand Island, NY 14072
+                .fw-bold
+                  i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+                  | $92,000
+              .card-footer.d-flex.align-items-center.justify-content-center.mx-3.pt-3.text-nowrap
+                span.d-inline-block.mx-1.px-2.fs-sm 1
+                  i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 1
+                  i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 1
+                  i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+
+          // Item
+          .col-sm-6.col-xl-4
+            .card.shadow-sm.card-hover.border-0.h-100
+              .tns-carousel-wrapper.card-img-top.card-img-hover
+                a(href='real-estate-single-v1.html').img-overlay
+                .content-overlay.end-0.top-0.pt-3.pe-3
+                  button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                    i.fi-heart
+                .tns-carousel-inner
+                  img(src='img/real-estate/catalog/26.jpg' alt='Image')
+                  img(src='img/real-estate/catalog/26.jpg' alt='Image')
+              .card-body.position-relative.pb-3
+                h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For sale
+                h3.h6.mb-2.fs-base
+                  a(href='real-estate-single-v1.html').nav-link.stretched-link Villa with Pool | 85 sq.m
+                p.mb-2.fs-sm.text-muted 21 India St Brooklyn, NY 11222
+                .fw-bold
+                  i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+                  | $105,000
+              .card-footer.d-flex.align-items-center.justify-content-center.mx-3.pt-3.text-nowrap
+                span.d-inline-block.mx-1.px-2.fs-sm 2
+                  i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 1
+                  i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 2
+                  i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+
+          // Item
+          .col-sm-6.col-xl-4
+            .card.shadow-sm.card-hover.border-0.h-100
+              .tns-carousel-wrapper.card-img-top.card-img-hover
+                a(href='real-estate-single-v1.html').img-overlay
+                .content-overlay.end-0.top-0.pt-3.pe-3
+                  button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                    i.fi-heart
+                .tns-carousel-inner
+                  img(src='img/real-estate/catalog/27.jpg' alt='Image')
+                  img(src='img/real-estate/catalog/27.jpg' alt='Image')
+              .card-body.position-relative.pb-3
+                h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For sale
+                h3.h6.mb-2.fs-base
+                  a(href='real-estate-single-v1.html').nav-link.stretched-link Family Home | 200 sq.m
+                p.mb-2.fs-sm.text-muted 140-60 Beech Ave Flushing, NY 11355
+                .fw-bold
+                  i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+                  | $740,000
+              .card-footer.d-flex.align-items-center.justify-content-center.mx-3.pt-3.text-nowrap
+                span.d-inline-block.mx-1.px-2.fs-sm 5
+                  i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 3
+                  i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 2
+                  i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+
+          // Item
+          .col-sm-6.col-xl-4
+            .card.shadow-sm.card-hover.border-0.h-100
+              .tns-carousel-wrapper.card-img-top.card-img-hover
+                a(href='real-estate-single-v1.html').img-overlay
+                .content-overlay.end-0.top-0.pt-3.pe-3
+                  button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                    i.fi-heart
+                .tns-carousel-inner
+                  img(src='img/real-estate/catalog/28.jpg' alt='Image')
+                  img(src='img/real-estate/catalog/28.jpg' alt='Image')
+              .card-body.position-relative.pb-3
+                h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For sale
+                h3.h6.mb-2.fs-base
+                  a(href='real-estate-single-v1.html').nav-link.stretched-link Merry House | 98 sq.m
+                p.mb-2.fs-sm.text-muted 123-12 Jamaica Ave Queens, NY 11418
+                .fw-bold
+                  i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+                  | $275,800
+              .card-footer.d-flex.align-items-center.justify-content-center.mx-3.pt-3.text-nowrap
+                span.d-inline-block.mx-1.px-2.fs-sm 3
+                  i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 1
+                  i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 2
+                  i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+
+          // Item
+          .col-sm-6.col-xl-4
+            .card.shadow-sm.card-hover.border-0.h-100
+              .tns-carousel-wrapper.card-img-top.card-img-hover
+                a(href='real-estate-single-v1.html').img-overlay
+                .position-absolute.start-0.top-0.pt-3.ps-3
+                  span.d-table.badge.bg-success.mb-1 Verified
+                  span.d-table.badge.bg-danger Featured
+                .content-overlay.end-0.top-0.pt-3.pe-3
+                  button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                    i.fi-heart
+                .tns-carousel-inner
+                  img(src='img/real-estate/catalog/29.jpg' alt='Image')
+                  img(src='img/real-estate/catalog/29.jpg' alt='Image')
+              .card-body.position-relative.pb-3
+                h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For sale
+                h3.h6.mb-2.fs-base
+                  a(href='real-estate-single-v1.html').nav-link.stretched-link White Cottage | 70 sq.m
+                p.mb-2.fs-sm.text-muted 3979 Albany Post Road Hyde Park, NY 12538
+                .fw-bold
+                  i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+                  | $84,000
+              .card-footer.d-flex.align-items-center.justify-content-center.mx-3.pt-3.text-nowrap
+                span.d-inline-block.mx-1.px-2.fs-sm 2
+                  i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 1
+                  i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 1
+                  i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+
+
+        // Pagination
+        nav.border-top.pb-md-4.pt-4.mt-2(aria-label='Pagination')
+          ul.pagination.mb-1
+            li.page-item.d-sm-none
+              span.page-link.page-link-static 1 / 5
+            li.page-item.active.d-none.d-sm-block(aria-current='page')
+              span.page-link
+                | 1
+                span.visually-hidden (current)
+            li.page-item.d-none.d-sm-block
+              a(href='#').page-link 2
+            li.page-item.d-none.d-sm-block
+              a(href='#').page-link 3
+            li.page-item.d-none.d-sm-block
+              | ...
+            li.page-item.d-none.d-sm-block
+              a(href='#').page-link 8
+            li.page-item
+              a(href='#' aria-label='Next').page-link
+                i.fi-chevron-right
+
+
+//- Footer
+block footer
+  include partials/footer-real-estate
+
+  // Filters sidebar toggle button (mobile)
+  button(type='button' data-bs-toggle='offcanvas' data-bs-target='#filters-sidebar').btn.btn-primary.btn-sm.w-100.rounded-0.fixed-bottom.d-lg-none
+    i.fi-filter.me-2
+    | Filters

@@ -1,0 +1,328 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css', 'vendor/prismjs/themes/prism.css', 'vendor/prismjs/plugins/toolbar/prism-toolbar.css', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js', 'vendor/prismjs/components/prism-core.min.js', 'vendor/prismjs/components/prism-markup.min.js', 'vendor/prismjs/components/prism-clike.min.js', 'vendor/prismjs/components/prism-javascript.min.js', 'vendor/prismjs/components/prism-pug.min.js', 'vendor/prismjs/plugins/toolbar/prism-toolbar.min.js', 'vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Placeholders'
+  - var pageSubtitle = 'Use loading placeholders for your components or pages to indicate something may still be loading.'
+  - var pageTitleLink = {'title': 'Bootstrap docs', 'link': 'https://getbootstrap.com/docs/5.2/components/placeholders/'}
+  - var anchorNav = [{'title': 'Width', 'link': '#placeholders-width'}, {'title': 'Color', 'link': '#placeholders-color'}, {'title': 'Sizing', 'link': '#placeholders-sizing'}, {'title': 'Animation', 'link': '#placeholders-animation'}, {'title': 'Use case example', 'link': '#placeholders-example'}]
+    
+//- Page Content
+block content
+
+  // Width
+  section#placeholders-width.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Width
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview1' data-bs-toggle='tab' role='tab' aria-controls='preview1' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview1.tab-pane.fade.show.active(role='tabpanel')
+          span.placeholder.col-6
+          span.placeholder.w-75
+          span(style='width: 33%;').placeholder
+        #html1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Width via col-* class --&gt;
+              &lt;span class=&quot;placeholder col-6&quot;&gt;&lt;/span&gt;
+
+              &lt;!-- Width via w-* class --&gt;
+              &lt;span class=&quot;placeholder w-75&quot;&gt;&lt;/span&gt;
+
+              &lt;!-- Width via style attribute --&gt;
+              &lt;span class=&quot;placeholder&quot; style=&quot;width: 33%;&quot;&gt;&lt;/span&gt;
+        #pug1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Width via col-* class
+              span.placeholder.col-6
+
+              // Width via w-* class
+              span.placeholder.w-75
+
+              // Width via style attribute
+              span(style=&quot;width: 33%;&quot;).placeholder
+
+  // Color
+  section#placeholders-color.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Color
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview2' data-bs-toggle='tab' role='tab' aria-controls='preview2' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview2.tab-pane.fade.show.active(role='tabpanel')
+          span.placeholder.col-12
+          span.placeholder.col-12.bg-primary
+          span.placeholder.col-12.bg-success
+          span.placeholder.col-12.bg-danger
+          span.placeholder.col-12.bg-warning
+          span.placeholder.col-12.bg-info
+          .bg-dark.p-2.my-2
+            span.placeholder.col-12.bg-light
+          span.placeholder.col-12.bg-dark
+        #html2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Default --&gt;
+              &lt;span class=&quot;placeholder col-12&quot;&gt;&lt;/span&gt;
+
+              &lt;!-- Primary --&gt;
+              &lt;span class=&quot;placeholder col-12 bg-primary&quot;&gt;&lt;/span&gt;
+
+              &lt;!-- Success --&gt;
+              &lt;span class=&quot;placeholder col-12 bg-success&quot;&gt;&lt;/span&gt;
+
+              &lt;!-- Danger --&gt;
+              &lt;span class=&quot;placeholder col-12 bg-danger&quot;&gt;&lt;/span&gt;
+
+              &lt;!-- Warning --&gt;
+              &lt;span class=&quot;placeholder col-12 bg-warning&quot;&gt;&lt;/span&gt;
+
+              &lt;!-- Info --&gt;
+              &lt;span class=&quot;placeholder col-12 bg-info&quot;&gt;&lt;/span&gt;
+
+              &lt;!-- Light --&gt;
+              &lt;span class=&quot;placeholder col-12 bg-light&quot;&gt;&lt;/span&gt;
+
+              &lt;!-- Dark --&gt;
+              &lt;span class=&quot;placeholder col-12 bg-dark&quot;&gt;&lt;/span&gt;
+        #pug2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Default
+              span.placeholder.col-12
+
+              // Primary
+              span.placeholder.col-12.bg-primary
+
+              // Success
+              span.placeholder.col-12.bg-success
+
+              // Danger
+              span.placeholder.col-12.bg-danger
+
+              // Warning
+              span.placeholder.col-12.bg-warning
+
+              // Info
+              span.placeholder.col-12.bg-info
+
+              // Light
+              span.placeholder.col-12.bg-light
+
+              // Dark
+              span.placeholder.col-12.bg-dark
+
+  // Sizing
+  section#placeholders-sizing.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Sizing
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview3' data-bs-toggle='tab' role='tab' aria-controls='preview3' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview3.tab-pane.fade.show.active(role='tabpanel')
+          span.placeholder.col-12.placeholder-lg
+          span.placeholder.col-12
+          span.placeholder.col-12.placeholder-sm
+          span.placeholder.col-12.placeholder-xs
+        #html3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Large --&gt;
+              &lt;span class=&quot;placeholder col-12 placeholder-lg&quot;&gt;&lt;/span&gt;
+
+              &lt;!-- Normal --&gt;
+              &lt;span class=&quot;placeholder col-12&quot;&gt;&lt;/span&gt;
+
+              &lt;!-- Small --&gt;
+              &lt;span class=&quot;placeholder col-12 placeholder-sm&quot;&gt;&lt;/span&gt;
+
+              &lt;!-- Extra small --&gt;
+              &lt;span class=&quot;placeholder col-12 placeholder-xs&quot;&gt;&lt;/span&gt;
+        #pug3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Large
+              span.placeholder.col-12.placeholder-lg
+
+              // Normal
+              span.placeholder.col-12
+
+              // Small
+              span.placeholder.col-12.placeholder-sm
+
+              // Extra small
+              span.placeholder.col-12.placeholder-xs
+
+  // Animation
+  section#placeholders-animation.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Animation
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview4' data-bs-toggle='tab' role='tab' aria-controls='preview4' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview4.tab-pane.fade.show.active(role='tabpanel')
+          p.placeholder-glow
+            span.placeholder.col-12
+          span.placeholder.placeholder-wave.col-12
+        #html4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Glow animation --&gt;
+              &lt;p class=&quot;placeholder-glow&quot;&gt;
+                &lt;span class=&quot;placeholder col-12&quot;&gt;&lt;/span&gt;
+              &lt;/p&gt;
+
+              &lt;!-- Wave animation --&gt;
+              &lt;span class=&quot;placeholder placeholder-wave col-12&quot;&gt;&lt;/span&gt;
+        #pug4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Glow animation
+              p.placeholder-glow
+                span.placeholder.col-12
+
+              // Wave animation
+              span.placeholder.placeholder-wave.col-12
+
+  // Use case example
+  section#placeholders-example.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Use case example
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview5' data-bs-toggle='tab' role='tab' aria-controls='preview5' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html5' data-bs-toggle='tab' role='tab' aria-controls='html5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug5' data-bs-toggle='tab' role='tab' aria-controls='pug5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview5.tab-pane.fade.show.active(role='tabpanel')
+          .card(aria-hidden='true' style='max-width: 22rem;')
+            .position-relative.placeholder-wave
+              .card-img-top.placeholder.ratio.ratio-16x9
+              i.ai-image.position-absolute.top-50.start-50.translate-middle.fs-1.opacity-50
+            .card-body
+              h5.card-title.placeholder-glow
+                span.placeholder.col-6
+              p.card-text.placeholder-glow
+                span.placeholder.placeholder-sm.col-7.me-2
+                span.placeholder.placeholder-sm.col-4
+                span.placeholder.placeholder-sm.col-4.me-2
+                span.placeholder.placeholder-sm.col-6
+                span.placeholder.placeholder-sm.col-8
+              a(href='#' tabindex='-1').btn.btn-primary.disabled.placeholder.col-6.placeholder-wave &nbsp;
+        #html5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Loading placeholders example --&gt;
+              &lt;div class=&quot;card&quot; aria-hidden=&quot;true&quot;&gt;
+                &lt;div class=&quot;position-relative placeholder-wave&quot;&gt;
+                  &lt;div class=&quot;card-img-top placeholder ratio ratio-16x9&quot;&gt;&lt;/div&gt;
+                  &lt;i class=&quot;ai-image position-absolute top-50 start-50 translate-middle fs-1 opacity-50&quot;&gt;&lt;/i&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;card-body&quot;&gt;
+                  &lt;h5 class=&quot;card-title placeholder-glow&quot;&gt;
+                    &lt;span class=&quot;placeholder col-6&quot;&gt;&lt;/span&gt;
+                  &lt;/h5&gt;
+                  &lt;p class=&quot;card-text placeholder-glow&quot;&gt;
+                    &lt;span class=&quot;placeholder placeholder-sm col-7 me-2&quot;&gt;&lt;/span&gt;
+                    &lt;span class=&quot;placeholder placeholder-sm col-4&quot;&gt;&lt;/span&gt;
+                    &lt;span class=&quot;placeholder placeholder-sm col-4 me-2&quot;&gt;&lt;/span&gt;
+                    &lt;span class=&quot;placeholder placeholder-sm col-6&quot;&gt;&lt;/span&gt;
+                    &lt;span class=&quot;placeholder placeholder-sm col-8&quot;&gt;&lt;/span&gt;
+                  &lt;/p&gt;
+                  &lt;a href=&quot;#&quot; tabindex=&quot;-1&quot; class=&quot;btn btn-primary disabled placeholder col-6 placeholder-wave&quot;&gt;&lt;/a&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Loading placeholders example
+              .card(aria-hidden=&quot;true&quot;)
+                .position-relative.placeholder-wave
+                  .card-img-top.placeholder.ratio.ratio-16x9
+                  i.ai-image.position-absolute.top-50.start-50.translate-middle.fs-1.opacity-50
+                .card-body
+                  h5.card-title.placeholder-glow
+                    span.placeholder.col-6
+                  p.card-text.placeholder-glow
+                    span.placeholder.placeholder-sm.col-7.me-2
+                    span.placeholder.placeholder-sm.col-4
+                    span.placeholder.placeholder-sm.col-4.me-2
+                    span.placeholder.placeholder-sm.col-6
+                    span.placeholder.placeholder-sm.col-8
+                  a(href=&quot;#&quot;, tabindex=&quot;-1&quot;).btn.btn-primary.disabled.placeholder.col-6.placeholder-wave

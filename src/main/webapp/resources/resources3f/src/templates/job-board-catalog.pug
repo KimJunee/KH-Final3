@@ -1,0 +1,531 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var parentMenu = 'Catalog'
+  - var pageTitle = 'Job Board | Catalog (List of Jobs)'
+
+//- Navbar
+block navbar
+  include partials/navbar-job-board
+
+//- Page Content
+block content
+
+  // Page header
+  section.bg-dark.pt-5
+    .container.py-5
+      h1.text-light.pt-1.pt-md-3.mb-4 Find jobs
+
+      // Search form
+      form.form-group.form-group-light.d-block.rounded-lg-pill.mb-4
+        .row.align-items-center.g-0.ms-n2
+          .col-lg-3.col-xl-4
+            .input-group.input-group-lg.border-end-lg.border-light
+              span.input-group-text.text-light.rounded-pill.opacity-50.ps-3
+                i.fi-search
+              input(type='text' placeholder='Search site...').form-control
+          hr.hr-light.d-lg-none.my-2
+          .col-lg-5.d-sm-flex
+            .dropdown.w-sm-50.border-end-sm.border-light(data-bs-toggle='select')
+              button(type='button' data-bs-toggle='dropdown').btn.btn-link.dropdown-toggle
+                i.fi-list.me-2
+                span.dropdown-toggle-label Category
+              input(type='hidden')
+              ul.dropdown-menu.dropdown-menu-dark.my-3
+                li
+                  a(href='#').dropdown-item
+                    span.dropdown-item-label Accounting
+                li
+                  a(href='#').dropdown-item
+                    span.dropdown-item-label Marketing &amp; PR
+                li
+                  a(href='#').dropdown-item
+                    span.dropdown-item-label Medicine
+                li
+                  a(href='#').dropdown-item
+                    span.dropdown-item-label Internet technology
+                li
+                  a(href='#').dropdown-item
+                    span.dropdown-item-label HoReCa
+                li
+                  a(href='#').dropdown-item
+                    span.dropdown-item-label Design, creativity
+                li
+                  a(href='#').dropdown-item
+                    span.dropdown-item-label Fitness &amp; sports
+            hr.hr-light.d-sm-none.my-2
+            .dropdown.w-sm-50.border-end-lg.border-light(data-bs-toggle='select')
+              button(type='button' data-bs-toggle='dropdown').btn.btn-link.dropdown-toggle
+                i.fi-map-pin.me-2
+                span.dropdown-toggle-label Location
+              input(type='hidden')
+              ul.dropdown-menu.dropdown-menu-dark.my-3
+                li
+                  a(href='#').dropdown-item
+                    span.dropdown-item-label Dallas
+                li
+                  a(href='#').dropdown-item
+                    span.dropdown-item-label Chicago
+                li
+                  a(href='#').dropdown-item
+                    span.dropdown-item-label Houston
+                li
+                  a(href='#').dropdown-item
+                    span.dropdown-item-label Las Vegas
+                li
+                  a(href='#').dropdown-item
+                    span.dropdown-item-label Los Angeles
+                li
+                  a(href='#').dropdown-item
+                    span.dropdown-item-label New York
+                li
+                  a(href='#').dropdown-item
+                    span.dropdown-item-label San Francisco
+          hr.hr-light.d-lg-none.my-2
+          .col-lg-4.col-xl-3.d-flex.align-items-center
+            .dropdown.w-50.w-lg-100(data-bs-toggle='select')
+              button(type='button' data-bs-toggle='dropdown').btn.btn-link.dropdown-toggle
+                i.fi-geo.me-2
+                span.dropdown-toggle-label Distance
+              input(type='hidden')
+              ul.dropdown-menu.dropdown-menu-dark.my-3
+                li
+                  a(href='#').dropdown-item
+                    span.dropdown-item-label 10 miles
+                li
+                  a(href='#').dropdown-item
+                    span.dropdown-item-label 20 miles
+                li
+                  a(href='#').dropdown-item
+                    span.dropdown-item-label 30 miles
+                li
+                  a(href='#').dropdown-item
+                    span.dropdown-item-label 40 miles
+                li
+                  a(href='#').dropdown-item
+                    span.dropdown-item-label 50 miles
+            button(type='button').btn.btn-primary.btn-lg.w-50.w-lg-auto.rounded-pill Find jobs
+        
+      // Search params (dropdowns)
+      .d-sm-flex.justify-content-between.pt-2.pb-1.pb-md-3.pb-lg-4
+        .d-flex.flex-column.flex-sm-row.flex-wrap
+          .dropdown.me-sm-3.mb-2.mb-sm-3(data-bs-toggle='select')
+            button(type='button' data-bs-toggle='dropdown').btn.btn-translucent-light.btn-sm.dropdown-toggle.fs-base.fw-normal.w-100.text-start
+              span.dropdown-toggle-label Publication date
+            ul.dropdown-menu.my-1
+              li
+                a(href='#').dropdown-item
+                  span.dropdown-item-label Most recent
+              li
+                a(href='#').dropdown-item
+                  span.dropdown-item-label 5 days
+              li
+                a(href='#').dropdown-item
+                  span.dropdown-item-label 15 days
+              li
+                a(href='#').dropdown-item
+                  span.dropdown-item-label 1 week
+              li
+                a(href='#').dropdown-item
+                  span.dropdown-item-label 1 month
+          .dropdown.me-sm-3.mb-2.mb-sm-3(data-bs-toggle='select')
+            button(type='button' data-bs-toggle='dropdown').btn.btn-translucent-light.btn-sm.dropdown-toggle.fs-base.fw-normal.w-100.text-start
+              span.dropdown-toggle-label Job type
+            ul.dropdown-menu.my-1
+              li
+                a(href='#').dropdown-item
+                  span.dropdown-item-label Full-time
+              li
+                a(href='#').dropdown-item
+                  span.dropdown-item-label Part-time
+              li
+                a(href='#').dropdown-item
+                  span.dropdown-item-label Remote
+              li
+                a(href='#').dropdown-item
+                  span.dropdown-item-label Temporary
+              li
+                a(href='#').dropdown-item
+                  span.dropdown-item-label Contract
+              li
+                a(href='#').dropdown-item
+                  span.dropdown-item-label Internship
+          .dropdown.me-sm-3.mb-2.mb-sm-3(data-bs-toggle='select')
+            button(type='button' data-bs-toggle='dropdown').btn.btn-translucent-light.btn-sm.dropdown-toggle.fs-base.fw-normal.w-100.text-start
+              span.dropdown-toggle-label Company
+            ul.dropdown-menu.my-1
+              li
+                a(href='#').dropdown-item
+                  span.dropdown-item-label IT Pro TV
+              li
+                a(href='#').dropdown-item
+                  span.dropdown-item-label Zalo Tech Company
+              li
+                a(href='#').dropdown-item
+                  span.dropdown-item-label Elastic Inc.
+              li
+                a(href='#').dropdown-item
+                  span.dropdown-item-label Lift Web
+              li
+                a(href='#').dropdown-item
+                  span.dropdown-item-label Xbox Company
+              li
+                a(href='#').dropdown-item
+                  span.dropdown-item-label Zapier
+          .dropdown.me-sm-3.mb-2.mb-sm-3(data-bs-toggle='select')
+            button(type='button' data-bs-toggle='dropdown').btn.btn-translucent-light.btn-sm.dropdown-toggle.fs-base.fw-normal.w-100.text-start
+              span.dropdown-toggle-label Salary range
+            ul.dropdown-menu.my-1
+              li
+                a(href='#').dropdown-item
+                  span.dropdown-item-label $500 - $1,000
+              li
+                a(href='#').dropdown-item
+                  span.dropdown-item-label $1,000 - $2,000
+              li
+                a(href='#').dropdown-item
+                  span.dropdown-item-label $2,000 - $5,000
+              li
+                a(href='#').dropdown-item
+                  span.dropdown-item-label $5,000 - $10,000
+              li
+                a(href='#').dropdown-item
+                  span.dropdown-item-label $10,000 - $20,000
+              li
+                a(href='#').dropdown-item
+                  span.dropdown-item-label $20,000 - $50,000
+        a(href='#').d-inline-block.text-light.text-nowrap.py-3 Advanced search
+            
+  
+  // Page content
+  section.position-relative.bg-white.rounded-xxl-4.zindex-5(style='margin-top: -30px;')
+    .container.pt-4.pb-5.mb-md-4
+
+      // Breadcrumb
+      nav(aria-label='Breadcrumb').pb-4.my-2
+        ol.breadcrumb.m-0
+          li.breadcrumb-item
+            a(href='job-board-home-v1.html') Home
+          li(aria-current='page').breadcrumb-item.active Find jobs
+      
+      .row
+
+        // List of jobs
+        .col-lg-5.col-md-6.position-relative.mb-4.mb-md-0(style='z-index: 1025;')
+
+          // Sorting
+          .d-sm-flex.align-items-center.justify-content-between.pb-4.mb-sm-2
+            .d-flex.align-items-center
+              label(for='sorting').fs-sm.me-2.pe-1.text-nowrap
+                i.fi-arrows-sort.mt-n1.me-2
+                | Sort by:
+              select(id='sorting').form-select.form-select-sm
+                option Newest
+                option Popular
+                option Highest Salary
+            .text-muted.fs-sm.text-nowrap
+              i.fi-briefcase.fs-base.mt-n1.me-2
+              | 2948 jobs
+            
+
+          // Item
+          .card.bg-secondary.card-hover.mb-2
+            .card-body
+              .d-flex.justify-content-between.align-items-start.mb-2
+                .d-flex.align-items-center
+                  img(src='img/job-board/company/it-pro.png' width='24' alt='IT Pro Logo').me-2
+                  span.fs-sm.text-dark.opacity-80.px-1 IT Pro TV
+                .dropdown.content-overlay
+                  button(type='button' id='contextMenu1' data-bs-toggle='dropdown' aria-expanded='false').btn.btn-icon.btn-light.btn-xs.rounded-circle.shadow-sm
+                    i.fi-dots-vertical
+                  ul(aria-labelledby='contextMenu1').dropdown-menu.my-1
+                    li
+                      button(type='button').dropdown-item
+                        i.fi-heart.opacity-60.me-2
+                        | Add to Saved Jobs
+                    li
+                      button(type='button').dropdown-item
+                        i.fi-x-circle.opacity-60.me-2
+                        | Not interested
+              h3.h6.card-title.pt-1.mb-3
+                a(href='job-board-single.html').text-nav.stretched-link.text-decoration-none Business Analyst
+              .fs-sm
+                span.text-nowrap.me-3
+                  i.fi-map-pin.text-muted.me-1 
+                  | Chicago
+                span.text-nowrap.me-3
+                  i.fi-cash.fs-base.text-muted.me-1
+                  | $7,500
+        
+          // Item
+          .card.bg-secondary.card-hover.mb-2
+            .card-body
+              .d-flex.justify-content-between.align-items-start.mb-2
+                .d-flex.align-items-center
+                  img(src='img/job-board/company/zalo.png' width='24' alt='Zalo Logo').me-2
+                  span.fs-sm.text-dark.opacity-80.px-1 Zalo Tech Company
+                  span.badge.bg-faded-accent.rounded-pill.fs-sm.ms-2 Featured
+                .dropdown.content-overlay
+                  button(type='button' id='contextMenu2' data-bs-toggle='dropdown' aria-expanded='false').btn.btn-icon.btn-light.btn-xs.rounded-circle.shadow-sm
+                    i.fi-dots-vertical
+                  ul(aria-labelledby='contextMenu2').dropdown-menu.my-1
+                    li
+                      button(type='button').dropdown-item
+                        i.fi-heart.opacity-60.me-2
+                        | Add to Saved Jobs
+                    li
+                      button(type='button').dropdown-item
+                        i.fi-x-circle.opacity-60.me-2
+                        | Not interested
+              h3.h6.card-title.pt-1.mb-3
+                a(href='job-board-single.html').text-nav.stretched-link.text-decoration-none Partnership Manager
+              .fs-sm
+                span.text-nowrap.me-3
+                  i.fi-map-pin.text-muted.me-1 
+                  | New York
+                span.text-nowrap.me-3
+                  i.fi-cash.fs-base.text-muted.me-1
+                  | $10,000
+        
+          // Item
+          .card.bg-secondary.card-hover.mb-2
+            .card-body
+              .d-flex.justify-content-between.align-items-start.mb-2
+                .d-flex.align-items-center
+                  img(src='img/job-board/company/elastic.png' width='24' alt='Elastic Logo').me-2
+                  span.fs-sm.text-dark.opacity-80.px-1 Elastic Inc.
+                  span.badge.bg-faded-danger.rounded-pill.fs-sm.ms-2 Hot
+                .dropdown.content-overlay
+                  button(type='button' id='contextMenu3' data-bs-toggle='dropdown' aria-expanded='false').btn.btn-icon.btn-light.btn-xs.rounded-circle.shadow-sm
+                    i.fi-dots-vertical
+                  ul(aria-labelledby='contextMenu3').dropdown-menu.my-1
+                    li
+                      button(type='button').dropdown-item
+                        i.fi-heart.opacity-60.me-2
+                        | Add to Saved Jobs
+                    li
+                      button(type='button').dropdown-item
+                        i.fi-x-circle.opacity-60.me-2
+                        | Not interested
+              h3.h6.card-title.pt-1.mb-3
+                a(href='job-board-single.html').text-nav.stretched-link.text-decoration-none Senior Credit Analyst
+              .fs-sm
+                span.text-nowrap.me-3
+                  i.fi-map-pin.text-muted.me-1 
+                  | Dallas
+                span.text-nowrap.me-3
+                  i.fi-cash.fs-base.text-muted.me-1
+                  | $8,000
+        
+          // Item
+          .card.bg-secondary.card-hover.mb-2
+            .card-body
+              .d-flex.justify-content-between.align-items-start.mb-2
+                .d-flex.align-items-center
+                  img(src='img/job-board/company/lift-web.png' width='24' alt='Lift Web Logo').me-2
+                  span.fs-sm.text-dark.opacity-80.px-1 Lift Web
+                .dropdown.content-overlay
+                  button(type='button' id='contextMenu4' data-bs-toggle='dropdown' aria-expanded='false').btn.btn-icon.btn-light.btn-xs.rounded-circle.shadow-sm
+                    i.fi-dots-vertical
+                  ul(aria-labelledby='contextMenu4').dropdown-menu.my-1
+                    li
+                      button(type='button').dropdown-item
+                        i.fi-heart.opacity-60.me-2
+                        | Add to Saved Jobs
+                    li
+                      button(type='button').dropdown-item
+                        i.fi-x-circle.opacity-60.me-2
+                        | Not interested
+              h3.h6.card-title.pt-1.mb-3
+                a(href='job-board-single.html').text-nav.stretched-link.text-decoration-none Account Manager
+              .fs-sm
+                span.text-nowrap.me-3
+                  i.fi-map-pin.text-muted.me-1 
+                  | Houston
+                span.text-nowrap.me-3
+                  i.fi-cash.fs-base.text-muted.me-1
+                  | $5,000
+        
+          // Item
+          .card.bg-secondary.card-hover.mb-2
+            .card-body
+              .d-flex.justify-content-between.align-items-start.mb-2
+                .d-flex.align-items-center
+                  img(src='img/job-board/company/xbox.png' width='24' alt='Xbox Logo').me-2
+                  span.fs-sm.text-dark.opacity-80.px-1 Xbox Company
+                .dropdown.content-overlay
+                  button(type='button' id='contextMenu5' data-bs-toggle='dropdown' aria-expanded='false').btn.btn-icon.btn-light.btn-xs.rounded-circle.shadow-sm
+                    i.fi-dots-vertical
+                  ul(aria-labelledby='contextMenu5').dropdown-menu.my-1
+                    li
+                      button(type='button').dropdown-item
+                        i.fi-heart.opacity-60.me-2
+                        | Add to Saved Jobs
+                    li
+                      button(type='button').dropdown-item
+                        i.fi-x-circle.opacity-60.me-2
+                        | Not interested
+              h3.h6.card-title.pt-1.mb-3
+                a(href='job-board-single.html').text-nav.stretched-link.text-decoration-none Full-Stack Developer
+              .fs-sm
+                span.text-nowrap.me-3
+                  i.fi-map-pin.text-muted.me-1 
+                  | Washington
+                span.text-nowrap.me-3
+                  i.fi-cash.fs-base.text-muted.me-1
+                  | $13,000
+        
+          // Item
+          .card.bg-secondary.card-hover.mb-2
+            .card-body
+              .d-flex.justify-content-between.align-items-start.mb-2
+                .d-flex.align-items-center
+                  img(src='img/job-board/company/zapier.png' width='24' alt='Zapier Logo').me-2
+                  span.fs-sm.text-dark.opacity-80.px-1 Zapier
+                  span.badge.bg-faded-danger.rounded-pill.fs-sm.ms-2 Hot
+                .dropdown.content-overlay
+                  button(type='button' id='contextMenu6' data-bs-toggle='dropdown' aria-expanded='false').btn.btn-icon.btn-light.btn-xs.rounded-circle.shadow-sm
+                    i.fi-dots-vertical
+                  ul(aria-labelledby='contextMenu6').dropdown-menu.my-1
+                    li
+                      button(type='button').dropdown-item
+                        i.fi-heart.opacity-60.me-2
+                        | Add to Saved Jobs
+                    li
+                      button(type='button').dropdown-item
+                        i.fi-x-circle.opacity-60.me-2
+                        | Not interested
+              h3.h6.card-title.pt-1.mb-3
+                a(href='job-board-single.html').text-nav.stretched-link.text-decoration-none Onboardng Specialist
+              .fs-sm
+                span.text-nowrap.me-3
+                  i.fi-map-pin.text-muted.me-1 
+                  | Houston
+                span.text-nowrap.me-3
+                  i.fi-cash.fs-base.text-muted.me-1
+                  | $4,000
+        
+          // Item
+          .card.bg-secondary.card-hover.mb-2
+            .card-body
+              .d-flex.justify-content-between.align-items-start.mb-2
+                .d-flex.align-items-center
+                  img(src='img/job-board/company/kibana.png' width='24' alt='Kibana Logo').me-2
+                  span.fs-sm.text-dark.opacity-80.px-1 Elastic Kibana
+                  span.badge.bg-faded-info.rounded-pill.fs-sm.ms-2 New
+                .dropdown.content-overlay
+                  button(type='button' id='contextMenu7' data-bs-toggle='dropdown' aria-expanded='false').btn.btn-icon.btn-light.btn-xs.rounded-circle.shadow-sm
+                    i.fi-dots-vertical
+                  ul(aria-labelledby='contextMenu7').dropdown-menu.my-1
+                    li
+                      button(type='button').dropdown-item
+                        i.fi-heart.opacity-60.me-2
+                        | Add to Saved Jobs
+                    li
+                      button(type='button').dropdown-item
+                        i.fi-x-circle.opacity-60.me-2
+                        | Not interested
+              h3.h6.card-title.pt-1.mb-3
+                a(href='job-board-single.html').text-nav.stretched-link.text-decoration-none Global Product Operations Specialist
+              .fs-sm
+                span.text-nowrap.me-3
+                  i.fi-map-pin.text-muted.me-1 
+                  | San Francisco
+                span.text-nowrap.me-3
+                  i.fi-cash.fs-base.text-muted.me-1
+                  | $9,200
+        
+          // Item
+          .card.bg-secondary.card-hover.mb-2
+            .card-body
+              .d-flex.justify-content-between.align-items-start.mb-2
+                .d-flex.align-items-center
+                  img(src='img/job-board/company/xampp.png' width='24' alt='XAMPP Logo').me-2
+                  span.fs-sm.text-dark.opacity-80.px-1 XAMPP Company
+                .dropdown.content-overlay
+                  button(type='button' id='contextMenu8' data-bs-toggle='dropdown' aria-expanded='false').btn.btn-icon.btn-light.btn-xs.rounded-circle.shadow-sm
+                    i.fi-dots-vertical
+                  ul(aria-labelledby='contextMenu8').dropdown-menu.my-1
+                    li
+                      button(type='button').dropdown-item
+                        i.fi-heart.opacity-60.me-2
+                        | Add to Saved Jobs
+                    li
+                      button(type='button').dropdown-item
+                        i.fi-x-circle.opacity-60.me-2
+                        | Not interested
+              h3.h6.card-title.pt-1.mb-3
+                a(href='job-board-single.html').text-nav.stretched-link.text-decoration-none Sales Manager
+              .fs-sm
+                span.text-nowrap.me-3
+                  i.fi-map-pin.text-muted.me-1 
+                  | New Jersey
+                span.text-nowrap.me-3
+                  i.fi-cash.fs-base.text-muted.me-1
+                  | $6,500
+
+          // Pagination
+          nav.pt-4.pb-2(aria-label='Blog pagination')
+            ul.pagination.mb-0
+              li.page-item.d-sm-none
+                span.page-link.page-link-static 1 / 8
+              li.page-item.active(aria-current='page').d-none.d-sm-block
+                span.page-link
+                  | 1
+                  span.visually-hidden (current)
+              li.page-item.d-none.d-sm-block
+                a(href='#').page-link 2
+              li.page-item.d-none.d-sm-block
+                a(href='#').page-link 3
+              li.page-item.d-none.d-sm-block
+                | ...
+              li.page-item.d-none.d-sm-block
+                a(href='#').page-link 8
+              li.page-item
+                a.page-link(href='#' aria-label='Next')
+                  i.fi-chevron-right
+
+        
+        // Sticky sidebar
+        aside.col-lg-7.col-md-6(style='margin-top: -6rem;')
+          .sticky-top(style='padding-top: 6rem;')
+            .card.shadow-sm.p-lg-3.mb-3.mb-lg-0
+              .card-body.p-lg-4
+                h2.h3 Subscribe to our newsletter
+                p Don’t miss any job updates and relevant vacancies info!
+                form.form-group.rounded-pill.mb-3
+                  .input-group
+                    span.input-group-text.text-muted
+                      i.fi-mail.text-muted
+                    input(type='text' placeholder='Your email').form-control
+                  button(type='button').btn.btn-primary.rounded-pill Subscribe
+                .form-check
+                  input(type='checkbox' id='agree').form-check-input
+                  label(for='agree').form-check-label I agree to receive communications from Finder.
+                hr.my-4
+                .d-flex.align-items-end
+                  .fs-lg.fw-bold.me-3
+                    | Like our jobs?
+                    br
+                    | Receive vacancies in Telegram
+                  a(href="#").btn.btn-icon.btn-translucent-primary.btn-xs.rounded-circle
+                    i.fi-telegram
+            .pt-4.pt-lg-5.ps-4.ps-lg-5
+              h2.h3 My last search queries:
+              ul.list-unstyled.mb-0
+                li.mb-0
+                  a(href='#').nav-link.d-inline-block.fw-normal.px-0.py-1 Accountant
+                li.mb-0
+                  a(href='#').nav-link.d-inline-block.fw-normal.px-0.py-1 Manager
+                li.mb-0
+                  a(href='#').nav-link.d-inline-block.fw-normal.px-0.py-1 Administrator
+                li.mb-0
+                  a(href='#').nav-link-muted.d-inline-block.fw-bold.py-1
+                    | Clear all
+                    i.fi-x.fs-xs.ms-2
+                  
+
+//- Footer
+block footer
+  include partials/footer-job-board

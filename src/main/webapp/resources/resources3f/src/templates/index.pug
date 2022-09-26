@@ -1,0 +1,205 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var pageTitle = 'Directory & Listings Bootstrap Template'
+  - var isDemoSwitcher = false
+
+//- Page Content
+block content
+
+  // Navbar (Header)
+  header.navbar.navbar-expand-md.navbar-light.fixed-top
+    .container
+      a(href='#').navbar-brand.me-2.me-xl-4
+        img(src='img/logo/logo-dark.svg' width='116' alt='Finder').d-block
+      button(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation').navbar-toggler.ms-auto
+        span.navbar-toggler-icon
+      a(href='https://themes.getbootstrap.com/product/finder-directory-listings-template-ui-kit/' target='_blank' rel='noopener').btn.btn-primary.btn-sm.rounded-pill.ms-2.order-md-3
+        i.fi-cart.fs-base.me-2
+        | Buy Finder
+      #navbarNav.collapse.navbar-collapse.order-md-2
+        ul.navbar-nav
+          li.nav-item.dropdown
+            a(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false').nav-link.dropdown-toggle Demos
+            ul.dropdown-menu
+              li
+                a(href='real-estate-home-v1.html').dropdown-item
+                  i.fi-building.fs-base.opacity-50.me-2
+                  | Real Estate Demo
+              li.dropdown-divider
+              li
+                a(href='car-finder-home.html').dropdown-item
+                  i.fi-car.fs-base.opacity-50.me-2
+                  | Car Finder Demo
+              li.dropdown-divider
+              li
+                a(href='job-board-home-v1.html').dropdown-item
+                  i.fi-briefcase.fs-base.opacity-50.me-2
+                  | Job Board Demo
+              li.dropdown-divider
+              li
+                a(href='city-guide-home-v1.html').dropdown-item
+                  i.fi-map-pin.fs-base.opacity-50.me-2
+                  | City Guide Demo
+          li.nav-item
+            a(href='components/typography.html').nav-link UI Kit (Components)
+          li.nav-item
+            a(href='docs/dev-setup.html').nav-link Documentation
+
+  
+  // Hero (Demos)
+  section.position-relative.overflow-hidden.py-5.mb-5
+    .d-none.d-xl-block.position-absolute.top-0.start-0.h-100.bg-secondary(style='width: 67%; border-bottom-right-radius: .75rem;')
+    .d-xl-none.position-absolute.top-0.start-0.w-100.h-100.bg-secondary
+    .container.content-overlay.mt-4.mb-2.mt-lg-5.mb-lg-4.pt-5.pb-md-2
+      h1.display-4.text-center.text-md-start Find your ideal
+      .row
+        .d-none.d-md-block.col-md-2.pt-4.mt-4
+          img(src='img/intro/swirly-arrow.svg' width='120' alt='Arrow')
+        .col-md-10.d-md-flex.mt-md-n4
+
+          // Real Estate
+          .d-block.hover-img-scale.position-relative.zindex-5.mt-md-5.mx-auto.me-md-n5.mb-4.mb-md-0(style='max-width: 633px;')
+            .pt-md-5.mt-4.me-md-n5
+              h2.h4.mb-2.pb-1.ms-md-3
+                a(href='real-estate-home-v1.html').nav-link.stretched-link.d-flex.align-items-center.justify-content-center.justify-content-md-start
+                  i.fi-building.text-primary.me-2.pe-1
+                  span Property
+              .position-relative.zindex-0
+                img(src='img/intro/demos/real-estate.png' alt='Real Estate Demo').position-relative.zindex-5
+                .d-none.d-md-block.position-absolute.zindex-1(style='top: 15px; left: 20px; width: calc(100% - 40px); height: calc(100% - 50px); box-shadow: 33px 26px 85px rgba(0, 0, 0, .14);')
+
+          // Job Board
+          .d-block.hover-img-scale.position-relative.mt-md-n5.mx-auto.me-md-n3(style='max-width: 550px;')
+            h2.h4.ms-md-3
+              a(href='job-board-home-v1.html').nav-link.stretched-link.d-flex.align-items-center.justify-content-center.justify-content-md-start
+                i.fi-briefcase.text-primary.me-2.pe-1
+                span Job
+            img(src='img/intro/demos/job-board.png' alt='Job Board Demo')
+        
+        .col-md-12.d-md-flex.pt-2.pt-md-0.mt-md-n5
+
+          // City Guide
+          .d-block.hover-img-scale.position-relative.my-4.mt-md-5.mb-md-0.mx-auto.ms-md-0.me-md-3(style='max-width: 550px;')
+            h2.h4.ms-md-3
+              a(href='city-guide-home-v1.html').nav-link.stretched-link.d-flex.align-items-center.justify-content-center.justify-content-md-start
+                i.fi-map-pin.text-primary.me-2.pe-1
+                span City place
+            img(src='img/intro/demos/city-guide.png' alt='City Guide Demo')
+
+          // Car Finder
+          .d-block.hover-img-scale.position-relative.mt-md-n5.mx-auto.me-md-n3(style='max-width: 636px;')
+            .d-flex.flex-column
+              h2.h4.order-md-2.mb-4.mb-md-0.mt-md-4
+                a(href='car-finder-home.html').nav-link.stretched-link.d-flex.align-items-center.justify-content-center.justify-content-md-start
+                  i.fi-car.text-primary.me-2.pe-1
+                  span Car
+              img(src='img/intro/demos/car-finder.png' alt='Car Finder Demo').d-block.order-md-1.mt-md-n2
+  
+  
+  // Features
+  section.container.pt-md-4.pt-xl-5.pb-lg-3.pb-xl-5
+    .row.mb-5
+      .col-lg-3
+        h2.py-2.pb-md-3.pb-lg-4 Finder feature highlights
+        img(src='img/intro/turn-right-arrow.svg' width='80' alt='Arrow').d-none.d-lg-block
+      .col-lg-9
+        .row.row-cols-1.row-cols-sm-2.row-cols-md-3.gy-1.gy-md-3.gx-3.gx-md-4
+          .col
+            .card.card-body.card-hover.h-100.border-0.bg-transparent
+              img(src='img/intro/features/bootstrap.png' width='56' alt='Bootstrap logo').d-block.mb-3
+              h3.h6 Built with Bootstrap 5
+              p.fs-sm.mb-0 Finder is the powerful front-end solution based on Bootstrap 5 — the world’s most popular responsive, mobile-first front-end component library.
+          .col
+            .card.card-body.card-hover.h-100.border-0.bg-transparent
+              img(src='img/intro/features/gulp.png' width='56' alt='Gulp logo').d-block.mb-3
+              h3.h6 Kick-start your development
+              p.fs-sm.mb-0 Start your development process fast and easy with Node.js and Gulp setup. Configuration files are included in download package. Full tasks automation.
+          .col
+            .card.card-body.card-hover.h-100.border-0.bg-transparent
+              img(src='img/intro/features/sass.png' width='56' alt='Sass logo').d-block.mb-3
+              h3.h6 Easy to customize with Sass
+              p.fs-sm.mb-0 Finder is built using Sass. Easily change colors, typography and much more. It is the most mature, stable, and powerful CSS extension language in the world.
+          .col
+            .card.card-body.card-hover.h-100.border-0.bg-transparent
+              img(src='img/intro/features/pug.png' width='56' alt='Pug logo').d-block.mb-3
+              h3.h6 Pug - HTML templating
+              p.fs-sm.mb-0 No need to write huge amount of HTML, if you don’t want to. Pug provides features not available in plain HTML like variables, includes, mixins, functions and other.
+          .col
+            .card.card-body.card-hover.h-100.border-0.bg-transparent
+              img(src='img/intro/features/components.png' width='56' alt='Components icon').d-block.mb-3
+              h3.h6 50+ flexible components
+              p.fs-sm.mb-0 Besides styling all default Bootstrap 5 components Finder introduces lots of new flexible, customizable and reusable elements you can use across the website.
+          .col
+            .card.card-body.card-hover.h-100.border-0.bg-transparent
+              img(src='img/intro/features/mobile.png' width='56' alt='Mobile icon').d-block.mb-3
+              h3.h6 Mobile friendly interface
+              p.fs-sm.mb-0 It's not a surprise that nowadays over 60% of users surf the inernet using their mobile devices. Finder is 100% responsive and optimized for small touch screens.
+          .col
+            .card.card-body.card-hover.h-100.border-0.bg-transparent
+              img(src='img/intro/features/touch.png' width='56' alt='Touch icon').d-block.mb-3
+              h3.h6 Touch-enabled sliders
+              p.fs-sm.mb-0 In the era of touch screens it is important to ensure great user experience on handheld devices, especially when it comes to such frequently used component as slider.
+          .col
+            .card.card-body.card-hover.h-100.border-0.bg-transparent
+              img(src='img/intro/features/google-fonts.png' width='56' alt='Google Fonts logo').d-block.mb-3
+              h3.h6 Google fonts
+              p.fs-sm.mb-0 Finder uses Google font (Noto Sans) which is free, fast to load and of very high quality. Currently Google fonts library includes 1000+ font families to choose from.
+          .col
+            .card.card-body.card-hover.h-100.border-0.bg-transparent
+              img(src='img/intro/features/vector.png' width='56' alt='Vector icon').d-block.mb-3
+              h3.h6 Vector based HD ready icons
+              p.fs-sm.mb-0 Finder is equiped with font-based icon pack to ensure that infographics and interface icons look sharp on any device with any screen resolution and pixel density.
+          .col
+            .card.card-body.card-hover.h-100.border-0.bg-transparent
+              img(src='img/intro/features/html.png' width='56' alt='HTML5 logo').d-block.mb-3
+              h3.h6 W3C valid HTML code
+              p.fs-sm.mb-0 All HTML files are checked via W3C validator to ensure 100% valid code. As you probably know invalid HTML limits innovation, but Finder is innovative at its core.
+          .col
+            .card.card-body.card-hover.h-100.border-0.bg-transparent
+              img(src='img/intro/features/js.png' width='56' alt='JS icon').d-block.mb-3
+              h3.h6 Future-proof JavaScript
+              p.fs-sm.mb-0 Finder core scripts as well as all dependencies are written in vanilla JS. And now with Bootstrap 5 we finally drop jQuery and use ES6 modules.
+          .col
+            .card.card-body.card-hover.h-100.border-0.bg-transparent
+              img(src='img/intro/features/docs.png' width='56' alt='Docs icon').d-block.mb-3
+              h3.h6 Detailed documentation
+              p.fs-sm.mb-0 Download package includes offline and links to online documentation. It covers all crucial information about how to get started, customize template and components usage.
+  
+  
+  // CTA
+  section.container.position-relative.zindex-1
+    .bg-secondary.rounded-3.px-3.py-5
+      .text-center.py-sm-3.py-md-5
+        h3.h5.fw-normal Still not convinced?
+        h2.pb-4 Add premium support and lifetime updates to this!
+        a(href='https://themes.getbootstrap.com/product/finder-directory-listings-template-ui-kit/' target='_blank' rel='noopener').btn.btn-primary.btn-lg.rounded-pill
+          i.fi-cart.fs-lg.me-2
+          | Buy Finder
+
+
+  // Footer
+  footer.position-relative.pb-5(style='margin-top: -5.75rem; padding-top: 9rem;')
+    .d-none.d-xxl-block.position-absolute.top-0.start-0.w-100.h-100.bg-dark(style='border-top-left-radius: 1.875rem; border-top-right-radius: 1.875rem;')
+    .d-xxl-none.position-absolute.top-0.start-0.w-100.h-100.bg-dark
+    .container.content-overlay.text-center.py-md-3.py-lg-5
+      h2.h3.text-light.pb-3 Subscribe to our newsletter
+      .row.justify-content-center.mb-5.pb-lg-3
+        .col-lg-6.col-md-7.col-sm-9
+          form(action='https://studio.us12.list-manage.com/subscribe/post?u=c7103e2c981361a6639545bd5&amp;id=29ca296126' method='post' name='mc-embedded-subscribe-form' target='_blank' novalidate).subscription-form.validate
+            .form-group.form-group-light.rounded-pill
+              .input-group.flex-nowrap
+                span.input-group-text.text-muted
+                  i.fi-mail
+                input(type='email' name='EMAIL' placeholder='Your email' required).form-control
+              button(type='submit' name='subscribe').btn.btn-primary.rounded-pill Subscribe*
+            // real people should not fill this in and expect good things - do not remove this or risk form bot signups
+            div(style='position: absolute; left: -5000px;' aria-hidden='true')
+              input(type='text' name='b_c7103e2c981361a6639545bd5_29ca296126' tabindex='-1').subscription-form-antispam
+            .subscription-status.mx-auto
+            .form-text.text-light.fs-xs.opacity-70.mt-3 *Subscribe to our newsletter to receive early discount offers, updates and new products info.
+      p.fs-sm.mb-0
+        span.text-light &copy; All rights reserved. Made by 
+        a(href='https://createx.studio/' target='_blank' rel='noopener') Createx Studio
+        

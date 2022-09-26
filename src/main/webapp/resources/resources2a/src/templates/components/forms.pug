@@ -1,0 +1,2079 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css', 'vendor/nouislider/dist/nouislider.min.css', 'vendor/prismjs/themes/prism.css', 'vendor/prismjs/plugins/toolbar/prism-toolbar.css', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js', 'vendor/nouislider/dist/nouislider.min.js', 'vendor/cleave.js/dist/cleave.min.js', 'vendor/prismjs/components/prism-core.min.js', 'vendor/prismjs/components/prism-markup.min.js', 'vendor/prismjs/components/prism-clike.min.js', 'vendor/prismjs/components/prism-javascript.min.js', 'vendor/prismjs/components/prism-pug.min.js', 'vendor/prismjs/plugins/toolbar/prism-toolbar.min.js', 'vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Forms'
+  - var pageSubtitle = 'Form control styles, layout options, and custom components.'
+  - var pageTitleLink = {'title': 'Bootstrap docs', 'link': 'https://getbootstrap.com/docs/5.2/forms/overview/'}
+  - var anchorNav = [{'title': 'Supported input types', 'link': '#forms-types'}, {'title': 'Floating labels', 'link': '#forms-floating-labels'}, {'title': 'Password visibility toggle', 'link': '#forms-password-toggle'}, {'title': 'Checkboxes', 'link': '#forms-checkboxes'}, {'title': 'Radio buttons', 'link': '#forms-radios'}, {'title': 'Switches', 'link': '#forms-switches'}, {'title': 'Theme mode switch', 'link': '#forms-mode-switch'}, {'title': 'Button toggles (Color, size options)', 'link': '#forms-btns'}, {'title': 'Count input (+/-)', 'link': '#forms-count'}, {'title': 'Range slider', 'link': '#forms-range-slider'}, {'title': 'Sizing', 'link': '#forms-sizing'}, {'title': 'Readonly & Disabled', 'link': '#forms-disabled'}, {'title': 'Inline form', 'link': '#forms-inline'}, {'title': 'Help text', 'link': '#forms-help-text'}, {'title': 'Validation: status text', 'link': '#forms-validation-text'}, {'title': 'Validation: status tooltips', 'link': '#forms-validation-tooltips'}, {'title': 'Input mask (Formatted content)', 'link': '#forms-formatted'}]
+    
+//- Page Content
+block content
+
+  // Info alert
+  .alert.alert-info.d-flex.mb-4(role='alert')
+    i.ai-circle-info.lead.me-2.me-sm-3
+    .text-break
+      p.mb-3 <span class='fw-semibold'>Range slider</span> depends on <span class='fw-semibold'>noUISlider plugin</span>. Make sure to link to <span class='fw-semibold'>noUISlider css and js</span> files in your document: <span class='fw-semibold'>assets/vendor/nouislider/dist/nouislider.min.css</span> and <span class='fw-semibold'>assets/vendor/nouislider/dist/nouislider.min.js</span>.
+      p.mb-1 To enable input text content formatting please make sure to link to <span class='fw-semibold'>Cleave.js</span> plugin in your document: <span class='fw-semibold'>assets/vendor/cleave.js/dist/cleave.min.js</span>. Use this page as a reference.
+
+  // Supported input types
+  section#forms-types.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Supported input types
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview1' data-bs-toggle='tab' role='tab' aria-controls='preview1' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview1.tab-pane.fade.show.active(role='tabpanel')
+          .mb-2.mb-md-3.mt-n3.mt-md-0.row.align-items-center
+            label(for='text-input').col-md-2.col-form-label Text
+            .col-md-10
+              input(type='text' id='text-input' value='Artisanal kale').form-control
+          .mb-2.mb-md-3.row.align-items-center
+            label(for='search-input').col-md-2.col-form-label Search
+            .col-md-10
+              input(type='search' id='search-input' value='How do I shoot web').form-control
+          .mb-2.mb-md-3.row.align-items-center
+            label(for='email-input').col-md-2.col-form-label Email
+            .col-md-10
+              input(type='email' id='email-input' value='email@example.com').form-control
+          .mb-2.mb-md-3.row.align-items-center
+            label(for='url-input').col-md-2.col-form-label URL
+            .col-md-10
+              input(type='url' id='url-input' value='https://getbootstrap.com').form-control
+          .mb-2.mb-md-3.row.align-items-center
+            label(for='tel-input').col-md-2.col-form-label Phone
+            .col-md-10
+              input(type='tel' id='tel-input' value='1-(770)-334-2518').form-control
+          .mb-2.mb-md-3.row.align-items-center
+            label(for='pass-input').col-md-2.col-form-label Password
+            .col-md-10
+              input(type='password' id='pass-input' value='mypasswordexample').form-control
+          .mb-2.mb-md-3.row
+            label(for='textarea-input').col-md-2.col-form-label Textarea
+            .col-md-10
+              textarea(id='textarea-input' rows='5').form-control Hello World!
+          .mb-2.mb-md-3.row.align-items-center
+            label(for='select-input').col-md-2.col-form-label Select
+            .col-md-10
+              select(id='select-input').form-select
+                option Choose option...
+                option Option item 1
+                option Option item 2
+                option Option item 3
+          .mb-2.mb-md-3.row.align-items-center
+            label(for='multiselect-input').col-md-2.col-form-label Multiselect
+            .col-md-10
+              select(id='multiselect-input' size='3' multiple).form-select
+                option Option item 1
+                option Option item 2
+                option Option item 3
+                option Option item 4
+                option Option item 5
+                option Option item 6
+          .mb-2.mb-md-3.row.align-items-center
+            label(for='file-input').col-md-2.col-form-label File
+            .col-md-10
+              input(type='file' id='file-input').form-control
+          .mb-2.mb-md-3.row.align-items-center
+            label(for='number-input').col-md-2.col-form-label Number
+            .col-md-10
+              input(type='number' id='number-input' value='37').form-control
+          .mb-2.mb-md-3.row.align-items-center
+            label(for='datalist-input').col-md-2.col-form-label Datalist
+            .col-md-10
+              input(list='datalist-options' id='datalist-input' placeholder='Type to search...').form-control
+              datalist#datalist-options
+                option(value='San Francisco')
+                option(value='New York')
+                option(value='Seattle')
+                option(value='Los Angeles')
+                option(value='Chicago')
+          .mb-2.mb-md-3.row.align-items-center
+            label(for='range-input').col-md-2.col-form-label Range
+            .col-md-10
+              input(type='range' id='range-input').form-range
+          .row.align-items-center
+            label(for='color-input').col-md-2.col-form-label Color
+            .col-md-10
+              input(type='color' id='color-input' value='#ed5050').form-control.form-control-color
+        #html1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Text input --&gt;
+              &lt;div class=&quot;mb-3&quot;&gt;
+                &lt;label for=&quot;text-input&quot; class=&quot;form-label&quot;&gt;Text&lt;/label&gt;
+                &lt;input class=&quot;form-control&quot; type=&quot;text&quot; id=&quot;text-input&quot; value=&quot;Artisanal kale&quot;&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Search input --&gt;
+              &lt;div class=&quot;mb-3&quot;&gt;
+                &lt;label for=&quot;search-input&quot; class=&quot;form-label&quot;&gt;Search&lt;/label&gt;
+                &lt;input class=&quot;form-control&quot; type=&quot;search&quot; id=&quot;search-input&quot; value=&quot;How do I shoot web&quot;&gt;
+              &lt;/div&gt;
+              
+              &lt;!-- Email input --&gt;
+              &lt;div class=&quot;mb-3&quot;&gt;
+                &lt;label for=&quot;email-input&quot; class=&quot;form-label&quot;&gt;Email&lt;/label&gt;
+                &lt;input class=&quot;form-control&quot; type=&quot;email&quot; id=&quot;email-input&quot; value=&quot;email@example.com&quot;&gt;
+              &lt;/div&gt;
+              
+              &lt;!-- URL Input --&gt;
+              &lt;div class=&quot;mb-3&quot;&gt;
+                &lt;label for=&quot;url-input&quot; class=&quot;form-label&quot;&gt;URL&lt;/label&gt;
+                &lt;input class=&quot;form-control&quot; type=&quot;url&quot; id=&quot;url-input&quot; value=&quot;https://getbootstrap.com&quot;&gt;
+              &lt;/div&gt;
+              
+              &lt;!-- Phone Input --&gt;
+              &lt;div class=&quot;mb-3&quot;&gt;
+                &lt;label for=&quot;tel-input&quot; class=&quot;form-label&quot;&gt;Phone&lt;/label&gt;
+                &lt;input class=&quot;form-control&quot; type=&quot;tel&quot; id=&quot;tel-input&quot; value=&quot;1-(770)-334-2518&quot;&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Password Input --&gt;
+              &lt;div class=&quot;mb-3&quot;&gt;
+                &lt;label for=&quot;pass-input&quot; class=&quot;form-label&quot;&gt;Password&lt;/label&gt;
+                &lt;input class=&quot;form-control&quot; type=&quot;password&quot; id=&quot;pass-input&quot; value=&quot;mypasswordexample&quot;&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Textarea --&gt;
+              &lt;div class=&quot;mb-3&quot;&gt;
+                &lt;label for=&quot;textarea-input&quot; class=&quot;form-label&quot;&gt;Textarea&lt;/label&gt;
+                &lt;textarea class=&quot;form-control&quot; id=&quot;textarea-input&quot; rows=&quot;5&quot;&gt;Hello World!&lt;/textarea&gt;
+              &lt;/div&gt;
+              
+              &lt;!-- Select --&gt;
+              &lt;div class=&quot;mb-3&quot;&gt;
+                &lt;label for=&quot;select-input&quot; class=&quot;form-label&quot;&gt;Select&lt;/label&gt;
+                &lt;select class=&quot;form-select&quot; id=&quot;select-input&quot;&gt;
+                  &lt;option&gt;Choose option...&lt;/option&gt;
+                  &lt;option&gt;Option item 1&lt;/option&gt;
+                  &lt;option&gt;Option item 2&lt;/option&gt;
+                  &lt;option&gt;Option item 3&lt;/option&gt;
+                &lt;/select&gt;
+              &lt;/div&gt;
+              
+              &lt;!-- Multiselect --&gt;
+              &lt;div class=&quot;mb-3&quot;&gt;
+                &lt;label for=&quot;multiselect-input&quot; class=&quot;form-label&quot;&gt;Multiselect&lt;/label&gt;
+                &lt;select class=&quot;form-select&quot; id=&quot;multiselect-input&quot; size=&quot;3&quot; multiple&gt;
+                  &lt;option&gt;Option item 1&lt;/option&gt;
+                  &lt;option&gt;Option item 2&lt;/option&gt;
+                  &lt;option&gt;Option item 3&lt;/option&gt;
+                  &lt;option&gt;Option item 4&lt;/option&gt;
+                  &lt;option&gt;Option item 5&lt;/option&gt;
+                  &lt;option&gt;Option item 6&lt;/option&gt;
+                &lt;/select&gt;
+              &lt;/div&gt;
+              
+              &lt;!-- File input --&gt;
+              &lt;div class=&quot;mb-3&quot;&gt;
+                &lt;label for=&quot;file-input&quot; class=&quot;form-label&quot;&gt;File&lt;/label&gt;
+                &lt;input class=&quot;form-control&quot; type=&quot;file&quot; id=&quot;file-input&quot;&gt;
+              &lt;/div&gt;
+              
+              &lt;!-- Number input --&gt;
+              &lt;div class=&quot;mb-3&quot;&gt;
+                &lt;label for=&quot;number-input&quot; class=&quot;form-label&quot;&gt;Number&lt;/label&gt;
+                &lt;input class=&quot;form-control&quot; type=&quot;number&quot; id=&quot;number-input&quot; value=&quot;37&quot;&gt;
+              &lt;/div&gt;
+              
+              &lt;!-- Datalist --&gt;
+              &lt;div class=&quot;mb-3&quot;&gt;
+                &lt;label for=&quot;datalist-input&quot; class=&quot;form-label&quot;&gt;Datalist&lt;/label&gt;
+                &lt;input class=&quot;form-control&quot; list=&quot;datalist-options&quot; id=&quot;datalist-input&quot; placeholder=&quot;Type to search...&quot;&gt;
+                &lt;datalist id=&quot;datalist-options&quot;&gt;
+                  &lt;option value=&quot;San Francisco&quot;&gt;
+                  &lt;option value=&quot;New York&quot;&gt;
+                  &lt;option value=&quot;Seattle&quot;&gt;
+                  &lt;option value=&quot;Los Angeles&quot;&gt;
+                  &lt;option value=&quot;Chicago&quot;&gt;
+                &lt;/datalist&gt;
+              &lt;/div&gt;
+              
+              &lt;!-- Range input --&gt;
+              &lt;div class=&quot;mb-3&quot;&gt;
+                &lt;label for=&quot;range-input&quot; class=&quot;form-label&quot;&gt;Range&lt;/label&gt;
+                &lt;input class=&quot;form-control&quot; type=&quot;range&quot; id=&quot;range-input&quot;&gt;
+              &lt;/div&gt;
+              
+              &lt;!-- Color input --&gt;
+              &lt;div class=&quot;mb-3&quot;&gt;
+                &lt;label for=&quot;color-input&quot; class=&quot;form-label&quot;&gt;Color&lt;/label&gt;
+                &lt;input class=&quot;form-control form-control-color&quot; type=&quot;color&quot; id=&quot;color-input&quot; value=&quot;#ed5050&quot;&gt;
+              &lt;/div&gt;
+        #pug1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Text input
+              .mb-3
+                label(for=&quot;text-input&quot;).form-label
+                  | Text
+                input(type=&quot;text&quot;, id=&quot;text-input&quot;, value=&quot;Artisanal kale&quot;).form-control
+
+              // Search input
+              .mb-3
+                label(for=&quot;search-input&quot;).form-label
+                  | Search
+                input(type=&quot;search&quot;, id=&quot;search-input&quot;, value=&quot;How do I shoot web&quot;).form-control
+
+              // Email input
+              .mb-3
+                label(for=&quot;email-input&quot;).form-label
+                  | Email
+                input(type=&quot;email&quot;, id=&quot;email-input&quot;, value=&quot;email@example.com&quot;).form-control
+              
+              // URL input
+              .mb-3
+                label(for=&quot;url-input&quot;).form-label
+                  | URL
+                input(type=&quot;url&quot;, id=&quot;url-input&quot;, value=&quot;https://getbootstrap.com&quot;).form-control
+              
+              // Phone input
+              .mb-3
+                label(for=&quot;tel-input&quot;).form-label
+                  | Phone
+                input(type=&quot;tel&quot;, id=&quot;tel-input&quot;, value=&quot;1-(770)-334-2518&quot;).form-control
+              
+              // Password input
+              .mb-3
+                label(for=&quot;pass-input&quot;).form-label
+                  | Password
+                input(type=&quot;password&quot;, id=&quot;pass-input&quot;, value=&quot;mypasswordexample&quot;).form-control
+              
+              // Textarea
+              .mb-3
+                label(for=&quot;textarea-input&quot;).form-label
+                  | Textarea
+                textarea(id=&quot;textarea-input&quot;, rows=&quot;5&quot;).form-control Hello World!
+              
+              // Select
+              .mb-3
+                label(for=&quot;select-input&quot;).form-label
+                  | Select
+                select(id=&quot;select-input&quot;).form-select
+                  option Choose option...
+                  option Option item 1
+                  option Option item 2
+                  option Option item 3
+              
+              // Multiselect
+              .mb-3
+                label(for=&quot;multiselect-input&quot;).form-label
+                  | Multiselect
+                select(id=&quot;multiselect-input&quot;, size=&quot;3&quot;, multiple).form-select
+                  option Option item 1
+                  option Option item 2
+                  option Option item 3
+                  option Option item 4
+                  option Option item 5
+                  option Option item 6
+
+              // File input
+              .mb-3
+                label(for=&quot;file-input&quot;).form-label
+                  | File
+                input(type=&quot;file&quot;, id=&quot;file-input&quot;).form-control
+
+              // Number input
+              .mb-3
+                label(for=&quot;number-input&quot;).form-label
+                  | Number
+                input(type=&quot;number&quot;, id=&quot;number-input&quot;, value=&quot;37&quot;).form-control
+
+              // Datalist
+              .mb-3
+                label(for=&quot;datalist-input&quot;).form-label
+                  | Datalist
+                input(list=&quot;datalist-options&quot;, id=&quot;datalist-input&quot;, placeholder=&quot;Type to search...&quot;).form-control
+                datalist#datalist-options
+                  option(value=&quot;San Francisco&quot;)
+                  option(value=&quot;New York&quot;)
+                  option(value=&quot;Seattle&quot;)
+                  option(value=&quot;Los Angeles&quot;)
+                  option(value=&quot;Chicago&quot;)
+
+              // Range input
+              .mb-3
+                label(for=&quot;range-input&quot;).form-label
+                  | Range
+                input(type=&quot;range&quot;, id=&quot;range-input&quot;).form-range
+                              
+              // Color input
+              .mb-3
+                label(for=&quot;color-input&quot;).form-label
+                  | Color
+                input(type=&quot;color&quot;, id=&quot;color-input&quot;, value=&quot;#ed5050&quot;).form-control.form-control-color
+
+  // Floating labels
+  section#forms-floating-labels.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Floating labels
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview2' data-bs-toggle='tab' role='tab' aria-controls='preview2' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview2.tab-pane.fade.show.active(role='tabpanel')
+          .form-floating.mb-3
+            input(type='text' id='fl-text' placeholder='Your name').form-control
+            label(for='fl-text') Your name
+          .form-floating.mb-3
+            select(id='fl-select').form-select
+              option(selected) Argentina
+              option Belgium
+              option France
+              option Germany
+              option Japan
+              option Spain
+              option USA
+            label(for='fl-select') Your country
+          .form-floating
+            textarea(id='fl-textarea' style='height: 120px;' placeholder='Your message').form-control
+            label(for='fl-textarea') Your message
+        #html2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Floating label: Text input --&gt;
+              &lt;div class=&quot;form-floating mb-3&quot;&gt;
+                &lt;input class=&quot;form-control&quot; type=&quot;text&quot; id=&quot;fl-text&quot; placeholder=&quot;Your name&quot;&gt;
+                &lt;label for=&quot;fl-text&quot;&gt;Your name&lt;/label&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Floating label: Select --&gt;
+              &lt;div class=&quot;form-floating mb-3&quot;&gt;
+                &lt;select class=&quot;form-select&quot; id=&quot;fl-select&quot;&gt;
+                  &lt;option selected&gt;Argentina&lt;/option&gt;
+                  &lt;option&gt;Belgium&lt;/option&gt;
+                  &lt;option&gt;France&lt;/option&gt;
+                  &lt;option&gt;Germany&lt;/option&gt;
+                  &lt;option&gt;Japan&lt;/option&gt;
+                  &lt;option&gt;Spain&lt;/option&gt;
+                  &lt;option&gt;USA&lt;/option&gt;
+                &lt;/select&gt;
+                &lt;label for=&quot;fl-select&quot;&gt;Your country&lt;/label&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Floating label: Textarea --&gt;
+              &lt;div class=&quot;form-floating&quot;&gt;
+                &lt;textarea class=&quot;form-control&quot; id=&quot;fl-textarea&quot; style=&quot;height: 120px;&quot; placeholder=&quot;Your message&quot;&gt;&lt;/textarea&gt;
+                &lt;label for=&quot;fl-textarea&quot;&gt;Your message&lt;/label&gt;
+              &lt;/div&gt;
+        #pug2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Floating label: Text input
+              .form-floating.mb-3
+                input(type=&quot;text&quot;, id=&quot;fl-text&quot;, placeholder=&quot;Your name&quot;).form-control
+                label(for=&quot;fl-text&quot;) Your name
+
+              // Floating label: Select
+              .form-floating.mb-3
+                select(id=&quot;fl-select&quot;).form-select
+                  option(selected) Argentina
+                  option Belgium
+                  option France
+                  option Germany
+                  option Japan
+                  option Spain
+                  option USA
+                label(for=&quot;fl-select&quot;) Your country
+
+              // Floating label: Textarea
+              .form-floating.mb-3
+                textarea(id=&quot;fl-textarea&quot;, style=&quot;height: 120px;&quot;, placeholder=&quot;Your message&quot;).form-control
+                label(for=&quot;fl-textarea&quot;) Your message
+
+  // Password visibility toggle
+  section#forms-password-toggle.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Password visibility toggle
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview3' data-bs-toggle='tab' role='tab' aria-controls='preview3' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview3.tab-pane.fade.show.active(role='tabpanel')
+          .mb-3(style='max-width: 25rem;')
+            label(for='pass-visibility').form-label Password
+            .password-toggle
+              input(type='password' id='pass-visibility' value='hidden@password').form-control
+              label(aria-label='Show/hide password').password-toggle-btn
+                input(type='checkbox').password-toggle-check
+                span.password-toggle-indicator
+        #html3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Password visibility toggle --&gt;
+              &lt;div class=&quot;mb-3&quot;&gt;
+                &lt;label class=&quot;form-label&quot; for=&quot;pass-visibility&quot;&gt;Password&lt;/label&gt;
+                &lt;div class=&quot;password-toggle&quot;&gt;
+                  &lt;input class=&quot;form-control&quot; type=&quot;password&quot; id=&quot;pass-visibility&quot; value=&quot;hidden@password&quot;&gt;
+                  &lt;label class=&quot;password-toggle-btn&quot; aria-label=&quot;Show/hide password&quot;&gt;
+                    &lt;input class=&quot;password-toggle-check&quot; type=&quot;checkbox&quot;&gt;
+                    &lt;span class=&quot;password-toggle-indicator&quot;&gt;&lt;/span&gt;
+                  &lt;/label&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Password visibility toggle
+              .mb-3
+                label(for=&quot;pass-visibility&quot;).form-label
+                  | Password
+                .password-toggle
+                  input(type=&quot;password&quot;, id=&quot;pass-visibility&quot;, value=&quot;hidden@password&quot;).form-control
+                  label(aria-label=&quot;Show/hide password&quot;).password-toggle-btn
+                    input(type=&quot;checkbox&quot;).password-toggle-check
+                    span.password-toggle-indicator
+
+  // Checkboxes
+  section#forms-checkboxes.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Checkboxes
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview4' data-bs-toggle='tab' role='tab' aria-controls='preview4' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview4.tab-pane.fade.show.active(role='tabpanel')
+          .form-check
+            input(type='checkbox' id='ex-check-1').form-check-input
+            label(for='ex-check-1').form-check-label Check this checkbox
+          .form-check
+            input(type='checkbox' id='ex-check-2' checked).form-check-input
+            label(for='ex-check-2').form-check-label Uncheck this checkbox
+          .form-check
+            input(type='checkbox' id='ex-check-3' disabled).form-check-input
+            label(for='ex-check-3').form-check-label Disabled checkbox
+          .pt-3
+            .form-check.form-check-inline
+              input(type='checkbox' id='ex-check-4').form-check-input
+              label(for='ex-check-4').form-check-label Check this checkbox
+            .form-check.form-check-inline
+              input(type='checkbox' id='ex-check-5' checked).form-check-input
+              label(for='ex-check-5').form-check-label Uncheck this checkbox
+            .form-check.form-check-inline
+              input(type='checkbox' id='ex-check-6' disabled).form-check-input
+              label(for='ex-check-6').form-check-label Disabled checkbox
+        #html4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Stacked checkboxes --&gt;
+              &lt;div class=&quot;form-check&quot;&gt;
+                &lt;input class=&quot;form-check-input&quot; type=&quot;checkbox&quot; id=&quot;ex-check-1&quot;&gt;
+                &lt;label class=&quot;form-check-label&quot; for=&quot;ex-check-1&quot;&gt;Check this checkbox&lt;/label&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;form-check&quot;&gt;
+                &lt;input class=&quot;form-check-input&quot; type=&quot;checkbox&quot; id=&quot;ex-check-2&quot; checked&gt;
+                &lt;label class=&quot;form-check-label&quot; for=&quot;ex-check-2&quot;&gt;Uncheck this checkbox&lt;/label&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;form-check&quot;&gt;
+                &lt;input class=&quot;form-check-input&quot; type=&quot;checkbox&quot; id=&quot;ex-check-3&quot; disabled&gt;
+                &lt;label class=&quot;form-check-label&quot; for=&quot;ex-check-3&quot;&gt;Disabled checkbox&lt;/label&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Inline checkboxes --&gt;
+              &lt;div class=&quot;form-check form-check-inline&quot;&gt;
+                &lt;input class=&quot;form-check-input&quot; type=&quot;checkbox&quot; id=&quot;ex-check-4&quot;&gt;
+                &lt;label class=&quot;form-check-label&quot; for=&quot;ex-check-4&quot;&gt;Check this checkbox&lt;/label&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;form-check form-check-inline&quot;&gt;
+                &lt;input class=&quot;form-check-input&quot; type=&quot;checkbox&quot; id=&quot;ex-check-5&quot; checked&gt;
+                &lt;label class=&quot;form-check-label&quot; for=&quot;ex-check-5&quot;&gt;Uncheck this checkbox&lt;/label&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;form-check form-check-inline&quot;&gt;
+                &lt;input class=&quot;form-check-input&quot; type=&quot;checkbox&quot; id=&quot;ex-check-6&quot; disabled&gt;
+                &lt;label class=&quot;form-check-label&quot; for=&quot;ex-check-6&quot;&gt;Disabled checkbox&lt;/label&gt;
+              &lt;/div&gt;
+        #pug4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Stacked checkboxes
+              .form-check
+                input(type=&quot;checkbox&quot;, id=&quot;ex-check-1&quot;).form-check-input
+                label.form-check-label(for=&quot;ex-check-1&quot;) Check this checkbox
+              .form-check
+                input(type=&quot;checkbox&quot;, id=&quot;ex-check-2&quot;, checked).form-check-input
+                label.form-check-label(for=&quot;ex-check-2&quot;) Uncheck this checkbox
+              .form-check
+                input(type=&quot;checkbox&quot;, id=&quot;ex-check-3&quot;, disabled).form-check-input
+                label.form-check-label(for=&quot;ex-check-3&quot;) Disabled checkbox
+              
+              // Inline checkboxes
+              .form-check.form-check-inline
+                input(type=&quot;checkbox&quot;, id=&quot;ex-check-4&quot;).form-check-input
+                label.form-check-label(for=&quot;ex-check-4&quot;) Check this checkbox
+              .form-check.form-check-inline
+                input(type=&quot;checkbox&quot; id=&quot;ex-check-5&quot;, checked).form-check-input
+                label.form-check-label(for=&quot;ex-check-5&quot;) Uncheck this checkbox
+              .form-check.form-check-inline
+                input(type=&quot;checkbox&quot;, id=&quot;ex-check-6&quot;, disabled).form-check-input
+                label.form-check-label(for=&quot;ex-check-6&quot;) Disabled checkbox
+
+  // Radio buttons
+  section#forms-radios.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Radio buttons
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview5' data-bs-toggle='tab' role='tab' aria-controls='preview5' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html5' data-bs-toggle='tab' role='tab' aria-controls='html5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug5' data-bs-toggle='tab' role='tab' aria-controls='pug5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview5.tab-pane.fade.show.active(role='tabpanel')
+          .form-check
+            input(type='radio' id='ex-radio-1' name='radio').form-check-input
+            label(for='ex-radio-1').form-check-label Toggle this radio
+          .form-check
+            input(type='radio' id='ex-radio-2' name='radio' checked).form-check-input
+            label(for='ex-radio-2').form-check-label Toggle this radio
+          .form-check
+            input(type='radio' id='ex-radio-3' name='radio' disabled).form-check-input
+            label(for='ex-radio-3').form-check-label Disabled radio
+          .pt-3
+            .form-check.form-check-inline
+              input(type='radio' id='ex-radio-4' name='radio2').form-check-input
+              label(for='ex-radio-4').form-check-label Toggle this radio
+            .form-check.form-check-inline
+              input(type='radio' id='ex-radio-5' name='radio2' checked).form-check-input
+              label(for='ex-radio-5').form-check-label Toggle this radio
+            .form-check.form-check-inline
+              input(type='radio' id='ex-radio-6' name='radio2' disabled).form-check-input
+              label(for='ex-radio-6').form-check-label Disabled radio
+        #html5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Stacked radio buttons --&gt;
+              &lt;div class=&quot;form-check&quot;&gt;
+                &lt;input class=&quot;form-check-input&quot; type=&quot;radio&quot; id=&quot;ex-radio-1&quot; name=&quot;radio&quot;&gt;
+                &lt;label class=&quot;form-check-label&quot; for=&quot;ex-radio-1&quot;&gt;Toggle this radio&lt;/label&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;form-check&quot;&gt;
+                &lt;input class=&quot;form-check-input&quot; type=&quot;radio&quot; id=&quot;ex-radio-2&quot; name=&quot;radio&quot; checked&gt;
+                &lt;label class=&quot;form-check-label&quot; for=&quot;ex-radio-2&quot;&gt;Toggle this radio&lt;/label&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;form-check&quot;&gt;
+                &lt;input class=&quot;form-check-input&quot; type=&quot;radio&quot; id=&quot;ex-radio-3&quot; name=&quot;radio&quot; disabled&gt;
+                &lt;label class=&quot;form-check-label&quot; for=&quot;ex-radio-3&quot;&gt;Disabled radio&lt;/label&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Inline radio buttons --&gt;
+              &lt;div class=&quot;form-check form-check-inline&quot;&gt;
+                &lt;input class=&quot;form-check-input&quot; type=&quot;radio&quot; id=&quot;ex-radio-4&quot; name=&quot;radio2&quot;&gt;
+                &lt;label class=&quot;form-check-label&quot; for=&quot;ex-radio-4&quot;&gt;Toggle this radio&lt;/label&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;form-check form-check-inline&quot;&gt;
+                &lt;input class=&quot;form-check-input&quot; type=&quot;radio&quot; id=&quot;ex-radio-5&quot; name=&quot;radio2&quot; checked&gt;
+                &lt;label class=&quot;form-check-label&quot; for=&quot;ex-radio-5&quot;&gt;Toggle this radio&lt;/label&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;form-check form-check-inline&quot;&gt;
+                &lt;input class=&quot;form-check-input&quot; type=&quot;radio&quot; id=&quot;ex-radio-6&quot; name=&quot;radio2&quot; disabled&gt;
+                &lt;label class=&quot;form-check-label&quot; for=&quot;ex-radio-6&quot;&gt;Disabled radio&lt;/label&gt;
+              &lt;/div&gt;
+        #pug5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Stacked radio buttons
+              .form-check
+                input(type=&quot;radio&quot;, id=&quot;ex-radio-1&quot;, name=&quot;radio&quot;).form-check-input
+                label.form-check-label(for=&quot;ex-radio-1&quot;) Toggle this radio
+              .form-check
+                input(type=&quot;radio&quot;, id=&quot;ex-radio-2&quot;, name=&quot;radio&quot;, checked).form-check-input
+                label.form-check-label(for=&quot;ex-radio-2&quot;) Toggle this radio
+              .form-check
+                input(type=&quot;radio&quot;, id=&quot;ex-radio-3&quot;, name=&quot;radio&quot;, disabled).form-check-input
+                label.form-check-label(for=&quot;ex-radio-3&quot;) Disabled radio
+              
+              // Inline radio buttons
+              .form-check.form-check-inline
+                input(type=&quot;radio&quot;, id=&quot;ex-radio-4&quot;, name=&quot;radio2&quot;).form-check-input
+                label.form-check-label(for=&quot;ex-radio-4&quot;) Toggle this radio
+              .form-check.form-check-inline
+                input(type=&quot;radio&quot;, id=&quot;ex-radio-5&quot;, name=&quot;radio2&quot;, checked).form-check-input
+                label.form-check-label(for=&quot;ex-radio-5&quot;) Toggle this radio
+              .form-check.form-check-inline
+                input(type=&quot;radio&quot;, id=&quot;ex-radio-6&quot;, name=&quot;radio2&quot;, disabled).form-check-input
+                label.form-check-label(for=&quot;ex-radio-6&quot;) Disabled radio
+
+  // Switches
+  section#forms-switches.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Switches
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview6' data-bs-toggle='tab' role='tab' aria-controls='preview6' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html6' data-bs-toggle='tab' role='tab' aria-controls='html6' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug6' data-bs-toggle='tab' role='tab' aria-controls='pug6' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview6.tab-pane.fade.show.active(role='tabpanel')
+          .form-check.form-switch.mb-3
+            input(type='checkbox' id='customSwitch1').form-check-input
+            label(for='customSwitch1').form-check-label Toggle this switch element
+          .form-check.form-switch.mb-3
+            input(type='checkbox' id='customSwitch2' checked).form-check-input
+            label(for='customSwitch2').form-check-label Toggle this switch element
+          .form-check.form-switch
+            input(type='checkbox' id='customSwitch3' disabled).form-check-input
+            label(for='customSwitch3').form-check-label Disabled switch element
+        #html6.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Switch --&gt;
+              &lt;div class=&quot;form-check form-switch&quot;&gt;
+                &lt;input type=&quot;checkbox&quot; class=&quot;form-check-input&quot; id=&quot;customSwitch1&quot;&gt;
+                &lt;label class=&quot;form-check-label&quot; for=&quot;customSwitch1&quot;&gt;Toggle this switch element&lt;/label&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Checked switch --&gt;
+              &lt;div class=&quot;form-check form-switch&quot;&gt;
+                &lt;input type=&quot;checkbox&quot; class=&quot;form-check-input&quot; id=&quot;customSwitch2&quot; checked&gt;
+                &lt;label class=&quot;form-check-label&quot; for=&quot;customSwitch2&quot;&gt;Toggle this switch element&lt;/label&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Disabled switch --&gt;
+              &lt;div class=&quot;form-check form-switch&quot;&gt;
+                &lt;input type=&quot;checkbox&quot; class=&quot;form-check-input&quot; id=&quot;customSwitch3&quot; disabled&gt;
+                &lt;label class=&quot;form-check-label&quot; for=&quot;customSwitch3&quot;&gt;Disabled switch element&lt;/label&gt;
+              &lt;/div&gt;
+        #pug6.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Switch
+              .form-check.form-switch
+                input(type=&quot;checkbox&quot;, id=&quot;customSwitch1&quot;).form-check-input
+                label.form-check-label(for=&quot;customSwitch1&quot;) Toggle this switch element
+
+              // Checked switch
+              .form-check.form-switch
+                input(type=&quot;checkbox&quot;, id=&quot;customSwitch2&quot;, checked).form-check-input
+                label.form-check-label(for=&quot;customSwitch2&quot;) Toggle this switch element
+
+              // Disabled switch
+              .form-check.form-switch
+                input(type=&quot;checkbox&quot;, id=&quot;customSwitch3&quot;, disabled).form-check-input
+                label.form-check-label(for=&quot;customSwitch3&quot;) Disabled switch element
+
+  // Theme mode switch
+  section#forms-mode-switch.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Theme mode switch
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview7' data-bs-toggle='tab' role='tab' aria-controls='preview7' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html7' data-bs-toggle='tab' role='tab' aria-controls='html7' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug7' data-bs-toggle='tab' role='tab' aria-controls='pug7' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview7.tab-pane.fade.show.active(role='tabpanel')
+          .form-check.form-switch.mode-switch.pe-lg-1
+            input(type='checkbox')#theme-mode1.form-check-input
+            label(for='theme-mode1').form-check-label
+              i.ai-sun.fs-lg
+            label(for='theme-mode1').form-check-label
+              i.ai-moon.fs-lg
+        #html7.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Theme mode switch. Can be used oly once on the page! --&gt;
+              &lt;div class=&quot;form-check form-switch mode-switch&quot; data-bs-toggle=&quot;mode&quot;&gt;
+                &lt;input type=&quot;checkbox&quot; class=&quot;form-check-input&quot; id=&quot;theme-mode&quot;&gt;
+                &lt;label for=&quot;theme-mode&quot; class=&quot;form-check-label&quot;&gt;
+                  &lt;i class=&quot;ai-sun fs-lg&quot;&gt;&lt;/i&gt;
+                &lt;/label&gt;
+                &lt;label for=&quot;theme-mode&quot; class=&quot;form-check-label&quot;&gt;
+                  &lt;i class=&quot;ai-moon fs-lg&quot;&gt;&lt;/i&gt;
+                &lt;/label&gt;
+              &lt;/div&gt;
+        #pug7.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Theme mode switch. Can be used oly once on the page!
+              .form-check.form-switch.mode-switch(data-bs-toggle=&quot;mode&quot;)
+                input(type=&quot;checkbox&quot;)#theme-mode.form-check-input
+                label(for=&quot;theme-mode&quot;).form-check-label
+                  i.ai-sun.fs-lg
+                label(for=&quot;theme-mode&quot;).form-check-label
+                  i.ai-moon.fs-lg
+
+  // Button toggles (Color, size options)
+  section#forms-btns.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Button toggles (Color, size options)
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview8' data-bs-toggle='tab' role='tab' aria-controls='preview8' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html8' data-bs-toggle='tab' role='tab' aria-controls='html8' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug8' data-bs-toggle='tab' role='tab' aria-controls='pug8' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview8.tab-pane.fade.show.active(role='tabpanel')
+          .row.row-cols-1.row-cols-sm-2.g-4
+            .col
+              .mb-4
+                .h6
+                  | Color:
+                  span#colorOption.text-muted.fw-normal.ms-1 Gray marble
+                .d-flex
+                  .me-2.mb-2
+                    input(type='radio' name='color' data-binded-label='colorOption' value='Gray marble' checked)#color1.btn-check
+                    label(for='color1').btn.btn-icon.btn-sm.btn-outline-secondary.rounded-circle
+                      span(style='width: 1.5rem; height: 1.5rem; background-color: #c0c0c0; background-image: url(../assets/img/shop/pattern/marble.jpg);').d-block.bg-size-cover.bg-position-center.rounded-circle
+                  .me-2.mb-2
+                    input(type='radio' name='color' data-binded-label='colorOption' value='Soft beige')#color2.btn-check
+                    label(for='color2').btn.btn-icon.btn-sm.btn-outline-secondary.rounded-circle
+                      span(style='width: 1.5rem; height: 1.5rem; background-color: #d9c9a1;').d-block.rounded-circle
+                  .me-2.mb-2
+                    input(type='radio' name='color' data-binded-label='colorOption' value='Bluish sky')#color3.btn-check
+                    label(for='color3').btn.btn-icon.btn-sm.btn-outline-secondary.rounded-circle
+                      span(style='width: 1.5rem; height: 1.5rem; background-color: #a1b7d9;').d-block.rounded-circle
+                  .me-2.mb-2
+                    input(type='radio' name='color' data-binded-label='colorOption' value='Green grass')#color4.btn-check
+                    label(for='color4').btn.btn-icon.btn-sm.btn-outline-secondary.rounded-circle
+                      span(style='width: 1.5rem; height: 1.5rem; background-color: #74947d;').d-block.rounded-circle
+                  .me-2.mb-2
+                    input(type='radio' name='color' data-binded-label='colorOption' value='Woody brown')#color5.btn-check
+                    label(for='color5').btn.btn-icon.btn-sm.btn-outline-secondary.rounded-circle
+                      span(style='width: 1.5rem; height: 1.5rem; background-color: #af8352; background-image: url(../assets/img/shop/pattern/wood.jpg);').d-block.bg-size-cover.bg-position-center.rounded-circle
+              .h6.mb-2 Small size
+              .d-flex
+                .me-1.mb-1
+                  input(type='radio' name='color-sm' value='Gray marble' checked)#color-sm1.btn-check
+                  label(for='color-sm1').btn.btn-icon.btn-xs.btn-outline-secondary.rounded-circle
+                    span(style='width: .625rem; height: .625rem; background-color: #c0c0c0; background-image: url(../assets/img/shop/pattern/marble.jpg);').d-block.bg-size-cover.bg-position-center.rounded-circle
+                .me-1.mb-1
+                  input(type='radio' name='color-sm' value='Soft beige')#color-sm2.btn-check
+                  label(for='color-sm2').btn.btn-icon.btn-xs.btn-outline-secondary.rounded-circle
+                    span(style='width: .625rem; height: .625rem; background-color: #d9c9a1;').d-block.rounded-circle
+                .me-1.mb-1
+                  input(type='radio' name='color-sm' value='Bluish sky')#color-sm3.btn-check
+                  label(for='color-sm3').btn.btn-icon.btn-xs.btn-outline-secondary.rounded-circle
+                    span(style='width: .625rem; height: .625rem; background-color: #a1b7d9;').d-block.rounded-circle
+                .me-1.mb-1
+                  input(type='radio' name='color-sm' value='Green grass')#color-sm4.btn-check
+                  label(for='color-sm4').btn.btn-icon.btn-xs.btn-outline-secondary.rounded-circle
+                    span(style='width: .625rem; height: .625rem; background-color: #74947d;').d-block.rounded-circle
+                .me-1.mb-1
+                  input(type='radio' name='color-sm' value='Woody brown')#color-sm5.btn-check
+                  label(for='color-sm5').btn.btn-icon.btn-xs.btn-outline-secondary.rounded-circle
+                    span(style='width: .625rem; height: .625rem; background-color: #af8352; background-image: url(../assets/img/shop/pattern/wood.jpg);').d-block.bg-size-cover.bg-position-center.rounded-circle
+            .col
+              .h6 Weight
+              .d-flex
+                .me-3
+                  input(type='radio' name='weight' value='140 g' checked)#weight1.btn-check
+                  label(for='weight1').btn.btn-outline-secondary.px-2
+                    span.mx-1 140 g
+                .me-3
+                  input(type='radio' name='weight' value='260 g')#weight2.btn-check
+                  label(for='weight2').btn.btn-outline-secondary.px-2
+                    span.mx-1 260 g
+                .me-3
+                  input(type='radio' name='weight' value='440 g')#weight3.btn-check
+                  label(for='weight3').btn.btn-outline-secondary.px-2
+                    span.mx-1 440 g
+        #html8.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Color radio buttons with binded label. Change input type to checkbox to siwth to multiselect behavior. --&gt;
+              &lt;div class=&quot;h6&quot;&gt;
+                Color:
+                &lt;span class=&quot;text-muted fw-normal ms-1&quot; id=&quot;colorOption&quot;&gt;
+                  Gray marble
+                &lt;/span&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;d-flex&quot;&gt;
+                &lt;div class=&quot;me-2 mb-2&quot;&gt;
+                  &lt;input type=&quot;radio&quot; class=&quot;btn-check&quot; id=&quot;color1&quot; name=&quot;color&quot; data-binded-label=&quot;colorOption&quot; value=&quot;Gray marble&quot; checked&gt;
+                  &lt;label for=&quot;color1&quot; class=&quot;btn btn-icon btn-sm btn-outline-secondary rounded-circle&quot;&gt;
+                    &lt;span class=&quot;d-block bg-size-cover bg-position-center rounded-circle&quot; style=&quot;width: 1.5rem; height: 1.5rem; background-color: #c0c0c0; background-image: url(assets/img/shop/pattern/marble.jpg);&quot;&gt;&lt;/span&gt;
+                  &lt;/label&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;me-2 mb-2&quot;&gt;
+                  &lt;input type=&quot;radio&quot; class=&quot;btn-check&quot; id=&quot;color2&quot; name=&quot;color&quot; data-binded-label=&quot;colorOption&quot; value=&quot;Soft beige&quot;&gt;
+                  &lt;label for=&quot;color2&quot; class=&quot;btn btn-icon btn-sm btn-outline-secondary rounded-circle&quot;&gt;
+                    &lt;span class=&quot;d-block rounded-circle&quot; style=&quot;width: 1.5rem; height: 1.5rem; background-color: #d9c9a1;&quot;&gt;&lt;/span&gt;
+                  &lt;/label&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+
+              &lt;!-- Small color radio button example --&gt;
+              &lt;input type=&quot;radio&quot; class=&quot;btn-check&quot; id=&quot;color&quot; name=&quot;color&quot; value=&quot;Soft beige&quot;&gt;
+              &lt;label for=&quot;color&quot; class=&quot;btn btn-icon btn-xs btn-outline-secondary rounded-circle&quot;&gt;
+                &lt;span class=&quot;d-block rounded-circle&quot; style=&quot;width: .625rem; height: .625rem; background-color: #d9c9a1;&quot;&gt;&lt;/span&gt;
+              &lt;/label&gt;
+
+
+              &lt;!-- Radio buttons with text inside. Ideal for size, weight selection --&gt;
+              &lt;div class=&quot;d-flex&quot;&gt;
+                &lt;div class=&quot;me-3&quot;&gt;
+                  &lt;input type=&quot;radio&quot; class=&quot;btn-check&quot; id=&quot;weight1&quot; name=&quot;weight&quot; value=&quot;140 g&quot; checked&gt;
+                  &lt;label for=&quot;weight1&quot; class=&quot;btn btn-outline-secondary px-2&quot;&gt;
+                    &lt;span class=&quot;mx-1&quot;&gt;140 g&lt;/span&gt;
+                  &lt;/label&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;me-3&quot;&gt;
+                  &lt;input type=&quot;radio&quot; class=&quot;btn-check&quot; id=&quot;weight2&quot; name=&quot;weight&quot; value=&quot;260 g&quot;&gt;
+                  &lt;label for=&quot;weight2&quot; class=&quot;btn btn-outline-secondary px-2&quot;&gt;
+                    &lt;span class=&quot;mx-1&quot;&gt;260 g&lt;/span&gt;
+                  &lt;/label&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug8.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Color radio buttons with binded label. Change input type to checkbox to siwth to multiselect behavior.
+              .h6
+                | Color:
+                span#colorOption.text-muted.fw-normal.ms-1 Gray marble
+              .d-flex
+
+                // Image pattern
+                .me-2.mb-2
+                  input(type=&quot;radio&quot;, name=&quot;color&quot;, data-binded-label=&quot;colorOption&quot;, value=&quot;Gray marble&quot;, checked)#color1.btn-check
+                  label(for=&quot;color1&quot;).btn.btn-icon.btn-sm.btn-outline-secondary.rounded-circle
+                    span(style=&quot;width: 1.5rem; height: 1.5rem; background-color: #c0c0c0; background-image: url(assets/img/shop/pattern/marble.jpg);&quot;).d-block.bg-size-cover.bg-position-center.rounded-circle
+                
+                // Solid color
+                .me-2.mb-2
+                  input(type=&quot;radio&quot;, name=&quot;color&quot;, data-binded-label=&quot;colorOption&quot;, value=&quot;Soft beige&quot;)#color2.btn-check
+                  label(for=&quot;color2&quot;).btn.btn-icon.btn-sm.btn-outline-secondary.rounded-circle
+                    span(style=&quot;width: 1.5rem; height: 1.5rem; background-color: #d9c9a1;&quot;).d-block.rounded-circle
+              
+
+              // Small color radio button example
+              input(type=&quot;radio&quot;, name=&quot;color&quot;, value=&quot;Bluish sky&quot;)#color.btn-check
+              label(for=&quot;color&quot;).btn.btn-icon.btn-xs.btn-outline-secondary.rounded-circle
+                span(style=&quot;width: .625rem; height: .625rem; background-color: #a1b7d9;&quot;).d-block.rounded-circle
+
+
+              // Radio buttons with text inside. Ideal for size, weight selection
+              .d-flex
+                .me-3
+                  input(type=&quot;radio&quot;, name=&quot;weight&quot;, value=&quot;140 g&quot; checked)#weight1.btn-check
+                  label(for=&quot;weight1&quot;).btn.btn-outline-secondary.px-2
+                    span.mx-1 140 g
+                .me-3
+                  input(type=&quot;radio&quot;, name=&quot;weight&quot;, value=&quot;260 g&quot;)#weight2.btn-check
+                  label(for=&quot;weight2&quot;).btn.btn-outline-secondary.px-2
+                    span.mx-1 260 g
+
+  // Count input (+/-)
+  section#forms-count.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Count input (+/-)
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview9' data-bs-toggle='tab' role='tab' aria-controls='preview9' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html9' data-bs-toggle='tab' role='tab' aria-controls='html9' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug9' data-bs-toggle='tab' role='tab' aria-controls='pug9' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview9.tab-pane.fade.show.active(role='tabpanel')
+          .count-input.me-4
+            button(type='button' data-decrement).btn.btn-icon.fs-xl -
+            input(type='number' value='1' readonly).form-control
+            button(type='button' data-increment).btn.btn-icon.fs-xl +
+          .count-input.bg-gray.rounded-3
+            button(type='button' data-decrement).btn.btn-icon.btn-lg.fs-xl -
+            input(type='number' value='2' readonly).form-control
+            button(type='button' data-increment).btn.btn-icon.btn-lg.fs-xl +
+        #html9.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Count input naked variant --&gt;
+              &lt;div class=&quot;count-input&quot;&gt;
+                &lt;button type=&quot;button&quot; class=&quot;btn btn-icon fs-xl&quot; data-decrement&gt;-&lt;/button&gt;
+                &lt;input type=&quot;number&quot; class=&quot;form-control&quot; value=&quot;1&quot; readonly&gt;
+                &lt;button type=&quot;button&quot; class=&quot;btn btn-icon fs-xl&quot; data-decrement&gt;+&lt;/button&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Count input naked variant --&gt;
+              &lt;div class=&quot;count-input bg-gray rounded-3&quot;&gt;
+                &lt;button type=&quot;button&quot; class=&quot;btn btn-icon btn-lg fs-xl&quot; data-decrement&gt;-&lt;/button&gt;
+                &lt;input type=&quot;number&quot; class=&quot;form-control&quot; value=&quot;2&quot; readonly&gt;
+                &lt;button type=&quot;button&quot; class=&quot;btn btn-icon btn-lg fs-xl&quot; data-decrement&gt;+&lt;/button&gt;
+              &lt;/div&gt;
+        #pug9.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Count input naked variant
+              .count-input
+                button(type=&quot;button&quot;, data-decrement).btn.btn-icon.fs-xl
+                  | -
+                input(type=&quot;number&quot;, value=&quot;1&quot;, readonly).form-control
+                button(type=&quot;button&quot;, data-increment).btn.btn-icon.fs-xl
+                  | +
+
+              // Count input with gray background
+              .count-input.bg-gray.rounded-3
+                button(type=&quot;button&quot;, data-decrement).btn.btn-icon.btn-lg.fs-xl
+                  | -
+                input(type=&quot;number&quot;, value=&quot;2&quot;, readonly).form-control
+                button(type=&quot;button&quot;, data-increment).btn.btn-icon.btn-lg.fs-xl
+                  | +
+
+  // Range slider
+  section#forms-range-slider.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Range slider
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview10' data-bs-toggle='tab' role='tab' aria-controls='preview10' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html10' data-bs-toggle='tab' role='tab' aria-controls='html10' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug10' data-bs-toggle='tab' role='tab' aria-controls='pug10' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview10.tab-pane.fade.show.active(role='tabpanel' style='max-width: 20rem;' )
+          h6.fs-sm Two handles + inputs
+          .range-slider.mb-4.pb-3(data-start-min='280' data-start-max='720' data-min='0' data-max='1000' data-step='1')
+            .range-slider-ui
+            .d-flex
+              .d-flex.align-items-center.w-50
+                label(for='rs-min').form-label.fs-xs.me-2.mb-0 From
+                input(type='number' style='max-width: 6rem;')#rs-min.form-control.form-control-sm.range-slider-value-min
+              .d-flex.align-items-center.justify-content-end.w-50
+                label(for='rs-max').form-label.fs-xs.me-2.mb-0 To
+                input(type='number' style='max-width: 6rem;')#rs-max.form-control.form-control-sm.range-slider-value-max
+          h6.fs-sm With value scale (pips)
+          .range-slider.mb-4.pb-3(data-start-min='250' data-start-max='680' data-min='0' data-max='1000' data-step='1' data-pips='true')
+            .range-slider-ui
+            .d-flex.position-relative.zindex-5
+              .d-flex.align-items-center.w-50
+                label(for='rs-min2').form-label.fs-xs.me-2.mb-0 From
+                input(type='number' style='max-width: 6rem;')#rs-min2.form-control.form-control-sm.range-slider-value-min
+              .d-flex.align-items-center.justify-content-end.w-50
+                label(for='rs-max2').form-label.fs-xs.me-2.mb-0 To
+                input(type='number' style='max-width: 6rem;')#rs-max2.form-control.form-control-sm.range-slider-value-max
+          h6.fs-sm One handle + no inputs
+          .range-slider(data-start-min='450' data-min='0' data-max='1000' data-step='1')
+            .range-slider-ui
+            input(type='hidden').form-control.range-slider-value-min
+        #html10.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Range slider: Two handles + inputs --&gt;
+              &lt;div class=&quot;range-slider&quot; data-start-min=&quot;280&quot; data-start-max=&quot;720&quot; data-min=&quot;0&quot; data-max=&quot;1000&quot; data-step=&quot;1&quot;&gt;
+                &lt;div class=&quot;range-slider-ui&quot;&gt;&lt;/div&gt;
+                &lt;div class=&quot;d-flex&quot;&gt;
+                  &lt;div class=&quot;d-flex align-items-center w-50&quot;&gt;
+                    &lt;label for=&quot;rs-min&quot; class=&quot;form-label fs-xs me-2 mb-0&quot;&gt;From&lt;/label&gt;
+                    &lt;input type=&quot;number&quot; id=&quot;rs-min&quot; class=&quot;form-control form-control-sm range-slider-value-min&quot; style=&quot;max-width: 6rem;&quot;&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;d-flex align-items-center w-50&quot;&gt;
+                    &lt;label for=&quot;rs-max&quot; class=&quot;form-label fs-xs me-2 mb-0&quot;&gt;To&lt;/label&gt;
+                    &lt;input type=&quot;number&quot; id=&quot;rs-max&quot; class=&quot;form-control form-control-sm range-slider-value-max&quot; style=&quot;max-width: 6rem;&quot;&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Range slider: With value scale (pips) --&gt;
+              &lt;div class=&quot;range-slider&quot; data-start-min=&quot;250&quot; data-start-max=&quot;680&quot; data-min=&quot;0&quot; data-max=&quot;1000&quot; data-step=&quot;1&quot; data-pips=&quot;true&quot;&gt;
+                &lt;div class=&quot;range-slider-ui&quot;&gt;&lt;/div&gt;
+                &lt;div class=&quot;d-flex&quot;&gt;
+                  &lt;div class=&quot;d-flex align-items-center w-50&quot;&gt;
+                    &lt;label for=&quot;rs-min&quot; class=&quot;form-label fs-xs me-2 mb-0&quot;&gt;From&lt;/label&gt;
+                    &lt;input type=&quot;number&quot; id=&quot;rs-min&quot; class=&quot;form-control form-control-sm range-slider-value-min&quot; style=&quot;max-width: 6rem;&quot;&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;d-flex align-items-center w-50&quot;&gt;
+                    &lt;label for=&quot;rs-max&quot; class=&quot;form-label fs-xs me-2 mb-0&quot;&gt;To&lt;/label&gt;
+                    &lt;input type=&quot;number&quot; id=&quot;rs-max&quot; class=&quot;form-control form-control-sm range-slider-value-max&quot; style=&quot;max-width: 6rem;&quot;&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Range slider: One handle + no inputs --&gt;
+              &lt;div class=&quot;range-slider&quot; data-start-min=&quot;450&quot; data-min=&quot;0&quot; data-max=&quot;1000&quot; data-step=&quot;1&quot;&gt;
+                &lt;div class=&quot;range-slider-ui&quot;&gt;&lt;/div&gt;
+                &lt;input type=&quot;hidden&quot; class=&quot;form-control range-slider-value-min&quot;&gt;
+              &lt;/div&gt;
+        #pug10.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Range slider: Two handles + inputs
+              .range-slider(data-start-min=&quot;280&quot;, data-start-max=&quot;720&quot;, data-min=&quot;0&quot;, data-max=&quot;1000&quot;, data-step=&quot;1&quot;)
+                .range-slider-ui
+                .d-flex
+                  .d-flex.align-items-center.w-50
+                    label(for=&quot;rs-min&quot;).form-label.fs-xs.me-2.mb-0
+                      | From
+                    input(type=&quot;number&quot;, style=&quot;max-width: 6rem;&quot;)#rs-min.form-control.form-control-sm.range-slider-value-min
+                  .d-flex.align-items-center.justify-content-end.w-50
+                    label(for=&quot;rs-max&quot;).form-label.fs-xs.me-2.mb-0
+                      | To
+                    input(type=&quot;number&quot;, style=&quot;max-width: 6rem;&quot;)#rs-max.form-control.form-control-sm.range-slider-value-max
+
+              // Range slider: With value scale (pips)
+              .range-slider(data-start-min=&quot;250&quot;, data-start-max=&quot;680&quot;, data-min=&quot;0&quot;, data-max=&quot;1000&quot;, data-step=&quot;1&quot;, data-pips=&quot;true&quot;)
+                .range-slider-ui
+                .d-flex.position-relative.zindex-5
+                  .d-flex.align-items-center.w-50
+                    label(for=&quot;rs-min2&quot;).form-label.fs-xs.me-2.mb-0
+                      | From
+                    input(type=&quot;number&quot;, style=&quot;max-width: 6rem;&quot;)#rs-min2.form-control.form-control-sm.range-slider-value-min
+                  .d-flex.align-items-center.justify-content-end.w-50
+                    label(for=&quot;rs-max2&quot;).form-label.fs-xs.me-2.mb-0
+                      | To
+                    input(type=&quot;number&quot;, style=&quot;max-width: 6rem;&quot;)#rs-max2.form-control.form-control-sm.range-slider-value-max
+
+              // Range slider: One handle + no inputs
+              .range-slider(data-start-min=&quot;450&quot;, data-min=&quot;0&quot;, data-max=&quot;1000&quot;, data-step=&quot;1&quot;)
+                .range-slider-ui
+                input(type=&quot;hidden&quot;).form-control.range-slider-value-min
+
+  // Sizing
+  section#forms-sizing.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Sizing
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview11' data-bs-toggle='tab' role='tab' aria-controls='preview11' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html11' data-bs-toggle='tab' role='tab' aria-controls='html11' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug11' data-bs-toggle='tab' role='tab' aria-controls='pug11' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview11.tab-pane.fade.show.active(role='tabpanel')
+          .d-sm-flex.mt-n1
+            .w-100.me-4
+              .mb-3
+                label(for='input-lg').form-label.fs-base Large input
+                input(type='text' placeholder='Large input placeholder')#input-lg.form-control.form-control-lg
+              .mb-3
+                label(for='input-md').form-label Normal input
+                input(type='text' placeholder='Normal input placeholder')#input-md.form-control
+              .mb-3.mb-sm-0
+                label(for='input-sm').form-label.fs-xs Small input
+                input(type='text' placeholder='Small input placeholder')#input-sm.form-control.form-control-sm
+            .w-100
+              .mb-3
+                label(for='select-lg').form-label.fs-base Large select
+                select#select-lg.form-select.form-select-lg
+                  option Large select option
+                  option Option item 1
+                  option Option item 2
+                  option Option item 3
+              .mb-3
+                label(for='select-md').form-label Normal select
+                select#select-md.form-select
+                  option Normal select option
+                  option Option item 1
+                  option Option item 2
+                  option Option item 3
+              .mb-3.mb-sm-0
+                label(for='select-sm').form-label.fs-xs Small select
+                select#select-sm.form-select.form-select-sm
+                  option Small select option
+                  option Option item 1
+                  option Option item 2
+                  option Option item 3
+        #html11.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Large input --&gt;
+              &lt;div class=&quot;mb-3&quot;&gt;
+                &lt;label for=&quot;input-lg&quot; class=&quot;form-label fs-base&quot;&gt;Large input&lt;/label&gt;
+                &lt;input type=&quot;text&quot; id=&quot;input-lg&quot; class=&quot;form-control form-control-lg&quot; placeholder=&quot;Large input placeholder&quot;&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Normal input --&gt;
+              &lt;div class=&quot;mb-3&quot;&gt;
+                &lt;label for=&quot;input-md&quot; class=&quot;form-label&quot;&gt;Normal input&lt;/label&gt;
+                &lt;input type=&quot;text&quot; id=&quot;input-md&quot; class=&quot;form-control&quot; placeholder=&quot;Normal input placeholder&quot;&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Small input --&gt;
+              &lt;div class=&quot;mb-3&quot;&gt;
+                &lt;label for=&quot;input-sm&quot; class=&quot;form-label fs-xs&quot;&gt;Small input&lt;/label&gt;
+                &lt;input type=&quot;text&quot; id=&quot;input-sm&quot; class=&quot;form-control form-control-sm&quot; placeholder=&quot;Small input placeholder&quot;&gt;
+              &lt;/div&gt;
+              
+              &lt;!-- Large select --&gt;
+              &lt;div class=&quot;mb-3&quot;&gt;
+                &lt;label for=&quot;select-lg&quot; class=&quot;form-label fs-base&quot;&gt;Large select&lt;/label&gt;
+                &lt;select id=&quot;select-lg&quot; class=&quot;form-select form-select-lg&quot;&gt;
+                  &lt;option&gt;Large select option&lt;/option&gt;
+                  &lt;option&gt;Option item 1&lt;/option&gt;
+                  &lt;option&gt;Option item 2&lt;/option&gt;
+                  &lt;option&gt;Option item 3&lt;/option&gt;
+                &lt;/select&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Normal select --&gt;
+              &lt;div class=&quot;mb-3&quot;&gt;
+                &lt;label for=&quot;select-md&quot; class=&quot;form-label&quot;&gt;Normal select&lt;/label&gt;
+                &lt;select id=&quot;select-md&quot; class=&quot;form-select&quot;&gt;
+                  &lt;option&gt;Normal select option&lt;/option&gt;
+                  &lt;option&gt;Option item 1&lt;/option&gt;
+                  &lt;option&gt;Option item 2&lt;/option&gt;
+                  &lt;option&gt;Option item 3&lt;/option&gt;
+                &lt;/select&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Small select --&gt;
+              &lt;div class=&quot;mb-3&quot;&gt;
+                &lt;label for=&quot;select-sm&quot; class=&quot;form-label fs-xs&quot;&gt;Small select&lt;/label&gt;
+                &lt;select id=&quot;select-sm&quot; class=&quot;form-select form-select-sm&quot;&gt;
+                  &lt;option&gt;Small select option&lt;/option&gt;
+                  &lt;option&gt;Option item 1&lt;/option&gt;
+                  &lt;option&gt;Option item 2&lt;/option&gt;
+                  &lt;option&gt;Option item 3&lt;/option&gt;
+                &lt;/select&gt;
+              &lt;/div&gt;
+        #pug11.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Large input
+              .mb-3
+                label(for=&quot;input-lg&quot;).form-label.fs-base
+                  | Large input
+                input(type=&quot;text&quot;, placeholder=&quot;Large input placeholder&quot;)#input-lg.form-control.form-control-lg
+
+              // Normal input
+              .mb-3
+                label(for=&quot;input-md&quot;).form-label
+                  | Normal input
+                input(type=&quot;text&quot;, placeholder=&quot;Normal input placeholder&quot;)#input-md.form-control
+
+              // Small input
+              .mb-3
+                label(for=&quot;input-sm&quot;).form-label.fs-xs
+                  | Small input
+                input(type=&quot;text&quot;, placeholder=&quot;Small input placeholder&quot;)#input-sm.form-control.form-control-sm
+
+              // Large select
+              .mb-3
+                label(for=&quot;select-lg&quot;).form-label.fs-base
+                  | Large select
+                select#select-lg.form-select.form-select-lg
+                  option Large select option
+                  option Option item 1
+                  option Option item 2
+                  option Option item 3
+
+              // Normal select
+              .mb-3
+                label(for=&quot;select-md&quot;).form-label
+                  | Normal select
+                select#select-md.form-select
+                  option Normal select option
+                  option Option item 1
+                  option Option item 2
+                  option Option item 3
+
+              // Small select
+              .mb-3
+                label(for=&quot;select-sm&quot;).form-label.fs-xs
+                  | Small select
+                select#select-sm.form-select.form-select-sm
+                  option Small select option
+                  option Option item 1
+                  option Option item 2
+                  option Option item 3
+
+  // Readonly & Disabled
+  section#forms-disabled.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Readonly &amp; Disabled
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview12' data-bs-toggle='tab' role='tab' aria-controls='preview12' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html12' data-bs-toggle='tab' role='tab' aria-controls='html12' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug12' data-bs-toggle='tab' role='tab' aria-controls='pug12' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview12.tab-pane.fade.show.active(role='tabpanel' style='max-width: 25rem;')
+          .mb-3
+            input(type='text' placeholder='Readonly input here...' readonly).form-control
+          .mb-3
+            input(type='text' id='disabled-input' placeholder='Disabled input here...' disabled).form-control
+          .mb-3
+            select(id='disabled-select-input' disabled).form-select
+              option Disabled select here...
+              option Option item 1
+              option Option item 2
+              option Option item 3
+        #html12.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Readonly input --&gt;
+              &lt;input class=&quot;form-control&quot; type=&quot;text&quot; placeholder=&quot;Readonly input here...&quot; readonly&gt;
+
+              &lt;!-- Disabled input --&gt;
+              &lt;input class=&quot;form-control&quot; type=&quot;text&quot; placeholder=&quot;Disabled input here...&quot; disabled&gt;
+
+              &lt;!-- Disabled select --&gt;
+              &lt;select class=&quot;form-select&quot; disabled&gt;
+                &lt;option&gt;Disabled select here...&lt;/option&gt;
+                &lt;option&gt;Option item 1&lt;/option&gt;
+                &lt;option&gt;Option item 2&lt;/option&gt;
+                &lt;option&gt;Option item 3&lt;/option&gt;
+              &lt;/select&gt;
+        #pug12.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Readonly input
+              input(type=&quot;text&quot;, placeholder=&quot;Readonly input here...&quot;, readonly).form-control
+              
+              // Disabled input
+              input(type=&quot;text&quot;, placeholder=&quot;Disabled input here...&quot;, disabled).form-control
+              
+              // Disabled select
+              select(disabled).form-select
+                option Disabled select here...
+                option Option item 1
+                option Option item 2
+                option Option item 3
+
+  // Inline form
+  section#forms-inline.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Inline form
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview13' data-bs-toggle='tab' role='tab' aria-controls='preview13' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html13' data-bs-toggle='tab' role='tab' aria-controls='html13' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug13' data-bs-toggle='tab' role='tab' aria-controls='pug13' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview13.tab-pane.fade.show.active(role='tabpanel')
+          form.row.row-cols-sm-auto.g-3.align-items-center
+            .col-12
+              input(type='text' placeholder='Full name')#inline-form-input.form-control
+            .col-12
+              select#inline-form-select.form-select
+                option(value='') Choose
+                option(value='1') One
+                option(value='2') Two
+                option(value='3') Three
+            .col-12
+              .form-check
+                input(type='checkbox')#inline-form-check.form-check-input
+                label(for='inline-form-check').form-check-label Remember me
+            .col-12
+              button(type='submit').btn.btn-primary Submit
+        #html13.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Inline form --&gt;
+              &lt;form class=&quot;row row-cols-sm-auto g-3 align-items-center&quot;&gt;
+                &lt;div class=&quot;col-12&quot;&gt;
+                  &lt;input type=&quot;text&quot; id=&quot;inline-form-input&quot; class=&quot;form-control&quot; placeholder=&quot;Full name&quot;&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;col-12&quot;&gt;
+                  &lt;select id=&quot;inline-form-select&quot; class=&quot;form-select&quot;&gt;
+                    &lt;option value=&quot;&quot;&gt;Choose...&lt;/option&gt;
+                    &lt;option value=&quot;1&quot;&gt;One&lt;/option&gt;
+                    &lt;option value=&quot;2&quot;&gt;Two&lt;/option&gt;
+                    &lt;option value=&quot;3&quot;&gt;Three&lt;/option&gt;
+                  &lt;/select&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;col-12&quot;&gt;
+                  &lt;div class=&quot;form-check&quot;&gt;
+                    &lt;input type=&quot;checkbox&quot; id=&quot;inline-form-check&quot; class=&quot;form-check-input&quot;&gt;
+                    &lt;label for=&quot;inline-form-check&quot; class=&quot;form-check-label&quot;&gt;Remember me&lt;/label&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;col-12&quot;&gt;
+                  &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;Submit&lt;/button&gt;
+                &lt;/div&gt;
+              &lt;/form&gt;
+        #pug13.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Inline form
+              form.row.row-cols-sm-auto.g-3.align-items-center
+                .col-12
+                  input(type=&quot;text&quot;, placeholder=&quot;Full name&quot;)#inline-form-input.form-control
+                .col-12
+                  select#inline-form-select.form-select
+                    option(value=&quot;&quot;) Choose
+                    option(value=&quot;1&quot;) One
+                    option(value=&quot;2&quot;) Two
+                    option(value=&quot;3&quot;) Three
+                .col-12
+                  .form-check
+                    input(type=&quot;checkbox&quot;)#inline-form-check.form-check-input
+                    label(for=&quot;inline-form-check&quot;).form-check-label
+                      | Remember me
+                .col-12
+                  button(type=&quot;submit&quot;).btn.btn-primary
+                    | Submit
+
+  // Help text
+  section#forms-help-text.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Help text
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview14' data-bs-toggle='tab' role='tab' aria-controls='preview14' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html14' data-bs-toggle='tab' role='tab' aria-controls='html14' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug14' data-bs-toggle='tab' role='tab' aria-controls='pug14' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview14.tab-pane.fade.show.active(role='tabpanel')
+          .mb-3(style='max-width: 28rem;')
+            label(for='help-text-input').form-label Password
+            input(type='password' id='help-text-input' placeholder='Your password here').form-control
+            .form-text Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+        #html14.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Form help text --&gt;
+              &lt;div class=&quot;mb-3&quot;&gt;
+                &lt;label for=&quot;help-text-input&quot; class=&quot;form-label&quot;&gt;Password&lt;/label&gt;
+                &lt;input class=&quot;form-control&quot; type=&quot;password&quot; id=&quot;help-text-input&quot; placeholder=&quot;Your password here&quot;&gt;
+                &lt;div class=&quot;form-text&quot;&gt;Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.&lt;/div&gt;
+              &lt;/div&gt;
+        #pug14.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Form help text
+              .mb-3
+                label(for=&quot;help-text-input&quot;).form-label
+                  | Password
+                input(type=&quot;password&quot;, id=&quot;help-text-input&quot;, placeholder=&quot;Your password here&quot;).form-control
+                .form-text
+                  | Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+
+  // Validation: status text
+  section#forms-validation-text.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Validation: status text
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview15' data-bs-toggle='tab' role='tab' aria-controls='preview15' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html15' data-bs-toggle='tab' role='tab' aria-controls='html15' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug15' data-bs-toggle='tab' role='tab' aria-controls='pug15' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview15.tab-pane.fade.show.active(role='tabpanel')
+          form(novalidate).needs-validation
+            .row
+              .col-md-4.mb-3
+                label(for='validationCustom01').form-label First name
+                input(type='text' id='validationCustom01' placeholder='First name' value='John' required).form-control
+                .valid-feedback Looks good!
+              .col-md-4.mb-3
+                label(for='validationCustom02').form-label Last name
+                input(type='text' id='validationCustom02' placeholder='Last name' value='Doe' required).form-control
+                .valid-feedback Looks good!
+              .col-md-4.mb-3
+                label(for='validationCustomUsername').form-label Username
+                input(type='text' id='validationCustomUsername' placeholder='Username' required).form-control
+                .invalid-feedback Please choose a username.
+                .valid-feedback Looks good!
+            .row
+              .col-md-6.mb-3
+                label(for='validationCustom03').form-label City
+                select(id='validationCustom03' required).form-select
+                  option(value='') Choose city...
+                  option(value='Dallas') Dallas
+                  option(value='Houston') Houston
+                  option(value='Los Angeles') Los Angeles
+                  option(value='Miami') Miami
+                  option(value='New York') New York
+                .invalid-feedback Please provide a valid city.
+                .valid-feedback Looks good!
+              .col-md-3.mb-3
+                label(for='validationCustom04').form-label State
+                select(id='validationCustom04' required).form-select
+                  option(value='') Choose state...
+                  option(value='Arizona') Arizona
+                  option(value='Colorado') Colorado
+                  option(value='Florida') Florida
+                  option(value='Indiana') Indiana
+                  option(value='Kentucky') Kentucky
+                  option(value='Texas') Texas
+                .invalid-feedback Please provide a valid state.
+                .valid-feedback Looks good!
+              .col-md-3.mb-3
+                label(for='validationCustom05').form-label Zip
+                input(type='text' id='validationCustom05' placeholder='Zip' required).form-control
+                .invalid-feedback Please provide a valid zip.
+                .valid-feedback Looks good!
+            .mb-3.py-2
+              .form-check
+                input(type='checkbox' id='invalidCheck' required).form-check-input
+                label(for='invalidCheck').form-check-label Agree to terms and conditions
+                .invalid-feedback You must agree before submitting.
+            button(type='submit').btn.btn-primary Submit Form
+        #html15.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Forms validation: status text --&gt;
+              &lt;form class=&quot;needs-validation&quot; novalidate&gt;
+                &lt;div class=&quot;row&quot;&gt;
+                  &lt;div class=&quot;col-md-4 mb-3&quot;&gt;
+                    &lt;label for=&quot;validationCustom01&quot; class=&quot;form-label&quot;&gt;First name&lt;/label&gt;
+                    &lt;input class=&quot;form-control&quot; type=&quot;text&quot; id=&quot;validationCustom01&quot; placeholder=&quot;First name&quot; value=&quot;John&quot; required&gt;
+                    &lt;div class=&quot;valid-feedback&quot;&gt;Looks good!&lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;col-md-4 mb-3&quot;&gt;
+                    &lt;label for=&quot;validationCustom02&quot; class=&quot;form-label&quot;&gt;Last name&lt;/label&gt;
+                    &lt;input class=&quot;form-control&quot; type=&quot;text&quot; id=&quot;validationCustom02&quot; placeholder=&quot;Last name&quot; value=&quot;Doe&quot; required&gt;
+                    &lt;div class=&quot;valid-feedback&quot;&gt;Looks good!&lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;col-md-4 mb-3&quot;&gt;
+                    &lt;label for=&quot;validationCustomUsername&quot; class=&quot;form-label&quot;&gt;Username&lt;/label&gt;
+                    &lt;input class=&quot;form-control&quot; type=&quot;text&quot; id=&quot;validationCustomUsername&quot; placeholder=&quot;Username&quot; required&gt;
+                    &lt;div class=&quot;invalid-feedback&quot;&gt;Please choose a username.&lt;/div&gt;
+                    &lt;div class=&quot;valid-feedback&quot;&gt;Looks good!&lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;row&quot;&gt;
+                  &lt;div class=&quot;col-md-6 mb-3&quot;&gt;
+                    &lt;label for=&quot;validationCustom03&quot; class=&quot;form-label&quot;&gt;City&lt;/label&gt;
+                    &lt;select class=&quot;form-select&quot; id=&quot;validationCustom03&quot; required&gt;
+                      &lt;option value=&quot;&quot;&gt;Choose city...&lt;/option&gt;
+                      &lt;option value=&quot;Dallas&quot;&gt;Dallas&lt;/option&gt;
+                      &lt;option value=&quot;Houston&quot;&gt;Houston&lt;/option&gt;
+                      &lt;option value=&quot;Los Angeles&quot;&gt;Los Angeles&lt;/option&gt;
+                      &lt;option value=&quot;Miami&quot;&gt;Miami&lt;/option&gt;
+                      &lt;option value=&quot;New York&quot;&gt;New York&lt;/option&gt;
+                    &lt;/select&gt;
+                    &lt;div class=&quot;invalid-feedback&quot;&gt;Please provide a valid city.&lt;/div&gt;
+                    &lt;div class=&quot;valid-feedback&quot;&gt;Looks good!&lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;col-md-3 mb-3&quot;&gt;
+                    &lt;label for=&quot;validationCustom04&quot; class=&quot;form-label&quot;&gt;State&lt;/label&gt;
+                    &lt;select class=&quot;form-select&quot; id=&quot;validationCustom04&quot; required&gt;
+                      &lt;option value=&quot;&quot;&gt;Choose state...&lt;/option&gt;
+                      &lt;option value=&quot;Arizona&quot;&gt;Arizona&lt;/option&gt;
+                      &lt;option value=&quot;Colorado&quot;&gt;Colorado&lt;/option&gt;
+                      &lt;option value=&quot;Florida&quot;&gt;Florida&lt;/option&gt;
+                      &lt;option value=&quot;Indiana&quot;&gt;Indiana&lt;/option&gt;
+                      &lt;option value=&quot;Kentucky&quot;&gt;Kentucky&lt;/option&gt;
+                      &lt;option value=&quot;Texas&quot;&gt;Texas&lt;/option&gt;
+                    &lt;/select&gt;
+                    &lt;div class=&quot;invalid-feedback&quot;&gt;Please provide a valid state.&lt;/div&gt;
+                    &lt;div class=&quot;valid-feedback&quot;&gt;Looks good!&lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;col-md-3 mb-3&quot;&gt;
+                    &lt;label for=&quot;validationCustom05&quot; class=&quot;form-label&quot;&gt;Zip&lt;/label&gt;
+                    &lt;input class=&quot;form-control&quot; type=&quot;text&quot; id=&quot;validationCustom05&quot; placeholder=&quot;Zip&quot; required&gt;
+                    &lt;div class=&quot;invalid-feedback&quot;&gt;Please provide a valid zip.&lt;/div&gt;
+                    &lt;div class=&quot;valid-feedback&quot;&gt;Looks good!&lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;mb-3&quot;&gt;
+                  &lt;div class=&quot;form-check&quot;&gt;
+                    &lt;input class=&quot;form-check-input&quot; type=&quot;checkbox&quot; id=&quot;invalidCheck&quot; required&gt;
+                    &lt;label class=&quot;form-check-label&quot; for=&quot;invalidCheck&quot;&gt;Agree to terms and conditions&lt;/label&gt;
+                    &lt;div class=&quot;invalid-feedback&quot;&gt;You must agree before submitting.&lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;button class=&quot;btn btn-primary&quot; type=&quot;submit&quot;&gt;Submit Form&lt;/button&gt;
+              &lt;/form&gt;
+        #pug15.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Forms validation: status text
+              form(novalidate).needs-validation
+                .row
+                  .col-md-4.mb-3
+                    label(for=&quot;validationCustom01&quot;).form-label
+                      | First name
+                    input(type=&quot;text&quot;, id=&quot;validationCustom01&quot;, placeholder=&quot;First name&quot;, value=&quot;John&quot;, required).form-control
+                    .valid-feedback
+                      | Looks good!
+                  .col-md-4.mb-3
+                    label(for=&quot;validationCustom02&quot;).form-label
+                      | Last name
+                    input(type=&quot;text&quot;, id=&quot;validationCustom02&quot;, placeholder=&quot;Last name&quot;, value=&quot;Doe&quot;, required).form-control
+                    .valid-feedback
+                      | Looks good!
+                  .col-md-4.mb-3
+                    label(for=&quot;validationCustomUsername&quot;).form-label
+                      | Username
+                    input(type=&quot;text&quot;, id=&quot;validationCustomUsername&quot;, placeholder=&quot;Username&quot;, required).form-control
+                    .invalid-feedback
+                      | Please choose a username.
+                    .valid-feedback
+                      | Looks good!
+                .row
+                  .col-md-6.mb-3
+                    label(for=&quot;validationCustom03&quot;).form-label
+                      | City
+                    select(id=&quot;validationCustom03&quot;, required).form-select
+                      option(value=&quot;&quot;) Choose city...
+                      option(value=&quot;Dallas&quot;) Dallas
+                      option(value=&quot;Houston&quot;) Houston
+                      option(value=&quot;Los Angeles&quot;) Los Angeles
+                      option(value=&quot;Miami&quot;) Miami
+                      option(value=&quot;New York&quot;) New York
+                    .invalid-feedback
+                      | Please provide a valid city.
+                    .valid-feedback
+                      | Looks good!
+                  .col-md-3.mb-3
+                    label(for=&quot;validationCustom04&quot;).form-label
+                      | State
+                    select(id=&quot;validationCustom04&quot;, required).form-select
+                      option(value=&quot;&quot;) Choose state...
+                      option(value=&quot;Arizona&quot;) Arizona
+                      option(value=&quot;Colorado&quot;) Colorado
+                      option(value=&quot;Florida&quot;) Florida
+                      option(value=&quot;Indiana&quot;) Indiana
+                      option(value=&quot;Kentucky&quot;) Kentucky
+                      option(value=&quot;Texas&quot;) Texas
+                    .invalid-feedback
+                      | Please provide a valid state.
+                    .valid-feedback
+                      | Looks good!
+                  .col-md-3.mb-3
+                    label(for=&quot;validationCustom05&quot;).form-label
+                      | Zip
+                    input(type=&quot;text&quot;, id=&quot;validationCustom05&quot;, placeholder=&quot;Zip&quot;, required).form-control
+                    .invalid-feedback
+                      | Please provide a valid zip.
+                    .valid-feedback
+                      | Looks good!
+                .mb-3
+                  .form-check
+                    input(type=&quot;checkbox&quot;, id=&quot;invalidCheck&quot;, required).form-check-input
+                    label.form-check-label(for=&quot;invalidCheck&quot;) Agree to terms and conditions
+                    .invalid-feedback
+                      | You must agree before submitting.
+                button.btn.btn-primary(type=&quot;submit&quot;) Submit Form
+
+  // Validation: status tooltips
+  section#forms-validation-tooltips.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Validation: status tooltips
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview16' data-bs-toggle='tab' role='tab' aria-controls='preview16' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html16' data-bs-toggle='tab' role='tab' aria-controls='html16' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug16' data-bs-toggle='tab' role='tab' aria-controls='pug16' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview16.tab-pane.fade.show.active(role='tabpanel')
+          form(novalidate).needs-validation
+            .row
+              .col-md-4.mb-3
+                label(for='validationTooltip01').form-label First name
+                input(type='text' id='validationTooltip01' placeholder='First name' value='John' required).form-control
+                .valid-tooltip Looks good!
+              .col-md-4.mb-3
+                label(for='validationTooltip02').form-label Last name
+                input(type='text' id='validationTooltip02' placeholder='Last name' value='Doe' required).form-control
+                .valid-tooltip Looks good!
+              .col-md-4.mb-3
+                label(for='validationTooltipUsername').form-label Username
+                input(type='text' id='validationTooltipUsername' placeholder='Username' required).form-control
+                .invalid-tooltip Please choose a username.
+                .valid-tooltip Looks good!
+            .row
+              .col-md-6.mb-3
+                label(for='validationTooltip03').form-label City
+                select(id='validationTooltip03' required).form-select
+                  option(value='') Choose city...
+                  option(value='Dallas') Dallas
+                  option(value='Houston') Houston
+                  option(value='Los Angeles') Los Angeles
+                  option(value='Miami') Miami
+                  option(value='New York') New York
+                .invalid-tooltip Please provide a valid city.
+                .valid-tooltip Looks good!
+              .col-md-3.mb-3
+                label(for='validationTooltip04').form-label State
+                select(id='validationTooltip04' required).form-select
+                  option(value='') Choose state...
+                  option(value='Arizona') Arizona
+                  option(value='Colorado') Colorado
+                  option(value='Florida') Florida
+                  option(value='Indiana') Indiana
+                  option(value='Kentucky') Kentucky
+                  option(value='Texas') Texas
+                .invalid-tooltip Please provide a valid state.
+                .valid-tooltip Looks good!
+              .col-md-3.mb-3
+                label(for='validationTooltip05').form-label Zip
+                input(type='text' id='validationTooltip05' placeholder='Zip' required).form-control
+                .invalid-tooltip Please provide a valid zip.
+                .valid-tooltip Looks good!
+            .mb-3.py-2
+              .form-check
+                input(type='checkbox' id='invalidCheck01' required).form-check-input
+                label(for='invalidCheck01').form-check-label Agree to terms and conditions
+                .invalid-tooltip You must agree before submitting.
+            button(type='submit').btn.btn-primary Submit Form
+        #html16.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Forms validation: status tooltips --&gt;
+              &lt;form class=&quot;needs-validation&quot; novalidate&gt;
+                &lt;div class=&quot;row&quot;&gt;
+                  &lt;div class=&quot;col-md-4 mb-3&quot;&gt;
+                    &lt;label for=&quot;validationTooltip01&quot; class=&quot;form-label&quot;&gt;First name&lt;/label&gt;
+                    &lt;input class=&quot;form-control&quot; type=&quot;text&quot; id=&quot;validationTooltip01&quot; placeholder=&quot;First name&quot; value=&quot;John&quot; required&gt;
+                    &lt;div class=&quot;valid-tooltip&quot;&gt;Looks good!&lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;col-md-4 mb-3&quot;&gt;
+                    &lt;label for=&quot;validationTooltip02&quot; class=&quot;form-label&quot;&gt;Last name&lt;/label&gt;
+                    &lt;input class=&quot;form-control&quot; type=&quot;text&quot; id=&quot;validationTooltip02&quot; placeholder=&quot;Last name&quot; value=&quot;Doe&quot; required&gt;
+                    &lt;div class=&quot;valid-tooltip&quot;&gt;Looks good!&lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;col-md-4 mb-3&quot;&gt;
+                    &lt;label for=&quot;validationTooltipUsername&quot; class=&quot;form-label&quot;&gt;Username&lt;/label&gt;
+                    &lt;input class=&quot;form-control&quot; type=&quot;text&quot; id=&quot;validationTooltipUsername&quot; placeholder=&quot;Username&quot; required&gt;
+                    &lt;div class=&quot;invalid-tooltip&quot;&gt;Please choose a username.&lt;/div&gt;
+                    &lt;div class=&quot;valid-tooltip&quot;&gt;Looks good!&lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;row&quot;&gt;
+                  &lt;div class=&quot;col-md-6 mb-3&quot;&gt;
+                    &lt;label for=&quot;validationTooltip03&quot; class=&quot;form-label&quot;&gt;City&lt;/label&gt;
+                    &lt;select class=&quot;form-select&quot; id=&quot;validationTooltip03&quot; required&gt;
+                      &lt;option value=&quot;&quot;&gt;Choose city...&lt;/option&gt;
+                      &lt;option value=&quot;Dallas&quot;&gt;Dallas&lt;/option&gt;
+                      &lt;option value=&quot;Houston&quot;&gt;Houston&lt;/option&gt;
+                      &lt;option value=&quot;Los Angeles&quot;&gt;Los Angeles&lt;/option&gt;
+                      &lt;option value=&quot;Miami&quot;&gt;Miami&lt;/option&gt;
+                      &lt;option value=&quot;New York&quot;&gt;New York&lt;/option&gt;
+                    &lt;/select&gt;
+                    &lt;div class=&quot;invalid-tooltip&quot;&gt;Please provide a valid city.&lt;/div&gt;
+                    &lt;div class=&quot;valid-tooltip&quot;&gt;Looks good!&lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;col-md-3 mb-3&quot;&gt;
+                    &lt;label for=&quot;validationTooltip04&quot; class=&quot;form-label&quot;&gt;State&lt;/label&gt;
+                    &lt;select class=&quot;form-select&quot; id=&quot;validationTooltip04&quot; required&gt;
+                      &lt;option value=&quot;&quot;&gt;Choose state...&lt;/option&gt;
+                      &lt;option value=&quot;Arizona&quot;&gt;Arizona&lt;/option&gt;
+                      &lt;option value=&quot;Colorado&quot;&gt;Colorado&lt;/option&gt;
+                      &lt;option value=&quot;Florida&quot;&gt;Florida&lt;/option&gt;
+                      &lt;option value=&quot;Indiana&quot;&gt;Indiana&lt;/option&gt;
+                      &lt;option value=&quot;Kentucky&quot;&gt;Kentucky&lt;/option&gt;
+                      &lt;option value=&quot;Texas&quot;&gt;Texas&lt;/option&gt;
+                    &lt;/select&gt;
+                    &lt;div class=&quot;invalid-tooltip&quot;&gt;Please provide a valid state.&lt;/div&gt;
+                    &lt;div class=&quot;valid-tooltip&quot;&gt;Looks good!&lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;col-md-3 mb-3&quot;&gt;
+                    &lt;label for=&quot;validationTooltip05&quot; class=&quot;form-label&quot;&gt;Zip&lt;/label&gt;
+                    &lt;input class=&quot;form-control&quot; type=&quot;text&quot; id=&quot;validationTooltip05&quot; placeholder=&quot;Zip&quot; required&gt;
+                    &lt;div class=&quot;invalid-tooltip&quot;&gt;Please provide a valid zip.&lt;/div&gt;
+                    &lt;div class=&quot;valid-tooltip&quot;&gt;Looks good!&lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;mb-3&quot;&gt;
+                  &lt;div class=&quot;form-check&quot;&gt;
+                    &lt;input class=&quot;form-check-input&quot; type=&quot;checkbox&quot; id=&quot;invalidCheck01&quot; required&gt;
+                    &lt;label class=&quot;form-check-label&quot; for=&quot;invalidCheck01&quot;&gt;Agree to terms and conditions&lt;/label&gt;
+                    &lt;div class=&quot;invalid-tooltip&quot;&gt;You must agree before submitting.&lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;button class=&quot;btn btn-primary&quot; type=&quot;submit&quot;&gt;Submit Form&lt;/button&gt;
+              &lt;/form&gt;
+        #pug16.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Forms validation: status tooltips
+              form(novalidate).needs-validation
+                .row
+                  .col-md-4.mb-3
+                    label(for=&quot;validationTooltip01&quot;).form-label
+                      | First name
+                    input(type=&quot;text&quot;, id=&quot;validationTooltip01&quot;, placeholder=&quot;First name&quot;, value=&quot;John&quot;, required).form-control
+                    .valid-tooltip
+                      | Looks good!
+                  .col-md-4.mb-3
+                    label(for=&quot;validationTooltip02&quot;).form-label
+                      | Last name
+                    input(type=&quot;text&quot;, id=&quot;validationTooltip02&quot;, placeholder=&quot;Last name&quot;, value=&quot;Doe&quot;, required).form-control
+                    .valid-tooltip
+                      | Looks good!
+                  .col-md-4.mb-3
+                    label(for=&quot;validationTooltipUsername&quot;).form-label
+                      | Username
+                    input(type=&quot;text&quot;, id=&quot;validationTooltipUsername&quot;, placeholder=&quot;Username&quot;, required).form-control
+                    .invalid-tooltip
+                      | Please choose a username.
+                    .valid-tooltip
+                      | Looks good!
+                .row
+                  .col-md-6.mb-3
+                    label(for=&quot;validationTooltip03&quot;).form-label
+                      | City
+                    select(id=&quot;validationTooltip03&quot;, required).form-control.custom-select
+                      option(value=&quot;&quot;) Choose city...
+                      option(value=&quot;Dallas&quot;) Dallas
+                      option(value=&quot;Houston&quot;) Houston
+                      option(value=&quot;Los Angeles&quot;) Los Angeles
+                      option(value=&quot;Miami&quot;) Miami
+                      option(value=&quot;New York&quot;) New York
+                    .invalid-tooltip
+                      | Please provide a valid city.
+                    .valid-tooltip
+                      | Looks good!
+                  .col-md-3.mb-3
+                    label(for=&quot;validationTooltip04&quot;).form-label
+                      | State
+                    select(id=&quot;validationTooltip04&quot;, required).form-control.custom-select
+                      option(value=&quot;&quot;) Choose state...
+                      option(value=&quot;Arizona&quot;) Arizona
+                      option(value=&quot;Colorado&quot;) Colorado
+                      option(value=&quot;Florida&quot;) Florida
+                      option(value=&quot;Indiana&quot;) Indiana
+                      option(value=&quot;Kentucky&quot;) Kentucky
+                      option(value=&quot;Texas&quot;) Texas
+                    .invalid-tooltip
+                      | Please provide a valid state.
+                    .valid-tooltip
+                      | Looks good!
+                  .col-md-3.mb-3
+                    label(for=&quot;validationTooltip05&quot;).form-label
+                      | Zip
+                    input(type=&quot;text&quot;, id=&quot;validationTooltip05&quot;, placeholder=&quot;Zip&quot;, required).form-control
+                    .invalid-tooltip
+                      | Please provide a valid zip.
+                    .valid-tooltip
+                      | Looks good!
+                .mb-3
+                  .form-check
+                    input(type=&quot;checkbox&quot;, id=&quot;invalidCheck01&quot;, required).form-check-input
+                    label(for=&quot;invalidCheck01&quot;).form-check-label Agree to terms and conditions
+                    .invalid-tooltip
+                      | You must agree before submitting.
+                button.btn.btn-primary(type=&quot;submit&quot;) Submit Form
+
+  // Input mask (Formatted content)
+  section#forms-formatted.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Input mask (Formatted content)
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview17' data-bs-toggle='tab' role='tab' aria-controls='preview17' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html17' data-bs-toggle='tab' role='tab' aria-controls='html17' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug17' data-bs-toggle='tab' role='tab' aria-controls='pug17' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview17.tab-pane.fade.show.active(role='tabpanel' style='max-width: 25rem;')
+          .mb-3
+            label(for='cardFormat').form-label Card number
+            .input-group
+              input(type='text' data-format='{"creditCard": true}' placeholder='Enter credit card number')#cardFormat.form-control
+              .input-group-text.py-0
+                .credit-card-icon
+            ul.list-unstyled.fs-sm.text-muted.pt-2
+              li.mb-1 <span class='fw-semibold'>Amex:</span> starts with 34/37
+              li.mb-1 <span class='fw-semibold'>VISA:</span> starts with 4
+              li.mb-1 <span class='fw-semibold'>Diners Club:</span> starts with 300-305/309
+              li.mb-1 <span class='fw-semibold'>MasterCard:</span> starts with 51-55/22-27
+              li.mb-1 <span class='fw-semibold'>JCB:</span> starts with 35/2131/1800
+              li.mb-1 <span class='fw-semibold'>Discover:</span> starts with 6011|65|644-649
+          .mb-3
+            label(for='phoneFormat').form-label Phone
+            input(type='tel' data-format='{"numericOnly": true, "delimiters": ["+1 ", " ", " "], "blocks": [0, 3, 3, 2]}' placeholder='+1 ___ ___ __')#phoneFormat.form-control
+          .mb-3
+            label(for='dateFormat').form-label Date
+            input(type='text' data-format='{"date": true, "delimiter": "-", "datePattern": ["Y", "m", "d"]}' placeholder='yyyy-mm-dd')#dateFormat.form-control
+          .mb-3
+            label(for='dateShortFormat').form-label Date short
+            input(type='text' data-format='{"date": true, "datePattern": ["m", "y"]}' placeholder='mm/yy')#dateShortFormat.form-control
+          .mb-3
+            label(for='timeFormat').form-label Time
+            input(type='text' data-format='{"time": true, "timePattern": ["h", "m"]}' placeholder='hh:mm')#timeFormat.form-control
+          .mb-3
+            label(for='customFormat').form-label Custom blocks
+            input(type='text' data-format='{"blocks": [4, 3, 3, 4, 2], "delimiters": [".", " ", "/", "-"]}' placeholder='blocks:[4, 3, 3, 4, 2], delimiters: [".", " ", "/", "-"]')#customFormat.form-control
+          .mb-3
+            label(for='prefixFormat').form-label Prefix + uppercase
+            input(type='text' data-format='{"prefix": "PREFIX", "delimiter": "-", "blocks": [6, 4, 5, 3], "uppercase": true}')#prefixFormat.form-control
+        #html17.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Format: Credit card number --&gt;
+              &lt;div class=&quot;mb-3&quot;&gt;
+                &lt;label for=&quot;cardFormat&quot;&gt;Card number&lt;/label&gt;
+                &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;cardFormat&quot; data-format='{&quot;creditCard&quot;: true}' placeholder=&quot;Enter credit card number&quot;&gt;
+                &lt;div class=&quot;input-group-text py-0&quot;&gt;
+                  &lt;div class=&quot;credit-card-icon&quot;&gt;&lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Format: Phone --&gt;
+              &lt;div class=&quot;mb-3&quot;&gt;
+                &lt;label for=&quot;phoneFormat&quot;&gt;Phone&lt;/label&gt;
+                &lt;input type=&quot;tel&quot; class=&quot;form-control&quot; id=&quot;phoneFormat&quot; data-format='{&quot;numericOnly&quot;: true, &quot;delimiters&quot;: [&quot;+1 &quot;, &quot; &quot;, &quot; &quot;], &quot;blocks&quot;: [0, 3, 3, 2]}' placeholder=&quot;+1 ___ ___ __&quot;&gt;
+              &lt;/div&gt;
+              
+              &lt;!-- Format: Date long --&gt;
+              &lt;div class=&quot;mb-3&quot;&gt;
+                &lt;label for=&quot;dateFormat&quot;&gt;Date&lt;/label&gt;
+                &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;dateFormat&quot; data-format='{&quot;date&quot;: true, &quot;delimiter&quot;: &quot;-&quot;, &quot;datePattern&quot;: [&quot;Y&quot;, &quot;m&quot;, &quot;d&quot;]}' placeholder=&quot;yyyy-mm-dd&quot;&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Format: Date short --&gt;
+              &lt;div class=&quot;mb-3&quot;&gt;
+                &lt;label for=&quot;dateShortFormat&quot;&gt;Date short&lt;/label&gt;
+                &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;dateShortFormat&quot; data-format='{&quot;date&quot;: true, &quot;datePattern&quot;: [&quot;m&quot;, &quot;y&quot;]}' placeholder=&quot;mm/yy&quot;&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Format: Time --&gt;
+              &lt;div class=&quot;mb-3&quot;&gt;
+                &lt;label for=&quot;timeFormat&quot;&gt;Time&lt;/label&gt;
+                &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;timeFormat&quot; data-format='{&quot;time&quot;: true, &quot;timePattern&quot;: [&quot;h&quot;, &quot;m&quot;]}' placeholder=&quot;hh:mm&quot;&gt;
+              &lt;/div&gt;
+              
+              &lt;!-- Format: Custom blocks --&gt;
+              &lt;div class=&quot;mb-3&quot;&gt;
+                &lt;label for=&quot;customFormat&quot;&gt;Custom blocks&lt;/label&gt;
+                &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;customFormat&quot; data-format='{&quot;blocks&quot;: [4, 3, 3, 4, 2], &quot;delimiters&quot;: [&quot;.&quot;, &quot; &quot;, &quot;/&quot;, &quot;-&quot;]}' placeholder=&quot;blocks:[4, 3, 3, 4, 2], delimiters: ['.', ' ', '/', '-']&quot;&gt;
+              &lt;/div&gt;
+              
+              &lt;!-- Format: Prefix + uppercase --&gt;
+              &lt;div class=&quot;mb-3&quot;&gt;
+                &lt;label for=&quot;prefixFormat&quot;&gt;Prefix + uppercase&lt;/label&gt;
+                &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;prefixFormat&quot; data-format='{&quot;prefix&quot;: &quot;PREFIX&quot;, &quot;delimiter&quot;: &quot;-&quot;, &quot;blocks&quot;: [6, 4, 5, 3], &quot;uppercase&quot;: true}'&gt;
+              &lt;/div&gt;
+        #pug17.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Format: Credit card number
+              .mb-3
+                label(for=&quot;cardFormat&quot;).form-label
+                  | Card number
+                .input-group
+                  input(type=&quot;tel&quot;, data-format='{&quot;creditCard&quot;: true}', placeholder=&quot;Enter credit card number&quot;)#cardFormat.form-control
+                  .input-group-text.py-0
+                    .credit-card-icon
+
+              // Format: Phone
+              .mb-3
+                label(for=&quot;phoneFormat&quot;).form-label
+                  | Phone
+                input(type=&quot;tel&quot;, data-format='{&quot;numericOnly&quot;: true, &quot;delimiters&quot;: [&quot;+1 &quot;, &quot; &quot;, &quot; &quot;], &quot;blocks&quot;: [0, 3, 3, 2]}', placeholder=&quot;+1 ___ ___ __&quot;)#phoneFormat.form-control
+
+              // Format: Date long
+              .mb-3
+                label(for=&quot;dateFormat&quot;).form-label
+                  | Date
+                input(type=&quot;text&quot;, data-format='{&quot;date&quot;: true, &quot;delimiter&quot;: &quot;-&quot;, &quot;datePattern&quot;: [&quot;Y&quot;, &quot;m&quot;, &quot;d&quot;]}', placeholder=&quot;yyyy-mm-dd&quot;)#dateFormat.form-control
+              
+              // Format: Date short
+              .mb-3
+                label(for=&quot;dateShortFormat&quot;).form-label
+                  | Date short
+                input(type=&quot;text&quot;, data-format='{&quot;date&quot;: true, &quot;datePattern&quot;: [&quot;m&quot;, &quot;y&quot;]}', placeholder=&quot;mm/yy&quot;)#dateShortFormat.form-control
+
+              // Format: Time
+              .mb-3
+                label(for=&quot;timeFormat&quot;).form-label
+                  | Time
+                input(type=&quot;text&quot;, data-format='{&quot;time&quot;: true, &quot;timePattern&quot;: [&quot;h&quot;, &quot;m&quot;]}', placeholder=&quot;hh:mm&quot;)#timeFormat.form-control
+
+              // Format: Custom blocks
+              .mb-3
+                label(for=&quot;customFormat&quot;).form-label
+                  | Custom blocks
+                input(type=&quot;text&quot;, data-format='{&quot;blocks&quot;: [4, 3, 3, 4, 2], &quot;delimiters&quot;: [&quot;.&quot;, &quot; &quot;, &quot;/&quot;, &quot;-&quot;]}', placeholder=&quot;blocks:[4, 3, 3, 4, 2], delimiters: ['.', ' ', '/', '-']&quot;)#customFormat.form-control
+
+              // Format: Prefix + uppercase
+              .mb-3
+                label(for=&quot;prefixFormat&quot;).form-label
+                  | Prefix + uppercase
+                input(type=&quot;text&quot;, data-format='{&quot;prefix&quot;: &quot;PREFIX&quot;, &quot;delimiter&quot;: &quot;-&quot;, &quot;blocks&quot;: [6, 4, 5, 3], &quot;uppercase&quot;: true}')#prefixFormat.form-control

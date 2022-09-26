@@ -1,0 +1,327 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['tiny-slider/dist/tiny-slider.css']
+  - var vendorScripts = ['tiny-slider/dist/min/tiny-slider.js']
+  - var parentMenu = 'Pages'
+  - var pageTitle = 'Job Board | About'
+
+//- Navbar
+block navbar
+  include partials/navbar-job-board
+
+//- Page Content
+block content
+
+  // Page header
+  section.bg-dark.py-5
+    .container.pt-5.pb-lg-5
+
+      // Breadcrumbs + page title
+      nav(aria-label='breadcrumb').mb-4.pb-lg-3
+        ol.breadcrumb.breadcrumb-light
+          li.breadcrumb-item
+            a(href='job-board-home-v1.html') Home
+          li(aria-current='page').breadcrumb-item.active
+            | About
+
+      // Page title
+      div(style='max-width: 856px;').mb-lg-5.mx-auto.text-center
+        h1.display-5.text-light.mb-4.pb-lg-2
+          | We help people find the <span class='text-primary'>dream job</span>
+        p.lead.text-light.opacity-70
+          | Our mission is to provide the very best job search service and help job seekers and employers find each other as quickly as possible.
+
+
+  // Stats
+  section.position-relative.bg-white.rounded-xxl-4.mb-5.py-md-3.zindex-5(style='margin-top: -30px;')
+    .container.pt-5.pb-2.mb-4.mb-md-5
+      .row.row-cols-md-4.row-cols-2.g-4.text-center
+
+        .col.border-end
+          i.fi-like.mb-3.fs-1.text-muted
+          .h1.mb-1.lh-1 1,2 mln
+          | Job applications
+
+        .col.border-end-md
+          i.fi-file.mb-3.fs-1.text-muted
+          .h1.mb-1.lh-1 8K
+          | Resumes posted
+
+        .col.border-end
+          i.fi-briefcase.mb-3.fs-1.text-muted
+          .h1.mb-1.lh-1 5K
+          | Jobs posted
+
+        .col
+          i.fi-users.mb-3.fs-1.text-muted
+          .h1.mb-1.lh-1 10K
+          | Active members
+
+
+  // Help Center CTA
+  section.container.mb-5.pb-2.pb-md-4.pb-lg-5
+    .row.gy-4.align-items-md-center
+      .col-md-6
+        img(src='img/job-board/illustrations/steps.svg' alt='Illustration')
+      .col-lg-5.offset-lg-1.col-md-6
+        h2.mb-4 Finding a new job is now even easier
+        p.mb-4.pb-3.fs-lg Et quis dictum malesuada phasellus feugiat laoreet lacus. Imperdiet sed a dignissim mauris amet bibendum. Non odio molestie feugiat sed ullamcorper nunc. Donec integer mi pellentesque platea. Scelerisque cras tristique auctor pharetra neque, elementum tellus sit. Lorem semper et massa varius sit eget. Sed adipiscing pellentesque.
+        a(href='job-board-help-center.html').btn.btn-lg.btn-primary.rounded-pill.w-sm-auto.w-100
+          | Help Center
+          i.fi-chevron-right.ms-2
+
+
+  // How it works
+  section.container.mb-5.pb-2.pb-lg-5
+    h2.h3.mb-4.pb-sm-2 How it works
+
+    // Grid card
+    .row.row-cols-lg-4.row-cols-sm-2.row-cols-1.gy-sm-5.gy-3
+
+      // Card item
+      .col
+        .card.border-0.shadow-sm.position-relative.h-100
+          .card-body
+            .h2.mb-2.text-primary 01
+            h3.h5.card-title.mb-2 Create an account
+            p.card-text.fs-sm
+              | In volutpat lacus orci volutpat nulla tristique eu. Ullamcorper in est lectus cras arcu sed felis.
+          // Arrow
+          svg(xmlns='http://www.w3.org/2000/svg' width='78' height='30' fill='none' style='transform: translateY(-100%) translateX(70%);').position-absolute.top-0.end-0.mt-n2.d-sm-block.d-none
+            path(d='M77.955 14.396c.128-2.86 0-4.67-.576-4.745s-1.279 1.607-2.11 4.378l-1.279 4.897-.563 2.683c-.612-1.434-1.352-2.81-2.212-4.113-2.718-4.072-6.226-7.569-10.321-10.288C54.205 2.687 46.332.186 38.233.008c-8.823-.165-17.491 2.305-24.874 7.087C6.581 11.549 2.118 17.395.66 22.191.033 24.057-.15 26.04.123 27.987c.243 1.367.627 2.037.755 2.012.396 0-.396-3.025 1.522-7.264s6.394-9.339 12.789-13.123c6.905-4.018 14.838-5.974 22.841-5.631 3.811.182 7.574.924 11.164 2.202 7.323 2.623 13.717 7.296 18.403 13.452 1.061 1.417 1.816 2.531 2.404 3.417l-1.637-.278-5.295-1.012c-3.031-.569-4.988-.848-5.179-.392s1.419 1.544 4.335 2.759a47.66 47.66 0 0 0 5.269 1.772c1.023.278 2.097.544 3.21.772.588.127 1.1.228 1.765.342.541.152 1.109.184 1.663.094a3.86 3.86 0 0 0 1.547-.613 2.76 2.76 0 0 0 .934-1.265c.088-.252.156-.51.205-.772l.09-.595.23-1.544.384-2.949c.217-1.873.371-3.569.435-5.062' fill='#fd5631')
+
+      // Card item
+      .col
+        .card.border-0.shadow-sm.position-relative.h-100
+          .card-body
+            .h2.mb-2.text-primary 02
+            h3.h5.card-title.mb-2 Create a job / resume
+            p.card-text.fs-sm
+              | Convallis suspendisse libero integer duis luctus laoreet pellentesque. Aenean eget.
+          // Arrow
+          svg(xmlns='http://www.w3.org/2000/svg' width='78' height='30' fill='none' style='transform: translateY(-100%) translateX(70%);').position-absolute.top-0.end-0.mt-n2.d-lg-block.d-none
+            path(d='M77.955 14.396c.128-2.86 0-4.67-.576-4.745s-1.279 1.607-2.11 4.378l-1.279 4.897-.563 2.683c-.612-1.434-1.352-2.81-2.212-4.113-2.718-4.072-6.226-7.569-10.321-10.288C54.205 2.687 46.332.186 38.233.008c-8.823-.165-17.491 2.305-24.874 7.087C6.581 11.549 2.118 17.395.66 22.191.033 24.057-.15 26.04.123 27.987c.243 1.367.627 2.037.755 2.012.396 0-.396-3.025 1.522-7.264s6.394-9.339 12.789-13.123c6.905-4.018 14.838-5.974 22.841-5.631 3.811.182 7.574.924 11.164 2.202 7.323 2.623 13.717 7.296 18.403 13.452 1.061 1.417 1.816 2.531 2.404 3.417l-1.637-.278-5.295-1.012c-3.031-.569-4.988-.848-5.179-.392s1.419 1.544 4.335 2.759a47.66 47.66 0 0 0 5.269 1.772c1.023.278 2.097.544 3.21.772.588.127 1.1.228 1.765.342.541.152 1.109.184 1.663.094a3.86 3.86 0 0 0 1.547-.613 2.76 2.76 0 0 0 .934-1.265c.088-.252.156-.51.205-.772l.09-.595.23-1.544.384-2.949c.217-1.873.371-3.569.435-5.062' fill='#fd5631')
+
+      // Card item
+      .col
+        .card.border-0.shadow-sm.position-relative.h-100
+          .card-body
+            .h2.mb-2.text-primary 03
+            h3.h5.card-title.mb-2 Select a pricing plan
+            p.card-text.fs-sm
+              | Cursus duis ridiculus purus eget velit mattis id vel. Semper aliquet auctor cras dui odio ege.
+          // Arrow
+          svg(xmlns='http://www.w3.org/2000/svg' width='78' height='30' fill='none' style='transform: translateY(-100%) translateX(70%);').position-absolute.top-0.end-0.mt-n2.d-sm-block.d-none
+            path(d='M77.955 14.396c.128-2.86 0-4.67-.576-4.745s-1.279 1.607-2.11 4.378l-1.279 4.897-.563 2.683c-.612-1.434-1.352-2.81-2.212-4.113-2.718-4.072-6.226-7.569-10.321-10.288C54.205 2.687 46.332.186 38.233.008c-8.823-.165-17.491 2.305-24.874 7.087C6.581 11.549 2.118 17.395.66 22.191.033 24.057-.15 26.04.123 27.987c.243 1.367.627 2.037.755 2.012.396 0-.396-3.025 1.522-7.264s6.394-9.339 12.789-13.123c6.905-4.018 14.838-5.974 22.841-5.631 3.811.182 7.574.924 11.164 2.202 7.323 2.623 13.717 7.296 18.403 13.452 1.061 1.417 1.816 2.531 2.404 3.417l-1.637-.278-5.295-1.012c-3.031-.569-4.988-.848-5.179-.392s1.419 1.544 4.335 2.759a47.66 47.66 0 0 0 5.269 1.772c1.023.278 2.097.544 3.21.772.588.127 1.1.228 1.765.342.541.152 1.109.184 1.663.094a3.86 3.86 0 0 0 1.547-.613 2.76 2.76 0 0 0 .934-1.265c.088-.252.156-.51.205-.772l.09-.595.23-1.544.384-2.949c.217-1.873.371-3.569.435-5.062' fill='#fd5631')
+
+      // Card item
+      .col
+        .card.border-0.shadow-sm.position-relative.h-100
+          .card-body
+            .h2.mb-2.text-primary 04
+            h3.h5.card-title.mb-2 Post your job / resume
+            p.card-text.fs-sm
+              | Sit auctor aliquam leo duis. Praesent ut penatibus faucibus nibh arcu tempor adipiscing.
+
+
+  // Reviews
+  section.container.pt-lg-2.pb-5.mb-md-4.mb-lg-5
+    .row
+      .col-md-4.mb-3.mb-md-0
+        img(src='img/job-board/illustrations/reviews.svg' alt='Illustration').d-block.mx-auto
+      .col-lg-1.d-none.d-lg-block
+        hr.hr-vertical.mx-auto
+      .col-md-8.col-lg-7
+        .tns-carousel-wrapper
+          .tns-carousel-inner(data-carousel-options='{"mode": "gallery", "controlsContainer": "#agents-carousel-controls", "nav": false}')
+            .p-3
+              .card.border-0.shadow-sm
+                blockquote.blockquote.card-body
+                  p Eu massa, pharetra massa integer. Sed molestie sollicitudin morbi ultrices. Odio is euismodtelle faucibus. Venenatis nunc, tristique turpis cras sodales. In dui, viverra et ac. Id justo, varius nunc, faucibus erat proin elit. Amet diam, aliquet nec quis vel. Donec ut quisque in lorem sapien luctus pellentesque.
+                  footer.d-flex.align-items-center
+                    img(src='img/job-board/company/zalo-lg.png' width='56' alt='Zalo Logo')
+                    .ps-3
+                      h6.fs-base.mb-0 Zalo Tech Company
+                      .text-muted.fw-normal.fs-sm Floyd Miles, Head of HR Department
+            .p-3
+              .card.border-0.shadow-sm
+                blockquote.blockquote.card-body
+                  p Diam dictumst scelerisque vel, nunc etiam tincidunt senectus ullamcorper. Scel pulvinarnettes luctus pellentesque ultrices congue blandit. Nec, blandit nisi odio donec sagittis dui ornare sodales ultricies. Rhoncus mattis lacus consequat dolor lectus dui cursus orci. Volutpat tortor quam odio sed arcu. 
+                  footer.d-flex.align-items-center
+                    img(src='img/job-board/company/kibana-lg.png' width='56' alt='Kibana Logo')
+                    .ps-3
+                      h6.fs-base.mb-0 Elastic Kibana
+                      .text-muted.fw-normal.fs-sm Guy Hawkins, Senior HR
+        #agents-carousel-controls.tns-carousel-controls.justify-content-center.justify-content-md-start.my-2.ms-md-2
+          button(type='button').mx-2
+            i.fi-chevron-left
+          button(type='button').mx-2
+            i.fi-chevron-right
+
+
+  // FAQ
+  section.container
+    img(src='img/job-board/about/faq.jpg' alt='Cover').rounded-3
+    div(style='transform: translateY(-100px);').col-md-10.mx-md-auto.mx-3.mt-sm-0.mt-5.py-sm-5.py-4.px-0.rounded-3.bg-light.shadow-sm
+      .col-md-10.mx-md-auto.mx-3.py-lg-4.px-0
+        h2.h3.mb-4.pb-lg-2.text-center Frequently asked questions
+        .accordion#accordionFAQ
+          .accordion-item
+            h2.accordion-header#heading-1
+              button(type='button' data-bs-toggle='collapse' data-bs-target='#collapse-1' aria-expanded='true' aria-controls='collapse-1').accordion-button
+                | Getting started: the basics
+            div(aria-labelledby='heading-1' data-bs-parent='#accordionFAQ').accordion-collapse.collapse.show#collapse-1
+              .accordion-body
+                | Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, quaerat. Corporis pariatur cum dolorem ullam at nulla ex doloribus, ratione quos repellendus aliquid aspernatur obcaecati adipisci maxime id, sed cupiditate.
+          .accordion-item
+            h2.accordion-header#heading-2
+              button(type='button' data-bs-toggle='collapse' data-bs-target='#collapse-2' aria-expanded='false' aria-controls='collapse-2').accordion-button.collapsed
+                | Will our data be private and safe?
+            div(aria-labelledby='heading-2' data-bs-parent='#accordionFAQ').accordion-collapse.collapse#collapse-2
+              .accordion-body
+                | Eros aliquam egestas eu sit faucibus facilisi urna, senectus id. Morbi pellentesque at molestie et. Et molestie nunc massa, donec eget viverra. Sodales nisl vitae gravida pretium enim cursus pharetra massa nisl. Auctor porta dolor nulla elementum malesuada ut etiam neque, enim. Nisi, eget viverra platea fringilla aliquet eros varius tellus nibh.
+          .accordion-item
+            h2.accordion-header#heading-3
+              button(type='button' data-bs-toggle='collapse' data-bs-target='#collapse-3' aria-expanded='false' aria-controls='collapse-3').accordion-button.collapsed
+                | Should I apply for a job even if I don't have the specified experience?
+            div(aria-labelledby='heading-3' data-bs-parent='#accordionFAQ').accordion-collapse.collapse#collapse-3
+              .accordion-body
+                | Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero ut accusantium ea a ipsa, aliquam nemo aperiam porro deserunt aspernatur sequi amet voluptatibus, fugiat nobis. Atque voluptatibus quibusdam placeat voluptas?
+          .accordion-item
+            h2.accordion-header#heading-4
+              button(type='button' data-bs-toggle='collapse' data-bs-target='#collapse-4' aria-expanded='false' aria-controls='collapse-4').accordion-button.collapsed
+                | What exactly is a personal brand and why do I need one?
+            div(aria-labelledby='heading-4' data-bs-parent='#accordionFAQ').accordion-collapse.collapse#collapse-4
+              .accordion-body
+                | Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores qui nulla unde saepe, similique non rem est adipisci accusamus minima mollitia repellat, illum eius quidem molestias nam illo expedita iste.
+          .accordion-item
+            h2.accordion-header#heading-5
+              button(type='button' data-bs-toggle='collapse' data-bs-target='#collapse-5' aria-expanded='false' aria-controls='collapse-5').accordion-button.collapsed
+                | What are the most important things to include in my resume?
+            div(aria-labelledby='heading-5' data-bs-parent='#accordionFAQ').accordion-collapse.collapse#collapse-5
+              .accordion-body
+                | Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed itaque ab dicta sint, quam fugiat culpa aliquid, labore est vero explicabo, non voluptas at perspiciatis omnis impedit libero possimus! Alias!
+          .accordion-item
+            h2.accordion-header#heading-6
+              button(type='button' data-bs-toggle='collapse' data-bs-target='#collapse-6' aria-expanded='false' aria-controls='collapse-6').accordion-button.collapsed
+                | How long should I make my cover letter and/or resume?
+            div(aria-labelledby='heading-6' data-bs-parent='#accordionFAQ').accordion-collapse.collapse#collapse-6
+              .accordion-body
+                | Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius iste voluptas ducimus! Sequi, expedita est. Accusamus, quaerat nulla! Ex exercitationem iure voluptatum mollitia amet, corporis sit ab temporibus et consectetur.
+
+
+  // Brands
+  section.container.pb-5.mb-md-3.mt-sm-n4.mt-n5
+    h2.h3.text-center.text-sm-start.mb-sm-4 We are proud to work with
+    .tns-carousel-wrapper.tns-nav-outside.tns-nav-outside-flush
+      .tns-carousel-inner(data-carousel-options='{"controls": false, "responsive": {"0":{"items":2},"480":{"items":3},"680":{"items":4, "gutter": 12},"850":{"items":5, "gutter": 16},"1100":{"items":6, "gutter": 24}}}')
+        .pb-1
+          a(href='job-board-employer-single.html').swap-image
+            img(src='img/job-board/company/microsoft.svg' width='196' alt='Microsoft').swap-to
+            img(src='img/job-board/company/microsoft-g.svg' width='196' alt='Microsoft').swap-from
+        .pb-1
+          a(href='job-board-employer-single.html').swap-image
+            img(src='img/job-board/company/indeed.svg' width='196' alt='Indeed').swap-to
+            img(src='img/job-board/company/indeed-g.svg' width='196' alt='Indeed').swap-from
+        .pb-1
+          a(href='job-board-employer-single.html').swap-image
+            img(src='img/job-board/company/cocacola.svg' width='196' alt='Coca Cola').swap-to
+            img(src='img/job-board/company/cocacola-g.svg' width='196' alt='Coca Cola').swap-from
+        .pb-1
+          a(href='job-board-employer-single.html').swap-image
+            img(src='img/job-board/company/slack.svg' width='196' alt='Slack').swap-to
+            img(src='img/job-board/company/slack-g.svg' width='196' alt='Slack').swap-from
+        .pb-1
+          a(href='job-board-employer-single.html').swap-image
+            img(src='img/job-board/company/walmart.svg' width='196' alt='Walmart').swap-to
+            img(src='img/job-board/company/walmart-g.svg' width='196' alt='Walmart').swap-from
+        .pb-1
+          a(href='job-board-employer-single.html').swap-image
+            img(src='img/job-board/company/google.svg' width='196' alt='Google').swap-to
+            img(src='img/job-board/company/google-g.svg' width='196' alt='Google').swap-from
+
+
+  // Blog
+  section.container.pb-4.pb-md-5.mb-2.mb-md-3
+    .d-sm-flex.align-items-center.justify-content-between.pb-4.mb-sm-2
+      h2.h3.mb-sm-0 Online journal by top HRs
+      a(href='job-board-blog.html').btn.btn-link.fw-normal.p-0
+        | Go to blog
+        i.fi-arrow-long-right.ms-2
+    .row
+      .col-md-5.mb-4
+        article.card.card-hover.border-0.shadow-sm.h-100
+          a(href='job-board-blog-single.html').card-img-top.overflow-hidden.position-relative
+            span.badge.bg-faded-info.position-absolute.top-0.end-0.fs-sm.rounded-pill.m-3 New
+            img(src='img/job-board/blog/03.jpg' alt='Image').d-block
+          .card-body.pb-3
+            a(href='#').fs-xs.text-uppercase.text-decoration-none Guides
+            h3.fs-base.pt-1.mb-2
+              a(href='job-board-blog-single.html').nav-link How to Hire World-Class Engineers
+            p.fs-sm.text-muted.m-0 Nunc, hac augue ante in facilisi id. Consectetur egestas orci, arcu ac tellus. Morbi orci, nunc dictum...
+          a(href='#').card-footer.d-flex.align-items-center.text-decoration-none.border-top-0.pt-0.mb-1
+            img(src='img/avatars/16.png' width='44' alt='Avatar').rounded-circle
+            .ps-2
+              h6.fs-sm.text-nav.lh-base.mb-1 Bessie Cooper
+              .d-flex.text-body.fs-xs
+                span.me-2.pe-1
+                  i.fi-calendar-alt.opacity-70.me-1
+                  | May 23
+                span
+                  i.fi-chat-circle.opacity-70.me-1
+                  | 4 comments
+      .col-md-7
+        .row
+          .col-sm-6.mb-4
+            article.card.card-hover.border-0.shadow-sm.h-100
+              a(href='job-board-blog-single.html').card-img-top.overflow-hidden.position-relative
+                img(src='img/job-board/blog/04.jpg' alt='Image').d-block
+              .card-body.pb-3
+                a(href='#').fs-xs.text-uppercase.text-decoration-none Guides
+                h3.fs-base.pt-1.mb-2
+                  a(href='job-board-blog-single.html').nav-link How to Choose Your First Job In Tech
+              a(href='#').card-footer.d-flex.align-items-center.text-decoration-none.border-top-0.pt-0.mb-1
+                img(src='img/avatars/18.png' width='44' alt='Avatar').rounded-circle
+                .ps-2
+                  h6.fs-sm.text-nav.lh-base.mb-1 Annette Black
+                  .d-flex.text-body.fs-xs
+                    span.me-2.pe-1
+                      i.fi-calendar-alt.opacity-70.me-1
+                      | May 21
+                    span
+                      i.fi-chat-circle.opacity-70.me-1
+                      | No comments
+          .col-sm-6.mb-4
+            article.card.card-hover.border-0.shadow-sm.h-100
+              a(href='job-board-blog-single.html').card-img-top.overflow-hidden.position-relative
+                img(src='img/job-board/blog/05.jpg' alt='Image').d-block
+              .card-body.pb-3
+                a(href='#').fs-xs.text-uppercase.text-decoration-none Tips &amp; Advice
+                h3.fs-base.pt-1.mb-2
+                  a(href='job-board-blog-single.html').nav-link 15 Tips for a Better Resume
+              a(href='#').card-footer.d-flex.align-items-center.text-decoration-none.border-top-0.pt-0.mb-1
+                img(src='img/avatars/17.png' width='44' alt='Avatar').rounded-circle
+                .ps-2
+                  h6.fs-sm.text-nav.lh-base.mb-1 Ralph Edwards
+                  .d-flex.text-body.fs-xs
+                    span.me-2.pe-1
+                      i.fi-calendar-alt.opacity-70.me-1
+                      | May 19
+                    span
+                      i.fi-chat-circle.opacity-70.me-1
+                      | 1 comment
+
+
+  // CTA
+  section.container.pt-lg-4.pb-5.mb-md-4.mb-lg-5.text-center
+    h2.pb-4 The fastest way to find what you need
+    a(href='#').btn.btn-primary.btn-lg.rounded-pill.ms-sm-auto
+      | Get started
+      i.fi-chevron-right.fs-sm.ms-2
+
+
+//- Footer
+block footer
+  include partials/footer-job-board

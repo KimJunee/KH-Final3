@@ -1,0 +1,593 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css', 'vendor/prismjs/themes/prism.css', 'vendor/prismjs/plugins/toolbar/prism-toolbar.css', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js', 'vendor/prismjs/components/prism-core.min.js', 'vendor/prismjs/components/prism-markup.min.js', 'vendor/prismjs/components/prism-clike.min.js', 'vendor/prismjs/components/prism-javascript.min.js', 'vendor/prismjs/components/prism-pug.min.js', 'vendor/prismjs/plugins/toolbar/prism-toolbar.min.js', 'vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Progress'
+  - var pageSubtitle = 'Custom progress bars featuring support for stacked bars, animated backgrounds, and text labels.'
+  - var pageTitleLink = {'title': 'Bootstrap docs', 'link': 'https://getbootstrap.com/docs/5.2/components/progress/'}
+  - var anchorNav = [{'title': 'Color variation (thick)', 'link': '#progress-colors-thick'}, {'title': 'Color variation (thin)', 'link': '#progress-colors-thin'}, {'title': 'Multiple bars', 'link': '#progress-multiple'}, {'title': 'Animated striped bars', 'link': '#progress-animated'}, {'title': 'Use case: Rating breakdown', 'link': '#progress-rating-breakdown'}]
+    
+//- Page Content
+block content
+
+  // Color variation (thick)
+  section#progress-colors-thick.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Color variation (thick)
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview1' data-bs-toggle='tab' role='tab' aria-controls='preview1' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview1.tab-pane.fade.show.active(role='tabpanel')
+          .progress.mb-3
+            .progress-bar.fw-semibold(role='progressbar' style='width: 45%' aria-valuenow='45' aria-valuemin='0' aria-valuemax='100') 45%
+          .progress.mb-3
+            .progress-bar.fw-semibold.bg-success(role='progressbar' style='width: 55%' aria-valuenow='55' aria-valuemin='0' aria-valuemax='100') 55%
+          .progress.mb-3
+            .progress-bar.fw-semibold.bg-danger(role='progressbar' style='width: 40%' aria-valuenow='40' aria-valuemin='0' aria-valuemax='100') 40%
+          .progress.mb-3
+            .progress-bar.fw-semibold.bg-warning(role='progressbar' style='width: 70%' aria-valuenow='70' aria-valuemin='0' aria-valuemax='100') 70%
+          .progress.mb-3
+            .progress-bar.fw-semibold.bg-info(role='progressbar' style='width: 60%' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100') 60%
+          .progress.mb-2
+            .progress-bar.fw-semibold.bg-dark(role='progressbar' style='width: 33%' aria-valuenow='33' aria-valuemin='0' aria-valuemax='100') 33%
+        #html1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Primary progress bar --&gt;
+              &lt;div class=&quot;progress mb-3&quot;&gt;
+                &lt;div class=&quot;progress-bar fw-semibold&quot; role=&quot;progressbar&quot; style=&quot;width: 45%&quot; aria-valuenow=&quot;45&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;
+                  45%
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Success progress bar --&gt;
+              &lt;div class=&quot;progress mb-3&quot;&gt;
+                &lt;div class=&quot;progress-bar fw-semibold bg-success&quot; role=&quot;progressbar&quot; style=&quot;width: 55%&quot; aria-valuenow=&quot;55&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;
+                  55%
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Danger progress bar --&gt;
+              &lt;div class=&quot;progress mb-3&quot;&gt;
+                &lt;div class=&quot;progress-bar fw-semibold bg-danger&quot; role=&quot;progressbar&quot; style=&quot;width: 40%&quot; aria-valuenow=&quot;40&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;
+                  40%
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Warning progress bar --&gt;
+              &lt;div class=&quot;progress mb-3&quot;&gt;
+                &lt;div class=&quot;progress-bar fw-semibold bg-warning&quot; role=&quot;progressbar&quot; style=&quot;width: 70%&quot; aria-valuenow=&quot;70&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;
+                  70%
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Info progress bar --&gt;
+              &lt;div class=&quot;progress mb-3&quot;&gt;
+                &lt;div class=&quot;progress-bar fw-semibold bg-info&quot; role=&quot;progressbar&quot; style=&quot;width: 60%&quot; aria-valuenow=&quot;60&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;
+                  60%
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Dark progress bar --&gt;
+              &lt;div class=&quot;progress mb-3&quot;&gt;
+                &lt;div class=&quot;progress-bar fw-semibold bg-dark&quot; role=&quot;progressbar&quot; style=&quot;width: 33%&quot; aria-valuenow=&quot;33&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;
+                  33%
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Primary progress bar
+              .progress.mb-3
+                .progress-bar.fw-semibold(role=&quot;progressbar&quot;, style=&quot;width: 45%&quot;, aria-valuenow=&quot;45&quot;, aria-valuemin=&quot;0&quot;, aria-valuemax=&quot;100&quot;)
+                  | 45%
+
+              // Success progress bar
+              .progress.mb-3
+                .progress-bar.fw-semibold.bg-success(role=&quot;progressbar&quot;, style=&quot;width: 55%&quot;, aria-valuenow=&quot;55&quot;, aria-valuemin=&quot;0&quot;, aria-valuemax=&quot;100&quot;)
+                  | 55%
+
+              // Danger progress bar
+              .progress.mb-3
+                .progress-bar.fw-semibold.bg-danger(role=&quot;progressbar&quot;, style=&quot;width: 40%&quot;, aria-valuenow=&quot;40&quot;, aria-valuemin=&quot;0&quot;, aria-valuemax=&quot;100&quot;)
+                  | 40%
+
+              // Warning progress bar
+              .progress.mb-3
+                .progress-bar.fw-semibold.bg-warning(role=&quot;progressbar&quot;, style=&quot;width: 70%&quot;, aria-valuenow=&quot;70&quot;, aria-valuemin=&quot;0&quot;, aria-valuemax=&quot;100&quot;)
+                  | 70%
+
+              // Info progress bar
+              .progress.mb-3
+                .progress-bar.fw-semibold.bg-info(role=&quot;progressbar&quot;, style=&quot;width: 60%&quot;, aria-valuenow=&quot;60&quot;, aria-valuemin=&quot;0&quot;, aria-valuemax=&quot;100&quot;)
+                  | 60%
+
+              // Dark progress bar
+              .progress.mb-3
+                .progress-bar.fw-semibold.bg-dark(role=&quot;progressbar&quot;, style=&quot;width: 33%&quot;, aria-valuenow=&quot;33&quot;, aria-valuemin=&quot;0&quot;, aria-valuemax=&quot;100&quot;)
+                  | 33%
+
+  // Color variation (thin)
+  section#progress-colors-thin.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Color variation (thin)
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview2' data-bs-toggle='tab' role='tab' aria-controls='preview2' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview2.tab-pane.fade.show.active(role='tabpanel')
+          .fs-sm.fw-semibold.mb-2 45%
+          .progress.mb-3(style='height: 4px;')
+            .progress-bar(role='progressbar' style='width: 45%' aria-valuenow='45' aria-valuemin='0' aria-valuemax='100')
+          .fs-sm.fw-semibold.mb-2 55%
+          .progress.mb-3(style='height: 4px;')
+            .progress-bar.bg-success(role='progressbar' style='width: 55%' aria-valuenow='55' aria-valuemin='0' aria-valuemax='100')
+          .fs-sm.fw-semibold.mb-2 40%
+          .progress.mb-3(style='height: 4px;')
+            .progress-bar.bg-danger(role='progressbar' style='width: 40%' aria-valuenow='40' aria-valuemin='0' aria-valuemax='100')
+          .fs-sm.fw-semibold.mb-2 70%
+          .progress.mb-3(style='height: 4px;')
+            .progress-bar.bg-warning(role='progressbar' style='width: 70%' aria-valuenow='70' aria-valuemin='0' aria-valuemax='100')
+          .fs-sm.fw-semibold.mb-2 60%
+          .progress.mb-3(style='height: 4px;')
+            .progress-bar.bg-info(role='progressbar' style='width: 60%' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100')
+          .fs-sm.fw-semibold.mb-2 33%
+          .progress.mb-2(style='height: 4px;')
+            .progress-bar.bg-dark(role='progressbar' style='width: 33%' aria-valuenow='33' aria-valuemin='0' aria-valuemax='100')
+        #html2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Primary progress bar --&gt;
+              &lt;div class=&quot;fs-sm fw-semibold mb-2&quot;&gt;45%&lt;/div&gt;
+              &lt;div class=&quot;progress mb-3&quot; style=&quot;height: 4px;&quot;&gt;
+                &lt;div class=&quot;progress-bar&quot; role=&quot;progressbar&quot; style=&quot;width: 45%&quot; aria-valuenow=&quot;45&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;&lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Success progress bar --&gt;
+              &lt;div class=&quot;fs-sm fw-semibold mb-2&quot;&gt;55%&lt;/div&gt;
+              &lt;div class=&quot;progress mb-3&quot; style=&quot;height: 4px;&quot;&gt;
+                &lt;div class=&quot;progress-bar bg-success&quot; role=&quot;progressbar&quot; style=&quot;width: 55%&quot; aria-valuenow=&quot;55&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;&lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Danger progress bar --&gt;
+              &lt;div class=&quot;fs-sm fw-semibold mb-2&quot;&gt;40%&lt;/div&gt;
+              &lt;div class=&quot;progress mb-3&quot; style=&quot;height: 4px;&quot;&gt;
+                &lt;div class=&quot;progress-bar bg-danger&quot; role=&quot;progressbar&quot; style=&quot;width: 40%&quot; aria-valuenow=&quot;40&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;&lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Warning progress bar --&gt;
+              &lt;div class=&quot;fs-sm fw-semibold mb-2&quot;&gt;70%&lt;/div&gt;
+              &lt;div class=&quot;progress mb-3&quot; style=&quot;height: 4px;&quot;&gt;
+                &lt;div class=&quot;progress-bar bg-warning&quot; role=&quot;progressbar&quot; style=&quot;width: 70%&quot; aria-valuenow=&quot;70&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;&lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Info progress bar --&gt;
+              &lt;div class=&quot;fs-sm fw-semibold mb-2&quot;&gt;60%&lt;/div&gt;
+              &lt;div class=&quot;progress mb-3&quot; style=&quot;height: 4px;&quot;&gt;
+                &lt;div class=&quot;progress-bar bg-info&quot; role=&quot;progressbar&quot; style=&quot;width: 60%&quot; aria-valuenow=&quot;60&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;&lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Dark progress bar --&gt;
+              &lt;div class=&quot;fs-sm fw-semibold mb-2&quot;&gt;33%&lt;/div&gt;
+              &lt;div class=&quot;progress mb-3&quot; style=&quot;height: 4px;&quot;&gt;
+                &lt;div class=&quot;progress-bar bg-dark&quot; role=&quot;progressbar&quot; style=&quot;width: 33%&quot; aria-valuenow=&quot;33&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;&lt;/div&gt;
+              &lt;/div&gt;
+        #pug2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Primary progress bar
+              .fs-sm.fw-semibold.mb-2
+                | 45%
+              .progress.mb-3(style=&quot;height: 4px;&quot;)
+                .progress-bar(role=&quot;progressbar&quot;, style=&quot;width: 45%&quot;, aria-valuenow=&quot;45&quot;, aria-valuemin=&quot;0&quot;, aria-valuemax=&quot;100&quot;)
+
+              // Success progress bar
+              fs-sm.fw-semibold.mb-2
+                | 55%
+              .progress.mb-3(style=&quot;height: 4px;&quot;)
+                .progress-bar.bg-success(role=&quot;progressbar&quot;, style=&quot;width: 55%&quot;, aria-valuenow=&quot;55&quot;, aria-valuemin=&quot;0&quot;, aria-valuemax=&quot;100&quot;)
+
+              // Danger progress bar
+              fs-sm.fw-semibold.mb-2
+                | 40%
+              .progress.mb-3(style=&quot;height: 4px;&quot;)
+                .progress-bar.bg-danger(role=&quot;progressbar&quot;, style=&quot;width: 40%&quot;, aria-valuenow=&quot;40&quot;, aria-valuemin=&quot;0&quot;, aria-valuemax=&quot;100&quot;)
+
+              // Warning progress bar
+              .fs-sm.fw-semibold.mb-2
+                | 70%
+              .progress.mb-3(style=&quot;height: 4px;&quot;)
+                .progress-bar.bg-warning(role=&quot;progressbar&quot;, style=&quot;width: 70%&quot;, aria-valuenow=&quot;70&quot;, aria-valuemin=&quot;0&quot;, aria-valuemax=&quot;100&quot;)
+
+              // Info progress bar
+              .fs-sm.fw-semibold.mb-2
+                | 60%
+              .progress.mb-3(style=&quot;height: 4px;&quot;)
+                .progress-bar.bg-info(role=&quot;progressbar&quot;, style=&quot;width: 60%&quot;, aria-valuenow=&quot;60&quot;, aria-valuemin=&quot;0&quot;, aria-valuemax=&quot;100&quot;)
+
+              // Dark progress bar
+              .fs-sm.fw-semibold.mb-2
+                | 33%
+              .progress(style=&quot;height: 4px;&quot;)
+                .progress-bar.bg-dark(role=&quot;progressbar&quot;, style=&quot;width: 33%&quot;, aria-valuenow=&quot;33&quot;, aria-valuemin=&quot;0&quot;, aria-valuemax=&quot;100&quot;)
+
+  // Multiple bars
+  section#progress-multiple.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Multiple bars
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview3' data-bs-toggle='tab' role='tab' aria-controls='preview3' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview3.tab-pane.fade.show.active(role='tabpanel')
+          .progress.mb-3
+            .progress-bar.bg-danger(role='progressbar' style='width: 15%' aria-valuenow='15' aria-valuemin='0' aria-valuemax='100')
+            .progress-bar(role='progressbar' style='width: 10%' aria-valuenow='10' aria-valuemin='0' aria-valuemax='100')
+            .progress-bar.bg-success(role='progressbar' style='width: 20%' aria-valuenow='20' aria-valuemin='0' aria-valuemax='100')
+            .progress-bar.bg-warning(role='progressbar' style='width: 25%' aria-valuenow='25' aria-valuemin='0' aria-valuemax='100')
+          .progress.mb-2(style='height:4px;')
+            .progress-bar.bg-warning(role='progressbar' style='width: 20%' aria-valuenow='20' aria-valuemin='0' aria-valuemax='100')
+            .progress-bar.bg-info(role='progressbar' style='width: 25%' aria-valuenow='25' aria-valuemin='0' aria-valuemax='100')
+            .progress-bar.bg-danger(role='progressbar' style='width: 10%' aria-valuenow='10' aria-valuemin='0' aria-valuemax='100')
+            .progress-bar.bg-success(role='progressbar' style='width: 15%' aria-valuenow='15' aria-valuemin='0' aria-valuemax='100')
+        #html3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Thick bars --&gt;
+              &lt;div class=&quot;progress mb-3&quot;&gt;
+                &lt;div class=&quot;progress-bar bg-danger&quot; role=&quot;progressbar&quot; style=&quot;width: 15%&quot; aria-valuenow=&quot;15&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;&lt;/div&gt;
+                &lt;div class=&quot;progress-bar&quot; role=&quot;progressbar&quot; style=&quot;width: 10%&quot; aria-valuenow=&quot;10&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;&lt;/div&gt;
+                &lt;div class=&quot;progress-bar bg-success&quot; role=&quot;progressbar&quot; style=&quot;width: 20%&quot; aria-valuenow=&quot;20&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;&lt;/div&gt;
+                &lt;div class=&quot;progress-bar bg-warning&quot; role=&quot;progressbar&quot; style=&quot;width: 25%&quot; aria-valuenow=&quot;25&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;&lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Thin bars --&gt;
+              &lt;div class=&quot;progress mb-3&quot; style=&quot;height: 2px;&quot;&gt;
+                &lt;div class=&quot;progress-bar bg-warning&quot; role=&quot;progressbar&quot; style=&quot;width: 20%&quot; aria-valuenow=&quot;20&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;&lt;/div&gt;
+                &lt;div class=&quot;progress-bar bg-info&quot; role=&quot;progressbar&quot; style=&quot;width: 25%&quot; aria-valuenow=&quot;25&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;&lt;/div&gt;
+                &lt;div class=&quot;progress-bar bg-danger&quot; role=&quot;progressbar&quot; style=&quot;width: 10%&quot; aria-valuenow=&quot;10&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;&lt;/div&gt;
+                &lt;div class=&quot;progress-bar bg-success&quot; role=&quot;progressbar&quot; style=&quot;width: 15%&quot; aria-valuenow=&quot;15&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;&lt;/div&gt;
+              &lt;/div&gt;
+        #pug3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Thick bars
+              .progress.mb-3
+                .progress-bar.bg-danger(role=&quot;progressbar&quot;, style=&quot;width: 15%&quot;, aria-valuenow=&quot;15&quot;, aria-valuemin=&quot;0&quot;, aria-valuemax=&quot;100&quot;)
+                .progress-bar(role=&quot;progressbar&quot;, style=&quot;width: 10%&quot;, aria-valuenow=&quot;10&quot;, aria-valuemin=&quot;0&quot;, aria-valuemax=&quot;100&quot;)
+                .progress-bar.bg-success(role=&quot;progressbar&quot;, style=&quot;width: 20%&quot;, aria-valuenow=&quot;20&quot;, aria-valuemin=&quot;0&quot;, aria-valuemax=&quot;100&quot;)
+                .progress-bar.bg-warning(role=&quot;progressbar&quot;, style=&quot;width: 25%&quot;, aria-valuenow=&quot;25&quot;, aria-valuemin=&quot;0&quot;, aria-valuemax=&quot;100&quot;)
+
+              // Thin bars
+              .progress.mb-3(style=&quot;height:2px;&quot;)
+                .progress-bar.bg-warning(role=&quot;progressbar&quot;, style=&quot;width: 20%&quot;, aria-valuenow=&quot;20&quot;, aria-valuemin=&quot;0&quot;, aria-valuemax=&quot;100&quot;)
+                .progress-bar.bg-info(role=&quot;progressbar&quot;, style=&quot;width: 25%&quot;, aria-valuenow=&quot;25&quot;, aria-valuemin=&quot;0&quot;, aria-valuemax=&quot;100&quot;)
+                .progress-bar.bg-danger(role=&quot;progressbar&quot;, style=&quot;width: 10%&quot;, aria-valuenow=&quot;10&quot;, aria-valuemin=&quot;0&quot;, aria-valuemax=&quot;100&quot;)
+                .progress-bar.bg-success(role=&quot;progressbar&quot;, style=&quot;width: 15%&quot;, aria-valuenow=&quot;15&quot;, aria-valuemin=&quot;0&quot;, aria-valuemax=&quot;100&quot;)
+
+  // Animated striped bars
+  section#progress-animated.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Animated striped bars
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview4' data-bs-toggle='tab' role='tab' aria-controls='preview4' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview4.tab-pane.fade.show.active(role='tabpanel')
+          .progress.mb-3
+            .progress-bar.progress-bar-striped.progress-bar-animated(role='progressbar' style='width: 45%' aria-valuenow='45' aria-valuemin='0' aria-valuemax='100')
+          .progress.mb-3
+            .progress-bar.progress-bar-striped.progress-bar-animated.bg-success(role='progressbar' style='width: 55%' aria-valuenow='55' aria-valuemin='0' aria-valuemax='100')
+          .progress.mb-3
+            .progress-bar.progress-bar-striped.progress-bar-animated.bg-danger(role='progressbar' style='width: 40%' aria-valuenow='40' aria-valuemin='0' aria-valuemax='100')
+          .progress.mb-3
+            .progress-bar.progress-bar-striped.progress-bar-animated.bg-warning(role='progressbar' style='width: 70%' aria-valuenow='70' aria-valuemin='0' aria-valuemax='100')
+          .progress.mb-3
+            .progress-bar.progress-bar-striped.progress-bar-animated.bg-info(role='progressbar' style='width: 60%' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100')
+          .progress.mb-2
+            .progress-bar.progress-bar-striped.progress-bar-animated.bg-dark(role='progressbar' style='width: 33%' aria-valuenow='33' aria-valuemin='0' aria-valuemax='100')
+        #html4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Striped primary progress bar --&gt;
+              &lt;div class=&quot;progress mb-3&quot;&gt;
+                &lt;div class=&quot;progress-bar progress-bar-striped progress-bar-animated&quot; role=&quot;progressbar&quot; style=&quot;width: 45%&quot; aria-valuenow=&quot;45&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;&lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Striped success progress bar --&gt;
+              &lt;div class=&quot;progress mb-3&quot;&gt;
+                &lt;div class=&quot;progress-bar progress-bar-striped progress-bar-animated bg-success&quot; role=&quot;progressbar&quot; style=&quot;width: 55%&quot; aria-valuenow=&quot;55&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;&lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Striped danger progress bar --&gt;
+              &lt;div class=&quot;progress mb-3&quot;&gt;
+                &lt;div class=&quot;progress-bar progress-bar-striped progress-bar-animated bg-danger&quot; role=&quot;progressbar&quot; style=&quot;width: 40%&quot; aria-valuenow=&quot;40&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;&lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Striped warning progress bar --&gt;
+              &lt;div class=&quot;progress mb-3&quot;&gt;
+                &lt;div class=&quot;progress-bar progress-bar-striped progress-bar-animated bg-warning&quot; role=&quot;progressbar&quot; style=&quot;width: 70%&quot; aria-valuenow=&quot;70&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;&lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Striped info progress bar --&gt;
+              &lt;div class=&quot;progress mb-3&quot;&gt;
+                &lt;div class=&quot;progress-bar progress-bar-striped progress-bar-animated bg-info&quot; role=&quot;progressbar&quot; style=&quot;width: 60%&quot; aria-valuenow=&quot;60&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;&lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Striped dark progress bar --&gt;
+              &lt;div class=&quot;progress mb-3&quot;&gt;
+                &lt;div class=&quot;progress-bar progress-bar-striped progress-bar-animated bg-dark&quot; role=&quot;progressbar&quot; style=&quot;width: 33%&quot; aria-valuenow=&quot;33&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;&lt;/div&gt;
+              &lt;/div&gt;
+        #pug4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Striped primary progress bar
+              .progress.mb-3
+                .progress-bar.progress-bar-striped.progress-bar-animated(role=&quot;progressbar&quot;, style=&quot;width: 45%&quot;, aria-valuenow=&quot;45&quot;, aria-valuemin=&quot;0&quot;, aria-valuemax=&quot;100&quot;)
+
+              // Striped success progress bar
+              .progress.mb-3
+                .progress-bar.progress-bar-striped.progress-bar-animated.bg-success(role=&quot;progressbar&quot;, style=&quot;width: 55%&quot;, aria-valuenow=&quot;55&quot;, aria-valuemin=&quot;0&quot;, aria-valuemax=&quot;100&quot;)
+
+              // Striped danger progress bar
+              .progress.mb-3
+                .progress-bar.progress-bar-striped.progress-bar-animated.bg-danger(role=&quot;progressbar&quot;, style=&quot;width: 40%&quot;, aria-valuenow=&quot;40&quot;, aria-valuemin=&quot;0&quot;, aria-valuemax=&quot;100&quot;)
+
+              // Striped warning progress bar
+              .progress.mb-3
+                .progress-bar.progress-bar-striped.progress-bar-animated.bg-warning(role=&quot;progressbar&quot;, style=&quot;width: 70%&quot;, aria-valuenow=&quot;70&quot;, aria-valuemin=&quot;0&quot;, aria-valuemax=&quot;100&quot;)
+
+              // Striped info progress bar
+              .progress.mb-3
+                .progress-bar.progress-bar-striped.progress-bar-animated.bg-info(role=&quot;progressbar&quot;, style=&quot;width: 60%&quot;, aria-valuenow=&quot;60&quot;, aria-valuemin=&quot;0&quot;, aria-valuemax=&quot;100&quot;)
+
+              // Striped dark progress bar
+              .progress.mb-3
+                .progress-bar.progress-bar-striped.progress-bar-animated.bg-dark(role=&quot;progressbar&quot;, style=&quot;width: 33%&quot;, aria-valuenow=&quot;33&quot;, aria-valuemin=&quot;0&quot;, aria-valuemax=&quot;100&quot;)
+
+  // Use case: Rating breakdown
+  section#progress-rating-breakdown.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Use case: Rating breakdown
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview5' data-bs-toggle='tab' role='tab' aria-controls='preview5' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html5' data-bs-toggle='tab' role='tab' aria-controls='html5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug5' data-bs-toggle='tab' role='tab' aria-controls='pug5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview5.tab-pane.fade.show.active(role='tabpanel')
+          .d-flex.align-items-center.mb-2
+            .text-nowrap.me-3
+              span.d-inline-block.align-middle 5
+              i.ai-star.fs-sm.ms-1
+            .w-100
+              .progress(style='height: 4px;')
+                .progress-bar.bg-success(role='progressbar' style='width: 60%;' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100')
+            span.ms-3 43
+          .d-flex.align-items-center.mb-2
+            .text-nowrap.me-3
+              span.d-inline-block.align-middle 4
+              i.ai-star.fs-sm.ms-1
+            .w-100
+              .progress(style='height: 4px;')
+                .progress-bar(role='progressbar' style='width: 27%; background-color: #a7e453;' aria-valuenow='27' aria-valuemin='0' aria-valuemax='100')
+            span.ms-3 16
+          .d-flex.align-items-center.mb-2
+            .text-nowrap.me-3
+              span.d-inline-block.align-middle 3
+              i.ai-star.fs-sm.ms-1
+            .w-100
+              .progress(style='height: 4px;')
+                .progress-bar.bg-warning(role='progressbar' style='width: 17%;' aria-valuenow='17' aria-valuemin='0' aria-valuemax='100')
+            span.ms-3 9
+          .d-flex.align-items-center.mb-2
+            .text-nowrap.me-3
+              span.d-inline-block.align-middle 2
+              i.ai-star.fs-sm.ms-1
+            .w-100
+              .progress(style='height: 4px;')
+                .progress-bar(role='progressbar' style='width: 9%; background-color: #fa8027;' aria-valuenow='9' aria-valuemin='0' aria-valuemax='100')
+            span.ms-3 4
+          .d-flex.align-items-center
+            .text-nowrap.me-3
+              span.d-inline-block.align-middle 1
+              i.ai-star.fs-sm.ms-1
+            .w-100
+              .progress(style='height: 4px;')
+                .progress-bar.bg-danger(role='progressbar' style='width: 4%;' aria-valuenow='4' aria-valuemin='0' aria-valuemax='100')
+            span.ms-3 2
+        #html5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- 5 stars --&gt;
+              &lt;div class=&quot;d-flex align-items-center mb-2&quot;&gt;
+                &lt;div class=&quot;text-nowrap me-3&quot;&gt;
+                  &lt;span class=&quot;d-inline-block align-middle&quot;&gt;5&lt;/span&gt;
+                  &lt;i class=&quot;ai-star fs-sm ms-1&quot;&gt;&lt;/i&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;w-100&quot;&gt;
+                  &lt;div class=&quot;progress&quot; style=&quot;height: 4px;&quot;&gt;
+                    &lt;div class=&quot;progress-bar bg-success&quot; role=&quot;progressbar&quot; style=&quot;width: 60%;&quot; aria-valuenow=&quot;60&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;&lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;span class=&quot;ms-3&quot;&gt;43&lt;/span&gt;
+              &lt;/div&gt;
+
+              &lt;!-- 4 stars --&gt;
+              &lt;div class=&quot;d-flex align-items-center mb-2&quot;&gt;
+                &lt;div class=&quot;text-nowrap me-3&quot;&gt;
+                  &lt;span class=&quot;d-inline-block align-middle&quot;&gt;4&lt;/span&gt;
+                  &lt;i class=&quot;ai-star fs-sm ms-1&quot;&gt;&lt;/i&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;w-100&quot;&gt;
+                  &lt;div class=&quot;progress&quot; style=&quot;height: 4px;&quot;&gt;
+                    &lt;div class=&quot;progress-bar&quot; role=&quot;progressbar&quot; style=&quot;width: 27%; background-color: #a7e453;&quot; aria-valuenow=&quot;27&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;&lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;span class=&quot;ms-3&quot;&gt;16&lt;/span&gt;
+              &lt;/div&gt;
+
+              &lt;!-- 3 stars --&gt;
+              &lt;div class=&quot;d-flex align-items-center mb-2&quot;&gt;
+                &lt;div class=&quot;text-nowrap me-3&quot;&gt;
+                  &lt;span class=&quot;d-inline-block align-middle&quot;&gt;3&lt;/span&gt;
+                  &lt;i class=&quot;ai-star fs-sm ms-1&quot;&gt;&lt;/i&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;w-100&quot;&gt;
+                  &lt;div class=&quot;progress&quot; style=&quot;height: 4px;&quot;&gt;
+                    &lt;div class=&quot;progress-bar bg-warning&quot; role=&quot;progressbar&quot; style=&quot;width: 17%;&quot; aria-valuenow=&quot;17&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;&lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;span class=&quot;ms-3&quot;&gt;9&lt;/span&gt;
+              &lt;/div&gt;
+
+              &lt;!-- 2 stars --&gt;
+              &lt;div class=&quot;d-flex align-items-center mb-2&quot;&gt;
+                &lt;div class=&quot;text-nowrap me-3&quot;&gt;
+                  &lt;span class=&quot;d-inline-block align-middle&quot;&gt;2&lt;/span&gt;
+                  &lt;i class=&quot;ai-star fs-sm ms-1&quot;&gt;&lt;/i&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;w-100&quot;&gt;
+                  &lt;div class=&quot;progress&quot; style=&quot;height: 4px;&quot;&gt;
+                    &lt;div class=&quot;progress-bar&quot; role=&quot;progressbar&quot; style=&quot;width: 9%; background-color: #fa8027;&quot; aria-valuenow=&quot;9&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;&lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;span class=&quot;ms-3&quot;&gt;4&lt;/span&gt;
+              &lt;/div&gt;
+
+              &lt;!-- 1 star --&gt;
+              &lt;div class=&quot;d-flex align-items-center&quot;&gt;
+                &lt;div class=&quot;text-nowrap me-3&quot;&gt;
+                  &lt;span class=&quot;d-inline-block align-middle&quot;&gt;1&lt;/span&gt;
+                  &lt;i class=&quot;ai-star fs-sm ms-1&quot;&gt;&lt;/i&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;w-100&quot;&gt;
+                  &lt;div class=&quot;progress&quot; style=&quot;height: 4px;&quot;&gt;
+                    &lt;div class=&quot;progress-bar bg-danger&quot; role=&quot;progressbar&quot; style=&quot;width: 4%;&quot; aria-valuenow=&quot;4&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;&lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;span class=&quot;ms-3&quot;&gt;2&lt;/span&gt;
+              &lt;/div&gt;
+        #pug5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // 5 stars
+              .d-flex.align-items-center.mb-2
+                .text-nowrap.me-3
+                  span.d-inline-block.align-middle 5
+                  i.ai-star.fs-sm.ms-1
+                .w-100
+                  .progress(style=&quot;height: 4px;&quot;)
+                    .progress-bar.bg-success(role=&quot;progressbar&quot;, style=&quot;width: 60%;&quot;, aria-valuenow=&quot;60&quot;, aria-valuemin=&quot;0&quot;, aria-valuemax=&quot;100&quot;)
+                span.ms-3 43
+
+              // 4 stars
+              .d-flex.align-items-center.mb-2
+                .text-nowrap.me-3
+                  span.d-inline-block.align-middle 4
+                  i.ai-star.fs-sm.ms-1
+                .w-100
+                  .progress(style=&quot;height: 4px;&quot;)
+                    .progress-bar(role=&quot;progressbar&quot;, style=&quot;width: 27%; background-color: #a7e453;&quot;, aria-valuenow=&quot;27&quot;, aria-valuemin=&quot;0&quot;, aria-valuemax=&quot;100&quot;)
+                span.ms-3 16
+              
+              // 3 stars
+              .d-flex.align-items-center.mb-2
+                .text-nowrap.me-3
+                  span.d-inline-block.align-middle 3
+                  i.ai-star.fs-sm.ms-1
+                .w-100
+                  .progress(style=&quot;height: 4px;&quot;')
+                    .progress-bar.bg-warning(role=&quot;progressbar&quot;, style=&quot;width: 17%;&quot;, aria-valuenow=&quot;17&quot;, aria-valuemin=&quot;0&quot;, aria-valuemax=&quot;100&quot;)
+                span.ms-3 9
+
+              // 2 stars
+              .d-flex.align-items-center.mb-2
+                .text-nowrap.me-3
+                  span.d-inline-block.align-middle 2
+                  i.ai-star.fs-sm.ms-1
+                .w-100
+                  .progress(style=&quot;height: 4px;&quot;)
+                    .progress-bar(role=&quot;progressbar&quot;, style=&quot;width: 9%; background-color: #fa8027;&quot;, aria-valuenow=&quot;9&quot;, aria-valuemin=&quot;0&quot;, aria-valuemax=&quot;100&quot;)
+                span.ms-3 4
+              
+              // 1 star
+              .d-flex.align-items-center
+                .text-nowrap.me-3
+                  span.d-inline-block.align-middle 1
+                  i.ai-star.fs-sm.ms-1
+                .w-100
+                  .progress(style=&quot;height: 4px;&quot;)
+                    .progress-bar.bg-danger(role=&quot;progressbar&quot;, style=&quot;width: 4%;&quot;, aria-valuenow=&quot;4&quot;, aria-valuemin=&quot;0&quot;, aria-valuemax=&quot;100&quot;)
+                span.ms-3 2

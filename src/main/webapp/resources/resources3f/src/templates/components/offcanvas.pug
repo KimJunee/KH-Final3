@@ -1,0 +1,438 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['prismjs/themes/prism.css', 'prismjs/plugins/toolbar/prism-toolbar.css', 'prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var vendorScripts = ['prismjs/components/prism-core.min.js', 'prismjs/components/prism-markup.min.js', 'prismjs/components/prism-clike.min.js', 'prismjs/components/prism-javascript.min.js', 'prismjs/components/prism-pug.min.js', 'prismjs/plugins/toolbar/prism-toolbar.min.js', 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Offcanvas'
+  - var pageSubtitle = 'Build hidden sidebars into your project for navigation, shopping carts, etc. Finder customized version of the component is responsive and can be used as alternative to navbar collapse (only lg breakpoint).'
+  - var pageTitleLink = {'title': 'Bootstrap docs', 'link': 'https://getbootstrap.com/docs/5.1/components/offcanvas/'}
+  - var anchorNav = [{'title': 'Offcanvas components', 'link': '#offcanvas-components'}, {'title': 'Placement', 'link': '#offcanvas-placement'}, {'title': 'Mobile menu offcanvas (responsive)', 'link': '#offcanvas-mobile'}]
+  
+//- Page Content
+block content
+
+  // Left offcanvas example
+  .offcanvas.offcanvas-start(id='offcanvasLeft' tabindex='-1')
+    .offcanvas-header.border-bottom
+      h5.offcanvas-title Left offcanvas
+      button(type='button' data-bs-dismiss='offcanvas').btn-close
+    .offcanvas-body(data-simplebar)
+      p.fs-sm Content for the offcanvas goes here. You can place just about any Bootstrap component or custom elements here.
+    
+  // Right offcanvas example
+  .offcanvas.offcanvas-end(id='offcanvasRight' tabindex='-1')
+    .offcanvas-header.border-bottom
+      h5.offcanvas-title Right offcanvas
+      button(type='button' data-bs-dismiss='offcanvas').btn-close
+    .offcanvas-body(data-simplebar)
+      p.fs-sm Content for the offcanvas goes here. You can place just about any Bootstrap component or custom elements here.
+      
+  // Bottom offcanvas example
+  .offcanvas.offcanvas-bottom(id='offcanvasBottom' tabindex='-1')
+    .offcanvas-header.border-bottom
+      h5.offcanvas-title Bottom offcanvas
+      button(type='button' data-bs-dismiss='offcanvas').btn-close
+    .offcanvas-body(data-simplebar)
+      p.fs-sm Content for the offcanvas goes here. You can place just about any Bootstrap component or custom elements here.
+
+  // Offcanvas components
+  section#offcanvas-components.pb-5.mb-md-2
+    h2.h5.mb-3 Offcanvas components
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result1' data-bs-toggle='tab' role='tab' aria-controls='result1' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result1.tab-pane.fade.show.active(role='tabpanel')
+            .offcanvas.offcanvas-start.shadow-sm.my-2(data-offcanvas-show='true' id='offcanvas' tabindex='-1' style='position: static; transform: none;')
+              .offcanvas-header.border-bottom
+                h6.offcanvas-title Menu
+                button(type='button').btn-close
+              .offcanvas-body(data-simplebar style='max-height: 16.5rem;')
+                ul.nav.flex-column
+                  li.nav-item
+                    a(href='#').nav-link.active Home
+                  li.nav-item.dropdown
+                    a(href='#').nav-link User Profile
+                  li.nav-item
+                    a(href='#').nav-link Services
+                  li.nav-item
+                    a(href='#').nav-link Our Works
+                  li.nav-item
+                    a(href='#').nav-link About
+                  li.nav-item
+                    a(href='#').nav-link Our Team
+                  li.nav-item
+                    a(href='#').nav-link Vendor Dashboard
+                  li.nav-item
+                    a(href='#').nav-link Contacts
+                  li.nav-item
+                    a(href='#').nav-link Help Center
+                  li.nav-item
+                    a(href='#').nav-link Support
+              .offcanvas-footer.border-top
+                button(type='button').btn.btn-outline-primary.btn-sm.w-100.me-2
+                  i.fi-login.me-1
+                  | Sign In
+                button(type='button').btn.btn-primary.btn-sm.w-100
+                  i.fi-user.me-1
+                  | Sign Up
+          #html1.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Offcanvas --&gt;
+                &lt;div class=&quot;offcanvas offcanvas-start&quot; id=&quot;offcanvas&quot; tabindex=&quot;-1&quot;&gt;
+
+                  &lt;!-- Header --&gt;
+                  &lt;div class=&quot;offcanvas-header border-bottom&quot;&gt;
+                    &lt;h6 class=&quot;offcanvas-title&quot;&gt;Menu&lt;/h6&gt;
+                    &lt;button class=&quot;btn-close&quot; type=&quot;button&quot; data-bs-dismiss=&quot;offcanvas&quot;&gt;&lt;/button&gt;
+                  &lt;/div&gt;
+
+                  &lt;!-- Body --&gt;
+                  &lt;div class=&quot;offcanvas-body&quot; data-simplebar&gt;
+                    &lt;ul class=&quot;nav flex-column&quot;&gt;
+                      &lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link active&quot; href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+                      &lt;li class=&quot;nav-item dropdown&quot;&gt;&lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;User Profile&lt;/a&gt;&lt;/li&gt;
+                      &lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Services&lt;/a&gt;&lt;/li&gt;
+                      &lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Our Works&lt;/a&gt;&lt;/li&gt;
+                      &lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;About&lt;/a&gt;&lt;/li&gt;
+                      &lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Our Team&lt;/a&gt;&lt;/li&gt;
+                      &lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Vendor Dashboard&lt;/a&gt;&lt;/li&gt;
+                      &lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Contacts&lt;/a&gt;&lt;/li&gt;
+                      &lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Help Center&lt;/a&gt;&lt;/li&gt;
+                      &lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Support&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                  &lt;/div&gt;
+
+                  &lt;!-- Footer --&gt;
+                  &lt;div class=&quot;offcanvas-footer border-top&quot;&gt;
+                    &lt;button class=&quot;btn btn-outline-primary btn-sm w-100 me-2&quot; type=&quot;button&quot;&gt;
+                      &lt;i class=&quot;fi-login me-1&quot;&gt;&lt;/i&gt;
+                      Sign In
+                    &lt;/button&gt;
+                    &lt;button class=&quot;btn btn-primary btn-sm w-100&quot; type=&quot;button&quot;&gt;
+                      &lt;i class=&quot;fi-user me-1&quot;&gt;&lt;/i&gt;
+                      Sign Up
+                    &lt;/button&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+          #pug1.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Offcanvas
+                .offcanvas.offcanvas-start(id=&quot;offcanvas&quot;, tabindex=&quot;-1&quot;)
+
+                  // Header
+                  .offcanvas-header.border-bottom
+                    h6.offcanvas-title Menu
+                    button(type=&quot;button&quot;, data-bs-dismiss=&quot;offcanvas&quot;).btn-close
+
+                  // Body
+                  .offcanvas-body(data-simplebar)
+                    ul.nav.flex-column
+                      li.nav-item
+                        a(href=&quot;#&quot;).nav-link.active
+                          | Home
+                      li.nav-item.dropdown
+                        a(href=&quot;#&quot;).nav-link
+                          | User Profile
+                      li.nav-item
+                        a(href=&quot;#&quot;).nav-link
+                          | Services
+                      li.nav-item
+                        a(href=&quot;#&quot;).nav-link
+                          | Our Works
+                      li.nav-item
+                        a(href=&quot;#&quot;).nav-link
+                          | About
+                      li.nav-item
+                        a(href=&quot;#&quot;).nav-link
+                          | Our Team
+                      li.nav-item
+                        a(href=&quot;#&quot;).nav-link
+                          | Vendor Dashboard
+                      li.nav-item
+                        a(href=&quot;#&quot;).nav-link
+                          | Contacts
+                      li.nav-item
+                        a(href=&quot;#&quot;).nav-link
+                          | Help Center
+                      li.nav-item
+                        a(href=&quot;#&quot;).nav-link
+                          | Support
+
+                  // Footer
+                  .offcanvas-footer.border-top
+                    button(type=&quot;button&quot;).btn.btn-outline-primary.btn-sm.w-100.me-2
+                      i.fi-login.me-1
+                      | Sign In
+                    button(type=&quot;button&quot;).btn.btn-primary.btn-sm.w-100
+                      i.fi-user.me-1
+                      | Sign Up
+
+  // Placement
+  section#offcanvas-placement.pb-5.mb-md-2
+    h2.h5.mb-3 Placement
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result2' data-bs-toggle='tab' role='tab' aria-controls='result2' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result2.tab-pane.fade.show.active(role='tabpanel')
+            button(type='button' data-bs-toggle='offcanvas' data-bs-target='#offcanvasLeft').btn.btn-accent.me-2.my-2
+              | Toggle left offcanvas
+            button(type='button' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRight').btn.btn-accent.me-2.my-2
+              | Toggle right offcanvas
+            button(type='button' data-bs-toggle='offcanvas' data-bs-target='#offcanvasBottom').btn.btn-accent.my-2
+              | Toggle bottom offcanvas
+          #html2.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Offcanvas position: Left --&gt;
+
+                &lt;!-- Toogle button --&gt;
+                &lt;button class=&quot;btn btn-accent&quot; type=&quot;button&quot; data-bs-toggle=&quot;offcanvas&quot; data-bs-target=&quot;#offcanvasLeft&quot;&gt;Toggle left offcanvas&lt;/button&gt;
+
+                &lt;!-- Offcanvas --&gt;
+                &lt;div class=&quot;offcanvas offcanvas-start&quot; id=&quot;offcanvasLeft&quot; tabindex=&quot;-1&quot;&gt;
+                  &lt;div class=&quot;offcanvas-header border-bottom&quot;&gt;
+                    &lt;h5 class=&quot;offcanvas-title&quot;&gt;Left offcanvas&lt;/h5&gt;
+                    &lt;button class=&quot;btn-close&quot; type=&quot;button&quot; data-bs-dismiss=&quot;offcanvas&quot;&gt;&lt;/button&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;offcanvas-body&quot; data-simplebar&gt;
+                    &lt;p class=&quot;fs-sm&quot;&gt;Content for the offcanvas goes here. You can place just about any Bootstrap component or custom elements here.&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+
+                &lt;!-- Offcanvas position: Right --&gt;
+
+                &lt;!-- Toogle button --&gt;
+                &lt;button class=&quot;btn btn-accent&quot; type=&quot;button&quot; data-bs-toggle=&quot;offcanvas&quot; data-bs-target=&quot;#offcanvasRight&quot;&gt;Toggle right offcanvas&lt;/button&gt;
+                
+                &lt;!-- Offcanvas --&gt;
+                &lt;div class=&quot;offcanvas offcanvas-end&quot; id=&quot;offcanvasRight&quot; tabindex=&quot;-1&quot;&gt;
+                  &lt;div class=&quot;offcanvas-header border-bottom&quot;&gt;
+                    &lt;h5 class=&quot;offcanvas-title&quot;&gt;Right offcanvas&lt;/h5&gt;
+                    &lt;button class=&quot;btn-close&quot; type=&quot;button&quot; data-bs-dismiss=&quot;offcanvas&quot;&gt;&lt;/button&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;offcanvas-body&quot; data-simplebar&gt;
+                    &lt;p class=&quot;fs-sm&quot;&gt;Content for the offcanvas goes here. You can place just about any Bootstrap component or custom elements here.&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+
+                &lt;!-- Offcanvas position: Bottom --&gt;
+
+                &lt;!-- Toogle button --&gt;
+                &lt;button class=&quot;btn btn-accent&quot; type=&quot;button&quot; data-bs-toggle=&quot;offcanvas&quot; data-bs-target=&quot;#offcanvasBottom&quot;&gt;Toggle bottom offcanvas&lt;/button&gt;
+
+                &lt;!-- Offcanvas --&gt;
+                &lt;div class=&quot;offcanvas offcanvas-bottom&quot; id=&quot;offcanvasBottom&quot; tabindex=&quot;-1&quot;&gt;
+                  &lt;div class=&quot;offcanvas-header border-bottom&quot;&gt;
+                    &lt;h5 class=&quot;offcanvas-title&quot;&gt;Bottom offcanvas&lt;/h5&gt;
+                    &lt;button class=&quot;btn-close&quot; type=&quot;button&quot; data-bs-dismiss=&quot;offcanvas&quot;&gt;&lt;/button&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;offcanvas-body&quot; data-simplebar&gt;
+                    &lt;p class=&quot;fs-sm&quot;&gt;Content for the offcanvas goes here. You can place just about any Bootstrap component or custom elements here.&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+          #pug2.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Offcanvas position: Left
+                
+                // Toogle button
+                button(type=&quot;button&quot;, data-bs-toggle=&quot;offcanvas&quot;, data-bs-target=&quot;#offcanvasLeft&quot;).btn.btn-accent
+                  | Toggle left offcanvas
+
+                // Offcanvas
+                .offcanvas.offcanvas-start(id=&quot;offcanvasLeft&quot;, tabindex=&quot;-1&quot;)
+                  .offcanvas-header.border-bottom
+                    h5.offcanvas-title Left offcanvas
+                    button(type=&quot;button&quot;, data-bs-dismiss=&quot;offcanvas&quot;).btn-close
+                  .offcanvas-body(data-simplebar)
+                    p.fs-sm Content for the offcanvas goes here. You can place just about any Bootstrap component or custom elements here.
+
+
+                // Offcanvas position: Right
+                
+                // Toogle button
+                button(type=&quot;button&quot;, data-bs-toggle=&quot;offcanvas&quot;, data-bs-target=&quot;#offcanvasRight&quot;).btn.btn-accent
+                  | Toggle right offcanvas
+
+                // Offcanvas
+                .offcanvas.offcanvas-end(id=&quot;offcanvasRight&quot;, tabindex=&quot;-1&quot;)
+                  .offcanvas-header.border-bottom
+                    h5.offcanvas-title Right offcanvas
+                    button(type=&quot;button&quot;, data-bs-dismiss=&quot;offcanvas&quot;).btn-close
+                  .offcanvas-body(data-simplebar)
+                    p.fs-sm Content for the offcanvas goes here. You can place just about any Bootstrap component or custom elements here.
+
+
+                // Offcanvas position: Bottom
+                
+                // Toogle button
+                button(type=&quot;button&quot;, data-bs-toggle=&quot;offcanvas&quot;, data-bs-target=&quot;#offcanvasBottom&quot;).btn.btn-accent
+                  | Toggle bottom offcanvas
+                
+                // Offcanvas
+                .offcanvas.offcanvas-bottom(id=&quot;offcanvasBottom&quot;, tabindex=&quot;-1&quot;)
+                  .offcanvas-header.border-bottom
+                    h5.offcanvas-title Bottom offcanvas
+                    button(type=&quot;button&quot;, data-bs-dismiss=&quot;offcanvas&quot;).btn-close
+                  .offcanvas-body(data-simplebar)
+                    p.fs-sm Content for the offcanvas goes here. You can place just about any Bootstrap component or custom elements here.
+  
+  // Mobile menu offcanvas (responsive)
+  section#offcanvas-mobile.pb-5
+    h2.h5.mb-3 Mobile menu offcanvas (responsive)
+    .card.border-0
+      .card-header.ps-0
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result3' data-bs-toggle='tab' role='tab' aria-controls='result3' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link Pug
+      .card-body.px-0.pb-0
+        .tab-content
+          #result3.tab-pane.fade.show.active(role='tabpanel')
+            iframe.w-100.shadow.mt-2(src='navbar-offcanvas.html' height='500' style='max-width: 340px;')
+          #html3.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Navbar with offcanvas menu on mobile --&gt;
+                &lt;header class=&quot;navbar navbar-expand-lg navbar-light bg-light shadow-sm&quot;&gt;
+                  &lt;div class=&quot;container&quot;&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;navbar-brand me-2 me-xl-4&quot;&gt;
+                      &lt;img class=&quot;d-block&quot; src=&quot;path-to-logo-image&quot; width=&quot;116&quot; alt=&quot;Finder&quot;&gt;
+                    &lt;/a&gt;
+                    &lt;button type=&quot;button&quot; class=&quot;navbar-toggler ms-auto&quot; data-bs-toggle=&quot;offcanvas&quot; data-bs-target=&quot;#navbarNav&quot; aria-controls=&quot;navbarNav&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;
+                      &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+                    &lt;/button&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;btn btn-primary btn-sm ms-2 order-lg-3&quot;&gt;
+                      &lt;i class=&quot;fi-plus me-2&quot;&gt;&lt;/i&gt;
+                      Add&lt;span class='d-none d-sm-inline'&gt; listing&lt;/span&gt;
+                    &lt;/a&gt;
+                    &lt;div class=&quot;offcanvas offcanvas-collapse order-lg-2&quot; id=&quot;navbarNav&quot;&gt;
+                      &lt;div class=&quot;offcanvas-header shadow-sm&quot;&gt;
+                        &lt;h6 class=&quot;offcanvas-title&quot;&gt;Menu&lt;/h6&gt;
+                        &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;offcanvas&quot;&gt;&lt;/button&gt;
+                      &lt;/div&gt;
+                      &lt;ul class=&quot;navbar-nav offcanvas-body mt-0 py-4 px-3 p-lg-0&quot;&gt;
+                        &lt;li class=&quot;nav-item active&quot;&gt;
+                          &lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;Home&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li class=&quot;nav-item&quot;&gt;
+                          &lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;Link&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li class=&quot;nav-item dropdown&quot;&gt;
+                          &lt;a href=&quot;#&quot; class=&quot;nav-link dropdown-toggle&quot; role=&quot;button&quot; data-bs-toggle=&quot;dropdown&quot; aria-expanded=&quot;false&quot;&gt;Dropdown&lt;/a&gt;
+                          &lt;ul class=&quot;dropdown-menu&quot;&gt;
+                            &lt;li&gt;
+                              &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Action link&lt;/a&gt;
+                            &lt;/li&gt;
+                            &lt;li class=&quot;dropdown&quot;&gt;
+                              &lt;a href=&quot;#&quot; class=&quot;dropdown-item dropdown-toggle&quot; role=&quot;button&quot; data-bs-toggle=&quot;dropdown&quot; aria-expanded=&quot;false&quot;&gt;Dropdown&lt;/a&gt;
+                              &lt;ul class=&quot;dropdown-menu&quot;&gt;
+                                &lt;li&gt;
+                                  &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Action link&lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li&gt;
+                                  &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Another action&lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li&gt;
+                                  &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Something else here&lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li&gt;
+                                  &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Yet another link&lt;/a&gt;
+                                &lt;/li&gt;
+                              &lt;/ul&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                              &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Another action&lt;/a&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                              &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Something else here&lt;/a&gt;
+                            &lt;/li&gt;
+                          &lt;/ul&gt;
+                        &lt;/li&gt;
+                        &lt;li class=&quot;nav-item&quot;&gt;
+                          &lt;a href=&quot;#&quot; class=&quot;nav-link disabled&quot; tabindex=&quot;-1&quot; aria-disabled=&quot;true&quot;&gt;Disabled&lt;/a&gt;
+                        &lt;/li&gt;
+                      &lt;/ul&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/header&gt;
+          #pug3.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Navbar with offcanvas menu on mobile
+                header.navbar.navbar-expand-lg.navbar-light.bg-light.shadow-sm
+                  .container
+                    a(href=&quot;#&quot;).navbar-brand.me-2.me-xl-4
+                      img(src=&quot;path-to-logo-image&quot;, width=&quot;116&quot;, alt=&quot;Finder&quot;).d-block
+                    button(type=&quot;button&quot;, data-bs-toggle=&quot;offcanvas&quot;, data-bs-target=&quot;#navbarNav&quot;, aria-controls=&quot;navbarNav&quot;, aria-expanded=&quot;false&quot;, aria-label=&quot;Toggle navigation&quot;).navbar-toggler.ms-auto
+                      span.navbar-toggler-icon
+                    a(href=&quot;#&quot;).btn.btn-primary.btn-sm.ms-2.order-lg-3
+                      i.fi-plus.me-2
+                      | Add&lt;span class=&quot;d-none d-sm-inline&quot;&gt; listing&lt;/span&gt;
+                    #navbarNav.offcanvas.offcanvas-collapse.order-lg-2
+                      .offcanvas-header.shadow-sm
+                        h6.offcanvas-title Menu
+                        button(type=&quot;button&quot;, data-bs-dismiss=&quot;offcanvas&quot;).btn-close
+                      ul.navbar-nav.offcanvas-body.mt-0.py-4.px-3.p-lg-0
+                        li.nav-item.active
+                          a(href=&quot;#&quot;).nav-link
+                            | Home
+                        li.nav-item
+                          a(href=&quot;#&quot;).nav-link
+                            | Link
+                        li.nav-item.dropdown
+                          a(href=&quot;#&quot;, role=&quot;button&quot;, data-bs-toggle=&quot;dropdown&quot;, aria-expanded=&quot;false&quot;).nav-link.dropdown-toggle
+                            | Dropdown
+                          ul.dropdown-menu
+                            li
+                              a(href=&quot;#&quot;).dropdown-item
+                                | Action link
+                            li.dropdown
+                              a(href=&quot;#&quot;, role=&quot;button&quot;, data-bs-toggle=&quot;dropdown&quot;, aria-expanded=&quot;false&quot;).dropdown-item.dropdown-toggle
+                                | Dropdown
+                              ul.dropdown-menu
+                                li
+                                  a(href=&quot;#&quot;).dropdown-item
+                                    | Action link
+                                li
+                                  a(href=&quot;#&quot;).dropdown-item
+                                    | Another action
+                                li
+                                  a(href=&quot;#&quot;).dropdown-item
+                                    | Something else here
+                                li
+                                  a(href=&quot;#&quot;).dropdown-item
+                                    | Yet another link
+                            li
+                              a(href=&quot;#&quot;).dropdown-item
+                                | Another action
+                            li
+                              a(href=&quot;#&quot;).dropdown-item
+                                | Something else here
+                        li.nav-item
+                          a(href=&quot;#&quot;, tabindex=&quot;-1&quot;, aria-disabled=&quot;true&quot;).nav-link.disabled
+                            | Disabled

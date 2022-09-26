@@ -1,0 +1,184 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var parentMenu = 'Account'
+  - var pageTitle = 'Real Estate | Account My Properties'
+
+//- Navbar
+block navbar
+  include partials/navbar-real-estate
+
+//- Page Content
+block content
+  .container.pt-5.pb-lg-4.mt-5.mb-sm-2
+
+    // Breadcrumb
+    nav(aria-label='Breadcrumb').mb-4.pt-md-3
+      ol.breadcrumb
+        li.breadcrumb-item
+          a(href='real-estate-home-v1.html') Home
+        li.breadcrumb-item
+          a(href='real-estate-account-info.html') Account
+        li(aria-current='page').breadcrumb-item.active
+          | My Properties
+    
+
+    // Page content
+    .row
+
+      // Sidebar
+      aside.col-lg-4.col-md-5.pe-xl-4.mb-5
+        include partials/sidebar-account-real-estate
+
+      // Content
+      .col-lg-8.col-md-7.mb-5
+        .d-flex.align-items-center.justify-content-between.mb-3
+          h1.h2.mb-0 My Properties
+          a(href='#').fw-bold.text-decoration-none
+            i.fi-trash.mt-n1.me-2
+            | Delete all
+        p.pt-1.mb-4 Here you can see your property offers and edit them easily.
+
+        // Nav tabs
+        ul(role='tablist').nav.nav-tabs.border-bottom.mb-4
+          li.nav-item.mb-3
+            a(href='#' role='tab' aria-selected='true').nav-link.active
+              i.fi-file.fs-base.me-2
+              | Published
+          li.nav-item.mb-3
+            a(href='#' role='tab' aria-selected='false').nav-link
+              i.fi-file-clean.fs-base.me-2
+              | Drafts
+          li.nav-item.mb-3
+            a(href='#' role='tab' aria-selected='false').nav-link
+              i.fi-archive.fs-base.me-2
+              | Archived
+        
+        // Item
+        .card.card-hover.card-horizontal.border-0.shadow-sm.mb-4
+          a(href='real-estate-single-v1.html' style='background-image: url(img/real-estate/catalog/08.jpg);').card-img-top
+            .position-absolute.start-0.top-0.pt-3.ps-3
+              span.d-table.badge.bg-info New
+          .card-body.position-relative.pb-3
+            .dropdown.position-absolute.zindex-5.top-0.end-0.mt-3.me-3
+              button(type='button' id='contextMenu1' data-bs-toggle='dropdown' aria-expanded='false').btn.btn-icon.btn-light.btn-xs.rounded-circle.shadow-sm
+                i.fi-dots-vertical
+              ul(aria-labelledby='contextMenu1').dropdown-menu.my-1
+                li
+                  button(type='button').dropdown-item
+                    i.fi-edit.opacity-60.me-2
+                    | Edit
+                li
+                  button(type='button').dropdown-item
+                    i.fi-flame.opacity-60.me-2
+                    | Promote
+                li
+                  button(type='button').dropdown-item
+                    i.fi-power.opacity-60.me-2
+                    | Deactivate
+                li
+                  button(type='button').dropdown-item
+                    i.fi-trash.opacity-60.me-2
+                    | Delete
+            h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For rent
+            h3.h6.mb-2.fs-base
+              a(href='real-estate-single-v1.html').nav-link.stretched-link Greenpoint Rentals | 85 sq.m
+            p.mb-2.fs-sm.text-muted 1510 Castle Hill Ave Bronx, NY 10462
+            .fw-bold
+              i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+              | $1,330
+            .d-flex.align-items-center.justify-content-center.justify-content-sm-start.border-top.pt-3.pb-2.mt-3.text-nowrap
+              span.d-inline-block.me-4.fs-sm 1
+                i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+              span.d-inline-block.me-4.fs-sm 1
+                i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+              span.d-inline-block.fs-sm 1
+                i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+        
+        // Item
+        .card.card-hover.card-horizontal.border-0.shadow-sm.mb-4
+          a(href='real-estate-single-v1.html' style='background-image: url(img/real-estate/catalog/10.jpg);').card-img-top
+            .position-absolute.start-0.top-0.pt-3.ps-3
+              span.d-table.badge.bg-success Verified
+          .card-body.position-relative.pb-3
+            .dropdown.position-absolute.zindex-5.top-0.end-0.mt-3.me-3
+              button(type='button' id='contextMenu2' data-bs-toggle='dropdown' aria-expanded='false').btn.btn-icon.btn-light.btn-xs.rounded-circle.shadow-sm
+                i.fi-dots-vertical
+              ul(aria-labelledby='contextMenu2').dropdown-menu.my-1
+                li
+                  button(type='button').dropdown-item
+                    i.fi-edit.opacity-60.me-2
+                    | Edit
+                li
+                  button(type='button').dropdown-item
+                    i.fi-flame.opacity-60.me-2
+                    | Promote
+                li
+                  button(type='button').dropdown-item
+                    i.fi-power.opacity-60.me-2
+                    | Deactivate
+                li
+                  button(type='button').dropdown-item
+                    i.fi-trash.opacity-60.me-2
+                    | Delete
+            h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For rent
+            h3.h6.mb-2.fs-base
+              a(href='real-estate-single-v1.html').nav-link.stretched-link O’Farrell Rooms | 40 sq.m
+            p.mb-2.fs-sm.text-muted 460 E Fordham Rd Bronx, NY 10458
+            .fw-bold
+              i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+              | From $550
+            .d-flex.align-items-center.justify-content-center.justify-content-sm-start.border-top.pt-3.pb-2.mt-3.text-nowrap
+              span.d-inline-block.me-4.fs-sm 2
+                i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+              span.d-inline-block.me-4.fs-sm 1
+                i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+              span.d-inline-block.fs-sm 1
+                i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+        
+        // Item
+        .card.card-hover.card-horizontal.border-0.shadow-sm
+          a(href='real-estate-single-v1.html' style='background-image: url(img/real-estate/catalog/22.jpg);').card-img-top
+            .position-absolute.start-0.top-0.pt-3.ps-3
+              span.d-table.badge.bg-success Verified
+          .card-body.position-relative.pb-3
+            .dropdown.position-absolute.zindex-5.top-0.end-0.mt-3.me-3
+              button(type='button' id='contextMenu3' data-bs-toggle='dropdown' aria-expanded='false').btn.btn-icon.btn-light.btn-xs.rounded-circle.shadow-sm
+                i.fi-dots-vertical
+              ul(aria-labelledby='contextMenu3').dropdown-menu.my-1
+                li
+                  button(type='button').dropdown-item
+                    i.fi-edit.opacity-60.me-2
+                    | Edit
+                li
+                  button(type='button').dropdown-item
+                    i.fi-flame.opacity-60.me-2
+                    | Promote
+                li
+                  button(type='button').dropdown-item
+                    i.fi-power.opacity-60.me-2
+                    | Deactivate
+                li
+                  button(type='button').dropdown-item
+                    i.fi-trash.opacity-60.me-2
+                    | Delete
+            h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For sale
+            h3.h6.mb-2.fs-base
+              a(href='real-estate-single-v1.html').nav-link.stretched-link Cottage | 120 sq.m
+            p.mb-2.fs-sm.text-muted 42 Broadway New York, NY 10004
+            .fw-bold
+              i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+              | $184,000
+            .d-flex.align-items-center.justify-content-center.justify-content-sm-start.border-top.pt-3.pb-2.mt-3.text-nowrap
+              span.d-inline-block.me-4.fs-sm 4
+                i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+              span.d-inline-block.me-4.fs-sm 2
+                i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+              span.d-inline-block.fs-sm 1
+                i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+
+
+//- Footer
+block footer
+  include partials/footer-real-estate

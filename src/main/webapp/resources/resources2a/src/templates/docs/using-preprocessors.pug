@@ -1,0 +1,25 @@
+extends ../partials/layout-docs
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js']
+  - var pageTitle = 'Using Pug & Sass'
+    
+//- Page Content
+block content
+
+  dl
+    dt.mb-2 Sass (Syntactically Awesome Style Sheets)
+    dd.mb-4 Sass is a scripting language that is interpreted or compiled into Cascading Style Sheets (CSS). It is the most mature, stable, and powerful professional grade CSS extension language in the world. Sass gives you the power of variables, mixins, functions, etc.
+    dt.mb-2 Pug (former Jade)
+    dd.mb-4 Pug is a high performance Node.js Templating Engine. Just like SASS, Pug is a prepocessor and, as such it helps you accomplishing tasks like wrapping away repetitive work by providing features not available in plain HTML like variables, includes, mixins, functions, etc.
+    
+  h2.h3.pt-3 Compiling Sass (Scss) and Pug
+  p.mb-4 The fastet way is up and going with Sass (Scss) and Pug is to use Gulp setup that comes with Around. Check <a href='dev-setup' class='fw-semibold'>Dev environment setup</a> article for the instructions.
+  p.mb-4 If you are not using Node.js and Gulp setup, don't like command line interface there are another ways to work with preprocessors: 
+  p <span class='fw-semibold text-dark'>1. Live Sass Compiler for VS Code </span> - We personally recommend <a href="https://code.visualstudio.com/" class="fw-semibold" target="_blank" rel="noopener">Visual Studio Code</a> editor with <a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.live-sass" class="fw-semibold" target="_blank" rel="noopener">Live Sass Compiler</a> plugin installed. Visual Studio Code is a free software developed by Microsoft. It's avalable on Mac OS, Windows and Linux.
+  img(src='../assets/img/docs/sass-compiler-settings.png' alt='Live Sass Compiler for VS Code').d-lock.rounded-3.mb-4
+  p.pt-3 <span class='fw-semibold text-dark'>2. Prepros</span> - a popular software (GUI) for compiling Sass and Pug . Visit it's website at <a href='https://prepros.io/' class='fw-semibold' target='_blank'>https://prepros.io/</a>. Basic version is completely free and available for Mac and Windows.
+  img(src='../assets/img/docs/prepros.png' alt='Prepros').rounded-3
+    

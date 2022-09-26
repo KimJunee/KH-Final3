@@ -1,0 +1,486 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css', 'vendor/prismjs/themes/prism.css', 'vendor/prismjs/plugins/toolbar/prism-toolbar.css', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js', 'vendor/prismjs/components/prism-core.min.js', 'vendor/prismjs/components/prism-markup.min.js', 'vendor/prismjs/components/prism-clike.min.js', 'vendor/prismjs/components/prism-javascript.min.js', 'vendor/prismjs/components/prism-pug.min.js', 'vendor/prismjs/plugins/toolbar/prism-toolbar.min.js', 'vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Modal'
+  - var pageSubtitle = 'Add dialogs to your site for lightboxes, user notifications, etc.'
+  - var pageTitleLink = {'title': 'Bootstrap docs', 'link': 'https://getbootstrap.com/docs/5.2/components/modal/'}
+  - var anchorNav = [{'title': 'Modal markup', 'link': '#modal-markup'}, {'title': 'Tabs and forms', 'link': '#modal-tabs-forms'}, {'title': 'Live demo (variants)', 'link': '#modal-demo'}]
+    
+//- Page Content
+block content
+
+  // Modal markup
+  section#modal-markup.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Modal markup
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview1' data-bs-toggle='tab' role='tab' aria-controls='preview1' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview1.tab-pane.fade.show.active(role='tabpanel')
+          //-- Styles For Demo purpose only
+          style.
+            .example-modal .modal {
+              display: block;
+              position: relative;
+              top: auto;
+              right: auto;
+              bottom: auto;
+              left: auto;
+              z-index: 1;
+            }
+          //-- End of styles
+          .example-modal
+            .modal(tabindex='-1' role='dialog')
+              .modal-dialog(role='document')
+                .modal-content
+                  .modal-header
+                    h4.modal-title Modal title
+                    button(type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close')
+                  .modal-body
+                    p Modal body text goes here.
+                  .modal-footer.flex-column.flex-sm-row
+                    button(type='button' class='btn btn-secondary w-100 w-sm-auto mb-3 mb-sm-0' data-bs-dismiss='modal') Close
+                    button(type='button' class='btn btn-primary w-100 w-sm-auto ms-sm-3') Save changes
+        #html1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Modal markup --&gt;
+              &lt;div class=&quot;modal&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot;&gt;
+                &lt;div class=&quot;modal-dialog&quot; role=&quot;document&quot;&gt;
+                  &lt;div class=&quot;modal-content&quot;&gt;
+                    &lt;div class=&quot;modal-header&quot;&gt;
+                      &lt;h4 class=&quot;modal-title&quot;&gt;Modal title&lt;/h4&gt;
+                      &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;modal&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;modal-body&quot;&gt;
+                      &lt;p&gt;Modal body text goes here.&lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;modal-footer flex-column flex-sm-row&quot;&gt;
+                      &lt;button type=&quot;button&quot; class=&quot;btn btn-secondary w-100 w-sm-auto mb-3 mb-sm-0&quot; data-bs-dismiss=&quot;modal&quot;&gt;Close&lt;/button&gt;
+                      &lt;button type=&quot;button&quot; class=&quot;btn btn-primary w-100 w-sm-auto ms-sm-3&quot;&gt;Save changes&lt;/button&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Modal markup
+              .modal(tabindex=&quot;-1&quot;, role=&quot;dialog&quot;)
+                .modal-dialog(role=&quot;document&quot;)
+                  .modal-content
+                    .modal-header
+                      h4.modal-title Modal title
+                      button(type=&quot;button&quot;, class=&quot;btn-close&quot;, data-bs-dismiss=&quot;modal&quot;, aria-label=&quot;Close&quot;)
+                    .modal-body
+                      p Modal body text goes here.
+                    .modal-footer.flex-column.flex-sm-row
+                      button(type=&quot;button&quot;, class=&quot;btn btn-secondary w-100 w-sm-auto mb-3 mb-sm-0&quot;, data-bs-dismiss=&quot;modal&quot;)
+                        | Close
+                      button(type=&quot;button&quot;, class=&quot;btn btn-primary w-100 w-sm-auto ms-sm-3&quot;)
+                        | Save changes
+
+  // Tabs and forms
+  section#modal-tabs-forms.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Tabs and forms
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview2' data-bs-toggle='tab' role='tab' aria-controls='preview2' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview2.tab-pane.fade.show.active(role='tabpanel')
+          .example-modal
+            .modal(tabindex='-1' role='dialog')
+              .modal-dialog(role='document')
+                .modal-content
+                  .modal-header
+                    ul(role='tablist').nav.nav-tabs.flex-nowrap.text-nowrap.mb-n2
+                      li.nav-item
+                        a(href='#signin' data-bs-toggle='tab' role='tab' aria-selected='true').nav-link.flex-column.flex-sm-row.px-3.px-sm-4.active
+                          i.ai-login.me-sm-2.ms-sm-n1
+                          span.d-none.d-sm-inline Sign in
+                          span.fs-sm.fw-medium.d-sm-none.pt-1 Sign in
+                      li.nav-item
+                        a(href='#signup' data-bs-toggle='tab' role='tab' aria-selected='false').nav-link.flex-column.flex-sm-row.px-3.px-sm-4
+                          i.ai-user.me-sm-2.ms-sm-n1
+                          span.d-none.d-sm-inline Sign up
+                          span.fs-sm.fw-medium.d-sm-none.pt-1 Sign up
+                    button(type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close')
+                  .modal-body.tab-content
+                    form(autocomplete='off')#signin.tab-pane.fade.show.active.mt-n2
+                      .mb-3.mb-sm-4
+                        label(for='email1').form-label Email address
+                        input(type='email' id='email1' placeholder='johndoe@example.com').form-control
+                      .mb-3.mb-sm-4
+                        label(for='pass1').form-label Password
+                        .password-toggle
+                          input(type='password' id='pass1').form-control
+                          label.password-toggle-btn
+                            input(type='checkbox').password-toggle-check
+                            span.password-toggle-indicator
+                      .mb-4.d-flex.flex-wrap.justify-content-between
+                        .form-check.mb-2
+                          input(type='checkbox' id='remember').form-check-input
+                          label(for='remember').form-check-label Remember me
+                        a(href='#').fs-sm Forgot password?
+                      button(type='submit' class='btn btn-primary w-100') Sign in
+                    form(autocomplete='off')#signup.tab-pane.fade
+                      .mb-3.mb-sm-4
+                        label(for='name').form-label Full name
+                        input(type='text' id='name' placeholder='John Doe').form-control
+                      .mb-3.mb-sm-4
+                        label(for='email2').form-label Email address
+                        input(type='email' id='email2' placeholder='johndoe@example.com').form-control
+                      .mb-3.mb-sm-4
+                        label(for='pass2').form-label Password
+                        .password-toggle
+                          input(type='password' id='pass2').form-control
+                          label.password-toggle-btn
+                            input(type='checkbox').password-toggle-check
+                            span.password-toggle-indicator
+                      .mb-4
+                        label(for='pass3').form-label Confirm password
+                        .password-toggle
+                          input(type='password' id='pass3').form-control
+                          label.password-toggle-btn
+                            input(type='checkbox').password-toggle-check
+                            span.password-toggle-indicator
+                      button(type='submit' class='btn btn-primary w-100') Sign up
+        #html2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Modal with tabs and forms --&gt;
+              &lt;div class=&quot;modal&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot;&gt;
+                &lt;div class=&quot;modal-dialog&quot; role=&quot;document&quot;&gt;
+                  &lt;div class=&quot;modal-content&quot;&gt;
+                    &lt;div class=&quot;modal-header&quot;&gt;
+                      &lt;ul class=&quot;nav nav-tabs flex-nowrap text-nowrap mb-n2&quot; role=&quot;tablist&quot;&gt;
+                        &lt;li class=&quot;nav-item&quot;&gt;
+                          &lt;a href=&quot;#signin&quot; class=&quot;nav-link flex-column flex-sm-row px-3 px-sm-4 active&quot; data-bs-toggle=&quot;tab&quot; role=&quot;tab&quot; aria-selected=&quot;true&quot;&gt;
+                            &lt;i class=&quot;ai-login me-sm-2 ms-sm-n1&quot;&gt;&lt;/i&gt;
+                            &lt;span class=&quot;d-none d-sm-inline&quot;&gt;Sign in&lt;/span&gt;
+                            &lt;span class=&quot;fs-sm fw-medium d-sm-none pt-1&quot;&gt;Sign in&lt;/span&gt;
+                          &lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li class=&quot;nav-item&quot;&gt;
+                          &lt;a href=&quot;#signup&quot; class=&quot;nav-link flex-column flex-sm-row px-3 px-sm-4&quot; data-bs-toggle=&quot;tab&quot; role=&quot;tab&quot; aria-selected=&quot;false&quot;&gt;
+                            &lt;i class=&quot;ai-user me-sm-2 ms-sm-n1&quot;&gt;&lt;/i&gt;
+                            &lt;span class=&quot;d-none d-sm-inline&quot;&gt;Sign up&lt;/span&gt;
+                            &lt;span class=&quot;fs-sm fw-medium d-sm-none pt-1&quot;&gt;Sign up&lt;/span&gt;
+                          &lt;/a&gt;
+                        &lt;/li&gt;
+                      &lt;/ul&gt;
+                      &lt;button class=&quot;btn-close&quot; type=&quot;button&quot; data-bs-dismiss=&quot;modal&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;modal-body tab-content&quot;&gt;
+                      &lt;form class=&quot;tab-pane fade show active mt-n2&quot; id=&quot;signin&quot; autocomplete=&quot;off&quot;&gt;
+                        &lt;div class=&quot;mb-3 mb-sm-4&quot;&gt;
+                          &lt;label for=&quot;email1&quot; class=&quot;form-label&quot;&gt;Email address&lt;/label&gt;
+                          &lt;input type=&quot;email&quot; class=&quot;form-control&quot; id=&quot;email1&quot; placeholder=&quot;johndoe@example.com&quot;&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;mb-3 mb-sm-4&quot;&gt;
+                          &lt;label for=&quot;pass1&quot; class=&quot;form-label&quot;&gt;Password&lt;/label&gt;
+                          &lt;div class=&quot;password-toggle&quot;&gt;
+                            &lt;input type=&quot;password&quot; class=&quot;form-control&quot; id=&quot;pass1&quot;&gt;
+                            &lt;label class=&quot;password-toggle-btn&quot;&gt;
+                              &lt;input class=&quot;password-toggle-check&quot; type=&quot;checkbox&quot;&gt;
+                              &lt;span class=&quot;password-toggle-indicator&quot;&gt;&lt;/span&gt;
+                            &lt;/label&gt;
+                          &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;mb-4 d-flex flex-wrap justify-content-between&quot;&gt;
+                          &lt;div class=&quot;form-check mb-2&quot;&gt;
+                            &lt;input type=&quot;checkbox&quot; class=&quot;form-check-input&quot; id=&quot;remember&quot;&gt;
+                            &lt;label for=&quot;remember&quot; class=&quot;form-check-label&quot;&gt;Remember me&lt;/label&gt;
+                          &lt;/div&gt;
+                          &lt;a href=&quot;#&quot; class=&quot;fs-sm&quot;&gt;Forgot password?&lt;/a&gt;
+                        &lt;/div&gt;
+                        &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary w-100&quot;&gt;Sign in&lt;/button&gt;
+                      &lt;/form&gt;
+                      &lt;form class=&quot;tab-pane fade&quot; id=&quot;signup&quot; autocomplete=&quot;off&quot;&gt;
+                        &lt;div class=&quot;mb-3 mb-sm-4&quot;&gt;
+                          &lt;label for=&quot;name&quot; class=&quot;form-label&quot;&gt;Full name&lt;/label&gt;
+                          &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;name&quot; placeholder=&quot;John Doe&quot;&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;mb-3 mb-sm-4&quot;&gt;
+                          &lt;label for=&quot;email2&quot; class=&quot;form-label&quot;&gt;Email address&lt;/label&gt;
+                          &lt;input type=&quot;email&quot; class=&quot;form-control&quot; id=&quot;email2&quot; placeholder=&quot;johndoe@example.com&quot;&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;mb-3 mb-sm-4&quot;&gt;
+                          &lt;label for=&quot;pass2&quot; class=&quot;form-label&quot;&gt;Password&lt;/label&gt;
+                          &lt;div class=&quot;password-toggle&quot;&gt;
+                            &lt;input type=&quot;password&quot; class=&quot;form-control&quot; id=&quot;pass2&quot;&gt;
+                            &lt;label class=&quot;password-toggle-btn&quot;&gt;
+                              &lt;input type=&quot;checkbox&quot; class=&quot;password-toggle-check&quot;&gt;
+                              &lt;span class=&quot;password-toggle-indicator&quot;&gt;&lt;/span&gt;
+                            &lt;/label&gt;
+                          &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;mb-4&quot;&gt;
+                          &lt;label for=&quot;pass3&quot; class=&quot;form-label&quot;&gt;Confirm password&lt;/label&gt;
+                          &lt;div class=&quot;password-toggle&quot;&gt;
+                            &lt;input type=&quot;password&quot; class=&quot;form-control&quot; id=&quot;pass3&quot;&gt;
+                            &lt;label class=&quot;password-toggle-btn&quot;&gt;
+                              &lt;input type=&quot;checkbox&quot; class=&quot;password-toggle-check&quot;&gt;
+                              &lt;span class=&quot;password-toggle-indicator&quot;&gt;&lt;/span&gt;
+                            &lt;/label&gt;
+                          &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary w-100&quot;&gt;Sign up&lt;/button&gt;
+                      &lt;/form&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Modal with tabs and forms
+              .modal(tabindex=&quot;-1&quot;, role=&quot;dialog&quot;)
+                .modal-dialog(role=&quot;document&quot;)
+                  .modal-content
+                    .modal-header
+                      ul(role=&quot;tablist&quot;).nav.nav-tabs.flex-nowrap.text-nowrap.mb-n2
+                        li.nav-item
+                          a(href=&quot;#signin&quot;, data-bs-toggle=&quot;tab&quot;, role=&quot;tab&quot;, aria-selected=&quot;true&quot;).nav-link.flex-column.flex-sm-row.px-3.px-sm-4.active
+                            i.ai-login.me-sm-2.ms-sm-n1
+                            span.d-none.d-sm-inline Sign in
+                            span.fs-sm.fw-medium.d-sm-none.pt-1 Sign in
+                        li.nav-item
+                          a(href=&quot;#signup&quot;, data-bs-toggle=&quot;tab&quot;, role=&quot;tab&quot;, aria-selected=&quot;false&quot;).nav-link.flex-column.flex-sm-row.px-3.px-sm-4
+                            i.ai-user.me-sm-2.ms-sm-n1
+                            span.d-none.d-sm-inline Sign up
+                            span.fs-sm.fw-medium.d-sm-none.pt-1 Sign up
+                      button(type=&quot;button&quot;, class=&quot;btn-close&quot;, data-bs-dismiss=&quot;modal&quot;, aria-label=&quot;Close&quot;)
+                    .modal-body.tab-content
+                      form(autocomplete=&quot;off&quot;)#signin.tab-pane.fade.show.active.mt-n2
+                        .mb-3.mb-sm-4
+                          label(for=&quot;email1&quot;).form-label
+                            | Email address
+                          input(type=&quot;email&quot;, id=&quot;email1&quot;, placeholder=&quot;johndoe@example.com&quot;).form-control
+                        .mb-3.mb-sm-4
+                          label(for=&quot;pass1&quot;).form-label
+                            | Password
+                          .password-toggle
+                            input(type=&quot;password&quot; id=&quot;pass1&quot;).form-control
+                            label.password-toggle-btn
+                              input(type=&quot;checkbox&quot;).password-toggle-check
+                              span.password-toggle-indicator
+                        .mb-4.d-flex.flex-wrap.justify-content-between
+                          .form-check.mb-2
+                            input(type=&quot;checkbox&quot; id=&quot;remember&quot;).form-check-input
+                            label(for=&quot;remember&quot;).form-check-label
+                              | Remember me
+                          a(href=&quot;#&quot;).fs-sm
+                            | Forgot password?
+                        button(type=&quot;submit&quot;).btn.btn-primary.w-100
+                          | Sign in
+                      form(autocomplete=&quot;off&quot;)#signup.tab-pane.fade
+                        .mb-3.mb-sm-4
+                          label(for=&quot;name&quot;).form-label
+                            | Full name
+                          input(type=&quot;text&quot;, id=&quot;name&quot;, placeholder=&quot;John Doe&quot;).form-control
+                        .mb-3.mb-sm-4
+                          label(for=&quot;email2&quot;).form-label
+                            | Email address
+                          input(type=&quot;email&quot;, id=&quot;email2&quot;, placeholder=&quot;johndoe@example.com&quot;).form-control
+                        .mb-3.mb-sm-4
+                          label(for=&quot;pass2&quot;).form-label
+                            | Password
+                          .password-toggle
+                            input(type=&quot;password&quot;, id=&quot;pass2&quot;).form-control
+                            label.password-toggle-btn
+                              input(type=&quot;checkbox&quot;).password-toggle-check
+                              span.password-toggle-indicator
+                        .mb-4
+                          label(for=&quot;pass3&quot;).form-label
+                            | Confirm password
+                          .password-toggle
+                            input(type=&quot;password&quot; id=&quot;pass3&quot;).form-control
+                            label.password-toggle-btn
+                              input(type=&quot;checkbox&quot;).password-toggle-check
+                              span.password-toggle-indicator
+                        button(type=&quot;submit&quot;).btn.btn-primary.w-100
+                          | Sign up
+
+  // Live demo
+  section#modal-demo.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Live demo
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview3' data-bs-toggle='tab' role='tab' aria-controls='preview3' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview3.tab-pane.fade.show.active(role='tabpanel')
+          button(type='button' class='btn btn-outline-secondary me-2 mb-3' data-bs-toggle='modal' data-bs-target='#modalSmall') Small modal
+          button(type='button' class='btn btn-outline-secondary me-2 mb-3' data-bs-toggle='modal' data-bs-target='#modalDefault') Default modal
+          button(type='button' class='btn btn-outline-secondary me-2 mb-3' data-bs-toggle='modal' data-bs-target='#modalLarge') Large modal
+          button(type='button' class='btn btn-outline-secondary me-2 mb-3' data-bs-toggle='modal' data-bs-target='#modalXL') Extra large modal
+          button(type='button' class='btn btn-outline-secondary me-2 mb-3' data-bs-toggle='modal' data-bs-target='#modalLong') Long modal
+          button(type='button' class='btn btn-outline-secondary me-2 mb-3' data-bs-toggle='modal' data-bs-target='#modalScroll') Srolling content
+          button(type='button' class='btn btn-outline-secondary me-2 mb-3' data-bs-toggle='modal' data-bs-target='#modalCentered') Vertically centered modal
+          button(type='button' class='btn btn-outline-secondary mb-3' data-bs-toggle='modal' data-bs-target='#modalFullscreen') Full screen modal
+        #html3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Launch modal button --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-secondary&quot; data-bs-toggle=&quot;modal&quot; data-bs-target=&quot;#modalId&quot;&gt;
+              Launch modal
+              &lt;/button&gt;
+
+              &lt;!-- Small modal --&gt;
+              &lt;div class=&quot;modal fade&quot; id=&quot;modalId&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot;&gt;
+                &lt;div class=&quot;modal-dialog modal-sm&quot; role=&quot;document&quot;&gt;
+                  &lt;div class=&quot;modal-content&quot;&gt;
+                  ...
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Default modal --&gt;
+              &lt;div class=&quot;modal fade&quot; id=&quot;modalId&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot;&gt;
+                &lt;div class=&quot;modal-dialog&quot; role=&quot;document&quot;&gt;
+                  &lt;div class=&quot;modal-content&quot;&gt;
+                  ...
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Large modal --&gt;
+              &lt;div class=&quot;modal fade&quot; id=&quot;modalId&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot;&gt;
+                &lt;div class=&quot;modal-dialog modal-lg&quot; role=&quot;document&quot;&gt;
+                  &lt;div class=&quot;modal-content&quot;&gt;
+                  ...
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Extra large modal --&gt;
+              &lt;div class=&quot;modal fade&quot; id=&quot;modalId&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot;&gt;
+                &lt;div class=&quot;modal-dialog modal-xl&quot; role=&quot;document&quot;&gt;
+                  &lt;div class=&quot;modal-content&quot;&gt;
+                  ...
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Modal with srolling content --&gt;
+              &lt;div class=&quot;modal fade&quot; id=&quot;modalId&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot;&gt;
+                &lt;div class=&quot;modal-dialog modal-dialog-scrollable&quot; role=&quot;document&quot;&gt;
+                  &lt;div class=&quot;modal-content&quot;&gt;
+                  ...
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Vertically centered modal --&gt;
+              &lt;div class=&quot;modal fade&quot; id=&quot;modalId&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot;&gt;
+                &lt;div class=&quot;modal-dialog modal-dialog-centered&quot; role=&quot;document&quot;&gt;
+                  &lt;div class=&quot;modal-content&quot;&gt;
+                  ...
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Full screen modal --&gt;
+              &lt;div class=&quot;modal fade&quot; id=&quot;modalId&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot;&gt;
+                &lt;div class=&quot;modal-dialog modal-fullscreen&quot; role=&quot;document&quot;&gt;
+                  &lt;div class=&quot;modal-content&quot;&gt;
+                  ...
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Launch modal button
+              button(type=&quot;button&quot;, data-bs-toggle=&quot;modal&quot;, data-bs-target=&quot;#modalId&quot;).btn.btn-outline-secondary 
+                | Launch modal
+
+              // Small modal
+              div(tabindex=&quot;-1&quot;, role=&quot;dialog&quot;)#modalId.modal.fade
+                div(role=&quot;document&quot;).modal-dialog.modal-sm
+                  div.modal-content
+                    | ...
+
+              // Default modal
+              div(tabindex=&quot;-1&quot;, role=&quot;dialog&quot;)#modalId.modal.fade
+                div(role=&quot;document&quot;).modal-dialog
+                  div.modal-content
+                    | ...
+
+              // Large modal
+              div(tabindex=&quot;-1&quot;, role=&quot;dialog&quot;)#modalId.modal.fade
+                div(role=&quot;document&quot;).modal-dialog.modal-lg
+                  div.modal-content
+                    | ...
+
+              // Extra large modal
+              div(tabindex=&quot;-1&quot;, role=&quot;dialog&quot;)#modalId.modal.fade
+                div(role=&quot;document&quot;).modal-dialog.modal-xl
+                  div.modal-content
+                    | ...
+
+              // Modal with srolling content
+              div(tabindex=&quot;-1&quot;, role=&quot;dialog&quot;)#modalId.modal.fade
+                div(role=&quot;document&quot;).modal-dialog.modal-dialog-scrollable
+                  div.modal-content
+                    | ...
+
+              // Vertically centered modal
+              div(tabindex=&quot;-1&quot;, role=&quot;dialog&quot;)#modalId.modal.fade
+                div(role=&quot;document&quot;).modal-dialog.modal-dialog-centered
+                  div.modal-content
+                    | ...
+
+              // Full screen modal
+              div(tabindex=&quot;-1&quot;, role=&quot;dialog&quot;)#modalId.modal.fade
+                div(role=&quot;document&quot;).modal-dialog.modal-fullscreen
+                  div.modal-content
+                    | ...

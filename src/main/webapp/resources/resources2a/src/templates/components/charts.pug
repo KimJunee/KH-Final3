@@ -1,0 +1,338 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css', 'vendor/chartist/dist/chartist.min.css', 'vendor/prismjs/themes/prism.css', 'vendor/prismjs/plugins/toolbar/prism-toolbar.css', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js', 'vendor/chartist/dist/chartist.min.js', 'vendor/prismjs/components/prism-core.min.js', 'vendor/prismjs/components/prism-markup.min.js', 'vendor/prismjs/components/prism-clike.min.js', 'vendor/prismjs/components/prism-javascript.min.js', 'vendor/prismjs/components/prism-pug.min.js', 'vendor/prismjs/plugins/toolbar/prism-toolbar.min.js', 'vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Charts'
+  - var pageSubtitle = 'Customizable responsive charts, including: Line chart, Bar chart and Pie chart.'
+  - var isPageTitleBadge = true
+  - var anchorNav = [{'title': 'Line chart', 'link': '#chart-line'}, {'title': 'Bar chart', 'link': '#chart-bar'}, {'title': 'Pie chart', 'link': '#chart-pie'}, {'title': 'Donut chart', 'link': '#chart-donut'}]
+    
+//- Page Content
+block content
+
+  // Info alert
+  .alert.alert-info.d-flex.mb-4(role='alert')
+    i.ai-circle-info.lead.me-2.me-sm-3
+    p.text-break.mb-1 Make sure to link to <span class='fw-semibold'>Chartist css and js</span> files in your document: <span class='fw-semibold'>assets/vendor/chartist/dist/chartist.min.css</span> and <span class='fw-semibold'>assets/vendor/chartist/dist/chartist.min.js</span>. Use this page as a reference.
+  .mb-4.pb-2
+    h6.fs-sm.mb-2 Data attributes API
+    p.fs-sm.mb-1 Around added extra layer of data attributes to access the core features of the plugin right in HTML document. <u>There are 3 main attributes:</u>
+    code
+      | data-line-chart | data-bar-chart | data-pie-chart 
+    span.fs-sm  - to pass in data in JSON format to be displayed in line, bar or pie chart format respectively.
+    br
+    code
+      | data-options
+    span.fs-sm  - to pass in additional options in JSON format.
+    br
+    code
+      | data-series-color
+    span.fs-sm  - to assign individual color to each data set. Data passed in JSON format.
+    p.fs-sm.pt-2 Check the code examples below.
+    h6.pt-1.fs-sm.mb-2 For more features / options visit plugin website:
+    a(href='http://gionkunz.github.io/chartist-js/index.html' target='_blank' rel='noopener').fs-sm http://gionkunz.github.io/chartist-js/index.html
+
+
+  // Line chart
+  section#chart-line.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Line chart
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview1' data-bs-toggle='tab' role='tab' aria-controls='preview1' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview1.tab-pane.fade.show.active(role='tabpanel')
+          div(style='max-width: 33rem;')
+            .d-flex.flex-wrap.justify-content-center.fs-sm
+              .border.text-nowrap.rounded-pill.py-1.ps-2.pe-3.me-2.mb-2
+                .d-inline-block.align-middle.rounded-circle.me-1(style='width: .75rem; height: .75rem; background-color: #448c74;')
+                span.d-inline-block.align-middle Company 1
+              .border.text-nowrap.rounded-pill.py-1.ps-2.pe-3.me-2.mb-2
+                .d-inline-block.align-middle.rounded-circle.me-1(style='width: .75rem; height: .75rem; background-color: #edcb50;')
+                span.d-inline-block.align-middle Company 2
+              .border.text-nowrap.rounded-pill.py-1.ps-2.pe-3.mb-2
+                .d-inline-block.align-middle.rounded-circle.me-1(style='width: .75rem; height: .75rem; background-color: #ed5050;')
+                span.d-inline-block.align-middle Company 3
+            .ct-chart.ct-perfect-fourth(data-line-chart='{"labels": ["W1", "W2", "W3", "W4", "W5", "W6", "W7", "W8", "W9"], "series": [[12, 9, 7, 8, 6, 4, 3, 2, 0], [2, 1, 3, 7, 9, 8, 7.7, 4, 7], [1, 3, 4, 5, 6, 8, 9, 10, 11]]}' data-options='{"axisY": {"onlyInteger": true}}' data-series-color='{"colors": ["#448c74", "#edcb50", "#ed5050"]}')
+        #html1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Line chart: Multiple lines of different color + Legend --&gt;
+
+              &lt;!-- Legend --&gt;
+              &lt;div class=&quot;d-flex flex-wrap justify-content-center fs-sm&quot;&gt;
+                &lt;div class=&quot;border text-nowrap rounded-pill py-1 px-2 me-2 mb-2&quot;&gt;
+                  &lt;div class=&quot;d-inline-block align-middle rounded-circle me-1&quot; style=&quot;width: .75rem; height: .75rem; background-color: #448c74;&quot;&gt;&lt;/div&gt;
+                  &lt;span class=&quot;d-inline-block align-middle&quot;&gt;Company 1&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;border text-nowrap rounded-pill py-1 px-2 me-2 mb-2&quot;&gt;
+                  &lt;div class=&quot;d-inline-block align-middle rounded-circle me-1&quot; style=&quot;width: .75rem; height: .75rem; background-color: #edcb50;&quot;&gt;&lt;/div&gt;
+                  &lt;span class=&quot;d-inline-block align-middle&quot;&gt;Company 2&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;border text-nowrap rounded-pill py-1 px-2 me-2 mb-2&quot;&gt;
+                  &lt;div class=&quot;d-inline-block align-middle rounded-circle me-1&quot; style=&quot;width: .75rem; height: .75rem; background-color: #ed5050;&quot;&gt;&lt;/div&gt;
+                  &lt;span class=&quot;d-inline-block align-middle&quot;&gt;Company 3&lt;/span&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Chart --&gt;
+              &lt;div class=&quot;ct-chart ct-perfect-fourth&quot; data-line-chart='{&quot;labels&quot;: [&quot;W1&quot;, &quot;W2&quot;, &quot;W3&quot;, &quot;W4&quot;, &quot;W5&quot;, &quot;W6&quot;, &quot;W7&quot;, &quot;W8&quot;, &quot;W9&quot;], &quot;series&quot;: [[12, 9, 7, 8, 6, 4, 3, 2, 0], [2, 1, 3, 7, 9, 8, 7.7, 4, 7], [1, 3, 4, 5, 6, 8, 9, 10, 11]]}' data-options='{&quot;axisY&quot;: {&quot;onlyInteger&quot;: true}}' data-series-color='{&quot;colors&quot;: [&quot;#448c74&quot;, &quot;#edcb50&quot;, &quot;#ed5050&quot;]}'&gt;&lt;/div&gt;
+        #pug1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Line chart: Multiple lines of different color + Legend
+
+              // Legend
+              .d-flex.flex-wrap.justify-content-center.fs-sm
+                .border.text-nowrap.rounded-pill.py-1.px-2.me-2.mb-2
+                  .d-inline-block.align-middle.rounded-circle.me-1(style=&quot;width: .75rem; height: .75rem; background-color: #448c74;&quot;)
+                  span.d-inline-block.align-middle Company 1
+                .border.text-nowrap.rounded-pill.py-1.px-2.me-2.mb-2
+                  .d-inline-block.align-middle.rounded-circle.me-1(style=&quot;width: .75rem; height: .75rem; background-color: #edcb50;&quot;)
+                  span.d-inline-block.align-middle Company 2
+                .border.text-nowrap.rounded-pill.py-1.px-2.mb-2
+                  .d-inline-block.align-middle.rounded-circle.me-1(style=&quot;width: .75rem; height: .75rem; background-color: #ed5050;&quot;)
+                  span.d-inline-block.align-middle Company 3
+
+              // Chart
+              .ct-chart.ct-perfect-fourth(data-line-chart='{&quot;labels&quot;: [&quot;W1&quot;, &quot;W2&quot;, &quot;W3&quot;, &quot;W4&quot;, &quot;W5&quot;, &quot;W6&quot;, &quot;W7&quot;, &quot;W8&quot;, &quot;W9&quot;], &quot;series&quot;: [[12, 9, 7, 8, 6, 4, 3, 2, 0], [2, 1, 3, 7, 9, 8, 7.7, 4, 7], [1, 3, 4, 5, 6, 8, 9, 10, 11]]}', data-options='{&quot;axisY&quot;: {&quot;onlyInteger&quot;: true}}', data-series-color='{&quot;colors&quot;: [&quot;#448c74&quot;, &quot;#edcb50&quot;, &quot;#ed5050&quot;]}')
+
+  // Bar chart
+  section#chart-bar.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Bar chart
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview2' data-bs-toggle='tab' role='tab' aria-controls='preview2' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview2.tab-pane.fade.show.active(role='tabpanel')
+          div(style='max-width: 33rem;')
+            .d-flex.flex-wrap.justify-content-center.fs-sm
+              .border.text-nowrap.rounded-pill.py-1.ps-2.pe-3.me-2.mb-2
+                .d-inline-block.align-middle.rounded-circle.me-1(style='width: .75rem; height: .75rem; background-color: #448c74;')
+                span.d-inline-block.align-middle Company 1
+              .border.text-nowrap.rounded-pill.py-1.ps-2.pe-3.mb-2
+                .d-inline-block.align-middle.rounded-circle.me-1(style='width: .75rem; height: .75rem; background-color: #edcb50;')
+                span.d-inline-block.align-middle Company 2
+            .ct-chart.ct-perfect-fourth(data-bar-chart='{"labels": ["2017", "2018", "2019", "2020", "2021", "2022"], "series": [[12000, 9000, 7000, 8000, 11000, 6000], [3500, 5000, 8750, 1300, 3000, 8750]]}' data-series-color='{"colors": ["#448c74", "#edcb50"]}')
+        #html2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Bar chart: Multiple bars of different color + Legend --&gt;
+
+              &lt;!-- Legend --&gt;
+              &lt;div class=&quot;d-flex flex-wrap justify-content-center fs-sm&quot;&gt;
+                &lt;div class=&quot;border text-nowrap rounded-pill py-1 px-2 me-2 mb-2&quot;&gt;
+                  &lt;div class=&quot;d-inline-block align-middle rounded-circle me-1&quot; style=&quot;width: .75rem; height: .75rem; background-color: #448c74;&quot;&gt;&lt;/div&gt;
+                  &lt;span class=&quot;d-inline-block align-middle&quot;&gt;Company 1&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;border text-nowrap rounded-pill py-1 px-2 mb-2&quot;&gt;
+                  &lt;div class=&quot;d-inline-block align-middle rounded-circle me-1&quot; style=&quot;width: .75rem; height: .75rem; background-color: #edcb50;&quot;&gt;&lt;/div&gt;
+                  &lt;span class=&quot;d-inline-block align-middle&quot;&gt;Company 2&lt;/span&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Chart --&gt;
+              &lt;div class=&quot;ct-chart ct-perfect-fourth&quot; data-bar-chart='{&quot;labels&quot;: [&quot;2015&quot;, &quot;2016&quot;, &quot;2017&quot;, &quot;2018&quot;, &quot;2019&quot;, &quot;2020&quot;], &quot;series&quot;: [[12000, 9000, 7000, 8000, 11000, 6000], [3500, 5000, 8750, 1300, 3000, 8750]]}', data-series-color='{&quot;colors&quot;: [&quot;#448c74&quot;, &quot;#edcb50&quot;]}'&gt;&lt;/div&gt;
+        #pug2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Bar chart: Multiple bars of different color + Legend
+
+              // Legend
+              .d-flex.flex-wrap.justify-content-center.fs-sm
+                .border.text-nowrap.rounded-pill.py-1.px-2.me-2.mb-2
+                  .d-inline-block.align-middle.rounded-circle.me-1(style=&quot;width: .75rem; height: .75rem; background-color: #448c74;&quot;)
+                  span.d-inline-block.align-middle Company 1
+                .border.text-nowrap.rounded-pill.py-1.px-2.mb-2
+                  .d-inline-block.align-middle.rounded-circle.me-1(style=&quot;width: .75rem; height: .75rem; background-color: #edcb50;&quot;)
+                  span.d-inline-block.align-middle Company 2
+
+              // Chart
+              .ct-chart.ct-perfect-fourth(data-bar-chart='{&quot;labels&quot;: [&quot;2015&quot;, &quot;2016&quot;, &quot;2017&quot;, &quot;2018&quot;, &quot;2019&quot;, &quot;2020&quot;], &quot;series&quot;: [[12000, 9000, 7000, 8000, 11000, 6000], [3500, 5000, 8750, 1300, 3000, 8750]]}', data-series-color='{&quot;colors&quot;: [&quot;#f74f78&quot;, &quot;#ff9d50&quot;]}')
+
+  // Pie chart
+  section#chart-pie.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Pie chart
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview3' data-bs-toggle='tab' role='tab' aria-controls='preview3' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview3.tab-pane.fade.show.active(role='tabpanel')
+          div(style='max-width: 33rem;')
+            .d-flex.flex-wrap.justify-content-center.fs-sm.pb-1
+              .border.text-nowrap.rounded-pill.py-1.ps-2.pe-3.me-2.mb-2
+                .d-inline-block.align-middle.rounded-circle.me-1(style='width: .75rem; height: .75rem; background-color: #448c74;')
+                span.d-inline-block.align-middle Company 1
+              .border.text-nowrap.rounded-pill.py-1.ps-2.pe-3.me-2.mb-2
+                .d-inline-block.align-middle.rounded-circle.me-1(style='width: .75rem; height: .75rem; background-color: #edcb50;')
+                span.d-inline-block.align-middle Company 2
+              .border.text-nowrap.rounded-pill.py-1.ps-2.pe-3.mb-2
+                .d-inline-block.align-middle.rounded-circle.me-1(style='width: .75rem; height: .75rem; background-color: #ed5050;')
+                span.d-inline-block.align-middle Company 3
+            .ct-chart.ct-perfect-fourth(data-pie-chart='{"series": [5, 3, 4]}' data-series-color='{"colors": ["#448c74", "#edcb50", "#ed5050"]}')
+        #html3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Pie chart: Multiple slices of different color + Legend --&gt;
+
+              &lt;!-- Legend --&gt;
+              &lt;div class=&quot;d-flex flex-wrap justify-content-center fs-sm pb-1&quot;&gt;
+                &lt;div class=&quot;border text-nowrap rounded-pill py-1 px-2 me-2 mb-2&quot;&gt;
+                  &lt;div class=&quot;d-inline-block align-middle rounded-circle me-1&quot; style=&quot;width: .75rem; height: .75rem; background-color: #448c74;&quot;&gt;&lt;/div&gt;
+                  &lt;span class=&quot;d-inline-block align-middle&quot;&gt;Company 1&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;border text-nowrap rounded-pill py-1 px-2 me-2 mb-2&quot;&gt;
+                  &lt;div class=&quot;d-inline-block align-middle rounded-circle me-1&quot; style=&quot;width: .75rem; height: .75rem; background-color: #edcb50;&quot;&gt;&lt;/div&gt;
+                  &lt;span class=&quot;d-inline-block align-middle&quot;&gt;Company 2&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;border text-nowrap rounded-pill py-1 px-2 me-2 mb-2&quot;&gt;
+                  &lt;div class=&quot;d-inline-block align-middle rounded-circle me-1&quot; style=&quot;width: .75rem; height: .75rem; background-color: #ed5050;&quot;&gt;&lt;/div&gt;
+                  &lt;span class=&quot;d-inline-block align-middle&quot;&gt;Company 3&lt;/span&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Chart --&gt;
+              &lt;div class=&quot;ct-chart ct-perfect-fourth&quot; data-pie-chart='{&quot;series&quot;: [5, 3, 4]}', data-series-color='{&quot;colors&quot;: [&quot;#448c74&quot;, &quot;#edcb50&quot;, &quot;#ed5050&quot;]}'&gt;&lt;/div&gt;
+        #pug3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Pie chart: Multiple slices of different color + Legend
+
+              // Legend
+              .d-flex.flex-wrap.justify-content-center.fs-sm.pb-1
+                .border.text-nowrap.rounded-pill.py-1.px-2.me-2.mb-2
+                  .d-inline-block.align-middle.rounded-circle.me-1(style=&quot;width: .75rem; height: .75rem; background-color: #448c74;&quot;)
+                  span.d-inline-block.align-middle Company 1
+                .border.text-nowrap.rounded-pill.py-1.px-2.me-2.mb-2
+                  .d-inline-block.align-middle.rounded-circle.me-1(style=&quot;width: .75rem; height: .75rem; background-color: #edcb50;&quot;)
+                  span.d-inline-block.align-middle Company 2
+                .border.text-nowrap.rounded-pill.py-1.px-2.mb-2
+                  .d-inline-block.align-middle.rounded-circle.me-1(style=&quot;width: .75rem; height: .75rem; background-color: #ed5050;&quot;)
+                  span.d-inline-block.align-middle Company 3
+
+              // Chart
+              .ct-chart.ct-perfect-fourth(data-pie-chart='{&quot;series&quot;: [5, 3, 4]}', data-series-color='{&quot;colors&quot;: [&quot;#448c74&quot;, &quot;#edcb50&quot;, &quot;#ed5050&quot;]}')
+
+  // Donut chart
+  section#chart-donut.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Donut chart
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview4' data-bs-toggle='tab' role='tab' aria-controls='preview4' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview4.tab-pane.fade.show.active(role='tabpanel')
+          div(style='max-width: 33rem;')
+            .d-flex.flex-wrap.justify-content-center.fs-sm.pb-1
+              .border.text-nowrap.rounded-pill.py-1.ps-2.pe-3.me-2.mb-2
+                .d-inline-block.align-middle.rounded-circle.me-1(style='width: .75rem; height: .75rem; background-color: #448c74;')
+                span.d-inline-block.align-middle Company 1
+              .border.text-nowrap.rounded-pill.py-1.ps-2.pe-3.me-2.mb-2
+                .d-inline-block.align-middle.rounded-circle.me-1(style='width: .75rem; height: .75rem; background-color: #edcb50;')
+                span.d-inline-block.align-middle Company 2
+              .border.text-nowrap.rounded-pill.py-1.ps-2.pe-3.mb-2
+                .d-inline-block.align-middle.rounded-circle.me-1(style='width: .75rem; height: .75rem; background-color: #ed5050;')
+                span.d-inline-block.align-middle Company 3
+            .ct-chart.ct-perfect-fourth(data-options='{"donut": true, "donutWidth": 80}' data-pie-chart='{"series": [5, 3, 4]}' data-series-color='{"colors": ["#448c74", "#edcb50", "#ed5050"]}')
+        #html4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Donut chart: Multiple slices of different color + Legend --&gt;
+
+              &lt;!-- Legend --&gt;
+              &lt;div class=&quot;d-flex flex-wrap justify-content-center fs-sm pb-1&quot;&gt;
+                &lt;div class=&quot;border text-nowrap rounded-pill py-1 px-2 me-2 mb-2&quot;&gt;
+                  &lt;div class=&quot;d-inline-block align-middle rounded-circle me-1&quot; style=&quot;width: .75rem; height: .75rem; background-color: #448c74;&quot;&gt;&lt;/div&gt;
+                  &lt;span class=&quot;d-inline-block align-middle&quot;&gt;Company 1&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;border text-nowrap rounded-pill py-1 px-2 me-2 mb-2&quot;&gt;
+                  &lt;div class=&quot;d-inline-block align-middle rounded-circle me-1&quot; style=&quot;width: .75rem; height: .75rem; background-color: #edcb50;&quot;&gt;&lt;/div&gt;
+                  &lt;span class=&quot;d-inline-block align-middle&quot;&gt;Company 2&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;border text-nowrap rounded-pill py-1 px-2 me-2 mb-2&quot;&gt;
+                  &lt;div class=&quot;d-inline-block align-middle rounded-circle me-1&quot; style=&quot;width: .75rem; height: .75rem; background-color: #ed5050;&quot;&gt;&lt;/div&gt;
+                  &lt;span class=&quot;d-inline-block align-middle&quot;&gt;Company 3&lt;/span&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Chart --&gt;
+              &lt;div class=&quot;ct-chart ct-perfect-fourth&quot; data-options='{&quot;donut&quot;: true, &quot;donutWidth&quot;: 80}' data-pie-chart='{&quot;series&quot;: [5, 3, 4]}', data-series-color='{&quot;colors&quot;: [&quot;#448c74&quot;, &quot;#edcb50&quot;, &quot;#ed5050&quot;]}'&gt;&lt;/div&gt;
+        #pug4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Donut chart: Multiple slices of different color + Legend
+
+              // Legend
+              .d-flex.flex-wrap.justify-content-center.fs-sm.pb-1
+                .border.text-nowrap.rounded-pill.py-1.px-2.me-2.mb-2
+                  .d-inline-block.align-middle.rounded-circle.me-1(style=&quot;width: .75rem; height: .75rem; background-color: #448c74;&quot;)
+                  span.d-inline-block.align-middle Company 1
+                .border.text-nowrap.rounded-pill.py-1.px-2.me-2.mb-2
+                  .d-inline-block.align-middle.rounded-circle.me-1(style=&quot;width: .75rem; height: .75rem; background-color: #edcb50;&quot;)
+                  span.d-inline-block.align-middle Company 2
+                .border.text-nowrap.rounded-pill.py-1.px-2.mb-2
+                  .d-inline-block.align-middle.rounded-circle.me-1(style=&quot;width: .75rem; height: .75rem; background-color: #ed5050;&quot;)
+                  span.d-inline-block.align-middle Company 3
+
+              // Chart
+              .ct-chart.ct-perfect-fourth(data-options='{&quot;donut&quot;: true, &quot;donutWidth&quot;: 80}', data-pie-chart='{&quot;series&quot;: [5, 3, 4]}', data-series-color='{&quot;colors&quot;: [&quot;#448c74&quot;, &quot;#edcb50&quot;, &quot;#ed5050&quot;]}')

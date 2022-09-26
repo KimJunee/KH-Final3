@@ -1,0 +1,757 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css', 'vendor/prismjs/themes/prism.css', 'vendor/prismjs/plugins/toolbar/prism-toolbar.css', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js', 'vendor/prismjs/components/prism-core.min.js', 'vendor/prismjs/components/prism-markup.min.js', 'vendor/prismjs/components/prism-clike.min.js', 'vendor/prismjs/components/prism-javascript.min.js', 'vendor/prismjs/components/prism-pug.min.js', 'vendor/prismjs/plugins/toolbar/prism-toolbar.min.js', 'vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'List group'
+  - var pageSubtitle = 'Flexible component for displaying a series of content.'
+  - var pageTitleLink = {'title': 'Bootstrap docs', 'link': 'https://getbootstrap.com/docs/5.2/components/list-group/'}
+  - var anchorNav = [{'title': 'Basic example', 'link': '#lg-basic'}, {'title': 'Links or buttons', 'link': '#lg-links'}, {'title': 'Flush', 'link': '#lg-flush'}, {'title': 'With icons & badges', 'link': '#lg-icons'}, {'title': 'Checkboxes & radios', 'link': '#lg-checkboxes'}, {'title': 'Numbered list group', 'link': '#lg-numbered'}, {'title': 'Horizontal list group', 'link': '#lg-horizontal'}, {'title': 'Actionable horizontal list group', 'link': '#lg-horizontal-action'}, {'title': 'Custom content', 'link': '#lg-custom-content'}, {'title': 'JavaScript behavior', 'link': '#lg-javascript'}]
+    
+//- Page Content
+block content
+
+  // Basic example
+  section#lg-basic.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Basic example
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview1' data-bs-toggle='tab' role='tab' aria-controls='preview1' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview1.tab-pane.fade.show.active(role='tabpanel')
+          ul.list-group(style='max-width: 350px;')
+            li.list-group-item.active Active item here
+            li.list-group-item Dapibus ac facilisis in
+            li(aria-disabled='true').list-group-item.disabled Disabled item here
+            li.list-group-item Porta ac consectetur ac
+            li.list-group-item Vestibulum at eros
+        #html1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Basic list group --&gt;
+              &lt;ul class=&quot;list-group&quot;&gt;
+                &lt;li class=&quot;list-group-item active&quot;&gt;Active item here&lt;/li&gt;
+                &lt;li class=&quot;list-group-item&quot;&gt;Dapibus ac facilisis in&lt;/li&gt;
+                &lt;li class=&quot;list-group-item disabled&quot; aria-disabled=&quot;true&quot;&gt;Disabled item here&lt;/li&gt;
+                &lt;li class=&quot;list-group-item&quot;&gt;Porta ac consectetur ac&lt;/li&gt;
+                &lt;li class=&quot;list-group-item&quot;&gt;Vestibulum at eros&lt;/li&gt;
+              &lt;/ul&gt;
+        #pug1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Basic list group
+              ul.list-group
+                li.list-group-item.active
+                  | Active item here
+                li.list-group-item
+                  | Dapibus ac facilisis in
+                li(aria-disabled=&quot;true&quot;).list-group-item.disabled
+                  | Disabled item here
+                li.list-group-item
+                  | Porta ac consectetur ac
+                li.list-group-item
+                  | Vestibulum at eros
+
+  // Links or buttons
+  section#lg-links.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Links or buttons
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview2' data-bs-toggle='tab' role='tab' aria-controls='preview2' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview2.tab-pane.fade.show.active(role='tabpanel')
+          .list-group(style='max-width: 350px;')
+            a(href='#').list-group-item.list-group-item-action Dapibus ac facilisis in
+            a(href='#').list-group-item.list-group-item-action.active Active item here
+            a(href='#').list-group-item.list-group-item-action Porta ac consectetur ac
+            a(href='#' tabindex='-1' aria-disabled='true').list-group-item.list-group-item-action.disabled Disabled item here
+            a(href='#').list-group-item.list-group-item-action Vestibulum at eros
+        #html2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Actionalbe list group --&gt;
+              &lt;div class=&quot;list-group&quot;&gt;
+                &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action&quot;&gt;Dapibus ac facilisis in&lt;/a&gt;
+                &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action active&quot;&gt;Active item here&lt;/a&gt;
+                &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action&quot;&gt;Porta ac consectetur ac&lt;/a&gt;
+                &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action disabled&quot; tabindex=&quot;-1&quot; aria-disabled=&quot;true&quot;&gt;Disabled item here&lt;/a&gt;
+                &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action&quot;&gt;Vestibulum at eros&lt;/a&gt;
+              &lt;/div&gt;
+        #pug2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Actionalbe list group
+              .list-group
+                a(href=&quot;#&quot;).list-group-item.list-group-item-action
+                  | Dapibus ac facilisis in
+                a(href=&quot;#&quot;).list-group-item.list-group-item-action.active
+                  | Active item here
+                a(href=&quot;#&quot;).list-group-item.list-group-item-action
+                  | Porta ac consectetur ac
+                a(href=&quot;#&quot;, tabindex=&quot;-1&quot;, aria-disabled=&quot;true&quot;).list-group-item.list-group-item-action.disabled
+                  | Disabled item here
+                a(href=&quot;#&quot;).list-group-item.list-group-item-action
+                  | Vestibulum at eros
+
+  // Flush
+  section#lg-flush.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Flush
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview3' data-bs-toggle='tab' role='tab' aria-controls='preview3' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview3.tab-pane.fade.show.active(role='tabpanel')
+          ul.list-group.list-group-flush(style='max-width: 350px;')
+            li.list-group-item Cras justo odio
+            li.list-group-item Dapibus ac facilisis in
+            li.list-group-item Morbi leo risus
+            li.list-group-item Porta ac consectetur ac
+            li.list-group-item Vestibulum at eros
+        #html3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Flush list group --&gt;
+              &lt;ul class=&quot;list-group list-group-flush&quot;&gt;
+                &lt;li class=&quot;list-group-item&quot;&gt;Cras justo odio&lt;/li&gt;
+                &lt;li class=&quot;list-group-item&quot;&gt;Dapibus ac facilisis in&lt;/li&gt;
+                &lt;li class=&quot;list-group-item&quot;&gt;Morbi leo risus&lt;/li&gt;
+                &lt;li class=&quot;list-group-item&quot;&gt;Porta ac consectetur ac&lt;/li&gt;
+                &lt;li class=&quot;list-group-item&quot;&gt;Vestibulum at eros&lt;/li&gt;
+              &lt;/ul&gt;
+        #pug3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Flush list group
+              ul.list-group.list-group-flush
+                li.list-group-item
+                  | Cras justo odio
+                li.list-group-item
+                  | Dapibus ac facilisis in
+                li.list-group-item
+                  | Morbi leo risus
+                li.list-group-item
+                  | Porta ac consectetur ac
+                li.list-group-item
+                  | Vestibulum at eros
+
+  // With icons & badges
+  section#lg-icons.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 With icons &amp; badges
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview4' data-bs-toggle='tab' role='tab' aria-controls='preview4' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview4.tab-pane.fade.show.active(role='tabpanel')
+          ul.list-group(style='max-width: 350px;')
+            li.list-group-item.d-flex.align-items-center
+              i.ai-messages.text-muted.fs-xl.me-2
+              | Messages
+              span.badge.bg-success.ms-auto 14
+            li.list-group-item.d-flex.align-items-center
+              i.ai-cart.text-muted.fs-xl.me-2
+              | Orders
+              span.badge.bg-warning.ms-auto 2
+            li.list-group-item.d-flex.align-items-center
+              i.ai-heart.text-muted.fs-xl.me-2
+              | Favourites
+              span.badge.bg-danger.ms-auto 6
+        #html4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- List group with icons and badges --&gt;
+                &lt;ul class=&quot;list-group&quot;&gt;
+                  &lt;li class=&quot;list-group-item d-flex align-items-center&quot;&gt;
+                    &lt;i class=&quot;ai-messages text-muted fs-xl me-2&quot;&gt;&lt;/i&gt;
+                    Messages
+                    &lt;span class=&quot;badge bg-success ms-auto&quot;&gt;14&lt;/span&gt;
+                  &lt;/li&gt;
+                  &lt;li class=&quot;list-group-item d-flex align-items-center&quot;&gt;
+                    &lt;i class=&quot;ai-cart mt-n1 text-muted fs-xl me-2&quot;&gt;&lt;/i&gt;
+                    Orders
+                    &lt;span class=&quot;badge bg-warning ms-auto&quot;&gt;2&lt;/span&gt;
+                  &lt;/li&gt;
+                  &lt;li class=&quot;list-group-item d-flex align-items-center&quot;&gt;
+                    &lt;i class=&quot;ai-heart text-muted fs-xl me-2&quot;&gt;&lt;/i&gt;
+                    Favourites
+                    &lt;span class=&quot;badge bg-danger ms-auto&quot;&gt;6&lt;/span&gt;
+                  &lt;/li&gt;
+                &lt;/ul&gt;
+        #pug4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // List group with icons and badges
+              ul.list-group
+                li.list-group-item.d-flex.align-items-center
+                  i.ai-messages.text-muted.fs-xl.me-2
+                  | Messages
+                  span.badge.bg-success.ms-auto 14
+                li.list-group-item.d-flex.align-items-center
+                  i.ai-cart.text-muted.fs-xl.me-2
+                  | Orders
+                  span.badge.bg-warning.ms-auto 2
+                li.list-group-item.d-flex.align-items-center
+                  i.ai-heart.text-muted.fs-xl.me-2
+                  | Favourites
+                  span.badge.bg-danger.ms-auto 6
+
+  // Checkboxes & radios
+  section#lg-checkboxes.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Checkboxes &amp; radios
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview5' data-bs-toggle='tab' role='tab' aria-controls='preview5' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html5' data-bs-toggle='tab' role='tab' aria-controls='html5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug5' data-bs-toggle='tab' role='tab' aria-controls='pug5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview5.tab-pane.fade.show.active(role='tabpanel')
+          .row
+            .col-xl-5.col-sm-6.mb-4.mb-sm-0
+              .list-group
+                label.list-group-item
+                  input(type='checkbox' checked value='').form-check-input.me-2
+                  | Cras justo odio
+                label.list-group-item
+                  input(type='checkbox' value='').form-check-input.me-2
+                  | Dapibus ac facilisis in
+                label.list-group-item
+                  input(type='checkbox' value='').form-check-input.me-2
+                  | Morbi leo risus
+                label.list-group-item
+                  input(type='checkbox' value='').form-check-input.me-2
+                  | Porta ac consectetur ac
+            .col-xl-5.col-sm-6
+              .list-group
+                label.list-group-item
+                  input(type='radio' name='lg-radio' checked value='').form-check-input.me-2
+                  | Cras justo odio
+                label.list-group-item
+                  input(type='radio' name='lg-radio' value='').form-check-input.me-2
+                  | Dapibus ac facilisis in
+                label.list-group-item
+                  input(type='radio' name='lg-radio' value='').form-check-input.me-2
+                  | Morbi leo risus
+                label.list-group-item
+                  input(type='radio' name='lg-radio' value='').form-check-input.me-2
+                  | Porta ac consectetur ac
+        #html5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- List group with checkboxes --&gt;
+              &lt;div class=&quot;list-group&quot;&gt;
+                &lt;label class=&quot;list-group-item&quot;&gt;
+                  &lt;input class=&quot;form-check-input me-2&quot; type=&quot;checkbox&quot; checked value=&quot;&quot;&gt;
+                  Cras justo odio
+                &lt;/label&gt;
+                &lt;label class=&quot;list-group-item&quot;&gt;
+                  &lt;input class=&quot;form-check-input me-2&quot; type=&quot;checkbox&quot; value=&quot;&quot;&gt;
+                  Dapibus ac facilisis in
+                &lt;/label&gt;
+                &lt;label class=&quot;list-group-item&quot;&gt;
+                  &lt;input class=&quot;form-check-input me-2&quot; type=&quot;checkbox&quot; value=&quot;&quot;&gt;
+                  Morbi leo risus
+                &lt;/label&gt;
+                &lt;label class=&quot;list-group-item&quot;&gt;
+                  &lt;input class=&quot;form-check-input me-2&quot; type=&quot;checkbox&quot; value=&quot;&quot;&gt;
+                  Porta ac consectetur ac
+                &lt;/label&gt;
+              &lt;/div&gt;
+              
+              &lt;!-- List group with radios --&gt;
+              &lt;div class=&quot;list-group&quot;&gt;
+                &lt;label class=&quot;list-group-item&quot;&gt;
+                  &lt;input class=&quot;form-check-input me-2&quot; type=&quot;radio&quot; name=&quot;lg-radio&quot; checked value=&quot;&quot;&gt;
+                  Cras justo odio
+                &lt;/label&gt;
+                &lt;label class=&quot;list-group-item&quot;&gt;
+                  &lt;input class=&quot;form-check-input me-2&quot; type=&quot;radio&quot; name=&quot;lg-radio&quot; value=&quot;&quot;&gt;
+                  Dapibus ac facilisis in
+                &lt;/label&gt;
+                &lt;label class=&quot;list-group-item&quot;&gt;
+                  &lt;input class=&quot;form-check-input me-2&quot; type=&quot;radio&quot; name=&quot;lg-radio&quot; value=&quot;&quot;&gt;
+                 Morbi leo risus
+                &lt;/label&gt;
+                &lt;label class=&quot;list-group-item&quot;&gt;
+                  &lt;input class=&quot;form-check-input me-2&quot; type=&quot;radio&quot; name=&quot;lg-radio&quot; value=&quot;&quot;&gt;
+                  Porta ac consectetur ac
+                &lt;/label&gt;
+              &lt;/div&gt;
+        #pug5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // List group with checkboxes
+              .list-group
+                label.list-group-item
+                  input(type=&quot;checkbox&quot;, value=&quot;&quot;, checked).form-check-input.me-2
+                  | Cras justo odio
+                label.list-group-item
+                  input(type=&quot;checkbox&quot;, value=&quot;&quot;).form-check-input.me-2
+                  | Dapibus ac facilisis in
+                label.list-group-item
+                  input(type=&quot;checkbox&quot;, value=&quot;&quot;).form-check-input.me-2
+                  | Morbi leo risus
+                label.list-group-item
+                  input(type=&quot;checkbox&quot;, value=&quot;&quot;).form-check-input.me-2
+                  | Porta ac consectetur ac
+
+              // List group with radios
+              .list-group
+                label.list-group-item
+                  input(type=&quot;radio&quot;, name=&quot;lg-radio&quot;, value=&quot;&quot;, checked).form-check-input.me-2
+                  | Cras justo odio
+                label.list-group-item
+                  input(type=&quot;radio&quot;, name=&quot;lg-radio&quot;, value=&quot;&quot;).form-check-input.me-2
+                  | Dapibus ac facilisis in
+                label.list-group-item
+                  input(type=&quot;radio&quot;, name=&quot;lg-radio&quot;, value=&quot;&quot;).form-check-input.me-2
+                  | Morbi leo risus
+                label.list-group-item
+                  input(type=&quot;radio&quot;, name=&quot;lg-radio&quot;, value=&quot;&quot;).form-check-input.me-2
+                  | Porta ac consectetur ac
+
+  // Numbered list group
+  section#lg-numbered.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Numbered list group
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview6' data-bs-toggle='tab' role='tab' aria-controls='preview6' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html6' data-bs-toggle='tab' role='tab' aria-controls='html6' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug6' data-bs-toggle='tab' role='tab' aria-controls='pug6' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview6.tab-pane.fade.show.active(role='tabpanel')
+          ol.list-group.list-group-numbered(style='max-width: 350px;')
+            li.list-group-item Active item here
+            li.list-group-item Dapibus ac facilisis in
+            li.list-group-item Porta ac consectetur ac
+            li.list-group-item Vestibulum at eros
+        #html6.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Numbered list group --&gt;
+              &lt;ol class=&quot;list-group list-group-numbered&quot;&gt;
+                &lt;li class=&quot;list-group-item&quot;&gt;Active item here&lt;/li&gt;
+                &lt;li class=&quot;list-group-item&quot;&gt;Dapibus ac facilisis in&lt;/li&gt;
+                &lt;li class=&quot;list-group-item&quot;&gt;Porta ac consectetur ac&lt;/li&gt;
+                &lt;li class=&quot;list-group-item&quot;&gt;Vestibulum at eros&lt;/li&gt;
+              &lt;/ol&gt;
+        #pug6.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Numbered list group
+              ol.list-group.list-group-numbered
+                li.list-group-item Active item here
+                li.list-group-item Dapibus ac facilisis in
+                li.list-group-item Porta ac consectetur ac
+                li.list-group-item Vestibulum at eros
+
+  // Horizontal list group
+  section#lg-horizontal.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Horizontal list group
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview7' data-bs-toggle='tab' role='tab' aria-controls='preview7' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html7' data-bs-toggle='tab' role='tab' aria-controls='html7' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug7' data-bs-toggle='tab' role='tab' aria-controls='pug7' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview7.tab-pane.fade.show.active(role='tabpanel')
+          ul.list-group.list-group-horizontal-sm.mb-3
+            li.list-group-item Cras justo odio
+            li.list-group-item Dapibus ac facilisis in
+            li.list-group-item Morbi leo risus
+          ul.list-group.list-group-horizontal-sm
+            li.list-group-item.flex-fill.text-center Cras justo odio
+            li.list-group-item.flex-fill.text-center Dapibus ac facilisis in
+            li.list-group-item.flex-fill.text-center Morbi leo risus
+        #html7.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Basic horizontal list group (starting sm screen) --&gt;
+              &lt;ul class=&quot;list-group list-group-horizontal-sm&quot;&gt;
+                &lt;li class=&quot;list-group-item&quot;&gt;Cras justo odio&lt;/li&gt;
+                &lt;li class=&quot;list-group-item&quot;&gt;Dapibus ac facilisis in&lt;/li&gt;
+                &lt;li class=&quot;list-group-item&quot;&gt;Morbi leo risus&lt;/li&gt;
+              &lt;/ul&gt;
+
+              &lt;!-- Justified horizontal list group (starting sm screen) --&gt;
+              &lt;ul class=&quot;list-group list-group-horizontal-sm&quot;&gt;
+                &lt;li class=&quot;list-group-item flex-fill text-center&quot;&gt;Cras justo odio&lt;/li&gt;
+                &lt;li class=&quot;list-group-item flex-fill text-center&quot;&gt;Dapibus ac facilisis in&lt;/li&gt;
+                &lt;li class=&quot;list-group-item flex-fill text-center&quot;&gt;Morbi leo risus&lt;/li&gt;
+              &lt;/ul&gt;
+        #pug7.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Basic horizontal list group (starting sm screen)
+              ul.list-group.list-group-horizontal-sm
+                li.list-group-item
+                  | Cras justo odio
+                li.list-group-item
+                  | Dapibus ac facilisis in
+                li.list-group-item
+                  | Morbi leo risus
+              
+              // Justified horizontal list group (starting sm screen)
+              ul.list-group.list-group-horizontal-sm
+                li.list-group-item.flex-fill.text-center
+                  | Cras justo odio
+                li.list-group-item.flex-fill.text-center
+                  | Dapibus ac facilisis in
+                li.list-group-item.flex-fill.text-center
+                  | Morbi leo risus
+
+  // Actionable horizontal list group
+  section#lg-horizontal-action.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Actionable horizontal list group
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview8' data-bs-toggle='tab' role='tab' aria-controls='preview8' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html8' data-bs-toggle='tab' role='tab' aria-controls='html8' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug8' data-bs-toggle='tab' role='tab' aria-controls='pug8' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview8.tab-pane.fade.show.active(role='tabpanel')
+          .list-group.list-group-horizontal-sm
+            a(href='#').list-group-item.list-group-item-action.active.text-center Active item here
+            a(href='#').list-group-item.list-group-item-action.text-center Dapibus ac facilisis in
+            a(href='#').list-group-item.list-group-item-action.text-center Morbi leo risus
+        #html8.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Actionable horizontal list group (starting sm screen) --&gt;
+              &lt;div class=&quot;list-group list-group-horizontal-sm&quot;&gt;
+                &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action active text-center&quot;&gt;Active item here&lt;/a&gt;
+                &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action text-center&quot;&gt;Dapibus ac facilisis in&lt;/a&gt;
+                &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action text-center&quot;&gt;Morbi leo risus&lt;/a&gt;
+              &lt;/div&gt;
+        #pug8.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Actionable horizontal list group (starting sm screen)
+              .list-group.list-group-horizontal-sm
+                a(href=&quot;#&quot;).list-group-item.list-group-item-action.active.text-center
+                  | Active item here
+                a(href=&quot;#&quot;).list-group-item.list-group-item-action.text-center
+                  | Dapibus ac facilisis in
+                a(href=&quot;#&quot;).list-group-item.list-group-item-action.text-center
+                  | Morbi leo risus
+
+  // Custom content
+  section#lg-custom-content.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Custom content
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview9' data-bs-toggle='tab' role='tab' aria-controls='preview9' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html9' data-bs-toggle='tab' role='tab' aria-controls='html9' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug9' data-bs-toggle='tab' role='tab' aria-controls='pug9' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview9.tab-pane.fade.show.active(role='tabpanel')
+          .list-group(style='max-width: 420px;')
+            a(href='#').list-group-item.list-group-item-action.flex-column.align-items-start.active.py-3
+              .d-flex.flex-wrap.w-100.justify-content-between
+                h6.text-white List group item heading
+                small.text-white.opacity-60.mb-2 3 days ago
+              p.fs-sm.fw-normal.text-white.opacity-75 Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit. Excepteur sint occaecat cupidatat. Excepteur sint occaecat cupidatat.
+              small.text-white.opacity-60 Donec id elit non mi porta.
+            a(href='#').list-group-item.list-group-item-action.flex-column.align-items-start.py-3
+              .d-flex.flex-wrap.w-100.justify-content-between
+                h6 List group item heading
+                small.text-muted.mb-2 3 days ago
+              p.fs-sm.fw-normal.text-body Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit. Excepteur sint occaecat cupidatat. Excepteur sint occaecat cupidatat.
+              small.text-muted Donec id elit non mi porta.
+            a(href='#').list-group-item.list-group-item-action.flex-column.align-items-start.py-3
+              .d-flex.flex-wrap.w-100.justify-content-between
+                h6 List group item heading
+                small.text-muted.mb-2 3 days ago
+              p.fs-sm.fw-normal.text-body Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit. Excepteur sint occaecat cupidatat. Excepteur sint occaecat cupidatat.
+              small.text-muted Donec id elit non mi porta.
+        #html9.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- List group with custom content --&gt;
+              &lt;div class=&quot;list-group&quot;&gt;
+                &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action flex-column align-items-start py-3 active&quot;&gt;
+                  &lt;div class=&quot;d-flex flex-wrap w-100 justify-content-between&quot;&gt;
+                    &lt;h6 class=&quot;text-white&quot;&gt;List group item heading&lt;/h6&gt;
+                    &lt;small class=&quot;text-white opacity-60 mb-2&quot;&gt;3 days ago&lt;/small&gt;
+                  &lt;/div&gt;
+                  &lt;p class=&quot;fs-sm fw-normal text-white opacity-75&quot;&gt;Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit. Excepteur sint occaecat cupidatat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.&lt;/p&gt;
+                  &lt;small class=&quot;text-white opacity-60&quot;&gt;Donec id elit non mi porta.&lt;/small&gt;
+                &lt;/a&gt;
+                &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action flex-column align-items-start py-3&quot;&gt;
+                  &lt;div class=&quot;d-flex flex-wrap w-100 justify-content-between&quot;&gt;
+                    &lt;h6&gt;List group item heading&lt;/h6&gt;
+                    &lt;small class=&quot;text-muted mb-2&quot;&gt;3 days ago&lt;/small&gt;
+                  &lt;/div&gt;
+                  &lt;p class=&quot;fs-sm fw-normal text-body&quot;&gt;Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit. Excepteur sint occaecat cupidatat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.&lt;/p&gt;
+                  &lt;small class=&quot;text-muted&quot;&gt;Donec id elit non mi porta.&lt;/small&gt;
+                &lt;/a&gt;
+                &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action flex-column align-items-start py-3&quot;&gt;
+                  &lt;div class=&quot;d-flex flex-wrap w-100 justify-content-between&quot;&gt;
+                    &lt;h6&gt;List group item heading&lt;/h6&gt;
+                    &lt;small class=&quot;text-muted mb-2&quot;&gt;3 days ago&lt;/small&gt;
+                  &lt;/div&gt;
+                  &lt;p class=&quot;fs-sm fw-normal text-body&quot;&gt;Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit. Excepteur sint occaecat cupidatat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.&lt;/p&gt;
+                  &lt;small class=&quot;text-muted&quot;&gt;Donec id elit non mi porta.&lt;/small&gt;
+                &lt;/a&gt;
+              &lt;/div&gt;
+        #pug9.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // List group with custom content
+              .list-group
+                a(href=&quot;#&quot;).list-group-item.list-group-item-action.flex-column.align-items-start.py-3.active
+                  .d-flex.flex-wrap.w-100.justify-content-between
+                    h6.text-white
+                      | List group item heading
+                    small.text-white.opacity-60.mb-2
+                      | 3 days ago
+                  p.fs-sm.fw-normal.text-white.opacity-75
+                    | Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit. Excepteur sint occaecat cupidatat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.
+                  small.text-white.opacity-60
+                    | Donec id elit non mi porta.
+                a(href=&quot;#&quot;).list-group-item.list-group-item-action.flex-column.align-items-start.py-3
+                  .d-flex.flex-wrap.w-100.justify-content-between
+                    h6
+                      | List group item heading
+                    small.text-muted.mb-2
+                      | 3 days ago
+                  p.fs-sm.fw-normal.text-body
+                    | Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit. Excepteur sint occaecat cupidatat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.
+                  small.text-muted
+                    | Donec id elit non mi porta.
+                a(href=&quot;#&quot;).list-group-item.list-group-item-action.flex-column.align-items-start.py-3
+                  .d-flex.flex-wrap.w-100.justify-content-between
+                    h6
+                      | List group item heading
+                    small.text-muted.mb-2
+                      | 3 days ago
+                  p.fs-sm.fw-normal.text-body
+                    | Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit. Excepteur sint occaecat cupidatat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.
+                  small.text-muted
+                    | Donec id elit non mi porta.
+
+  // JavaScript behavior
+  section#lg-javascript.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 JavaScript behavior
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview10' data-bs-toggle='tab' role='tab' aria-controls='preview10' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html10' data-bs-toggle='tab' role='tab' aria-controls='html10' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug10' data-bs-toggle='tab' role='tab' aria-controls='pug10' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview10.tab-pane.fade.show.active(role='tabpanel')
+          .row
+            .col-xl-11
+              .row
+                .col-md-4
+                  .list-group(role='tablist')
+                    a(href='#list-home' data-bs-toggle='list' role='tab' aria-controls='list-home')#list-home-list.list-group-item.list-group-item-action.active
+                      | Home
+                    a(href='#list-profile' data-bs-toggle='list' role='tab' aria-controls='list-profile')#list-profile-list.list-group-item.list-group-item-action
+                      | Profile
+                    a(href='#list-messages' data-bs-toggle='list' role='tab' aria-controls='list-messages')#list-messages-list.list-group-item.list-group-item-action
+                      | Messages
+                    a(href='#list-settings' data-bs-toggle='list' role='tab' aria-controls='list-settings')#list-settings-list.list-group-item.list-group-item-action
+                      | Settings
+                .col-md-8.pt-4.pt-md-0
+                  .tab-content
+                    #list-home.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='list-home-list')
+                      | Velit aute mollit ipsum ad dolor consectetur nulla officia culpa adipisicing exercitation fugiat tempor. Voluptate deserunt sit sunt nisi aliqua fugiat proident ea ut. Mollit voluptate reprehenderit occaecat nisi ad non minim tempor sunt voluptate consectetur exercitation id ut nulla. Ea et fugiat aliquip nostrud sunt incididunt consectetur culpa aliquip eiusmod dolor. Anim ad Lorem aliqua in cupidatat nisi enim.
+                    #list-profile.tab-pane.fade(role='tabpanel' aria-labelledby='list-profile-list')
+                      | Cupidatat quis ad sint excepteur laborum in esse qui. Et excepteur consectetur ex nisi eu do cillum ad laborum. Mollit et eu officia dolore sunt Lorem culpa qui commodo velit ex amet id ex. Officia anim incididunt laboris deserunt anim aute dolor incididunt veniam aute dolore do exercitation. Dolor nisi culpa ex ad irure in elit eu dolore. Ad laboris ipsum reprehenderit irure non commodo enim culpa commodo.
+                    #list-messages.tab-pane.fade(role='tabpanel' aria-labelledby='list-messages-list')
+                      | Ut ut do pariatur aliquip aliqua aliquip exercitation do nostrud commodo reprehenderit aute ipsum voluptate. Irure Lorem et laboris nostrud amet cupidatat cupidatat anim do ut velit mollit consequat enim tempor. Consectetur est minim nostrud nostrud consectetur irure labore voluptate irure. Ipsum id Lorem sit sint voluptate est pariatur eu ad cupidatat et deserunt culpa sit eiusmod deserunt. Consectetur et fugiat anim do eiusmod aliquip nulla laborum elit adipisicing.
+                    #list-settings.tab-pane.fade(role='tabpanel' aria-labelledby='list-settings-list')
+                      | Irure enim occaecat labore sit qui aliquip reprehenderit amet velit. Deserunt ullamco ex elit nostrud ut dolore nisi officia magna sit occaecat laboris sunt dolor. Nisi eu minim cillum occaecat aute est cupidatat aliqua labore aute occaecat ea aliquip sunt amet. Aute mollit dolor ut exercitation irure commodo non amet consectetur quis amet culpa. Quis ullamco nisi amet qui aute irure eu. Magna labore dolor quis ex labore id nostrud deserunt dolor eiusmod eu pariatur culpa mollit in irure.
+        #html10.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- JavaScript behavior --&gt;
+              &lt;div class=&quot;row&quot;&gt;
+                &lt;div class=&quot;col-md-4&quot;&gt;
+                  &lt;div class=&quot;list-group&quot; role=&quot;tablist&quot;&gt;
+                    &lt;a href=&quot;#list-home&quot; id=&quot;list-home-list&quot; class=&quot;list-group-item list-group-item-action active&quot; data-bs-toggle=&quot;list&quot; role=&quot;tab&quot; aria-controls=&quot;list-home&quot;&gt;
+                      Home
+                    &lt;/a&gt;
+                    &lt;a href=&quot;#list-profile&quot; id=&quot;list-profile-list&quot; class=&quot;list-group-item list-group-item-action&quot; data-bs-toggle=&quot;list&quot; role=&quot;tab&quot; aria-controls=&quot;list-profile&quot;&gt;
+                      Profile
+                    &lt;/a&gt;
+                    &lt;a href=&quot;#list-messages&quot; id=&quot;list-messages-list&quot; class=&quot;list-group-item list-group-item-action&quot; data-bs-toggle=&quot;list&quot; role=&quot;tab&quot; aria-controls=&quot;list-messages&quot;&gt;
+                      Messages
+                    &lt;/a&gt;
+                    &lt;a href=&quot;#list-settings&quot; id=&quot;list-settings-list&quot; class=&quot;list-group-item list-group-item-action&quot; data-bs-toggle=&quot;list&quot; role=&quot;tab&quot; aria-controls=&quot;list-settings&quot;&gt;
+                      Settings
+                    &lt;/a&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;col-md-8 pt-4 pt-md-0&quot;&gt;
+                  &lt;div class=&quot;tab-content&quot;&gt;
+                    &lt;div id=&quot;list-home&quot; class=&quot;tab-pane fade show active&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;list-home-list&quot;&gt;...&lt;/div&gt;
+                    &lt;div id=&quot;list-profile&quot; class=&quot;tab-pane fade&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;list-profile-list&quot;&gt;...&lt;/div&gt;
+                    &lt;div id=&quot;list-messages&quot; class=&quot;tab-pane fade&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;list-messages-list&quot;&gt;...&lt;/div&gt;
+                    &lt;div id=&quot;list-settings&quot; class=&quot;tab-pane fade&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;list-settings-list&quot;&gt;...&lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug10.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // JavaScript behavior
+              .row
+                .col-md-4
+                  .list-group(role=&quot;tablist&quot;)
+                    a(href=&quot;#list-home&quot;, data-bs-toggle=&quot;list&quot;, role=&quot;tab&quot;, aria-controls=&quot;list-home&quot;)#list-home-list.list-group-item.list-group-item-action.active
+                      | Home
+                    a(href=&quot;#list-profile&quot;, data-bs-toggle=&quot;list&quot; role=&quot;tab&quot;, aria-controls=&quot;list-profile&quot;)#list-profile-list.list-group-item.list-group-item-action
+                      | Profile
+                    a(href=&quot;#list-messages&quot;, data-bs-toggle=&quot;list&quot;, role=&quot;tab&quot;, aria-controls=&quot;list-messages&quot;)#list-messages-list.list-group-item.list-group-item-action
+                      | Messages
+                    a(href=&quot;#list-settings&quot;, data-bs-toggle=&quot;list&quot;, role=&quot;tab&quot;, aria-controls=&quot;list-settings&quot;)#list-settings-list.list-group-item.list-group-item-action
+                      | Settings
+                .col-md-8.pt-4.pt-md-0
+                  .tab-content
+                    #list-home.tab-pane.fade.show.active(role=&quot;tabpanel&quot;, aria-labelledby=&quot;list-home-list&quot;)
+                      | ...
+                    #list-profile.tab-pane.fade(role=&quot;tabpanel&quot;, aria-labelledby=&quot;list-profile-list&quot;)
+                      | ...
+                    #list-messages.tab-pane.fade(role=&quot;tabpanel&quot;, aria-labelledby=&quot;list-messages-list&quot;)
+                      | ...
+                    #list-settings.tab-pane.fade(role=&quot;tabpanel&quot;, aria-labelledby=&quot;list-settings-list&quot;)
+                      | ...

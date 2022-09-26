@@ -1,0 +1,666 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/swiper/swiper-bundle.min.css', 'vendor/lightgallery/css/lightgallery-bundle.min.css', 'vendor/fullcalendar/main.min.css']
+  - var scripts = ['vendor/swiper/swiper-bundle.min.js', 'vendor/lightgallery/lightgallery.min.js', 'vendor/lightgallery/plugins/video/lg-video.min.js', 'vendor/fullcalendar/main.min.js']
+  - var parentMenu = 'Landings'
+  - var pageTitle = 'Yoga Studio'
+  - var navbarExtraClass = 'navbar-ignore-dark-mode ignore-dark-mode'
+
+
+//- Navbar
+block navbar
+  include partials/navbar.pug
+
+
+//- Page Content
+block content
+
+  // Hero slider
+  section.ignore-dark-mode.position-relative.min-vh-100.py-5
+
+    // Background image slider
+    .swiper.swiper-scale-effect.position-absolute.top-0.start-0.w-100.h-100(data-swiper-options=`{
+      "effect": "fade",
+      "speed": 800,
+      "autoplay": {
+        "delay": 7000,
+        "disableOnInteraction": false
+      },
+      "pagination": {
+        "el": ".swiper-pagination",
+        "clickable": true
+      }
+    }`)
+      .swiper-wrapper
+        .swiper-slide
+          .swiper-slide-cover.bg-position-top-center(style='background-image: url(assets/img/landing/yoga-studio/hero/01.jpg);')
+        .swiper-slide
+          .swiper-slide-cover.bg-position-top-center(style='background-image: url(assets/img/landing/yoga-studio/hero/02.jpg);')
+        .swiper-slide
+          .swiper-slide-cover.bg-position-top-center(style='background-image: url(assets/img/landing/yoga-studio/hero/03.jpg);')
+      .swiper-pagination.mb-4
+    
+    // Content
+    .container.position-relative.zindex-2.py-lg-3.py-xl-5.my-5
+      .row.pt-md-3.py-xxl-5.my-5
+        .col.py-5.mb-md-4.mb-lg-5
+          h1.display-1.text-uppercase.mb-4 Yoga Studio
+          p(style='max-width: 500px;').d-block.fs-xl.pb-2.mb-4.mb-md-5 The best yoga and meditation practices, adapted at a high level to the needs of the modern pace of life.
+          .position-relative.d-inline-flex.align-items-center
+            a(href='https://www.youtube.com/watch?v=SZCxKjgReQ4' data-bs-toggle='video').btn.btn-icon.btn-lg.btn-primary.rounded-circle.stretched-link
+              i.ai-play-filled
+            span.fs-lg.fw-semibold.ms-3 Watch Video
+
+
+  // Features (Advantages) slider
+  section.pt-5.mt-lg-3.mt-xl-4.mt-xxl-5
+    .container.pt-2.pt-sm-4.pt-lg-5.mt-md-3.mt-lg-0
+      .row.pb-3.mb-3.mb-lg-4
+        .col-lg-11.d-sm-flex.justify-content-between.text-center.text-sm-start
+          h2(style='max-width: 440px;').h1.mb-sm-0.mx-auto.me-sm-4 Advantages that make us a unique place
+          p(style='max-width: 420px;').pt-2.mb-0.mx-auto The best yoga and meditation practices, adapted a ta high level to the needs of the modern pace of life.
+    .container-start.pe-0
+      .swiper(data-swiper-options=`{
+        "slidesPerView": "auto",
+        "spaceBetween": 24,
+        "loop": true,
+        "navigation": {
+          "prevEl": "#prev-feature",
+          "nextEl": "#next-feature"
+        }
+      }`)
+        .swiper-wrapper
+
+          // Item
+          .swiper-slide.w-auto.h-auto
+            .card.border-0.bg-secondary.card-hover.h-100.py-4(style='max-width: 306px;')
+              .opacity-0.position-absolute.top-0.start-0.w-100.h-100.bg-size-cover.bg-position-center.rounded-5(style='background-image: url(assets/img/landing/yoga-studio/features/spa-area.jpg);')
+              .card-body.text-center
+                i.ai-spa.h1.fw-normal.text-primary.d-block.mb-4
+                h3 Spa area
+                p.card-text Orci purus, in tellus sit bibendum scelerisque adipiscing venenatis.
+
+          // Item
+          .swiper-slide.w-auto.h-auto
+            .card.border-0.bg-secondary.card-hover.h-100.py-4(style='max-width: 306px;')
+              .opacity-0.position-absolute.top-0.start-0.w-100.h-100.bg-size-cover.bg-position-center.rounded-5(style='background-image: url(assets/img/landing/yoga-studio/features/changing-room.jpg);')
+              .card-body.text-center
+                i.ai-towel.h1.fw-normal.text-primary.d-block.mb-4
+                h3 Changing room
+                p.card-text Non est nullam amet netus ut vitae, penatibus lacus a ut sed molestie lectus lobortis.
+
+          // Item
+          .swiper-slide.w-auto.h-auto
+            .card.border-0.bg-secondary.card-hover.h-100.py-4(style='max-width: 306px;')
+              .opacity-0.position-absolute.top-0.start-0.w-100.h-100.bg-size-cover.bg-position-center.rounded-5(style='background-image: url(assets/img/landing/yoga-studio/features/free-lessons.jpg);')
+              .card-body.text-center
+                i.ai-flower.h1.fw-normal.text-primary.d-block.mb-4
+                h3 Free lessons
+                p.card-text Nisi vestibulum quam amet, egestas aliquam cursus mauris dignissim tellus.
+
+          // Item
+          .swiper-slide.w-auto.h-auto
+            .card.border-0.bg-secondary.card-hover.h-100.py-4(style='max-width: 306px;')
+              .opacity-0.position-absolute.top-0.start-0.w-100.h-100.bg-size-cover.bg-position-center.rounded-5(style='background-image: url(assets/img/landing/yoga-studio/features/lounge-cafe.jpg);')
+              .card-body.text-center
+                i.ai-cafe.h1.fw-normal.text-primary.d-block.mb-4
+                h3 Lounge cafe
+                p.card-text Amet diam imperdiet nisi non eu, pharetra lorem amet, ac ut aliquam diam sed cras.
+
+          // Item
+          .swiper-slide.w-auto.h-auto
+            .card.border-0.bg-secondary.card-hover.h-100.py-4(style='max-width: 306px;')
+              .opacity-0.position-absolute.top-0.start-0.w-100.h-100.bg-size-cover.bg-position-center.rounded-5(style='background-image: url(assets/img/landing/yoga-studio/features/bright-halls.jpg);')
+              .card-body.text-center
+                i.ai-sofa.h1.fw-normal.text-primary.d-block.mb-4
+                h3 Bright halls
+                p.card-text Non est nullam amet netus ut vitae, penatibus lacus a ut sed molestie lectus lobortis.
+
+          // Item
+          .swiper-slide.w-auto.h-auto
+            .card.border-0.bg-secondary.card-hover.h-100.py-4(style='max-width: 306px;')
+              .opacity-0.position-absolute.top-0.start-0.w-100.h-100.bg-size-cover.bg-position-center.rounded-5(style='background-image: url(assets/img/landing/yoga-studio/features/free-rugs.jpg);')
+              .card-body.text-center
+                i.ai-rug.h1.fw-normal.text-primary.d-block.mb-4
+                h3 Free rugs
+                p.card-text Amet diam imperdiet nisi non eu, pharetra lorem amet, ac ut aliquam diam sed cras.
+
+          // Item
+          .swiper-slide.w-auto.h-auto
+            .card.border-0.bg-primary.card-hover.h-100.py-4(style='max-width: 306px;')
+              img(src='assets/img/landing/yoga-studio/features/flower.svg' width='306' alt='Decor').position-absolute.top-0.start-0
+              .card-body.position-relative.zindex-2.text-center
+                h3.text-white Get started a free trial
+                p.text-white.fs-sm The best yoga practices, adapted at a high level to the needs of the modern pace of life.
+                a(href='#').btn.btn-light.text-primary Try a free lesson
+
+      // Slider controls (Prev/next buttons)
+      .container.d-flex.justify-content-center.justify-content-sm-end.pt-3.mt-3.mt-lg-4
+        button(type='button')#prev-feature.btn.btn-icon.btn-sm.btn-outline-primary.rounded-circle.me-3
+          i.ai-arrow-left
+        button(type='button')#next-feature.btn.btn-icon.btn-sm.btn-outline-primary.rounded-circle
+          i.ai-arrow-right
+  
+
+  // Classes (Tabs)
+  section.container.pt-5.mt-lg-3.mt-xl-4.mt-xxl-5
+    h2.h1.text-center.pt-2.pt-sm-3 Our classes
+    p.text-center.pb-3.mb-3.mb-lg-4 Whether you are a beginner or an experienced yoga
+    
+    // Nav tabs
+    ul(role='tablist' style='max-width: 892px;').nav.nav-tabs.flex-nowrap.overflow-auto.text-nowrap.w-100.mx-auto.pb-3.mb-3.mb-lg-4
+      li.nav-item.mb-0
+        a(href='#beginners' data-bs-toggle='tab' role='tab').nav-link.active Beginners
+      li.nav-item.mb-0
+        a(href='#stretching' data-bs-toggle='tab' role='tab').nav-link Stretching
+      li.nav-item.mb-0
+        a(href='#fly-yoga' data-bs-toggle='tab' role='tab').nav-link Fly-yoga
+      li.nav-item.mb-0
+        a(href='#for-pregnant' data-bs-toggle='tab' role='tab').nav-link For pregnant
+      li.nav-item.mb-0
+        a(href='#healthy-back' data-bs-toggle='tab' role='tab').nav-link Healthy back
+      li.nav-item.mb-0
+        a(href='#relax-yoga' data-bs-toggle='tab' role='tab').nav-link Relax yoga
+    
+    // Tab content
+    .tab-content
+
+      // Beginers
+      #beginners.tab-pane.fade.show.active(role='tabpanel')
+        .row.align-items-lg-center
+          .col-md-6.pb-4.pb-md-0.mb-2.mb-md-0
+            img(src='assets/img/landing/yoga-studio/classes/beginners.jpg' alt='Beginners').rounded-5
+          .col-md-6.col-lg-5.col-xl-4.offset-lg-1
+            .ps-md-4.ps-lg-0
+              h2.mb-xl-4 Yoga for beginners
+              p.pb-3.mb-3.mb-xl-4 Purus magna lectus feugiat arcu tellus vitae urna neque, eu velit in vulputate sodales ut tellus amet lorem sit consectetur quisque justo laoreet proin.
+              .row.row-cols-2.g-4.pb-2.pb-xl-0.mb-4.mb-xl-5
+                .col
+                  i.ai-spa.d-block.h2.text-primary.fw-normal.pb-2.mb-1
+                  h3.h6.mb-2 Spa area
+                  p.fs-sm.mb-0 Neque, blandit consectetur viverra placerat ante.
+                .col
+                  i.ai-towel.d-block.h2.text-primary.fw-normal.pb-2.mb-1
+                  h3.h6.mb-2 Changing rooms
+                  p.fs-sm.mb-0 Neque, blandit consectetur viverra placerat ante.
+                .col
+                  i.ai-cafe.d-block.h2.text-primary.fw-normal.pb-2.mb-1
+                  h3.h6.mb-2 Lounge cafe
+                  p.fs-sm.mb-0 Neque, blandit consectetur viverra placerat ante.
+                .col
+                  i.ai-sofa.d-block.h2.text-primary.fw-normal.pb-2.mb-1
+                  h3.h6.mb-2 Bright halls
+                  p.fs-sm.mb-0 Neque, blandit consectetur viverra placerat ante.
+              a(href='#').btn.btn-primary.w-100.w-sm-auto Try a free lesson
+
+      // Stretching
+      #stretching.tab-pane.fade(role='tabpanel')
+        .row.align-items-lg-center
+          .col-md-6.pb-4.pb-md-0.mb-2.mb-md-0
+            img(src='assets/img/landing/yoga-studio/classes/stretching.jpg' alt='Stretching').rounded-5
+          .col-md-6.col-lg-5.col-xl-4.offset-lg-1
+            .ps-md-4.ps-lg-0
+              h2.mb-xl-4 Stretching
+              p.pb-3.mb-3.mb-xl-4 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse id lectus nec nunc bibendum facilisis pellentesque ut eros. Praesent bibendum sed mi aliquet tempus.
+              .row.row-cols-2.g-4.pb-2.pb-xl-0.mb-4.mb-xl-5
+                .col
+                  i.ai-sofa.d-block.h2.text-primary.fw-normal.pb-2.mb-1
+                  h3.h6.mb-2 Bright halls
+                  p.fs-sm.mb-0 Neque, blandit consectetur viverra placerat ante.
+                .col
+                  i.ai-spa.d-block.h2.text-primary.fw-normal.pb-2.mb-1
+                  h3.h6.mb-2 Spa area
+                  p.fs-sm.mb-0 Neque, blandit consectetur viverra placerat ante.
+                .col
+                  i.ai-cafe.d-block.h2.text-primary.fw-normal.pb-2.mb-1
+                  h3.h6.mb-2 Lounge cafe
+                  p.fs-sm.mb-0 Neque, blandit consectetur viverra placerat ante.
+                .col
+                  i.ai-towel.d-block.h2.text-primary.fw-normal.pb-2.mb-1
+                  h3.h6.mb-2 Changing rooms
+                  p.fs-sm.mb-0 Neque, blandit consectetur viverra placerat ante.
+              a(href='#').btn.btn-primary.w-100.w-sm-auto Try a free lesson
+
+      // Fly-yoga
+      #fly-yoga.tab-pane.fade(role='tabpanel')
+        .row.align-items-lg-center
+          .col-md-6.pb-4.pb-md-0.mb-2.mb-md-0
+            img(src='assets/img/landing/yoga-studio/classes/fly-yoga.jpg' alt='Fly-yoga').rounded-5
+          .col-md-6.col-lg-5.col-xl-4.offset-lg-1
+            .ps-md-4.ps-lg-0
+              h2.mb-xl-4 Fly-yoga
+              p.pb-3.mb-3.mb-xl-4 Varius purus dui nunc faucibus mauris iaculis tortor enim cursus quisque eu, vel amet massa suscipit cursus sit mattis quis magnis dignissim dui fames tortor amet quis.
+              .row.row-cols-2.g-4.pb-2.pb-xl-0.mb-4.mb-xl-5
+                .col
+                  i.ai-towel.d-block.h2.text-primary.fw-normal.pb-2.mb-1
+                  h3.h6.mb-2 Changing rooms
+                  p.fs-sm.mb-0 Neque, blandit consectetur viverra placerat ante.
+                .col
+                  i.ai-rug.d-block.h2.text-primary.fw-normal.pb-2.mb-1
+                  h3.h6.mb-2 Free rugs
+                  p.fs-sm.mb-0 Neque, blandit consectetur viverra placerat ante.
+                .col
+                  i.ai-spa.d-block.h2.text-primary.fw-normal.pb-2.mb-1
+                  h3.h6.mb-2 Spa area
+                  p.fs-sm.mb-0 Neque, blandit consectetur viverra placerat ante.
+                .col
+                  i.ai-sofa.d-block.h2.text-primary.fw-normal.pb-2.mb-1
+                  h3.h6.mb-2 Bright halls
+                  p.fs-sm.mb-0 Neque, blandit consectetur viverra placerat ante.
+              a(href='#').btn.btn-primary.w-100.w-sm-auto Try a free lesson
+
+      // For pregnant
+      #for-pregnant.tab-pane.fade(role='tabpanel')
+        .row.align-items-lg-center
+          .col-md-6.pb-4.pb-md-0.mb-2.mb-md-0
+            img(src='assets/img/landing/yoga-studio/classes/for-pregnant.jpg' alt='For pregnant').rounded-5
+          .col-md-6.col-lg-5.col-xl-4.offset-lg-1
+            .ps-md-4.ps-lg-0
+              h2.mb-xl-4 For pregnant
+              p.pb-3.mb-3.mb-xl-4 At duis est ante tortor, dictum dictumst nisl erat. Tellus erat pharetra eget vestibulum. Netus eu sit cursus et vehicula porttitor nulla turpis a. In volutpat at orci.
+              .row.row-cols-2.g-4.pb-2.pb-xl-0.mb-4.mb-xl-5
+                .col
+                  i.ai-sofa.d-block.h2.text-primary.fw-normal.pb-2.mb-1
+                  h3.h6.mb-2 Bright halls
+                  p.fs-sm.mb-0 Neque, blandit consectetur viverra placerat ante.
+                .col
+                  i.ai-spa.d-block.h2.text-primary.fw-normal.pb-2.mb-1
+                  h3.h6.mb-2 Spa area
+                  p.fs-sm.mb-0 Neque, blandit consectetur viverra placerat ante.
+                .col
+                  i.ai-cafe.d-block.h2.text-primary.fw-normal.pb-2.mb-1
+                  h3.h6.mb-2 Lounge cafe
+                  p.fs-sm.mb-0 Neque, blandit consectetur viverra placerat ante.
+                .col
+                  i.ai-towel.d-block.h2.text-primary.fw-normal.pb-2.mb-1
+                  h3.h6.mb-2 Changing rooms
+                  p.fs-sm.mb-0 Neque, blandit consectetur viverra placerat ante.
+              a(href='#').btn.btn-primary.w-100.w-sm-auto Try a free lesson
+
+      // Healthy back
+      #healthy-back.tab-pane.fade(role='tabpanel')
+        .row.align-items-lg-center
+          .col-md-6.pb-4.pb-md-0.mb-2.mb-md-0
+            img(src='assets/img/landing/yoga-studio/classes/healthy-back.jpg' alt='Healthy back').rounded-5
+          .col-md-6.col-lg-5.col-xl-4.offset-lg-1
+            .ps-md-4.ps-lg-0
+              h2.mb-xl-4 Healthy back
+              p.pb-3.mb-3.mb-xl-4 Facilisi tempus pharetra, egestas dolor. Nulla lorem interdum cursus habitasse. Morbi aliquam, mauris, varius nulla tortor ut nullam. Est eu eu eget fames leo nisl est.
+              .row.row-cols-2.g-4.pb-2.pb-xl-0.mb-4.mb-xl-5
+                .col
+                  i.ai-cafe.d-block.h2.text-primary.fw-normal.pb-2.mb-1
+                  h3.h6.mb-2 Lounge cafe
+                  p.fs-sm.mb-0 Neque, blandit consectetur viverra placerat ante.
+                .col
+                  i.ai-sofa.d-block.h2.text-primary.fw-normal.pb-2.mb-1
+                  h3.h6.mb-2 Bright halls
+                  p.fs-sm.mb-0 Neque, blandit consectetur viverra placerat ante.
+                .col
+                  i.ai-towel.d-block.h2.text-primary.fw-normal.pb-2.mb-1
+                  h3.h6.mb-2 Changing rooms
+                  p.fs-sm.mb-0 Neque, blandit consectetur viverra placerat ante.
+                .col
+                  i.ai-spa.d-block.h2.text-primary.fw-normal.pb-2.mb-1
+                  h3.h6.mb-2 Spa area
+                  p.fs-sm.mb-0 Neque, blandit consectetur viverra placerat ante.
+              a(href='#').btn.btn-primary.w-100.w-sm-auto Try a free lesson
+
+      // Relax yoga
+      #relax-yoga.tab-pane.fade(role='tabpanel')
+        .row.align-items-lg-center
+          .col-md-6.pb-4.pb-md-0.mb-2.mb-md-0
+            img(src='assets/img/landing/yoga-studio/classes/relax-yoga.jpg' alt='Relax yoga').rounded-5
+          .col-md-6.col-lg-5.col-xl-4.offset-lg-1
+            .ps-md-4.ps-lg-0
+              h2.mb-xl-4 Relax yoga
+              p.pb-3.mb-3.mb-xl-4 Aliquam risus, leo mattis commodo id pretium. In sapien, lacus, cursus id vulputate. Pellentesque quis et posuere maecenas sed aenean quisque ut. Pellentesque sed at.
+              .row.row-cols-2.g-4.pb-2.pb-xl-0.mb-4.mb-xl-5
+                .col
+                  i.ai-towel.d-block.h2.text-primary.fw-normal.pb-2.mb-1
+                  h3.h6.mb-2 Changing rooms
+                  p.fs-sm.mb-0 Neque, blandit consectetur viverra placerat ante.
+                .col
+                  i.ai-cafe.d-block.h2.text-primary.fw-normal.pb-2.mb-1
+                  h3.h6.mb-2 Lounge cafe
+                  p.fs-sm.mb-0 Neque, blandit consectetur viverra placerat ante.
+                .col
+                  i.ai-sofa.d-block.h2.text-primary.fw-normal.pb-2.mb-1
+                  h3.h6.mb-2 Bright halls
+                  p.fs-sm.mb-0 Neque, blandit consectetur viverra placerat ante.
+                .col
+                  i.ai-spa.d-block.h2.text-primary.fw-normal.pb-2.mb-1
+                  h3.h6.mb-2 Spa area
+                  p.fs-sm.mb-0 Neque, blandit consectetur viverra placerat ante.
+              a(href='#').btn.btn-primary.w-100.w-sm-auto Try a free lesson
+
+
+  // Trainers (Grid)
+  section.container.pb-2.pb-sm-3.pt-5.mt-lg-3.mt-xl-4.mt-xxl-5
+    h2.h1.text-center.pt-2.pt-sm-4.pt-lg-5.pb-2.mb-3.mb-lg-4.mt-md-3.mt-lg-0 We employ the best trainers
+    .row.row-cols-1.row-cols-sm-2.row-cols-md-3.row-cols-lg-4.g-4
+      .col.text-center.pt-2
+        a(href='#').card-hover.card-lifted.d-inline-block.text-decoration-none
+          img(src='assets/img/landing/yoga-studio/trainers/01.jpg' width='340' alt='Alisa Black').card-lifted.d-block.rounded-5.mb-3
+          h3.h5.mb-1 Alisa Black
+          p.mb-0.text-muted Fly-yoga trainer
+      .col.text-center.pt-2
+        a(href='#').card-hover.card-lifted.d-inline-block.text-decoration-none
+          img(src='assets/img/landing/yoga-studio/trainers/02.jpg' width='340' alt='Michelle Yang').card-lifted.d-block.rounded-5.mb-3
+          h3.h5.mb-1 Michelle Yang
+          p.mb-0.text-muted Fly-yoga and relax trainer
+      .col.text-center.pt-2
+        a(href='#').card-hover.card-lifted.d-inline-block.text-decoration-none
+          img(src='assets/img/landing/yoga-studio/trainers/03.jpg' width='340' alt='Robert Fox').card-lifted.d-block.rounded-5.mb-3
+          h3.h5.mb-1 Robert Fox
+          p.mb-0.text-muted Stretching trainer
+      .col.text-center.pt-2
+        a(href='#').card-hover.card-lifted.d-inline-block.text-decoration-none
+          img(src='assets/img/landing/yoga-studio/trainers/04.jpg' width='340' alt='Jane Cooper').card-lifted.d-block.rounded-5.mb-3
+          h3.h5.mb-1 Jane Cooper
+          p.mb-0.text-muted Fly-yoga trainer
+      .col.text-center.pt-2
+        a(href='#').card-hover.card-lifted.d-inline-block.text-decoration-none
+          img(src='assets/img/landing/yoga-studio/trainers/05.jpg' width='340' alt='Cody Fisher').card-lifted.d-block.rounded-5.mb-3
+          h3.h5.mb-1 Cody Fisher
+          p.mb-0.text-muted Fly-yoga and relax trainer
+      .col.text-center.pt-2
+        a(href='#').card-hover.card-lifted.d-inline-block.text-decoration-none
+          img(src='assets/img/landing/yoga-studio/trainers/06.jpg' width='340' alt='Jenny Wilson').card-lifted.d-block.rounded-5.mb-3
+          h3.h5.mb-1 Jenny Wilson
+          p.mb-0.text-muted Women's practices
+      .col.text-center.pt-2
+        a(href='#').card-hover.card-lifted.d-inline-block.text-decoration-none
+          img(src='assets/img/landing/yoga-studio/trainers/07.jpg' width='340' alt='Annette Black').card-lifted.d-block.rounded-5.mb-3
+          h3.h5.mb-1 Annette Black
+          p.mb-0.text-muted Fly-yoga trainer
+      .col.text-center.pt-2
+        a(href='#').card-hover.card-lifted.d-inline-block.text-decoration-none
+          img(src='assets/img/landing/yoga-studio/trainers/08.jpg' width='340' alt='Ralph Edwards').card-lifted.d-block.rounded-5.mb-3
+          h3.h5.mb-1 Ralph Edwards
+          p.mb-0.text-muted Stretching trainer, healthy back
+
+
+  // Schedule
+  section.container.pt-5.mt-lg-3.mt-xl-4.mt-xxl-5
+    h2.h1.text-center.pb-3.pt-sm-3.pt-lg-5.mb-3.mb-lg-4 Schedule
+    .calendar(data-calendar-options=`{
+      "initialDate": "2022-08-01",
+      "headerToolbar": {
+        "left": "prev,next today",
+        "center": "title",
+        "right": "dayGridMonth,timeGridWeek,listWeek"
+      },
+      "eventTimeFormat": {
+        "hour": "2-digit",
+        "minute": "2-digit",
+        "hour12": false
+      },
+      "events": [
+        {
+          "title": "Stretching",
+          "start": "2022-08-01T16:30",
+          "end": "2022-08-01T18:00",
+          "classNames": ["event-custom-style", "bg-light", "text-nav", "border-0", "rounded-1", "p-2", "ps-3", "border-start", "border-5", "border-purple"]
+        },
+        {
+          "title": "For pregnant",
+          "start": "2022-08-02T07:30",
+          "end": "2022-08-02T09:40",
+          "classNames": ["event-custom-style", "bg-light", "text-nav", "border-0", "rounded-1", "p-2", "ps-3", "border-start", "border-5", "border-warning"]
+        },
+        {
+          "title": "Healthy back",
+          "start": "2022-08-02T12:00",
+          "end": "2022-08-02T13:30",
+          "classNames": ["event-custom-style", "bg-light", "text-nav", "border-0", "rounded-1", "p-2", "ps-3", "border-start", "border-5", "border-info"]
+        },
+        {
+          "title": "Relax yoga",
+          "start": "2022-08-02T18:45",
+          "end": "2022-08-02T20:00",
+          "classNames": ["event-custom-style", "bg-light", "text-nav", "border-0", "rounded-1", "p-2", "ps-3", "border-start", "border-5", "border-danger"]
+        },
+        {
+          "title": "Beginners",
+          "start": "2022-08-03T11:00",
+          "end": "2022-08-03T13:00",
+          "classNames": ["event-custom-style", "bg-light", "text-nav", "border-0", "rounded-1", "p-2", "ps-3", "border-start", "border-5", "border-success"]
+        },
+        {
+          "title": "Relax yoga",
+          "start": "2022-08-03T12:35",
+          "end": "2022-08-03T14:00",
+          "classNames": ["event-custom-style", "bg-light", "text-nav", "border-0", "rounded-1", "p-2", "ps-3", "border-start", "border-5", "border-danger"]
+        },
+        {
+          "title": "Fly yoga",
+          "start": "2022-08-04T09:00",
+          "end": "2022-08-04T11:00",
+          "classNames": ["event-custom-style", "bg-light", "text-nav", "border-0", "rounded-1", "p-2", "ps-3", "border-start", "border-5", "border-primary"]
+        },
+        {
+          "title": "For pregnant",
+          "start": "2022-08-05T07:30",
+          "end": "2022-08-05T09:40",
+          "classNames": ["event-custom-style", "bg-light", "text-nav", "border-0", "rounded-1", "p-2", "ps-3", "border-start", "border-5", "border-warning"]
+        },
+        {
+          "title": "Beginners",
+          "start": "2022-08-08T11:00",
+          "end": "2022-08-03T13:00",
+          "classNames": ["event-custom-style", "bg-light", "text-nav", "border-0", "rounded-1", "p-2", "ps-3", "border-start", "border-5", "border-success"]
+        },
+        {
+          "title": "Relax yoga",
+          "start": "2022-08-08T12:35",
+          "end": "2022-08-03T14:00",
+          "classNames": ["event-custom-style", "bg-light", "text-nav", "border-0", "rounded-1", "p-2", "ps-3", "border-start", "border-5", "border-danger"]
+        },
+        {
+          "title": "For pregnant",
+          "start": "2022-08-09T07:30",
+          "end": "2022-08-09T09:40",
+          "classNames": ["event-custom-style", "bg-light", "text-nav", "border-0", "rounded-1", "p-2", "ps-3", "border-start", "border-5", "border-warning"]
+        },
+        {
+          "title": "Fly yoga",
+          "start": "2022-08-10T09:00",
+          "end": "2022-08-10T11:00",
+          "classNames": ["event-custom-style", "bg-light", "text-nav", "border-0", "rounded-1", "p-2", "ps-3", "border-start", "border-5", "border-primary"]
+        },
+        {
+          "title": "Stretching",
+          "start": "2022-08-11T16:30",
+          "end": "2022-08-11T18:00",
+          "classNames": ["event-custom-style", "bg-light", "text-nav", "border-0", "rounded-1", "p-2", "ps-3", "border-start", "border-5", "border-purple"]
+        },
+        {
+          "title": "Healthy back",
+          "start": "2022-08-11T12:00",
+          "end": "2022-08-11T13:30",
+          "classNames": ["event-custom-style", "bg-light", "text-nav", "border-0", "rounded-1", "p-2", "ps-3", "border-start", "border-5", "border-info"]
+        },
+        {
+          "title": "Relax yoga",
+          "start": "2022-08-12T12:35",
+          "end": "2022-08-12T14:00",
+          "classNames": ["event-custom-style", "bg-light", "text-nav", "border-0", "rounded-1", "p-2", "ps-3", "border-start", "border-5", "border-danger"]
+        }
+      ]
+    }`)
+    .text-center.pt-4.pt-md-5.mt-2.mt-sm-3.mt-md-0
+      a(href='#').btn.btn-outline-primary.fs-base Try a free lesson
+  
+
+  // CTA
+  section.container.pt-5.mt-lg-3.mt-xl-4.mt-xxl-5
+    .bg-primary.rounded-5.overflow-hidden.mt-2.mt-sm-4.mt-lg-5
+      img(src='assets/img/landing/yoga-studio/cta/bg.svg' width='186' alt='Background flower').position-absolute.top-50.start-0.translate-middle-y.d-none.d-md-block
+      .row.position-relative.zindex-2.align-items-center
+        .col-md-6.col-lg-5.offset-lg-1
+          .text-center.text-md-start.py-5.px-4.px-sm-5.pe-md-0.ps-lg-4.ps-xl-5
+            .d-flex.align-items-center.justify-content-center.justify-content-md-start.mb-2
+              span(style='width: 40px; height: 1px; margin-top: -1px;').bg-white.opacity-70.me-2.d-none.d-md-block
+              span.fs-xs.fw-semibold.text-white.opacity-70.text-uppercase Special offer
+            h2.h1.text-white.pb-2.pb-sm-3 Get 30% off when you buy an annual pass
+            a(href='#').btn.btn-outline-light.fs-base Buy an annual pass
+        .col-md-6
+          img(src='assets/img/landing/yoga-studio/cta/image.png' width='534' alt='Image').d-block.mx-auto.mx-md-0.mt-n4.mt-md-0
+  
+
+  // Pricing
+  section.pt-5.mt-lg-3.mt-xl-4.mt-xxl-5
+    .container.pt-2.pt-sm-4.pt-lg-5.mt-md-2
+      .row
+
+        // Sticky sidebar
+        .col-md-5.col-xl-4.mb-5.mb-md-0(style='margin-top: -125px;')
+          .position-sticky.top-0(style='padding-top: 125px;')
+            h2.h1.pb-2.pb-lg-3 Choose a suitable subscription
+            .row: .col-md-10
+              p.mb-4 The best yoga and meditation practices, adapted at a high level to the needs of the modern pace of life.
+            ul.list-unstyled.mb-0
+              li.d-flex.align-items-center.mb-3
+                svg(width='24' height='24' viewBox='0 0 24 24' fill='currentColor' xmlns='http://www.w3.org/2000/svg').d-block.flex-shrink-0.text-primary
+                  path(d='M11.9266 11.9488V7.48998C11.9266 7.22049 11.7181 7 11.4633 7C11.2085 7 11 7.22049 11 7.48998V12.1448C11 12.2673 11.0463 12.3898 11.139 12.4878L16.2124 15.853C16.305 15.951 16.4208 16 16.5367 16C16.6525 16 16.7683 15.951 16.861 15.853C17.0463 15.657 17.0463 15.363 16.861 15.167L11.9266 11.9488Z')
+                  path(d='M12 1C5.92609 1 1 5.92609 1 12C1 18.0739 5.92609 23 12 23C18.0739 23 23 18.0739 23 12C23 5.92609 18.0739 1 12 1ZM12 22.0435C6.45217 22.0435 1.95652 17.5478 1.95652 12C1.95652 6.45217 6.45217 1.95652 12 1.95652C17.5478 1.95652 22.0435 6.45217 22.0435 12C22.0435 17.5478 17.5478 22.0435 12 22.0435Z')
+                .ps-2.ms-1
+                  .text-nav.fw-medium lesson duration 90 minutes
+              li.d-flex.align-items-center.mb-3
+                svg(width='24' height='24' viewBox='0 0 24 24' fill='currentColor' xmlns='http://www.w3.org/2000/svg').d-block.flex-shrink-0.text-primary
+                  path(d='M11 24C4.935 24 0 19.065 0 13C0 6.935 4.935 2 11 2C13.109 2 15.161 2.601 16.934 3.739C17.166 3.888 17.234 4.197 17.085 4.43C16.935 4.662 16.626 4.73 16.394 4.581C14.782 3.546 12.917 3 11 3C5.486 3 1 7.486 1 13C1 18.514 5.486 23 11 23C16.514 23 21 18.514 21 13C21 12.67 20.984 12.345 20.953 12.024C20.926 11.749 21.127 11.504 21.402 11.478C21.682 11.455 21.922 11.652 21.948 11.927C21.982 12.28 22 12.638 22 13C22 19.065 17.065 24 11 24Z')
+                  path(d='M12.5002 15.2502C12.3723 15.2502 12.2442 15.2012 12.1462 15.1042L7.64625 10.6042C7.45125 10.4092 7.45125 10.0922 7.64625 9.89725C7.84125 9.70225 8.15825 9.70225 8.35325 9.89725L12.4992 14.0432L23.1462 3.39625C23.3412 3.20125 23.6583 3.20125 23.8533 3.39625C24.0483 3.59125 24.0483 3.90825 23.8533 4.10325L12.8532 15.1032C12.7562 15.2012 12.6282 15.2502 12.5002 15.2502Z')
+                .ps-2.ms-1
+                  .text-nav.fw-medium subscription valid for 30 days
+              li.d-flex.align-items-center
+                svg(width='24' height='24' viewBox='0 0 24 24' fill='currentColor' xmlns='http://www.w3.org/2000/svg').d-block.flex-shrink-0.text-primary
+                  path(d='M23.479 10.9238C23.9514 10.4634 24.1181 9.78767 23.9144 9.15956C23.7101 8.53144 23.1781 8.08307 22.5245 7.98791L16.7134 7.14354C16.4659 7.1075 16.252 6.95227 16.1415 6.72784L13.5435 1.46216C13.2518 0.870571 12.6597 0.50293 11.9999 0.50293C11.3405 0.50293 10.7485 0.870571 10.4568 1.46216L7.85829 6.72784C7.74776 6.95227 7.53342 7.1075 7.28592 7.14354L1.47479 7.98839C0.821687 8.08307 0.289688 8.53144 0.0854429 9.15956C-0.118322 9.78767 0.0484385 10.4634 0.520845 10.9238L4.72541 15.0221C4.90467 15.197 4.98684 15.4489 4.94455 15.6949L3.95216 21.4825C3.84067 22.1327 4.10258 22.7772 4.6365 23.1655C5.16994 23.5543 5.86438 23.6047 6.44924 23.2967L11.6462 20.5641C11.8677 20.4478 12.1321 20.4478 12.3536 20.5641L17.551 23.2967C17.8048 23.4303 18.0797 23.4961 18.3531 23.4961C18.7083 23.4961 19.062 23.3851 19.3638 23.1655C19.8977 22.7772 20.1596 22.1327 20.0481 21.4825L19.0552 15.6954C19.013 15.4489 19.0951 15.1975 19.2744 15.0226L23.479 10.9238ZM18.1085 15.8578L19.1009 21.6449C19.1509 21.9362 19.0379 22.2144 18.7986 22.3884C18.5588 22.5619 18.2604 22.583 17.9985 22.4465L12.801 19.7135C12.5506 19.5823 12.2748 19.516 11.9999 19.516C11.725 19.516 11.4496 19.5823 11.1988 19.714L6.0023 22.4465C5.73943 22.583 5.44099 22.5619 5.20166 22.3884C4.96234 22.2144 4.84988 21.9366 4.89938 21.6449L5.89177 15.8578C5.98741 15.2994 5.80238 14.7294 5.39678 14.3344L1.19173 10.2356C0.979796 10.0289 0.90771 9.73769 0.9995 9.45655C1.09081 9.17494 1.32004 8.98174 1.61272 8.93897L7.42337 8.0946C7.9842 8.01338 8.4691 7.6616 8.71948 7.15315L11.318 1.88747C11.4487 1.62219 11.7039 1.46408 11.9994 1.46408C12.2955 1.46408 12.5502 1.62219 12.6814 1.88747L15.2798 7.15315C15.5302 7.6616 16.0146 8.01338 16.5755 8.0946L22.3866 8.93897C22.6793 8.98174 22.9085 9.17494 22.9998 9.45655C23.0911 9.73769 23.0195 10.0289 22.8076 10.2356L18.603 14.3339C18.1974 14.7294 18.0124 15.2989 18.1085 15.8578Z')
+                .ps-2.ms-1
+                  .text-nav.fw-medium valid for all types of classes
+        
+        // Pricing list
+        .col-md-7.offset-xl-1
+          .ps-md-4.ps-xxl-5
+
+            // Pricing card
+            .card.border-0.bg-secondary.rounded-4.position-relative.mb-3
+              .card-body.d-sm-flex.align-items-start.text-center.text-sm-start
+                .w-100.pe-sm-4.mb-3.mb-sm-0(style='max-width: 27rem;')
+                  h3.mb-2 4 lessons
+                  p.fs-lg.mb-0 Valid for all types of classes
+                .w-100.pe-sm-3.mx-auto.me-sm-0.mb-3.mb-sm-0(style='max-width: 8rem;')
+                  .h3.text-primary.mb-0.mb-sm-2 $40
+                  span.fs-sm $10 per class
+                button(type='button').btn.btn-sm.btn-outline-primary.stretched-link.w-100.w-sm-auto Buy
+
+            // Pricing card
+            .card.border-0.bg-secondary.rounded-4.position-relative.mb-3
+              .card-body.d-sm-flex.align-items-start.text-center.text-sm-start
+                .w-100.pe-sm-4.mb-3.mb-sm-0(style='max-width: 27rem;')
+                  h3.mb-2 8 lessons
+                  p.fs-lg.mb-0 Valid for all types of classes
+                .w-100.pe-sm-3.mx-auto.me-sm-0.mb-3.mb-sm-0(style='max-width: 8rem;')
+                  .h3.text-primary.mb-0.mb-sm-2 $72
+                  span.fs-sm $9 per class
+                button(type='button').btn.btn-sm.btn-outline-primary.stretched-link.w-100.w-sm-auto Buy
+                
+            // Pricing card
+            .card.border-0.bg-secondary.rounded-4.position-relative.mb-3
+              .card-body.d-sm-flex.align-items-start.text-center.text-sm-start
+                .w-100.pe-sm-4.mb-3.mb-sm-0(style='max-width: 27rem;')
+                  h3.mb-2 16 lessons
+                  p.fs-lg.mb-0 Valid for all types of classes
+                .w-100.pe-sm-3.mx-auto.me-sm-0.mb-3.mb-sm-0(style='max-width: 8rem;')
+                  .h3.text-primary.mb-0.mb-sm-2 $120
+                  span.fs-sm $7 per class
+                button(type='button').btn.btn-sm.btn-outline-primary.stretched-link.w-100.w-sm-auto Buy
+
+            // Pricing card
+            .card.border-0.bg-secondary.rounded-4.position-relative
+              .card-body.d-sm-flex.align-items-start.text-center.text-sm-start
+                .w-100.pe-sm-4.mb-3.mb-sm-0(style='max-width: 27rem;')
+                  h3.mb-2 Yoga for pregnant
+                  p.fs-lg.mb-0 Valid for all types of classes
+                .w-100.pe-sm-3.mx-auto.me-sm-0.mb-3.mb-sm-0(style='max-width: 8rem;')
+                  .h3.text-primary.mb-0.mb-sm-2 $12
+                  span.fs-sm per class
+                button(type='button').btn.btn-sm.btn-outline-primary.stretched-link.w-100.w-sm-auto Buy
+  
+
+  // Instagram
+  section.position-relative.pt-5.mt-lg-3.mt-xl-4.mt-xxl-5
+    .bg-secondary.position-absolute.start-0.bottom-0.w-100.d-none.d-sm-block(style='height: 110px;')
+    .bg-secondary.position-absolute.start-0.bottom-0.w-100.d-sm-none(style='height: 80px;')
+    .container.position-relative.zindex-2.pt-2.pt-sm-4.pt-lg-5.mt-md-2.mt-lg-0
+      h2.h1.text-center.pb-3.mb-3.mb-lg-4 See more photos on <a href='#' class='text-primary text-decoration-none'>Instagram</a>
+      .row.g-4
+        .col-md-8
+          .row.g-3.g-sm-4
+            .col-5
+              a(href='#').d-block.card-hover.zoom-effect
+                .d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100.rounded-5.overflow-hidden.zindex-2.opacity-0
+                  i.ai-instagram.lead.text-white.position-relative.zindex-2
+                  .position-absolute.top-0.start-0.w-100.h-100.bg-black.opacity-20
+                .zoom-effect-wrapper.rounded-5
+                  img(src='assets/img/landing/yoga-studio/instagram/01.jpg' alt='Instagram image').zoom-effect-img
+            .col-7
+              a(href='#').d-block.card-hover.zoom-effect
+                .d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100.rounded-5.overflow-hidden.zindex-2.opacity-0
+                  i.ai-instagram.lead.text-white.position-relative.zindex-2
+                  .position-absolute.top-0.start-0.w-100.h-100.bg-black.opacity-20
+                .zoom-effect-wrapper.rounded-5
+                  img(src='assets/img/landing/yoga-studio/instagram/02.jpg' alt='Instagram image').zoom-effect-img
+            .col-7
+              a(href='#').d-block.card-hover.zoom-effect
+                .d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100.rounded-5.overflow-hidden.zindex-2.opacity-0
+                  i.ai-instagram.lead.text-white.position-relative.zindex-2
+                  .position-absolute.top-0.start-0.w-100.h-100.bg-black.opacity-20
+                .zoom-effect-wrapper.rounded-5
+                  img(src='assets/img/landing/yoga-studio/instagram/04.jpg' alt='Instagram image').zoom-effect-img
+            .col-5
+              a(href='#').d-block.card-hover.zoom-effect
+                .d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100.rounded-5.overflow-hidden.zindex-2.opacity-0
+                  i.ai-instagram.lead.text-white.position-relative.zindex-2
+                  .position-absolute.top-0.start-0.w-100.h-100.bg-black.opacity-20
+                .zoom-effect-wrapper.rounded-5
+                  img(src='assets/img/landing/yoga-studio/instagram/05.jpg' alt='Instagram image').zoom-effect-img
+        .col-md-4.d-none.d-md-block
+          a(href='#').d-block.card-hover.zoom-effect
+            .d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100.rounded-5.overflow-hidden.zindex-2.opacity-0
+              i.ai-instagram.lead.text-white.position-relative.zindex-2
+              .position-absolute.top-0.start-0.w-100.h-100.bg-black.opacity-20
+            .zoom-effect-wrapper.rounded-5
+              img(src='assets/img/landing/yoga-studio/instagram/03.jpg' alt='Instagram image').zoom-effect-img
+
+
+//- Footer
+block footer
+  
+  // Footer
+  footer.footer.bg-secondary.py-5
+    .container.pt-1.pt-sm-2.pt-md-3.pt-lg-4.pt-xl-5
+      .border-bottom.text-center.pb-4
+        a(href='index.html').navbar-brand.d-inline-flex.text-nav.py-0.mb-3.mb-md-4
+          span.text-primary.flex-shrink-0.me-2
+            svg(version='1.1' width='35' height='32' viewBox='0 0 36 33' xmlns='http://www.w3.org/2000/svg')
+              path(fill='currentColor' d='M35.6,29c-1.1,3.4-5.4,4.4-7.9,1.9c-2.3-2.2-6.1-3.7-9.4-3.7c-3.1,0-7.5,1.8-10,4.1c-2.2,2-5.8,1.5-7.3-1.1c-1-1.8-1.2-4.1,0-6.2l0.6-1.1l0,0c0.6-0.7,4.4-5.2,12.5-5.7c0.5,1.8,2,3.1,3.9,3.1c2.2,0,4.1-1.9,4.1-4.2s-1.8-4.2-4.1-4.2c-2,0-3.6,1.4-4,3.3H7.7c-0.8,0-1.3-0.9-0.9-1.6l5.6-9.8c2.5-4.5,8.8-4.5,11.3,0L35.1,24C36,25.7,36.1,27.5,35.6,29z')
+          span Around
+        ul.nav.justify-content-center.py-1.pb-sm-2
+          li.nav-item: a(href='#').nav-link.py-2.px-3.mx-1 Classes
+          li.nav-item: a(href='#').nav-link.py-2.px-3.mx-1 Trainers
+          li.nav-item: a(href='#').nav-link.py-2.px-3.mx-1 Schedule
+          li.nav-item: a(href='#').nav-link.py-2.px-3.mx-1 Pricing
+          li.nav-item: a(href='#').nav-link.py-2.px-3.mx-1 Contact
+      .d-sm-flex.align-items-center.justify-content-between.pt-4.mt-2.mt-sm-0
+        .d-flex.justify-content-center.order-sm-2.mb-4.mb-sm-0
+          a(href='#').btn.btn-icon.btn-sm.btn-secondary.btn-instagram.rounded-circle.me-3
+            i.ai-instagram
+          a(href='#').btn.btn-icon.btn-sm.btn-secondary.btn-facebook.rounded-circle.me-3
+            i.ai-facebook
+          a(href='#').btn.btn-icon.btn-sm.btn-secondary.btn-youtube.rounded-circle
+            i.ai-youtube
+        p.fs-sm.order-sm-1.text-center.mb-0
+          span.opacity-70 &copy; All rights reserved. Made by 
+          a(href='https://createx.studio/' target='_blank' rel='noopener').nav-link.d-inline.fw-normal.p-0 Createx Studio

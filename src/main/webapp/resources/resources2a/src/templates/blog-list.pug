@@ -1,0 +1,176 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var parentMenu = 'Pages'
+  - var pageTitle = 'Blog List no Sidebar'
+  - var navbarExtraClass = 'bg-light'
+
+
+//- Navbar
+block navbar
+  include partials/navbar.pug
+
+
+//- Page Content
+block content
+  .container.pt-5.pb-lg-5.pb-md-4.pb-2.my-5
+
+    // Breadcrumb
+    +breadcrumb([{'title': 'Blog list no sidebar'}]).pt-lg-3.pb-lg-4.pb-2
+
+    // Page title + filters
+    .row.align-items-center.gy-2.mb-4.pb-1.pb-sm-2.pb-lg-3
+      .col-lg-5
+        h1.mb-lg-0 Blog list
+      .col-xl-2.offset-xl-1.col-lg-3.col-sm-5
+        select.form-select
+          option All categories
+          option Inspiration
+          option Brand strategy
+          option Advertisement
+          option Ecommerce
+          option Travel &amp; Vacation
+      .col-lg-4.col-sm-7
+        .position-relative
+          i.ai-search.position-absolute.top-50.start-0.translate-middle-y.ms-3
+          input(type='search' placeholder='Enter keyword').form-control.ps-5
+
+    // Post
+    article.row.g-0.border-0.mb-4
+      a(href='blog-single-v1.html' style='background-image: url(assets/img/blog/list/01.jpg); min-height: 16rem').col-sm-5.col-lg-4.bg-repeat-0.bg-size-cover.bg-position-center.rounded-5
+      .col-sm-7.col-lg-8
+        .pt-4.pb-sm-4.ps-sm-4.pe-lg-4
+          h3: a(href='blog-single-v1.html') Business strategy for a brand of vintage bags
+          p.d-sm-none.d-md-block Morbi et massa fames ac scelerisque sit commodo dignissim faucibus vel quisque proin lectus et massa fames ac scelerisque sit commodo dignissim. Tellus sagittis dolor pellentesque vel porttitor magna aliquet arcu. Interdum risus mauris pulvinar et vel morbi tellus, scelerisque vel metus ...
+          .d-flex.flex-wrap.align-items-center.mt-n2
+            a(href='#').nav-link.text-muted.fs-sm.fw-normal.p-0.mt-2.me-3
+              | 6
+              i.ai-share.fs-lg.ms-1
+            a(href='#').nav-link.text-muted.fs-sm.fw-normal.d-flex.align-items-end.p-0.mt-2
+              | 12
+              i.ai-message.fs-lg.ms-1
+            span.fs-xs.opacity-20.mt-2.mx-3 |
+            span.fs-sm.text-muted.mt-2 8 hours ago
+            span.fs-xs.opacity-20.mt-2.mx-3 |
+            a(href='#').badge.text-nav.fs-xs.border.mt-2
+              | Business
+
+    // Post
+    article.row.g-0.border-0.pt-3.pt-sm-0.mb-4
+      a(href='blog-single-v2.html' style='background-image: url(assets/img/blog/list/02.jpg); min-height: 16rem').col-sm-5.col-lg-4.bg-repeat-0.bg-size-cover.bg-position-center.rounded-5
+      .col-sm-7.col-lg-8
+        .pt-4.pb-sm-4.ps-sm-4.pe-lg-4
+          h3: a(href='blog-single-v2.html') Top books for inspiration
+          p.d-sm-none.d-md-block Sapien ultrices egestas at faucibus eu diam velit diam id amet nibh quam rutrum fermentum diam natoque scelerisque viverra molestie fames. Nulla fringilla arcu justo augue fringilla in nunc volutpat sit. Dui diam, faucibus vitae ultricies vitae mollis nunc elementum. Habitasse porta neque tempor tellus ut ...
+          .d-flex.flex-wrap.align-items-center.mt-n2
+            a(href='#').nav-link.text-muted.fs-sm.fw-normal.p-0.mt-2.me-3
+              | 10
+              i.ai-share.fs-lg.ms-1
+            a(href='#').nav-link.text-muted.fs-sm.fw-normal.d-flex.align-items-end.p-0.mt-2
+              | 4
+              i.ai-message.fs-lg.ms-1
+            span.fs-xs.opacity-20.mt-2.mx-3 |
+            span.fs-sm.text-muted.mt-2 12 hours ago
+            span.fs-xs.opacity-20.mt-2.mx-3 |
+            a(href='#').badge.text-nav.fs-xs.border.mt-2
+              | Books
+
+    // Post
+    article.row.g-0.border-0.pt-3.pt-sm-0.mb-4
+      a(href='blog-single-v3.html' style='background-image: url(assets/img/blog/list/03.jpg); min-height: 16rem').col-sm-5.col-lg-4.bg-repeat-0.bg-size-cover.bg-position-center.rounded-5
+      .col-sm-7.col-lg-8
+        .pt-4.pb-sm-4.ps-sm-4.pe-lg-4
+          h3: a(href='blog-single-v3.html') Destinations to inspire and restore resources
+          p.d-sm-none.d-md-block Sapien ultrices egestas at faucibus eu diam velit diam id amet nibh quam rutrum diam fermentum diam natoque scelerisque viverra molestie fames. Aliquet donec cras amet orci in in neque ut sed diam quis consectetur purus lorem eu, sit. Aliquam eget arcu sed urna feugiat. In integer nisl at dui malesuada ...
+          .d-flex.flex-wrap.align-items-center.mt-n2
+            a(href='#').nav-link.text-muted.fs-sm.fw-normal.p-0.mt-2.me-3
+              | 8
+              i.ai-share.fs-lg.ms-1
+            a(href='#').nav-link.text-muted.fs-sm.fw-normal.d-flex.align-items-end.p-0.mt-2
+              | 5
+              i.ai-message.fs-lg.ms-1
+            span.fs-xs.opacity-20.mt-2.mx-3 |
+            span.fs-sm.text-muted.mt-2 April 25, 2022
+            span.fs-xs.opacity-20.mt-2.mx-3 |
+            a(href='#').badge.text-nav.fs-xs.border.mt-2
+              | Travel
+
+    // Post
+    article.row.g-0.border-0.pt-3.pt-sm-0.mb-4
+      a(href='blog-single-v1.html' style='background-image: url(assets/img/blog/list/04.jpg); min-height: 16rem').col-sm-5.col-lg-4.bg-repeat-0.bg-size-cover.bg-position-center.rounded-5
+      .col-sm-7.col-lg-8
+        .pt-4.pb-sm-4.ps-sm-4.pe-lg-4
+          h3: a(href='blog-single-v1.html') Promotion of an online store from scratch, first sales
+          p.d-sm-none.d-md-block Pharetra in morbi quis is massa maecenas arcu vulputate pulvinar elit non nullage a, duis tortor mi massa ipsum in eu eu eget libero pulvinar elit vulputate. Nunc aliquet scelerisque pellentesque imperdiet tortor elit, dictum. Tristique odio at dignissim viverra aliquet eleifend erat tellus, at arcu, egestas praesent...
+          .d-flex.flex-wrap.align-items-center.mt-n2
+            a(href='#').nav-link.text-muted.fs-sm.fw-normal.p-0.mt-2.me-3
+              | 11
+              i.ai-share.fs-lg.ms-1
+            a(href='#').nav-link.text-muted.fs-sm.fw-normal.d-flex.align-items-end.p-0.mt-2
+              | 3
+              i.ai-message.fs-lg.ms-1
+            span.fs-xs.opacity-20.mt-2.mx-3 |
+            span.fs-sm.text-muted.mt-2 May 12, 2022
+            span.fs-xs.opacity-20.mt-2.mx-3 |
+            a(href='#').badge.text-nav.fs-xs.border.mt-2
+              | Marketing
+
+    // Post
+    article.row.g-0.border-0.pt-3.pt-sm-0.mb-4
+      a(href='blog-single-v2.html' style='background-image: url(assets/img/blog/list/05.jpg); min-height: 16rem').col-sm-5.col-lg-4.bg-repeat-0.bg-size-cover.bg-position-center.rounded-5
+      .col-sm-7.col-lg-8
+        .pt-4.pb-sm-4.ps-sm-4.pe-lg-4
+          h3: a(href='blog-single-v2.html') New series from Netflix
+          p.d-sm-none.d-md-block Egestas in neque scelerisque semper sit at eu cursus faucibus velit cras at aliquam sed dictum at at orci curabitur dictumst viverra non pharetra etiam non, vitae tristique eu in morbi felis nulla. Tellus sagittis dolor pellentesque vel porttitor magna aliquet arcu. Interdum risus mauris pulvinar et vel morbi ...
+          .d-flex.flex-wrap.align-items-center.mt-n2
+            a(href='#').nav-link.text-muted.fs-sm.fw-normal.p-0.mt-2.me-3
+              | 19
+              i.ai-share.fs-lg.ms-1
+            a(href='#').nav-link.text-muted.fs-sm.fw-normal.d-flex.align-items-end.p-0.mt-2
+              | 7
+              i.ai-message.fs-lg.ms-1
+            span.fs-xs.opacity-20.mt-2.mx-3 |
+            span.fs-sm.text-muted.mt-2 December 15, 2022
+            span.fs-xs.opacity-20.mt-2.mx-3 |
+            a(href='#').badge.text-nav.fs-xs.border.mt-2
+              | TV shows
+
+    
+    // Pagination
+    .row.gy-3.align-items-center.mt-lg-5.pt-2.pt-md-3.pt-lg-0.mb-md-2.mb-xl-4
+      .col.col-md-4.col-6.order-md-1.order-1
+        .d-flex.align-items-center
+          span.text-muted.fs-sm Show
+          select.form-select.form-select-flush.w-auto
+            option(value='6') 6
+            option(value='9' selected) 9
+            option(value='12') 12
+            option(value='24') 24
+      .col.col-md-4.col-12.order-md-2.order-3.text-center
+        button(type='button').btn.btn-primary.w-md-auto.w-100
+          | Load more posts
+      .col.col-md-4.col-6.order-md-3.order-2
+        nav(aria-label='Page navigation')
+          ul.pagination.pagination-sm.justify-content-end
+            li.page-item.active(aria-current='page')
+              span.page-link
+                | 1
+                span.visually-hidden (current)
+            li.page-item
+              a(href='#').page-link
+                | 2
+            li.page-item
+              a(href='#').page-link
+                | 3
+            li.page-item
+              a(href='#').page-link
+                | 4
+            li.page-item
+              a(href='#').page-link
+                | 5
+
+
+//- Footer
+block footer
+  include partials/footer-blog.pug

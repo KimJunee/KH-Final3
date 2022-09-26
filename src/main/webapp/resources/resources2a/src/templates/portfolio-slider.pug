@@ -1,0 +1,120 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/swiper/swiper-bundle.min.css']
+  - var scripts = ['vendor/swiper/swiper-bundle.min.js']
+  - var parentMenu = 'Pages'
+  - var pageTitle = 'Portfolio Slider View'
+  - var navbarExtraClass = 'bg-light'
+  - var buttonShape = 'rounded-pill'
+
+
+//- Navbar
+block navbar
+  include partials/navbar.pug
+
+
+//- Page Content
+block content
+  .vh-100.pt-5.pt-lg-4
+    .swiper.h-100(
+      data-swiper-options=`{
+        "direction": "vertical",
+        "mousewheel": {
+          "thresholdDelta": 20
+        }
+      }`
+    )
+      .swiper-wrapper
+
+        // Item
+        .swiper-slide
+          .position-relative.h-100
+            .bg-info.position-absolute.top-0.end-0.w-50.h-100.d-none.d-lg-block
+            .d-flex.flex-column.flex-lg-row.align-items-center.h-100.position-relative.zindex-2
+              .position-relative.w-100.order-lg-2
+                .bg-info.position-absolute.top-0.end-0.w-100.h-100.d-lg-none
+                a(href='portfolio-single-v1.html')
+                  img(src='assets/img/portfolio/slider/01.png' width='748' alt='Image').d-block.position-relative.zindex-2.mx-auto.scale-up
+              .w-100.order-lg-1.px-3.px-lg-4.py-4.pt-lg-0
+                .text-center.text-sm-start.mx-auto(style='max-width: 450px;')
+                  img(src='assets/img/portfolio/brands/champion-blue-dark.svg' alt='Champion').d-block.d-dark-mode-none.mx-auto.mx-sm-0.mb-2.mb-lg-3
+                  img(src='assets/img/portfolio/brands/champion-blue-light.svg' alt='Champion').d-none.d-dark-mode-block.mx-auto.mx-sm-0.mb-2.mb-lg-3
+                  h2.h1.pb-2.pb-sm-0 An application for a national bank
+                  p.d-none.d-sm-block.pb-3.pb-lg-4.mb-1 Non purus odio venenatis velit sed tellus sed ultrices neque adipiscing sit turpis vel nisl lacus, aenean sed luctus adipiscing ut orci molestie arcu, sapien sed felis.
+                  .d-none.d-lg-flex.align-items-center.pb-2.pb-lg-3.mb-3
+                    h6.text-body.mb-0.me-3 Awards:
+                    img(src='assets/img/portfolio/brands/vuejs-dark.svg' width='90' alt='Vue.js').d-block.d-dark-mode-none.me-4
+                    img(src='assets/img/portfolio/brands/vuejs-light.svg' width='90' alt='Vue.js').d-none.d-dark-mode-block.me-4
+                    img(src='assets/img/portfolio/brands/deloitte-dark.svg' width='95' alt='Deloitte').d-block.d-dark-mode-none
+                    img(src='assets/img/portfolio/brands/deloitte-light.svg' width='95' alt='Deloitte').d-none.d-dark-mode-block
+                  a(href='portfolio-single-v1.html').btn.btn-sm.btn-outline-dark.fs-sm.rounded-pill Read the full story
+
+        // Item
+        .swiper-slide
+          .position-relative.h-100
+            .bg-danger.position-absolute.top-0.end-0.w-50.h-100.d-none.d-lg-block
+            .d-flex.flex-column.flex-lg-row.align-items-center.h-100.position-relative.zindex-2
+              .position-relative.w-100.order-lg-2
+                .bg-danger.position-absolute.top-0.end-0.w-100.h-100.d-lg-none
+                a(href='portfolio-single-v1.html')
+                  img(src='assets/img/portfolio/slider/02.png' width='748' alt='Image').d-block.position-relative.zindex-2.ms-auto.from-end
+              .w-100.order-lg-1.px-3.px-lg-4.py-4.pt-lg-0
+                .text-center.text-sm-start.mx-auto(style='max-width: 450px;')
+                  img(src='assets/img/portfolio/brands/boost.svg' alt='Boost').d-block.mx-auto.mx-sm-0.mb-2.mb-lg-3
+                  h2.h1.pb-2.pb-sm-1 Landing page for a marketing agency
+                  ul.list-unstyled.d-none.d-sm-block.pb-1.pb-lg-2.mb-3
+                    li.d-flex.pb-1.mb-2
+                      i.ai-check-alt.text-primary.fs-4.mt-n1.me-2
+                      | Faucibus sit est dui id gravida
+                    li.d-flex.pb-1.mb-2
+                      i.ai-check-alt.text-primary.fs-4.mt-n1.me-2
+                      | Lectus in sem eu facilisis ornare
+                    li.d-flex.pb-1.mb-2
+                      i.ai-check-alt.text-primary.fs-4.mt-n1.me-2
+                      | Massa maecenas cras vivamus
+                  a(href='portfolio-single-v1.html').btn.btn-sm.btn-outline-dark.fs-sm.rounded-pill Read the full story
+
+        // Item
+        .swiper-slide
+          .position-relative.h-100
+            .bg-primary.position-absolute.top-0.end-0.w-50.h-100.d-none.d-lg-block
+            .d-flex.flex-column.flex-lg-row.align-items-center.h-100.position-relative.zindex-2
+              .position-relative.w-100.order-lg-2
+                .bg-primary.position-absolute.top-0.end-0.w-100.h-100.d-lg-none
+                a(href='portfolio-single-v1.html')
+                  img(src='assets/img/portfolio/slider/03.png' width='748' alt='Image').d-block.position-relative.zindex-2.mx-auto.scale-up
+              .w-100.order-lg-1.px-3.px-lg-4.py-4.pt-lg-0
+                .text-center.text-sm-start.mx-auto(style='max-width: 450px;')
+                  img(src='assets/img/portfolio/brands/foster-green.svg' alt='Foster').d-block.mx-auto.mx-sm-0.mb-2.mb-lg-3
+                  h2.h1.pb-2.pb-sm-0 Design and dev of a dashboard
+                  p.d-none.d-sm-block.pb-3.pb-lg-4.mb-1 Non purus odio venenatis velit sed tellus sed ultrices neque adipiscing sit turpis vel nisl lacus, aenean sed luctus adipiscing ut orci molestie arcu, sapien sed felis.
+                  a(href='portfolio-single-v1.html').btn.btn-sm.btn-outline-dark.fs-sm.rounded-pill Read the full story
+
+        // Item
+        .swiper-slide
+          .position-relative.h-100
+            .position-absolute.top-0.end-0.w-50.h-100.d-none.d-lg-block(style='background-color: #d7e4f4;')
+            .d-flex.flex-column.flex-lg-row.align-items-center.h-100.position-relative.zindex-2
+              .position-relative.w-100.order-lg-2
+                .position-absolute.top-0.end-0.w-100.h-100.d-lg-none(style='background-color: #d7e4f4;')
+                a(href='portfolio-single-v1.html')
+                  img(src='assets/img/portfolio/slider/04.png' width='748' alt='Image').d-block.position-relative.zindex-2.mx-auto.scale-up
+              .w-100.order-lg-1.px-3.px-lg-4.py-4.pt-lg-0
+                .text-center.text-sm-start.mx-auto(style='max-width: 450px;')
+                  img(src='assets/img/portfolio/brands/champion-purple-dark.svg' alt='Champion').d-block.d-dark-mode-none.mx-auto.mx-sm-0.mb-2.mb-lg-3
+                  img(src='assets/img/portfolio/brands/champion-purple-light.svg' alt='Champion').d-none.d-dark-mode-block.mx-auto.mx-sm-0.mb-2.mb-lg-3
+                  h2.h1.pb-2.pb-sm-0 An application for a task tracker
+                  p.d-none.d-sm-block.pb-3.pb-lg-4.mb-1 Non purus odio venenatis velit sed tellus sed ultrices neque adipiscing sit turpis vel nisl lacus, aenean sed luctus adipiscing ut orci molestie arcu, sapien sed felis.
+                  .d-none.d-lg-flex.align-items-center.pb-2.pb-lg-3.mb-3
+                    h6.text-body.mb-0.me-3 Awards:
+                    img(src='assets/img/portfolio/brands/clutch-dark.svg' width='92' alt='Clutch').d-block.d-dark-mode-none.me-4
+                    img(src='assets/img/portfolio/brands/clutch-light.svg' width='92' alt='Clutch').d-none.d-dark-mode-block.me-4
+                    img(src='assets/img/portfolio/brands/deloitte-dark.svg' width='95' alt='Deloitte').d-block.d-dark-mode-none
+                    img(src='assets/img/portfolio/brands/deloitte-light.svg' width='95' alt='Deloitte').d-none.d-dark-mode-block
+                  a(href='portfolio-single-v1.html').btn.btn-sm.btn-outline-dark.fs-sm.rounded-pill Read the full story
+
+
+    .position-fixed.start-50.bottom-0.translate-middle-x.rounded-4.rounded-bottom-0.bg-light.shadow.zindex-5.fs-sm.fw-medium.text-dark.py-2.px-3
+      | Scroll for more

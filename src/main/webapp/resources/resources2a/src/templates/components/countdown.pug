@@ -1,0 +1,794 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css', 'vendor/prismjs/themes/prism.css', 'vendor/prismjs/plugins/toolbar/prism-toolbar.css', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js', 'vendor/timezz/dist/timezz.js', 'vendor/prismjs/components/prism-core.min.js', 'vendor/prismjs/components/prism-markup.min.js', 'vendor/prismjs/components/prism-clike.min.js', 'vendor/prismjs/components/prism-javascript.min.js', 'vendor/prismjs/components/prism-pug.min.js', 'vendor/prismjs/plugins/toolbar/prism-toolbar.min.js', 'vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Countdown'
+  - var pageSubtitle = 'Timer that counts down in seconds, minutes, hours, days and years to any date.'
+  - var isPageTitleBadge = true
+  - var anchorNav = [{'title': 'Basic example', 'link': '#countdown-basic'}, {'title': 'Display no years', 'link': '#countdown-no-years'}, {'title': 'Sizing', 'link': '#countdown-sizing'}, {'title': 'Colors', 'link': '#countdown-colors'}, {'title': 'Cards example', 'link': '#countdown-cards'}]
+    
+//- Page Content
+block content
+
+  // Info alert
+  .alert.alert-info.d-flex.mb-4(role='alert')
+    i.ai-circle-info.lead.me-2.me-sm-3
+    p.text-break.mb-1 Countdown component depends on Timezz plugin. Make sure to link to <span class='fw-semibold'>Timezz JavaScript</span> file in your document: <span class='fw-semibold'>assets/vendor/timezz/dist/timezz.js</span>. Use this page as a reference.
+  .mb-4.pb-2
+    h6.fs-sm.mb-2 Data attributes API
+    p.fs-sm.mb-1 Around added extra layer of data attribute to access the date option of the plugin right from the HTML document:
+    code
+      | data-countdown-date='08/13/2022 14:53:00 UTC-08:00'
+    span.fs-sm  - UTC offset can be positive (+) or negative (-).
+    p.fs-sm.mb-1 More on <strong>UTC offsets</strong> by countries <a href='https://en.wikipedia.org/wiki/Time_zone#List_of_UTC_offsets' target='_blank' rel='noopener'>read here</a>.
+    p.fs-sm.pt-2 Additional options and events can be passed to pligin init function in <strong>src/js/components/countdown.js</strong>
+    h6.pt-1.fs-sm.mb-2 For more features / options visit plugin website:
+    a(href='https://github.com/BrooonS/timezz#readme' target='_blank' rel='noopener').fs-sm hhttps://github.com/BrooonS/timezz#readme
+
+
+  // Basic example
+  section#countdown-basic.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Basic example
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview1' data-bs-toggle='tab' role='tab' aria-controls='preview1' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview1.tab-pane.fade.show.active(role='tabpanel')
+          .countdown.d-flex.mb-2(data-countdown-date='10/15/2030 12:00:00')
+            .text-center
+              .h4.mb-0(data-years)
+              span.fs-sm years
+            span.blinking.fs-xl.mx-2 :
+            .text-center
+              .h4.mb-0(data-days)
+              span.fs-sm days
+            span.blinking.fs-xl.mx-2 :
+            .text-center
+              .h4.mb-0(data-hours)
+              span.fs-sm hours
+            span.blinking.fs-xl.mx-2 :
+            .text-center
+              .h4.mb-0(data-minutes)
+              span.fs-sm mins
+            span.blinking.fs-xl.mx-2 :
+            .text-center
+              .h4.mb-0(data-seconds)
+              span.fs-sm secs
+        #html1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Countdown example --&gt;
+              &lt;div class=&quot;countdown d-flex&quot; data-countdown-date=&quot;10/15/2030 12:00:00&quot;&gt;
+                &lt;div class=&quot;text-center&quot;&gt;
+                  &lt;div class=&quot;h4 mb-0&quot; data-years&gt;&lt;/div&gt;
+                  &lt;span class=&quot;fs-sm&quot;&gt;years&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;span class=&quot;blinking fs-xl mx-2&quot;&gt;:&lt;/span&gt;
+                &lt;div class=&quot;text-center&quot;&gt;
+                  &lt;div class=&quot;h4 mb-0&quot; data-days&gt;&lt;/div&gt;
+                  &lt;span class=&quot;fs-sm&quot;&gt;days&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;span class=&quot;blinking fs-xl mx-2&quot;&gt;:&lt;/span&gt;
+                &lt;div class=&quot;text-center&quot;&gt;
+                  &lt;div class=&quot;h4 mb-0&quot; data-hours&gt;&lt;/div&gt;
+                  &lt;span class=&quot;fs-sm&quot;&gt;hours&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;span class=&quot;blinking fs-xl mx-2&quot;&gt;:&lt;/span&gt;
+                &lt;div class=&quot;text-center&quot;&gt;
+                  &lt;div class=&quot;h4 mb-0&quot; data-minutes&gt;&lt;/div&gt;
+                  &lt;span class=&quot;fs-sm&quot;&gt;mins&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;span class=&quot;blinking fs-xl mx-2&quot;&gt;:&lt;/span&gt;
+                &lt;div class=&quot;text-center&quot;&gt;
+                  &lt;div class=&quot;h4 mb-0&quot; data-seconds&gt;&lt;/div&gt;
+                  &lt;span class=&quot;fs-sm&quot;&gt;secs&lt;/span&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Countdown example
+              .countdown.d-flex(data-countdown-date=&quot;10/15/2030 12:00:00&quot;)
+                .text-center
+                  .h4.mb-0(data-years)
+                  span.fs-sm years
+                span.blinking.fs-xl.mx-2 :
+                .text-center
+                  .h4.mb-0(data-days)
+                  span.fs-sm days
+                span.blinking.fs-xl.mx-2 :
+                .text-center
+                  .h4.mb-0(data-hours)
+                  span.fs-sm hours
+                span.blinking.fs-xl.mx-2 :
+                .text-center
+                  .h4.mb-0(data-minutes)
+                  span.fs-sm mins
+                span.blinking.fs-xl.mx-2 :
+                .text-center
+                  .h4.mb-0(data-seconds)
+                  span.fs-sm secs
+
+  // Display no years
+  section#countdown-no-years.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Display no years
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview2' data-bs-toggle='tab' role='tab' aria-controls='preview2' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview2.tab-pane.fade.show.active(role='tabpanel')
+          .countdown.d-flex.mb-2(data-countdown-date='10/15/2030 12:00:00')
+            .text-center
+              .h4.mb-0(data-days)
+              span.fs-sm days
+            span.blinking.fs-xl.mx-2 :
+            .text-center
+              .h4.mb-0(data-hours)
+              span.fs-sm hours
+            span.blinking.fs-xl.mx-2 :
+            .text-center
+              .h4.mb-0(data-minutes)
+              span.fs-sm mins
+            span.blinking.fs-xl.mx-2 :
+            .text-center
+              .h4.mb-0(data-seconds)
+              span.fs-sm secs
+        #html2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Countdown example without years label --&gt;
+              &lt;div class=&quot;countdown d-flex&quot; data-countdown-date=&quot;10/15/2030 12:00:00&quot;&gt;
+                &lt;div class=&quot;text-center&quot;&gt;
+                  &lt;div class=&quot;h4 mb-0&quot; data-days&gt;&lt;/div&gt;
+                  &lt;span class=&quot;fs-sm&quot;&gt;days&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;span class=&quot;blinking fs-xl mx-2&quot;&gt;:&lt;/span&gt;
+                &lt;div class=&quot;text-center&quot;&gt;
+                  &lt;div class=&quot;h4 mb-0&quot; data-hours&gt;&lt;/div&gt;
+                  &lt;span class=&quot;fs-sm&quot;&gt;hours&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;span class=&quot;blinking fs-xl mx-2&quot;&gt;:&lt;/span&gt;
+                &lt;div class=&quot;text-center&quot;&gt;
+                  &lt;div class=&quot;h4 mb-0&quot; data-minutes&gt;&lt;/div&gt;
+                  &lt;span class=&quot;fs-sm&quot;&gt;mins&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;span class=&quot;blinking fs-xl mx-2&quot;&gt;:&lt;/span&gt;
+                &lt;div class=&quot;text-center&quot;&gt;
+                  &lt;div class=&quot;h4 mb-0&quot; data-seconds&gt;&lt;/div&gt;
+                  &lt;span class=&quot;fs-sm&quot;&gt;secs&lt;/span&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Countdown example without years label
+              .countdown.d-flex(data-countdown-date=&quot;10/15/2030 12:00:00&quot;)
+                .text-center
+                  .h4.mb-0(data-days)
+                  span.fs-sm days
+                span.blinking.fs-xl.mx-2 :
+                .text-center
+                  .h4.mb-0(data-hours)
+                  span.fs-sm hours
+                span.blinking.fs-xl.mx-2 :
+                .text-center
+                  .h4.mb-0(data-minutes)
+                  span.fs-sm mins
+                span.blinking.fs-xl.mx-2 :
+                .text-center
+                  .h4.mb-0(data-seconds)
+                  span.fs-sm secs
+
+
+  // Sizing
+  section#countdown-sizing.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Sizing
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview3' data-bs-toggle='tab' role='tab' aria-controls='preview3' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview3.tab-pane.fade.show.active(role='tabpanel')
+          .countdown.d-flex.pb-2.mb-4(data-countdown-date='10/15/2030 12:00:00')
+            .text-center
+              .h1.mb-0(data-years)
+              span.fs-lg years
+            span.blinking.fs-3.mx-2 :
+            .text-center
+              .h1.mb-0(data-days)
+              span.fs-lg days
+            span.blinking.fs-3.mx-2 :
+            .text-center
+              .h1.mb-0(data-hours)
+              span.fs-lg hours
+            span.blinking.fs-3.mx-2 :
+            .text-center
+              .h1.mb-0(data-minutes)
+              span.fs-lg mins
+            span.blinking.fs-3.mx-2 :
+            .text-center
+              .h1.mb-0(data-seconds)
+              span.fs-lg secs
+          .countdown.d-flex.pb-2.mb-4(data-countdown-date='10/15/2030 12:00:00')
+            .text-center
+              .h2.mb-0(data-years)
+              span years
+            span.blinking.fs-4.mx-2 :
+            .text-center
+              .h2.mb-0(data-days)
+              span days
+            span.blinking.fs-4.mx-2 :
+            .text-center
+              .h2.mb-0(data-hours)
+              span hours
+            span.blinking.fs-4.mx-2 :
+            .text-center
+              .h2.mb-0(data-minutes)
+              span mins
+            span.blinking.fs-4.mx-2 :
+            .text-center
+              .h2.mb-0(data-seconds)
+              span secs
+          .countdown.d-flex.pb-1.mb-4(data-countdown-date='10/15/2030 12:00:00')
+            .text-center
+              .h3.mb-0(data-years)
+              span.fs-sm years
+            span.blinking.fs-4.mx-2 :
+            .text-center
+              .h3.mb-0(data-days)
+              span.fs-sm days
+            span.blinking.fs-4.mx-2 :
+            .text-center
+              .h3.mb-0(data-hours)
+              span.fs-sm hours
+            span.blinking.fs-4.mx-2 :
+            .text-center
+              .h3.mb-0(data-minutes)
+              span.fs-sm mins
+            span.blinking.fs-4.mx-2 :
+            .text-center
+              .h3.mb-0(data-seconds)
+              span.fs-sm secs
+          .countdown.d-flex.mb-4(data-countdown-date='10/15/2030 12:00:00')
+            .text-center
+              .h4.mb-0(data-years)
+              span.fs-sm years
+            span.blinking.fs-xl.mx-2 :
+            .text-center
+              .h4.mb-0(data-days)
+              span.fs-sm days
+            span.blinking.fs-xl.mx-2 :
+            .text-center
+              .h4.mb-0(data-hours)
+              span.fs-sm hours
+            span.blinking.fs-xl.mx-2 :
+            .text-center
+              .h4.mb-0(data-minutes)
+              span.fs-sm mins
+            span.blinking.fs-xl.mx-2 :
+            .text-center
+              .h4.mb-0(data-seconds)
+              span.fs-sm secs
+          .countdown.d-flex.mb-4(data-countdown-date='10/15/2030 12:00:00')
+            .text-center
+              .h5.mb-0(data-years)
+              span.fs-xs years
+            span.blinking.fs-lg.mx-2 :
+            .text-center
+              .h5.mb-0(data-days)
+              span.fs-xs days
+            span.blinking.fs-lg.mx-2 :
+            .text-center
+              .h5.mb-0(data-hours)
+              span.fs-xs hours
+            span.blinking.fs-lg.mx-2 :
+            .text-center
+              .h5.mb-0(data-minutes)
+              span.fs-xs mins
+            span.blinking.fs-lg.mx-2 :
+            .text-center
+              .h5.mb-0(data-seconds)
+              span.fs-xs secs
+          .countdown.d-flex.mb-2(data-countdown-date='10/15/2030 12:00:00')
+            .text-center
+              .h6.mb-0(data-years)
+              span.fs-xs years
+            span.blinking.mx-2 :
+            .text-center
+              .h6.mb-0(data-days)
+              span.fs-xs days
+            span.blinking.mx-2 :
+            .text-center
+              .h6.mb-0(data-hours)
+              span.fs-xs hours
+            span.blinking.mx-2 :
+            .text-center
+              .h6.mb-0(data-minutes)
+              span.fs-xs mins
+            span.blinking.mx-2 :
+            .text-center
+              .h6.mb-0(data-seconds)
+              span.fs-xs secs
+        #html3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Sizing --&gt;
+              &lt;!-- Apply heading classes like .h1, .h2, .h3 ..., .display-1, .display-2, .display-3 ... to numbers and body size classes like fs-xs, fs-sm, fs-lg... to labels. --&gt;
+              &lt;div class=&quot;countdown d-flex&quot; data-countdown-date=&quot;10/15/2030 12:00:00&quot;&gt;
+                &lt;div class=&quot;text-center&quot;&gt;
+                  &lt;div class=&quot;h1 mb-0&quot; data-days&gt;&lt;/div&gt;
+                  &lt;span class=&quot;fs-lg&quot;&gt;days&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;span class=&quot;blinking fs-3 mx-2&quot;&gt;:&lt;/span&gt;
+                ...
+              &lt;/div&gt;
+
+              &lt;div class=&quot;countdown d-flex&quot; data-countdown-date=&quot;10/15/2030 12:00:00&quot;&gt;
+                &lt;div class=&quot;text-center&quot;&gt;
+                  &lt;div class=&quot;h2 mb-0&quot; data-days&gt;&lt;/div&gt;
+                  &lt;span&gt;days&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;span class=&quot;blinking fs-4 mx-2&quot;&gt;:&lt;/span&gt;
+                ...
+              &lt;/div&gt;
+
+              &lt;div class=&quot;countdown d-flex&quot; data-countdown-date=&quot;10/15/2030 12:00:00&quot;&gt;
+                &lt;div class=&quot;text-center&quot;&gt;
+                  &lt;div class=&quot;h3 mb-0&quot; data-days&gt;&lt;/div&gt;
+                  &lt;span class=&quot;fs-sm&quot;&gt;days&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;span class=&quot;blinking fs-4 mx-2&quot;&gt;:&lt;/span&gt;
+                ...
+              &lt;/div&gt;
+
+              &lt;div class=&quot;countdown d-flex&quot; data-countdown-date=&quot;10/15/2030 12:00:00&quot;&gt;
+                &lt;div class=&quot;text-center&quot;&gt;
+                  &lt;div class=&quot;h4 mb-0&quot; data-days&gt;&lt;/div&gt;
+                  &lt;span class=&quot;fs-sm&quot;&gt;days&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;span class=&quot;blinking fs-xl mx-2&quot;&gt;:&lt;/span&gt;
+                ...
+              &lt;/div&gt;
+
+              &lt;div class=&quot;countdown d-flex&quot; data-countdown-date=&quot;10/15/2030 12:00:00&quot;&gt;
+                &lt;div class=&quot;text-center&quot;&gt;
+                  &lt;div class=&quot;h5 mb-0&quot; data-days&gt;&lt;/div&gt;
+                  &lt;span class=&quot;fs-xs&quot;&gt;days&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;span class=&quot;blinking fs-lg mx-2&quot;&gt;:&lt;/span&gt;
+                ...
+              &lt;/div&gt;
+
+              &lt;div class=&quot;countdown d-flex&quot; data-countdown-date=&quot;10/15/2030 12:00:00&quot;&gt;
+                &lt;div class=&quot;text-center&quot;&gt;
+                  &lt;div class=&quot;h6 mb-0&quot; data-days&gt;&lt;/div&gt;
+                  &lt;span class=&quot;fs-xs&quot;&gt;days&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;span class=&quot;blinking mx-2&quot;&gt;:&lt;/span&gt;
+                ...
+              &lt;/div&gt;
+        #pug3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Sizing
+              // Apply heading classes like .h1, .h2, .h3 ..., .display-1, .display-2, .display-3 ... to numbers and body size classes like fs-xs, fs-sm, fs-lg... to labels.
+              .countdown.d-flex(data-countdown-date='10/15/2030 12:00:00')
+                .text-center
+                  .h1.mb-0(data-days)
+                  span.fs-lg days
+                span.blinking.fs-3.mx-2 :
+                ....
+
+              .countdown.d-flex(data-countdown-date='10/15/2030 12:00:00')
+                .text-center
+                  .h2.mb-0(data-days)
+                  span days
+                span.blinking.fs-4.mx-2 :
+                ....
+
+              .countdown.d-flex(data-countdown-date='10/15/2030 12:00:00')
+                .text-center
+                  .h3.mb-0(data-days)
+                  span.fs-sm days
+                span.blinking.fs-4.mx-2 :
+                ....
+
+              .countdown.d-flex(data-countdown-date='10/15/2030 12:00:00')
+                .text-center
+                  .h4.mb-0(data-days)
+                  span.fs-sm days
+                span.blinking.fs-xl.mx-2 :
+                ....
+
+              .countdown.d-flex(data-countdown-date='10/15/2030 12:00:00')
+                .text-center
+                  .h5.mb-0(data-days)
+                  span.fs-xs days
+                span.blinking.fs-lg.mx-2 :
+                ....
+
+              .countdown.d-flex(data-countdown-date='10/15/2030 12:00:00')
+                .text-center
+                  .h6.mb-0(data-days)
+                  span.fs-xs days
+                span.blinking.mx-2 :
+                ....
+
+  // Colors
+  section#countdown-colors.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Colors
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview4' data-bs-toggle='tab' role='tab' aria-controls='preview4' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview4.tab-pane.fade.show.active(role='tabpanel')
+          .countdown.d-flex.mb-2(data-countdown-date='10/15/2030 12:00:00')
+            .text-center
+              .text-warning.h4.mb-0(data-years)
+              span.text-warning.fs-sm.opacity-80 years
+            span.blinking.fs-xl.mx-2 :
+            .text-center
+              .text-primary.h4.mb-0(data-days)
+              span.text-primary.fs-sm.opacity-80 days
+            span.blinking.fs-xl.mx-2 :
+            .text-center
+              .text-info.h4.mb-0(data-hours)
+              span.text-info.fs-sm.opacity-80 hours
+            span.blinking.fs-xl.mx-2 :
+            .text-center
+              .text-danger.h4.mb-0(data-minutes)
+              span.text-danger.fs-sm.opacity-80 mins
+            span.blinking.fs-xl.mx-2 :
+            .text-center
+              .text-success.h4.mb-0(data-seconds)
+              span.text-success.fs-sm.opacity-80 secs
+        #html4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Different colors. Can also be any custom color --&gt;
+              &lt;div class=&quot;countdown d-flex&quot; data-countdown-date=&quot;10/15/2030 12:00:00&quot;&gt;
+
+                &lt;!-- Warning --&gt;
+                &lt;div class=&quot;text-center&quot;&gt;
+                  &lt;div class=&quot;text-warning h4 mb-0&quot; data-years&gt;&lt;/div&gt;
+                  &lt;span class=&quot;text-warning fs-sm opacity-80&quot;&gt;years&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;span class=&quot;blinking fs-xl mx-2&quot;&gt;:&lt;/span&gt;
+
+                &lt;!-- Primary --&gt;
+                &lt;div class=&quot;text-center&quot;&gt;
+                  &lt;div class=&quot;text-primary h4 mb-0&quot; data-days&gt;&lt;/div&gt;
+                  &lt;span class=&quot;text-primary fs-sm opacity-80&quot;&gt;days&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;span class=&quot;blinking fs-xl mx-2&quot;&gt;:&lt;/span&gt;
+
+                &lt;!-- Info --&gt;
+                &lt;div class=&quot;text-center&quot;&gt;
+                  &lt;div class=&quot;text-info h4 mb-0&quot; data-hours&gt;&lt;/div&gt;
+                  &lt;span class=&quot;text-info fs-sm opacity-80&quot;&gt;hours&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;span class=&quot;blinking fs-xl mx-2&quot;&gt;:&lt;/span&gt;
+
+                &lt;!-- Danger --&gt;
+                &lt;div class=&quot;text-center&quot;&gt;
+                  &lt;div class=&quot;text-danger h4 mb-0&quot; data-minutes&gt;&lt;/div&gt;
+                  &lt;span class=&quot;text-danger fs-sm opacity-80&quot;&gt;mins&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;span class=&quot;blinking fs-xl mx-2&quot;&gt;:&lt;/span&gt;
+
+                &lt;!-- Success --&gt;
+                &lt;div class=&quot;text-center&quot;&gt;
+                  &lt;div class=&quot;text-success h4 mb-0&quot; data-seconds&gt;&lt;/div&gt;
+                  &lt;span class=&quot;text-success fs-sm opacity-80&quot;&gt;secs&lt;/span&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Different colors. Can also be any custom color
+              .countdown.d-flex(data-countdown-date=&quot;10/15/2030 12:00:00&quot;)
+
+                // Warning
+                .text-center
+                  .text-warning.h4.mb-0(data-years)
+                  span.text-warning.fs-sm.opacity-80 years
+                span.blinking.fs-xl.mx-2 :
+
+                // Primary
+                .text-center
+                  .text-primary.h4.mb-0(data-days)
+                  span.text-primary.fs-sm.opacity-80 days
+                span.blinking.fs-xl.mx-2 :
+
+                // Info
+                .text-center
+                  .text-info.h4.mb-0(data-hours)
+                  span.text-info.fs-sm.opacity-80 hours
+                span.blinking.fs-xl.mx-2 :
+
+                // Danger
+                .text-center
+                  .text-danger.h4.mb-0(data-minutes)
+                  span.text-danger.fs-sm.opacity-80 mins
+                span.blinking.fs-xl.mx-2 :
+
+                // Success
+                .text-center
+                  .text-success.h4.mb-0(data-seconds)
+                  span.text-success.fs-sm.opacity-80 secs
+
+  // Cards example
+  section#countdown-cards.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Cards example
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview5' data-bs-toggle='tab' role='tab' aria-controls='preview5' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html5' data-bs-toggle='tab' role='tab' aria-controls='html5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug5' data-bs-toggle='tab' role='tab' aria-controls='pug5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview5.tab-pane.fade.show.active(role='tabpanel')
+          .countdown.d-flex.flex-wrap.pb-4(data-countdown-date='10/15/2030 12:00:00')
+            .text-center.mb-2
+              .border.rounded-1.p-2
+                .h3.fw-normal.mb-0.mx-1(data-years)
+              span.fs-sm years
+            span.blinking.text-muted.fs-2.mx-2 :
+            .text-center.mb-2
+              .border.rounded-1.p-2
+                .h3.fw-normal.mb-0.mx-1(data-days)
+              span.fs-sm days
+            span.blinking.text-muted.fs-2.mx-2 :
+            .text-center.mb-2
+              .border.rounded-1.p-2
+                .h3.fw-normal.mb-0.mx-1(data-hours)
+              span.fs-sm hours
+            span.blinking.text-muted.fs-2.mx-2 :
+            .text-center.mb-2
+              .border.rounded-1.p-2
+                .h3.fw-normal.mb-0.mx-1(data-minutes)
+              span.fs-sm mins
+            span.blinking.text-muted.fs-2.mx-2 :
+            .text-center.mb-2
+              .border.rounded-1.p-2
+                .h3.fw-normal.mb-0.mx-1(data-seconds)
+              span.fs-sm secs
+          .bg-gray.p-3.mb-4
+            .countdown.d-flex.flex-wrap(data-countdown-date='10/15/2030 12:00:00')
+              .text-center.mb-2
+                .bg-light.rounded-1.p-2
+                  .h3.fw-normal.mb-0.mx-1(data-years)
+                span.text-nav.fs-sm years
+              span.blinking.text-muted.fs-2.mx-2 :
+              .text-center.mb-2
+                .bg-light.rounded-1.p-2
+                  .h3.fw-normal.mb-0.mx-1(data-days)
+                span.text-nav.fs-sm days
+              span.blinking.text-muted.fs-2.mx-2 :
+              .text-center.mb-2
+                .bg-light.rounded-1.p-2
+                  .h3.fw-normal.mb-0.mx-1(data-hours)
+                span.text-nav.fs-sm hours
+              span.blinking.text-muted.fs-2.mx-2 :
+              .text-center.mb-2
+                .bg-light.rounded-1.p-2
+                  .h3.fw-normal.mb-0.mx-1(data-minutes)
+                span.text-nav.fs-sm mins
+              span.blinking.text-muted.fs-2.mx-2 :
+              .text-center.mb-2
+                .bg-light.rounded-1.p-2
+                  .h3.fw-normal.mb-0.mx-1(data-seconds)
+                span.text-nav.fs-sm secs
+          .countdown.d-flex.flex-wrap.pt-2.pb-4(data-countdown-date='10/15/2030 12:00:00')
+            .text-center.mb-2
+              .bg-secondary.rounded-1.p-2
+                .h3.fw-normal.mb-0.mx-1(data-years)
+              span.fs-sm years
+            span.blinking.text-muted.fs-2.mx-2 :
+            .text-center.mb-2
+              .bg-secondary.rounded-1.p-2
+                .h3.fw-normal.mb-0.mx-1(data-days)
+              span.fs-sm days
+            span.blinking.text-muted.fs-2.mx-2 :
+            .text-center.mb-2
+              .bg-secondary.rounded-1.p-2
+                .h3.fw-normal.mb-0.mx-1(data-hours)
+              span.fs-sm hours
+            span.blinking.text-muted.fs-2.mx-2 :
+            .text-center.mb-2
+              .bg-secondary.rounded-1.p-2
+                .h3.fw-normal.mb-0.mx-1(data-minutes)
+              span.fs-sm mins
+            span.blinking.text-muted.fs-2.mx-2 :
+            .text-center.mb-2
+              .bg-secondary.rounded-1.p-2
+                .h3.fw-normal.mb-0.mx-1(data-seconds)
+              span.fs-sm secs
+          .countdown.d-flex.flex-wrap.pt-2(data-countdown-date='10/15/2030 12:00:00')
+            .text-center.mb-2
+              .bg-faded-warning.rounded-1.p-2
+                .text-warning.h3.fw-normal.mb-0.mx-1(data-years)
+              span.text-warning.fs-sm.opacity-80 years
+            span.blinking.text-muted.fs-2.mx-2 :
+            .text-center.mb-2
+              .bg-faded-primary.rounded-1.p-2
+                .text-primary.h3.fw-normal.mb-0.mx-1(data-days)
+              span.text-primary.fs-sm.opacity-80 days
+            span.blinking.text-muted.fs-2.mx-2 :
+            .text-center.mb-2
+              .bg-faded-info.rounded-1.p-2
+                .text-info.h3.fw-normal.mb-0.mx-1(data-hours)
+              span.text-info.fs-sm.opacity-80 hours
+            span.blinking.text-muted.fs-2.mx-2 :
+            .text-center.mb-2
+              .bg-faded-danger.rounded-1.p-2
+                .text-danger.h3.fw-normal.mb-0.mx-1(data-minutes)
+              span.text-danger.fs-sm.opacity-80 mins
+            span.blinking.text-muted.fs-2.mx-2 :
+            .text-center.mb-2
+              .bg-faded-success.rounded-1.p-2
+                .text-success.h3.fw-normal.mb-0.mx-1(data-seconds)
+              span.text-success.fs-sm.opacity-80 secs
+        #html5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Cards example --&gt;
+              &lt;!-- Style 1 (Border) --&gt;
+              &lt;div class=&quot;countdown d-flex flex-wrap&quot; data-countdown-date=&quot;10/15/2030 12:00:00&quot;&gt;
+                &lt;div class=&quot;text-center mb-2&quot;&gt;
+                  &lt;div class=&quot;border rounded-1 p-2&quot; data-days&gt;&lt;/div&gt;
+                    &lt;div class=&quot;h3 fw-normal mb-0 mx-1&quot; data-days&gt;&lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;span class=&quot;fs-sm&quot;&gt;days&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;span class=&quot;blinking text-muted fs-2 mx-2&quot;&gt;:&lt;/span&gt;
+                ...
+              &lt;/div&gt;
+
+              &lt;!-- Style 2 (Light background) --&gt;
+              &lt;div class=&quot;countdown d-flex flex-wrap&quot; data-countdown-date=&quot;10/15/2030 12:00:00&quot;&gt;
+                &lt;div class=&quot;text-center mb-2&quot;&gt;
+                  &lt;div class=&quot;bg-light rounded-1 p-2&quot; data-days&gt;&lt;/div&gt;
+                    &lt;div class=&quot;h3 fw-normal mb-0 mx-1&quot; data-days&gt;&lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;span class=&quot;text-nav fs-sm&quot;&gt;days&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;span class=&quot;blinking text-muted fs-2 mx-2&quot;&gt;:&lt;/span&gt;
+                ...
+              &lt;/div&gt;
+
+              &lt;!-- Style 3 (Gray (secondary) background) --&gt;
+              &lt;div class=&quot;countdown d-flex flex-wrap&quot; data-countdown-date=&quot;10/15/2030 12:00:00&quot;&gt;
+                &lt;div class=&quot;text-center mb-2&quot;&gt;
+                  &lt;div class=&quot;bg-secondary rounded-1 p-2&quot; data-days&gt;&lt;/div&gt;
+                    &lt;div class=&quot;h3 fw-normal mb-0 mx-1&quot; data-days&gt;&lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;span class=&quot;fs-sm&quot;&gt;days&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;span class=&quot;blinking text-muted fs-2 mx-2&quot;&gt;:&lt;/span&gt;
+                ...
+              &lt;/div&gt;
+
+              &lt;!-- Style 4 (Multicolor) --&gt;
+              &lt;div class=&quot;countdown d-flex flex-wrap&quot; data-countdown-date=&quot;10/15/2030 12:00:00&quot;&gt;
+                &lt;div class=&quot;text-center mb-2&quot;&gt;
+                  &lt;div class=&quot;bg-faded-primary rounded-1 p-2&quot; data-days&gt;&lt;/div&gt;
+                    &lt;div class=&quot;text-primary h3 fw-normal mb-0 mx-1&quot; data-days&gt;&lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;span class=&quot;text-primary fs-sm opacity-80&quot;&gt;days&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;span class=&quot;blinking text-muted fs-2 mx-2&quot;&gt;:&lt;/span&gt;
+                ...
+              &lt;/div&gt;
+        #pug5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Cards example
+              // Style 1 (Border)
+              .countdown.d-flex.flex-wrap(data-countdown-date=&quot;10/15/2030 12:00:00&quot;)
+                .text-center.mb-2
+                  .border.rounded-1.p-2
+                    .h3.fw-normal.mb-0.mx-1(data-days)
+                  span.fs-sm days
+                span.blinking.text-muted.fs-2.mx-2 :
+                ...
+              
+              // Style 2 (Light background)
+              .countdown.d-flex.flex-wrap(data-countdown-date=&quot;10/15/2030 12:00:00&quot;)
+                .text-center.mb-2
+                  .bg-light.rounded-1.p-2
+                    .h3.fw-normal.mb-0.mx-1(data-days)
+                  span.text-nav.fs-sm days
+                span.blinking.text-muted.fs-2.mx-2 :
+                ...
+              
+              // Style 3 (Gray (secondary) background)
+              .countdown.d-flex.flex-wrap(data-countdown-date=&quot;10/15/2030 12:00:00&quot;)
+                .text-center.mb-2
+                  .bg-secondary.rounded-1.p-2
+                    .h3.fw-normal.mb-0.mx-1(data-days)
+                  span.fs-sm days
+                span.blinking.text-muted.fs-2.mx-2 :
+                ...
+              
+              // Style 4 (Multicolor)
+              .countdown.d-flex.flex-wrap(data-countdown-date=&quot;10/15/2030 12:00:00&quot;)
+                .text-center.mb-2
+                  .bg-faded-primary.rounded-1.p-2
+                    .text-primary.h3.fw-normal.mb-0.mx-1(data-days)
+                  span.text-primary.fs-sm.opacity-80 days
+                span.blinking.text-muted.fs-2.mx-2 :
+                ...

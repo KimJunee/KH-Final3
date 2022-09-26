@@ -1,0 +1,830 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css', 'vendor/swiper/swiper-bundle.min.css', 'vendor/prismjs/themes/prism.css', 'vendor/prismjs/plugins/toolbar/prism-toolbar.css', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js', 'vendor/swiper/swiper-bundle.min.js', 'vendor/prismjs/components/prism-core.min.js', 'vendor/prismjs/components/prism-markup.min.js', 'vendor/prismjs/components/prism-clike.min.js', 'vendor/prismjs/components/prism-javascript.min.js', 'vendor/prismjs/components/prism-pug.min.js', 'vendor/prismjs/plugins/toolbar/prism-toolbar.min.js', 'vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Testimonials / reviews'
+  - var pageSubtitle = 'Component is designed to showcase testimonials from satisfied clients or reviews of the products on your website.'
+  - var isPageTitleBadge = true
+  - var anchorNav = [{'title': 'Quotation', 'link': '#quotation'}, {'title': 'Testimonial: Style 1', 'link': '#testimonial-1'},  {'title': 'Testimonial: Style 2', 'link': '#testimonial-2'}, {'title': 'Review', 'link': '#review'}, {'title': 'Testimonials slider: Style 1', 'link': '#testimonials-slider-1'}, {'title': 'Testimonials slider: Style 2', 'link': '#testimonials-slider-2'}]
+    
+//- Page Content
+block content
+
+  // Info alert
+  .alert.alert-info.d-flex.mb-4(role='alert')
+    i.ai-circle-info.lead.me-2.me-sm-3
+    .text-break
+      p.mb-2 Carousel based testimonials require <span class='fw-semibold'>Swiper plugin</span>. Make sure to link to <span class='fw-semibold'>Swiper css and js</span> files in your document:
+      ul.list-unstyled.mb-2
+        li <span class='fw-semibold'>assets/vendor/swiper/swiper-bundle.min.css</span>
+        li <span class='fw-semibold'>assets/vendor/swiper/swiper-bundle.min.js</span>
+      p.mb-3 Use this page as a reference.
+      p.mb-1 Learn more about <a href='carousel.html' class='alert-link'>Carousel (Slider) component here</a>.
+
+
+  // Quotation
+  section#quotation.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Quotation
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview1' data-bs-toggle='tab' role='tab' aria-controls='preview1' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview1.tab-pane.fade.show.active(role='tabpanel')
+          .card.border-0.bg-secondary
+            .card-body
+              figure
+                blockquote.blockquote
+                  p Ut pellentesque bibendum dignissim a molestie ultrices diam ut vel neque tincidunt eget sed ut quis sit semper nunc at etiam lacinia quam laoreet eget id sapien a pharetra, ornare diam dignissim  neque tincidunt ultrices.
+                figcaption.blockquote-footer Darlene Robertson
+        #html1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Quotation --&gt;
+              &lt;div class=&quot;card border-0 bg-secondary&quot;&gt;
+                &lt;div class=&quot;card-body&quot;&gt;
+                  &lt;figure&gt;
+                    &lt;blockquote class=&quot;blockquote&quot;&gt;
+                      &lt;p&gt;Ut pellentesque bibendum dignissim a molestie ultrices diam ut vel neque tincidunt eget sed ut quis sit semper nunc at etiam lacinia quam laoreet eget id sapien a pharetra, ornare diam dignissim  neque tincidunt ultrices.&lt;/p&gt;
+                    &lt;/blockquote&gt;
+                    &lt;figcaption class=&quot;blockquote-footer&quot;&gt;Darlene Robertson&lt;/figcaption&gt;
+                  &lt;/figure&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Quotation
+              .card.border-0.bg-secondary
+                .card-body
+                  figure
+                    blockquote.blockquote
+                      p Ut pellentesque bibendum dignissim a molestie ultrices diam ut vel neque tincidunt eget sed ut quis sit semper nunc at etiam lacinia quam laoreet eget id sapien a pharetra, ornare diam dignissim  neque tincidunt ultrices.
+                    figcaption.blockquote-footer Darlene Robertson
+
+  // Testimonial: Style 1
+  section#testimonial-1.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Testimonial: Style 1
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview2' data-bs-toggle='tab' role='tab' aria-controls='preview2' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview2.tab-pane.fade.show.active(role='tabpanel')
+          .row.row-cols-1.row-cols-md-2.align-items-center.g-4
+            .col
+              .bg-secondary.p-4
+                .card.border-0
+                  .card-body
+                    .d-flex.align-items-center.mb-3
+                      img(src='../assets/img/avatar/22.jpg' width='60' alt='Jane Cooper').rounded-circle
+                      .ps-3
+                        .h6.mb-1 Jane Cooper
+                        .fs-sm.text-muted Medical Assistant
+                    p.card-text Sit risus metus, vel neque eu lectus duis. Vulputate facilisi at feugiat mi aenean nunc enim faucibus arcu. Diam id accumsan sit semper nunc.
+            .col
+              .card.border-0.bg-secondary
+                .card-body
+                  .d-flex.align-items-center.mb-3
+                    img(src='../assets/img/avatar/23.jpg' width='60' alt='Wade Warren').rounded-circle
+                    .ps-3
+                      .h6.mb-1 Wade Warren
+                      .fs-sm.text-muted President of Sales
+                  p.card-text Vitae tempor morbi tellus pulvinar. Ut iaculis sit tristique in turpis volutpat quam nec. Pretium eu nulla egestas ultrices. Donec in pulvinar ut fermentum a, nunc, aliquam.
+        #html2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Testimonial style 1: Light card --&gt;
+              &lt;div class=&quot;card border-0&quot;&gt;
+                &lt;div class=&quot;card-body&quot;&gt;
+                  &lt;div class=&quot;d-flex align-items-center mb-3&quot;&gt;
+                    &lt;img src=&quot;assets/img/avatar/22.jpg&quot; class=&quot;rounded-circle&quot; width=&quot;60&quot; alt=&quot;Jane Cooper&quot;&gt;
+                    &lt;div class=&quot;ps-3&quot;&gt;
+                      &lt;div class=&quot;h6 mb-1&quot;&gt;Jane Cooper&lt;/div&gt;
+                      &lt;div class=&quot;fs-sm text-muted&quot;&gt;Medical Assistant&lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;p class=&quot;card-text&quot;&gt;Sit risus metus, vel neque eu lectus duis. Vulputate facilisi at feugiat mi aenean nunc enim faucibus arcu. Diam id accumsan sit semper nunc.&lt;/p&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Testimonial style 1: Gray card --&gt;
+              &lt;div class=&quot;card border-0 bg-secondary&quot;&gt;
+                &lt;div class=&quot;card-body&quot;&gt;
+                  &lt;div class=&quot;d-flex align-items-center mb-3&quot;&gt;
+                    &lt;img src=&quot;assets/img/avatar/23.jpg&quot; class=&quot;rounded-circle&quot; width=&quot;60&quot; alt=&quot;Wade Warren&quot;&gt;
+                    &lt;div class=&quot;ps-3&quot;&gt;
+                      &lt;div class=&quot;h6 mb-1&quot;&gt;Wade Warren&lt;/div&gt;
+                      &lt;div class=&quot;fs-sm text-muted&quot;&gt;President of Sales&lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;p class=&quot;card-text&quot;&gt;Vitae tempor morbi tellus pulvinar. Ut iaculis sit tristique in turpis volutpat quam nec. Pretium eu nulla egestas ultrices. Donec in pulvinar ut fermentum a, nunc, aliquam.&lt;/p&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Testimonial style 1: Light card
+              .card.border-0
+                .card-body
+                  .d-flex.align-items-center.mb-3
+                    img(src=&quot;assets/img/avatar/22.jpg&quot;, width=&quot;60&quot;, alt=&quot;Jane Cooper&quot;).rounded-circle
+                    .ps-3
+                      .h6.mb-1 Jane Cooper
+                      .fs-sm.text-muted Medical Assistant
+                  p.card-text Sit risus metus, vel neque eu lectus duis. Vulputate facilisi at feugiat mi aenean nunc enim faucibus arcu. Diam id accumsan sit semper nunc.
+              
+              // Testimonial style 1: Gray card
+              .card.border-0.bg-secondary
+                .card-body
+                  .d-flex.align-items-center.mb-3
+                    img(src=&quot;assets/img/avatar/23.jpg&quot;, width=&quot;60&quot;, alt=&quot;Wade Warren&quot;).rounded-circle
+                    .ps-3
+                      .h6.mb-1 Wade Warren
+                      .fs-sm.text-muted President of Sales
+                  p.card-text Vitae tempor morbi tellus pulvinar. Ut iaculis sit tristique in turpis volutpat quam nec. Pretium eu nulla egestas ultrices. Donec in pulvinar ut fermentum a, nunc, aliquam.
+
+  // Testimonial: Style 2
+  section#testimonial-2.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Testimonial: Style 2
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview3' data-bs-toggle='tab' role='tab' aria-controls='preview3' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview3.tab-pane.fade.show.active(role='tabpanel')
+          .pt-4.mt-3
+            .card.border-0.bg-faded-info.h-100.text-center(style='max-width: 636px;')
+              .polygon-avatar.bg-info.mx-auto.translate-middle-y
+                img(src='../assets/img/landing/mobile-app-showcase/testimonials/01.png' alt='Nick Williams')
+              .card-body.pt-0.mt-n4
+                p.card-text.fs-xl Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis libero vitae sem ornare ornare. Aliquam ut sapien vitae quam blandit egestas. Quisque nulla elit, fermentum et tincidunt tempor, rutrum at leo. Curabitur massa quam, aliquam eu sapien sed.
+              .card-footer.border-0.pt-0
+                .h4.mb-1 Nick Williams
+                span Student
+          .pt-5.mt-4
+            .card.border-0.bg-faded-warning.h-100.text-center(style='max-width: 636px;')
+              .polygon-avatar.bg-warning.mx-auto.translate-middle-y
+                img(src='../assets/img/landing/mobile-app-showcase/testimonials/02.png' alt='Lili Bocouse')
+              .card-body.pt-0.mt-n4
+                p.card-text.fs-xl Proin interdum purus non quam convallis, quis dignissim leo cursus. Praesent finibus elit nisl, sed ultrices elit lobortis in. Donec laoreet sit amet nulla quis hendrerit. Praesent venenatis mattis ante. Praesent justo elit, suscipit a libero sit amet, luctus posuere mi.
+              .card-footer.border-0.pt-0
+                .h4.mb-1 Lili Bocouse
+                span Student
+        #html3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Testimonial style 2: Info card example. Can be any color --&gt;
+              &lt;div class=&quot;card border-0 bg-faded-info h-100 text-center&quot;&gt;
+                &lt;div class=&quot;polygon-avatar bg-info mx-auto translate-middle-y&quot;&gt;
+                  &lt;img src=&quot;assets/img/landing/mobile-app-showcase/testimonials/01.png&quot; alt=&quot;Nick Williams&quot;&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;card-body pt-0 mt-n4&quot;&gt;
+                  &lt;p class=&quot;card-text fs-xl&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis libero vitae sem ornare ornare. Aliquam ut sapien vitae quam blandit egestas. Quisque nulla elit, fermentum et tincidunt tempor, rutrum at leo. Curabitur massa quam, aliquam eu sapien sed.&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;card-footer border-0 pt-0&quot;&gt;
+                  &lt;div class=&quot;h4 mb-1&quot;&gt;Nick Williams&lt;/div&gt;
+                  &lt;span&gt;Student&lt;/span&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+              
+              &lt;!-- Testimonial style 2: Warning card example. Can be any color --&gt;
+              &lt;div class=&quot;card border-0 bg-faded-warning h-100 text-center&quot;&gt;
+                &lt;div class=&quot;polygon-avatar bg-info mx-auto translate-middle-y&quot;&gt;
+                  &lt;img src=&quot;assets/img/landing/mobile-app-showcase/testimonials/02.png&quot; alt=&quot;Lili Bocouse&quot;&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;card-body pt-0 mt-n4&quot;&gt;
+                  &lt;p class=&quot;card-text fs-xl&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis libero vitae sem ornare ornare. Aliquam ut sapien vitae quam blandit egestas. Quisque nulla elit, fermentum et tincidunt tempor, rutrum at leo. Curabitur massa quam, aliquam eu sapien sed.&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;card-footer border-0 pt-0&quot;&gt;
+                  &lt;div class=&quot;h4 mb-1&quot;&gt;Lili Bocouse&lt;/div&gt;
+                  &lt;span&gt;Student&lt;/span&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Testimonial style 2: Info card example. Can be any color
+              .card.border-0.bg-faded-info.h-100.text-center
+                .polygon-avatar.bg-info.mx-auto.translate-middle-y
+                  img(src=&quot;assets/img/landing/mobile-app-showcase/testimonials/01.png&quot;, alt=&quot;Nick Williams&quot;)
+                .card-body.pt-0.mt-n4
+                  p.card-text.fs-xl Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis libero vitae sem ornare ornare. Aliquam ut sapien vitae quam blandit egestas. Quisque nulla elit, fermentum et tincidunt tempor, rutrum at leo. Curabitur massa quam, aliquam eu sapien sed.
+                .card-footer.border-0.pt-0
+                  .h4.mb-1 Nick Williams
+                  span Student
+
+              // Testimonial style 2: Warning card example. Can be any color
+              .card.border-0.bg-faded-warning.h-100.text-center
+                .polygon-avatar.bg-warning.mx-auto.translate-middle-y
+                  img(src=&quot;assets/img/landing/mobile-app-showcase/testimonials/02.png&quot;, alt=&quot;Lili Bocouse&quot;)
+                .card-body.pt-0.mt-n4
+                  p.card-text.fs-xl Proin interdum purus non quam convallis, quis dignissim leo cursus. Praesent finibus elit nisl, sed ultrices elit lobortis in. Donec laoreet sit amet nulla quis hendrerit. Praesent venenatis mattis ante. Praesent justo elit, suscipit a libero sit amet, luctus posuere mi.
+                .card-footer.border-0.pt-0
+                  .h4.mb-1 Lili Bocouse
+                  span Student
+
+  // Review
+  section#review.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Review
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview4' data-bs-toggle='tab' role='tab' aria-controls='preview4' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview4.tab-pane.fade.show.active(role='tabpanel')
+          .d-md-flex
+            .text-center.p-3.p-sm-4.m-lg-2(style='max-width: 400px;')
+              .d-flex.justify-content-center.fs-lg.mb-4
+                i.ai-star-filled.text-warning.mx-2
+                i.ai-star-filled.text-warning.mx-2
+                i.ai-star-filled.text-warning.mx-2
+                i.ai-star-filled.text-warning.mx-2
+                i.ai-star-filled.text-warning.mx-2
+              p.mb-3 "Tools are constantly improved and contain a lot of useful information."
+              .d-flex.align-items-center.justify-content-center.text-start.pt-2
+                img(src='../assets/img/avatar/31.jpg' width='60' alt='James Hendrix').rounded-circle
+                .ps-3
+                  .h6.mb-1 James Hendrix
+                  .fs-sm.text-muted Marketing specialist
+            .d-md-none(style='height: 16px;')
+            .text-center.p-3.p-sm-4.m-lg-2(style='max-width: 400px;')
+              .d-flex.justify-content-center.fs-lg.mb-4
+                i.ai-star-filled.text-warning.mx-2
+                i.ai-star-filled.text-warning.mx-2
+                i.ai-star-filled.text-warning.mx-2
+                i.ai-star-filled.text-warning.mx-2
+                i.ai-star-filled.text-muted.opacity-40.mx-2
+              p.mb-3 "We can easily analyze our big data quickly and efficiently all the time."
+              img(src='../assets/img/landing/saas-1/brands/capterra.svg' width='196' alt='Capterra').d-inline-block
+        #html4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Review: Avatar + Name + Position --&gt;
+              &lt;div class=&quot;text-center p-3 p-sm-4 m-lg-2&quot;&gt;
+                &lt;div class=&quot;d-flex justify-content-center fs-lg mb-4&quot;&gt;
+                  &lt;i class=&quot;ai-star-filled text-warning mx-2&quot;&gt;&lt;/i&gt;
+                  &lt;i class=&quot;ai-star-filled text-warning mx-2&quot;&gt;&lt;/i&gt;
+                  &lt;i class=&quot;ai-star-filled text-warning mx-2&quot;&gt;&lt;/i&gt;
+                  &lt;i class=&quot;ai-star-filled text-warning mx-2&quot;&gt;&lt;/i&gt;
+                  &lt;i class=&quot;ai-star-filled text-warning mx-2&quot;&gt;&lt;/i&gt;
+                &lt;/div&gt;
+                &lt;p class=&quot;mb-3&quot;&gt;"Tools are constantly improved and contain a lot of useful information."&lt;/p&gt;
+                &lt;div class=&quot;d-flex align-items-center justify-content-center text-start pt-2&quot;&gt;
+                  &lt;img src=&quot;assets/img/avatar/31.jpg&quot; class=&quot;rounded-circle&quot; width=&quot;60&quot; alt=&quot;James Hendrix&quot;&gt;
+                  &lt;div class=&quot;ps-3&quot;&gt;
+                    &lt;div class=&quot;h6 mb-1&quot;&gt;James Hendrix&lt;/div&gt;
+                    &lt;div class=&quot;fs-sm text-muted&quot;&gt;Marketing specialist&lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Review: Company logo --&gt;
+              &lt;div class=&quot;text-center p-3 p-sm-4 m-lg-2&quot;&gt;
+                &lt;div class=&quot;d-flex justify-content-center fs-lg mb-4&quot;&gt;
+                  &lt;i class=&quot;ai-star-filled text-warning mx-2&quot;&gt;&lt;/i&gt;
+                  &lt;i class=&quot;ai-star-filled text-warning mx-2&quot;&gt;&lt;/i&gt;
+                  &lt;i class=&quot;ai-star-filled text-warning mx-2&quot;&gt;&lt;/i&gt;
+                  &lt;i class=&quot;ai-star-filled text-warning mx-2&quot;&gt;&lt;/i&gt;
+                  &lt;i class=&quot;ai-star-filled text-muted opacity-40 mx-2&quot;&gt;&lt;/i&gt;
+                &lt;/div&gt;
+                &lt;p class=&quot;mb-3&quot;&gt;"We can easily analyze our big data quickly and efficiently all the time."&lt;/p&gt;
+                &lt;img src=&quot;assets/img/landing/saas-1/brands/capterra.svg&quot; class=&quot;d-inline-block&quot; width=&quot;196&quot; alt=&quot;Capterra&quot;&gt;
+              &lt;/div&gt;
+        #pug4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Review: Avatar + Name + Position
+              .text-center.p-3.p-sm-4.m-lg-2
+                .d-flex.justify-content-center.fs-lg.mb-4
+                  i.ai-star-filled.text-warning.mx-2
+                  i.ai-star-filled.text-warning.mx-2
+                  i.ai-star-filled.text-warning.mx-2
+                  i.ai-star-filled.text-warning.mx-2
+                  i.ai-star-filled.text-warning.mx-2
+                p.mb-3 "Tools are constantly improved and contain a lot of useful information."
+                .d-flex.align-items-center.justify-content-center.text-start.pt-2
+                  img(src=&quot;assets/img/avatar/31.jpg&quot;, width=&quot;60&quot;, alt=&quot;James Hendrix&quot;).rounded-circle
+                  .ps-3
+                    .h6.mb-1 James Hendrix
+                    .fs-sm.text-muted Marketing specialist
+
+              // Review: Company logo
+              .text-center.p-3.p-sm-4.m-lg-2
+                .d-flex.justify-content-center.fs-lg.mb-4
+                  i.ai-star-filled.text-warning.mx-2
+                  i.ai-star-filled.text-warning.mx-2
+                  i.ai-star-filled.text-warning.mx-2
+                  i.ai-star-filled.text-warning.mx-2
+                  i.ai-star-filled.text-muted.opacity-40.mx-2
+                p.mb-3 "We can easily analyze our big data quickly and efficiently all the time."
+                img(src=&quot;assets/img/landing/saas-1/brands/capterra.svg&quot;, width=&quot;196&quot;, alt=&quot;Capterra&quot;).d-inline-block
+
+  // Testimonials slider: Style 1
+  section#testimonials-slider-1.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Testimonials slider: Style 1
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview5' data-bs-toggle='tab' role='tab' aria-controls='preview5' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html5' data-bs-toggle='tab' role='tab' aria-controls='html5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug5' data-bs-toggle='tab' role='tab' aria-controls='pug5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview5.tab-pane.fade.show.active(role='tabpanel')
+          .card.border-0.bg-secondary.overflow-hidden
+            .card-body.position-relative.zindex-2.py-lg-5
+              .row.py-2.py-sm-1.py-md-3.py-lg-4.py-xl-2
+                .col-md-4.mb-3.mb-md-0
+                  .binded-content
+                    #author1.binded-item.active
+                      img(src='../assets/img/avatar/21.jpg' width='86' alt='Lilianna Bocouse').d-block.rounded-circle.mb-3
+                      h4.mb-0 Lilianna Bocouse
+                      p.fs-lg.text-muted.mb-0 Head of Marketing
+                    #author2.binded-item
+                      img(src='../assets/img/avatar/33.jpg' width='86' alt='Darell Steward').d-block.rounded-circle.mb-3
+                      h4.mb-0 Darell Steward
+                      p.fs-lg.text-muted.mb-0 Project Manager
+                    #author3.binded-item
+                      img(src='../assets/img/avatar/34.jpg' width='86' alt='Annette Black').d-block.rounded-circle.mb-3
+                      h4.mb-0 Annette Black
+                      p.fs-lg.text-muted.mb-0 Lead Designer
+
+                .col-md-8
+                  .swiper(
+                    data-swiper-options=`{
+                      "spaceBetween": 40,
+                      "loop": true,
+                      "autoHeight": true,
+                      "bindedContent": true,
+                      "pagination": {
+                        "el": "#testimonials-bullets",
+                        "clickable": true
+                      }
+                    }`
+                  )
+                    .swiper-wrapper
+                      .swiper-slide(data-swiper-binded='#author1')
+                        p.text-dark.lead.mb-0 “Around provides us with the detailed and accurate data we need to make strategic decisions. All tools are constantly being improved and contain a lot of useful and interesting information. Thanks to Around, we can constantly analyze our big data quickly and efficiently.”
+                      .swiper-slide(data-swiper-binded='#author2')
+                        p.text-dark.lead.mb-0 “Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ac pretium dui. Aliquam rutrum justo lorem, in efficitur odio efficitur vel. Integer mattis, neque malesuada sagittis porttitor, enim tortor ullamcorper diam, id eleifend sem mauris at turpis. Curabitur sed nisi nec ligula dictum maximus.”
+                      .swiper-slide(data-swiper-binded='#author3')
+                        p.text-dark.lead.mb-0 “Quisque rutrum sit amet magna sit amet tristique. Vivamus rhoncus ac purus vitae convallis. Aliquam erat volutpat. Proin egestas, mauris ut semper semper, ipsum felis mattis ligula, et porttitor ante arcu nec ante. Aliquam congue est eu turpis sollicitudin, et ullamcorper tortor aliquam.”
+          #testimonials-bullets.swiper-pagination.position-relative.bottom-0.pt-4.mt-2.mt-md-3
+        #html5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Testimonials slider: Style 1 --&gt;
+              &lt;div class=&quot;card border-0 bg-secondary overflow-hidden&quot;&gt;
+                &lt;div class=&quot;card-body position-relative zindex-2 px-lg-0 py-lg-5&quot;&gt;
+                  &lt;div class=&quot;row py-2 py-sm-1 py-md-3 py-lg-4 py-xl-5&quot;&gt;
+                    &lt;div class=&quot;col-md-4 col-lg-3 offset-lg-1 mb-3 mb-md-0&quot;&gt;
+                    
+                      &lt;!-- Binded items--&gt;
+                      &lt;div class=&quot;binded-content&quot;&gt;
+
+                        &lt;!-- Item--&gt;
+                        &lt;div class=&quot;binded-item active&quot; id=&quot;author1&quot;&gt;&lt;img class=&quot;d-block rounded-circle mb-3&quot; src=&quot;assets/img/avatar/21.jpg&quot; width=&quot;86&quot; alt=&quot;Lilianna Bocouse&quot;&gt;
+                          &lt;h4 class=&quot;mb-0&quot;&gt;Lilianna Bocouse&lt;/h4&gt;
+                          &lt;p class=&quot;fs-lg text-muted mb-0&quot;&gt;Head of Marketing&lt;/p&gt;
+                        &lt;/div&gt;
+
+                        &lt;!-- Item--&gt;
+                        &lt;div class=&quot;binded-item&quot; id=&quot;author2&quot;&gt;&lt;img class=&quot;d-block rounded-circle mb-3&quot; src=&quot;assets/img/avatar/33.jpg&quot; width=&quot;86&quot; alt=&quot;Darell Steward&quot;&gt;
+                          &lt;h4 class=&quot;mb-0&quot;&gt;Darell Steward&lt;/h4&gt;
+                          &lt;p class=&quot;fs-lg text-muted mb-0&quot;&gt;Project Manager&lt;/p&gt;
+                        &lt;/div&gt;
+
+                        &lt;!-- Item--&gt;
+                        &lt;div class=&quot;binded-item&quot; id=&quot;author3&quot;&gt;&lt;img class=&quot;d-block rounded-circle mb-3&quot; src=&quot;assets/img/avatar/34.jpg&quot; width=&quot;86&quot; alt=&quot;Annette Black&quot;&gt;
+                          &lt;h4 class=&quot;mb-0&quot;&gt;Annette Black&lt;/h4&gt;
+                          &lt;p class=&quot;fs-lg text-muted mb-0&quot;&gt;Lead Designer&lt;/p&gt;
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+
+                    &lt;div class=&quot;col-md-8 col-lg-7&quot;&gt;
+
+                      &lt;!-- Swiper slider--&gt;
+                      &lt;div class=&quot;swiper&quot; data-swiper-options='{
+                        &quot;spaceBetween&quot;: 40,
+                        &quot;loop&quot;: true,
+                        &quot;autoHeight&quot;: true,
+                        &quot;bindedContent&quot;: true,
+                        &quot;pagination&quot;: {
+                          &quot;el&quot;: &quot;#testimonials-bullets&quot;,
+                          &quot;clickable&quot;: true
+                        }
+                      }'&gt;
+                        &lt;div class=&quot;swiper-wrapper&quot;&gt;
+
+                          &lt;!-- Item--&gt;
+                          &lt;div class=&quot;swiper-slide&quot; data-swiper-binded=&quot;#author1&quot;&gt;
+                            &lt;p class=&quot;text-dark lead mb-0&quot;&gt;“Around provides us with the detailed and accurate data we need to make strategic decisions. All tools are constantly being improved and contain a lot of useful and interesting information. Thanks to Around, we can constantly analyze our big data quickly and efficiently.”&lt;/p&gt;
+                          &lt;/div&gt;
+
+                          &lt;!-- Item--&gt;
+                          &lt;div class=&quot;swiper-slide&quot; data-swiper-binded=&quot;#author2&quot;&gt;
+                            &lt;p class=&quot;text-dark lead mb-0&quot;&gt;“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ac pretium dui. Aliquam rutrum justo lorem, in efficitur odio efficitur vel. Integer mattis, neque malesuada sagittis porttitor, enim tortor ullamcorper diam, id eleifend sem mauris at turpis. Curabitur sed nisi nec ligula dictum maximus eu ut ante.”&lt;/p&gt;
+                          &lt;/div&gt;
+
+                          &lt;!-- Item--&gt;
+                          &lt;div class=&quot;swiper-slide&quot; data-swiper-binded=&quot;#author3&quot;&gt;
+                            &lt;p class=&quot;text-dark lead mb-0&quot;&gt;“Quisque rutrum sit amet magna sit amet tristique. Vivamus rhoncus ac purus vitae convallis. Aliquam erat volutpat. Proin egestas, mauris ut semper semper, ipsum felis mattis ligula, et porttitor ante arcu nec ante. Aliquam congue est eu turpis sollicitudin, et ullamcorper tortor aliquam.”&lt;/p&gt;
+                          &lt;/div&gt;
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Swiper pagination (bullets)--&gt;
+              &lt;div class=&quot;swiper-pagination position-relative bottom-0 pt-4 mt-2 mt-md-3&quot; id=&quot;testimonials-bullets&quot;&gt;&lt;/div&gt;
+        #pug5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Testimonials slider: Style 1
+              .card.border-0.bg-secondary.overflow-hidden
+                .card-body.position-relative.zindex-2.px-lg-0.py-lg-5
+                  .row.py-2.py-sm-1.py-md-3.py-lg-4.py-xl-5
+                    .col-md-4.col-lg-3.offset-lg-1.mb-3.mb-md-0
+
+                      // Binded items
+                      .binded-content
+
+                        // Item
+                        #author1.binded-item.active
+                          img(src=&quot;assets/img/avatar/21.jpg&quot;, width=&quot;86&quot;, alt=&quot;Lilianna Bocouse&quot;).d-block.rounded-circle.mb-3
+                          h4.mb-0 Lilianna Bocouse
+                          p.fs-lg.text-muted.mb-0 Head of Marketing
+
+                        // Item
+                        #author2.binded-item
+                          img(src=&quot;assets/img/avatar/33.jpg&quot;, width=&quot;86&quot;, alt=&quot;Darell Steward&quot;).d-block.rounded-circle.mb-3
+                          h4.mb-0 Darell Steward
+                          p.fs-lg.text-muted.mb-0 Project Manager
+
+                        // Item
+                        #author3.binded-item
+                          img(src=&quot;assets/img/avatar/34.jpg&quot;, width=&quot;86&quot;, alt=&quot;Annette Black&quot;).d-block.rounded-circle.mb-3
+                          h4.mb-0 Annette Black
+                          p.fs-lg.text-muted.mb-0 Lead Designer
+
+                    .col-md-8.col-lg-7
+
+                      // Swiper slider
+                      .swiper(
+                        data-swiper-options=`{
+                          &quot;spaceBetween&quot;: 40,
+                          &quot;loop&quot;: true,
+                          &quot;autoHeight&quot;: true,
+                          &quot;bindedContent&quot;: true,
+                          &quot;pagination&quot;: {
+                            &quot;el&quot;: &quot;#testimonials-bullets&quot;,
+                            &quot;clickable&quot;: true
+                          }
+                        }`
+                      )
+                        .swiper-wrapper
+                        
+                          // Item
+                          .swiper-slide(data-swiper-binded=&quot;#author1&quot;)
+                            p.text-dark.lead.mb-0 “Around provides us with the detailed and accurate data we need to make strategic decisions. All tools are constantly being improved and contain a lot of useful and interesting information. Thanks to Around, we can constantly analyze our big data quickly and efficiently.”
+                        
+                          // Item
+                          .swiper-slide(data-swiper-binded=&quot;#author2&quot;)
+                            p.text-dark.lead.mb-0 “Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ac pretium dui. Aliquam rutrum justo lorem, in efficitur odio efficitur vel. Integer mattis, neque malesuada sagittis porttitor, enim tortor ullamcorper diam, id eleifend sem mauris at turpis. Curabitur sed nisi nec ligula dictum maximus eu ut ante.”
+                        
+                          // Item
+                          .swiper-slide(data-swiper-binded=&quot;#author3&quot;)
+                            p.text-dark.lead.mb-0 “Quisque rutrum sit amet magna sit amet tristique. Vivamus rhoncus ac purus vitae convallis. Aliquam erat volutpat. Proin egestas, mauris ut semper semper, ipsum felis mattis ligula, et porttitor ante arcu nec ante. Aliquam congue est eu turpis sollicitudin, et ullamcorper tortor aliquam.”
+
+              // Swiper pagination (bullets)
+              #testimonials-bullets.swiper-pagination.position-relative.bottom-0.pt-4.mt-2.mt-md-3
+
+  // Testimonials slider: Style 2
+  section#testimonials-slider-2.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Testimonials slider: Style 2
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview6' data-bs-toggle='tab' role='tab' aria-controls='preview6' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html6' data-bs-toggle='tab' role='tab' aria-controls='html6' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug6' data-bs-toggle='tab' role='tab' aria-controls='pug6' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview6.tab-pane.fade.show.active(role='tabpanel')
+          .row.py-4
+            .col-md-9.order-md-2
+              .swiper(
+                data-swiper-options=`{
+                  "spaceBetween": 40,
+                  "loop": true,
+                  "bindedContent": true,
+                  "autoHeight": true,
+                  "pagination": {
+                    "el": ".testimonials-count",
+                    "type": "fraction"
+                  },
+                  "navigation": {
+                    "prevEl": "#prev-testimonial",
+                    "nextEl": "#next-testimonial"
+                  }
+                }`
+              )
+                .swiper-wrapper
+                  .swiper-slide(data-swiper-binded='#item-1')
+                    .d-flex.d-md-none.pt-3.mb-3
+                      i.ai-quotes.d-md-none.text-primary.display-3.mt-n2
+                      .ps-3
+                        h3.h5.mb-0 Lilia Bocouse
+                        p.text-muted.mb-0 Head of Marketing
+                    h2.mb-lg-4 Awesome experience with a professional team. Thank you :)
+                    p.lead.mb-0 Suspendisse mauris elit, pellentesque nec purus sed, finibus finibus ipsum. Proin posuere, metus sed porttitor pellentesque, ante magna tincidunt mi, nec fermentum dui ligula vel massa. Praesent ultrices iaculis arcu iaculis ultrices. Maecenas vitae nulla odio. In laoreet, lectus in tempus ultricies iaculis arcu.  
+                  .swiper-slide(data-swiper-binded='#item-2')
+                    .d-flex.d-md-none.pt-3.mb-3
+                      i.ai-quotes.d-md-none.text-primary.display-3.mt-n2
+                      .ps-3
+                        h3.h5.mb-0 Robert Fox
+                        p.text-muted.mb-0 Marketing Coordinator
+                    h2.mb-lg-4 Thanks to your talented team for the banding we dreamed about
+                    p.lead.mb-0 Leo vitae sem eget eget at in vivamus placerat sodales tristique risusiis senectusic quisque faucibus est justo egetert lobortis ultrices eu dignissim etiamier turpis tincidunt eget placerat feugiat senectusic quisque faucibus placerat sodales vitae tempor morbi tellus pulvinar tristique in turpis.  
+                  .swiper-slide(data-swiper-binded='#item-3')
+                    .d-flex.d-md-none.pt-3.mb-3
+                      i.ai-quotes.d-md-none.text-primary.display-3.mt-n2
+                      .ps-3
+                        h3.h5.mb-0 Jenny Wilson
+                        p.text-muted.mb-0 CEO, Co-Founder
+                    h2.mb-lg-4 Thanks to you, we have created a unique branding that is our pride!
+                    p.lead.mb-0 Duis sapien velit, rutrum ac rutrum dapibus, auctor ut lacus. Aenean sit amet erat augue. Aenean finibus, nibh sed malesuada maximus, nisi tellus iaculis quam, eget egestas mi felis eu urna. Quisque id nisl commodo, egestas eros ac, cursus odio. Ut nec rutrum magna, vel tempor erat. Vivamus nec tempus purus.  
+            .col-md-3.order-md-1.mt-n3
+              i.ai-quotes.d-none.d-md-block.text-primary.ms-n2.mb-1(style='font-size: 150px;')
+              .binded-content.h-auto.d-none.d-md-block
+                #item-1.binded-item.h-auto.active
+                  h3.h5.mb-1 Lilia Bocouse
+                  p.text-muted.mb-0 Head of Marketing
+                #item-2.binded-item.h-auto
+                  h3.h5.mb-1 Robert Fox
+                  p.text-muted.mb-0 Marketing Coordinator
+                #item-3.binded-item.h-auto
+                  h3.h5.mb-1 Jenny Wilson
+                  p.text-muted.mb-0 CEO, Co-Founder
+              .d-flex.align-items-center.pb-2.pb-md-0.pt-4.mt-3
+                button(type='button')#prev-testimonial.btn.btn-icon.btn-sm.btn-outline-primary.rounded-circle.me-3
+                  i.ai-arrow-left
+                .testimonials-count.fw-medium.flex-shrink-0.text-center(style='width: 2.5rem;')
+                button(type='button')#next-testimonial.btn.btn-icon.btn-sm.btn-outline-primary.rounded-circle.ms-3
+                  i.ai-arrow-right
+        #html6.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Testimonials slider: Style 2 --&gt;
+              &lt;div class=&quot;row&quot;&gt;
+                &lt;div class=&quot;col-md-9 col-lg-7 order-md-2&quot;&gt;
+
+                  &lt;!-- Swiper slider--&gt;
+                  &lt;div class=&quot;swiper&quot; data-swiper-options='{
+                    &quot;spaceBetween&quot;: 40,
+                    &quot;loop&quot;: true,
+                    &quot;bindedContent&quot;: true,
+                    &quot;autoHeight&quot;: true,
+                    &quot;pagination&quot;: {
+                      &quot;el&quot;: &quot;.testimonials-count&quot;,
+                      &quot;type&quot;: &quot;fraction&quot;
+                    },
+                    &quot;navigation&quot;: {
+                      &quot;prevEl&quot;: &quot;#prev-testimonial&quot;,
+                      &quot;nextEl&quot;: &quot;#next-testimonial&quot;
+                    }
+                  }'&gt;
+                    &lt;div class=&quot;swiper-wrapper&quot;&gt;
+
+                      &lt;!-- Item--&gt;
+                      &lt;div class=&quot;swiper-slide&quot; data-swiper-binded=&quot;#testimonial-1&quot;&gt;
+                        &lt;div class=&quot;d-flex d-md-none pt-3 mb-3&quot;&gt;&lt;i class=&quot;ai-quotes d-md-none text-primary display-3 mt-n2&quot;&gt;&lt;/i&gt;
+                          &lt;div class=&quot;ps-3&quot;&gt;
+                            &lt;h3 class=&quot;h5 mb-0&quot;&gt;Lilia Bocouse&lt;/h3&gt;
+                            &lt;p class=&quot;text-muted mb-0&quot;&gt;Head of Marketing&lt;/p&gt;
+                          &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;h2 class=&quot;mb-lg-4&quot;&gt;Awesome experience with a professional team. Thank you :)&lt;/h2&gt;
+                        &lt;p class=&quot;lead mb-0&quot;&gt;Suspendisse mauris elit, pellentesque nec purus sed, finibus finibus ipsum. Proin posuere, metus sed porttitor pellentesque, ante magna tincidunt mi, nec fermentum dui ligula vel massa. Praesent ultrices iaculis arcu iaculis ultrices. Maecenas vitae nulla odio. In laoreet, lectus in tempus ultricies.  &lt;/p&gt;
+                      &lt;/div&gt;
+
+                      &lt;!-- Item--&gt;
+                      &lt;div class=&quot;swiper-slide&quot; data-swiper-binded=&quot;#testimonial-2&quot;&gt;
+                        &lt;div class=&quot;d-flex d-md-none pt-3 mb-3&quot;&gt;&lt;i class=&quot;ai-quotes d-md-none text-primary display-3 mt-n2&quot;&gt;&lt;/i&gt;
+                          &lt;div class=&quot;ps-3&quot;&gt;
+                            &lt;h3 class=&quot;h5 mb-0&quot;&gt;Robert Fox&lt;/h3&gt;
+                            &lt;p class=&quot;text-muted mb-0&quot;&gt;Marketing Coordinator&lt;/p&gt;
+                          &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;h2 class=&quot;mb-lg-4&quot;&gt;Thanks to your talented team for the banding we dreamed about&lt;/h2&gt;
+                        &lt;p class=&quot;lead mb-0&quot;&gt;Leo vitae sem eget eget at in vivamus placerat sodales tristique risusiis senectusic quisque faucibus est justo egetert lobortis ultrices eu dignissim etiamier turpis tincidunt eget placerat feugiat senectusic quisque faucibus placerat sodales vitae tempor morbi tellus pulvinar tristique in turpis.  &lt;/p&gt;
+                      &lt;/div&gt;
+
+                      &lt;!-- Item--&gt;
+                      &lt;div class=&quot;swiper-slide&quot; data-swiper-binded=&quot;#testimonial-3&quot;&gt;
+                        &lt;div class=&quot;d-flex d-md-none pt-3 mb-3&quot;&gt;&lt;i class=&quot;ai-quotes d-md-none text-primary display-3 mt-n2&quot;&gt;&lt;/i&gt;
+                          &lt;div class=&quot;ps-3&quot;&gt;
+                            &lt;h3 class=&quot;h5 mb-0&quot;&gt;Jenny Wilson&lt;/h3&gt;
+                            &lt;p class=&quot;text-muted mb-0&quot;&gt;CEO, Co-Founder&lt;/p&gt;
+                          &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;h2 class=&quot;mb-lg-4&quot;&gt;Thanks to you, we have created a unique branding that is our pride!&lt;/h2&gt;
+                        &lt;p class=&quot;lead mb-0&quot;&gt;Duis sapien velit, rutrum ac rutrum dapibus, auctor ut lacus. Aenean sit amet erat augue. Aenean finibus, nibh sed malesuada maximus, nisi tellus iaculis quam, eget egestas mi felis eu urna. Quisque id nisl commodo, egestas eros ac, cursus odio. Ut nec rutrum magna, vel tempor erat. Vivamus nec tempus purus.  &lt;/p&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;col-md-3 offset-lg-1 order-md-1 mt-n3&quot;&gt;
+                  &lt;i class=&quot;ai-quotes d-none d-md-block text-primary ms-n2 mb-1&quot; style=&quot;font-size: 150px;&quot;&gt;&lt;/i&gt;
+
+                  &lt;!-- Contnetn binded to slider (on screens &gt; 768px)--&gt;
+                  &lt;div class=&quot;binded-content h-auto d-none d-md-block&quot;&gt;
+                    &lt;div class=&quot;binded-item h-auto active&quot; id=&quot;testimonial-1&quot;&gt;
+                      &lt;h3 class=&quot;h5 mb-1&quot;&gt;Lilia Bocouse&lt;/h3&gt;
+                      &lt;p class=&quot;text-muted mb-0&quot;&gt;Head of Marketing&lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;binded-item h-auto&quot; id=&quot;testimonial-2&quot;&gt;
+                      &lt;h3 class=&quot;h5 mb-1&quot;&gt;Robert Fox&lt;/h3&gt;
+                      &lt;p class=&quot;text-muted mb-0&quot;&gt;Marketing Coordinator&lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;binded-item h-auto&quot; id=&quot;testimonial-3&quot;&gt;
+                      &lt;h3 class=&quot;h5 mb-1&quot;&gt;Jenny Wilson&lt;/h3&gt;
+                      &lt;p class=&quot;text-muted mb-0&quot;&gt;CEO, Co-Founder&lt;/p&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+
+                  &lt;!-- Swiper controls--&gt;
+                  &lt;div class=&quot;d-flex align-items-center pb-2 pb-md-0 pt-4 mt-3&quot;&gt;
+                    &lt;button class=&quot;btn btn-icon btn-sm btn-outline-primary rounded-circle me-3&quot; type=&quot;button&quot; id=&quot;prev-testimonial&quot;&gt;
+                      &lt;i class=&quot;ai-arrow-left&quot;&gt;&lt;/i&gt;
+                    &lt;/button&gt;
+                    &lt;div class=&quot;testimonials-count fw-medium flex-shrink-0 text-center&quot; style=&quot;width: 2.5rem;&quot;&gt;&lt;/div&gt;
+                    &lt;button class=&quot;btn btn-icon btn-sm btn-outline-primary rounded-circle ms-3&quot; type=&quot;button&quot; id=&quot;next-testimonial&quot;&gt;
+                      &lt;i class=&quot;ai-arrow-right&quot;&gt;&lt;/i&gt;
+                    &lt;/button&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+        #pug6.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Testimonials slider: Style 2
+              .row
+                .col-md-9.col-lg-7.order-md-2
+
+                  // Swiper slider
+                  .swiper(
+                    data-swiper-options=`{
+                      &quot;spaceBetween&quot;: 40,
+                      &quot;loop&quot;: true,
+                      &quot;bindedContent&quot;: true,
+                      &quot;autoHeight&quot;: true,
+                      &quot;pagination&quot;: {
+                        &quot;el&quot;: &quot;.testimonials-count&quot;,
+                        &quot;type&quot;: &quot;fraction&quot;
+                      },
+                      &quot;navigation&quot;: {
+                        &quot;prevEl&quot;: &quot;#prev-testimonial&quot;,
+                        &quot;nextEl&quot;: &quot;#next-testimonial&quot;
+                      }
+                    }`
+                  )
+                    .swiper-wrapper
+
+                      // Item
+                      .swiper-slide(data-swiper-binded=&quot;#testimonial-1&quot;)
+                        .d-flex.d-md-none.pt-3.mb-3
+                          i.ai-quotes.d-md-none.text-primary.display-3.mt-n2
+                          .ps-3
+                            h3.h5.mb-0 Lilia Bocouse
+                            p.text-muted.mb-0 Head of Marketing
+                        h2.mb-lg-4 Awesome experience with a professional team. Thank you :)
+                        p.lead.mb-0 Suspendisse mauris elit, pellentesque nec purus sed, finibus finibus ipsum. Proin posuere, metus sed porttitor pellentesque, ante magna tincidunt mi, nec fermentum dui ligula vel massa. Praesent ultrices iaculis arcu iaculis ultrices. Maecenas vitae nulla odio. In laoreet, lectus in tempus ultricies.  
+
+                      // Item
+                      .swiper-slide(data-swiper-binded=&quot;#testimonial-2&quot;)
+                        .d-flex.d-md-none.pt-3.mb-3
+                          i.ai-quotes.d-md-none.text-primary.display-3.mt-n2
+                          .ps-3
+                            h3.h5.mb-0 Robert Fox
+                            p.text-muted.mb-0 Marketing Coordinator
+                        h2.mb-lg-4 Thanks to your talented team for the banding we dreamed about
+                        p.lead.mb-0 Leo vitae sem eget eget at in vivamus placerat sodales tristique risusiis senectusic quisque faucibus est justo egetert lobortis ultrices eu dignissim etiamier turpis tincidunt eget placerat feugiat senectusic quisque faucibus placerat sodales vitae tempor morbi tellus pulvinar tristique in turpis.  
+
+                      // Item
+                      .swiper-slide(data-swiper-binded=&quot;#testimonial-3&quot;)
+                        .d-flex.d-md-none.pt-3.mb-3
+                          i.ai-quotes.d-md-none.text-primary.display-3.mt-n2
+                          .ps-3
+                            h3.h5.mb-0 Jenny Wilson
+                            p.text-muted.mb-0 CEO, Co-Founder
+                        h2.mb-lg-4 Thanks to you, we have created a unique branding that is our pride!
+                        p.lead.mb-0 Duis sapien velit, rutrum ac rutrum dapibus, auctor ut lacus. Aenean sit amet erat augue. Aenean finibus, nibh sed malesuada maximus, nisi tellus iaculis quam, eget egestas mi felis eu urna. Quisque id nisl commodo, egestas eros ac, cursus odio. Ut nec rutrum magna, vel tempor erat. Vivamus nec tempus purus.  
+
+                .col-md-3.offset-lg-1.order-md-1.mt-n3
+                  i.ai-quotes.d-none.d-md-block.text-primary.ms-n2.mb-1(style=&quot;font-size: 150px;&quot;)
+
+                  // Contnetn binded to slider (on screens &gt; 768px)
+                  .binded-content.h-auto.d-none.d-md-block
+                    #testimonial-1.binded-item.h-auto.active
+                      h3.h5.mb-1 Lilia Bocouse
+                      p.text-muted.mb-0 Head of Marketing
+                    #testimonial-2.binded-item.h-auto
+                      h3.h5.mb-1 Robert Fox
+                      p.text-muted.mb-0 Marketing Coordinator
+                    #testimonial-3.binded-item.h-auto
+                      h3.h5.mb-1 Jenny Wilson
+                      p.text-muted.mb-0 CEO, Co-Founder
+                
+                  // Swiper controls
+                  .d-flex.align-items-center.pb-2.pb-md-0.pt-4.mt-3
+                    button(type=&quot;button&quot;)#prev-testimonial.btn.btn-icon.btn-sm.btn-outline-primary.rounded-circle.me-3
+                      i.ai-arrow-left
+                    .testimonials-count.fw-medium.flex-shrink-0.text-center(style=&quot;width: 2.5rem;&quot;)
+                    button(type=&quot;button&quot;)#next-testimonial.btn.btn-icon.btn-sm.btn-outline-primary.rounded-circle.ms-3
+                      i.ai-arrow-right

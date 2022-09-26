@@ -1,0 +1,136 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var scripts = ['vendor/imagesloaded/imagesloaded.pkgd.min.js', 'vendor/shufflejs/dist/shuffle.min.js']
+  - var parentMenu = 'Pages'
+  - var pageTitle = 'Portfolio Grid View v.1'
+  - var navbarExtraClass = 'bg-light'
+  - var buttonShape = 'rounded-0'
+
+
+//- Navbar
+block navbar
+  include partials/navbar.pug
+
+
+//- Page Content
+block content
+
+  .container.overflow-hidden.py-5.mt-5.mb-2.mb-md-3.mb-lg-4.mb-xxl-5
+
+    // Breadcrumb
+    +breadcrumb([{'title': 'Portfolio grid v.2'}]).pt-lg-3.pb-lg-4.pb-2
+
+
+    .masonry-filterable
+      .row.pb-lg-4.mb-2.mb-sm-3
+
+        // Page title
+        .col-xxl-3.col-lg-4.text-center.text-lg-start
+          h1 Our Projects
+          p.mb-4.mb-lg-0 We will put our industry expertise for creativity to work for your project
+
+        // Filters
+        .col-xxl-9.col-lg-8.d-flex
+          ul(style='max-width: 456px;').masonry-filters.nav.nav-pills.fs-sm.flex-nowrap.overflow-auto.text-nowrap.w-100.mx-auto.me-lg-0.pb-3
+            li.nav-item.mb-0
+              a(href='#' data-group='all').nav-link.border.active All
+            li.nav-item.mb-0
+              a(href='#' data-group='branding').nav-link.border Branding
+            li.nav-item.mb-0
+              a(href='#' data-group='stationery').nav-link.border Stationery
+            li.nav-item.mb-0
+              a(href='#' data-group='web').nav-link.border Web
+
+
+      // Grid of portfolio items
+      .masonry-grid(data-columns='2')
+
+        // Item
+        article(data-groups='["branding"]').masonry-grid-item.pb-5.mb-md-2.mb-lg-4.mb-xl-5
+          .zoom-effect.position-relative.border-bottom.pb-3(style='max-width: 512px;')
+            .zoom-effect-wrapper
+              .zoom-effect-img
+                img(src='assets/img/portfolio/grid/07.jpg' alt='Image')
+            .pt-4.mt-lg-2
+              h2.h4.mb-2
+                a(href='portfolio-single-v2.html').stretched-link Healthy Yellow
+              .d-flex.justify-content-between.fs-lg.text-muted
+                span Branding, Packaging
+                span 2022
+
+        // Item
+        article(data-groups='["stationery"]').masonry-grid-item.pb-5.mb-md-2.mb-lg-4.mb-xl-5
+          .zoom-effect.position-relative.border-bottom.pb-3(style='max-width: 704px;')
+            .zoom-effect-wrapper
+              .zoom-effect-img
+                img(src='assets/img/portfolio/grid/08.jpg' alt='Image')
+            .pt-4.mt-lg-2
+              h2.h4.mb-2
+                a(href='portfolio-single-v2.html').stretched-link Sen Jonson
+              .d-flex.justify-content-between.fs-lg.text-muted
+                span Stationery design
+                span 2022
+
+        // Item
+        article(data-groups='["branding"]').masonry-grid-item.pb-5.mb-md-2.mb-lg-4.mb-xl-5
+          .zoom-effect.position-relative.border-bottom.pb-3(style='max-width: 467px;')
+            .zoom-effect-wrapper
+              .zoom-effect-img
+                img(src='assets/img/portfolio/grid/09.jpg' alt='Image')
+            .pt-4.mt-lg-2
+              h2.h4.mb-2
+                a(href='portfolio-single-v2.html').stretched-link Gradient
+              .d-flex.justify-content-between.fs-lg.text-muted
+                span Branding, Packaging
+                span 2022
+
+        // Item
+        article(data-groups='["stationery"]').masonry-grid-item.pb-5.mb-md-2.mb-lg-4.mb-xl-5
+          .zoom-effect.position-relative.border-bottom.ms-auto.pb-3(style='max-width: 605px;')
+            .zoom-effect-wrapper
+              .zoom-effect-img
+                img(src='assets/img/portfolio/grid/10.jpg' alt='Image')
+            .pt-4.mt-lg-2
+              h2.h4.mb-2
+                a(href='portfolio-single-v2.html').stretched-link D.G.Vent
+              .d-flex.justify-content-between.fs-lg.text-muted
+                span Stationery design
+                span 2021
+
+        // Item
+        article(data-groups='["stationery"]').masonry-grid-item.pb-5.mb-md-2.mb-lg-4.mb-xl-5
+          .zoom-effect.position-relative.border-bottom.pb-3(style='max-width: 550px;')
+            .zoom-effect-wrapper
+              .zoom-effect-img
+                img(src='assets/img/portfolio/grid/11.jpg' alt='Image')
+            .pt-4.mt-lg-2
+              h2.h4.mb-2
+                a(href='portfolio-single-v2.html').stretched-link Doe design
+              .d-flex.justify-content-between.fs-lg.text-muted
+                span Branding, Stationery
+                span 2021
+
+        // Item
+        article(data-groups='["web"]').masonry-grid-item.pb-5.mb-md-2.mb-lg-4.mb-xl-5
+          .zoom-effect.position-relative.border-bottom.mx-auto.pb-3(style='max-width: 470px;')
+            .zoom-effect-wrapper
+              .zoom-effect-img
+                img(src='assets/img/portfolio/grid/12.jpg' alt='Image')
+            .pt-4.mt-lg-2
+              h2.h4.mb-2
+                a(href='portfolio-single-v2.html').stretched-link The Studio
+              .d-flex.justify-content-between.fs-lg.text-muted
+                span Web design
+                span 2020
+
+      
+      // Load more button
+      .text-center.pb-sm-2.pb-md-4.mt-n1.mt-lg-n2
+        button(type='button').btn.btn-lg.btn-outline-dark.rounded-0 Load more projects
+        
+
+//- Footer
+block footer
+  include partials/footer-portfolio.pug

@@ -1,0 +1,1425 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css', 'vendor/prismjs/themes/prism.css', 'vendor/prismjs/plugins/toolbar/prism-toolbar.css', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js', 'vendor/prismjs/components/prism-core.min.js', 'vendor/prismjs/components/prism-markup.min.js', 'vendor/prismjs/components/prism-clike.min.js', 'vendor/prismjs/components/prism-javascript.min.js', 'vendor/prismjs/components/prism-pug.min.js', 'vendor/prismjs/plugins/toolbar/prism-toolbar.min.js', 'vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Tables'
+  - var pageSubtitle = 'Examples for opt-in styling of tables.'
+  - var pageTitleLink = {'title': 'Bootstrap docs', 'link': 'https://getbootstrap.com/docs/5.2/content/tables/'}
+  - var anchorNav = [{'title': 'Basic example', 'link': '#tables-basic'}, {'title': 'Dark table', 'link': '#tables-dark'}, {'title': 'Striped rows', 'link': '#tables-striped-rows'}, {'title': 'Striped columns', 'link': '#tables-striped-columns'}, {'title': 'Bordered table', 'link': '#tables-bordered'}, {'title': 'Hoverable rows', 'link': '#tables-hoverable'}, {'title': 'Contextual colors', 'link': '#tables-contextual'}, {'title': 'Color borders', 'link': '#tables-color-borders'}]
+    
+//- Page Content
+block content
+
+  // Basic example
+  section#tables-basic.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Basic example
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview1' data-bs-toggle='tab' role='tab' aria-controls='preview1' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview1.tab-pane.fade.show.active(role='tabpanel')
+          .table-responsive
+            table.table
+              thead
+                tr
+                  th #
+                  th First Name
+                  th Last Name
+                  th Position
+                  th Phone
+              tbody
+                tr
+                  th(scope='row') 1
+                  td John
+                  td Doe
+                  td CEO, Founder
+                  td +3 555 68 70
+                tr
+                  th(scope='row') 2
+                  td Anna
+                  td Cabana
+                  td Designer
+                  td +3 434 65 93
+                tr
+                  th(scope='row') 3
+                  td Kale
+                  td Thornton
+                  td Developer
+                  td +3 285 42 88
+                tr
+                  th(scope='row') 4
+                  td Jane
+                  td Birkins
+                  td Support
+                  td +3 774 28 50
+        #html1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Basic table --&gt;
+              &lt;div class=&quot;table-responsive&quot;&gt;
+                &lt;table class=&quot;table&quot;&gt;
+                  &lt;thead&gt;
+                    &lt;tr&gt;
+                      &lt;th&gt;#&lt;/th&gt;
+                      &lt;th&gt;First Name&lt;/th&gt;
+                      &lt;th&gt;Last Name&lt;/th&gt;
+                      &lt;th&gt;Position&lt;/th&gt;
+                      &lt;th&gt;Phone&lt;/th&gt;
+                    &lt;/tr&gt;
+                  &lt;/thead&gt;
+                  &lt;tbody&gt;
+                    &lt;tr&gt;
+                      &lt;th scope=&quot;row&quot;&gt;1&lt;/th&gt;
+                      &lt;td&gt;John&lt;/td&gt;
+                      &lt;td&gt;Doe&lt;/td&gt;
+                      &lt;td&gt;CEO, Founder&lt;/td&gt;
+                      &lt;td&gt;+3 555 68 70&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;th scope=&quot;row&quot;&gt;2&lt;/th&gt;
+                      &lt;td&gt;Anna&lt;/td&gt;
+                      &lt;td&gt;Cabana&lt;/td&gt;
+                      &lt;td&gt;Designer&lt;/td&gt;
+                      &lt;td&gt;+3 434 65 93&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;th scope=&quot;row&quot;&gt;3&lt;/th&gt;
+                      &lt;td&gt;Kale&lt;/td&gt;
+                      &lt;td&gt;Thornton&lt;/td&gt;
+                      &lt;td&gt;Developer&lt;/td&gt;
+                      &lt;td&gt;+3 285 42 88&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;th scope=&quot;row&quot;&gt;4&lt;/th&gt;
+                      &lt;td&gt;Jane&lt;/td&gt;
+                      &lt;td&gt;Birkins&lt;/td&gt;
+                      &lt;td&gt;Support&lt;/td&gt;
+                      &lt;td&gt;+3 774 28 50&lt;/td&gt;
+                    &lt;/tr&gt;
+                  &lt;/tbody&gt;
+                &lt;/table&gt;
+              &lt;/div&gt;
+        #pug1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Basic table
+              .table-responsive
+                table.table
+                  thead
+                    tr
+                      th #
+                      th First Name
+                      th Last Name
+                      th Position
+                      th Phone
+                  tbody
+                    tr
+                      th(scope=&quot;row&quot;) 1
+                      td John
+                      td Doe
+                      td CEO, Founder
+                      td +3 555 68 70
+                    tr
+                      th(scope=&quot;row&quot;) 2
+                      td Anna
+                      td Cabana
+                      td Designer
+                      td +3 434 65 93
+                    tr
+                      th(scope=&quot;row&quot;) 3
+                      td Kale
+                      td Thornton
+                      td Developer
+                      td +3 285 42 88
+                    tr
+                      th(scope=&quot;row&quot;) 4
+                      td Jane
+                      td Birkins
+                      td Support
+                      td +3 774 28 50
+
+  // Dark table
+  section#tables-dark.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Dark table
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview2' data-bs-toggle='tab' role='tab' aria-controls='preview2' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview2.tab-pane.fade.show.active(role='tabpanel')
+          .table-responsive
+            table.table.table-dark
+              thead
+                tr
+                  th #
+                  th First Name
+                  th Last Name
+                  th Position
+                  th Phone
+              tbody
+                tr
+                  th(scope='row') 1
+                  td John
+                  td Doe
+                  td CEO, Founder
+                  td +3 555 68 70
+                tr
+                  th(scope='row') 2
+                  td Anna
+                  td Cabana
+                  td Designer
+                  td +3 434 65 93
+                tr
+                  th(scope='row') 3
+                  td Kale
+                  td Thornton
+                  td Developer
+                  td +3 285 42 88
+                tr
+                  th(scope='row') 4
+                  td Jane
+                  td Birkins
+                  td Support
+                  td +3 774 28 50
+        #html2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Dark table --&gt;
+              &lt;div class=&quot;table-responsive&quot;&gt;
+                &lt;table class=&quot;table table-dark&quot;&gt;
+                  &lt;thead&gt;
+                    &lt;tr&gt;
+                      &lt;th&gt;#&lt;/th&gt;
+                      &lt;th&gt;First Name&lt;/th&gt;
+                      &lt;th&gt;Last Name&lt;/th&gt;
+                      &lt;th&gt;Position&lt;/th&gt;
+                      &lt;th&gt;Phone&lt;/th&gt;
+                    &lt;/tr&gt;
+                  &lt;/thead&gt;
+                  &lt;tbody&gt;
+                    &lt;tr&gt;
+                      &lt;th scope=&quot;row&quot;&gt;1&lt;/th&gt;
+                      &lt;td&gt;John&lt;/td&gt;
+                      &lt;td&gt;Doe&lt;/td&gt;
+                      &lt;td&gt;CEO, Founder&lt;/td&gt;
+                      &lt;td&gt;+3 555 68 70&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;th scope=&quot;row&quot;&gt;2&lt;/th&gt;
+                      &lt;td&gt;Anna&lt;/td&gt;
+                      &lt;td&gt;Cabana&lt;/td&gt;
+                      &lt;td&gt;Designer&lt;/td&gt;
+                      &lt;td&gt;+3 434 65 93&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;th scope=&quot;row&quot;&gt;3&lt;/th&gt;
+                      &lt;td&gt;Kale&lt;/td&gt;
+                      &lt;td&gt;Thornton&lt;/td&gt;
+                      &lt;td&gt;Developer&lt;/td&gt;
+                      &lt;td&gt;+3 285 42 88&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;th scope=&quot;row&quot;&gt;4&lt;/th&gt;
+                      &lt;td&gt;Jane&lt;/td&gt;
+                      &lt;td&gt;Birkins&lt;/td&gt;
+                      &lt;td&gt;Support&lt;/td&gt;
+                      &lt;td&gt;+3 774 28 50&lt;/td&gt;
+                    &lt;/tr&gt;
+                  &lt;/tbody&gt;
+                &lt;/table&gt;
+              &lt;/div&gt;
+        #pug2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Dark table
+              .table-responsive
+                table.table.table-dark
+                  thead
+                    tr
+                      th #
+                      th First Name
+                      th Last Name
+                      th Position
+                      th Phone
+                  tbody
+                    tr
+                      th(scope=&quot;row&quot;) 1
+                      td John
+                      td Doe
+                      td CEO, Founder
+                      td +3 555 68 70
+                    tr
+                      th(scope=&quot;row&quot;) 2
+                      td Anna
+                      td Cabana
+                      td Designer
+                      td +3 434 65 93
+                    tr
+                      th(scope=&quot;row&quot;) 3
+                      td Kale
+                      td Thornton
+                      td Developer
+                      td +3 285 42 88
+                    tr
+                      th(scope=&quot;row&quot;) 4
+                      td Jane
+                      td Birkins
+                      td Support
+                      td +3 774 28 50
+
+  // Striped rows
+  section#tables-striped-rows.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Striped rows
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview3' data-bs-toggle='tab' role='tab' aria-controls='preview3' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview3.tab-pane.fade.show.active(role='tabpanel')
+          .table-responsive.mb-3
+            table.table.table-striped
+              thead
+                tr
+                  th #
+                  th First Name
+                  th Last Name
+                  th Position
+                  th Phone
+              tbody
+                tr
+                  th(scope='row') 1
+                  td John
+                  td Doe
+                  td CEO, Founder
+                  td +3 555 68 70
+                tr
+                  th(scope='row') 2
+                  td Anna
+                  td Cabana
+                  td Designer
+                  td +3 434 65 93
+                tr
+                  th(scope='row') 3
+                  td Kale
+                  td Thornton
+                  td Developer
+                  td +3 285 42 88
+          .table-responsive
+            table.table.table-dark.table-striped
+              thead
+                tr
+                  th #
+                  th First Name
+                  th Last Name
+                  th Position
+                  th Phone
+              tbody
+                tr
+                  th(scope='row') 1
+                  td John
+                  td Doe
+                  td CEO, Founder
+                  td +3 555 68 70
+                tr
+                  th(scope='row') 2
+                  td Anna
+                  td Cabana
+                  td Designer
+                  td +3 434 65 93
+                tr
+                  th(scope='row') 3
+                  td Kale
+                  td Thornton
+                  td Developer
+                  td +3 285 42 88
+        #html3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Light table with striped rows --&gt;
+              &lt;div class=&quot;table-responsive&quot;&gt;
+                &lt;table class=&quot;table table-striped&quot;&gt;
+                  &lt;thead;&gt;
+                    &lt;tr&gt;
+                      &lt;th&gt;#&lt;/th&gt;
+                      &lt;th&gt;First Name&lt;/th&gt;
+                      &lt;th&gt;Last Name&lt;/th&gt;
+                      &lt;th&gt;Position&lt;/th&gt;
+                      &lt;th&gt;Phone&lt;/th&gt;
+                    &lt;/tr&gt;
+                  &lt;/thead&gt;
+                  &lt;tbody&gt;
+                    &lt;tr&gt;
+                      &lt;th scope=&quot;row&quot;&gt;1&lt;/th&gt;
+                      &lt;td&gt;John&lt;/td&gt;
+                      &lt;td&gt;Doe&lt;/td&gt;
+                      &lt;td&gt;CEO, Founder&lt;/td&gt;
+                      &lt;td&gt;+3 555 68 70&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;th scope=&quot;row&quot;&gt;2&lt;/th&gt;
+                      &lt;td&gt;Anna&lt;/td&gt;
+                      &lt;td&gt;Cabana&lt;/td&gt;
+                      &lt;td&gt;Designer&lt;/td&gt;
+                      &lt;td&gt;+3 434 65 93&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;th scope=&quot;row&quot;&gt;3&lt;/th&gt;
+                      &lt;td&gt;Kale&lt;/td&gt;
+                      &lt;td&gt;Thornton&lt;/td&gt;
+                      &lt;td&gt;Developer&lt;/td&gt;
+                      &lt;td&gt;+3 285 42 88&lt;/td&gt;
+                    &lt;/tr&gt;
+                  &lt;/tbody&gt;
+                &lt;/table&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Dark table with striped rows --&gt;
+              &lt;div class=&quot;table-responsive&quot;&gt;
+                &lt;table class=&quot;table table-dark table-striped&quot;&gt;
+                  &lt;thead&gt;
+                    &lt;tr&gt;
+                      &lt;th&gt;#&lt;/th&gt;
+                      &lt;th&gt;First Name&lt;/th&gt;
+                      &lt;th&gt;Last Name&lt;/th&gt;
+                      &lt;th&gt;Position&lt;/th&gt;
+                      &lt;th&gt;Phone&lt;/th&gt;
+                    &lt;/tr&gt;
+                  &lt;/thead&gt;
+                  &lt;tbody&gt;
+                    &lt;tr&gt;
+                      &lt;th scope=&quot;row&quot;&gt;1&lt;/th&gt;
+                      &lt;td&gt;John&lt;/td&gt;
+                      &lt;td&gt;Doe&lt;/td&gt;
+                      &lt;td&gt;CEO, Founder&lt;/td&gt;
+                      &lt;td&gt;+3 555 68 70&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;th scope=&quot;row&quot;&gt;2&lt;/th&gt;
+                      &lt;td&gt;Anna&lt;/td&gt;
+                      &lt;td&gt;Cabana&lt;/td&gt;
+                      &lt;td&gt;Designer&lt;/td&gt;
+                      &lt;td&gt;+3 434 65 93&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;th scope=&quot;row&quot;&gt;3&lt;/th&gt;
+                      &lt;td&gt;Kale&lt;/td&gt;
+                      &lt;td&gt;Thornton&lt;/td&gt;
+                      &lt;td&gt;Developer&lt;/td&gt;
+                      &lt;td&gt;+3 285 42 88&lt;/td&gt;
+                    &lt;/tr&gt;
+                  &lt;/tbody&gt;
+                &lt;/table&gt;
+              &lt;/div&gt;
+        #pug3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Light table with striped rows
+              .table-responsive
+                table.table.table-striped
+                  thead
+                    tr
+                      th #
+                      th First Name
+                      th Last Name
+                      th Position
+                      th Phone
+                  tbody
+                    tr
+                      th(scope=&quot;row&quot;) 1
+                      td John
+                      td Doe
+                      td CEO, Founder
+                      td +3 555 68 70
+                    tr
+                      th(scope=&quot;row&quot;) 2
+                      td Anna
+                      td Cabana
+                      td Designer
+                      td +3 434 65 93
+                    tr
+                      th(scope=&quot;row&quot;) 3
+                      td Kale
+                      td Thornton
+                      td Developer
+                      td +3 285 42 88
+
+              // Dark table with striped rows
+              .table-responsive
+                table.table.table-dark.table-striped
+                  thead
+                    tr
+                      th #
+                      th First Name
+                      th Last Name
+                      th Position
+                      th Phone
+                  tbody
+                    tr
+                      th(scope=&quot;row&quot;) 1
+                      td John
+                      td Doe
+                      td CEO, Founder
+                      td +3 555 68 70
+                    tr
+                      th(scope=&quot;row&quot;) 2
+                      td Anna
+                      td Cabana
+                      td Designer
+                      td +3 434 65 93
+                    tr
+                      th(scope=&quot;row&quot;) 3
+                      td Kale
+                      td Thornton
+                      td Developer
+                      td +3 285 42 88
+
+  // Striped columns
+  section#tables-striped-columns.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Striped columns
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview4' data-bs-toggle='tab' role='tab' aria-controls='preview4' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview4.tab-pane.fade.show.active(role='tabpanel')
+          .table-responsive.mb-3
+            table.table.table-striped-columns
+              thead
+                tr
+                  th #
+                  th First Name
+                  th Last Name
+                  th Position
+                  th Phone
+              tbody
+                tr
+                  th(scope='row') 1
+                  td John
+                  td Doe
+                  td CEO, Founder
+                  td +3 555 68 70
+                tr
+                  th(scope='row') 2
+                  td Anna
+                  td Cabana
+                  td Designer
+                  td +3 434 65 93
+                tr
+                  th(scope='row') 3
+                  td Kale
+                  td Thornton
+                  td Developer
+                  td +3 285 42 88
+          .table-responsive
+            table.table.table-dark.table-striped-columns
+              thead
+                tr
+                  th #
+                  th First Name
+                  th Last Name
+                  th Position
+                  th Phone
+              tbody
+                tr
+                  th(scope='row') 1
+                  td John
+                  td Doe
+                  td CEO, Founder
+                  td +3 555 68 70
+                tr
+                  th(scope='row') 2
+                  td Anna
+                  td Cabana
+                  td Designer
+                  td +3 434 65 93
+                tr
+                  th(scope='row') 3
+                  td Kale
+                  td Thornton
+                  td Developer
+                  td +3 285 42 88
+        #html4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Light table with striped rows --&gt;
+              &lt;div class=&quot;table-responsive&quot;&gt;
+                &lt;table class=&quot;table table-striped&quot;&gt;
+                  &lt;thead;&gt;
+                    &lt;tr&gt;
+                      &lt;th&gt;#&lt;/th&gt;
+                      &lt;th&gt;First Name&lt;/th&gt;
+                      &lt;th&gt;Last Name&lt;/th&gt;
+                      &lt;th&gt;Position&lt;/th&gt;
+                      &lt;th&gt;Phone&lt;/th&gt;
+                    &lt;/tr&gt;
+                  &lt;/thead&gt;
+                  &lt;tbody&gt;
+                    &lt;tr&gt;
+                      &lt;th scope=&quot;row&quot;&gt;1&lt;/th&gt;
+                      &lt;td&gt;John&lt;/td&gt;
+                      &lt;td&gt;Doe&lt;/td&gt;
+                      &lt;td&gt;CEO, Founder&lt;/td&gt;
+                      &lt;td&gt;+3 555 68 70&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;th scope=&quot;row&quot;&gt;2&lt;/th&gt;
+                      &lt;td&gt;Anna&lt;/td&gt;
+                      &lt;td&gt;Cabana&lt;/td&gt;
+                      &lt;td&gt;Designer&lt;/td&gt;
+                      &lt;td&gt;+3 434 65 93&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;th scope=&quot;row&quot;&gt;3&lt;/th&gt;
+                      &lt;td&gt;Kale&lt;/td&gt;
+                      &lt;td&gt;Thornton&lt;/td&gt;
+                      &lt;td&gt;Developer&lt;/td&gt;
+                      &lt;td&gt;+3 285 42 88&lt;/td&gt;
+                    &lt;/tr&gt;
+                  &lt;/tbody&gt;
+                &lt;/table&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Dark table with striped rows --&gt;
+              &lt;div class=&quot;table-responsive&quot;&gt;
+                &lt;table class=&quot;table table-dark table-striped&quot;&gt;
+                  &lt;thead&gt;
+                    &lt;tr&gt;
+                      &lt;th&gt;#&lt;/th&gt;
+                      &lt;th&gt;First Name&lt;/th&gt;
+                      &lt;th&gt;Last Name&lt;/th&gt;
+                      &lt;th&gt;Position&lt;/th&gt;
+                      &lt;th&gt;Phone&lt;/th&gt;
+                    &lt;/tr&gt;
+                  &lt;/thead&gt;
+                  &lt;tbody&gt;
+                    &lt;tr&gt;
+                      &lt;th scope=&quot;row&quot;&gt;1&lt;/th&gt;
+                      &lt;td&gt;John&lt;/td&gt;
+                      &lt;td&gt;Doe&lt;/td&gt;
+                      &lt;td&gt;CEO, Founder&lt;/td&gt;
+                      &lt;td&gt;+3 555 68 70&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;th scope=&quot;row&quot;&gt;2&lt;/th&gt;
+                      &lt;td&gt;Anna&lt;/td&gt;
+                      &lt;td&gt;Cabana&lt;/td&gt;
+                      &lt;td&gt;Designer&lt;/td&gt;
+                      &lt;td&gt;+3 434 65 93&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;th scope=&quot;row&quot;&gt;3&lt;/th&gt;
+                      &lt;td&gt;Kale&lt;/td&gt;
+                      &lt;td&gt;Thornton&lt;/td&gt;
+                      &lt;td&gt;Developer&lt;/td&gt;
+                      &lt;td&gt;+3 285 42 88&lt;/td&gt;
+                    &lt;/tr&gt;
+                  &lt;/tbody&gt;
+                &lt;/table&gt;
+              &lt;/div&gt;
+        #pug4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Light table with striped rows
+              .table-responsive
+                table.table.table-striped
+                  thead
+                    tr
+                      th #
+                      th First Name
+                      th Last Name
+                      th Position
+                      th Phone
+                  tbody
+                    tr
+                      th(scope=&quot;row&quot;) 1
+                      td John
+                      td Doe
+                      td CEO, Founder
+                      td +3 555 68 70
+                    tr
+                      th(scope=&quot;row&quot;) 2
+                      td Anna
+                      td Cabana
+                      td Designer
+                      td +3 434 65 93
+                    tr
+                      th(scope=&quot;row&quot;) 3
+                      td Kale
+                      td Thornton
+                      td Developer
+                      td +3 285 42 88
+
+              // Dark table with striped rows
+              .table-responsive
+                table.table.table-dark.table-striped
+                  thead
+                    tr
+                      th #
+                      th First Name
+                      th Last Name
+                      th Position
+                      th Phone
+                  tbody
+                    tr
+                      th(scope=&quot;row&quot;) 1
+                      td John
+                      td Doe
+                      td CEO, Founder
+                      td +3 555 68 70
+                    tr
+                      th(scope=&quot;row&quot;) 2
+                      td Anna
+                      td Cabana
+                      td Designer
+                      td +3 434 65 93
+                    tr
+                      th(scope=&quot;row&quot;) 3
+                      td Kale
+                      td Thornton
+                      td Developer
+                      td +3 285 42 88
+
+  // Bordered table
+  section#tables-bordered.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Bordered table
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview5' data-bs-toggle='tab' role='tab' aria-controls='preview5' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html5' data-bs-toggle='tab' role='tab' aria-controls='html5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug5' data-bs-toggle='tab' role='tab' aria-controls='pug5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview5.tab-pane.fade.show.active(role='tabpanel')
+          .table-responsive.mb-3
+            table.table.table-bordered
+              thead
+                tr
+                  th #
+                  th First Name
+                  th Last Name
+                  th Position
+                  th Phone
+              tbody
+                tr
+                  th(scope='row') 1
+                  td John
+                  td Doe
+                  td CEO, Founder
+                  td +3 555 68 70
+                tr
+                  th(scope='row') 2
+                  td Anna
+                  td Cabana
+                  td Designer
+                  td +3 434 65 93
+                tr
+                  th(scope='row') 3
+                  td Kale
+                  td Thornton
+                  td Developer
+                  td +3 285 42 88
+          .table-responsive
+            table.table.table-dark.table-bordered
+              thead
+                tr
+                  th #
+                  th First Name
+                  th Last Name
+                  th Position
+                  th Phone
+              tbody
+                tr
+                  th(scope='row') 1
+                  td John
+                  td Doe
+                  td CEO, Founder
+                  td +3 555 68 70
+                tr
+                  th(scope='row') 2
+                  td Anna
+                  td Cabana
+                  td Designer
+                  td +3 434 65 93
+                tr
+                  th(scope='row') 3
+                  td Kale
+                  td Thornton
+                  td Developer
+                  td +3 285 42 88
+        #html5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Light bordered table --&gt;
+              &lt;div class=&quot;table-responsive&quot;&gt;
+                &lt;table class=&quot;table table-bordered&quot;&gt;
+                  &lt;thead;&gt;
+                    &lt;tr&gt;
+                      &lt;th&gt;#&lt;/th&gt;
+                      &lt;th&gt;First Name&lt;/th&gt;
+                      &lt;th&gt;Last Name&lt;/th&gt;
+                      &lt;th&gt;Position&lt;/th&gt;
+                      &lt;th&gt;Phone&lt;/th&gt;
+                    &lt;/tr&gt;
+                  &lt;/thead&gt;
+                  &lt;tbody&gt;
+                    &lt;tr&gt;
+                      &lt;th scope=&quot;row&quot;&gt;1&lt;/th&gt;
+                      &lt;td&gt;John&lt;/td&gt;
+                      &lt;td&gt;Doe&lt;/td&gt;
+                      &lt;td&gt;CEO, Founder&lt;/td&gt;
+                      &lt;td&gt;+3 555 68 70&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;th scope=&quot;row&quot;&gt;2&lt;/th&gt;
+                      &lt;td&gt;Anna&lt;/td&gt;
+                      &lt;td&gt;Cabana&lt;/td&gt;
+                      &lt;td&gt;Designer&lt;/td&gt;
+                      &lt;td&gt;+3 434 65 93&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;th scope=&quot;row&quot;&gt;3&lt;/th&gt;
+                      &lt;td&gt;Kale&lt;/td&gt;
+                      &lt;td&gt;Thornton&lt;/td&gt;
+                      &lt;td&gt;Developer&lt;/td&gt;
+                      &lt;td&gt;+3 285 42 88&lt;/td&gt;
+                    &lt;/tr&gt;
+                  &lt;/tbody&gt;
+                &lt;/table&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Dark bordered table --&gt;
+              &lt;div class=&quot;table-responsive&quot;&gt;
+                &lt;table class=&quot;table table-dark table-bordered&quot;&gt;
+                  &lt;thead&gt;
+                    &lt;tr&gt;
+                      &lt;th&gt;#&lt;/th&gt;
+                      &lt;th&gt;First Name&lt;/th&gt;
+                      &lt;th&gt;Last Name&lt;/th&gt;
+                      &lt;th&gt;Position&lt;/th&gt;
+                      &lt;th&gt;Phone&lt;/th&gt;
+                    &lt;/tr&gt;
+                  &lt;/thead&gt;
+                  &lt;tbody&gt;
+                    &lt;tr&gt;
+                      &lt;th scope=&quot;row&quot;&gt;1&lt;/th&gt;
+                      &lt;td&gt;John&lt;/td&gt;
+                      &lt;td&gt;Doe&lt;/td&gt;
+                      &lt;td&gt;CEO, Founder&lt;/td&gt;
+                      &lt;td&gt;+3 555 68 70&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;th scope=&quot;row&quot;&gt;2&lt;/th&gt;
+                      &lt;td&gt;Anna&lt;/td&gt;
+                      &lt;td&gt;Cabana&lt;/td&gt;
+                      &lt;td&gt;Designer&lt;/td&gt;
+                      &lt;td&gt;+3 434 65 93&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;th scope=&quot;row&quot;&gt;3&lt;/th&gt;
+                      &lt;td&gt;Kale&lt;/td&gt;
+                      &lt;td&gt;Thornton&lt;/td&gt;
+                      &lt;td&gt;Developer&lt;/td&gt;
+                      &lt;td&gt;+3 285 42 88&lt;/td&gt;
+                    &lt;/tr&gt;
+                  &lt;/tbody&gt;
+                &lt;/table&gt;
+              &lt;/div&gt;
+        #pug5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Light bordered table
+              .table-responsive
+                table.table.table-bordered
+                  thead
+                    tr
+                      th #
+                      th First Name
+                      th Last Name
+                      th Position
+                      th Phone
+                  tbody
+                    tr
+                      th(scope=&quot;row&quot;) 1
+                      td John
+                      td Doe
+                      td CEO, Founder
+                      td +3 555 68 70
+                    tr
+                      th(scope=&quot;row&quot;) 2
+                      td Anna
+                      td Cabana
+                      td Designer
+                      td +3 434 65 93
+                    tr
+                      th(scope=&quot;row&quot;) 3
+                      td Kale
+                      td Thornton
+                      td Developer
+                      td +3 285 42 88
+
+              // Dark bordered table
+              .table-responsive
+                table.table.table-dark.table-bordered
+                  thead
+                    tr
+                      th #
+                      th First Name
+                      th Last Name
+                      th Position
+                      th Phone
+                  tbody
+                    tr
+                      th(scope=&quot;row&quot;) 1
+                      td John
+                      td Doe
+                      td CEO, Founder
+                      td +3 555 68 70
+                    tr
+                      th(scope=&quot;row&quot;) 2
+                      td Anna
+                      td Cabana
+                      td Designer
+                      td +3 434 65 93
+                    tr
+                      th(scope=&quot;row&quot;) 3
+                      td Kale
+                      td Thornton
+                      td Developer
+                      td +3 285 42 88
+
+  // Hoverable rows
+  section#tables-hoverable.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Hoverable rows
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview6' data-bs-toggle='tab' role='tab' aria-controls='preview6' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html6' data-bs-toggle='tab' role='tab' aria-controls='html6' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug6' data-bs-toggle='tab' role='tab' aria-controls='pug6' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview6.tab-pane.fade.show.active(role='tabpanel')
+          .table-responsive.mb-3
+            table.table.table-hover
+              thead
+                tr
+                  th #
+                  th First Name
+                  th Last Name
+                  th Position
+                  th Phone
+              tbody
+                tr
+                  th(scope='row') 1
+                  td John
+                  td Doe
+                  td CEO, Founder
+                  td +3 555 68 70
+                tr
+                  th(scope='row') 2
+                  td Anna
+                  td Cabana
+                  td Designer
+                  td +3 434 65 93
+                tr
+                  th(scope='row') 3
+                  td Kale
+                  td Thornton
+                  td Developer
+                  td +3 285 42 88
+          .table-responsive
+            table.table.table-dark.table-hover
+              thead
+                tr
+                  th #
+                  th First Name
+                  th Last Name
+                  th Position
+                  th Phone
+              tbody
+                tr
+                  th(scope='row') 1
+                  td John
+                  td Doe
+                  td CEO, Founder
+                  td +3 555 68 70
+                tr
+                  th(scope='row') 2
+                  td Anna
+                  td Cabana
+                  td Designer
+                  td +3 434 65 93
+                tr
+                  th(scope='row') 3
+                  td Kale
+                  td Thornton
+                  td Developer
+                  td +3 285 42 88
+        #html6.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Light table with hoverable rows --&gt;
+              &lt;div class=&quot;table-responsive&quot;&gt;
+                &lt;table class=&quot;table table-hover&quot;&gt;
+                  &lt;thead;&gt;
+                    &lt;tr&gt;
+                      &lt;th&gt;#&lt;/th&gt;
+                      &lt;th&gt;First Name&lt;/th&gt;
+                      &lt;th&gt;Last Name&lt;/th&gt;
+                      &lt;th&gt;Position&lt;/th&gt;
+                      &lt;th&gt;Phone&lt;/th&gt;
+                    &lt;/tr&gt;
+                  &lt;/thead&gt;
+                  &lt;tbody&gt;
+                    &lt;tr&gt;
+                      &lt;th scope=&quot;row&quot;&gt;1&lt;/th&gt;
+                      &lt;td&gt;John&lt;/td&gt;
+                      &lt;td&gt;Doe&lt;/td&gt;
+                      &lt;td&gt;CEO, Founder&lt;/td&gt;
+                      &lt;td&gt;+3 555 68 70&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;th scope=&quot;row&quot;&gt;2&lt;/th&gt;
+                      &lt;td&gt;Anna&lt;/td&gt;
+                      &lt;td&gt;Cabana&lt;/td&gt;
+                      &lt;td&gt;Designer&lt;/td&gt;
+                      &lt;td&gt;+3 434 65 93&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;th scope=&quot;row&quot;&gt;3&lt;/th&gt;
+                      &lt;td&gt;Kale&lt;/td&gt;
+                      &lt;td&gt;Thornton&lt;/td&gt;
+                      &lt;td&gt;Developer&lt;/td&gt;
+                      &lt;td&gt;+3 285 42 88&lt;/td&gt;
+                    &lt;/tr&gt;
+                  &lt;/tbody&gt;
+                &lt;/table&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Dark table with hoverable rows --&gt;
+              &lt;div class=&quot;table-responsive&quot;&gt;
+                &lt;table class=&quot;table table-dark table-hover&quot;&gt;
+                  &lt;thead&gt;
+                    &lt;tr&gt;
+                      &lt;th&gt;#&lt;/th&gt;
+                      &lt;th&gt;First Name&lt;/th&gt;
+                      &lt;th&gt;Last Name&lt;/th&gt;
+                      &lt;th&gt;Position&lt;/th&gt;
+                      &lt;th&gt;Phone&lt;/th&gt;
+                    &lt;/tr&gt;
+                  &lt;/thead&gt;
+                  &lt;tbody&gt;
+                    &lt;tr&gt;
+                      &lt;th scope=&quot;row&quot;&gt;1&lt;/th&gt;
+                      &lt;td&gt;John&lt;/td&gt;
+                      &lt;td&gt;Doe&lt;/td&gt;
+                      &lt;td&gt;CEO, Founder&lt;/td&gt;
+                      &lt;td&gt;+3 555 68 70&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;th scope=&quot;row&quot;&gt;2&lt;/th&gt;
+                      &lt;td&gt;Anna&lt;/td&gt;
+                      &lt;td&gt;Cabana&lt;/td&gt;
+                      &lt;td&gt;Designer&lt;/td&gt;
+                      &lt;td&gt;+3 434 65 93&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;th scope=&quot;row&quot;&gt;3&lt;/th&gt;
+                      &lt;td&gt;Kale&lt;/td&gt;
+                      &lt;td&gt;Thornton&lt;/td&gt;
+                      &lt;td&gt;Developer&lt;/td&gt;
+                      &lt;td&gt;+3 285 42 88&lt;/td&gt;
+                    &lt;/tr&gt;
+                  &lt;/tbody&gt;
+                &lt;/table&gt;
+              &lt;/div&gt;
+        #pug6.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Light table with hoverable rows
+              .table-responsive
+                table.table.table-hover
+                  thead
+                    tr
+                      th #
+                      th First Name
+                      th Last Name
+                      th Position
+                      th Phone
+                  tbody
+                    tr
+                      th(scope=&quot;row&quot;) 1
+                      td John
+                      td Doe
+                      td CEO, Founder
+                      td +3 555 68 70
+                    tr
+                      th(scope=&quot;row&quot;) 2
+                      td Anna
+                      td Cabana
+                      td Designer
+                      td +3 434 65 93
+                    tr
+                      th(scope=&quot;row&quot;) 3
+                      td Kale
+                      td Thornton
+                      td Developer
+                      td +3 285 42 88
+
+              // Dark table with hoverable rows
+              .table-responsive
+                table.table.table-dark.table-hover
+                  thead
+                    tr
+                      th #
+                      th First Name
+                      th Last Name
+                      th Position
+                      th Phone
+                  tbody
+                    tr
+                      th(scope=&quot;row&quot;) 1
+                      td John
+                      td Doe
+                      td CEO, Founder
+                      td +3 555 68 70
+                    tr
+                      th(scope=&quot;row&quot;) 2
+                      td Anna
+                      td Cabana
+                      td Designer
+                      td +3 434 65 93
+                    tr
+                      th(scope=&quot;row&quot;) 3
+                      td Kale
+                      td Thornton
+                      td Developer
+                      td +3 285 42 88
+
+  // Contextual colors
+  section#tables-contextual.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Contextual colors
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview7' data-bs-toggle='tab' role='tab' aria-controls='preview7' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html7' data-bs-toggle='tab' role='tab' aria-controls='html7' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug7' data-bs-toggle='tab' role='tab' aria-controls='pug7' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview7.tab-pane.fade.show.active(role='tabpanel')
+          .table-responsive
+            table.table
+              thead
+                tr
+                  th #
+                  th Class
+                  th Heading
+                  th Heading
+              tbody
+                tr.bg-faded-primary
+                  th(scope='row') 1
+                  td Primary
+                  td Column content
+                  td Column content
+                tr.bg-faded-secondary
+                  th(scope='row') 2
+                  td Secondary
+                  td Column content
+                  td Column content
+                tr.bg-faded-success
+                  th(scope='row') 3
+                  td Success
+                  td Column content
+                  td Column content
+                tr.bg-faded-info
+                  th(scope='row') 4
+                  td Info
+                  td Column content
+                  td Column content
+                tr.bg-faded-warning
+                  th(scope='row') 5
+                  td Warning
+                  td Column content
+                  td Column content
+                tr.bg-faded-danger
+                  th(scope='row') 6
+                  td Danger
+                  td Column content
+                  td Column content
+        #html7.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Table with contextual rows --&gt;
+              &lt;div class=&quot;table-responsive&quot;&gt;
+                &lt;table class=&quot;table&quot;&gt;
+                  &lt;thead&gt;
+                    &lt;tr&gt;
+                      &lt;th&gt;#&lt;/th&gt;
+                      &lt;th&gt;Class&lt;/th&gt;
+                      &lt;th&gt;Heading&lt;/th&gt;
+                      &lt;th&gt;Heading&lt;/th&gt;
+                    &lt;/tr&gt;
+                  &lt;/thead&gt;
+                  &lt;tbody&gt;
+                    &lt;tr class=&quot;bg-faded-primary&quot;&gt;
+                      &lt;th scope=&quot;row&quot;&gt;1&lt;/th&gt;
+                      &lt;td&gt;Primary&lt;/td&gt;
+                      &lt;td&gt;Column content&lt;/td&gt;
+                      &lt;td&gt;Column content&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr class=&quot;bg-faded-secondary&quot;&gt;
+                      &lt;th scope=&quot;row&quot;&gt;2&lt;/th&gt;
+                      &lt;td&gt;Secondary&lt;/td&gt;
+                      &lt;td&gt;Column content&lt;/td&gt;
+                      &lt;td&gt;Column content&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr class=&quot;bg-faded-success&quot;&gt;
+                      &lt;th scope=&quot;row&quot;&gt;3&lt;/th&gt;
+                      &lt;td&gt;Success&lt;/td&gt;
+                      &lt;td&gt;Column content&lt;/td&gt;
+                      &lt;td&gt;Column content&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr class=&quot;bg-faded-info&quot;&gt;
+                      &lt;th scope=&quot;row&quot;&gt;4&lt;/th&gt;
+                      &lt;td&gt;Info&lt;/td&gt;
+                      &lt;td&gt;Column content&lt;/td&gt;
+                      &lt;td&gt;Column content&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr class=&quot;bg-faded-warning&quot;&gt;
+                      &lt;th scope=&quot;row&quot;&gt;5&lt;/th&gt;
+                      &lt;td&gt;Warning&lt;/td&gt;
+                      &lt;td&gt;Column content&lt;/td&gt;
+                      &lt;td&gt;Column content&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr class=&quot;bg-faded-danger&quot;&gt;
+                      &lt;th scope=&quot;row&quot;&gt;6&lt;/th&gt;
+                      &lt;td&gt;Danger&lt;/td&gt;
+                      &lt;td&gt;Column content&lt;/td&gt;
+                      &lt;td&gt;Column content&lt;/td&gt;
+                    &lt;/tr&gt;
+                  &lt;/tbody&gt;
+                &lt;/table&gt;
+              &lt;/div&gt;
+        #pug7.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Table with contextual rows
+              .table-responsive
+                table.table
+                  thead
+                    tr
+                      th #
+                      th Class
+                      th Heading
+                      th Heading
+                  tbody
+                    tr.bg-faded-primary
+                      th(scope=&quot;row&quot;) 1
+                      td Primary
+                      td Column content
+                      td Column content
+                    tr.bg-faded-secondary
+                      th(scope=&quot;row&quot;) 2
+                      td Secondary
+                      td Column content
+                      td Column content
+                    tr.bg-faded-success
+                      th(scope=&quot;row&quot;) 3
+                      td Success
+                      td Column content
+                      td Column content
+                    tr.bg-faded-info
+                      th(scope=&quot;row&quot;) 4
+                      td Info
+                      td Column content
+                      td Column content
+                    tr.bg-faded-warning
+                      th(scope=&quot;row&quot;) 5
+                      td Warning
+                      td Column content
+                      td Column content
+                    tr.bg-faded-danger
+                      th(scope=&quot;row&quot;) 6
+                      td Danger
+                      td Column content
+                      td Column content
+
+  // Color borders
+  section#tables-color-borders.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Color borders
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview8' data-bs-toggle='tab' role='tab' aria-controls='preview8' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html8' data-bs-toggle='tab' role='tab' aria-controls='html8' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug8' data-bs-toggle='tab' role='tab' aria-controls='pug8' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview8.tab-pane.fade.show.active(role='tabpanel')
+          .table-responsive.mb-3
+            table.table.table-bordered.border-info
+              thead
+                tr
+                  th #
+                  th First Name
+                  th Last Name
+                  th Position
+                  th Phone
+              tbody
+                tr
+                  th(scope='row') 1
+                  td John
+                  td Doe
+                  td CEO, Founder
+                  td +3 555 68 70
+                tr
+                  th(scope='row') 2
+                  td Anna
+                  td Cabana
+                  td Designer
+                  td +3 434 65 93
+          .table-responsive
+            table.table.table-bordered.border-danger
+              thead
+                tr
+                  th #
+                  th First Name
+                  th Last Name
+                  th Position
+                  th Phone
+              tbody
+                tr
+                  th(scope='row') 1
+                  td John
+                  td Doe
+                  td CEO, Founder
+                  td +3 555 68 70
+                tr
+                  th(scope='row') 2
+                  td Anna
+                  td Cabana
+                  td Designer
+                  td +3 434 65 93
+        #html8.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Color borders on tables --&gt;
+              &lt;table class=&quot;table table-bordered border-info&quot;&gt;
+                ...
+              &lt;/table&gt;
+              &lt;table class=&quot;table table-bordered border-danger&quot;&gt;
+                ...
+              &lt;/table&gt;
+        #pug8.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Color borders on tables
+              table.table.table-bordered.border-info
+                ...
+              table.table.table-bordered.border-danger
+                ...

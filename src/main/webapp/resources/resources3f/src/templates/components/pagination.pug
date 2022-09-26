@@ -1,0 +1,488 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['prismjs/themes/prism.css', 'prismjs/plugins/toolbar/prism-toolbar.css', 'prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var vendorScripts = ['prismjs/components/prism-core.min.js', 'prismjs/components/prism-markup.min.js', 'prismjs/components/prism-clike.min.js', 'prismjs/components/prism-javascript.min.js', 'prismjs/components/prism-pug.min.js', 'prismjs/plugins/toolbar/prism-toolbar.min.js', 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Pagination'
+  - var pageSubtitle = 'Indicate a series of related content exists across multiple pages.'
+  - var pageTitleLink = {'title': 'Bootstrap docs', 'link': 'https://getbootstrap.com/docs/5.1/components/pagination/'}
+  - var anchorNav = [{'title': 'Basic example', 'link': '#pagination-basic'}, {'title': 'With icons', 'link': '#pagination-icons'}, {'title': 'Sizing', 'link': '#pagination-sizing'}, {'title': 'Light version', 'link': '#pagination-light'}]
+  
+//- Page Content
+block content
+
+  // Basic example
+  section#pagination-basic.pb-5.mb-md-2
+    h2.h5.mb-3 Basic example
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result1' data-bs-toggle='tab' role='tab' aria-controls='result1' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result1.tab-pane.fade.show.active(role='tabpanel')
+            nav.mt-2(aria-label='Page navigation example')
+              ul.pagination.mb-0
+                li.page-item
+                  a(href='#').page-link Prev
+                li.page-item.d-sm-none
+                  span.page-link.page-link-static 2 / 5
+                li.page-item.d-none.d-sm-block
+                  a(href='#').page-link 1
+                li.page-item.active(aria-current='page').d-none.d-sm-block
+                  span.page-link
+                    | 2
+                    span.visually-hidden (current)
+                li.page-item.d-none.d-sm-block
+                  a(href='#').page-link 3
+                li.page-item.d-none.d-sm-block
+                  a(href='#').page-link 4
+                li.page-item.d-none.d-sm-block
+                  a(href='#').page-link 5
+                li.page-item
+                  a(href='#').page-link Next
+          #html1.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Pagination: basic example --&gt;
+                &lt;nav aria-label=&quot;Page navigation example&quot;&gt;
+                  &lt;ul class=&quot;pagination&quot;&gt;
+                    &lt;li class=&quot;page-item&quot;&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;page-link&quot;&gt;Prev&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;page-item d-sm-none&quot;&gt;
+                      &lt;span class=&quot;page-link page-link-static&quot;&gt;2 / 5&lt;/span&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;page-item d-none d-sm-block&quot;&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;page-link&quot;&gt;1&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;page-item active d-none d-sm-block&quot; aria-current=&quot;page&quot;&gt;
+                      &lt;span class=&quot;page-link&quot;&gt;
+                        2
+                        &lt;span class=&quot;visually-hidden&quot;&gt;(current)&lt;/span&gt;
+                      &lt;/span&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;page-item d-none d-sm-block&quot;&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;page-link&quot;&gt;3&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;page-item d-none d-sm-block&quot;&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;page-link&quot;&gt;4&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;page-item d-none d-sm-block&quot;&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;page-link&quot;&gt;5&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;page-item&quot;&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;page-link&quot;&gt;Next&lt;/a&gt;
+                    &lt;/li&gt;
+                  &lt;/ul&gt;
+                &lt;/nav&gt;
+          #pug1.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Pagination: basic example
+                nav(aria-label=&quot;Page navigation example&quot;)
+                  ul.pagination
+                    li.page-item
+                      a.page-link(href=&quot;#&quot;) Prev
+                    li.page-item.d-sm-none
+                      span.page-link.page-link-static 2 / 5
+                    li.page-item.d-none.d-sm-block
+                      a.page-link(href=&quot;#&quot;) 1
+                    li.page-item.active.d-none.d-sm-block(aria-current=&quot;page&quot;)
+                      span.page-link
+                        | 2
+                        span.visually-hidden (current)
+                    li.page-item.d-none.d-sm-block
+                      a.page-link(href=&quot;#&quot;) 3
+                    li.page-item.d-none.d-sm-block
+                      a.page-link(href=&quot;#&quot;) 4
+                    li.page-item.d-none.d-sm-block
+                      a.page-link(href=&quot;#&quot;) 5
+                    li.page-item
+                      a.page-link(href=&quot;#&quot;) Next
+
+  // With icons
+  section#pagination-icons.pb-5.mb-md-2
+    h2.h5.mb-3 With icons
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result2' data-bs-toggle='tab' role='tab' aria-controls='result2' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result2.tab-pane.fade.show.active(role='tabpanel')
+            nav.mt-2.mb-4(aria-label='Page navigation example')
+              ul.pagination
+                li.page-item
+                  a(href='#' aria-label='Previous').page-link
+                    i.fi-chevron-left
+                li.page-item.d-sm-none
+                  span.page-link.page-link-static 2 / 5
+                li.page-item.d-none.d-sm-block
+                  a(href='#').page-link 1
+                li.page-item.active.d-none.d-sm-block(aria-current='page')
+                  span.page-link
+                    | 2
+                    span.visually-hidden (current)
+                li.page-item.d-none.d-sm-block
+                  a(href='#').page-link 3
+                li.page-item.d-none.d-sm-block
+                  a(href='#').page-link 4
+                li.page-item.d-none.d-sm-block
+                  a(href='#').page-link 5
+                li.page-item
+                  a(href='#' aria-label='Next').page-link
+                    i.fi-chevron-right
+            nav(aria-label='Page navigation example')
+              ul.pagination
+                li.page-item
+                  a(href='#').page-link
+                    i.fi-chevron-left.me-2
+                    | Prev
+                li.page-item.d-sm-none
+                  span.page-link.page-link-static 2 / 5
+                li.page-item.d-none.d-sm-block
+                  a(href='#').page-link 1
+                li.page-item.active.d-none.d-sm-block(aria-current='page')
+                  span.page-link
+                    | 2
+                    span.visually-hidden (current)
+                li.page-item.d-none.d-sm-block
+                  a(href='#').page-link 3
+                li.page-item.d-none.d-sm-block
+                  a(href='#').page-link 4
+                li.page-item.d-none.d-sm-block
+                  a(href='#').page-link 5
+                li.page-item
+                  a(href='#' aria-label='Next').page-link
+                    | Next
+                    i.fi-chevron-right.ms-2
+          #html2.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Pagination: with icons --&gt;
+                &lt;nav aria-label=&quot;Page navigation example&quot;&gt;
+                  &lt;ul class=&quot;pagination&quot;&gt;
+                    &lt;li class=&quot;page-item&quot;&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;page-link&quot; aria-label=&quot;Previous&quot;&gt;
+                        &lt;i class=&quot;fi-angle-left&quot;&gt;&lt;/i&gt;
+                      &lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;page-item d-sm-none&quot;&gt;
+                      &lt;span class=&quot;page-link page-link-static&quot;&gt;2 / 5&lt;/span&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;page-item d-none d-sm-block&quot;&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;page-link&quot;&gt;1&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;page-item active d-none d-sm-block&quot; aria-current=&quot;page&quot;&gt;
+                      &lt;span class=&quot;page-link&quot;&gt;
+                        2
+                        &lt;span class=&quot;visually-hidden&quot;&gt;(current)&lt;/span&gt;
+                      &lt;/span&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;page-item d-none d-sm-block&quot;&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;page-link&quot;&gt;3&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;page-item d-none d-sm-block&quot;&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;page-link&quot;&gt;4&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;page-item d-none d-sm-block&quot;&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;page-link&quot;&gt;5&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;page-item&quot;&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;page-link&quot; aria-label=&quot;Next&quot;&gt;
+                        &lt;i class=&quot;fi-angle-right&quot;&gt;&lt;/i&gt;
+                      &lt;/a&gt;
+                    &lt;/li&gt;
+                  &lt;/ul&gt;
+                &lt;/nav&gt;
+          #pug2.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Pagination: with icons
+                nav(aria-label=&quot;Page navigation example&quot;)
+                  ul.pagination
+                    li.page-item
+                      a.page-link(href=&quot;#&quot; aria-label=&quot;Previous&quot;)
+                        i.fi-chevron-left
+                    li.page-item.d-sm-none
+                      span.page-link.page-link-static 2 / 5
+                    li.page-item.d-none.d-sm-block
+                      a.page-link(href=&quot;#&quot;) 1
+                    li.page-item.active.d-none.d-sm-block(aria-current=&quot;page&quot;)
+                      span.page-link
+                        | 2
+                        span.visually-hidden (current)
+                    li.page-item.d-none.d-sm-block
+                      a.page-link(href=&quot;#&quot;) 3
+                    li.page-item.d-none.d-sm-block
+                      a.page-link(href=&quot;#&quot;) 4
+                    li.page-item.d-none.d-sm-block
+                      a.page-link(href=&quot;#&quot;) 5
+                    li.page-item
+                      a.page-link(href=&quot;#&quot; aria-label=&quot;Next&quot;)
+                        i.fi-chevron-right
+
+  // Sizing
+  section#pagination-sizing.pb-5.mb-md-2
+    h2.h5.mb-3 Sizing
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result3' data-bs-toggle='tab' role='tab' aria-controls='result3' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result3.tab-pane.fade.show.active(role='tabpanel')
+            nav.mt-2.mb-4(aria-label='Page navigation example')
+              ul.pagination.pagination-lg
+                li.page-item
+                  a(href='#' aria-label='Previous').page-link
+                    i.fi-chevron-left
+                li.page-item.d-sm-none
+                  span.page-link.page-link-static 2 / 5
+                li.page-item.d-none.d-sm-block
+                  a(href='#').page-link 1
+                li.page-item.active.d-none.d-sm-block(aria-current='page')
+                  span.page-link
+                    | 2
+                    span.visually-hidden (current)
+                li.page-item.d-none.d-sm-block
+                  a(href='#').page-link 3
+                li.page-item.d-none.d-sm-block
+                  a(href='#').page-link 4
+                li.page-item.d-none.d-sm-block
+                  a(href='#').page-link 5
+                li.page-item
+                  a(href='#' aria-label='Next').page-link
+                    i.fi-chevron-right
+            nav.mb-4(aria-label='Page navigation example')
+              ul.pagination
+                li.page-item
+                  a(href='#' aria-label='Previous').page-link
+                    i.fi-chevron-left
+                li.page-item.d-sm-none
+                  span.page-link.page-link-static 2 / 5
+                li.page-item.d-none.d-sm-block
+                  a(href='#').page-link 1
+                li.page-item.active.d-none.d-sm-block(aria-current='page')
+                  span.page-link
+                    | 2
+                    span.visually-hidden (current)
+                li.page-item.d-none.d-sm-block
+                  a(href='#').page-link 3
+                li.page-item.d-none.d-sm-block
+                  a(href='#').page-link 4
+                li.page-item.d-none.d-sm-block
+                  a(href='#').page-link 5
+                li.page-item
+                  a(href='#' aria-label='Next').page-link
+                    i.fi-chevron-right
+            nav.mb-4(aria-label='Page navigation example')
+              ul.pagination.pagination-sm
+                li.page-item
+                  a(href='#' aria-label='Previous').page-link
+                    i.fi-chevron-left
+                li.page-item.d-sm-none
+                  span.page-link.page-link-static 2 / 5
+                li.page-item.d-none.d-sm-block
+                  a(href='#').page-link 1
+                li.page-item.active.d-none.d-sm-block(aria-current='page')
+                  span.page-link
+                    | 2
+                    span.visually-hidden (current)
+                li.page-item.d-none.d-sm-block
+                  a(href='#').page-link 3
+                li.page-item.d-none.d-sm-block
+                  a(href='#').page-link 4
+                li.page-item.d-none.d-sm-block
+                  a(href='#').page-link 5
+                li.page-item
+                  a(href='#' aria-label='Next').page-link
+                    i.fi-chevron-right
+          #html3.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Large size --&gt;
+                &lt;nav aria-label=&quot;...&quot;&gt;
+                  &lt;ul class=&quot;pagination pagination-lg&quot;&gt;
+                    &lt;!-- Page links --&gt;
+                  &lt;/ul&gt;
+                &lt;/nav&gt;
+
+                &lt;!-- Normal size --&gt;
+                &lt;nav aria-label=&quot;...&quot;&gt;
+                  &lt;ul class=&quot;pagination&quot;&gt;
+                    &lt;!-- Page links --&gt;
+                  &lt;/ul&gt;
+                &lt;/nav&gt;
+
+                &lt;!-- Small size --&gt;
+                &lt;nav aria-label=&quot;...&quot;&gt;
+                  &lt;ul class=&quot;pagination pagination-sm&quot;&gt;
+                    &lt;!-- Page links --&gt;
+                  &lt;/ul&gt;
+                &lt;/nav&gt;
+          #pug3.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Large size
+                nav(aria-label=&quot;...&quot;)
+                  ul.pagination.pagination-lg
+                    //- Page links
+
+                // Normal size
+                nav(aria-label=&quot;...&quot;)
+                  ul.pagination
+                    //- Page links
+
+                // Small size
+                nav(aria-label=&quot;...&quot;)
+                  ul.pagination.pagination-sm
+                    //- Page links
+
+  // Light version
+  section#pagination-light.pb-5.mb-md-2
+    h2.h5.mb-3 Light version
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result4' data-bs-toggle='tab' role='tab' aria-controls='result4' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result4.tab-pane.m-n3.p-3.bg-dark.fade.show.active(role='tabpanel')
+            nav.mt-2.mb-4(aria-label='Page navigation example')
+              ul.pagination.pagination-light
+                li.page-item
+                  a(href='#' aria-label='Previous').page-link
+                    i.fi-chevron-left
+                li.page-item.d-sm-none
+                  span.page-link.page-link-static 2 / 5
+                li.page-item.d-none.d-sm-block
+                  a(href='#').page-link 1
+                li.page-item.active.d-none.d-sm-block(aria-current='page')
+                  span.page-link
+                    | 2
+                    span.visually-hidden (current)
+                li.page-item.d-none.d-sm-block
+                  a(href='#').page-link 3
+                li.page-item.d-none.d-sm-block
+                  a(href='#').page-link 4
+                li.page-item.d-none.d-sm-block
+                  a(href='#').page-link 5
+                li.page-item
+                  a(href='#' aria-label='Next').page-link
+                    i.fi-chevron-right
+            nav(aria-label='Page navigation example')
+              ul.pagination.pagination-light
+                li.page-item
+                  a(href='#' aria-label='Previous').page-link
+                    i.fi-chevron-left.me-2
+                    | Prev
+                li.page-item.d-sm-none
+                  span.page-link.page-link-static 2 / 5
+                li.page-item.d-none.d-sm-block
+                  a(href='#').page-link 1
+                li.page-item.active.d-none.d-sm-block(aria-current='page')
+                  span.page-link
+                    | 2
+                    span.visually-hidden (current)
+                li.page-item.d-none.d-sm-block
+                  a(href='#').page-link 3
+                li.page-item.d-none.d-sm-block
+                  a(href='#').page-link 4
+                li.page-item.d-none.d-sm-block
+                  a(href='#').page-link 5
+                li.page-item
+                  a(href='#' aria-label='Next').page-link
+                    | Next
+                    i.fi-chevron-right.ms-2
+          #html4.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Pagination: light version --&gt;
+                &lt;nav aria-label=&quot;Page navigation example&quot;&gt;
+                  &lt;ul class=&quot;pagination pagination-light&quot;&gt;
+                    &lt;li class=&quot;page-item&quot;&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;page-link&quot; aria-label=&quot;Previous&quot;&gt;
+                        &lt;i class=&quot;fi-chevron-left me-2&quot;&gt;&lt;/i&gt;
+                        Prev
+                      &lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;page-item d-sm-none&quot;&gt;
+                      &lt;span class=&quot;page-link page-link-static&quot;&gt;2 / 5&lt;/span&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;page-item d-none d-sm-block&quot;&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;page-link&quot;&gt;1&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;page-item active d-none d-sm-block&quot; aria-current=&quot;page&quot;&gt;
+                      &lt;span class=&quot;page-link&quot;&gt;
+                        2
+                        &lt;span class=&quot;visually-hidden&quot;&gt;(current)&lt;/span&gt;
+                      &lt;/span&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;page-item d-none d-sm-block&quot;&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;page-link&quot;&gt;3&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;page-item d-none d-sm-block&quot;&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;page-link&quot;&gt;4&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;page-item d-none d-sm-block&quot;&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;page-link&quot;&gt;5&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;page-item&quot;&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;page-link&quot; aria-label=&quot;Next&quot;&gt;
+                        Next
+                        &lt;i class=&quot;fi-chevron-right ms-2&quot;&gt;&lt;/i&gt;
+                      &lt;/a&gt;
+                    &lt;/li&gt;
+                  &lt;/ul&gt;
+                &lt;/nav&gt;
+          #pug4.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Pagination: light version
+                nav(aria-label=&quot;Page navigation example&quot;)
+                  ul.pagination.pagination-light
+                    li.page-item
+                      a.page-link(href=&quot;#&quot; aria-label=&quot;Previous&quot;)
+                        i.fi-chevron-left.me-2
+                        | Prev
+                    li.page-item.d-sm-none
+                      span.page-link.page-link-static 2 / 5
+                    li.page-item.d-none.d-sm-block
+                      a.page-link(href=&quot;#&quot;) 1
+                    li.page-item.active.d-none.d-sm-block(aria-current=&quot;page&quot;)
+                      span.page-link
+                        | 2
+                        span.visually-hidden (current)
+                    li.page-item.d-none.d-sm-block
+                      a.page-link(href=&quot;#&quot;) 3
+                    li.page-item.d-none.d-sm-block
+                      a.page-link(href=&quot;#&quot;) 4
+                    li.page-item.d-none.d-sm-block
+                      a.page-link(href=&quot;#&quot;) 5
+                    li.page-item
+                      a.page-link(href=&quot;#&quot; aria-label=&quot;Next&quot;)
+                        | Next
+                        i.fi-chevron-right.ms-2

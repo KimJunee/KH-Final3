@@ -1,0 +1,145 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css', 'filepond/dist/filepond.min.css']
+  - var vendorScripts = ['filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.min.js', 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.js', 'filepond-plugin-image-crop/dist/filepond-plugin-image-crop.min.js', 'filepond-plugin-image-resize/dist/filepond-plugin-image-resize.min.js', 'filepond-plugin-image-transform/dist/filepond-plugin-image-transform.min.js', 'filepond/dist/filepond.min.js']
+  - var parentMenu = 'Account'
+  - var pageTitle = 'Real Estate | Account Personal Info'
+
+//- Navbar
+block navbar
+  include partials/navbar-real-estate
+
+//- Page Content
+block content
+  .container.pt-5.pb-lg-4.mt-5.mb-sm-2
+
+    // Breadcrumb
+    nav(aria-label='Breadcrumb').mb-4.pt-md-3
+      ol.breadcrumb
+        li.breadcrumb-item
+          a(href='real-estate-home-v1.html') Home
+        li.breadcrumb-item
+          a(href='real-estate-account-info.html') Account
+        li(aria-current='page').breadcrumb-item.active
+          | Personal Info
+    
+
+    // Page content
+    .row
+
+      // Sidebar
+      aside.col-lg-4.col-md-5.pe-xl-4.mb-5
+        include partials/sidebar-account-real-estate
+
+      // Content
+      .col-lg-8.col-md-7.mb-5
+        h1.h2 Personal Info
+        .mb-2.pt-1 Your personal info is 50% completed
+        .progress.mb-4(style='height: .25rem;')
+          .progress-bar.bg-warning(role='progressbar' style='width: 50%' aria-valuenow='50' aria-valuemin='0' aria-valuemax='100')
+        label(for='account-bio').form-label.pt-2 Short bio
+        .row.pb-2
+          .col-lg-9.col-sm-8.mb-4
+            textarea(id='account-bio' rows='6' placeholder='Write your bio here. It will be displayed on your public profile.').form-control
+          .col-lg-3.col-sm-4.mb-4
+            input(type='file' accept='image/png, image/jpeg' data-label-idle='<i class="d-inline-block fi-camera-plus fs-2 text-muted mb-2"></i><br><span class="fw-bold">Change picture</span>' data-style-panel-layout='compact' data-image-preview-height='160' data-image-crop-aspect-ratio='1:1' data-image-resize-target-width='200' data-image-resize-target-height='200').file-uploader.bg-secondary
+        #personal-info.border.rounded-3.p-3.mb-4
+          
+          // Name
+          .border-bottom.pb-3.mb-3
+            .d-flex.align-items-center.justify-content-between
+              .pe-2
+                label.form-label.fw-bold Full name
+                #name-value Annette Black
+              div(data-bs-toggle='tooltip' title='Edit').me-n3
+                a(href='#name-collapse' data-bs-toggle='collapse').nav-link.py-0
+                  i.fi-edit
+            #name-collapse.collapse(data-bs-parent='#personal-info')
+              input(type='text' data-bs-binded-element='#name-value' data-bs-unset-value='Not specified' value='Annette Black').form-control.mt-3
+          
+          // Email
+          .border-bottom.pb-3.mb-3
+            .d-flex.align-items-center.justify-content-between
+              .pe-2
+                label.form-label.fw-bold Email
+                #email-value annette_black@email.com
+              div(data-bs-toggle='tooltip' title='Edit').me-n3
+                a(href='#email-collapse' data-bs-toggle='collapse').nav-link.py-0
+                  i.fi-edit
+            #email-collapse.collapse(data-bs-parent='#personal-info')
+              input(type='email' data-bs-binded-element='#email-value' data-bs-unset-value='Not specified' value='annette_black@email.com').form-control.mt-3
+          
+          // Phone number
+          .border-bottom.pb-3.mb-3
+            .d-flex.align-items-center.justify-content-between
+              .pe-2
+                label.form-label.fw-bold Phone number
+                #phone-value (302) 555-0107
+              div(data-bs-toggle='tooltip' title='Edit').me-n3
+                a(href='#phone-collapse' data-bs-toggle='collapse').nav-link.py-0
+                  i.fi-edit
+            #phone-collapse.collapse(data-bs-parent='#personal-info')
+              input(type='text' data-bs-binded-element='#phone-value' data-bs-unset-value='Not specified' value='(302) 555-0107').form-control.mt-3
+          
+          // Company name
+          .border-bottom.pb-3.mb-3
+            .d-flex.align-items-center.justify-content-between
+              .pe-2
+                label.form-label.fw-bold Company name
+                #company-value Not specified
+              div(data-bs-toggle='tooltip' title='Edit').me-n3
+                a(href='#company-collapse' data-bs-toggle='collapse').nav-link.py-0
+                  i.fi-edit
+            #company-collapse.collapse(data-bs-parent='#personal-info')
+              input(type='text' data-bs-binded-element='#company-value' data-bs-unset-value='Not specified' placeholder='Enter company name').form-control.mt-3
+          
+          // Address
+          div
+            .d-flex.align-items-center.justify-content-between
+              .pe-2
+                label.form-label.fw-bold Address
+                #address-value Not specified
+              div(data-bs-toggle='tooltip' title='Edit').me-n3
+                a(href='#address-collapse' data-bs-toggle='collapse').nav-link.py-0
+                  i.fi-edit
+            #address-collapse.collapse(data-bs-parent='#personal-info')
+              input(type='text' data-bs-binded-element='#address-value' data-bs-unset-value='Not specified' placeholder='Enter address').form-control.mt-3
+
+        // Socials
+        .pt-2
+          label.form-label.fw-bold.mb-3 Socials
+        .d-flex.align-items-center.mb-3
+          .btn.btn-icon.btn-light.btn-xs.shadow-sm.rounded-circle.pe-none.flex-shrink-0.me-3
+            i.fi-facebook.text-body
+          input(type='text' placeholder='Your Facebook account').form-control
+        .d-flex.align-items-center.mb-3
+          .btn.btn-icon.btn-light.btn-xs.shadow-sm.rounded-circle.pe-none.flex-shrink-0.me-3
+            i.fi-linkedin.text-body
+          input(type='text' placeholder='Your LinkedIn account').form-control
+        .d-flex.align-items-center.mb-3
+          .btn.btn-icon.btn-light.btn-xs.shadow-sm.rounded-circle.pe-none.flex-shrink-0.me-3
+            i.fi-twitter.text-body
+          input(type='text' placeholder='Your Twitter account').form-control
+        #showMoreSocials.collapse
+          .d-flex.align-items-center.mb-3
+            .btn.btn-icon.btn-light.btn-xs.shadow-sm.rounded-circle.pe-none.flex-shrink-0.me-3
+              i.fi-instagram.text-body
+            input(type='text' placeholder='Your Instagram account').form-control
+          .d-flex.align-items-center.mb-3
+            .btn.btn-icon.btn-light.btn-xs.shadow-sm.rounded-circle.pe-none.flex-shrink-0.me-3
+              i.fi-pinterest.text-body
+            input(type='text' placeholder='Your Pinterest account').form-control
+        a(href='#showMoreSocials' data-bs-toggle='collapse' data-bs-label-collapsed='Show more' data-bs-label-expanded='Show less' role='button' aria-expanded='false' aria-controls='showMoreSocials').collapse-label.collapsed.d-inline-block.fs-sm.fw-bold.text-decoration-none.pt-2.pb-3
+          i.fi-arrow-down.me-2
+        .d-flex.align-items-center.justify-content-between.border-top.mt-4.pt-4.pb-1
+          button(type='button').btn.btn-primary.px-3.px-sm-4 Save changes
+          button(type='button').btn.btn-link.btn-sm.px-0
+            i.fi-trash.me-2
+            | Delete account
+
+
+//- Footer
+block footer
+  include partials/footer-real-estate

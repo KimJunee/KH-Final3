@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Around | Modal</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="Around - Multipurpose Bootstrap HTML Template">
+    <meta name="keywords" content="bootstrap, business, corporate, coworking space, services, creative agency, dashboard, e-commerce, mobile app showcase, saas, multipurpose, product landing, shop, software, ui kit, web studio, landing, dark mode, html5, css3, javascript, gallery, slider, touch, creative">
+    <meta name="author" content="Createx Studio">
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../assets/favicon/site.webmanifest">
+    <link rel="mask-icon" color="#6366f1" href="../assets/favicon/safari-pinned-tab.svg">
+    <meta name="msapplication-TileColor" content="#080032">
+    <meta name="msapplication-config" content="../assets/favicon/browserconfig.xml">
+    <meta name="theme-color" content="white">
+    <!-- Theme mode-->
+    <script>
+      let mode = window.localStorage.getItem('mode'),
+          root = document.getElementsByTagName('html')[0];
+      if (mode !== undefined && mode === 'dark') {
+        root.classList.add('dark-mode');
+      } else {
+        root.classList.remove('dark-mode');
+      }
+      
+      
+    </script>
+    <!-- Import Google Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" id="google-font">
+    <!-- Vendor styles-->
+    <link rel="stylesheet" media="screen" href="../assets/vendor/simplebar/dist/simplebar.min.css"/>
+    <link rel="stylesheet" media="screen" href="../assets/vendor/prismjs/themes/prism.css"/>
+    <link rel="stylesheet" media="screen" href="../assets/vendor/prismjs/plugins/toolbar/prism-toolbar.css"/>
+    <link rel="stylesheet" media="screen" href="../assets/vendor/prismjs/plugins/line-numbers/prism-line-numbers.css"/>
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="../assets/css/theme.min.css">
+  </head>
+  <!-- Body-->
+  <body class="bg-secondary">
+    <!-- Small modal-->
+    <div class="modal fade" id="modalSmall" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Modal title</h4>
+            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Default modal-->
+    <div class="modal fade" id="modalDefault" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Modal title</h4>
+            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Modal body text goes here.</p>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary w-100 w-sm-auto mb-3 mb-sm-0" type="button" data-bs-dismiss="modal">Close</button>
+            <button class="btn btn-primary w-100 w-sm-auto ms-sm-3" type="button">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Large modal-->
+    <div class="modal fade" id="modalLarge" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Modal title</h4>
+            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Modal body text goes here.</p>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary w-100 w-sm-auto mb-3 mb-sm-0" type="button" data-bs-dismiss="modal">Close</button>
+            <button class="btn btn-primary w-100 w-sm-auto ms-sm-3" type="button">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Extra large modal-->
+    <div class="modal fade" id="modalXL" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Modal title</h4>
+            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Modal body text goes here.</p>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary w-100 w-sm-auto mb-3 mb-sm-0" type="button" data-bs-dismiss="modal">Close</button>
+            <button class="btn btn-primary w-100 w-sm-auto ms-sm-3" type="button">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Long modal-->
+    <div class="modal fade" id="modalLong" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Modal title</h4>
+            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body fs-sm">
+            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary w-100 w-sm-auto mb-3 mb-sm-0" type="button" data-bs-dismiss="modal">Close</button>
+            <button class="btn btn-primary w-100 w-sm-auto ms-sm-3" type="button">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Scrolling content-->
+    <div class="modal fade" id="modalScroll" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Modal title</h4>
+            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body fs-sm">
+            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary w-100 w-sm-auto mb-3 mb-sm-0" type="button" data-bs-dismiss="modal">Close</button>
+            <button class="btn btn-primary w-100 w-sm-auto ms-sm-3" type="button">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Vertically centered modal-->
+    <div class="modal fade" id="modalCentered" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Modal title</h4>
+            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Modal body text goes here.</p>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary w-100 w-sm-auto mb-3 mb-sm-0" type="button" data-bs-dismiss="modal">Close</button>
+            <button class="btn btn-primary w-100 w-sm-auto ms-sm-3" type="button">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Full screen modal-->
+    <div class="modal fade" id="modalFullscreen" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-fullscreen" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Modal title</h4>
+            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Modal body text goes here.</p>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary w-100 w-sm-auto mb-3 mb-sm-0" type="button" data-bs-dismiss="modal">Close</button>
+            <button class="btn btn-primary w-100 w-sm-auto ms-sm-3" type="button">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Navbar-->
+    <header class="navbar navbar-expand justify-content-end fixed-top" data-scroll-header>
+      <div class="container"><a class="navbar-brand pe-xl-2 me-4" href="typography.html"><span class="text-primary flex-shrink-0 me-2">
+            <svg version="1.1" width="35" height="32" viewBox="0 0 36 33" xmlns="http://www.w3.org/2000/svg">
+              <path fill="currentColor" d="M35.6,29c-1.1,3.4-5.4,4.4-7.9,1.9c-2.3-2.2-6.1-3.7-9.4-3.7c-3.1,0-7.5,1.8-10,4.1c-2.2,2-5.8,1.5-7.3-1.1c-1-1.8-1.2-4.1,0-6.2l0.6-1.1l0,0c0.6-0.7,4.4-5.2,12.5-5.7c0.5,1.8,2,3.1,3.9,3.1c2.2,0,4.1-1.9,4.1-4.2s-1.8-4.2-4.1-4.2c-2,0-3.6,1.4-4,3.3H7.7c-0.8,0-1.3-0.9-0.9-1.6l5.6-9.8c2.5-4.5,8.8-4.5,11.3,0L35.1,24C36,25.7,36.1,27.5,35.6,29z"></path>
+            </svg></span>Around<span class="badge bg-warning fs-sm ms-2">UI Kit</span></a>
+        <ul class="navbar-nav d-none d-lg-flex me-auto">
+          <li class="nav-item"><a class="nav-link" href="../index.html"><i class="ai-monitor fs-lg opacity-90 me-2"></i>Live demo</a></li>
+          <li class="nav-item"><a class="nav-link" href="../docs/getting-started.html"><i class="ai-file-text fs-lg opacity-90 me-2"></i>Documentation</a></li>
+        </ul>
+        <div class="form-check form-switch mode-switch pe-lg-1 ms-auto" data-bs-toggle="mode">
+          <input class="form-check-input" type="checkbox" id="theme-mode">
+          <label class="form-check-label" for="theme-mode"><i class="ai-sun fs-lg"></i></label>
+          <label class="form-check-label" for="theme-mode"><i class="ai-moon fs-lg"></i></label>
+        </div>
+        <button class="navbar-toggler d-block d-lg-none ms-3 border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#componentsNav"><span class="navbar-toggler-icon"></span></button><a class="btn btn-sm btn-primary d-none d-lg-inline-flex fs-sm ms-4" href="https://themes.getbootstrap.com/product/around-multipurpose-template-ui-kit/" target="_blank" rel="noopener"><i class="ai-cart d-sm-inline-block fs-xl me-2 ms-n1"></i>Buy now</a>
+      </div>
+    </header>
+    <!-- Desktop sidebar navigation (on screens > 991px) (Offcanvas)-->
+    <aside class="container position-fixed d-none d-lg-block start-50 translate-middle-x h-100 pt-5">
+      <div class="row h-100 pt-5">
+        <div class="col-lg-3 d-flex flex-column pb-3 pt-4" style="height: calc(100% - 2rem);">
+          <div class="h-100 mt-2" data-simplebar>
+            <h3 class="h5 mb-1 pb-2">Content</h3>
+            <ul class="nav flex-column">
+              <li class="nav-item"><a class="nav-link px-0 py-2" href="typography.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Typography</a>
+              </li>
+              <li class="nav-item" id="icons"><a class="nav-link px-0 py-2" href="icon-font.html#icons"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Icon font</a>
+              </li>
+              <li class="nav-item" id="code"><a class="nav-link px-0 py-2" href="code.html#code"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Code</a>
+              </li>
+              <li class="nav-item" id="imgs"><a class="nav-link px-0 py-2" href="images.html#imgs"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Images &amp; figures</a>
+              </li>
+              <li class="nav-item" id="tables"><a class="nav-link px-0 py-2" href="tables.html#tables"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Tables</a>
+              </li>
+            </ul>
+            <h3 class="h5 mb-1 pt-4 pb-2">Components</h3>
+            <ul class="nav flex-column">
+              <li class="nav-item" id="accordion"><a class="nav-link px-0 py-2" href="accordion.html#accordion"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Accordion</a>
+              </li>
+              <li class="nav-item" id="alerts"><a class="nav-link px-0 py-2" href="alerts.html#alerts"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Alerts</a>
+              </li>
+              <li class="nav-item" id="badges"><a class="nav-link px-0 py-2" href="badges.html#badges"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Badges</a>
+              </li>
+              <li class="nav-item" id="blog"><a class="nav-link px-0 py-2" href="blog-components.html#blog"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Blog components</a>
+              </li>
+              <li class="nav-item" id="breadcrumb"><a class="nav-link px-0 py-2" href="breadcrumb.html#breadcrumb"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Breadcrumb</a>
+              </li>
+              <li class="nav-item" id="btns"><a class="nav-link px-0 py-2" href="buttons.html#btns"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Buttons</a>
+              </li>
+              <li class="nav-item" id="btn-group"><a class="nav-link px-0 py-2" href="button-group.html#btn-group"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Button group</a>
+              </li>
+              <li class="nav-item" id="cards-basic"><a class="nav-link px-0 py-2" href="cards-basic.html#cards-basic"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Cards: Basic</a>
+              </li>
+              <li class="nav-item" id="cards-hover"><a class="nav-link px-0 py-2" href="cards-hover.html#cards-hover"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Cards: Hover effects</a>
+              </li>
+              <li class="nav-item" id="carousel"><a class="nav-link px-0 py-2" href="carousel.html#carousel"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Carousel (Slider)</a>
+              </li>
+              <li class="nav-item" id="charts"><a class="nav-link px-0 py-2" href="charts.html#charts"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Charts</a>
+              </li>
+              <li class="nav-item" id="collapse"><a class="nav-link px-0 py-2" href="collapse.html#collapse"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Collapse</a>
+              </li>
+              <li class="nav-item" id="countdown"><a class="nav-link px-0 py-2" href="countdown.html#countdown"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Countdown</a>
+              </li>
+              <li class="nav-item" id="picker"><a class="nav-link px-0 py-2" href="date-picker.html#picker"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Date / time picker</a>
+              </li>
+              <li class="nav-item" id="dropdowns"><a class="nav-link px-0 py-2" href="dropdowns.html#dropdowns"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Dropdowns</a>
+              </li>
+              <li class="nav-item" id="calendar"><a class="nav-link px-0 py-2" href="calendar.html#calendar"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Event calendar</a>
+              </li>
+              <li class="nav-item" id="forms"><a class="nav-link px-0 py-2" href="forms.html#forms"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Forms</a>
+              </li>
+              <li class="nav-item" id="gallery"><a class="nav-link px-0 py-2" href="gallery.html#gallery"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Gallery (Lightbox)</a>
+              </li>
+              <li class="nav-item" id="hotspots"><a class="nav-link px-0 py-2" href="hotspots.html#hotspots"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Hotspots</a>
+              </li>
+              <li class="nav-item" id="ics"><a class="nav-link px-0 py-2" href="image-comparison-slider.html#ics"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Image comparison slider</a>
+              </li>
+              <li class="nav-item" id="ig"><a class="nav-link px-0 py-2" href="input-group.html#ig"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Input group</a>
+              </li>
+              <li class="nav-item" id="lg"><a class="nav-link px-0 py-2" href="list-group.html#lg"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>List group</a>
+              </li>
+              <li class="nav-item" id="maps"><a class="nav-link px-0 py-2" href="maps.html#maps"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Maps</a>
+              </li>
+              <li class="nav-item" id="modal"><span class="nav-link px-0 py-2 active"><i class="ai-circle-arrow-down fs-lg opacity-90 me-2"></i>Modal</span>
+                <ul class="nav flex-column border-start ps-3 ms-2 mb-2">
+                  <li class="nav-item"><a class="nav-link fs-sm fw-normal py-1 ps-1 pe-0 mb-1" href="#modal-markup" data-scroll="data-scroll">Modal markup</a></li>
+                  <li class="nav-item"><a class="nav-link fs-sm fw-normal py-1 ps-1 pe-0 mb-1" href="#modal-tabs-forms" data-scroll="data-scroll">Tabs and forms</a></li>
+                  <li class="nav-item"><a class="nav-link fs-sm fw-normal py-1 ps-1 pe-0 mb-1" href="#modal-demo" data-scroll="data-scroll">Live demo (variants)</a></li>
+                </ul>
+              </li>
+              <li class="nav-item" id="navbar"><a class="nav-link px-0 py-2" href="navbar.html#navbar"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Navbar</a>
+              </li>
+              <li class="nav-item" id="offcanvas"><a class="nav-link px-0 py-2" href="offcanvas.html#offcanvas"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Offcanvas</a>
+              </li>
+              <li class="nav-item" id="pagination"><a class="nav-link px-0 py-2" href="pagination.html#pagination"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Pagination</a>
+              </li>
+              <li class="nav-item" id="parallax"><a class="nav-link px-0 py-2" href="parallax.html#parallax"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Parallax</a>
+              </li>
+              <li class="nav-item" id="pills"><a class="nav-link px-0 py-2" href="pills.html#pills"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Pills</a>
+              </li>
+              <li class="nav-item" id="placeholders"><a class="nav-link px-0 py-2" href="placeholders.html#placeholders"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Placeholders</a>
+              </li>
+              <li class="nav-item" id="popovers"><a class="nav-link px-0 py-2" href="popovers.html#popovers"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Popovers</a>
+              </li>
+              <li class="nav-item" id="portfolio"><a class="nav-link px-0 py-2" href="portfolio-components.html#portfolio"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Portfolio components</a>
+              </li>
+              <li class="nav-item" id="pricing"><a class="nav-link px-0 py-2" href="pricing.html#pricing"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Pricing</a>
+              </li>
+              <li class="nav-item" id="progress"><a class="nav-link px-0 py-2" href="progress.html#progress"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Progress</a>
+              </li>
+              <li class="nav-item" id="shop"><a class="nav-link px-0 py-2" href="shop-components.html#shop"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Shop components</a>
+              </li>
+              <li class="nav-item" id="social-btns"><a class="nav-link px-0 py-2" href="social-buttons.html#social-btns"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Social buttons</a>
+              </li>
+              <li class="nav-item" id="spinners"><a class="nav-link px-0 py-2" href="spinners.html#spinners"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Spinners</a>
+              </li>
+              <li class="nav-item" id="steps"><a class="nav-link px-0 py-2" href="steps.html#steps"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Steps</a>
+              </li>
+              <li class="nav-item" id="tabs"><a class="nav-link px-0 py-2" href="tabs.html#tabs"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Tabs</a>
+              </li>
+              <li class="nav-item" id="team"><a class="nav-link px-0 py-2" href="team.html#team"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Team</a>
+              </li>
+              <li class="nav-item" id="testimonials"><a class="nav-link px-0 py-2" href="testimonials.html#testimonials"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Testimonials / reviews</a>
+              </li>
+              <li class="nav-item" id="toasts"><a class="nav-link px-0 py-2" href="toasts.html#toasts"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Toasts</a>
+              </li>
+              <li class="nav-item" id="tooltips"><a class="nav-link px-0 py-2" href="tooltips.html#tooltips"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Tooltips</a>
+              </li>
+              <li class="nav-item" id="video"><a class="nav-link px-0 py-2" href="video-popup.html#video"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Video popup</a>
+              </li>
+            </ul>
+            <h3 class="h5 mb-1 pt-4 pb-2">Utilities</h3>
+            <ul class="nav flex-column mb-0">
+              <li class="nav-item"><a class="nav-link px-0 py-2" href="https://getbootstrap.com/docs/5.2/utilities/background/" target="_blank" rel="noopener"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Bootstrap</a></li>
+            </ul>
+            <ul class="nav flex-column">
+              <li class="nav-item" id="utils"><a class="nav-link px-0 py-2" href="utilities.html#utils"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Around utilities</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <!-- Mobile offcanvas navigation (on screens < 992px)-->
+    <div class="offcanvas offcanvas-start" id="componentsNav">
+      <div class="offcanvas-header align-items-center">
+        <div class="d-flex align-items-center">
+          <h4 class="offcanvas-title">Menu</h4>
+        </div>
+        <button class="btn-close" type="button" data-bs-dismiss="offcanvas"></button>
+      </div>
+      <ul class="nav flex-column border-bottom pb-4">
+        <li class="nav-item"><a class="nav-link py-2" href="../index.html"><i class="ai-monitor fs-lg opacity-90 me-2"></i>Live demo</a></li>
+        <li class="nav-item"><a class="nav-link py-2" href="../docs/getting-started.html"><i class="ai-file-text fs-lg opacity-90 me-2"></i>Documentation</a></li>
+      </ul>
+      <div class="offcanvas-body">
+        <h3 class="h5 mb-1 pb-2">Content</h3>
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link px-0 py-2" href="typography.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Typography</a>
+          </li>
+          <li class="nav-item" id="icons=m"><a class="nav-link px-0 py-2" href="icon-font.html#icons=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Icon font</a>
+          </li>
+          <li class="nav-item" id="code=m"><a class="nav-link px-0 py-2" href="code.html#code=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Code</a>
+          </li>
+          <li class="nav-item" id="imgs=m"><a class="nav-link px-0 py-2" href="images.html#imgs=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Images &amp; figures</a>
+          </li>
+          <li class="nav-item" id="tables=m"><a class="nav-link px-0 py-2" href="tables.html#tables=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Tables</a>
+          </li>
+        </ul>
+        <h3 class="h5 mb-1 pt-4 pb-2">Components</h3>
+        <ul class="nav flex-column">
+          <li class="nav-item" id="accordion=m"><a class="nav-link px-0 py-2" href="accordion.html#accordion=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Accordion</a>
+          </li>
+          <li class="nav-item" id="alerts=m"><a class="nav-link px-0 py-2" href="alerts.html#alerts=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Alerts</a>
+          </li>
+          <li class="nav-item" id="badges=m"><a class="nav-link px-0 py-2" href="badges.html#badges=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Badges</a>
+          </li>
+          <li class="nav-item" id="blog=m"><a class="nav-link px-0 py-2" href="blog-components.html#blog=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Blog components</a>
+          </li>
+          <li class="nav-item" id="breadcrumb=m"><a class="nav-link px-0 py-2" href="breadcrumb.html#breadcrumb=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Breadcrumb</a>
+          </li>
+          <li class="nav-item" id="btns=m"><a class="nav-link px-0 py-2" href="buttons.html#btns=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Buttons</a>
+          </li>
+          <li class="nav-item" id="btn-group=m"><a class="nav-link px-0 py-2" href="button-group.html#btn-group=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Button group</a>
+          </li>
+          <li class="nav-item" id="cards-basic=m"><a class="nav-link px-0 py-2" href="cards-basic.html#cards-basic=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Cards: Basic</a>
+          </li>
+          <li class="nav-item" id="cards-hover=m"><a class="nav-link px-0 py-2" href="cards-hover.html#cards-hover=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Cards: Hover effects</a>
+          </li>
+          <li class="nav-item" id="carousel=m"><a class="nav-link px-0 py-2" href="carousel.html#carousel=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Carousel (Slider)</a>
+          </li>
+          <li class="nav-item" id="charts=m"><a class="nav-link px-0 py-2" href="charts.html#charts=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Charts</a>
+          </li>
+          <li class="nav-item" id="collapse=m"><a class="nav-link px-0 py-2" href="collapse.html#collapse=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Collapse</a>
+          </li>
+          <li class="nav-item" id="countdown=m"><a class="nav-link px-0 py-2" href="countdown.html#countdown=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Countdown</a>
+          </li>
+          <li class="nav-item" id="picker=m"><a class="nav-link px-0 py-2" href="date-picker.html#picker=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Date / time picker</a>
+          </li>
+          <li class="nav-item" id="dropdowns=m"><a class="nav-link px-0 py-2" href="dropdowns.html#dropdowns=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Dropdowns</a>
+          </li>
+          <li class="nav-item" id="calendar=m"><a class="nav-link px-0 py-2" href="calendar.html#calendar=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Event calendar</a>
+          </li>
+          <li class="nav-item" id="forms=m"><a class="nav-link px-0 py-2" href="forms.html#forms=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Forms</a>
+          </li>
+          <li class="nav-item" id="gallery=m"><a class="nav-link px-0 py-2" href="gallery.html#gallery=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Gallery (Lightbox)</a>
+          </li>
+          <li class="nav-item" id="hotspots=m"><a class="nav-link px-0 py-2" href="hotspots.html#hotspots=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Hotspots</a>
+          </li>
+          <li class="nav-item" id="ics=m"><a class="nav-link px-0 py-2" href="image-comparison-slider.html#ics=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Image comparison slider</a>
+          </li>
+          <li class="nav-item" id="ig=m"><a class="nav-link px-0 py-2" href="input-group.html#ig=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Input group</a>
+          </li>
+          <li class="nav-item" id="lg=m"><a class="nav-link px-0 py-2" href="list-group.html#lg=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>List group</a>
+          </li>
+          <li class="nav-item" id="maps=m"><a class="nav-link px-0 py-2" href="maps.html#maps=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Maps</a>
+          </li>
+          <li class="nav-item" id="modal=m"><span class="nav-link px-0 py-2 active"><i class="ai-circle-arrow-down fs-lg opacity-90 me-2"></i>Modal</span>
+            <ul class="nav flex-column border-start ps-3 ms-2 mb-2">
+              <li class="nav-item"><a class="nav-link fs-sm fw-normal py-1 ps-1 pe-0 mb-1" href="#modal-markup" data-scroll="data-scroll">Modal markup</a></li>
+              <li class="nav-item"><a class="nav-link fs-sm fw-normal py-1 ps-1 pe-0 mb-1" href="#modal-tabs-forms" data-scroll="data-scroll">Tabs and forms</a></li>
+              <li class="nav-item"><a class="nav-link fs-sm fw-normal py-1 ps-1 pe-0 mb-1" href="#modal-demo" data-scroll="data-scroll">Live demo (variants)</a></li>
+            </ul>
+          </li>
+          <li class="nav-item" id="navbar=m"><a class="nav-link px-0 py-2" href="navbar.html#navbar=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Navbar</a>
+          </li>
+          <li class="nav-item" id="offcanvas=m"><a class="nav-link px-0 py-2" href="offcanvas.html#offcanvas=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Offcanvas</a>
+          </li>
+          <li class="nav-item" id="pagination=m"><a class="nav-link px-0 py-2" href="pagination.html#pagination=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Pagination</a>
+          </li>
+          <li class="nav-item" id="parallax=m"><a class="nav-link px-0 py-2" href="parallax.html#parallax=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Parallax</a>
+          </li>
+          <li class="nav-item" id="pills=m"><a class="nav-link px-0 py-2" href="pills.html#pills=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Pills</a>
+          </li>
+          <li class="nav-item" id="placeholders=m"><a class="nav-link px-0 py-2" href="placeholders.html#placeholders=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Placeholders</a>
+          </li>
+          <li class="nav-item" id="popovers=m"><a class="nav-link px-0 py-2" href="popovers.html#popovers=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Popovers</a>
+          </li>
+          <li class="nav-item" id="portfolio=m"><a class="nav-link px-0 py-2" href="portfolio-components.html#portfolio=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Portfolio components</a>
+          </li>
+          <li class="nav-item" id="pricing=m"><a class="nav-link px-0 py-2" href="pricing.html#pricing=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Pricing</a>
+          </li>
+          <li class="nav-item" id="progress=m"><a class="nav-link px-0 py-2" href="progress.html#progress=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Progress</a>
+          </li>
+          <li class="nav-item" id="shop=m"><a class="nav-link px-0 py-2" href="shop-components.html#shop=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Shop components</a>
+          </li>
+          <li class="nav-item" id="social-btns=m"><a class="nav-link px-0 py-2" href="social-buttons.html#social-btns=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Social buttons</a>
+          </li>
+          <li class="nav-item" id="spinners=m"><a class="nav-link px-0 py-2" href="spinners.html#spinners=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Spinners</a>
+          </li>
+          <li class="nav-item" id="steps=m"><a class="nav-link px-0 py-2" href="steps.html#steps=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Steps</a>
+          </li>
+          <li class="nav-item" id="tabs=m"><a class="nav-link px-0 py-2" href="tabs.html#tabs=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Tabs</a>
+          </li>
+          <li class="nav-item" id="team=m"><a class="nav-link px-0 py-2" href="team.html#team=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Team</a>
+          </li>
+          <li class="nav-item" id="testimonials=m"><a class="nav-link px-0 py-2" href="testimonials.html#testimonials=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Testimonials / reviews</a>
+          </li>
+          <li class="nav-item" id="toasts=m"><a class="nav-link px-0 py-2" href="toasts.html#toasts=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Toasts</a>
+          </li>
+          <li class="nav-item" id="tooltips=m"><a class="nav-link px-0 py-2" href="tooltips.html#tooltips=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Tooltips</a>
+          </li>
+          <li class="nav-item" id="video=m"><a class="nav-link px-0 py-2" href="video-popup.html#video=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Video popup</a>
+          </li>
+        </ul>
+        <h3 class="h5 mb-1 pt-4 pb-2">Utilities</h3>
+        <ul class="nav flex-column mb-0">
+          <li class="nav-item"><a class="nav-link px-0 py-2" href="https://getbootstrap.com/docs/5.2/utilities/background/" target="_blank" rel="noopener"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Bootstrap</a></li>
+        </ul>
+        <ul class="nav flex-column">
+          <li class="nav-item" id="utils=m"><a class="nav-link px-0 py-2" href="utilities.html#utils=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Around utilities</a>
+          </li>
+        </ul>
+      </div>
+      <div class="offcanvas-header border-top"><a class="btn btn-primary w-100" href="https://themes.getbootstrap.com/product/around-multipurpose-template-ui-kit/" target="_blank" rel="noopener"><i class="ai-cart d-sm-inline-block fs-xl me-2 ms-n1"></i>Buy now</a></div>
+    </div>
+    <!-- Page content-->
+    <section class="container pt-5 pb-4">
+      <div class="row pt-5 pb-2 pb-sm-3">
+        <div class="col-lg-9 offset-lg-3 position-relative zindex-5">
+          <h1 class="pt-lg-4">Modal</h1>
+          <div class="d-flex flex-wrap flex-md-nowrap justify-content-between pb-3">
+            <p class="text-muted">Add dialogs to your site for lightboxes, user notifications, etc.</p>
+            <p class="fs-sm fw-semibold ps-md-4"><a class="text-decoration-none text-nowrap" href="https://getbootstrap.com/docs/5.2/components/modal/" target="_blank" rel="noopener">Bootstrap docs<i class="ai-external-link fs-lg ms-2"></i></a></p>
+          </div>
+          <!-- Modal markup-->
+          <section class="card border-0 mb-4" id="modal-markup">
+            <div class="card-body pb-0">
+              <h2 class="h4 mb-n2">Modal markup</h2>
+            </div>
+            <div class="card-header">
+              <ul class="nav nav-tabs card-header-tabs flex-nowrap align-items-center mb-n1" role="tablist">
+                <li class="nav-item me-3"><a class="nav-link px-0 py-2 border-0 rounded-1 active" href="#preview1" data-bs-toggle="tab" role="tab" aria-controls="preview1" aria-selected="true"><i class="ai-show fs-lg opacity-90 me-2"></i>Preview</a></li>
+                <li class="vr opacity-20 my-3 me-3"></li>
+                <li class="nav-item me-3"><a class="nav-link px-0 py-2 border-0 rounded-1" href="#html1" data-bs-toggle="tab" role="tab" aria-controls="html1" aria-selected="false"><i class="ai-code fs-xl opacity-90 me-2"></i>HTML</a></li>
+                <li class="vr opacity-20 my-3 me-3"></li>
+                <li class="nav-item me-0"><a class="nav-link px-0 py-2 border-0 rounded-1" href="#pug1" data-bs-toggle="tab" role="tab" aria-controls="pug1" aria-selected="false"><i class="ai-code-curly opacity-90 me-2"></i>Pug</a></li>
+              </ul>
+            </div>
+            <div class="card-body">
+              <div class="tab-content">
+                <div class="tab-pane fade show active" id="preview1" role="tabpanel">
+                  <style>
+                    .example-modal .modal {
+                      display: block;
+                      position: relative;
+                      top: auto;
+                      right: auto;
+                      bottom: auto;
+                      left: auto;
+                      z-index: 1;
+                    }
+                  </style>
+                  <div class="example-modal">
+                    <div class="modal" tabindex="-1" role="dialog">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h4 class="modal-title">Modal title</h4>
+                            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <p>Modal body text goes here.</p>
+                          </div>
+                          <div class="modal-footer flex-column flex-sm-row">
+                            <button class="btn btn-secondary w-100 w-sm-auto mb-3 mb-sm-0" type="button" data-bs-dismiss="modal">Close</button>
+                            <button class="btn btn-primary w-100 w-sm-auto ms-sm-3" type="button">Save changes</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="html1" role="tabpanel">
+                  <pre class="line-numbers"><code class="lang-html">&lt;!-- Modal markup --&gt;
+&lt;div class=&quot;modal&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot;&gt;
+  &lt;div class=&quot;modal-dialog&quot; role=&quot;document&quot;&gt;
+    &lt;div class=&quot;modal-content&quot;&gt;
+      &lt;div class=&quot;modal-header&quot;&gt;
+        &lt;h4 class=&quot;modal-title&quot;&gt;Modal title&lt;/h4&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;modal&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;modal-body&quot;&gt;
+        &lt;p&gt;Modal body text goes here.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;modal-footer flex-column flex-sm-row&quot;&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn btn-secondary w-100 w-sm-auto mb-3 mb-sm-0&quot; data-bs-dismiss=&quot;modal&quot;&gt;Close&lt;/button&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn btn-primary w-100 w-sm-auto ms-sm-3&quot;&gt;Save changes&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+                <div class="tab-pane fade" id="pug1" role="tabpanel">
+                  <pre class="line-numbers"><code class="lang-pug">// Modal markup
+.modal(tabindex=&quot;-1&quot;, role=&quot;dialog&quot;)
+  .modal-dialog(role=&quot;document&quot;)
+    .modal-content
+      .modal-header
+        h4.modal-title Modal title
+        button(type=&quot;button&quot;, class=&quot;btn-close&quot;, data-bs-dismiss=&quot;modal&quot;, aria-label=&quot;Close&quot;)
+      .modal-body
+        p Modal body text goes here.
+      .modal-footer.flex-column.flex-sm-row
+        button(type=&quot;button&quot;, class=&quot;btn btn-secondary w-100 w-sm-auto mb-3 mb-sm-0&quot;, data-bs-dismiss=&quot;modal&quot;)
+          | Close
+        button(type=&quot;button&quot;, class=&quot;btn btn-primary w-100 w-sm-auto ms-sm-3&quot;)
+          | Save changes
+</code></pre>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Tabs and forms-->
+          <section class="card border-0 mb-4" id="modal-tabs-forms">
+            <div class="card-body pb-0">
+              <h2 class="h4 mb-n2">Tabs and forms</h2>
+            </div>
+            <div class="card-header">
+              <ul class="nav nav-tabs card-header-tabs flex-nowrap align-items-center mb-n1" role="tablist">
+                <li class="nav-item me-3"><a class="nav-link px-0 py-2 border-0 rounded-1 active" href="#preview2" data-bs-toggle="tab" role="tab" aria-controls="preview2" aria-selected="true"><i class="ai-show fs-lg opacity-90 me-2"></i>Preview</a></li>
+                <li class="vr opacity-20 my-3 me-3"></li>
+                <li class="nav-item me-3"><a class="nav-link px-0 py-2 border-0 rounded-1" href="#html2" data-bs-toggle="tab" role="tab" aria-controls="html2" aria-selected="false"><i class="ai-code fs-xl opacity-90 me-2"></i>HTML</a></li>
+                <li class="vr opacity-20 my-3 me-3"></li>
+                <li class="nav-item me-0"><a class="nav-link px-0 py-2 border-0 rounded-1" href="#pug2" data-bs-toggle="tab" role="tab" aria-controls="pug2" aria-selected="false"><i class="ai-code-curly opacity-90 me-2"></i>Pug</a></li>
+              </ul>
+            </div>
+            <div class="card-body">
+              <div class="tab-content">
+                <div class="tab-pane fade show active" id="preview2" role="tabpanel">
+                  <div class="example-modal">
+                    <div class="modal" tabindex="-1" role="dialog">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <ul class="nav nav-tabs flex-nowrap text-nowrap mb-n2" role="tablist">
+                              <li class="nav-item"><a class="nav-link flex-column flex-sm-row px-3 px-sm-4 active" href="#signin" data-bs-toggle="tab" role="tab" aria-selected="true"><i class="ai-login me-sm-2 ms-sm-n1"></i><span class="d-none d-sm-inline">Sign in</span><span class="fs-sm fw-medium d-sm-none pt-1">Sign in</span></a></li>
+                              <li class="nav-item"><a class="nav-link flex-column flex-sm-row px-3 px-sm-4" href="#signup" data-bs-toggle="tab" role="tab" aria-selected="false"><i class="ai-user me-sm-2 ms-sm-n1"></i><span class="d-none d-sm-inline">Sign up</span><span class="fs-sm fw-medium d-sm-none pt-1">Sign up</span></a></li>
+                            </ul>
+                            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body tab-content">
+                            <form class="tab-pane fade show active mt-n2" autocomplete="off" id="signin">
+                              <div class="mb-3 mb-sm-4">
+                                <label class="form-label" for="email1">Email address</label>
+                                <input class="form-control" type="email" id="email1" placeholder="johndoe@example.com">
+                              </div>
+                              <div class="mb-3 mb-sm-4">
+                                <label class="form-label" for="pass1">Password</label>
+                                <div class="password-toggle">
+                                  <input class="form-control" type="password" id="pass1">
+                                  <label class="password-toggle-btn">
+                                    <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+                                  </label>
+                                </div>
+                              </div>
+                              <div class="mb-4 d-flex flex-wrap justify-content-between">
+                                <div class="form-check mb-2">
+                                  <input class="form-check-input" type="checkbox" id="remember">
+                                  <label class="form-check-label" for="remember">Remember me</label>
+                                </div><a class="fs-sm" href="#">Forgot password?</a>
+                              </div>
+                              <button class="btn btn-primary w-100" type="submit">Sign in</button>
+                            </form>
+                            <form class="tab-pane fade" autocomplete="off" id="signup">
+                              <div class="mb-3 mb-sm-4">
+                                <label class="form-label" for="name">Full name</label>
+                                <input class="form-control" type="text" id="name" placeholder="John Doe">
+                              </div>
+                              <div class="mb-3 mb-sm-4">
+                                <label class="form-label" for="email2">Email address</label>
+                                <input class="form-control" type="email" id="email2" placeholder="johndoe@example.com">
+                              </div>
+                              <div class="mb-3 mb-sm-4">
+                                <label class="form-label" for="pass2">Password</label>
+                                <div class="password-toggle">
+                                  <input class="form-control" type="password" id="pass2">
+                                  <label class="password-toggle-btn">
+                                    <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+                                  </label>
+                                </div>
+                              </div>
+                              <div class="mb-4">
+                                <label class="form-label" for="pass3">Confirm password</label>
+                                <div class="password-toggle">
+                                  <input class="form-control" type="password" id="pass3">
+                                  <label class="password-toggle-btn">
+                                    <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+                                  </label>
+                                </div>
+                              </div>
+                              <button class="btn btn-primary w-100" type="submit">Sign up</button>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="html2" role="tabpanel">
+                  <pre class="line-numbers"><code class="lang-html">&lt;!-- Modal with tabs and forms --&gt;
+&lt;div class=&quot;modal&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot;&gt;
+  &lt;div class=&quot;modal-dialog&quot; role=&quot;document&quot;&gt;
+    &lt;div class=&quot;modal-content&quot;&gt;
+      &lt;div class=&quot;modal-header&quot;&gt;
+        &lt;ul class=&quot;nav nav-tabs flex-nowrap text-nowrap mb-n2&quot; role=&quot;tablist&quot;&gt;
+          &lt;li class=&quot;nav-item&quot;&gt;
+            &lt;a href=&quot;#signin&quot; class=&quot;nav-link flex-column flex-sm-row px-3 px-sm-4 active&quot; data-bs-toggle=&quot;tab&quot; role=&quot;tab&quot; aria-selected=&quot;true&quot;&gt;
+              &lt;i class=&quot;ai-login me-sm-2 ms-sm-n1&quot;&gt;&lt;/i&gt;
+              &lt;span class=&quot;d-none d-sm-inline&quot;&gt;Sign in&lt;/span&gt;
+              &lt;span class=&quot;fs-sm fw-medium d-sm-none pt-1&quot;&gt;Sign in&lt;/span&gt;
+            &lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li class=&quot;nav-item&quot;&gt;
+            &lt;a href=&quot;#signup&quot; class=&quot;nav-link flex-column flex-sm-row px-3 px-sm-4&quot; data-bs-toggle=&quot;tab&quot; role=&quot;tab&quot; aria-selected=&quot;false&quot;&gt;
+              &lt;i class=&quot;ai-user me-sm-2 ms-sm-n1&quot;&gt;&lt;/i&gt;
+              &lt;span class=&quot;d-none d-sm-inline&quot;&gt;Sign up&lt;/span&gt;
+              &lt;span class=&quot;fs-sm fw-medium d-sm-none pt-1&quot;&gt;Sign up&lt;/span&gt;
+            &lt;/a&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;button class=&quot;btn-close&quot; type=&quot;button&quot; data-bs-dismiss=&quot;modal&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;modal-body tab-content&quot;&gt;
+        &lt;form class=&quot;tab-pane fade show active mt-n2&quot; id=&quot;signin&quot; autocomplete=&quot;off&quot;&gt;
+          &lt;div class=&quot;mb-3 mb-sm-4&quot;&gt;
+            &lt;label for=&quot;email1&quot; class=&quot;form-label&quot;&gt;Email address&lt;/label&gt;
+            &lt;input type=&quot;email&quot; class=&quot;form-control&quot; id=&quot;email1&quot; placeholder=&quot;johndoe@example.com&quot;&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;mb-3 mb-sm-4&quot;&gt;
+            &lt;label for=&quot;pass1&quot; class=&quot;form-label&quot;&gt;Password&lt;/label&gt;
+            &lt;div class=&quot;password-toggle&quot;&gt;
+              &lt;input type=&quot;password&quot; class=&quot;form-control&quot; id=&quot;pass1&quot;&gt;
+              &lt;label class=&quot;password-toggle-btn&quot;&gt;
+                &lt;input class=&quot;password-toggle-check&quot; type=&quot;checkbox&quot;&gt;
+                &lt;span class=&quot;password-toggle-indicator&quot;&gt;&lt;/span&gt;
+              &lt;/label&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;mb-4 d-flex flex-wrap justify-content-between&quot;&gt;
+            &lt;div class=&quot;form-check mb-2&quot;&gt;
+              &lt;input type=&quot;checkbox&quot; class=&quot;form-check-input&quot; id=&quot;remember&quot;&gt;
+              &lt;label for=&quot;remember&quot; class=&quot;form-check-label&quot;&gt;Remember me&lt;/label&gt;
+            &lt;/div&gt;
+            &lt;a href=&quot;#&quot; class=&quot;fs-sm&quot;&gt;Forgot password?&lt;/a&gt;
+          &lt;/div&gt;
+          &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary w-100&quot;&gt;Sign in&lt;/button&gt;
+        &lt;/form&gt;
+        &lt;form class=&quot;tab-pane fade&quot; id=&quot;signup&quot; autocomplete=&quot;off&quot;&gt;
+          &lt;div class=&quot;mb-3 mb-sm-4&quot;&gt;
+            &lt;label for=&quot;name&quot; class=&quot;form-label&quot;&gt;Full name&lt;/label&gt;
+            &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;name&quot; placeholder=&quot;John Doe&quot;&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;mb-3 mb-sm-4&quot;&gt;
+            &lt;label for=&quot;email2&quot; class=&quot;form-label&quot;&gt;Email address&lt;/label&gt;
+            &lt;input type=&quot;email&quot; class=&quot;form-control&quot; id=&quot;email2&quot; placeholder=&quot;johndoe@example.com&quot;&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;mb-3 mb-sm-4&quot;&gt;
+            &lt;label for=&quot;pass2&quot; class=&quot;form-label&quot;&gt;Password&lt;/label&gt;
+            &lt;div class=&quot;password-toggle&quot;&gt;
+              &lt;input type=&quot;password&quot; class=&quot;form-control&quot; id=&quot;pass2&quot;&gt;
+              &lt;label class=&quot;password-toggle-btn&quot;&gt;
+                &lt;input type=&quot;checkbox&quot; class=&quot;password-toggle-check&quot;&gt;
+                &lt;span class=&quot;password-toggle-indicator&quot;&gt;&lt;/span&gt;
+              &lt;/label&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;mb-4&quot;&gt;
+            &lt;label for=&quot;pass3&quot; class=&quot;form-label&quot;&gt;Confirm password&lt;/label&gt;
+            &lt;div class=&quot;password-toggle&quot;&gt;
+              &lt;input type=&quot;password&quot; class=&quot;form-control&quot; id=&quot;pass3&quot;&gt;
+              &lt;label class=&quot;password-toggle-btn&quot;&gt;
+                &lt;input type=&quot;checkbox&quot; class=&quot;password-toggle-check&quot;&gt;
+                &lt;span class=&quot;password-toggle-indicator&quot;&gt;&lt;/span&gt;
+              &lt;/label&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary w-100&quot;&gt;Sign up&lt;/button&gt;
+        &lt;/form&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+                <div class="tab-pane fade" id="pug2" role="tabpanel">
+                  <pre class="line-numbers"><code class="lang-pug">// Modal with tabs and forms
+.modal(tabindex=&quot;-1&quot;, role=&quot;dialog&quot;)
+  .modal-dialog(role=&quot;document&quot;)
+    .modal-content
+      .modal-header
+        ul(role=&quot;tablist&quot;).nav.nav-tabs.flex-nowrap.text-nowrap.mb-n2
+          li.nav-item
+            a(href=&quot;#signin&quot;, data-bs-toggle=&quot;tab&quot;, role=&quot;tab&quot;, aria-selected=&quot;true&quot;).nav-link.flex-column.flex-sm-row.px-3.px-sm-4.active
+              i.ai-login.me-sm-2.ms-sm-n1
+              span.d-none.d-sm-inline Sign in
+              span.fs-sm.fw-medium.d-sm-none.pt-1 Sign in
+          li.nav-item
+            a(href=&quot;#signup&quot;, data-bs-toggle=&quot;tab&quot;, role=&quot;tab&quot;, aria-selected=&quot;false&quot;).nav-link.flex-column.flex-sm-row.px-3.px-sm-4
+              i.ai-user.me-sm-2.ms-sm-n1
+              span.d-none.d-sm-inline Sign up
+              span.fs-sm.fw-medium.d-sm-none.pt-1 Sign up
+        button(type=&quot;button&quot;, class=&quot;btn-close&quot;, data-bs-dismiss=&quot;modal&quot;, aria-label=&quot;Close&quot;)
+      .modal-body.tab-content
+        form(autocomplete=&quot;off&quot;)#signin.tab-pane.fade.show.active.mt-n2
+          .mb-3.mb-sm-4
+            label(for=&quot;email1&quot;).form-label
+              | Email address
+            input(type=&quot;email&quot;, id=&quot;email1&quot;, placeholder=&quot;johndoe@example.com&quot;).form-control
+          .mb-3.mb-sm-4
+            label(for=&quot;pass1&quot;).form-label
+              | Password
+            .password-toggle
+              input(type=&quot;password&quot; id=&quot;pass1&quot;).form-control
+              label.password-toggle-btn
+                input(type=&quot;checkbox&quot;).password-toggle-check
+                span.password-toggle-indicator
+          .mb-4.d-flex.flex-wrap.justify-content-between
+            .form-check.mb-2
+              input(type=&quot;checkbox&quot; id=&quot;remember&quot;).form-check-input
+              label(for=&quot;remember&quot;).form-check-label
+                | Remember me
+            a(href=&quot;#&quot;).fs-sm
+              | Forgot password?
+          button(type=&quot;submit&quot;).btn.btn-primary.w-100
+            | Sign in
+        form(autocomplete=&quot;off&quot;)#signup.tab-pane.fade
+          .mb-3.mb-sm-4
+            label(for=&quot;name&quot;).form-label
+              | Full name
+            input(type=&quot;text&quot;, id=&quot;name&quot;, placeholder=&quot;John Doe&quot;).form-control
+          .mb-3.mb-sm-4
+            label(for=&quot;email2&quot;).form-label
+              | Email address
+            input(type=&quot;email&quot;, id=&quot;email2&quot;, placeholder=&quot;johndoe@example.com&quot;).form-control
+          .mb-3.mb-sm-4
+            label(for=&quot;pass2&quot;).form-label
+              | Password
+            .password-toggle
+              input(type=&quot;password&quot;, id=&quot;pass2&quot;).form-control
+              label.password-toggle-btn
+                input(type=&quot;checkbox&quot;).password-toggle-check
+                span.password-toggle-indicator
+          .mb-4
+            label(for=&quot;pass3&quot;).form-label
+              | Confirm password
+            .password-toggle
+              input(type=&quot;password&quot; id=&quot;pass3&quot;).form-control
+              label.password-toggle-btn
+                input(type=&quot;checkbox&quot;).password-toggle-check
+                span.password-toggle-indicator
+          button(type=&quot;submit&quot;).btn.btn-primary.w-100
+            | Sign up
+</code></pre>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Live demo-->
+          <section class="card border-0 mb-4" id="modal-demo">
+            <div class="card-body pb-0">
+              <h2 class="h4 mb-n2">Live demo</h2>
+            </div>
+            <div class="card-header">
+              <ul class="nav nav-tabs card-header-tabs flex-nowrap align-items-center mb-n1" role="tablist">
+                <li class="nav-item me-3"><a class="nav-link px-0 py-2 border-0 rounded-1 active" href="#preview3" data-bs-toggle="tab" role="tab" aria-controls="preview3" aria-selected="true"><i class="ai-show fs-lg opacity-90 me-2"></i>Preview</a></li>
+                <li class="vr opacity-20 my-3 me-3"></li>
+                <li class="nav-item me-3"><a class="nav-link px-0 py-2 border-0 rounded-1" href="#html3" data-bs-toggle="tab" role="tab" aria-controls="html3" aria-selected="false"><i class="ai-code fs-xl opacity-90 me-2"></i>HTML</a></li>
+                <li class="vr opacity-20 my-3 me-3"></li>
+                <li class="nav-item me-0"><a class="nav-link px-0 py-2 border-0 rounded-1" href="#pug3" data-bs-toggle="tab" role="tab" aria-controls="pug3" aria-selected="false"><i class="ai-code-curly opacity-90 me-2"></i>Pug</a></li>
+              </ul>
+            </div>
+            <div class="card-body">
+              <div class="tab-content">
+                <div class="tab-pane fade show active" id="preview3" role="tabpanel">
+                  <button class="btn btn-outline-secondary me-2 mb-3" type="button" data-bs-toggle="modal" data-bs-target="#modalSmall">Small modal</button>
+                  <button class="btn btn-outline-secondary me-2 mb-3" type="button" data-bs-toggle="modal" data-bs-target="#modalDefault">Default modal</button>
+                  <button class="btn btn-outline-secondary me-2 mb-3" type="button" data-bs-toggle="modal" data-bs-target="#modalLarge">Large modal</button>
+                  <button class="btn btn-outline-secondary me-2 mb-3" type="button" data-bs-toggle="modal" data-bs-target="#modalXL">Extra large modal</button>
+                  <button class="btn btn-outline-secondary me-2 mb-3" type="button" data-bs-toggle="modal" data-bs-target="#modalLong">Long modal</button>
+                  <button class="btn btn-outline-secondary me-2 mb-3" type="button" data-bs-toggle="modal" data-bs-target="#modalScroll">Srolling content</button>
+                  <button class="btn btn-outline-secondary me-2 mb-3" type="button" data-bs-toggle="modal" data-bs-target="#modalCentered">Vertically centered modal</button>
+                  <button class="btn btn-outline-secondary mb-3" type="button" data-bs-toggle="modal" data-bs-target="#modalFullscreen">Full screen modal</button>
+                </div>
+                <div class="tab-pane fade" id="html3" role="tabpanel">
+                  <pre class="line-numbers"><code class="lang-html">&lt;!-- Launch modal button --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-outline-secondary&quot; data-bs-toggle=&quot;modal&quot; data-bs-target=&quot;#modalId&quot;&gt;
+Launch modal
+&lt;/button&gt;
+
+&lt;!-- Small modal --&gt;
+&lt;div class=&quot;modal fade&quot; id=&quot;modalId&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot;&gt;
+  &lt;div class=&quot;modal-dialog modal-sm&quot; role=&quot;document&quot;&gt;
+    &lt;div class=&quot;modal-content&quot;&gt;
+    ...
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Default modal --&gt;
+&lt;div class=&quot;modal fade&quot; id=&quot;modalId&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot;&gt;
+  &lt;div class=&quot;modal-dialog&quot; role=&quot;document&quot;&gt;
+    &lt;div class=&quot;modal-content&quot;&gt;
+    ...
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Large modal --&gt;
+&lt;div class=&quot;modal fade&quot; id=&quot;modalId&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot;&gt;
+  &lt;div class=&quot;modal-dialog modal-lg&quot; role=&quot;document&quot;&gt;
+    &lt;div class=&quot;modal-content&quot;&gt;
+    ...
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Extra large modal --&gt;
+&lt;div class=&quot;modal fade&quot; id=&quot;modalId&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot;&gt;
+  &lt;div class=&quot;modal-dialog modal-xl&quot; role=&quot;document&quot;&gt;
+    &lt;div class=&quot;modal-content&quot;&gt;
+    ...
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Modal with srolling content --&gt;
+&lt;div class=&quot;modal fade&quot; id=&quot;modalId&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot;&gt;
+  &lt;div class=&quot;modal-dialog modal-dialog-scrollable&quot; role=&quot;document&quot;&gt;
+    &lt;div class=&quot;modal-content&quot;&gt;
+    ...
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Vertically centered modal --&gt;
+&lt;div class=&quot;modal fade&quot; id=&quot;modalId&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot;&gt;
+  &lt;div class=&quot;modal-dialog modal-dialog-centered&quot; role=&quot;document&quot;&gt;
+    &lt;div class=&quot;modal-content&quot;&gt;
+    ...
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Full screen modal --&gt;
+&lt;div class=&quot;modal fade&quot; id=&quot;modalId&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot;&gt;
+  &lt;div class=&quot;modal-dialog modal-fullscreen&quot; role=&quot;document&quot;&gt;
+    &lt;div class=&quot;modal-content&quot;&gt;
+    ...
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+                <div class="tab-pane fade" id="pug3" role="tabpanel">
+                  <pre class="line-numbers"><code class="lang-pug">// Launch modal button
+button(type=&quot;button&quot;, data-bs-toggle=&quot;modal&quot;, data-bs-target=&quot;#modalId&quot;).btn.btn-outline-secondary 
+  | Launch modal
+
+// Small modal
+div(tabindex=&quot;-1&quot;, role=&quot;dialog&quot;)#modalId.modal.fade
+  div(role=&quot;document&quot;).modal-dialog.modal-sm
+    div.modal-content
+      | ...
+
+// Default modal
+div(tabindex=&quot;-1&quot;, role=&quot;dialog&quot;)#modalId.modal.fade
+  div(role=&quot;document&quot;).modal-dialog
+    div.modal-content
+      | ...
+
+// Large modal
+div(tabindex=&quot;-1&quot;, role=&quot;dialog&quot;)#modalId.modal.fade
+  div(role=&quot;document&quot;).modal-dialog.modal-lg
+    div.modal-content
+      | ...
+
+// Extra large modal
+div(tabindex=&quot;-1&quot;, role=&quot;dialog&quot;)#modalId.modal.fade
+  div(role=&quot;document&quot;).modal-dialog.modal-xl
+    div.modal-content
+      | ...
+
+// Modal with srolling content
+div(tabindex=&quot;-1&quot;, role=&quot;dialog&quot;)#modalId.modal.fade
+  div(role=&quot;document&quot;).modal-dialog.modal-dialog-scrollable
+    div.modal-content
+      | ...
+
+// Vertically centered modal
+div(tabindex=&quot;-1&quot;, role=&quot;dialog&quot;)#modalId.modal.fade
+  div(role=&quot;document&quot;).modal-dialog.modal-dialog-centered
+    div.modal-content
+      | ...
+
+// Full screen modal
+div(tabindex=&quot;-1&quot;, role=&quot;dialog&quot;)#modalId.modal.fade
+  div(role=&quot;document&quot;).modal-dialog.modal-fullscreen
+    div.modal-content
+      | ...</code></pre>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+    <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll>
+      <svg viewBox="0 0 40 40" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="19" fill="none" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"></circle>
+      </svg><i class="ai-arrow-up">   </i></a>
+    <!-- Vendor scripts: js libraries and plugins-->
+    <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="../assets/vendor/simplebar/dist/simplebar.min.js"></script>
+    <script src="../assets/vendor/prismjs/components/prism-core.min.js"></script>
+    <script src="../assets/vendor/prismjs/components/prism-markup.min.js"></script>
+    <script src="../assets/vendor/prismjs/components/prism-clike.min.js"></script>
+    <script src="../assets/vendor/prismjs/components/prism-javascript.min.js"></script>
+    <script src="../assets/vendor/prismjs/components/prism-pug.min.js"></script>
+    <script src="../assets/vendor/prismjs/plugins/toolbar/prism-toolbar.min.js"></script>
+    <script src="../assets/vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+    <script src="../assets/vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <!-- Main theme script-->
+    <script src="../assets/js/theme.min.js"></script>
+  </body>
+</html>

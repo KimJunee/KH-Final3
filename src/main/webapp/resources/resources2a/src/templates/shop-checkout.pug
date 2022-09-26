@@ -1,0 +1,226 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var scripts = ['vendor/cleave.js/dist/cleave.min.js']
+  - var parentMenu = 'Pages'
+  - var pageTitle = 'Checkout'
+  - var isShopPage = 'true'
+
+
+//- Navbar
+block navbar
+  include partials/navbar.pug
+
+
+//- Page Content
+block content
+  .d-none.d-lg-block.bg-secondary.position-fixed.top-0.start-0.h-100(style='width: 52.5%;')
+  form(novalidate).needs-validation.container.position-relative.zindex-2.pt-5.pb-lg-5.pb-md-4.pb-2
+
+    .row
+      .col-lg-6
+
+        // Breadcrumb
+        +breadcrumb([{'link': 'shop-catalog.html', 'title': 'Shop'}, {'title': 'Checkout'}]).mt-5.pt-lg-3.pb-md-1.pb-lg-3
+
+        h1.h2.pb-3 Checkout
+
+        // Checkout form fields
+        h3.fs-base.fw-normal.text-body.text-uppercase.pb-2.pb-sm-3
+          | 1.
+          span.text-decoration-underline.ms-1 Shipping details
+        .row.g-4.pb-4.pb-md-5.mb-3.mb-md-1
+          .col-sm-6
+            label(for='c-fn').form-label.fs-base First name
+            input(type='text' placeholder='Your first name' required)#c-fn.form-control.form-control-lg
+          .col-sm-6
+            label(for='c-ln').form-label.fs-base Last name
+            input(type='text' placeholder='Your last name' required)#c-ln.form-control.form-control-lg
+          .col-sm-6
+            label(for='c-email').form-label.fs-base Email
+            .position-relative
+              i.ai-mail.fs-lg.position-absolute.top-50.start-0.translate-middle-y.ms-3
+              input(type='email' placeholder='Email address' required)#c-email.form-control.form-control-lg.ps-5
+          .col-sm-6
+            label(for='c-phone').form-label.fs-base Phone
+            .position-relative
+              i.ai-phone.fs-lg.position-absolute.top-50.start-0.translate-middle-y.ms-3
+              input(type='tel' data-format='{"numericOnly": true, "delimiters": ["+1 ", " ", " "], "blocks": [0, 3, 3, 2]}' placeholder='+1 ___ ___ __' required)#c-phone.form-control.form-control-lg.ps-5
+          .col-12
+            label(for='c-country').form-label.fs-base Country
+            select(required)#c-country.form-select.form-select-lg
+              option(value='' selected disabled) Select a country
+              option(value='Australia') Australia
+              option(value='Belgium') Belgium
+              option(value='Canada') Canada
+              option(value='Denmark') Denmark
+              option(value='USA') USA
+          .col-sm-6
+            label(for='c-city').form-label.fs-base City
+            select(required)#c-city.form-select.form-select-lg
+              option(value='' selected disabled) Select a city
+              option(value='Sydney') Sydney
+              option(value='Brussels') Brussels
+              option(value='Toronto') Toronto
+              option(value='Copenhagen') Copenhagen
+              option(value='New York') New York
+          .col-sm-6
+            label(for='c-zip').form-label.fs-base Zip code
+            input(type='text' data-format='{"delimiter": "-", "blocks": [3, 4], "uppercase": true}' placeholder='XXX-XXXX' required)#c-zip.form-control.form-control-lg
+          .col-12
+            label(for='c-address').form-label.fs-base Address line
+            input(type='text' required)#c-address.form-control.form-control-lg
+          .col-12
+            label(for='c-notes').form-label.fs-base Order notes <span class='text-muted'>(optional)</span>
+            textarea(rows='5')#c-notes.form-control.form-control-lg
+          .col-12
+            .form-check
+              input(type='checkbox')#same-address.form-check-input
+              label(for='same-address').form-check-label.text-dark.fw-medium Billing address same as delivery
+        
+        h3.fs-base.fw-normal.text-body.text-uppercase.pb-2.pb-sm-3
+          | 2.
+          span.text-decoration-underline.ms-1 Shipping method
+        .form-check.mb-4
+          input(type='radio' name='shipping')#standard.form-check-input
+          label(for='standard').form-check-label.d-flex.justify-content-between
+            span
+              span.d-block.fs-base.text-dark.fw-medium.mb-1 Standard Delivery
+              span.text-body Delivery in 5 - 8 working days
+            span.fs-base.text-dark.fw-semibold $8.00
+        .form-check.mb-4
+          input(type='radio' name='shipping' checked)#express.form-check-input
+          label(for='express').form-check-label.d-flex.justify-content-between
+            span
+              span.d-block.fs-base.text-dark.fw-medium.mb-1 Express Shipping
+              span.text-body Delivery in 3 - 5 working days
+            span.fs-base.text-dark.fw-semibold $15.00
+        .form-check.mb-4
+          input(type='radio' name='shipping')#local.form-check-input
+          label(for='local').form-check-label.d-flex.justify-content-between
+            span
+              span.d-block.fs-base.text-dark.fw-medium.mb-1 Local Pickup
+              span.text-body Delivery in 1 - 2 working days
+            span.fs-base.text-dark.fw-semibold Free
+        
+        h3.fs-base.fw-normal.text-body.text-uppercase.mt-n4.mt-md-n3.pt-5.pb-2.pb-sm-3
+          | 3.
+          span.text-decoration-underline.ms-1 Payment method
+        .form-check.mb-4
+          input(type='radio' name='payment' checked)#card.form-check-input
+          label(for='card').form-check-label
+            span
+              span.d-block.fs-base.text-dark.fw-medium.mb-1 Credit Card
+              span.text-body Mastercard, Maestro, American Express, Visa are accepted
+        .form-check.mb-4
+          input(type='radio' name='payment')#cash.form-check-input
+          label(for='cash').form-check-label
+            span
+              span.d-block.fs-base.text-dark.fw-medium.mb-1 Cash on Delivery
+              span.text-body Pay with cash upon the delivery
+        
+        // Place an order button visible on screens > 991px
+        .d-none.d-lg-block.pt-5.mt-n3
+          .form-check.mb-4
+            input(type='checkbox' checked)#save-info.form-check-input
+            label(for='save-info').form-check-label
+              span.text-muted Your personal information will be used to process your order, to support your experience on this site and for other purposes described in the 
+              a(href='#').fw-medium privacy policy
+          button(type='submit').btn.btn-lg.btn-primary Place an order
+
+      
+      // Order summary
+      .col-lg-5.offset-lg-1.pt-1
+        h2.pb-2.pt-md-2.my-4.mt-lg-5 Order summary <span class='fs-base fw-normal text-muted'>(4 items)</span>
+
+        // Item
+        .d-sm-flex.align-items-center.border-top.py-4
+          a(href='shop-single.html').d-inline-block.flex-shrink-0.bg-secondary.rounded-1.p-sm-2.p-xl-3.mb-2.mb-sm-0
+            img(src='assets/img/shop/cart/01.png' width='110' alt='Product')
+          .w-100.pt-1.ps-sm-4
+            .d-flex
+              .me-3
+                h3.h5.mb-2: a(href='shop-single.html') Candle in concrete bowl
+                .d-sm-flex.flex-wrap
+                  .text-muted.fs-sm.me-3 Color: <span class='text-dark fw-medium'>Gray night</span>
+                  .text-muted.fs-sm.me-3 Weight: <span class='text-dark fw-medium'>140g</span>
+              .text-end.ms-auto
+                .fs-5.mb-2 $11.00
+                del.text-muted.ms-auto $15.00
+            .count-input.ms-n3
+              button(type='button' data-decrement).btn.btn-icon.fs-xl -
+              input(type='number' value='2' readonly).form-control
+              button(type='button' data-increment).btn.btn-icon.fs-xl +
+            .nav.justify-content-end.mt-n5.mt-sm-n3
+              a(href='#' data-bs-toggle='tooltip' title='Remove').nav-link.fs-xl.p-2: i.ai-trash
+        
+        // Item
+        .d-sm-flex.align-items-center.border-top.py-4
+          a(href='shop-single.html').d-inline-block.flex-shrink-0.bg-secondary.rounded-1.p-sm-2.p-xl-3.mb-2.mb-sm-0
+            img(src='assets/img/shop/cart/02.png' width='110' alt='Product')
+          .w-100.pt-1.ps-sm-4
+            .d-flex
+              .me-3
+                h3.h5.mb-2: a(href='shop-single.html') Exquisite glass vase
+              .text-end.ms-auto
+                .fs-5.mb-2 $23.00
+            .count-input.ms-n3
+              button(type='button' data-decrement).btn.btn-icon.fs-xl -
+              input(type='number' value='1' readonly).form-control
+              button(type='button' data-increment).btn.btn-icon.fs-xl +
+            .nav.justify-content-end.mt-n5.mt-sm-n3
+              a(href='#' data-bs-toggle='tooltip' title='Remove').nav-link.fs-xl.p-2: i.ai-trash
+        
+        // Item
+        .d-sm-flex.align-items-center.border-top.py-4
+          a(href='shop-single.html').d-inline-block.flex-shrink-0.bg-secondary.rounded-1.p-sm-2.p-xl-3.mb-2.mb-sm-0
+            img(src='assets/img/shop/cart/03.png' width='110' alt='Product')
+          .w-100.pt-1.ps-sm-4
+            .d-flex
+              .me-3
+                h3.h5.mb-2: a(href='shop-single.html') Set for a dinner party of 7 items
+              .text-end.ms-auto
+                .fs-5.mb-2 $47.00
+            .count-input.ms-n3
+              button(type='button' data-decrement).btn.btn-icon.fs-xl -
+              input(type='number' value='1' readonly).form-control
+              button(type='button' data-increment).btn.btn-icon.fs-xl +
+            .nav.justify-content-end.mt-n5.mt-sm-n3
+              a(href='#' data-bs-toggle='tooltip' title='Remove').nav-link.fs-xl.p-2: i.ai-trash
+        
+        .border-top.pt-4.mb-3
+          .input-group.input-group-sm.border-dashed(style='max-width: 310px;')
+            input(type='text' placeholder='Your coupon code').form-control.text-uppercase
+            button(type='button').btn.btn-secondary Apply coupon
+        ul.list-unstyled.py-3.mb-0
+          li.d-flex.justify-content-between.mb-2
+            | Subtotal:
+            span.fw-semibold.ms-2 $92.00
+          li.d-flex.justify-content-between.mb-2
+            | Taxes:
+            span.fw-semibold.ms-2 $8.00
+          li.d-flex.justify-content-between.mb-2
+            | Shipping cost:
+            span.fw-semibold.ms-2 $15.00
+        .d-flex.align-items-center.justify-content-between.border-top.fs-xl.pt-4
+          | Total:
+          span.fs-3.fw-semibold.text-dark.ms-2 $115.00
+
+        
+    // Place an order button visible on screens < 992px
+    .d-lg-none.pb-2.mt-2.mt-lg-0.pt-4.pt-lg-5
+      .form-check.mb-4
+        input(type='checkbox' checked)#save-info2.form-check-input
+        label(for='save-info2').form-check-label
+          span.text-muted Your personal information will be used to process your order, to support your experience on this site and for other purposes described in the 
+          a(href='#').fw-medium privacy policy
+      button(type='submit').btn.btn-lg.btn-primary.w-100.w-sm-auto Place an order
+
+
+//- Footer
+block footer
+  .footer.container.position-relative.zindex-2.pt-4.pt-xl-5.pb-4
+    .fs-sm.pb-1.pb-sm-3
+      span.opacity-70 &copy; All rights reserved. Made by 
+      a(href='https://createx.studio/' target='_blank' rel='noopener').nav-link.d-inline.fw-normal.p-0 Createx Studio

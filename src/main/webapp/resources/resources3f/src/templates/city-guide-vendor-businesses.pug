@@ -1,0 +1,265 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var parentMenu = 'Vendor'
+  - var pageTitle = 'City Guide | My Businesses'
+  - var bodyClass = 'bg-secondary'
+
+//- Navbar
+block navbar
+  include partials/navbar-city-guide
+
+//- Page Content
+block content
+
+  // Page container
+  .container.mt-5.mb-md-4.py-5
+
+    // Breadcrumbs
+    nav(aria-label='breadcrumb').mb-3.pt-md-3
+      ol.breadcrumb
+        li.breadcrumb-item
+          a(href='city-guide-home-v1.html') Home
+        li(aria-current='page').breadcrumb-item.active
+          | My businesses
+
+    // Page title + Sorting
+    .d-flex.flex-sm-row.flex-column.align-items-sm-center.align-items-stretch.justify-content-between.pb-4.mb-2.mb-md-3
+      h1.h2.mb-sm-0 My businesses
+      .d-flex.align-items-center.ms-sm-4
+        label(for='sortby').fs-sm.me-2.pe-1.text-nowrap
+          i.fi-arrows-sort.text-muted.mt-n1.me-2
+          | Sort by:
+        select(id='sortby').form-select.form-select-sm
+          option Newest
+          option Oldest
+          option Popularity
+          option High rating
+          option Low rating
+
+    .card.p-sm-4.border-0.shadow-sm
+      .card-body
+        .row
+
+          // Sidebar
+          aside.col-lg-3.col-md-4.mb-lg-0.mb-4.pb-2.pe-xl-5
+            ul.nav.flex-column.mb-4.pb-lg-3
+              li.nav-item
+                a(href='#').nav-link.py-1.px-0.fs-sm.fw-normal
+                  i.fi-bed.mt-n1.me-2.fs-base.align-middle.opacity-70
+                  | Accommodation
+                  span.float-end.text-muted (4)
+              li.nav-item
+                a(href='#').nav-link.py-1.px-0.fs-sm.fw-normal
+                  i.fi-cafe.mt-n1.me-2.fs-base.align-middle.opacity-70
+                  | Food &amp; Drink
+                  span.float-end.text-muted (1)
+            a(href='city-guide-add-business.html').btn.btn-primary.rounded-pill
+              i.fi-plus.me-2
+              | Add new business
+
+          
+          // Grid
+          .col-lg-9.col-md-8
+            .row.row-cols-md-2.row-cols-lg-3.row-cols-sm-2.row-cols-1.g-3.g-xl-4
+
+              // Item
+              .col.pb-2
+                .position-relative
+                  .position-relative.mb-3
+                    .dropdown.position-absolute.zindex-5.top-0.end-0.mt-3.me-3
+                      button(type='button' id='contextMenu1' data-bs-toggle='dropdown' aria-expanded='false').btn.btn-icon.btn-light.btn-xs.rounded-circle.shadow-sm
+                        i.fi-dots-vertical
+                      ul(aria-labelledby='contextMenu1').dropdown-menu.my-1
+                        li
+                          button(type='button').dropdown-item
+                            i.fi-edit.opacity-60.me-2
+                            | Edit
+                        li
+                          button(type='button').dropdown-item
+                            i.fi-flame.opacity-60.me-2
+                            | Promote
+                        li
+                          button(type='button').dropdown-item
+                            i.fi-power.opacity-60.me-2
+                            | Deactivate
+                        li
+                          button(type='button').dropdown-item
+                            i.fi-trash.opacity-60.me-2
+                            | Delete
+                    img(src='img/city-guide/business/01.jpg' alt='Image').rounded-3
+                  h3.mb-2.fs-lg
+                    a(href='city-guide-single.html').nav-link.stretched-link Berlin Business Hotel
+                  ul.list-inline.mb-0.fs-xs
+                    li.list-inline-item.pe-1
+                      i.fi-star-filled.mt-n1.me-1.fs-base.text-warning.align-middle
+                      b 5.0
+                      span.text-muted &nbsp;(48)
+                    li.list-inline-item.pe-1
+                      i.fi-credit-card.mt-n1.me-1.fs-base.text-muted.align-middle
+                      | $$
+                    li.list-inline-item.pe-1
+                      i.fi-map-pin.mt-n1.me-1.fs-base.text-muted.align-middle
+                      | 1.4 km from center
+
+              // Item
+              .col.pb-2
+                .position-relative
+                  .position-relative.mb-3
+                    .dropdown.position-absolute.zindex-5.top-0.end-0.mt-3.me-3
+                      button(type='button' id='contextMenu2' data-bs-toggle='dropdown' aria-expanded='false').btn.btn-icon.btn-light.btn-xs.rounded-circle.shadow-sm
+                        i.fi-dots-vertical
+                      ul(aria-labelledby='contextMenu2').dropdown-menu.my-1
+                        li
+                          button(type='button').dropdown-item
+                            i.fi-edit.opacity-60.me-2
+                            | Edit
+                        li
+                          button(type='button').dropdown-item
+                            i.fi-flame.opacity-60.me-2
+                            | Promote
+                        li
+                          button(type='button').dropdown-item
+                            i.fi-power.opacity-60.me-2
+                            | Deactivate
+                        li
+                          button(type='button').dropdown-item
+                            i.fi-trash.opacity-60.me-2
+                            | Delete
+                    img(src='img/city-guide/business/02.jpg' alt='Article img').rounded-3
+                  h3.mb-2.fs-lg
+                    a(href='city-guide-single.html').nav-link.stretched-link Big Tree Cottage
+                  ul.list-inline.mb-0.fs-xs
+                    li.list-inline-item.pe-1
+                      i.fi-star-filled.mt-n1.me-1.fs-base.text-warning.align-middle
+                      b 4.8
+                      span.text-muted &nbsp;(24)
+                    li.list-inline-item.pe-1
+                      i.fi-credit-card.mt-n1.me-1.fs-base.text-muted.align-middle
+                      | $$$
+                    li.list-inline-item.pe-1
+                      i.fi-map-pin.mt-n1.me-1.fs-base.text-muted.align-middle
+                      | 0.5 km from center
+              
+              // Item
+              .col.pb-2
+                .position-relative
+                  .position-relative.mb-3
+                    .dropdown.position-absolute.zindex-5.top-0.end-0.mt-3.me-3
+                      button(type='button' id='contextMenu3' data-bs-toggle='dropdown' aria-expanded='false').btn.btn-icon.btn-light.btn-xs.rounded-circle.shadow-sm
+                        i.fi-dots-vertical
+                      ul(aria-labelledby='contextMenu3').dropdown-menu.my-1
+                        li
+                          button(type='button').dropdown-item
+                            i.fi-edit.opacity-60.me-2
+                            | Edit
+                        li
+                          button(type='button').dropdown-item
+                            i.fi-flame.opacity-60.me-2
+                            | Promote
+                        li
+                          button(type='button').dropdown-item
+                            i.fi-power.opacity-60.me-2
+                            | Deactivate
+                        li
+                          button(type='button').dropdown-item
+                            i.fi-trash.opacity-60.me-2
+                            | Delete
+                    img(src='img/city-guide/business/03.jpg' alt='Image').rounded-3
+                  h3.mb-2.fs-lg
+                    a(href='city-guide-single.html').nav-link.stretched-link Leisure Inn
+                  ul.list-inline.mb-0.fs-xs
+                    li.list-inline-item.pe-1
+                      i.fi-star-filled.mt-n1.me-1.fs-base.text-warning.align-middle
+                      b 4.9
+                      span.text-muted &nbsp;(43)
+                    li.list-inline-item.pe-1
+                      i.fi-credit-card.mt-n1.me-1.fs-base.text-muted.align-middle
+                      | $$$
+                    li.list-inline-item.pe-1
+                      i.fi-map-pin.mt-n1.me-1.fs-base.text-muted.align-middle
+                      | 1.8 km from center
+
+              // Item
+              .col.pb-2
+                .position-relative
+                  .position-relative.mb-3
+                    .dropdown.position-absolute.zindex-5.top-0.end-0.mt-3.me-3
+                      button(type='button' id='contextMenu4' data-bs-toggle='dropdown' aria-expanded='false').btn.btn-icon.btn-light.btn-xs.rounded-circle.shadow-sm
+                        i.fi-dots-vertical
+                      ul(aria-labelledby='contextMenu4').dropdown-menu.my-1
+                        li
+                          button(type='button').dropdown-item
+                            i.fi-edit.opacity-60.me-2
+                            | Edit
+                        li
+                          button(type='button').dropdown-item
+                            i.fi-flame.opacity-60.me-2
+                            | Promote
+                        li
+                          button(type='button').dropdown-item
+                            i.fi-power.opacity-60.me-2
+                            | Deactivate
+                        li
+                          button(type='button').dropdown-item
+                            i.fi-trash.opacity-60.me-2
+                            | Delete
+                    img(src='img/city-guide/business/04.jpg' alt='Image').rounded-3
+                  h3.mb-2.fs-lg
+                    a(href='city-guide-single.html').nav-link.stretched-link Central Cafe
+                  ul.list-inline.mb-0.fs-xs
+                    li.list-inline-item.pe-1
+                      i.fi-star-filled.mt-n1.me-1.fs-base.text-warning.align-middle
+                      b 5.0
+                      span.text-muted &nbsp;(40)
+                    li.list-inline-item.pe-1
+                      i.fi-credit-card.mt-n1.me-1.fs-base.text-muted.align-middle
+                      | $
+                    li.list-inline-item.pe-1
+                      i.fi-map-pin.mt-n1.me-1.fs-base.text-muted.align-middle
+                      | 1.7 km from center
+
+              // Item
+              .col.pb-sm-2
+                .position-relative
+                  .position-relative.mb-3
+                    .dropdown.position-absolute.zindex-5.top-0.end-0.mt-3.me-3
+                      button(type='button' id='contextMenu5' data-bs-toggle='dropdown' aria-expanded='false').btn.btn-icon.btn-light.btn-xs.rounded-circle.shadow-sm
+                        i.fi-dots-vertical
+                      ul(aria-labelledby='contextMenu5').dropdown-menu.my-1
+                        li
+                          button(type='button').dropdown-item
+                            i.fi-edit.opacity-60.me-2
+                            | Edit
+                        li
+                          button(type='button').dropdown-item
+                            i.fi-flame.opacity-60.me-2
+                            | Promote
+                        li
+                          button(type='button').dropdown-item
+                            i.fi-power.opacity-60.me-2
+                            | Deactivate
+                        li
+                          button(type='button').dropdown-item
+                            i.fi-trash.opacity-60.me-2
+                            | Delete
+                    img(src='img/city-guide/business/05.jpg' alt='Image').rounded-3
+                  h3.mb-2.fs-lg
+                    a(href='city-guide-single.html').nav-link.stretched-link Grand Resort &amp; Spa
+                  ul.list-inline.mb-0.fs-xs
+                    li.list-inline-item.pe-1
+                      i.fi-star-filled.mt-n1.me-1.fs-base.text-warning.align-middle
+                      b 4.9
+                      span.text-muted &nbsp;(43)
+                    li.list-inline-item.pe-1
+                      i.fi-credit-card.mt-n1.me-1.fs-base.text-muted.align-middle
+                      | $$$
+                    li.list-inline-item.pe-1
+                      i.fi-map-pin.mt-n1.me-1.fs-base.text-muted.align-middle
+                      | 1.8 km from center
+
+
+//- Footer
+block footer
+  include partials/footer-city-guide

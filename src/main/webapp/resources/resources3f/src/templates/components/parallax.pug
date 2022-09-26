@@ -1,0 +1,176 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['prismjs/themes/prism.css', 'prismjs/plugins/toolbar/prism-toolbar.css', 'prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var vendorScripts = ['prismjs/components/prism-core.min.js', 'prismjs/components/prism-markup.min.js', 'prismjs/components/prism-clike.min.js', 'prismjs/components/prism-javascript.min.js', 'prismjs/components/prism-pug.min.js', 'prismjs/plugins/toolbar/prism-toolbar.min.js', 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'prismjs/plugins/line-numbers/prism-line-numbers.min.js', 'jarallax/dist/jarallax.min.js', 'rellax/rellax.min.js', 'parallax-js/dist/parallax.min.js']
+  - var pageTitle = 'Parallax'
+  - var pageSubtitle = 'Finder supports 2 types of parallax effect: on page scrolling and cursor position.'
+  - var isPageTitleBadge = true
+  - var anchorNav = [{'title': 'Background image', 'link': '#parallax-background'}, {'title': 'Element parallax', 'link': '#parallax-element'}, {'title': 'Cursor position parallax', 'link': '#parallax-cursor'}]
+  
+//- Page Content
+block content
+
+  .alert.alert-info.mb-5(role='alert')
+    .d-flex
+      i.fi-alert-circle.lead.me-2.me-sm-3
+      .text-break
+        p.mb-2 In your document make sure to link to:
+        ul.list-unstyled
+          li <strong>vendor/jarallax/dist/jarallax.min.js</strong> - for background image parallax
+          li <strong>vendor/rellax/rellax.min.js</strong> - for element parallax
+          li <strong>vendor/parallax-js/dist/parallax.min.js</strong> - for cursor position parallax
+        p.mb-0 Use this page as a reference.
+
+
+  // Background image
+  section#parallax-background.pb-5.mb-md-2
+    h2.h5.mb-3 Background image
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result1' data-bs-toggle='tab' role='tab' aria-controls='result1' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result1.tab-pane.fade.show.active(role='tabpanel')
+            .pb-4.mx-auto(style='max-width: 38rem;')
+              p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              p Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat.
+            .jarallax.bg-dark.py-5(data-jarallax data-speed='0.5')
+              span.img-overlay
+              .jarallax-img(style='background-image: url(../img/city-guide/home/hero-bg.jpg);')
+              .content-overlay.text-center.my-md-4.py-sm-5.px-3
+                h2.h1.text-light.py-lg-5.my-5 Parallax backgound image
+            .pt-5.mx-auto(style='max-width: 38rem;')
+              p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              p Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat.
+          #html1.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Background image parallax --&gt;
+                &lt;div class=&quot;jarallax bg-dark py-5&quot; data-jarallax data-speed=&quot;0.5&quot;&gt;
+                  &lt;span class=&quot;img-overlay&quot;&gt;&lt;/span&gt;
+                  &lt;div class=&quot;jarallax-img&quot; style=&quot;background-image: url(path-to-background-image);&quot;&gt;&lt;/div&gt;
+                  &lt;div class=&quot;container content-overlay text-center my-md-4 py-sm-5&quot;&gt;
+                    &lt;h2 class=&quot;h1 text-light py-lg-5 my-5&quot;&gt;Parallax backgound image&lt;/h2&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+          #pug1.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Background image parallax
+                .jarallax.bg-dark.py-5(data-jarallax data-speed=&quot;0.5&quot;)
+                  span.img-overlay
+                  .jarallax-img(style=&quot;background-image: url(path-to-background-image);&quot;)
+                  .content-overlay.text-center.my-md-4.py-sm-5.px-3
+                    h2.h1.text-light.py-lg-5.my-5 Parallax backgound image
+
+  // Element parallax
+  section#parallax-element.pb-5.mb-md-2
+    h2.h5.mb-3 Element parallax
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result2' data-bs-toggle='tab' role='tab' aria-controls='result2' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result2.tab-pane.m-n3.px-3.py-5.bg-dark.fade.show.active.overflow-hidden(role='tabpanel')
+            .position-relative.mx-auto(style='max-width: 5rem; min-height: 33rem;')
+              .rellax.content-overlay.pt-5(data-rellax-percentage='0.5' data-rellax-speed='-2.5')
+                img(src='../img/car-finder/home/car.svg' alt='Car').pt-3.mt-5
+              .position-absolute.top-0.start-50.translate-middle-x.h-100.overflow-hidden
+                img(src='../img/car-finder/home/road-line.svg' width='2' alt='Road line')
+          #html2.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Element parallax --&gt;
+                &lt;div class=&quot;position-relative mx-auto&quot; style=&quot;max-width: 5rem; min-height: 33rem;&quot;&gt;
+                  &lt;div class=&quot;rellax content-overlay pt-5&quot; data-rellax-percentage=&quot;0.5&quot; data-rellax-speed=&quot;-2.5&quot;&gt;
+                    &lt;img src=&quot;path-to-moving-car-image&quot; alt=&quot;Car&quot;&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;position-absolute top-0 start-50 translate-middle-x h-100 overflow-hidden&quot;&gt;
+                    &lt;img src=&quot;path-to-static-road-line-image&quot; width=&quot;2&quot; alt=&quot;Road line&quot;&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+          #pug2.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Element parallax
+                .position-relative.mx-auto(style=&quot;max-width: 5rem; min-height: 33rem;&quot;)
+                  .rellax.content-overlay.pt-5(data-rellax-percentage=&quot;0.5&quot;, data-rellax-speed=&quot;-2.5&quot;)
+                    img(src=&quot;path-to-moving-car-image&quot;, alt=&quot;Car&quot;).pt-3.mt-5
+                  .position-absolute.top-0.start-50.translate-middle-x.h-100
+                    img(src=&quot;path-to-static-road-line-image&quot;, width=&quot;2&quot;, alt=&quot;Road line&quot;)
+
+  // Cursor position parallax
+  section#parallax-cursor.pb-5.mb-md-2
+    h2.h5.mb-3 Cursor position parallax
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result3' data-bs-toggle='tab' role='tab' aria-controls='result3' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result3.tab-pane.m-n3.px-3.py-5.bg-dark.fade.show.active(role='tabpanel')
+            .parallax.mx-auto(style='max-width: 526px;')
+              .parallax-layer.position-relative(data-depth='0.1')
+                img(src='../img/job-board/hero-banner-1/layer01.svg' alt='Layer')
+              .parallax-layer(data-depth='0.16')
+                img(src='../img/job-board/hero-banner-1/layer02.svg' alt='Layer')
+              .parallax-layer(data-depth='0.38')
+                img(src='../img/job-board/hero-banner-1/layer03.svg' alt='Layer')
+              .parallax-layer(data-depth='0.16')
+                img(src='../img/job-board/hero-banner-1/layer04.svg' alt='Layer')
+              .parallax-layer(data-depth='0.16')
+                img(src='../img/job-board/hero-banner-1/layer05.svg' alt='Layer')
+              .parallax-layer(data-depth='0.45')
+                img(src='../img/job-board/hero-banner-1/layer06.svg' alt='Layer')
+              .parallax-layer(data-depth='0.3')
+                img(src='../img/job-board/hero-banner-1/layer07.svg' alt='Layer')
+              .parallax-layer(data-depth='0.2')
+                img(src='../img/job-board/hero-banner-1/layer08.svg' alt='Layer')
+          #html3.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Cursor position parallax --&gt;
+                &lt;div class=&quot;parallax&quot;&gt;
+                  &lt;div class=&quot;parallax-layer position-relative&quot; data-depth=&quot;0.1&quot;&gt;
+                     &lt;img src=&quot;path-to-image&quot; alt=&quot;Layer&quot;&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;parallax-layer&quot; data-depth=&quot;0.16&quot;&gt;
+                     &lt;img src=&quot;path-to-image&quot; alt=&quot;Layer&quot;&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;parallax-layer&quot; data-depth=&quot;0.38&quot;&gt;
+                     &lt;img src=&quot;path-to-image&quot; alt=&quot;Layer&quot;&gt;
+                  &lt;/div&gt;
+                  &lt;!-- Add as many layers as you need with different data-depth parameters for more 3D-like effect. Make sure add position-relative to biggest layer to keep width and height of the whole scene. --&gt;
+                &lt;/div&gt;
+          #pug3.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Cursor position parallax
+                .parallax
+                  .parallax-layer.position-relative(data-depth=&quot;0.1&quot;)
+                    img(src=&quot;path-to-image&quot;, alt=&quot;Layer&quot;)
+                  .parallax-layer(data-depth=&quot;0.16&quot;)
+                    img(src=&quot;path-to-image&quot;, alt=&quot;Layer&quot;)
+                  .parallax-layer(data-depth=&quot;0.38&quot;)
+                    img(src=&quot;path-to-image&quot;, alt=&quot;Layer&quot;)
+                  //- Add as many layers as you need with different data-depth parameters for more 3D-like effect. Make sure add position-relative to biggest layer to keep width and height of the whole scene.
+                  

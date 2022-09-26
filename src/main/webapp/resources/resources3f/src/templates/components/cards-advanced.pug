@@ -1,0 +1,1346 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['prismjs/themes/prism.css', 'prismjs/plugins/toolbar/prism-toolbar.css', 'prismjs/plugins/line-numbers/prism-line-numbers.css', 'tiny-slider/dist/tiny-slider.css']
+  - var vendorScripts = ['prismjs/components/prism-core.min.js', 'prismjs/components/prism-markup.min.js', 'prismjs/components/prism-clike.min.js', 'prismjs/components/prism-javascript.min.js', 'prismjs/components/prism-pug.min.js', 'prismjs/plugins/toolbar/prism-toolbar.min.js', 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'prismjs/plugins/line-numbers/prism-line-numbers.min.js', 'tiny-slider/dist/min/tiny-slider.js']
+  - var pageTitle = 'Cards: Advanced'
+  - var pageSubtitle = 'Advanced use cases of card component.'
+  - var isPageTitleBadge = true
+  - var anchorNav = [{'title': 'Static content overlay', 'link': '#card-static-overlay'}, {'title': 'Content overlay on hover', 'link': '#card-hover-overlay'}, {'title': 'Carousel inside', 'link': '#card-carousel-inside'}, {'title': 'No image + Contextual dropdown menu', 'link': '#card-no-image'}, {'title': 'Light card on dark background: Vertical', 'link': '#card-light-vertical'}, {'title': 'Light card on dark background: Horizontal', 'link': '#card-light-horizontal'}, {'title': 'Blog post: Simple', 'link': '#card-blog-simple'}, {'title': 'Blog post: Card vertical', 'link': '#card-blog-vertical'}, {'title': 'Blog post: Card horizontal', 'link': '#card-blog-horizontal'}, {'title': 'Account card with navigation', 'link': '#card-account-nav'}]
+  
+//- Page Content
+block content
+
+  // Static content overlay
+  section#card-static-overlay.pb-5.mb-md-2
+    h2.h5.mb-3 Static content overlay
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result1' data-bs-toggle='tab' role='tab' aria-controls='result1' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result1.tab-pane.fade.show.active(role='tabpanel')
+            .card.bg-size-cover.bg-position-center.border-0.overflow-hidden(style='background-image: url(../img/real-estate/recent/02.jpg); max-width: 636px;')
+              span.img-gradient-overlay
+              .card-body.content-overlay.pb-0
+                span.badge.bg-info.fs-sm New
+              .card-footer.content-overlay.border-0.pt-0.pb-4
+                .d-sm-flex.justify-content-between.align-items-end.pt-5.mt-2.mt-sm-5
+                  a(href='#').text-decoration-none.text-light.pe-2
+                    .fs-sm.text-uppercase.pt-2.mb-1 For sale
+                    h3.h5.text-light.mb-1 Duplex with Garage
+                    .fs-sm.opacity-70
+                      i.fi-map-pin.me-1
+                      | 21 Pulaski Road Kings Park, NY 11754
+                  .btn-group.ms-n2.ms-sm-0.mt-3
+                    a(href='#').btn.btn-primary.px-3 $200,410
+                    button(type='button').btn.btn-primary.btn-icon.border-end-0.border-top-0.border-bottom-0.border-light.fs-sm
+                      i.fi-heart
+          #html1.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Static content overlay --&gt;
+                &lt;div class=&quot;card bg-size-cover bg-position-center border-0 overflow-hidden&quot; style=&quot;background-image: url(path-to-background-image);&quot;&gt;
+                  &lt;span class=&quot;img-gradient-overlay&quot;&gt;&lt;/span&gt;
+                  &lt;div class=&quot;card-body content-overlay pb-0&quot;&gt;
+                    &lt;span class=&quot;badge bg-info fs-sm&quot;&gt;New&lt;/span&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;card-footer content-overlay border-0 pt-0 pb-4&quot;&gt;
+                    &lt;div class=&quot;d-sm-flex justify-content-between align-items-end pt-5 mt-2 mt-sm-5&quot;&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;text-decoration-none text-light pe-2&quot;&gt;
+                        &lt;div class=&quot;fs-sm text-uppercase pt-2 mb-1&quot;&gt;For sale&lt;/div&gt;
+                        &lt;h3 class=&quot;h5 text-light mb-1&quot;&gt;Duplex with Garage&lt;/h3&gt;
+                        &lt;div class=&quot;fs-sm opacity-70&quot;&gt;
+                          &lt;i class=&quot;fi-map-pin me-1&quot;&gt;&lt;/i&gt;
+                          21 Pulaski Road Kings Park, NY 11754
+                        &lt;/div&gt;
+                      &lt;/a&gt;
+                      &lt;div class=&quot;btn-group ms-n2 ms-sm-0 mt-3&quot;&gt;
+                        &lt;a href=&quot;#&quot; class=&quot;btn btn-primary px-3&quot;&gt;$200,410&lt;/a&gt;
+                        &lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-icon border-end-0 border-top-0 border-bottom-0 border-light fs-sm&quot;&gt;
+                          &lt;i class=&quot;fi-heart&quot;&gt;&lt;/i&gt;
+                        &lt;/button&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+          #pug1.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Static content overlay
+                .card.bg-size-cover.bg-position-center.border-0.overflow-hidden(style=&quot;background-image: url(path-to-background-image);&quot;)
+                  span.img-gradient-overlay
+                  .card-body.content-overlay.pb-0
+                    span.badge.bg-info.fs-sm New
+                  .card-footer.content-overlay.border-0.pt-0.pb-4
+                    .d-sm-flex.justify-content-between.align-items-end.pt-5.mt-2.mt-sm-5
+                      a(href=&quot;#&quot;).text-decoration-none.text-light.pe-2
+                        .fs-sm.text-uppercase.pt-2.mb-1 For sale
+                        h3.h5.text-light.mb-1 Duplex with Garage
+                        .fs-sm.opacity-70
+                          i.fi-map-pin.me-1
+                          | 21 Pulaski Road Kings Park, NY 11754
+                      .btn-group.ms-n2.ms-sm-0.mt-3
+                        a(href=&quot;#&quot;).btn.btn-primary.px-3
+                          | $200,410
+                        button(type=&quot;button&quot;).btn.btn-primary.btn-icon.border-end-0.border-top-0.border-bottom-0.border-light.fs-sm
+                          i.fi-heart
+
+  // Content overlay on hover
+  section#card-hover-overlay.pb-5.mb-md-2
+    h2.h5.mb-3 Content overlay on hover
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result2' data-bs-toggle='tab' role='tab' aria-controls='result2' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result2.tab-pane.fade.show.active(role='tabpanel')
+            a(href='#' style='max-width: 306px;').card.shadow-sm.card-hover.border-0
+              .card-img-top.card-img-hover
+                span.img-overlay.opacity-65
+                img(src='../img/real-estate/city/chicago.jpg' alt='Chicago')
+                .content-overlay.start-0.top-0.d-flex.align-items-center.justify-content-center.w-100.h-100.p-3
+                  .w-100.p-1
+                    .mb-2
+                      h4.mb-2.fs-xs.fw-normal.text-light
+                        i.fi-wallet.mt-n1.me-2.fs-sm.align-middle
+                        | Property for sale
+                      .d-flex.align-items-center
+                        .progress.progress-light.w-100
+                          .progress-bar.bg-danger(role='progressbar' style='width: 37%' aria-valuenow='37' aria-valuemin='0' aria-valuemax='100')
+                        span.text-light.fs-sm.ps-1.ms-2 268
+                    .pt-1
+                      h4.mb-2.fs-xs.fw-normal.text-light
+                        i.fi-home.mt-n1.me-2.fs-sm.align-middle
+                        | Property for rent
+                      .d-flex.align-items-center
+                        .progress.progress-light.w-100
+                          .progress-bar.bg-success(role='progressbar' style='width: 80%' aria-valuenow='80' aria-valuemin='0' aria-valuemax='100')
+                        span.text-light.fs-sm.ps-1.ms-2 1540
+              .card-body.text-center
+                h3.mb-0.fs-base.text-nav Chicago
+          #html2.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Content overlay on hover --&gt;
+                &lt;a href=&quot;#&quot; class=&quot;card shadow-sm card-hover border-0&quot;&gt;
+                  &lt;div class=&quot;card-img-top card-img-hover&quot;&gt;
+                    &lt;span class=&quot;img-overlay opacity-65&quot;&gt;&lt;/span&gt;
+                    &lt;img src=&quot;path-to-image&quot; alt=&quot;Chicago&quot;&gt;
+                    &lt;div class=&quot;content-overlay start-0 top-0 d-flex align-items-center justify-content-center w-100 h-100 p-3&quot;&gt;
+                      &lt;div class=&quot;w-100 p-1&quot;&gt;
+                        &lt;div class=&quot;mb-2&quot;&gt;
+                          &lt;h4 class=&quot;mb-2 fs-xs fw-normal text-light&quot;&gt;
+                            &lt;i class=&quot;fi-wallet mt-n1 me-2 fs-sm align-middle&quot;&gt;&lt;/i&gt;
+                            Property for sale
+                          &lt;/h4&gt;
+                          &lt;div class=&quot;d-flex align-items-center&quot;&gt;
+                            &lt;div class=&quot;progress progress-light w-100&quot;&gt;
+                              &lt;div class=&quot;progress-bar bg-danger&quot; role=&quot;progressbar&quot; style=&quot;width: 37%&quot; aria-valuenow=&quot;37&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;&lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;span class=&quot;text-light fs-sm ps-1 ms-2&quot;&gt;268&lt;/span&gt;
+                          &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;pt-1&quot;&gt;
+                          &lt;h4 class=&quot;mb-2 fs-xs fw-normal text-light&quot;&gt;
+                            &lt;i class=&quot;fi-home mt-n1 me-2 fs-sm align-middle&quot;&gt;&lt;/i&gt;
+                            Property for rent
+                          &lt;/h4&gt;
+                          &lt;div class=&quot;d-flex align-items-center&quot;&gt;
+                            &lt;div class=&quot;progress progress-light w-100&quot;&gt;
+                              &lt;div class=&quot;progress-bar bg-success&quot; role=&quot;progressbar&quot; style=&quot;width: 80%&quot; aria-valuenow=&quot;80&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;&lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;span class=&quot;text-light fs-sm ps-1 ms-2&quot;&gt;1540&lt;/span&gt;
+                          &lt;/div&gt;
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;card-body text-center&quot;&gt;
+                    &lt;h3 class=&quot;mb-0 fs-base text-nav&quot;&gt;Chicago&lt;/h3&gt;
+                  &lt;/div&gt;
+                &lt;/a&gt;
+          #pug2.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Content overlay on hover
+                a(href=&quot;#&quot;).card.shadow-sm.card-hover.border-0
+                  .card-img-top.card-img-hover
+                    span.img-overlay.opacity-65
+                    img(src=&quot;path-to-image&quot;, alt=&quot;Chicago&quot;)
+                    .content-overlay.start-0.top-0.d-flex.align-items-center.justify-content-center.w-100.h-100.p-3
+                      .w-100.p-1
+                        .mb-2
+                          h4.mb-2.fs-xs.fw-normal.text-light
+                            i.fi-wallet.mt-n1.me-2.fs-sm.align-middle
+                            | Property for sale
+                          .d-flex.align-items-center
+                            .progress.progress-light.w-100
+                              .progress-bar.bg-danger(role=&quot;progressbar&quot;, style=&quot;width: 37%&quot;, aria-valuenow=&quot;37&quot;, aria-valuemin=&quot;0&quot;, aria-valuemax=&quot;100&quot;)
+                            span.text-light.fs-sm.ps-1.ms-2 268
+                        .pt-1
+                          h4.mb-2.fs-xs.fw-normal.text-light
+                            i.fi-home.mt-n1.me-2.fs-sm.align-middle
+                            | Property for rent
+                          .d-flex.align-items-center
+                            .progress.progress-light.w-100
+                              .progress-bar.bg-success(role=&quot;progressbar&quot;, style=&quot;width: 80%&quot;, aria-valuenow=&quot;80&quot;, aria-valuemin=&quot;0&quot;, aria-valuemax=&quot;100&quot;)
+                            span.text-light.fs-sm.ps-1.ms-2 1540
+                  .card-body.text-center
+                    h3.mb-0.fs-base.text-nav Chicago
+
+  // Carousel inside
+  section#card-carousel-inside.pb-5.mb-md-2
+    h2.h5.mb-3 Carousel inside
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result3' data-bs-toggle='tab' role='tab' aria-controls='result3' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result3.tab-pane.fade.show.active(role='tabpanel')
+            .card.shadow-sm.card-hover.border-0(style='max-width: 306px;')
+              .tns-carousel-wrapper.card-img-top.card-img-hover
+                a(href='#').img-overlay
+                .position-absolute.start-0.top-0.pt-3.ps-3
+                  span.d-table.badge.bg-success.mb-1 Verified
+                  span.d-table.badge.bg-info New
+                .content-overlay.end-0.top-0.pt-3.pe-3
+                  button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                    i.fi-heart
+                .tns-carousel-inner
+                  img(src='../img/real-estate/catalog/04.jpg' alt='Image')
+                  img(src='../img/real-estate/catalog/03.jpg' alt='Image')
+                  img(src='../img/real-estate/catalog/05.jpg' alt='Image')
+              .card-body.position-relative.pb-3
+                .mb-1.fs-xs.text-uppercase.text-primary For sale
+                h3.h6.mb-2.fs-base
+                  a(href='#').nav-link.stretched-link 3-bed Apartment | 67 sq.m
+                p.mb-2.fs-sm.text-muted 140-60 Beech Ave Flushing, NY 11355
+                .fw-bold
+                  i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+                  | $65,000
+              .card-footer.d-flex.align-items-center.justify-content-center.mx-3.pt-3.text-nowrap
+                span.d-inline-block.mx-1.px-2.fs-sm 3
+                  i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 1
+                  i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+                span.d-inline-block.mx-1.px-2.fs-sm 2
+                  i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+          #html3.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Carousel inside card --&gt;
+                &lt;div class=&quot;card shadow-sm card-hover border-0&quot;&gt;
+                  &lt;div class=&quot;tns-carousel-wrapper card-img-top card-img-hover&quot;&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;img-overlay&quot;&gt;&lt;/a&gt;
+                    &lt;div class=&quot;position-absolute start-0 top-0 pt-3 ps-3&quot;&gt;
+                      &lt;span class=&quot;d-table badge bg-success mb-1&quot;&gt;Verified&lt;/span&gt;
+                      &lt;span class=&quot;d-table badge bg-info&quot;&gt;New&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;content-overlay end-0 top-0 pt-3 pe-3&quot;&gt;
+                      &lt;button class=&quot;btn btn-icon btn-light btn-xs text-primary rounded-circle&quot; type=&quot;button&quot; data-bs-toggle=&quot;tooltip&quot; data-bs-placement=&quot;left&quot; title=&quot;Add to Wishlist&quot;&gt;
+                        &lt;i class=&quot;fi-heart&quot;&gt;&lt;/i&gt;
+                      &lt;/button&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;tns-carousel-inner&quot;&gt;
+                      &lt;img src=&quot;path-to-image&quot; alt=&quot;Image&quot;&gt;
+                      &lt;img src=&quot;path-to-image&quot; alt=&quot;Image&quot;&gt;
+                      &lt;img src=&quot;path-to-image&quot; alt=&quot;Image&quot;&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;card-body position-relative pb-3&quot;&gt;
+                    &lt;div class=&quot;mb-1 fs-xs text-uppercase text-primary&quot;&gt;For sale&lt;/div&gt;
+                    &lt;h3 class=&quot;h6 mb-2 fs-base&quot;&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;nav-link stretched-link&quot;&gt;3-bed Apartment | 67 sq.m&lt;/a&gt;
+                    &lt;/h3&gt;
+                    &lt;p class=&quot;mb-2 fs-sm text-muted&quot;&gt;140-60 Beech Ave Flushing, NY 11355&lt;/p&gt;
+                    &lt;div class=&quot;fw-bold&quot;&gt;
+                      &lt;i class=&quot;fi-cash mt-n1 me-2 lead align-middle opacity-70&quot;&gt;&lt;/i&gt;
+                      $65,000
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;card-footer d-flex align-items-center justify-content-center mx-3 pt-3 text-nowrap&quot;&gt;
+                    &lt;span class=&quot;d-inline-block mx-1 px-2 fs-sm&quot;&gt;
+                      3
+                      &lt;i class=&quot;fi-bed ms-1 mt-n1 fs-lg text-muted&quot;&gt;&lt;/i&gt;
+                    &lt;/span&gt;
+                    &lt;span class=&quot;d-inline-block mx-1 px-2 fs-sm&quot;&gt;
+                      1
+                      &lt;i class=&quot;fi-bath ms-1 mt-n1 fs-lg text-muted&quot;&gt;&lt;/i&gt;
+                    &lt;/span&gt;
+                    &lt;span class=&quot;d-inline-block mx-1 px-2 fs-sm&quot;&gt;
+                      2
+                      &lt;i class=&quot;fi-car ms-1 mt-n1 fs-lg text-muted&quot;&gt;&lt;/i&gt;
+                    &lt;/span&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+          #pug3.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Carousel inside card
+                .card.shadow-sm.card-hover.border-0
+                  .tns-carousel-wrapper.card-img-top.card-img-hover
+                    a(href=&quot;#&quot;).img-overlay
+                    .position-absolute.start-0.top-0.pt-3.ps-3
+                      span.d-table.badge.bg-success.mb-1 Verified
+                      span.d-table.badge.bg-info New
+                    .content-overlay.end-0.top-0.pt-3.pe-3
+                      button(type=&quot;button&quot;, data-bs-toggle=&quot;tooltip&quot;, data-bs-placement=&quot;left&quot;, title=&quot;Add to Wishlist&quot;).btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                        i.fi-heart
+                    .tns-carousel-inner
+                      img(src=&quot;path-to-image&quot;, alt=&quot;Image&quot;)
+                      img(src=&quot;path-to-image&quot;, alt=&quot;Image&quot;)
+                      img(src=&quot;path-to-image&quot;, alt=&quot;Image&quot;)
+                  .card-body.position-relative.pb-3
+                    .mb-1.fs-xs.text-uppercase.text-primary For sale
+                    h3.h6.mb-2.fs-base
+                      a(href=&quot;#&quot;).nav-link.stretched-link
+                        | 3-bed Apartment | 67 sq.m
+                    p.mb-2.fs-sm.text-muted 140-60 Beech Ave Flushing, NY 11355
+                    .fw-bold
+                      i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+                      | $65,000
+                  .card-footer.d-flex.align-items-center.justify-content-center.mx-3.pt-3.text-nowrap
+                    span.d-inline-block.mx-1.px-2.fs-sm 3
+                      i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+                    span.d-inline-block.mx-1.px-2.fs-sm 1
+                      i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+                    span.d-inline-block.mx-1.px-2.fs-sm 2
+                      i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+
+  // No image + Contextual dropdown menu
+  section#card-no-image.pb-5.mb-md-2
+    h2.h5.mb-3 No image + Contextual dropdown menu
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result4' data-bs-toggle='tab' role='tab' aria-controls='result4' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result4.tab-pane.fade.show.active(role='tabpanel')
+            .card.bg-secondary.card-hover(style='max-width: 32rem;')
+              .card-body
+                .d-flex.justify-content-between.align-items-start.mb-2
+                  .d-flex.align-items-center
+                    img(src='../img/job-board/company/it-pro.png' width='24' alt='IT Pro TV').me-2
+                    span.fs-sm.text-dark.opacity-80.px-1 IT Pro TV
+                    span.badge.bg-faded-accent.rounded-pill.fs-sm.ms-2 Featured
+                  .dropdown.content-overlay
+                    button(type='button' id='contextMenu' data-bs-toggle='dropdown' aria-expanded='false').btn.btn-icon.btn-light.btn-xs.rounded-circle.shadow-sm
+                      i.fi-dots-vertical
+                    ul(aria-labelledby='contextMenu').dropdown-menu.my-1
+                      li
+                        button(type='button').dropdown-item
+                          i.fi-heart.opacity-60.me-2
+                          | Add to wishlist
+                      li
+                        button(type='button').dropdown-item
+                          i.fi-x-circle.opacity-60.me-2
+                          | Not interested
+                h3.h6.card-title.pt-1.mb-3
+                  a(href='#').text-nav.stretched-link.text-decoration-none Business Analyst
+                .fs-sm
+                  span.text-nowrap.me-3
+                    i.fi-map-pin.text-muted.me-1 
+                    | New York
+                  span.text-nowrap.me-3
+                    i.fi-cash.fs-base.text-muted.me-1
+                    | $7,500
+          #html4.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- No image + Contextual dropdown menu --&gt;
+                &lt;div class=&quot;card bg-secondary card-hover&quot;&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;div class=&quot;d-flex justify-content-between align-items-start mb-2&quot;&gt;
+                      &lt;div class=&quot;d-flex align-items-center&quot;&gt;
+                        &lt;img class=&quot;me-2&quot; src=&quot;path-to-image&quot; width=&quot;24&quot; alt=&quot;IT Pro TV&quot;&gt;
+                        &lt;span class=&quot;fs-sm text-dark opacity-80 px-1&quot;&gt;IT Pro TV&lt;/span&gt;
+                        &lt;span class=&quot;badge bg-faded-accent rounded-pill fs-sm ms-2&quot;&gt;Featured&lt;/span&gt;
+                      &lt;/div&gt;
+                      &lt;div class=&quot;dropdown content-overlay&quot;&gt;
+                        &lt;button type=&quot;button&quot; class=&quot;btn btn-icon btn-light btn-xs rounded-circle shadow-sm&quot; id=&quot;contextMenu&quot; data-bs-toggle=&quot;dropdown&quot; aria-expanded=&quot;false&quot;&gt;
+                          &lt;i class=&quot;fi-dots-vertical&quot;&gt;&lt;/i&gt;
+                        &lt;/button&gt;
+                        &lt;ul class=&quot;dropdown-menu my-1&quot; aria-labelledby=&quot;contextMenu&quot;&gt;
+                          &lt;li&gt;
+                            &lt;button type=&quot;button&quot; class=&quot;dropdown-item&quot;&gt;
+                              &lt;i class=&quot;fi-heart opacity-60 me-2&quot;&gt;&lt;/i&gt;
+                              Add to wishlist
+                            &lt;/button&gt;
+                          &lt;/li&gt;
+                          &lt;li&gt;
+                            &lt;button type=&quot;button&quot; class=&quot;dropdown-item&quot;&gt;
+                              &lt;i class=&quot;fi-x-circle opacity-60 me-2&quot;&gt;&lt;/i&gt;
+                              Not interested
+                            &lt;/button&gt;
+                          &lt;/li&gt;
+                        &lt;/ul&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;h3 class=&quot;h6 card-title pt-1 mb-3&quot;&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;text-nav stretched-link text-decoration-none&quot;&gt;Business Analyst&lt;/a&gt;
+                    &lt;/h3&gt;
+                    &lt;div class=&quot;fs-sm&quot;&gt;
+                      &lt;span class=&quot;text-nowrap me-3&quot;&gt;
+                        &lt;i class=&quot;fi-map-pin text-muted me-1&quot;&gt; &lt;/i&gt;
+                        New York
+                      &lt;/span&gt;
+                      &lt;span class=&quot;text-nowrap me-3&quot;&gt;
+                        &lt;i class=&quot;fi-cash fs-base text-muted me-1&quot;&gt;&lt;/i&gt;
+                        $7,500
+                      &lt;/span&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+          #pug4.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // No image + Contextual dropdown menu
+                .card.bg-secondary.card-hover
+                  .card-body
+                    .d-flex.justify-content-between.align-items-start.mb-2
+                      .d-flex.align-items-center
+                        img(src=&quot;path-to-image&quot;, width=&quot;24&quot;, alt=&quot;IT Pro TV&quot;).me-2
+                        span.fs-sm.text-dark.opacity-80.px-1 IT Pro TV
+                        span.badge.bg-faded-accent.rounded-pill.fs-sm.ms-2 Featured
+                      .dropdown.content-overlay
+                        button(type=&quot;button&quot;, id=&quot;contextMenu&quot;, data-bs-toggle=&quot;dropdown&quot;, aria-expanded=&quot;false&quot;).btn.btn-icon.btn-light.btn-xs.rounded-circle.shadow-sm
+                          i.fi-dots-vertical
+                        ul(aria-labelledby=&quot;contextMenu&quot;).dropdown-menu.my-1
+                          li
+                            button(type=&quot;button&quot;).dropdown-item
+                              i.fi-heart.opacity-60.me-2
+                              | Add to wishlist
+                          li
+                            button(type=&quot;button&quot;).dropdown-item
+                              i.fi-x-circle.opacity-60.me-2
+                              | Not interested
+                    h3.h6.card-title.pt-1.mb-3
+                      a(href=&quot;#&quot;).text-nav.stretched-link.text-decoration-none
+                        | Business Analyst
+                    .fs-sm
+                      span.text-nowrap.me-3
+                        i.fi-map-pin.text-muted.me-1 
+                        | New York
+                      span.text-nowrap.me-3
+                        i.fi-cash.fs-base.text-muted.me-1
+                        | $7,500
+
+  // Light card on dark background: Vertical
+  section#card-light-vertical.pb-5.mb-md-2
+    h2.h5.mb-3 Light card on dark background: Vertical
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result5' data-bs-toggle='tab' role='tab' aria-controls='result5' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html5' data-bs-toggle='tab' role='tab' aria-controls='html5' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug5' data-bs-toggle='tab' role='tab' aria-controls='pug5' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result5.tab-pane.m-n3.p-3.bg-dark.fade.show.active(role='tabpanel')
+            .card.card-light.card-hover(style='max-width: 26rem;')
+              .card-img-top.card-img-hover
+                a(href='#').img-overlay
+                .position-absolute.start-0.top-0.pt-3.ps-3
+                  span.d-table.badge.bg-info New
+                .content-overlay.end-0.top-0.pt-3.pe-3
+                  button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                    i.fi-heart
+                img(src='../img/car-finder/catalog/01.jpg' alt='Image')
+              .card-body
+                .d-flex.align-items-center.justify-content-between.pb-1
+                  span.fs-sm.text-light.me-3 1995
+                  .form-check.form-check-light
+                    input(type='checkbox' id='compare').form-check-input
+                    label(for='compare').form-check-label.fs-sm
+                      | Compare
+                h3.h6.mb-1
+                  a(href='#').nav-link-light Ford Truck Lifted
+                .text-primary.fw-bold.mb-1 $24,000
+                .fs-sm.text-light.opacity-70
+                  i.fi-map-pin.me-1
+                  | Chicago
+              .card-footer.border-0.pt-0
+                .border-top.border-light.pt-3
+                  .row.g-2
+                    .col.me-sm-1
+                      .bg-dark.rounded.text-center.w-100.h-100.p-2
+                        i.fi-dashboard.d-block.h4.text-light.mb-0.mx-center
+                        span.fs-xs.text-light 278K mi
+                    .col.me-sm-1
+                      .bg-dark.rounded.text-center.w-100.h-100.p-2
+                        i.fi-gearbox.d-block.h4.text-light.mb-0.mx-center
+                        span.fs-xs.text-light Manual
+                    .col
+                      .bg-dark.rounded.text-center.w-100.h-100.p-2
+                        i.fi-petrol.d-block.h4.text-light.mb-0.mx-center
+                        span.fs-xs.text-light Diesel
+          #html5.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Light card on dark background: Vertical --&gt;
+                &lt;div class=&quot;card card-light card-hover&quot;&gt;
+                  &lt;div class=&quot;card-img-top card-img-hover&quot;&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;img-overlay&quot;&gt;&lt;/a&gt;
+                    &lt;div class=&quot;position-absolute start-0 top-0 pt-3 ps-3&quot;&gt;
+                      &lt;span class=&quot;d-table badge bg-info&quot;&gt;New&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;content-overlay end-0 top-0 pt-3 pe-3&quot;&gt;
+                      &lt;button type=&quot;button&quot; class=&quot;btn btn-icon btn-light btn-xs text-primary rounded-circle&quot; data-bs-toggle=&quot;tooltip&quot; data-bs-placement=&quot;left&quot; title=&quot;Add to Wishlist&quot;&gt;
+                        &lt;i class=&quot;fi-heart&quot;&gt;&lt;/i&gt;
+                      &lt;/button&gt;
+                    &lt;/div&gt;
+                    &lt;img src=&quot;path-to-image&quot; alt=&quot;Image&quot;&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;div class=&quot;d-flex align-items-center justify-content-between pb-1&quot;&gt;
+                      &lt;span class=&quot;fs-sm text-light me-3&quot;&gt;1995&lt;/span&gt;
+                      &lt;div class=&quot;form-check form-check-light&quot;&gt;
+                        &lt;input type=&quot;checkbox&quot; id=&quot;compare&quot; class=&quot;form-check-input&quot;&gt;
+                        &lt;label for=&quot;compare&quot; class=&quot;form-check-label fs-sm&quot;&gt;Compare&lt;/label&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;h3 class=&quot;h6 mb-1&quot;&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;nav-link-light&quot;&gt;Ford Truck Lifted&lt;/a&gt;
+                    &lt;/h3&gt;
+                    &lt;div class=&quot;text-primary fw-bold mb-1&quot;&gt;$24,000&lt;/div&gt;
+                    &lt;div class=&quot;fs-sm text-light opacity-70&quot;&gt;
+                      &lt;i class=&quot;fi-map-pin me-1&quot;&gt;&lt;/i&gt;
+                      Chicago
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;card-footer border-0 pt-0&quot;&gt;
+                    &lt;div class=&quot;border-top border-light pt-3&quot;&gt;
+                      &lt;div class=&quot;row g-2&quot;&gt;
+                        &lt;div class=&quot;col me-sm-1&quot;&gt;
+                          &lt;div class=&quot;bg-dark rounded text-center w-100 h-100 p-2&quot;&gt;
+                            &lt;i class=&quot;fi-dashboard d-block h4 text-light mb-0 mx-center&quot;&gt;&lt;/i&gt;
+                            &lt;span class=&quot;fs-xs text-light&quot;&gt;278K mi&lt;/span&gt;
+                          &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;col me-sm-1&quot;&gt;
+                          &lt;div class=&quot;bg-dark rounded text-center w-100 h-100 p-2&quot;&gt;
+                            &lt;i class=&quot;fi-gearbox d-block h4 text-light mb-0 mx-center&quot;&gt;&lt;/i&gt;
+                            &lt;span class=&quot;fs-xs text-light&quot;&gt;Manual&lt;/span&gt;
+                          &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;col&quot;&gt;
+                          &lt;div class=&quot;bg-dark rounded text-center w-100 h-100 p-2&quot;&gt;
+                            &lt;i class=&quot;fi-petrol d-block h4 text-light mb-0 mx-center&quot;&gt;&lt;/i&gt;
+                            &lt;span class=&quot;fs-xs text-light&quot;&gt;Diesel&lt;/span&gt;
+                          &lt;/div&gt;
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+          #pug5.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Light card on dark background: Vertical
+                .card.card-light.card-hover
+                  .card-img-top.card-img-hover
+                    a(href=&quot;#&quot;).img-overlay
+                    .position-absolute.start-0.top-0.pt-3.ps-3
+                      span.d-table.badge.bg-info New
+                    .content-overlay.end-0.top-0.pt-3.pe-3
+                      button(type=&quot;button&quot;, data-bs-toggle=&quot;tooltip&quot;, data-bs-placement=&quot;left&quot;, title=&quot;Add to Wishlist&quot;).btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                        i.fi-heart
+                    img(src=&quot;path-to-image&quot;, alt=&quot;Image&quot;)
+                  .card-body
+                    .d-flex.align-items-center.justify-content-between.pb-1
+                      span.fs-sm.text-light.me-3 1995
+                      .form-check.form-check-light
+                        input(type=&quot;checkbox&quot;, id=&quot;compare&quot;).form-check-input
+                        label(for=&quot;compare&quot;).form-check-label.fs-sm
+                          | Compare
+                    h3.h6.mb-1
+                      a(href=&quot;#&quot;).nav-link-light Ford Truck Lifted
+                    .text-primary.fw-bold.mb-1 $24,000
+                    .fs-sm.text-light.opacity-70
+                      i.fi-map-pin.me-1
+                      | Chicago
+                  .card-footer.border-0.pt-0
+                    .border-top.border-light.pt-3
+                      .row.g-2
+                        .col.me-sm-1
+                          .bg-dark.rounded.text-center.w-100.h-100.p-2
+                            i.fi-dashboard.d-block.h4.text-light.mb-0.mx-center
+                            span.fs-xs.text-light 278K mi
+                        .col.me-sm-1
+                          .bg-dark.rounded.text-center.w-100.h-100.p-2
+                            i.fi-gearbox.d-block.h4.text-light.mb-0.mx-center
+                            span.fs-xs.text-light Manual
+                        .col
+                          .bg-dark.rounded.text-center.w-100.h-100.p-2
+                            i.fi-petrol.d-block.h4.text-light.mb-0.mx-center
+                            span.fs-xs.text-light Diesel
+
+  // Light card on dark background: Horizontal
+  section#card-light-horizontal.pb-5.mb-md-2
+    h2.h5.mb-3 Light card on dark background: Horizontal
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result6' data-bs-toggle='tab' role='tab' aria-controls='result6' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html6' data-bs-toggle='tab' role='tab' aria-controls='html6' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug6' data-bs-toggle='tab' role='tab' aria-controls='pug6' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result6.tab-pane.m-n3.p-3.bg-dark.fade.show.active(role='tabpanel')
+            .card.card-light.card-hover.card-horizontal(style='max-width: 60rem;')
+              .card-img-top.card-img-hover(style='background-image: url(../img/car-finder/catalog/05.jpg);')
+                a(href='#').img-overlay
+                .position-absolute.start-0.top-0.pt-3.ps-3
+                  span.d-table.badge.bg-info New
+                .content-overlay.end-0.top-0.pt-3.pe-3
+                  button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                    i.fi-heart
+              .card-body
+                .d-flex.align-items-center.justify-content-between.pb-1
+                  span.fs-sm.text-light.me-3 2018
+                  .form-check.form-check-light
+                    input(type='checkbox' id='compare2').form-check-input
+                    label(for='compare2').form-check-label.fs-sm
+                      | Compare
+                h3.h6.mb-1
+                  a(href='#').nav-link-light BMW 640 XI Gran Turismo 
+                .text-primary.fw-bold.mb-1 $44,920
+                .fs-sm.text-light.opacity-70
+                  i.fi-map-pin.me-1
+                  | New Jersey
+                .border-top.border-light.mt-3.pt-3
+                  .row.g-2
+                    .col.me-sm-1
+                      .bg-dark.rounded.text-center.w-100.h-100.p-2
+                        i.fi-dashboard.d-block.h4.text-light.mb-0.mx-center
+                        span.fs-xs.text-light 10K mi
+                    .col.me-sm-1
+                      .bg-dark.rounded.text-center.w-100.h-100.p-2
+                        i.fi-gearbox.d-block.h4.text-light.mb-0.mx-center
+                        span.fs-xs.text-light Automatic
+                    .col
+                      .bg-dark.rounded.text-center.w-100.h-100.p-2
+                        i.fi-petrol.d-block.h4.text-light.mb-0.mx-center
+                        span.fs-xs.text-light Gasoline
+          #html6.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Light card on dark background: Horizontal --&gt;
+                &lt;div class=&quot;card card-light card-hover card-horizontal&quot;&gt;
+                  &lt;div class=&quot;card-img-top card-img-hover&quot; style=&quot;background-image: url(path-to-image);&quot;&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;img-overlay&quot;&gt;&lt;/a&gt;
+                    &lt;div class=&quot;position-absolute start-0 top-0 pt-3 ps-3&quot;&gt;
+                      &lt;span class=&quot;d-table badge bg-info&quot;&gt;New&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;content-overlay end-0 top-0 pt-3 pe-3&quot;&gt;
+                      &lt;button type=&quot;button&quot; class=&quot;btn btn-icon btn-light btn-xs text-primary rounded-circle&quot; data-bs-toggle=&quot;tooltip&quot; data-bs-placement=&quot;left&quot; title=&quot;Add to Wishlist&quot;&gt;
+                        &lt;i class=&quot;fi-heart&quot;&gt;&lt;/i&gt;
+                      &lt;/button&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;div class=&quot;d-flex align-items-center justify-content-between pb-1&quot;&gt;
+                      &lt;span class=&quot;fs-sm text-light me-3&quot;&gt;2018&lt;/span&gt;
+                      &lt;div class=&quot;form-check form-check-light&quot;&gt;
+                        &lt;input type=&quot;checkbox&quot; id=&quot;compare&quot; class=&quot;form-check-input&quot;&gt;
+                        &lt;label for=&quot;compare&quot; class=&quot;form-check-label fs-sm&quot;&gt;Compare&lt;/label&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;h3 class=&quot;h6 mb-1&quot;&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;nav-link-light&quot;&gt;BMW 640 XI Gran Turismo &lt;/a&gt;
+                    &lt;/h3&gt;
+                    &lt;div class=&quot;text-primary fw-bold mb-1&quot;&gt;$44,920&lt;/div&gt;
+                    &lt;div class=&quot;fs-sm text-light opacity-70&quot;&gt;
+                      &lt;i class=&quot;fi-map-pin me-1&quot;&gt;&lt;/i&gt;
+                      New Jersey
+                    &lt;/div&gt;
+                    &lt;div class=&quot;border-top border-light mt-3 pt-3&quot;&gt;
+                      &lt;div class=&quot;row g-2&quot;&gt;
+                        &lt;div class=&quot;col me-sm-1&quot;&gt;
+                          &lt;div class=&quot;bg-dark rounded text-center w-100 h-100 p-2&quot;&gt;
+                            &lt;i class=&quot;fi-dashboard d-block h4 text-light mb-0 mx-center&quot;&gt;&lt;/i&gt;
+                            &lt;span class=&quot;fs-xs text-light&quot;&gt;10K mi&lt;/span&gt;
+                          &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;col me-sm-1&quot;&gt;
+                          &lt;div class=&quot;bg-dark rounded text-center w-100 h-100 p-2&quot;&gt;
+                            &lt;i class=&quot;fi-gearbox d-block h4 text-light mb-0 mx-center&quot;&gt;&lt;/i&gt;
+                            &lt;span class=&quot;fs-xs text-light&quot;&gt;Automatic&lt;/span&gt;
+                          &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;col&quot;&gt;
+                          &lt;div class=&quot;bg-dark rounded text-center w-100 h-100 p-2&quot;&gt;
+                            &lt;i class=&quot;fi-petrol d-block h4 text-light mb-0 mx-center&quot;&gt;&lt;/i&gt;
+                            &lt;span class=&quot;fs-xs text-light&quot;&gt;Gasoline&lt;/span&gt;
+                          &lt;/div&gt;
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+          #pug6.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Light card on dark background: Horizontal
+                .card.card-light.card-hover.card-horizontal
+                  .card-img-top.card-img-hover(style=&quot;background-image: url(path-to-image);&quot;)
+                    a(href=&quot;#&quot;).img-overlay
+                    .position-absolute.start-0.top-0.pt-3.ps-3
+                      span.d-table.badge.bg-info New
+                    .content-overlay.end-0.top-0.pt-3.pe-3
+                      button(type=&quot;button&quot;, data-bs-toggle=&quot;tooltip&quot;, data-bs-placement=&quot;left&quot;, title=&quot;Add to Wishlist&quot;).btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                        i.fi-heart
+                  .card-body
+                    .d-flex.align-items-center.justify-content-between.pb-1
+                      span.fs-sm.text-light.me-3 2018
+                      .form-check.form-check-light
+                        input(type=&quot;checkbox&quot;, id=&quot;compare&quot;).form-check-input
+                        label(for=&quot;compare&quot;).form-check-label.fs-sm
+                          | Compare
+                    h3.h6.mb-1
+                      a(href=&quot;#&quot;).nav-link-light
+                        | BMW 640 XI Gran Turismo 
+                    .text-primary.fw-bold.mb-1 $44,920
+                    .fs-sm.text-light.opacity-70
+                      i.fi-map-pin.me-1
+                      | New Jersey
+                    .border-top.border-light.mt-3.pt-3
+                      .row.g-2
+                        .col.me-sm-1
+                          .bg-dark.rounded.text-center.w-100.h-100.p-2
+                            i.fi-dashboard.d-block.h4.text-light.mb-0.mx-center
+                            span.fs-xs.text-light 10K mi
+                        .col.me-sm-1
+                          .bg-dark.rounded.text-center.w-100.h-100.p-2
+                            i.fi-gearbox.d-block.h4.text-light.mb-0.mx-center
+                            span.fs-xs.text-light Automatic
+                        .col
+                          .bg-dark.rounded.text-center.w-100.h-100.p-2
+                            i.fi-petrol.d-block.h4.text-light.mb-0.mx-center
+                            span.fs-xs.text-light Gasoline
+
+  // Blog post: Simple
+  section#card-blog-simple.pb-5.mb-md-2
+    h2.h5.mb-3 Blog post: Simple
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result7' data-bs-toggle='tab' role='tab' aria-controls='result7' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html7' data-bs-toggle='tab' role='tab' aria-controls='html7' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug7' data-bs-toggle='tab' role='tab' aria-controls='pug7' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result7.tab-pane.fade.show.active(role='tabpanel')
+            article(style='max-width: 26rem;')
+              a(href='#').d-block.rounded-3.overflow-hidden
+                img(src='../img/car-finder/blog/06.jpg' alt='Image').d-block
+              .py-3
+                a(href='#').fs-xs.text-uppercase.text-decoration-none Test Drives
+                h3.fs-base.pt-1
+                  a(href='#').nav-link This Year is All About New Harley Davidson
+                a(href='#').d-flex.align-items-center.text-decoration-none
+                  img(src='../img/avatars/12.jpg' width='44' alt='Avatar').rounded-circle
+                  .ps-2
+                    h6.fs-sm.text-nav.lh-base.mb-1 Cody Fisher
+                    .d-flex.text-body.fs-xs
+                      span.me-2.pe-1
+                        i.fi-calendar-alt.opacity-70.me-1
+                        | Nov 24
+                      span
+                        i.fi-chat-circle.opacity-70.me-1
+                        | 2 comments
+          #html7.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Blog post: Simple --&gt;
+                &lt;article&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;d-block rounded-3 overflow-hidden&quot;&gt;
+                    &lt;img class=&quot;d-block&quot; src=&quot;path-to-image&quot; alt=&quot;Image&quot;&gt;
+                  &lt;/a&gt;
+                  &lt;div class=&quot;py-3&quot;&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;fs-xs text-uppercase text-decoration-none&quot;&gt;Test Drives&lt;/a&gt;
+                    &lt;h3 class=&quot;fs-base pt-1&quot;&gt;
+                      &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;This Year is All About New Harley Davidson&lt;/a&gt;
+                    &lt;/h3&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;d-flex align-items-center text-decoration-none&quot;&gt;
+                      &lt;img class=&quot;rounded-circle&quot; src=&quot;path-to-avatar-image&quot; width=&quot;44&quot; alt=&quot;Avatar&quot;&gt;
+                      &lt;div class=&quot;ps-2&quot;&gt;
+                        &lt;h6 class=&quot;fs-sm text-nav lh-base mb-1&quot;&gt;Cody Fisher&lt;/h6&gt;
+                        &lt;div class=&quot;d-flex text-body fs-xs&quot;&gt;
+                          &lt;span class=&quot;me-2 pe-1&quot;&gt;
+                            &lt;i class=&quot;fi-calendar-alt opacity-70 me-1&quot;&gt;&lt;/i&gt;
+                            Nov 24
+                          &lt;/span&gt;
+                          &lt;span&gt;
+                            &lt;i class=&quot;fi-chat-circle opacity-70 me-1&quot;&gt;&lt;/i&gt;
+                            2 comments
+                          &lt;/span&gt;
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/a&gt;
+                  &lt;/div&gt;
+                &lt;/article&gt;
+          #pug7.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Blog post: Simple
+                article
+                  a(href=&quot;#&quot;).d-block.rounded-3.overflow-hidden
+                    img(src=&quot;path-to-image&quot; alt=&quot;Image&quot;).d-block
+                  .py-3
+                    a(href=&quot;#&quot;).fs-xs.text-uppercase.text-decoration-none
+                      | Test Drives
+                    h3.fs-base.pt-1
+                      a(href=&quot;#&quot;).nav-link
+                        | This Year is All About New Harley Davidson
+                    a(href=&quot;#&quot;).d-flex.align-items-center.text-decoration-none
+                      img(src=&quot;path-to-avatar-image&quot;, width=&quot;44&quot;, alt=&quot;Avatar&quot;).rounded-circle
+                      .ps-2
+                        h6.fs-sm.text-nav.lh-base.mb-1 Cody Fisher
+                        .d-flex.text-body.fs-xs
+                          span.me-2.pe-1
+                            i.fi-calendar-alt.opacity-70.me-1
+                            | Nov 24
+                          span
+                            i.fi-chat-circle.opacity-70.me-1
+                            | 2 comments
+
+  // Blog post: Card vertical
+  section#card-blog-vertical.pb-5.mb-md-2
+    h2.h5.mb-3 Blog post: Card vertical
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result8' data-bs-toggle='tab' role='tab' aria-controls='result8' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html8' data-bs-toggle='tab' role='tab' aria-controls='html8' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug8' data-bs-toggle='tab' role='tab' aria-controls='pug8' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result8.tab-pane.fade.show.active(role='tabpanel')
+            article.card.card-hover.border-0.shadow-sm.h-100(style='max-width: 374px;')
+              a(href='#').card-img-top.overflow-hidden
+                img(src='../img/job-board/blog/12.jpg' alt='Image').d-block
+              .card-body.pb-3
+                a(href='#').fs-xs.text-uppercase.text-decoration-none Tips &amp; Advice
+                h3.fs-base.pt-1.mb-2
+                  a(href='#').nav-link How to Win Your First Job In Tech
+                p.fs-sm.text-muted.m-0 Nunc, hac augue ante in facilisi id. Consectetur egestas orci, arcu ac tellus...
+              a(href='#').card-footer.d-flex.align-items-center.text-decoration-none.border-top-0.pt-0.mb-1
+                img(src='../img/avatars/18.png' width='44' alt='Avatar').rounded-circle
+                .ps-2
+                  h6.fs-sm.text-nav.lh-base.mb-1 Annette Black
+                  .d-flex.text-body.fs-xs
+                    span.me-2.pe-1
+                      i.fi-calendar-alt.opacity-70.me-1
+                      | Dec 18
+                    span
+                      i.fi-chat-circle.opacity-70.me-1
+                      | 3 comments
+          #html8.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Blog post: Card vertical --&gt;
+                &lt;article class=&quot;card card-hover border-0 shadow-sm h-100&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;card-img-top overflow-hidden&quot;&gt;
+                    &lt;img class=&quot;d-block&quot; src=&quot;path-to-image&quot; alt=&quot;Image&quot;&gt;
+                  &lt;/a&gt;
+                  &lt;div class=&quot;card-body p-3&quot;&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;fs-xs text-uppercase text-decoration-none&quot;&gt;Tips &amp;amp; Advice&lt;/a&gt;
+                    &lt;h3 class=&quot;fs-base pt-1 mb-2&quot;&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;How to Win Your First Job In Tech&lt;/a&gt;
+                    &lt;/h3&gt;
+                    &lt;p class=&quot;fs-sm text-muted m-0&quot;&gt;Nunc, hac augue ante in facilisi id. Consectetur egestas orci, arcu ac tellus...&lt;/p&gt;
+                  &lt;/div&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;card-footer d-flex align-items-center text-decoration-none border-top-0 pt-0 mb-1&quot;&gt;
+                    &lt;img class=&quot;rounded-circle&quot; src=&quot;path-to-avatar-image&quot; width=&quot;44&quot; alt=&quot;Avatar&quot;&gt;
+                    &lt;div class=&quot;ps-2&quot;&gt;
+                      &lt;h6 class=&quot;fs-sm text-nav lh-base mb-1&quot;&gt;Annette Black&lt;/h6&gt;
+                      &lt;div class=&quot;d-flex text-body fs-xs&quot;&gt;
+                        &lt;span class=&quot;me-2 pe-1&quot;&gt;
+                          &lt;i class=&quot;fi-calendar-alt opacity-70 me-1&quot;&gt;&lt;/i&gt;
+                          Dec 18
+                        &lt;/span&gt;
+                        &lt;span&gt;
+                          &lt;i class=&quot;fi-chat-circle opacity-70 me-1&quot;&gt;&lt;/i&gt;
+                          3 comments
+                        &lt;/span&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/a&gt;
+                &lt;/article&gt;
+          #pug8.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Blog post: Card vertical
+                article.card.border-0.shadow-sm.card-hover
+                  a(href=&quot;#&quot;).card-img-top.overflow-hidden
+                    img(src=&quot;path-to-image&quot;, alt=&quot;Image&quot;).d-block
+                  .card-body.pb-3
+                    a(href=&quot;#&quot;).fs-xs.text-uppercase.text-decoration-none
+                      | Tips &amp;amp; Advice
+                    h3.fs-base.pt-1.mb-2
+                      a(href=&quot;#&quot;).nav-link
+                        | How to Win Your First Job In Tech
+                    p.fs-sm.text-muted.m-0 Nunc, hac augue ante in facilisi id. Consectetur egestas orci, arcu ac tellus...
+                  a(href=&quot;#&quot;).card-footer.d-flex.align-items-center.text-decoration-none.border-top-0.pt-0.mb-1
+                    img(src=&quot;path-to-avatar-image&quot;, width=&quot;44&quot;, alt=&quot;Avatar&quot;).rounded-circle
+                    .ps-2
+                      h6.fs-sm.text-nav.lh-base.mb-1 Annette Black
+                      .d-flex.text-body.fs-xs
+                        span.me-2.pe-1
+                          i.fi-calendar-alt.opacity-70.me-1
+                          | Dec 18
+                        span
+                          i.fi-chat-circle.opacity-70.me-1
+                          | 3 comments
+
+  // Blog post: Card horizontal
+  section#card-blog-horizontal.pb-5.mb-md-2
+    h2.h5.mb-3 Blog post: Card horizontal
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result9' data-bs-toggle='tab' role='tab' aria-controls='result9' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html9' data-bs-toggle='tab' role='tab' aria-controls='html9' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug9' data-bs-toggle='tab' role='tab' aria-controls='pug9' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result9.tab-pane.fade.show.active(role='tabpanel')
+            article.card.border-0.shadow-sm.card-hover.card-horizontal(style='max-width: 856px;')
+              a(href='#' style='background-image: url(../img/job-board/blog/06.jpg);').card-img-top
+              .card-body
+                a(href='#').fs-xs.text-uppercase.text-decoration-none Inspiration
+                h3.fs-base.pt-1.mb-2
+                  a(href='#').nav-link 10 Ways to Stay Ahead of the Curve
+                p.fs-sm.text-muted Ac sit tincidunt lacus dignissim volutpat dui scelerisque porttitor non. Elit at ullamcorper feugiat porta adipiscing...
+                a(href='#').d-flex.align-items-center.text-decoration-none
+                  img(src='../img/avatars/21.png' width='44' alt='Avatar').rounded-circle
+                  .ps-2
+                    h6.fs-sm.text-nav.lh-base.mb-1 Kristin Watson
+                    .d-flex.text-body.fs-xs
+                      span.me-2.pe-1
+                        i.fi-calendar-alt.opacity-70.me-1
+                        | Dec 23
+                      span
+                        i.fi-chat-circle.opacity-70.me-1
+                        | 1 comment
+          #html9.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Blog post: Card horizontal --&gt;
+                &lt;article class=&quot;card border-0 shadow-sm card-hover card-horizontal&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;card-img-top&quot; style=&quot;background-image: url(path-to-image);&quot;&gt;&lt;/a&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;fs-xs text-uppercase text-decoration-none&quot;&gt;Inspiration&lt;/a&gt;
+                    &lt;h3 class=&quot;fs-base pt-1 mb-2&quot;&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;10 Ways to Stay Ahead of the Curve&lt;/a&gt;
+                    &lt;/h3&gt;
+                    &lt;p class=&quot;fs-sm text-muted&quot;&gt;Ac sit tincidunt lacus dignissim volutpat dui scelerisque porttitor non. Elit at ullamcorper feugiat porta adipiscing...&lt;/p&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;d-flex align-items-center text-decoration-none&quot;&gt;
+                      &lt;img class=&quot;rounded-circle&quot; src=&quot;path-to-avatar-image&quot; width=&quot;44&quot; alt=&quot;Avatar&quot;&gt;
+                      &lt;div class=&quot;ps-2&quot;&gt;
+                        &lt;h6 class=&quot;fs-sm text-nav lh-base mb-1&quot;&gt;Kristin Watson&lt;/h6&gt;
+                        &lt;div class=&quot;d-flex text-body fs-xs&quot;&gt;
+                          &lt;span class=&quot;me-2 pe-1&quot;&gt;
+                            &lt;i class=&quot;fi-calendar-alt opacity-70 me-1&quot;&gt;&lt;/i&gt;
+                            Dec 23
+                          &lt;/span&gt;
+                          &lt;span&gt;
+                            &lt;i class=&quot;fi-chat-circle opacity-70 me-1&quot;&gt;&lt;/i&gt;
+                            1 comment
+                          &lt;/span&gt;
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/a&gt;
+                  &lt;/div&gt;
+                &lt;/article&gt;
+          #pug9.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Blog post: Card horizontal
+                article.card.border-0.shadow-sm.card-hover.card-horizontal
+                  a(href=&quot;#&quot;, style=&quot;background-image: url(path-to-image);&quot;).card-img-top
+                  .card-body
+                    a(href=&quot;#&quot;).fs-xs.text-uppercase.text-decoration-none Inspiration
+                    h3.fs-base.pt-1.mb-2
+                      a(href=&quot;#&quot;).nav-link
+                        | 10 Ways to Stay Ahead of the Curve
+                    p.fs-sm.text-muted Ac sit tincidunt lacus dignissim volutpat dui scelerisque porttitor non. Elit at ullamcorper feugiat porta adipiscing...
+                    a(href=&quot;#&quot;).d-flex.align-items-center.text-decoration-none
+                      img(src=&quot;path-to-avatar-image&quot;, width=&quot;44&quot;, alt=&quot;Avatar&quot;).rounded-circle
+                      .ps-2
+                        h6.fs-sm.text-nav.lh-base.mb-1 Kristin Watson
+                        .d-flex.text-body.fs-xs
+                          span.me-2.pe-1
+                            i.fi-calendar-alt.opacity-70.me-1
+                            | Dec 23
+                          span
+                            i.fi-chat-circle.opacity-70.me-1
+                            | 1 comment
+
+  // Account card with navigation
+  section#card-account-nav.pb-5.mb-md-2
+    h2.h5.mb-3 Account card with navigation
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result10' data-bs-toggle='tab' role='tab' aria-controls='result10' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html10' data-bs-toggle='tab' role='tab' aria-controls='html10' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug10' data-bs-toggle='tab' role='tab' aria-controls='pug10' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result10.tab-pane.fade.show.active(role='tabpanel')
+            .row
+              .col-md-6.mb-4.mb-md-0
+                .card.card-body.border-0.shadow-sm.pb-1.mx-auto(style='max-width: 24rem;')
+                  .d-flex.d-md-block.d-lg-flex.align-items-start.mb-4
+                    img(src='../img/avatars/03.jpg' class='rounded-circle' width='48' alt='Annette Black')
+                    .pt-md-2.pt-lg-0.ps-3.ps-md-0.ps-lg-3
+                      h2.fs-lg.mb-0 Annette Black
+                      +star-rating(5)
+                      ul.list-unstyled.fs-sm.mt-3.mb-0
+                        li
+                          a(href='tel:3025550107').nav-link.fw-normal.p-0
+                            i.fi-phone.opacity-60.me-2
+                            | (302) 555-0107
+                        li
+                          a(href='mailto:annette_black@email.com').nav-link.fw-normal.p-0
+                            i.fi-mail.opacity-60.me-2
+                            | annette_black@email.com
+                  a(href='#').btn.btn-primary.btn-lg.w-100.mb-3
+                    i.fi-plus.me-2
+                    | Add property
+                  a(href='#card-nav' data-bs-toggle='collapse').btn.btn-outline-secondary.d-block.d-md-none.w-100.mb-3
+                    i.fi-align-justify.me-2
+                    | Menu
+                  #card-nav.collapse.d-md-block.mt-3
+                    .card-nav
+                      a(href='#').card-nav-link
+                        i.fi-user.opacity-60.me-2
+                        | Personal Info
+                      a(href='#').card-nav-link.active
+                        i.fi-home.opacity-60.me-2
+                        | My Properties
+                      a(href='#').card-nav-link
+                        i.fi-heart.opacity-60.me-2
+                        | Wishlist
+                      a(href='#').card-nav-link
+                        i.fi-star.opacity-60.me-2
+                        | Reviews
+                      a(href='#').card-nav-link
+                        i.fi-bell.opacity-60.me-2
+                        | Notifications
+                      a(href='#').card-nav-link
+                        i.fi-logout.opacity-60.me-2
+                        | Sign Out
+              .col-md-6
+                .bg-dark.h-100.p-4
+                  .card.card-light.card-body.pb-1.mx-auto(style='max-width: 24rem;')
+                    .d-flex.d-md-block.d-lg-flex.align-items-start.mb-4
+                      img(src='../img/avatars/01.jpg' class='rounded-circle' width='48' alt='Robert Fox')
+                      .pt-md-2.pt-lg-0.ps-3.ps-md-0.ps-lg-3
+                        h2.text-light.fs-lg.mb-0 Robert Fox
+                        +star-rating(5)
+                        ul.list-unstyled.fs-sm.mt-3.mb-0
+                          li
+                            a(href='tel:4057329046').nav-link-light.fw-normal.p-0
+                              i.fi-phone.me-2
+                              | (405) 732-9046
+                          li
+                            a(href='mailto:robert_fox@email.com').nav-link-light.fw-normal.p-0
+                              i.fi-mail.me-2
+                              | robert_fox@email.com
+                    a(href='#').btn.btn-primary.btn-lg.w-100.mb-3
+                      i.fi-plus.me-2
+                      | Sell car
+                    a(href='#card-light-nav' data-bs-toggle='collapse').btn.btn-outline-light.d-block.d-md-none.w-100.mb-3
+                      i.fi-align-justify.me-2
+                      | Menu
+                    #card-light-nav.collapse.d-md-block.mt-3
+                      .card-nav
+                        a(href='#').card-nav-link
+                          i.fi-user.me-2
+                          | Personal Info
+                        a(href='#').card-nav-link.active
+                          i.fi-car.me-2
+                          | My Cars
+                        a(href='#').card-nav-link
+                          i.fi-heart.me-2
+                          | Wishlist
+                        a(href='#').card-nav-link
+                          i.fi-star.me-2
+                          | Reviews
+                        a(href='#').card-nav-link
+                          i.fi-bell.me-2
+                          | Notifications
+                        a(href='#').card-nav-link
+                          i.fi-logout.me-2
+                          | Sign Out
+          #html10.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Account card with navigation --&gt;
+                &lt;div class=&quot;card card-body border-0 shadow-sm pb-1&quot;&gt;
+                  &lt;div class=&quot;d-flex d-md-block d-lg-flex align-items-start mb-4&quot;&gt;
+                    &lt;img class=&quot;rounded-circle&quot; src=&quot;path-to-avatar-image&quot; width=&quot;48&quot; alt=&quot;Annette Black&quot;&gt;
+                    &lt;div class=&quot;pt-md-2 pt-lg-0 ps-3 ps-md-0 ps-lg-3&quot;&gt;
+                      &lt;h2 class=&quot;fs-lg mb-0&quot;&gt;Annette Black&lt;/h2&gt;
+                      &lt;div class=&quot;star-rating&quot;&gt;
+                        &lt;i class=&quot;star-rating-icon fi-star-filled active&quot;&gt;&lt;/i&gt;
+                        &lt;i class=&quot;star-rating-icon fi-star-filled active&quot;&gt;&lt;/i&gt;
+                        &lt;i class=&quot;star-rating-icon fi-star-filled active&quot;&gt;&lt;/i&gt;
+                        &lt;i class=&quot;star-rating-icon fi-star-filled active&quot;&gt;&lt;/i&gt;
+                        &lt;i class=&quot;star-rating-icon fi-star-filled active&quot;&gt;&lt;/i&gt;
+                      &lt;/div&gt;
+                      &lt;ul class=&quot;list-unstyled fs-sm mt-3 mb-0&quot;&gt;
+                        &lt;li&gt;
+                          &lt;a class=&quot;nav-link fw-normal p-0&quot; href=&quot;tel:3025550107&quot;&gt;
+                            &lt;i class=&quot;fi-phone opacity-60 me-2&quot;&gt;&lt;/i&gt;
+                            (302) 555-0107
+                          &lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                          &lt;a class=&quot;nav-link fw-normal p-0&quot; href=&quot;mailto:annette_black@email.com&quot;&gt;
+                            &lt;i class=&quot;fi-mail opacity-60 me-2&quot;&gt;&lt;/i&gt;
+                            annette_black@email.com
+                          &lt;/a&gt;
+                        &lt;/li&gt;
+                      &lt;/ul&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;a class=&quot;btn btn-primary btn-lg w-100 mb-3&quot; href=&quot;#&quot;&gt;
+                    &lt;i class=&quot;fi-plus me-2&quot;&gt;&lt;/i&gt;
+                    Add property
+                  &lt;/a&gt;
+                  &lt;a class=&quot;btn btn-outline-secondary d-block d-md-none w-100 mb-3&quot; href=&quot;#card-nav&quot; data-bs-toggle=&quot;collapse&quot;&gt;
+                    &lt;i class=&quot;fi-align-justify me-2&quot;&gt;&lt;/i&gt;
+                    Menu
+                  &lt;/a&gt;
+                  &lt;div class=&quot;collapse d-md-block mt-3&quot; id=&quot;card-nav&quot;&gt;
+                    &lt;div class=&quot;card-nav&quot;&gt;
+                      &lt;a class=&quot;card-nav-link&quot; href=&quot;#&quot;&gt;
+                        &lt;i class=&quot;fi-user opacity-60 me-2&quot;&gt;&lt;/i&gt;
+                        Personal Info
+                      &lt;/a&gt;
+                      &lt;a class=&quot;card-nav-link active&quot; href=&quot;#&quot;&gt;
+                        &lt;i class=&quot;fi-home opacity-60 me-2&quot;&gt;&lt;/i&gt;
+                        My Properties
+                      &lt;/a&gt;
+                      &lt;a class=&quot;card-nav-link&quot; href=&quot;#&quot;&gt;
+                        &lt;i class=&quot;fi-heart opacity-60 me-2&quot;&gt;&lt;/i&gt;
+                        Wishlist
+                      &lt;/a&gt;
+                      &lt;a class=&quot;card-nav-link&quot; href=&quot;#&quot;&gt;
+                        &lt;i class=&quot;fi-star opacity-60 me-2&quot;&gt;&lt;/i&gt;
+                        Reviews
+                      &lt;/a&gt;
+                      &lt;a class=&quot;card-nav-link&quot; href=&quot;#&quot;&gt;
+                        &lt;i class=&quot;fi-bell opacity-60 me-2&quot;&gt;&lt;/i&gt;
+                        Notifications
+                      &lt;/a&gt;
+                      &lt;a class=&quot;card-nav-link&quot; href=&quot;#&quot;&gt;
+                        &lt;i class=&quot;fi-logout opacity-60 me-2&quot;&gt;&lt;/i&gt;
+                        Sign Out
+                      &lt;/a&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Account card with navigation: Light version --&gt;
+                &lt;div class=&quot;card card-light card-body pb-1&quot;&gt;
+                  &lt;div class=&quot;d-flex d-md-block d-lg-flex align-items-start mb-4&quot;&gt;
+                    &lt;img class=&quot;rounded-circle&quot; src=&quot;path-to-avatar-image&quot; width=&quot;48&quot; alt=&quot;Robert Fox&quot;&gt;
+                    &lt;div class=&quot;pt-md-2 pt-lg-0 ps-3 ps-md-0 ps-lg-3&quot;&gt;
+                      &lt;h2 class=&quot;text-light fs-lg mb-0&quot;&gt;Robert Fox&lt;/h2&gt;
+                      &lt;div class=&quot;star-rating&quot;&gt;
+                        &lt;i class=&quot;star-rating-icon fi-star-filled active&quot;&gt;&lt;/i&gt;
+                        &lt;i class=&quot;star-rating-icon fi-star-filled active&quot;&gt;&lt;/i&gt;
+                        &lt;i class=&quot;star-rating-icon fi-star-filled active&quot;&gt;&lt;/i&gt;
+                        &lt;i class=&quot;star-rating-icon fi-star-filled active&quot;&gt;&lt;/i&gt;
+                        &lt;i class=&quot;star-rating-icon fi-star-filled active&quot;&gt;&lt;/i&gt;
+                      &lt;/div&gt;
+                      &lt;ul class=&quot;list-unstyled fs-sm mt-3 mb-0&quot;&gt;
+                        &lt;li&gt;
+                          &lt;a class=&quot;nav-link-light fw-normal p-0&quot; href=&quot;tel:4057329046&quot;&gt;
+                            &lt;i class=&quot;fi-phone me-2&quot;&gt;&lt;/i&gt;
+                            (405) 732-9046
+                          &lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                          &lt;a class=&quot;nav-link-light fw-normal p-0&quot; href=&quot;mailto:robert_fox@email.com&quot;&gt;
+                            &lt;i class=&quot;fi-mail me-2&quot;&gt;&lt;/i&gt;
+                            robert_fox@email.com
+                          &lt;/a&gt;
+                        &lt;/li&gt;
+                      &lt;/ul&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;a class=&quot;btn btn-primary btn-lg w-100 mb-3&quot; href=&quot;#&quot;&gt;
+                    &lt;i class=&quot;fi-plus me-2&quot;&gt;&lt;/i&gt;
+                    Sell car
+                  &lt;/a&gt;
+                  &lt;a class=&quot;btn btn-outline-light d-block d-md-none w-100 mb-3&quot; href=&quot;#card-light-nav&quot; data-bs-toggle=&quot;collapse&quot;&gt;
+                    &lt;i class=&quot;fi-align-justify me-2&quot;&gt;&lt;/i&gt;
+                    Menu
+                  &lt;/a&gt;
+                  &lt;div class=&quot;collapse d-md-block mt-3&quot; id=&quot;card-light-nav&quot;&gt;
+                    &lt;div class=&quot;card-nav&quot;&gt;
+                      &lt;a class=&quot;card-nav-link&quot; href=&quot;#&quot;&gt;
+                        &lt;i class=&quot;fi-user me-2&quot;&gt;&lt;/i&gt;
+                        Personal Info
+                      &lt;/a&gt;
+                      &lt;a class=&quot;card-nav-link active&quot; href=&quot;#&quot;&gt;
+                        &lt;i class=&quot;fi-car me-2&quot;&gt;&lt;/i&gt;
+                        My Cars
+                      &lt;/a&gt;
+                      &lt;a class=&quot;card-nav-link&quot; href=&quot;#&quot;&gt;
+                        &lt;i class=&quot;fi-heart me-2&quot;&gt;&lt;/i&gt;
+                        Wishlist
+                      &lt;/a&gt;
+                      &lt;a class=&quot;card-nav-link&quot; href=&quot;#&quot;&gt;
+                        &lt;i class=&quot;fi-star me-2&quot;&gt;&lt;/i&gt;
+                        Reviews
+                      &lt;/a&gt;
+                      &lt;a class=&quot;card-nav-link&quot; href=&quot;#&quot;&gt;
+                        &lt;i class=&quot;fi-bell me-2&quot;&gt;&lt;/i&gt;
+                        Notifications
+                      &lt;/a&gt;
+                      &lt;a class=&quot;card-nav-link&quot; href=&quot;#&quot;&gt;
+                        &lt;i class=&quot;fi-logout me-2&quot;&gt;&lt;/i&gt;
+                        Sign Out
+                      &lt;/a&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+          #pug10.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Account card with navigation
+                .card.card-body.border-0.shadow-sm.pb-1
+                  .d-flex.d-md-block.d-lg-flex.align-items-start.mb-4
+                    img(src=&quot;path-to-avatar-image&quot;, class=&quot;rounded-circle&quot;, width=&quot;48&quot;, alt=&quot;Annette Black&quot;)
+                    .pt-md-2.pt-lg-0.ps-3.ps-md-0.ps-lg-3
+                      h2.fs-lg.mb-0 Annette Black
+                      +star-rating(5)
+                      ul.list-unstyled.fs-sm.mt-3.mb-0
+                        li
+                          a(href=&quot;tel:3025550107&quot;).nav-link.fw-normal.p-0
+                            i.fi-phone.opacity-60.me-2
+                            | (302) 555-0107
+                        li
+                          a(href=&quot;mailto:annette_black@email.com&quot;).nav-link.fw-normal.p-0
+                            i.fi-mail.opacity-60.me-2
+                            | annette_black@email.com
+                  a(href=&quot;#&quot;).btn.btn-primary.btn-lg.w-100.mb-3
+                    i.fi-plus.me-2
+                    | Add property
+                  a(href=&quot;#card-nav&quot;, data-bs-toggle=&quot;collapse&quot;).btn.btn-outline-secondary.d-block.d-md-none.w-100.mb-3
+                    i.fi-align-justify.me-2
+                    | Menu
+                  #card-nav.collapse.d-md-block.mt-3
+                    .card-nav
+                      a(href=&quot;#&quot;).card-nav-link
+                        i.fi-user.opacity-60.me-2
+                        | Personal Info
+                      a(href=&quot;#&quot;).card-nav-link.active
+                        i.fi-home.opacity-60.me-2
+                        | My Properties
+                      a(href=&quot;#&quot;).card-nav-link
+                        i.fi-heart.opacity-60.me-2
+                        | Wishlist
+                      a(href=&quot;#&quot;).card-nav-link
+                        i.fi-star.opacity-60.me-2
+                        | Reviews
+                      a(href=&quot;#&quot;).card-nav-link
+                        i.fi-bell.opacity-60.me-2
+                        | Notifications
+                      a(href=&quot;#&quot;).card-nav-link
+                        i.fi-logout.opacity-60.me-2
+                        | Sign Out
+                        
+                // Account card with navigation: Light version
+                .card.card-light.card-body.pb-1
+                  .d-flex.d-md-block.d-lg-flex.align-items-start.mb-4
+                    img(src=&quot;path-to-avatar-image&quot;, class=&quot;rounded-circle&quot;, width=&quot;48&quot;, alt=&quot;Robert Fox&quot;)
+                    .pt-md-2.pt-lg-0.ps-3.ps-md-0.ps-lg-3
+                      h2.text-light.fs-lg.mb-0 Robert Fox
+                      +star-rating(5)
+                      ul.list-unstyled.fs-sm.mt-3.mb-0
+                        li
+                          a(href=&quot;tel:4057329046&quot;).nav-link-light.fw-normal.p-0
+                            i.fi-phone.me-2
+                            | (405) 732-9046
+                        li
+                          a(href=&quot;mailto:robert_fox@email.com&quot;).nav-link-light.fw-normal.p-0
+                            i.fi-mail.me-2
+                            | robert_fox@email.com
+                  a(href=&quot;#&quot;).btn.btn-primary.btn-lg.w-100.mb-3
+                    i.fi-plus.me-2
+                    | Sell car
+                  a(href=&quot;#card-light-nav&quot;, data-bs-toggle=&quot;collapse&quot;).btn.btn-outline-light.d-block.d-md-none.w-100.mb-3
+                    i.fi-align-justify.me-2
+                    | Menu
+                  #card-light-nav.collapse.d-md-block.mt-3
+                    .card-nav
+                      a(href=&quot;#&quot;).card-nav-link
+                        i.fi-user.me-2
+                        | Personal Info
+                      a(href=&quot;#&quot;).card-nav-link.active
+                        i.fi-car.me-2
+                        | My Cars
+                      a(href=&quot;#&quot;).card-nav-link
+                        i.fi-heart.me-2
+                        | Wishlist
+                      a(href=&quot;#&quot;).card-nav-link
+                        i.fi-star.me-2
+                        | Reviews
+                      a(href=&quot;#&quot;).card-nav-link
+                        i.fi-bell.me-2
+                        | Notifications
+                      a(href=&quot;#&quot;).card-nav-link
+                        i.fi-logout.me-2
+                        | Sign Out

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Around | Hotspots</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="Around - Multipurpose Bootstrap HTML Template">
+    <meta name="keywords" content="bootstrap, business, corporate, coworking space, services, creative agency, dashboard, e-commerce, mobile app showcase, saas, multipurpose, product landing, shop, software, ui kit, web studio, landing, dark mode, html5, css3, javascript, gallery, slider, touch, creative">
+    <meta name="author" content="Createx Studio">
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../assets/favicon/site.webmanifest">
+    <link rel="mask-icon" color="#6366f1" href="../assets/favicon/safari-pinned-tab.svg">
+    <meta name="msapplication-TileColor" content="#080032">
+    <meta name="msapplication-config" content="../assets/favicon/browserconfig.xml">
+    <meta name="theme-color" content="white">
+    <!-- Theme mode-->
+    <script>
+      let mode = window.localStorage.getItem('mode'),
+          root = document.getElementsByTagName('html')[0];
+      if (mode !== undefined && mode === 'dark') {
+        root.classList.add('dark-mode');
+      } else {
+        root.classList.remove('dark-mode');
+      }
+      
+      
+    </script>
+    <!-- Import Google Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" id="google-font">
+    <!-- Vendor styles-->
+    <link rel="stylesheet" media="screen" href="../assets/vendor/simplebar/dist/simplebar.min.css"/>
+    <link rel="stylesheet" media="screen" href="../assets/vendor/prismjs/themes/prism.css"/>
+    <link rel="stylesheet" media="screen" href="../assets/vendor/prismjs/plugins/toolbar/prism-toolbar.css"/>
+    <link rel="stylesheet" media="screen" href="../assets/vendor/prismjs/plugins/line-numbers/prism-line-numbers.css"/>
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="../assets/css/theme.min.css">
+  </head>
+  <!-- Body-->
+  <body class="bg-secondary">
+    <!-- Navbar-->
+    <header class="navbar navbar-expand justify-content-end fixed-top" data-scroll-header>
+      <div class="container"><a class="navbar-brand pe-xl-2 me-4" href="typography.html"><span class="text-primary flex-shrink-0 me-2">
+            <svg version="1.1" width="35" height="32" viewBox="0 0 36 33" xmlns="http://www.w3.org/2000/svg">
+              <path fill="currentColor" d="M35.6,29c-1.1,3.4-5.4,4.4-7.9,1.9c-2.3-2.2-6.1-3.7-9.4-3.7c-3.1,0-7.5,1.8-10,4.1c-2.2,2-5.8,1.5-7.3-1.1c-1-1.8-1.2-4.1,0-6.2l0.6-1.1l0,0c0.6-0.7,4.4-5.2,12.5-5.7c0.5,1.8,2,3.1,3.9,3.1c2.2,0,4.1-1.9,4.1-4.2s-1.8-4.2-4.1-4.2c-2,0-3.6,1.4-4,3.3H7.7c-0.8,0-1.3-0.9-0.9-1.6l5.6-9.8c2.5-4.5,8.8-4.5,11.3,0L35.1,24C36,25.7,36.1,27.5,35.6,29z"></path>
+            </svg></span>Around<span class="badge bg-warning fs-sm ms-2">UI Kit</span></a>
+        <ul class="navbar-nav d-none d-lg-flex me-auto">
+          <li class="nav-item"><a class="nav-link" href="../index.html"><i class="ai-monitor fs-lg opacity-90 me-2"></i>Live demo</a></li>
+          <li class="nav-item"><a class="nav-link" href="../docs/getting-started.html"><i class="ai-file-text fs-lg opacity-90 me-2"></i>Documentation</a></li>
+        </ul>
+        <div class="form-check form-switch mode-switch pe-lg-1 ms-auto" data-bs-toggle="mode">
+          <input class="form-check-input" type="checkbox" id="theme-mode">
+          <label class="form-check-label" for="theme-mode"><i class="ai-sun fs-lg"></i></label>
+          <label class="form-check-label" for="theme-mode"><i class="ai-moon fs-lg"></i></label>
+        </div>
+        <button class="navbar-toggler d-block d-lg-none ms-3 border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#componentsNav"><span class="navbar-toggler-icon"></span></button><a class="btn btn-sm btn-primary d-none d-lg-inline-flex fs-sm ms-4" href="https://themes.getbootstrap.com/product/around-multipurpose-template-ui-kit/" target="_blank" rel="noopener"><i class="ai-cart d-sm-inline-block fs-xl me-2 ms-n1"></i>Buy now</a>
+      </div>
+    </header>
+    <!-- Desktop sidebar navigation (on screens > 991px) (Offcanvas)-->
+    <aside class="container position-fixed d-none d-lg-block start-50 translate-middle-x h-100 pt-5">
+      <div class="row h-100 pt-5">
+        <div class="col-lg-3 d-flex flex-column pb-3 pt-4" style="height: calc(100% - 2rem);">
+          <div class="h-100 mt-2" data-simplebar>
+            <h3 class="h5 mb-1 pb-2">Content</h3>
+            <ul class="nav flex-column">
+              <li class="nav-item"><a class="nav-link px-0 py-2" href="typography.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Typography</a>
+              </li>
+              <li class="nav-item" id="icons"><a class="nav-link px-0 py-2" href="icon-font.html#icons"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Icon font</a>
+              </li>
+              <li class="nav-item" id="code"><a class="nav-link px-0 py-2" href="code.html#code"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Code</a>
+              </li>
+              <li class="nav-item" id="imgs"><a class="nav-link px-0 py-2" href="images.html#imgs"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Images &amp; figures</a>
+              </li>
+              <li class="nav-item" id="tables"><a class="nav-link px-0 py-2" href="tables.html#tables"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Tables</a>
+              </li>
+            </ul>
+            <h3 class="h5 mb-1 pt-4 pb-2">Components</h3>
+            <ul class="nav flex-column">
+              <li class="nav-item" id="accordion"><a class="nav-link px-0 py-2" href="accordion.html#accordion"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Accordion</a>
+              </li>
+              <li class="nav-item" id="alerts"><a class="nav-link px-0 py-2" href="alerts.html#alerts"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Alerts</a>
+              </li>
+              <li class="nav-item" id="badges"><a class="nav-link px-0 py-2" href="badges.html#badges"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Badges</a>
+              </li>
+              <li class="nav-item" id="blog"><a class="nav-link px-0 py-2" href="blog-components.html#blog"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Blog components</a>
+              </li>
+              <li class="nav-item" id="breadcrumb"><a class="nav-link px-0 py-2" href="breadcrumb.html#breadcrumb"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Breadcrumb</a>
+              </li>
+              <li class="nav-item" id="btns"><a class="nav-link px-0 py-2" href="buttons.html#btns"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Buttons</a>
+              </li>
+              <li class="nav-item" id="btn-group"><a class="nav-link px-0 py-2" href="button-group.html#btn-group"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Button group</a>
+              </li>
+              <li class="nav-item" id="cards-basic"><a class="nav-link px-0 py-2" href="cards-basic.html#cards-basic"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Cards: Basic</a>
+              </li>
+              <li class="nav-item" id="cards-hover"><a class="nav-link px-0 py-2" href="cards-hover.html#cards-hover"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Cards: Hover effects</a>
+              </li>
+              <li class="nav-item" id="carousel"><a class="nav-link px-0 py-2" href="carousel.html#carousel"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Carousel (Slider)</a>
+              </li>
+              <li class="nav-item" id="charts"><a class="nav-link px-0 py-2" href="charts.html#charts"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Charts</a>
+              </li>
+              <li class="nav-item" id="collapse"><a class="nav-link px-0 py-2" href="collapse.html#collapse"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Collapse</a>
+              </li>
+              <li class="nav-item" id="countdown"><a class="nav-link px-0 py-2" href="countdown.html#countdown"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Countdown</a>
+              </li>
+              <li class="nav-item" id="picker"><a class="nav-link px-0 py-2" href="date-picker.html#picker"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Date / time picker</a>
+              </li>
+              <li class="nav-item" id="dropdowns"><a class="nav-link px-0 py-2" href="dropdowns.html#dropdowns"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Dropdowns</a>
+              </li>
+              <li class="nav-item" id="calendar"><a class="nav-link px-0 py-2" href="calendar.html#calendar"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Event calendar</a>
+              </li>
+              <li class="nav-item" id="forms"><a class="nav-link px-0 py-2" href="forms.html#forms"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Forms</a>
+              </li>
+              <li class="nav-item" id="gallery"><a class="nav-link px-0 py-2" href="gallery.html#gallery"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Gallery (Lightbox)</a>
+              </li>
+              <li class="nav-item" id="hotspots"><span class="nav-link px-0 py-2 active"><i class="ai-circle-arrow-down fs-lg opacity-90 me-2"></i>Hotspots</span>
+                <ul class="nav flex-column border-start ps-3 ms-2 mb-2">
+                  <li class="nav-item"><a class="nav-link fs-sm fw-normal py-1 ps-1 pe-0 mb-1" href="#hotspots-style-1" data-scroll="data-scroll">Style 1</a></li>
+                  <li class="nav-item"><a class="nav-link fs-sm fw-normal py-1 ps-1 pe-0 mb-1" href="#hotspots-style-2" data-scroll="data-scroll">Style 2</a></li>
+                </ul>
+              </li>
+              <li class="nav-item" id="ics"><a class="nav-link px-0 py-2" href="image-comparison-slider.html#ics"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Image comparison slider</a>
+              </li>
+              <li class="nav-item" id="ig"><a class="nav-link px-0 py-2" href="input-group.html#ig"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Input group</a>
+              </li>
+              <li class="nav-item" id="lg"><a class="nav-link px-0 py-2" href="list-group.html#lg"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>List group</a>
+              </li>
+              <li class="nav-item" id="maps"><a class="nav-link px-0 py-2" href="maps.html#maps"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Maps</a>
+              </li>
+              <li class="nav-item" id="modal"><a class="nav-link px-0 py-2" href="modal.html#modal"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Modal</a>
+              </li>
+              <li class="nav-item" id="navbar"><a class="nav-link px-0 py-2" href="navbar.html#navbar"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Navbar</a>
+              </li>
+              <li class="nav-item" id="offcanvas"><a class="nav-link px-0 py-2" href="offcanvas.html#offcanvas"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Offcanvas</a>
+              </li>
+              <li class="nav-item" id="pagination"><a class="nav-link px-0 py-2" href="pagination.html#pagination"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Pagination</a>
+              </li>
+              <li class="nav-item" id="parallax"><a class="nav-link px-0 py-2" href="parallax.html#parallax"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Parallax</a>
+              </li>
+              <li class="nav-item" id="pills"><a class="nav-link px-0 py-2" href="pills.html#pills"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Pills</a>
+              </li>
+              <li class="nav-item" id="placeholders"><a class="nav-link px-0 py-2" href="placeholders.html#placeholders"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Placeholders</a>
+              </li>
+              <li class="nav-item" id="popovers"><a class="nav-link px-0 py-2" href="popovers.html#popovers"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Popovers</a>
+              </li>
+              <li class="nav-item" id="portfolio"><a class="nav-link px-0 py-2" href="portfolio-components.html#portfolio"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Portfolio components</a>
+              </li>
+              <li class="nav-item" id="pricing"><a class="nav-link px-0 py-2" href="pricing.html#pricing"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Pricing</a>
+              </li>
+              <li class="nav-item" id="progress"><a class="nav-link px-0 py-2" href="progress.html#progress"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Progress</a>
+              </li>
+              <li class="nav-item" id="shop"><a class="nav-link px-0 py-2" href="shop-components.html#shop"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Shop components</a>
+              </li>
+              <li class="nav-item" id="social-btns"><a class="nav-link px-0 py-2" href="social-buttons.html#social-btns"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Social buttons</a>
+              </li>
+              <li class="nav-item" id="spinners"><a class="nav-link px-0 py-2" href="spinners.html#spinners"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Spinners</a>
+              </li>
+              <li class="nav-item" id="steps"><a class="nav-link px-0 py-2" href="steps.html#steps"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Steps</a>
+              </li>
+              <li class="nav-item" id="tabs"><a class="nav-link px-0 py-2" href="tabs.html#tabs"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Tabs</a>
+              </li>
+              <li class="nav-item" id="team"><a class="nav-link px-0 py-2" href="team.html#team"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Team</a>
+              </li>
+              <li class="nav-item" id="testimonials"><a class="nav-link px-0 py-2" href="testimonials.html#testimonials"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Testimonials / reviews</a>
+              </li>
+              <li class="nav-item" id="toasts"><a class="nav-link px-0 py-2" href="toasts.html#toasts"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Toasts</a>
+              </li>
+              <li class="nav-item" id="tooltips"><a class="nav-link px-0 py-2" href="tooltips.html#tooltips"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Tooltips</a>
+              </li>
+              <li class="nav-item" id="video"><a class="nav-link px-0 py-2" href="video-popup.html#video"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Video popup</a>
+              </li>
+            </ul>
+            <h3 class="h5 mb-1 pt-4 pb-2">Utilities</h3>
+            <ul class="nav flex-column mb-0">
+              <li class="nav-item"><a class="nav-link px-0 py-2" href="https://getbootstrap.com/docs/5.2/utilities/background/" target="_blank" rel="noopener"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Bootstrap</a></li>
+            </ul>
+            <ul class="nav flex-column">
+              <li class="nav-item" id="utils"><a class="nav-link px-0 py-2" href="utilities.html#utils"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Around utilities</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <!-- Mobile offcanvas navigation (on screens < 992px)-->
+    <div class="offcanvas offcanvas-start" id="componentsNav">
+      <div class="offcanvas-header align-items-center">
+        <div class="d-flex align-items-center">
+          <h4 class="offcanvas-title">Menu</h4>
+        </div>
+        <button class="btn-close" type="button" data-bs-dismiss="offcanvas"></button>
+      </div>
+      <ul class="nav flex-column border-bottom pb-4">
+        <li class="nav-item"><a class="nav-link py-2" href="../index.html"><i class="ai-monitor fs-lg opacity-90 me-2"></i>Live demo</a></li>
+        <li class="nav-item"><a class="nav-link py-2" href="../docs/getting-started.html"><i class="ai-file-text fs-lg opacity-90 me-2"></i>Documentation</a></li>
+      </ul>
+      <div class="offcanvas-body">
+        <h3 class="h5 mb-1 pb-2">Content</h3>
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link px-0 py-2" href="typography.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Typography</a>
+          </li>
+          <li class="nav-item" id="icons=m"><a class="nav-link px-0 py-2" href="icon-font.html#icons=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Icon font</a>
+          </li>
+          <li class="nav-item" id="code=m"><a class="nav-link px-0 py-2" href="code.html#code=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Code</a>
+          </li>
+          <li class="nav-item" id="imgs=m"><a class="nav-link px-0 py-2" href="images.html#imgs=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Images &amp; figures</a>
+          </li>
+          <li class="nav-item" id="tables=m"><a class="nav-link px-0 py-2" href="tables.html#tables=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Tables</a>
+          </li>
+        </ul>
+        <h3 class="h5 mb-1 pt-4 pb-2">Components</h3>
+        <ul class="nav flex-column">
+          <li class="nav-item" id="accordion=m"><a class="nav-link px-0 py-2" href="accordion.html#accordion=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Accordion</a>
+          </li>
+          <li class="nav-item" id="alerts=m"><a class="nav-link px-0 py-2" href="alerts.html#alerts=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Alerts</a>
+          </li>
+          <li class="nav-item" id="badges=m"><a class="nav-link px-0 py-2" href="badges.html#badges=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Badges</a>
+          </li>
+          <li class="nav-item" id="blog=m"><a class="nav-link px-0 py-2" href="blog-components.html#blog=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Blog components</a>
+          </li>
+          <li class="nav-item" id="breadcrumb=m"><a class="nav-link px-0 py-2" href="breadcrumb.html#breadcrumb=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Breadcrumb</a>
+          </li>
+          <li class="nav-item" id="btns=m"><a class="nav-link px-0 py-2" href="buttons.html#btns=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Buttons</a>
+          </li>
+          <li class="nav-item" id="btn-group=m"><a class="nav-link px-0 py-2" href="button-group.html#btn-group=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Button group</a>
+          </li>
+          <li class="nav-item" id="cards-basic=m"><a class="nav-link px-0 py-2" href="cards-basic.html#cards-basic=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Cards: Basic</a>
+          </li>
+          <li class="nav-item" id="cards-hover=m"><a class="nav-link px-0 py-2" href="cards-hover.html#cards-hover=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Cards: Hover effects</a>
+          </li>
+          <li class="nav-item" id="carousel=m"><a class="nav-link px-0 py-2" href="carousel.html#carousel=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Carousel (Slider)</a>
+          </li>
+          <li class="nav-item" id="charts=m"><a class="nav-link px-0 py-2" href="charts.html#charts=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Charts</a>
+          </li>
+          <li class="nav-item" id="collapse=m"><a class="nav-link px-0 py-2" href="collapse.html#collapse=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Collapse</a>
+          </li>
+          <li class="nav-item" id="countdown=m"><a class="nav-link px-0 py-2" href="countdown.html#countdown=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Countdown</a>
+          </li>
+          <li class="nav-item" id="picker=m"><a class="nav-link px-0 py-2" href="date-picker.html#picker=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Date / time picker</a>
+          </li>
+          <li class="nav-item" id="dropdowns=m"><a class="nav-link px-0 py-2" href="dropdowns.html#dropdowns=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Dropdowns</a>
+          </li>
+          <li class="nav-item" id="calendar=m"><a class="nav-link px-0 py-2" href="calendar.html#calendar=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Event calendar</a>
+          </li>
+          <li class="nav-item" id="forms=m"><a class="nav-link px-0 py-2" href="forms.html#forms=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Forms</a>
+          </li>
+          <li class="nav-item" id="gallery=m"><a class="nav-link px-0 py-2" href="gallery.html#gallery=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Gallery (Lightbox)</a>
+          </li>
+          <li class="nav-item" id="hotspots=m"><span class="nav-link px-0 py-2 active"><i class="ai-circle-arrow-down fs-lg opacity-90 me-2"></i>Hotspots</span>
+            <ul class="nav flex-column border-start ps-3 ms-2 mb-2">
+              <li class="nav-item"><a class="nav-link fs-sm fw-normal py-1 ps-1 pe-0 mb-1" href="#hotspots-style-1" data-scroll="data-scroll">Style 1</a></li>
+              <li class="nav-item"><a class="nav-link fs-sm fw-normal py-1 ps-1 pe-0 mb-1" href="#hotspots-style-2" data-scroll="data-scroll">Style 2</a></li>
+            </ul>
+          </li>
+          <li class="nav-item" id="ics=m"><a class="nav-link px-0 py-2" href="image-comparison-slider.html#ics=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Image comparison slider</a>
+          </li>
+          <li class="nav-item" id="ig=m"><a class="nav-link px-0 py-2" href="input-group.html#ig=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Input group</a>
+          </li>
+          <li class="nav-item" id="lg=m"><a class="nav-link px-0 py-2" href="list-group.html#lg=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>List group</a>
+          </li>
+          <li class="nav-item" id="maps=m"><a class="nav-link px-0 py-2" href="maps.html#maps=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Maps</a>
+          </li>
+          <li class="nav-item" id="modal=m"><a class="nav-link px-0 py-2" href="modal.html#modal=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Modal</a>
+          </li>
+          <li class="nav-item" id="navbar=m"><a class="nav-link px-0 py-2" href="navbar.html#navbar=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Navbar</a>
+          </li>
+          <li class="nav-item" id="offcanvas=m"><a class="nav-link px-0 py-2" href="offcanvas.html#offcanvas=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Offcanvas</a>
+          </li>
+          <li class="nav-item" id="pagination=m"><a class="nav-link px-0 py-2" href="pagination.html#pagination=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Pagination</a>
+          </li>
+          <li class="nav-item" id="parallax=m"><a class="nav-link px-0 py-2" href="parallax.html#parallax=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Parallax</a>
+          </li>
+          <li class="nav-item" id="pills=m"><a class="nav-link px-0 py-2" href="pills.html#pills=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Pills</a>
+          </li>
+          <li class="nav-item" id="placeholders=m"><a class="nav-link px-0 py-2" href="placeholders.html#placeholders=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Placeholders</a>
+          </li>
+          <li class="nav-item" id="popovers=m"><a class="nav-link px-0 py-2" href="popovers.html#popovers=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Popovers</a>
+          </li>
+          <li class="nav-item" id="portfolio=m"><a class="nav-link px-0 py-2" href="portfolio-components.html#portfolio=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Portfolio components</a>
+          </li>
+          <li class="nav-item" id="pricing=m"><a class="nav-link px-0 py-2" href="pricing.html#pricing=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Pricing</a>
+          </li>
+          <li class="nav-item" id="progress=m"><a class="nav-link px-0 py-2" href="progress.html#progress=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Progress</a>
+          </li>
+          <li class="nav-item" id="shop=m"><a class="nav-link px-0 py-2" href="shop-components.html#shop=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Shop components</a>
+          </li>
+          <li class="nav-item" id="social-btns=m"><a class="nav-link px-0 py-2" href="social-buttons.html#social-btns=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Social buttons</a>
+          </li>
+          <li class="nav-item" id="spinners=m"><a class="nav-link px-0 py-2" href="spinners.html#spinners=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Spinners</a>
+          </li>
+          <li class="nav-item" id="steps=m"><a class="nav-link px-0 py-2" href="steps.html#steps=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Steps</a>
+          </li>
+          <li class="nav-item" id="tabs=m"><a class="nav-link px-0 py-2" href="tabs.html#tabs=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Tabs</a>
+          </li>
+          <li class="nav-item" id="team=m"><a class="nav-link px-0 py-2" href="team.html#team=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Team</a>
+          </li>
+          <li class="nav-item" id="testimonials=m"><a class="nav-link px-0 py-2" href="testimonials.html#testimonials=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Testimonials / reviews</a>
+          </li>
+          <li class="nav-item" id="toasts=m"><a class="nav-link px-0 py-2" href="toasts.html#toasts=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Toasts</a>
+          </li>
+          <li class="nav-item" id="tooltips=m"><a class="nav-link px-0 py-2" href="tooltips.html#tooltips=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Tooltips</a>
+          </li>
+          <li class="nav-item" id="video=m"><a class="nav-link px-0 py-2" href="video-popup.html#video=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Video popup</a>
+          </li>
+        </ul>
+        <h3 class="h5 mb-1 pt-4 pb-2">Utilities</h3>
+        <ul class="nav flex-column mb-0">
+          <li class="nav-item"><a class="nav-link px-0 py-2" href="https://getbootstrap.com/docs/5.2/utilities/background/" target="_blank" rel="noopener"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Bootstrap</a></li>
+        </ul>
+        <ul class="nav flex-column">
+          <li class="nav-item" id="utils=m"><a class="nav-link px-0 py-2" href="utilities.html#utils=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Around utilities</a>
+          </li>
+        </ul>
+      </div>
+      <div class="offcanvas-header border-top"><a class="btn btn-primary w-100" href="https://themes.getbootstrap.com/product/around-multipurpose-template-ui-kit/" target="_blank" rel="noopener"><i class="ai-cart d-sm-inline-block fs-xl me-2 ms-n1"></i>Buy now</a></div>
+    </div>
+    <!-- Page content-->
+    <section class="container pt-5 pb-4">
+      <div class="row pt-5 pb-2 pb-sm-3">
+        <div class="col-lg-9 offset-lg-3 position-relative zindex-5">
+          <h1 class="pt-lg-4">Hotspots</h1>
+          <div class="d-flex flex-wrap flex-md-nowrap justify-content-between pb-3">
+            <p class="text-muted">Create an image with interactive hotspots that show hidden description on hover / click / focus.</p>
+            <div class="ps-md-4 mb-3"><span class="badge bg-warning fs-sm">Around component</span></div>
+          </div>
+          <!-- Style 1-->
+          <section class="card border-0 mb-4" id="hotspots-style-1">
+            <div class="card-body pb-0">
+              <h2 class="h4 mb-n2">Style 1</h2>
+            </div>
+            <div class="card-header">
+              <ul class="nav nav-tabs card-header-tabs flex-nowrap align-items-center mb-n1" role="tablist">
+                <li class="nav-item me-3"><a class="nav-link px-0 py-2 border-0 rounded-1 active" href="#preview1" data-bs-toggle="tab" role="tab" aria-controls="preview1" aria-selected="true"><i class="ai-show fs-lg opacity-90 me-2"></i>Preview</a></li>
+                <li class="vr opacity-20 my-3 me-3"></li>
+                <li class="nav-item me-3"><a class="nav-link px-0 py-2 border-0 rounded-1" href="#html1" data-bs-toggle="tab" role="tab" aria-controls="html1" aria-selected="false"><i class="ai-code fs-xl opacity-90 me-2"></i>HTML</a></li>
+                <li class="vr opacity-20 my-3 me-3"></li>
+                <li class="nav-item me-0"><a class="nav-link px-0 py-2 border-0 rounded-1" href="#pug1" data-bs-toggle="tab" role="tab" aria-controls="pug1" aria-selected="false"><i class="ai-code-curly opacity-90 me-2"></i>Pug</a></li>
+              </ul>
+            </div>
+            <div class="card-body">
+              <div class="tab-content">
+                <div class="tab-pane fade show active" id="preview1" role="tabpanel">
+                  <div class="hotspots" style="max-width: 650px;"><img class="d-block" src="../assets/img/landing/product/hotspots-image.png" alt="Image">
+                    <div class="hotspot" style="top: 8%; right: 16%;" data-bs-toggle="popover" data-bs-trigger="hover" title="Memory foam ear pads" data-bs-content="Lorem ipsum dolor sit amet, consectetur adipiscing elit sed.">
+                      <div class="hotspot-inner"><i class="ai-plus"></i></div>
+                    </div>
+                    <div class="hotspot" style="bottom: 9%; left: 48%;" data-bs-toggle="popover" data-bs-trigger="hover" title="Noise suppression" data-bs-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus ornare.">
+                      <div class="hotspot-inner"><i class="ai-plus"></i></div>
+                    </div>
+                    <div class="hotspot" style="bottom: 36%; left: 6%;" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="top" title="Wireless Bluetooth" data-bs-content="Excepteur sint occaecat cupidatat non proident sunt culpa officia.">
+                      <div class="hotspot-inner"><i class="ai-plus"></i></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="html1" role="tabpanel">
+                  <pre class="line-numbers"><code class="lang-html">&lt;!-- Hotspots style 1 with popover on hover --&gt;
+&lt;div class=&quot;hotspots&quot; style=&quot;max-width: 650px;&quot;&gt;
+
+  &lt;!-- Underlying image --&gt;
+  &lt;img src=&quot;assets/img/landing/product/hotspots-image.png&quot; class=&quot;d-block&quot; alt=&quot;Image&quot;&gt;
+
+  &lt;!-- Hotspot --&gt;
+  &lt;div class=&quot;hotspot&quot; style=&quot;top: 8%; right: 16%;&quot; data-bs-toggle=&quot;popover&quot; data-bs-trigger=&quot;hover&quot; title=&quot;Memory foam ear pads&quot; data-bs-content=&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit sed.&quot;&gt;
+    &lt;div class=&quot;hotspot-inner&quot;&gt;
+      &lt;i class=&quot;ai-plus&quot;&gt;&lt;/i&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Hotspot --&gt;
+  &lt;div class=&quot;hotspot&quot; style=&quot;bottom: 9%; left: 48%;&quot; data-bs-toggle=&quot;popover&quot; data-bs-trigger=&quot;hover&quot; title=&quot;Noise suppression&quot; data-bs-content=&quot;Vivamus sagittis lacus vel augue laoreet rutrum faucibus ornare.&quot;&gt;
+    &lt;div class=&quot;hotspot-inner&quot;&gt;
+      &lt;i class=&quot;ai-plus&quot;&gt;&lt;/i&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Hotspot --&gt;
+  &lt;div class=&quot;hotspot&quot; style=&quot;bottom: 36%; left: 6%;&quot; data-bs-toggle=&quot;popover&quot; data-bs-trigger=&quot;hover&quot; data-bs-placement=&quot;top&quot; title=&quot;Wireless Bluetooth&quot; data-bs-content=&quot;Excepteur sint occaecat cupidatat non proident sunt culpa officia.&quot;&gt;
+    &lt;div class=&quot;hotspot-inner&quot;&gt;
+      &lt;i class=&quot;ai-plus&quot;&gt;&lt;/i&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+                <div class="tab-pane fade" id="pug1" role="tabpanel">
+                  <pre class="line-numbers"><code class="lang-pug">// Hotspots style 1 with popover on hover
+.hotspots(style=&quot;max-width: 650px;&quot;)
+
+  // Underlying image
+  img(src=&quot;assets/img/landing/product/hotspots-image.png&quot;, alt=&quot;Image&quot;).d-block
+
+  // Hotspot
+  .hotspot(style=&quot;top: 8%; right: 16%;&quot;, data-bs-toggle=&quot;popover&quot;, data-bs-trigger=&quot;hover&quot;, title=&quot;Memory foam ear pads&quot;, data-bs-content=&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit sed.&quot;)
+    .hotspot-inner
+      i.ai-plus
+  
+  // Hotspot
+  .hotspot(style=&quot;bottom: 9%; left: 48%;&quot;, data-bs-toggle=&quot;popover&quot;, data-bs-trigger=&quot;hover&quot;, title=&quot;Noise suppression&quot;, data-bs-content=&quot;Vivamus sagittis lacus vel augue laoreet rutrum faucibus ornare.&quot;)
+    .hotspot-inner
+      i.ai-plus
+
+  // Hotspot
+  .hotspot(style=&quot;bottom: 36%; left: 6%;&quot;, data-bs-toggle=&quot;popover&quot;, data-bs-trigger=&quot;hover&quot;, data-bs-placement=&quot;top&quot;, title=&quot;Wireless Bluetooth&quot;, data-bs-content=&quot;Excepteur sint occaecat cupidatat non proident sunt culpa officia.&quot;)
+    .hotspot-inner
+      i.ai-plus
+</code></pre>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Style 2-->
+          <section class="card border-0 mb-4" id="hotspots-style-2">
+            <div class="card-body pb-0">
+              <h2 class="h4 mb-n2">Style 2</h2>
+            </div>
+            <div class="card-header">
+              <ul class="nav nav-tabs card-header-tabs flex-nowrap align-items-center mb-n1" role="tablist">
+                <li class="nav-item me-3"><a class="nav-link px-0 py-2 border-0 rounded-1 active" href="#preview2" data-bs-toggle="tab" role="tab" aria-controls="preview2" aria-selected="true"><i class="ai-show fs-lg opacity-90 me-2"></i>Preview</a></li>
+                <li class="vr opacity-20 my-3 me-3"></li>
+                <li class="nav-item me-3"><a class="nav-link px-0 py-2 border-0 rounded-1" href="#html2" data-bs-toggle="tab" role="tab" aria-controls="html2" aria-selected="false"><i class="ai-code fs-xl opacity-90 me-2"></i>HTML</a></li>
+                <li class="vr opacity-20 my-3 me-3"></li>
+                <li class="nav-item me-0"><a class="nav-link px-0 py-2 border-0 rounded-1" href="#pug2" data-bs-toggle="tab" role="tab" aria-controls="pug2" aria-selected="false"><i class="ai-code-curly opacity-90 me-2"></i>Pug</a></li>
+              </ul>
+            </div>
+            <div class="card-body">
+              <div class="tab-content">
+                <div class="tab-pane fade show active" id="preview2" role="tabpanel">
+                  <div class="hotspots hotspots-alt" style="max-width: 700px;"><img class="d-block rounded-1" src="../assets/img/landing/shop/gallery/01.jpg" alt="Image"><a class="hotspot" style="top: 20%; left: 27%;" tabindex="0" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="bottom" data-bs-html="true" data-bs-content="&lt;a href=&quot;#&quot; class=&quot;d-flex text-decoration-none mb-2&quot;&gt;&lt;span class=&quot;h6 fs-sm mb-0&quot;&gt;Bronze floor&lt;br&gt;led lamp&lt;/span&gt;&lt;i class=&quot;ai-chevron-right fs-xl text-dark ms-2&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;span&gt;$185.00&lt;/span&gt;">
+                      <div class="hotspot-inner"></div></a><a class="hotspot" style="top: 14.7%; right: 32.7%;" tabindex="0" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="bottom" data-bs-html="true" data-bs-content="&lt;a href=&quot;#&quot; class=&quot;d-flex text-decoration-none mb-2&quot;&gt;&lt;span class=&quot;h6 fs-sm mb-0&quot;&gt;Photo frame&lt;br&gt;Defacto&lt;/span&gt;&lt;i class=&quot;ai-chevron-right fs-xl text-dark ms-2&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;span&gt;$21.00&lt;/span&gt;">
+                      <div class="hotspot-inner"></div></a><a class="hotspot" style="bottom: 41%; left: 34.6%;" tabindex="0" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="top" data-bs-html="true" data-bs-content="&lt;a href=&quot;#&quot; class=&quot;d-flex text-decoration-none mb-2&quot;&gt;&lt;span class=&quot;h6 fs-sm mb-0&quot;&gt;Yellow satin&lt;br&gt;armchair&lt;/span&gt;&lt;i class=&quot;ai-chevron-right fs-xl text-dark ms-2&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;span&gt;$276.00&lt;/span&gt;">
+                      <div class="hotspot-inner"></div></a><a class="hotspot" style="bottom: 24.3%; right: 27.5%;" tabindex="0" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="top" data-bs-html="true" data-bs-content="&lt;a href=&quot;#&quot; class=&quot;d-flex text-decoration-none mb-2&quot;&gt;&lt;span class=&quot;h6 fs-sm mb-0&quot;&gt;Gary concrete&lt;br&gt;table stand&lt;/span&gt;&lt;i class=&quot;ai-chevron-right fs-xl text-dark ms-2&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;span&gt;$35.00&lt;/span&gt;">
+                      <div class="hotspot-inner"></div></a></div>
+                </div>
+                <div class="tab-pane fade" id="html2" role="tabpanel">
+                  <pre class="line-numbers"><code class="lang-html">&lt;!-- Hotspots style 2 with popover on focus --&gt;
+&lt;div class=&quot;hotspots hotspots-alt&quot;&gt;
+
+  &lt;!-- Underlying image --&gt;
+  &lt;img src=&quot;assets/img/landing/shop/gallery/01.jpg&quot; class=&quot;d-block rounded-1&quot; alt=&quot;Image&quot;&gt;
+
+  &lt;!-- Hotspot --&gt;
+  &lt;a class=&quot;hotspot&quot; style=&quot;top: 20%; left: 27%;&quot; tabindex=&quot;0&quot; role=&quot;button&quot; data-bs-toggle=&quot;popover&quot; data-bs-trigger=&quot;focus&quot; data-bs-placement=&quot;bottom&quot; data-bs-html=&quot;true&quot; data-bs-content='&lt;a href=&quot;#&quot; class=&quot;d-flex text-decoration-none mb-2&quot;&gt;&lt;span class=&quot;h6 fs-sm mb-0&quot;&gt;Bronze floor&lt;br&gt;led lamp&lt;/span&gt;&lt;i class=&quot;ai-chevron-right fs-xl text-dark ms-2&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;span&gt;$185.00&lt;/span&gt;'&gt;&lt;/div&gt;
+  &lt;/a&gt;
+
+  &lt;!-- Hotspot --&gt;
+  &lt;a class=&quot;hotspot&quot; style=&quot;top: 14.7%; right: 32.7%;&quot; tabindex=&quot;0&quot; role=&quot;button&quot; data-bs-toggle=&quot;popover&quot; data-bs-trigger=&quot;focus&quot; data-bs-placement=&quot;bottom&quot; data-bs-html=&quot;true&quot; data-bs-content='&lt;a href=&quot;#&quot; class=&quot;d-flex text-decoration-none mb-2&quot;&gt;&lt;span class=&quot;h6 fs-sm mb-0&quot;&gt;Photo frame&lt;br&gt;Defacto&lt;/span&gt;&lt;i class=&quot;ai-chevron-right fs-xl text-dark ms-2&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;span&gt;$21.00&lt;/span&gt;'&gt;&lt;/div&gt;
+  &lt;/a&gt;
+
+  &lt;!-- Hotspot --&gt;
+  &lt;a class=&quot;hotspot&quot; style=&quot;bottom: 41%; left: 34.6%;&quot; tabindex=&quot;0&quot; role=&quot;button&quot; data-bs-toggle=&quot;popover&quot; data-bs-trigger=&quot;focus&quot; data-bs-placement=&quot;top&quot; data-bs-html=&quot;true&quot; data-bs-content='&lt;a href=&quot;#&quot; class=&quot;d-flex text-decoration-none mb-2&quot;&gt;&lt;span class=&quot;h6 fs-sm mb-0&quot;&gt;Yellow satin&lt;br&gt;armchair&lt;/span&gt;&lt;i class=&quot;ai-chevron-right fs-xl text-dark ms-2&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;span&gt;$276.00&lt;/span&gt;'&gt;&lt;/div&gt;
+  &lt;/a&gt;
+
+  &lt;!-- Hotspot --&gt;
+  &lt;a class=&quot;hotspot&quot; style=&quot;bottom: 24.3%; right: 27.5%;&quot; tabindex=&quot;0&quot; role=&quot;button&quot; data-bs-toggle=&quot;popover&quot; data-bs-trigger=&quot;focus&quot; data-bs-placement=&quot;top&quot; data-bs-html='true' data-bs-content='&lt;a href=&quot;#&quot; class=&quot;d-flex text-decoration-none mb-2&quot;&gt;&lt;span class=&quot;h6 fs-sm mb-0&quot;&gt;Gary concrete&lt;br&gt;table stand&lt;/span&gt;&lt;i class=&quot;ai-chevron-right fs-xl text-dark ms-2&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;span&gt;$35.00&lt;/span&gt;'&gt;&lt;/div&gt;
+  &lt;/a&gt;
+
+&lt;/div&gt;</code></pre>
+                </div>
+                <div class="tab-pane fade" id="pug2" role="tabpanel">
+                  <pre class="line-numbers"><code class="lang-pug">// Hotspots style 2 with popover on focus
+.hotspots.hotspots-alt
+
+  // Underlying image
+  img(src=&quot;assets/img/landing/shop/gallery/01.jpg&quot;, alt=&quot;Image&quot;).d-block.rounded-1
+
+  // Hotspot
+  a.hotspot(style=&quot;top: 20%; left: 27%;&quot;, tabindex=&quot;0&quot;, role=&quot;button&quot;, data-bs-toggle=&quot;popover&quot;, data-bs-trigger=&quot;focus&quot;, data-bs-placement=&quot;bottom&quot;, data-bs-html=&quot;true&quot;, data-bs-content='&lt;a href=&quot;#&quot; class=&quot;d-flex text-decoration-none mb-2&quot;&gt;&lt;span class=&quot;h6 fs-sm mb-0&quot;&gt;Bronze floor&lt;br&gt;led lamp&lt;/span&gt;&lt;i class=&quot;ai-chevron-right fs-xl text-dark ms-2&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;span&gt;$185.00&lt;/span&gt;')
+    .hotspot-inner
+  
+  // Hotspot
+  a.hotspot(style=&quot;top: 14.7%; right: 32.7%;&quot;, tabindex=&quot;0&quot;, role=&quot;button&quot;, data-bs-toggle=&quot;popover&quot;, data-bs-trigger=&quot;focus&quot;, data-bs-placement=&quot;bottom&quot;, data-bs-html=&quot;true&quot;, data-bs-content='&lt;a href=&quot;#&quot; class=&quot;d-flex text-decoration-none mb-2&quot;&gt;&lt;span class=&quot;h6 fs-sm mb-0&quot;&gt;Photo frame&lt;br&gt;Defacto&lt;/span&gt;&lt;i class=&quot;ai-chevron-right fs-xl text-dark ms-2&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;span&gt;$21.00&lt;/span&gt;')
+    .hotspot-inner
+  
+  // Hotspot
+  a.hotspot(style=&quot;bottom: 41%; left: 34.6%;&quot;, tabindex=&quot;0&quot;, role=&quot;button&quot;, data-bs-toggle=&quot;popover&quot;, data-bs-trigger=&quot;focus&quot;, data-bs-placement=&quot;top&quot;, data-bs-html=&quot;true&quot;, data-bs-content='&lt;a href=&quot;#&quot; class=&quot;d-flex text-decoration-none mb-2&quot;&gt;&lt;span class=&quot;h6 fs-sm mb-0&quot;&gt;Yellow satin&lt;br&gt;armchair&lt;/span&gt;&lt;i class=&quot;ai-chevron-right fs-xl text-dark ms-2&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;span&gt;$276.00&lt;/span&gt;')
+    .hotspot-inner
+  
+  // Hotspot
+  a.hotspot(style=&quot;bottom: 24.3%; right: 27.5%;&quot;, tabindex=&quot;0&quot;, role=&quot;button&quot;, data-bs-toggle=&quot;popover&quot;, data-bs-trigger=&quot;focus&quot;, data-bs-placement=&quot;top&quot;, data-bs-html=&quot;true&quot;, data-bs-content='&lt;a href=&quot;#&quot; class=&quot;d-flex text-decoration-none mb-2&quot;&gt;&lt;span class=&quot;h6 fs-sm mb-0&quot;&gt;Gary concrete&lt;br&gt;table stand&lt;/span&gt;&lt;i class=&quot;ai-chevron-right fs-xl text-dark ms-2&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;span&gt;$35.00&lt;/span&gt;')
+    .hotspot-inner</code></pre>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+    <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll>
+      <svg viewBox="0 0 40 40" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="19" fill="none" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"></circle>
+      </svg><i class="ai-arrow-up">   </i></a>
+    <!-- Vendor scripts: js libraries and plugins-->
+    <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="../assets/vendor/simplebar/dist/simplebar.min.js"></script>
+    <script src="../assets/vendor/prismjs/components/prism-core.min.js"></script>
+    <script src="../assets/vendor/prismjs/components/prism-markup.min.js"></script>
+    <script src="../assets/vendor/prismjs/components/prism-clike.min.js"></script>
+    <script src="../assets/vendor/prismjs/components/prism-javascript.min.js"></script>
+    <script src="../assets/vendor/prismjs/components/prism-pug.min.js"></script>
+    <script src="../assets/vendor/prismjs/plugins/toolbar/prism-toolbar.min.js"></script>
+    <script src="../assets/vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+    <script src="../assets/vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <!-- Main theme script-->
+    <script src="../assets/js/theme.min.js"></script>
+  </body>
+</html>

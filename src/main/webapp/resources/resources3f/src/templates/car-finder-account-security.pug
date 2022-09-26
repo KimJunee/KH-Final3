@@ -1,0 +1,109 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var parentMenu = 'Account'
+  - var pageTitle = 'Car Finder | Account Password & Security'
+  - var bodyClass = 'bg-dark'
+
+//- Navbar
+block navbar
+  include partials/navbar-car-finder
+
+//- Page Content
+block content
+  .container.pt-5.pb-lg-4.mt-5.mb-sm-2
+
+    // Breadcrumb
+    nav(aria-label='Breadcrumb').mb-4.pt-md-3
+      ol.breadcrumb.breadcrumb-light
+        li.breadcrumb-item
+          a(href='car-finder-home.html') Home
+        li.breadcrumb-item
+          a(href='car-finder-account-info.html') Account
+        li(aria-current='page').breadcrumb-item.active
+          | Password &amp; Security
+    
+
+    // Page content
+    .row
+
+      // Sidebar
+      aside.col-lg-4.col-md-5.pe-xl-4.mb-5
+        include partials/sidebar-account-car-finder
+
+      // Content
+      .col-lg-8.col-md-7.mb-5
+        h1.h2.text-light Password &amp; Security
+        p.text-light.pt-1 Manage your password settings and secure your account.
+        h2.h5.text-light Password
+        form(novalidate).needs-validation.pb-4
+          .row.align-items-end.mb-2
+            .col-sm-6.mb-2
+              label(for='account-password').form-label.text-light Current password
+              .password-toggle
+                input(type='password' id='account-password' required).form-control.form-control-light
+                label(aria-label='Show/hide password').password-toggle-btn
+                  input(type='checkbox').password-toggle-check
+                  span.password-toggle-indicator
+            .col-sm-6.mb-2
+              a(href='#').d-inline-block.text-light.mb-2 Forgot password?
+          .row.mb-2
+            .col-sm-6.mb-3
+              label(for='account-password-new').form-label.text-light New password
+              .password-toggle
+                input(type='password' id='account-password-new' required).form-control.form-control-light
+                label(aria-label='Show/hide password').password-toggle-btn
+                  input(type='checkbox').password-toggle-check
+                  span.password-toggle-indicator
+            .col-sm-6.mb-3
+              label(for='account-password-confirm').form-label.text-light Confirm password
+              .password-toggle
+                input(type='password' id='account-password-confirm' required).form-control.form-control-light
+                label(aria-label='Show/hide password').password-toggle-btn
+                  input(type='checkbox').password-toggle-check
+                  span.password-toggle-indicator
+          button(type='submit').btn.btn-outline-primary Update password
+        .border-top.border-light.pt-4.mt-3
+        h2.h5.text-light.pt-2.mb-4 Where you're signed in on
+        .d-flex.border-bottom.border-light.pb-3.mb-3
+          i.fi-device-desktop.fs-5.text-light.me-1
+          .ps-2.text-light
+            .fw-bold.mb-1 Mac – New York, USA
+            span.d-inline-block.fs-sm.border-end.border-light.pe-2.me-2
+              span.opacity-70 Chrome
+            span.fs-sm.fw-bold.text-success Active now
+        .d-flex.border-bottom.border-light.pb-3.mb-3
+          i.fi-device-mobile.fs-5.text-light.me-1
+          .ps-2.text-light
+            .fw-bold.mb-1 iPhone 12 – New York, USA
+            span.d-inline-block.fs-sm.border-end.border-light.pe-2.me-2
+              span.opacity-70 Finder App
+            span.fs-sm.opacity-70 20 hours ago
+          .align-self-center.ms-auto
+            .dropdown
+              button(type='button' id='contextMenu1' data-bs-toggle='dropdown' aria-expanded='false').btn.btn-icon.btn-translucent-light.btn-xs.rounded-circle
+                i.fi-dots-vertical
+              ul(aria-labelledby='contextMenu1').dropdown-menu.dropdown-menu-dark.pb-3.my-1
+                li: a(href='#').dropdown-item Not you?
+                li: a(href='#').d-block.px-3 Sign out
+        .d-flex.border-bottom.border-light.pb-3.mb-3
+          i.fi-device-desktop.fs-5.text-light.me-1
+          .ps-2.text-light
+            .fw-bold.mb-1 Windows 10.1 – New York, USA
+            span.d-inline-block.fs-sm.border-end.border-light.pe-2.me-2
+              span.opacity-70 Chrome
+            span.fs-sm.text-light.opacity-70 November 15 at 8:42 AM
+          .align-self-center.ms-auto
+            .dropdown
+              button(type='button' id='contextMenu2' data-bs-toggle='dropdown' aria-expanded='false').btn.btn-icon.btn-translucent-light.btn-xs.rounded-circle
+                i.fi-dots-vertical
+              ul(aria-labelledby='contextMenu2').dropdown-menu.dropdown-menu-dark.pb-3.my-1
+                li: a(href='#').dropdown-item Not you?
+                li: a(href='#').d-block.px-3 Sign out
+        a(href='#').nav-link.nav-link-light.px-0.mt-4 Sign out of all sessions     
+
+
+//- Footer
+block footer
+  include partials/footer-car-finder

@@ -1,0 +1,85 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var parentMenu = 'Account'
+  - var pageTitle = 'Car Finder | Account Notifications'
+  - var bodyClass = 'bg-dark'
+
+//- Navbar
+block navbar
+  include partials/navbar-car-finder
+
+//- Page Content
+block content
+  .container.pt-5.pb-lg-4.mt-5.mb-sm-2
+
+    // Breadcrumb
+    nav(aria-label='Breadcrumb').mb-4.pt-md-3
+      ol.breadcrumb.breadcrumb-light
+        li.breadcrumb-item
+          a(href='car-finder-home.html') Home
+        li.breadcrumb-item
+          a(href='car-finder-account-info.html') Account
+        li(aria-current='page').breadcrumb-item.active
+          | Notifications
+    
+
+    // Page content
+    .row
+
+      // Sidebar
+      aside.col-lg-4.col-md-5.pe-xl-4.mb-5
+        include partials/sidebar-account-car-finder
+
+      // Content
+      .col-lg-8.col-md-7.mb-5
+        h1.h2.text-light Notifications
+        p.text-light.pt-1.mb-4 Get real-time vehicle updates, price drop alerts, helpful shopping information and more.
+        
+        #notification-settings.py-2
+          .d-flex.justify-content-between.mb-4
+            .me-2
+              h6.text-light.mb-1 New vehicles alerts
+              p.fs-sm.text-light.mb-0 <span class='opacity-70'>New vehicles that match your</span> <a href='car-finder-account-wishlist.html' class='text-light'>Wishlist</a>
+            .form-check.form-switch.form-switch-light
+              input(type='checkbox' id='new-vehicles' checked).form-check-input
+              label(for='new-vehicles').form-check-label
+          .d-flex.justify-content-between.mb-4
+            .me-2
+              h6.text-light.mb-1 Vehicle status updates
+              p.fs-sm.text-light.mb-0 <span class='opacity-70'>Updates like price changes and off-market status on your</span> <a href='car-finder-account-wishlist.html' class='text-light'>Wishlist</a>
+            .form-check.form-switch.form-switch-light
+              input(type='checkbox' id='vehicle-update' checked).form-check-input
+              label(for='vehicle-update').form-check-label
+          .d-flex.justify-content-between.mb-4
+            .me-2
+              h6.text-light.mb-1 Finder recommendations
+              p.fs-sm.text-light.opacity-70.mb-0 Vehicles we think you'll like. These recommendations may be slightly outside your search criteria
+            .form-check.form-switch.form-switch-light
+              input(type='checkbox' id='finder-recomendation').form-check-input
+              label(for='finder-recomendation').form-check-label          
+          .d-flex.justify-content-between.mb-4
+            .me-2
+              h6.text-light.mb-1 Featured news
+              p.fs-sm.text-light.opacity-70.mb-0 News and tips you may be interested in
+            .form-check.form-switch.form-switch-light
+              input(type='checkbox' id='featured-news' checked).form-check-input
+              label(for='featured-news').form-check-label
+          .d-flex.justify-content-between.mb-4
+            .me-2
+              h6.text-light.mb-1 Finder extras
+              p.fs-sm.text-light.opacity-70.mb-0 Occasional notifications about new features to make finding the perfect car easy
+            .form-check.form-switch.form-switch-light
+              input(type='checkbox' id='extras').form-check-input
+              label(for='extras').form-check-label
+          
+        .border-top.border-light.pt-4
+          .form-check.form-switch.form-switch-light
+            input(type='checkbox' id='all-notifications' data-master-checkbox-for="#notification-settings" checked).form-check-input
+            label(for='all-notifications').form-check-label Enable / disable all notifications
+                
+
+//- Footer
+block footer
+  include partials/footer-car-finder

@@ -1,0 +1,253 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var parentMenu = 'Pages'
+  - var pageTitle = 'Car Finder | Blog'
+  - var bodyClass = 'bg-dark'
+
+//- Navbar
+block navbar
+  include partials/navbar-car-finder
+
+//- Page Content
+block content
+
+  // Page content
+  .container.pt-5.pb-lg-4.my-5
+
+    // Breadcrumb
+    nav(aria-label='Breadcrumb').mb-3.pb-md-1.pt-md-3
+      ol.breadcrumb.breadcrumb-light.m-0
+        li.breadcrumb-item
+          a(href='car-finder-home.html') Home
+        li(aria-current='page').breadcrumb-item.active
+          | News &amp; reviews
+    
+    // Page title
+    h1.text-light.mb-4 News &amp; reviews
+
+    // Sorting, filters and search
+    .d-lg-flex.pt-1.pb-4.mb-3
+      .d-flex.mb-3.mb-lg-0.pe-lg-2
+        .d-flex.flex-md-row.flex-column.align-items-md-center.flex-grow-1.border-end-md.border-light.pe-md-4.me-md-4
+          label(for='sortby').d-inline-block.text-light.me-sm-2.mb-md-0.mb-2.text-nowrap
+            i.fi-arrows-sort.mt-n1.me-2.align-middle.opacity-70
+            | Sort by:
+          select(id='sortby').form-select.form-select-light.me-md-2
+            option Newest
+            option Oldest
+            option Popular
+            option Sponsored
+        .d-flex.flex-md-row.flex-column.align-items-md-center.flex-grow-1.border-end-lg.border-light.ps-3.ps-md-2.pe-lg-4.me-lg-4
+          label(for='categories').d-inline-block.text-light.me-sm-2.mb-md-0.mb-2.text-nowrap
+            i.fi-align-left.mt-n1.me-2.align-middle.opacity-70
+            | Category:
+          select(id='categories').form-select.form-select-light.me-lg-2
+            option All
+            option Reviews
+            option Tips &amp; Advice
+            option Automotive News
+            option Travel
+      .position-relative.flex-grow-1
+        input(type='text' placeholder='Search articles by keywords...').form-control.form-control-light
+        i.fi-search.position-absolute.top-50.end-0.translate-middle-y.text-light.opacity-70.me-3
+
+    
+    // Featured article
+    article.row.pb-2.pb-md-1.mb-4.mb-md-5
+      .col-md-7.col-lg-8.mb-lg-0.mb-3.mb-md-0
+        a(href='car-finder-blog-single.html').d-block.position-relative
+          span.badge.bg-info.position-absolute.top-0.end-0.m-3.fs-sm New
+          img(src='img/car-finder/blog/01.jpg' alt='Post image').rounded-3
+      .col-md-5.col-lg-4
+        a(href='#').fs-sm.text-uppercase.text-decoration-none Tips &amp; Advice
+        h2.h5.text-light.pt-1
+          a(href='car-finder-blog-single.html').nav-link 10 Best Electric Bikes from Automotive Manufacturers for a Long Trip
+        p.d-md-none.d-xl-block.text-light.opacity-70.mb-4 Nulla felis neque ultrices ut aliquam. Pellentesque id semper iaculis scelerisque etiam egestas interdum proin sit. Ornare venenatis, ullamcorper amet arcu ipsum ut morbi enim. Senectus quam egestas facilisi enim diam posuere ultricies interdum sed. Amet, risus eros cursus vitae, sit?
+        a(href='#').d-flex.align-items-center.text-decoration-none
+          img(src='img/avatars/06.jpg' width='48' alt='Kristin Watson').rounded-circle
+          .ps-2
+            h6.fs-base.text-light.lh-base.mb-1 Kristin Watson
+            .d-flex.fs-sm.text-light.opacity-70
+              span.me-2.pe-1
+                i.fi-calendar-alt.opacity-70.mt-n1.me-1
+                | May 13
+              span
+                i.fi-chat-circle.opacity-70.mt-n1.me-1
+                | No comments
+    
+    
+    // Latest articles (2 columns)
+    .row.row-cols-1.row-cols-md-2.gy-md-5.gy-4.mb-lg-5.mb-4
+      article.col.pb-2.pb-md-1
+        a(href='car-finder-blog-single.html').d-block.position-relative.mb-3
+          span.badge.bg-info.position-absolute.top-0.end-0.m-3.fs-sm New
+          img(src='img/car-finder/blog/02.jpg' alt='Post image').d-block.rounded-3
+        a(href='#').fs-sm.text-uppercase.text-decoration-none Travel
+        h3.h5.text-light.mb-2.pt-1
+          a(href='car-finder-blog-single.html').nav-link Across Arctic on Old Good Land Rover Defender
+        p.text-light.opacity-70.mb-3 Odio enim, sem massa posuere amet neque. Nisl rutrum morbi tempor, ligula velit justo, morbi lorem. Vestibulum at volutpat sit cursus. Aenean tincidunt integer...
+        a(href='#').d-flex.align-items-center.text-decoration-none
+          img(src='img/avatars/07.jpg' width='48' alt='Cody Fisher').rounded-circle
+          .ps-2
+            h6.fs-base.text-light.lh-base.mb-1 Cody Fisher
+            .d-flex.fs-sm.text-light.opacity-70
+              span.me-2.pe-1
+                i.fi-calendar-alt.opacity-70.mt-n1.me-1.align-middle
+                | May 08
+              span
+                i.fi-chat-circle.opacity-70.mt-n1.me-1.align-middle
+                | 4 comments
+      article.col.pb-2.pb-md-1
+        a(href='car-finder-blog-single.html').d-block.position-relative.mb-3
+          span.badge.bg-info.position-absolute.top-0.end-0.m-3.fs-sm New
+          img(src='img/car-finder/blog/03.jpg' alt='Post image').d-block.rounded-3
+        a(href='#').fs-sm.text-uppercase.text-decoration-none Automotive News
+        h3.h5.text-light.mb-2.pt-1
+          a(href='car-finder-blog-single.html').nav-link 10 Ways to Stay Ahead of the Curve
+        p.text-light.opacity-70.mb-3 Mi sit montes, aenean tempor sollicitudin volutpat viverra. Tellus amet, vitae ac consectetur blandit at. Odio proin elit, vehicula morbi faucibus vestibulum…
+        a(href='#').d-flex.align-items-center.text-decoration-none
+          img(src='img/avatars/03.jpg' width='48' alt='Kathryn Murphy').rounded-circle
+          .ps-2
+            h6.fs-base.text-light.lh-base.mb-1 Kathryn Murphy
+            .d-flex.fs-sm.text-light.opacity-70
+              span.me-2.pe-1
+                i.fi-calendar-alt.opacity-70.mt-n1.me-1.align-middle
+                | Apr 27
+              span
+                i.fi-chat-circle.opacity-70.mt-n1.me-1.align-middle
+                | 1 comment
+
+    
+    // Latest articles (3 columns)
+    .row.row-cols-1.row-cols-sm-2.row-cols-lg-3.gx-3.gx-md-4.gy-md-5.gy-4.mb-lg-5.mb-4
+      article.col.pb-2.pb-md-1
+        a(href='car-finder-blog-single.html').d-block.position-relative.mb-3
+          img(src='img/car-finder/blog/04.jpg' alt='Post image').d-block.rounded-3
+        a(href='#').fs-xs.text-uppercase.text-decoration-none Automotive News
+        h3.fs-base.text-light.pt-1
+          a(href='car-finder-blog-single.html').nav-link Volkswagen: Never Done Innovating
+        a(href='#').d-flex.align-items-center.text-decoration-none
+          img(src='img/avatars/08.jpg' width='44' alt='Darrell Steward').rounded-circle
+          .ps-2
+            h6.fs-sm.text-light.lh-base.mb-1 Darrell Steward
+            .d-flex.fs-xs.text-light.opacity-70
+              span.me-2.pe-1
+                i.fi-calendar-alt.opacity-70.mt-n1.me-1.align-middle
+                | Apr 15
+              span
+                i.fi-chat-circle.opacity-70.mt-n1.me-1.align-middle
+                | No comments
+      article.col.pb-2.pb-md-1
+        a(href='car-finder-blog-single.html').d-block.position-relative.mb-3
+          img(src='img/car-finder/blog/05.jpg' alt='Post image').d-block.rounded-3
+        a(href='#').fs-xs.text-uppercase.text-decoration-none Tips &amp; Advice
+        h3.fs-base.text-light.pt-1
+          a(href='car-finder-blog-single.html').nav-link 5 Predictions From the Past About the Future
+        a(href='#').d-flex.align-items-center.text-decoration-none
+          img(src='img/avatars/09.jpg' width='44' alt='Guy Hawkins').rounded-circle
+          .ps-2
+            h6.fs-sm.text-light.lh-base.mb-1 Guy Hawkins
+            .d-flex.fs-xs.text-light.opacity-70
+              span.me-2.pe-1
+                i.fi-calendar-alt.opacity-70.mt-n1.me-1.align-middle
+                | Apr 06
+              span
+                i.fi-chat-circle.opacity-70.mt-n1.me-1.align-middle
+                | 2 comments
+      article.col.pb-2.pb-md-1
+        a(href='car-finder-blog-single.html').d-block.position-relative.mb-3
+          img(src='img/car-finder/blog/06.jpg' alt='Post image').d-block.rounded-3
+        a(href='#').fs-xs.text-uppercase.text-decoration-none Reviews
+        h3.fs-base.text-light.pt-1
+          a(href='car-finder-blog-single.html').nav-link This Year is All About New Harley Davidson
+        a(href='#').d-flex.align-items-center.text-decoration-none
+          img(src='img/avatars/10.jpg' width='44' alt='Kristin Watson').rounded-circle
+          .ps-2
+            h6.fs-sm.text-light.lh-base.mb-1 Kristin Watson
+            .d-flex.fs-xs.text-light.opacity-70
+              span.me-2.pe-1
+                i.fi-calendar-alt.opacity-70.mt-n1.me-1.align-middle
+                | Mar 25
+              span
+                i.fi-chat-circle.opacity-70.mt-n1.me-1.align-middle
+                | 3 comments
+      article.col.pb-2.pb-md-1
+        a(href='car-finder-blog-single.html').d-block.position-relative.mb-3
+          img(src='img/car-finder/blog/07.jpg' alt='Post image').d-block.rounded-3
+        a(href='#').fs-xs.text-uppercase.text-decoration-none Reviews
+        h3.fs-base.text-light.pt-1
+          a(href='car-finder-blog-single.html').nav-link First ATV from KTM. Test Drive in Sahara
+        a(href='#').d-flex.align-items-center.text-decoration-none
+          img(src='img/avatars/11.jpg' width='44' alt='Marvin McKinney').rounded-circle
+          .ps-2
+            h6.fs-sm.text-light.lh-base.mb-1 Marvin McKinney
+            .d-flex.fs-xs.text-light.opacity-70
+              span.me-2.pe-1
+                i.fi-calendar-alt.opacity-70.mt-n1.me-1.align-middle
+                | Mar 12
+              span
+                i.fi-chat-circle.opacity-70.mt-n1.me-1.align-middle
+                | 8 comments
+      article.col.pb-2.pb-md-1
+        a(href='car-finder-blog-single.html').d-block.position-relative.mb-3
+          img(src='img/car-finder/blog/08.jpg' alt='Post image').d-block.rounded-3
+        a(href='#').fs-xs.text-uppercase.text-decoration-none Automotive News
+        h3.fs-base.text-light.pt-1
+          a(href='car-finder-blog-single.html').nav-link Closer Look at Yet Another Electric Bike Startup
+        a(href='#').d-flex.align-items-center.text-decoration-none
+          img(src='img/avatars/07.jpg' width='44' alt='Cody Fisher').rounded-circle
+          .ps-2
+            h6.fs-sm.text-light.lh-base.mb-1 Cody Fisher
+            .d-flex.fs-xs.text-light.opacity-70
+              span.me-2.pe-1
+                i.fi-calendar-alt.opacity-70.mt-n1.me-1.align-middle
+                | Feb 28
+              span
+                i.fi-chat-circle.opacity-70.mt-n1.me-1.align-middle
+                | 5 comments
+      article.col.pb-2.pb-md-1
+        a(href='car-finder-blog-single.html').d-block.position-relative.mb-3
+          img(src='img/car-finder/blog/09.jpg' alt='Post image').d-block.rounded-3
+        a(href='#').fs-xs.text-uppercase.text-decoration-none Reviews
+        h3.fs-base.text-light.pt-1
+          a(href='car-finder-blog-single.html').nav-link All New Aston Martin Superleggera
+        a(href='#').d-flex.align-items-center.text-decoration-none
+          img(src='img/avatars/09.jpg' width='44' alt='Guy Hawkins').rounded-circle
+          .ps-2
+            h6.fs-sm.text-light.lh-base.mb-1 Guy Hawkins
+            .d-flex.fs-xs.text-light.opacity-70
+              span.me-2.pe-1
+                i.fi-calendar-alt.opacity-70.mt-n1.me-1.align-middle
+                | Feb 19
+              span
+                i.fi-chat-circle.opacity-70.mt-n1.me-1.align-middle
+                | 10 comments
+    
+    
+    // Pagination
+    nav.border-top.border-light.pt-4(aria-label='Reviews pagination')
+      ul.pagination.pagination-light
+        li.page-item.d-sm-none.text-nowrap
+          span.page-link.page-link-static 1 / 5
+        li.page-item.active.d-none.d-sm-block(aria-current='page')
+          span.page-link
+            | 1
+            span.visually-hidden (current)
+        li.page-item.d-none.d-sm-block
+          a(href='#').page-link 2
+        li.page-item.d-none.d-sm-block
+          a(href='#').page-link 3
+        li.page-item.d-none.d-sm-block
+          | ...
+        li.page-item.d-none.d-sm-block
+          a(href='#').page-link 8
+        li.page-item
+          a(href='#' aria-label='Next').page-link
+            i.fi-chevron-right
+
+
+//- Footer
+block footer
+  include partials/footer-car-finder

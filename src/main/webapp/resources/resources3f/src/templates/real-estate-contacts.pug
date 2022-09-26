@@ -1,0 +1,105 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['tiny-slider/dist/tiny-slider.css']
+  - var vendorScripts = ['tiny-slider/dist/min/tiny-slider.js']
+  - var parentMenu = 'Pages'
+  - var pageTitle = 'Real Estate | Contact Us'
+
+//- Navbar
+block navbar
+  include partials/navbar-real-estate
+
+//- Page Content
+block content
+
+  // Breadcrumb
+  .container.mt-5.mb-md-4.pt-5
+    nav(aria-label='breadcrumb').mb-3.pt-md-3
+      ol.breadcrumb
+        li.breadcrumb-item
+          a(href='real-estate-home-v1.html') Home
+        li(aria-current='page').breadcrumb-item.active
+          | Contact us
+
+
+  // Hero
+  section.container.mb-5.pb-2.pb-md-4.pb-lg-5
+    .row.align-items-md-start.align-items-center.gy-4
+      .col-lg-5.col-md-6
+        div(style='max-width: 416px;').mx-md-0.mx-auto.mb-md-5.mb-4.pb-md-4.text-md-start.text-center
+          h1.mb-4
+            | Get in touch!
+          p.mb-0.fs-lg.text-muted
+            | Fill out the form and out team will try to get back to you within 24 hours.
+        img(src='img/real-estate/illustrations/contact.svg' alt='Illustration').d-block.mx-auto
+
+      .col-md-6.offset-lg-1
+        .card.border-0.bg-secondary.p-sm-3.p-2
+          .card-body.m-1
+            form(novalidate).needs-validation
+              .mb-4
+                label(for='c-name').form-label
+                  | Full Name
+                input(id='c-name' type='text' required).form-control.form-control-lg
+                .invalid-tooltip.mt-1
+                  | Please, enter your name
+              .mb-4
+                label(for='c-email').form-label
+                  | Your Email
+                input(id='c-email' type='email' required).form-control.form-control-lg
+                .invalid-tooltip.mt-1
+                  | Please, enter your email
+              .mb-4
+                label(for='c-message').form-label
+                  | Message
+                textarea(id='c-message' rows='4' placeholder='Leave your message' required).form-control.form-control-lg
+                .invalid-tooltip.mt-1
+                  | Please, type your message
+              .pt-sm-2.pt-1
+                button(type='submit').btn.btn-lg.btn-primary.w-sm-auto.w-100
+                  | Submit form
+
+
+  // Contact cards
+  section.container.mb-5.pb-2.pb-md-4.pb-lg-5
+    .row.g-4
+
+      // Item
+      .col-md-4
+        a(href='mailto:example@email.com').icon-box.card.card-hover.h-100
+          .card-body
+            .icon-box-media.text-primary.rounded-circle.shadow-sm.mb-3
+              i.fi-mail
+            span.d-block.mb-1.text-body
+              | Drop us a line
+            h3.h4.icon-box-title.mb-0.opacity-90
+              | example@email.com
+
+      // Item
+      .col-md-4
+        a(href='tel:4065550120').icon-box.card.card-hover.h-100
+          .card-body
+            .icon-box-media.text-primary.rounded-circle.shadow-sm.mb-3
+              i.fi-device-mobile
+            span.d-block.mb-1.text-body
+              | Call us any time
+            h3.h4.icon-box-title.mb-0.opacity-90
+              | (406) 555-0120
+
+      // Item
+      .col-md-4
+        a(href='#').icon-box.card.card-hover.h-100
+          .card-body
+            .icon-box-media.text-primary.rounded-circle.shadow-sm.mb-3
+              i.fi-instagram
+            span.d-block.mb-1.text-body
+              | Follow us
+            h3.h4.icon-box-title.mb-0.opacity-90
+              | @finder_directory
+
+
+//- Footer
+block footer
+  include partials/footer-real-estate

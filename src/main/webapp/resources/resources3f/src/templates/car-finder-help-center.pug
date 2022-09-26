@@ -1,0 +1,176 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var parentMenu = 'Pages'
+  - var pageTitle = 'Car Finder | Help Center'
+  - var bodyClass = 'bg-dark'
+
+//- Navbar
+block navbar
+  include partials/navbar-car-finder
+
+//- Page Content
+block content
+
+  // Hero search
+  section.position-relative.mb-5.pt-5.pb-lg-5
+
+    // Overlay bg
+    span(style='background: linear-gradient(26.21deg, rgba(93, 60, 242, 0.15) 0%, rgba(253, 86, 49, 0.15) 108.88%);').d-block.position-absolute.top-0.left-0.w-100.h-100.zindex-1
+
+    // Overlay content
+    .container.position-relative.zindex-5.py-5
+
+      // Breadcrumb
+      nav(aria-label='Breadcrumb').mb-3.pt-md-3
+        ol.breadcrumb.breadcrumb-light
+          li.breadcrumb-item
+            a(href='car-finder-home.html') Home
+          li(aria-current='page').breadcrumb-item.active
+            | Help center
+
+      .col-lg-8.col-md-10.mx-auto.px-0.pt-2
+
+        h1.mb-4.pb-2.text-center.text-light
+          | Hello, what can we do for you?
+
+        // Search form
+        form.form-group.form-group-light.mb-4
+          input(type='text' placeholder='What are you looking for?').form-control.form-control-lg
+          button(type='submit').btn.btn-lg.btn-primary.px-sm-4.px-3
+            i.fi-search.me-sm-2
+            span.d-sm-inline.d-none Search
+
+        .d-flex.flex-md-row.flex-column.align-items-md-center.justify-content-md-center
+          .pb-3.mb-2.me-2.flex-shrink-0.fw-bold.text-light.opacity-70
+            | Popular sections:
+          .text-nowrap.overflow-auto.pb-3
+            div
+              a(href='#').btn.btn-xs.btn-translucent-light.fw-normal.mb-2.me-2
+                | General inquiries
+              a(href='#').btn.btn-xs.btn-translucent-light.fw-normal.mb-2.me-2
+                | Warranties &amp; more
+              a(href='#').btn.btn-xs.btn-translucent-light.fw-normal.mb-2.me-2
+                | Account questions
+              a(href='#').btn.btn-xs.btn-translucent-light.fw-normal.mb-2.me-2
+                | Payment &amp; Documentation
+
+
+  // FAQ
+  section.container.mb-5.pt-1.pb-2.py-lg-5
+    .row.justify-content-center
+      .col-lg-8.col-md-10
+        h2.h3.mb-4.pb-3.text-light.text-center
+          | Frequently Asked Questions
+
+        // Nav tabs
+        .overflow-auto.mx-n2
+          ul(class='nav nav-tabs nav-tabs-light nav-fill flex-nowrap mb-md-4 mb-3 text-nowrap' role='tablist')
+            li.nav-item.w-100.px-2
+              a(href='#' class='nav-link active')
+                | General questions
+            li.nav-item.w-100.px-2
+              a(href='#' class='nav-link')
+                | Buy or rent cars
+            li.nav-item.w-100.px-2
+              a(href='#' class='nav-link')
+                | Sell cars
+
+        // Tabs content
+        .pt-3
+          .accordion.accordion-light#accordionFAQ
+
+            // Accordion item
+            .accordion-item
+              h2.accordion-header#heading-1
+                button(type='button' data-bs-toggle='collapse' data-bs-target='#collapse-1' aria-expanded='true' aria-controls='collapse-1').accordion-button
+                  | How much does it cost to sell a car on Finder?
+              div(aria-labelledby='heading-1' data-bs-parent='#accordionFAQ').accordion-collapse.collapse.show#collapse-1
+                .accordion-body.fs-sm.text-light.opacity-70
+                  | Aut dolores nemo rem commodi neque voluptatem molestiae cupiditate unde consequatur impedit, enim rerum eum ipsam. Eligendi, blanditiis ad? Laboriosam, distinctio nemo, culpa suscipit tenetur at est quis commodi similique impedit illum non dignissimos et cum aut, asperiores fugiat unde. Possimus autem iusto fugit ipsa natus, fugiat libero. Nemo sed nisi error.
+
+            // Accordion item
+            .accordion-item
+              h2.accordion-header#heading-2
+                button(type='button' data-bs-toggle='collapse' data-bs-target='#collapse-2' aria-expanded='false' aria-controls='collapse-2').accordion-button.collapsed
+                  | How do I take the best pictures of my car?
+              div(aria-labelledby='heading-2' data-bs-parent='#accordionFAQ').accordion-collapse.collapse#collapse-2
+                .accordion-body.fs-sm.text-light.opacity-70
+                  | Porta mi integer lectus cras augue amet tellus. Mus in justo orci est urna facilisis vitae. Sem sagittis potenti scelerisque justo, etiam pharetra. In augue egestas nec rhoncus. Lectus tincidunt phasellus eu in erat eget id egestas nec. Purus massa blandit nibh ut sed tellus. Sit cras aliquam velit tellus leo. Sed vulputate erat dui eros, viverra. Cursus et nulla turpis sit. Egestas at non elementum non. Molestie nunc, diam etiam diam. Ac et turpis vestibulum porta.
+
+            // Accordion item
+            .accordion-item
+              h2.accordion-header#heading-3
+                button(type='button' data-bs-toggle='collapse' data-bs-target='#collapse-3' aria-expanded='false' aria-controls='collapse-3').accordion-button.collapsed
+                  | Can I sell a vehicle if I live outside of the United States?
+              div(aria-labelledby='heading-3' data-bs-parent='#accordionFAQ').accordion-collapse.collapse#collapse-3
+                .accordion-body.fs-sm.text-light.opacity-70
+                  | Delectus perferendis libero ad sapiente unde cupiditate vero error autem ex sed culpa beatae vel, alias amet quam officiis repudiandae ab nobis! Animi ullam obcaecati praesentium at officia quos doloremque nihil aperiam debitis quasi placeat atque, amet laborum illo voluptates autem totam in mollitia! At, autem, ipsum quam minima doloribus distinctio aspernatur id et, cum reiciendis iste officia. Architecto tempore deserunt voluptates?
+
+            // Accordion item
+            .accordion-item
+              h2.accordion-header#heading-4
+                button(type='button' data-bs-toggle='collapse' data-bs-target='#collapse-4' aria-expanded='false' aria-controls='collapse-4').accordion-button.collapsed
+                  | How does the buyer get in contact with me and make payment?
+              div(aria-labelledby='heading-4' data-bs-parent='#accordionFAQ').accordion-collapse.collapse#collapse-4
+                .accordion-body.fs-sm.text-light.opacity-70
+                  | Impedit iusto cum vitae pariatur. Veritatis totam neque, libero non odio doloremque sequi ut, delectus optio cumque rerum illum? Libero corrupti neque magnam aliquam tempora debitis at voluptate alias, facilis ipsa dignissimos repellendus quaerat soluta dolorem ad ipsam nemo quisquam voluptatum quibusdam dolorum. Labore qui saepe ducimus iure fuga accusamus, commodi quod ex sed excepturi corrupti! Ducimus natus repellendus placeat mollitia harum nostrum similique earum qui ratione?
+
+            // Accordion item
+            .accordion-item
+              h2.accordion-header#heading-5
+                button(type='button' data-bs-toggle='collapse' data-bs-target='#collapse-5' aria-expanded='false' aria-controls='collapse-5').accordion-button.collapsed
+                  | Who writes the listing description for my car?
+              div(aria-labelledby='heading-5' data-bs-parent='#accordionFAQ').accordion-collapse.collapse#collapse-5
+                .accordion-body.fs-sm.text-light.opacity-70
+                  | Facere unde eveniet explicabo quidem, quaerat, nesciunt, minus in vel incidunt natus qui recusandae neque laudantium est vitae ipsam? Dolores natus nesciunt culpa accusantium tempora, recusandae, debitis, labore maxime a optio similique rem nam fuga vel doloremque suscipit repellendus veritatis necessitatibus. Architecto sit qui dolorum nihil ea!
+
+            // Accordion item
+            .accordion-item
+              h2.accordion-header#heading-6
+                button(type='button' data-bs-toggle='collapse' data-bs-target='#collapse-6' aria-expanded='false' aria-controls='collapse-6').accordion-button.collapsed
+                  | Are there rules to follow in the comments?
+              div(aria-labelledby='heading-6' data-bs-parent='#accordionFAQ').accordion-collapse.collapse#collapse-6
+                .accordion-body.fs-sm.text-light.opacity-70
+                  | Perspiciatis iste atque in quis recusandae libero maxime, quo sed itaque, totam quaerat earum dolorum accusantium? Optio quidem aliquam corporis, nesciunt nobis incidunt numquam commodi debitis cumque quisquam eum veniam quae eaque voluptates totam culpa aperiam sapiente minima sint sit facere dolorum excepturi ab odit? Adipisci exercitationem distinctio dolores obcaecati eligendi explicabo, ipsa dicta, tempore, enim molestias excepturi nihil vel! Quas, culpa.
+
+            // Accordion item
+            .accordion-item
+              h2.accordion-header#heading-7
+                button(type='button' data-bs-toggle='collapse' data-bs-target='#collapse-7' aria-expanded='false' aria-controls='collapse-7').accordion-button.collapsed
+                  | What currency does Finder use?
+              div(aria-labelledby='heading-7' data-bs-parent='#accordionFAQ').accordion-collapse.collapse#collapse-7
+                .accordion-body.fs-sm.text-light.opacity-70
+                  | Dolores assumenda dolorem saepe, consequatur praesentium alias numquam accusantium explicabo distinctio omnis voluptatum eum enim aspernatur vel, minus optio dolore ratione quasi sunt. Ab distinctio laborum dolore explicabo hic omnis iste quibusdam minus mollitia ad voluptate suscipit accusantium, laudantium sapiente? Aperiam est minus veniam explicabo repellendus id velit sit adipisci quam in!
+
+            // Accordion item
+            .accordion-item
+              h2.accordion-header#heading-8
+                button(type='button' data-bs-toggle='collapse' data-bs-target='#collapse-8' aria-expanded='false' aria-controls='collapse-8').accordion-button.collapsed
+                  | How do I contact a seller privately?
+              div(aria-labelledby='heading-8' data-bs-parent='#accordionFAQ').accordion-collapse.collapse#collapse-8
+                .accordion-body.fs-sm.text-light.opacity-80
+                  | Exercitationem vel perferendis temporibus corrupti laudantium sapiente. Nihil doloremque, tempora possimus cum aut cupiditate blanditiis, voluptates amet exercitationem officia nam animi distinctio sapiente iste ratione neque aspernatur? Voluptatum, nostrum maiores perspiciatis dolore consequatur minus voluptatem, numquam sunt voluptate esse fugiat illum culpa praesentium. Hic dicta quam id.
+
+
+  // Contact Us
+  section.position-relative.py-5
+
+    // Overlay bg
+    span(style='background: linear-gradient(26.21deg, rgba(93, 60, 242, 0.15) 0%, rgba(253, 86, 49, 0.15) 108.88%);').d-block.position-absolute.top-0.left-0.w-100.h-100.zindex-1
+
+    // Overlay content
+    .container.position-relative.zindex-5.py-lg-5
+      .col-lg-8.col-md-10.mx-auto.px-0.text-center
+        h2.text-light
+          | Haven't found the answer? We can help.
+        p.mb-4.pb-3.text-light.opacity-70
+          | Contact us and we’ll get back to you as soon as possible.
+        a(href='car-finder-contacts.html').btn.btn-lg.btn-primary
+          | Contact us
+
+
+//- Footer
+block footer
+  include partials/footer-car-finder

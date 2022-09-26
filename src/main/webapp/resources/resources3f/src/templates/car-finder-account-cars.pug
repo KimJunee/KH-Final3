@@ -1,0 +1,230 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['tiny-slider/dist/tiny-slider.css']
+  - var vendorScripts = ['tiny-slider/dist/min/tiny-slider.js']
+  - var parentMenu = 'Account'
+  - var pageTitle = 'Car Finder | Account My Cars'
+  - var bodyClass = 'bg-dark'
+
+//- Navbar
+block navbar
+  include partials/navbar-car-finder
+
+//- Page Content
+block content
+  .container.pt-5.pb-lg-4.mt-5.mb-sm-2
+
+    // Breadcrumb
+    nav(aria-label='Breadcrumb').mb-4.pt-md-3
+      ol.breadcrumb.breadcrumb-light
+        li.breadcrumb-item
+          a(href='car-finder-home.html') Home
+        li.breadcrumb-item
+          a(href='car-finder-account-info.html') Account
+        li(aria-current='page').breadcrumb-item.active
+          | My Cars
+    
+
+    // Page content
+    .row
+
+      // Sidebar
+      aside.col-lg-4.col-md-5.pe-xl-4.mb-5
+        include partials/sidebar-account-car-finder
+
+      // Content
+      .col-lg-8.col-md-7.mb-5
+        .d-flex.align-items-center.justify-content-between.mb-3
+          h1.h2.text-light.mb-0 My Cars
+          a(href='#').nav-link-light.fw-bold
+            i.fi-trash.mt-n1.me-2
+            | Delete all
+        p.text-light.pt-1.mb-4 Here you can see your car offers and edit them easily.
+
+        // Nav tabs
+        ul(role='tablist').nav.nav-tabs.nav-tabs-light.border-bottom.border-light.mb-4
+          li.nav-item.mb-3
+            a(href='#' role='tab' aria-selected='true').nav-link.active
+              i.fi-file.fs-base.me-2
+              | Published
+          li.nav-item.mb-3
+            a(href='#' role='tab' aria-selected='false').nav-link
+              i.fi-file-clean.fs-base.me-2
+              | Drafts
+          li.nav-item.mb-3
+            a(href='#' role='tab' aria-selected='false').nav-link
+              i.fi-archive.fs-base.me-2
+              | Archived
+        
+        // Item
+        .card.card-light.card-hover.card-horizontal.mb-4
+          .tns-carousel-wrapper.card-img-top.card-img-hover
+            a(href='car-finder-single.html').img-overlay
+            .position-absolute.start-0.top-0.pt-3.ps-3
+              span.d-table.badge.bg-info Used
+            .content-overlay.end-0.top-0.pt-3.pe-3
+              button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                i.fi-heart
+            .tns-carousel-inner.position-absolute.top-0.h-100
+              .bg-size-cover.bg-position-center.w-100.h-100(style='background-image: url(img/car-finder/catalog/14.jpg);')
+              .bg-size-cover.bg-position-center.w-100.h-100(style='background-image: url(img/car-finder/catalog/14.jpg);')
+          .card-body.position-relative
+            .dropdown.position-absolute.zindex-5.top-0.end-0.mt-3.me-3
+              button(type='button' id='contextMenu1' data-bs-toggle='dropdown' aria-expanded='false').btn.btn-icon.btn-translucent-light.btn-xs.rounded-circle
+                i.fi-dots-vertical
+              ul(aria-labelledby='contextMenu1').dropdown-menu.dropdown-menu-dark.my-1
+                li
+                  button(type='button').dropdown-item
+                    i.fi-edit.me-2
+                    | Edit
+                li
+                  button(type='button').dropdown-item
+                    i.fi-flame.me-2
+                    | Promote
+                li
+                  button(type='button').dropdown-item
+                    i.fi-power.me-2
+                    | Deactivate
+                li
+                  button(type='button').dropdown-item
+                    i.fi-trash.me-2
+                    | Delete
+            .fs-sm.text-light.pb-1 2017
+            h3.h6.mb-1
+              a(href='car-finder-single.html').nav-link-light Toyota GT86
+            .text-primary.fw-bold.mb-1 $16,000
+            .fs-sm.text-light.opacity-70
+              i.fi-map-pin.me-1
+              | Chicago
+            .border-top.border-light.mt-3.pt-3
+              .row.g-2
+                .col.me-sm-1
+                  .bg-dark.rounded.text-center.w-100.h-100.p-2
+                    i.fi-dashboard.d-block.h4.text-light.mb-0.mx-center
+                    span.fs-xs.text-light 32K mi
+                .col.me-sm-1
+                  .bg-dark.rounded.text-center.w-100.h-100.p-2
+                    i.fi-gearbox.d-block.h4.text-light.mb-0.mx-center
+                    span.fs-xs.text-light Manual
+                .col
+                  .bg-dark.rounded.text-center.w-100.h-100.p-2
+                    i.fi-petrol.d-block.h4.text-light.mb-0.mx-center
+                    span.fs-xs.text-light Gasoline
+        
+        // Item
+        .card.card-light.card-hover.card-horizontal.mb-4
+          .tns-carousel-wrapper.card-img-top.card-img-hover
+            a(href='car-finder-single.html').img-overlay
+            .position-absolute.start-0.top-0.pt-3.ps-3
+              span.d-table.badge.bg-info.mb-1 Used
+              span(data-bs-toggle='popover' data-bs-placement='bottom' data-bs-trigger='hover' data-bs-html='true' data-bs-content='<div class="d-flex"><i class="fi-award mt-1 me-2"></i><div>This car is checked and<br>certified by Finder.</div></div>').d-table.badge.bg-success.mb-1 Certified
+            .content-overlay.end-0.top-0.pt-3.pe-3
+              button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                i.fi-heart
+            .tns-carousel-inner.position-absolute.top-0.h-100
+              .bg-size-cover.bg-position-center.w-100.h-100(style='background-image: url(img/car-finder/catalog/15.jpg);')
+              .bg-size-cover.bg-position-center.w-100.h-100(style='background-image: url(img/car-finder/catalog/15.jpg);')
+          .card-body.position-relative
+            .dropdown.position-absolute.zindex-5.top-0.end-0.mt-3.me-3
+              button(type='button' id='contextMenu2' data-bs-toggle='dropdown' aria-expanded='false').btn.btn-icon.btn-translucent-light.btn-xs.rounded-circle
+                i.fi-dots-vertical
+              ul(aria-labelledby='contextMenu2').dropdown-menu.dropdown-menu-dark.my-1
+                li
+                  button(type='button').dropdown-item
+                    i.fi-edit.me-2
+                    | Edit
+                li
+                  button(type='button').dropdown-item
+                    i.fi-flame.me-2
+                    | Promote
+                li
+                  button(type='button').dropdown-item
+                    i.fi-power.me-2
+                    | Deactivate
+                li
+                  button(type='button').dropdown-item
+                    i.fi-trash.me-2
+                    | Delete
+            .fs-sm.text-light.pb-1 2019
+            h3.h6.mb-1
+              a(href='car-finder-single.html').nav-link-light Volkswagen GTI S 
+            .text-primary.fw-bold.mb-1 $20,000
+            .fs-sm.text-light.opacity-70
+              i.fi-map-pin.me-1
+              | San Francisco
+            .border-top.border-light.mt-3.pt-3
+              .row.g-2
+                .col.me-sm-1
+                  .bg-dark.rounded.text-center.w-100.h-100.p-2
+                    i.fi-dashboard.d-block.h4.text-light.mb-0.mx-center
+                    span.fs-xs.text-light 25K mi
+                .col.me-sm-1
+                  .bg-dark.rounded.text-center.w-100.h-100.p-2
+                    i.fi-gearbox.d-block.h4.text-light.mb-0.mx-center
+                    span.fs-xs.text-light Automatic
+                .col
+                  .bg-dark.rounded.text-center.w-100.h-100.p-2
+                    i.fi-petrol.d-block.h4.text-light.mb-0.mx-center
+                    span.fs-xs.text-light Hybrid
+        
+        // Item
+        .card.card-light.card-hover.card-horizontal
+          .tns-carousel-wrapper.card-img-top.card-img-hover
+            a(href='car-finder-single.html').img-overlay
+            .position-absolute.start-0.top-0.pt-3.ps-3
+              span.d-table.badge.bg-info Used
+            .content-overlay.end-0.top-0.pt-3.pe-3
+              button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                i.fi-heart
+            .tns-carousel-inner.position-absolute.top-0.h-100
+              .bg-size-cover.bg-position-center.w-100.h-100(style='background-image: url(img/car-finder/catalog/16.jpg);')
+              .bg-size-cover.bg-position-center.w-100.h-100(style='background-image: url(img/car-finder/catalog/16.jpg);')
+          .card-body.position-relative
+            .dropdown.position-absolute.zindex-5.top-0.end-0.mt-3.me-3
+              button(type='button' id='contextMenu3' data-bs-toggle='dropdown' aria-expanded='false').btn.btn-icon.btn-translucent-light.btn-xs.rounded-circle
+                i.fi-dots-vertical
+              ul(aria-labelledby='contextMenu3').dropdown-menu.dropdown-menu-dark.my-1
+                li
+                  button(type='button').dropdown-item
+                    i.fi-edit.me-2
+                    | Edit
+                li
+                  button(type='button').dropdown-item
+                    i.fi-flame.me-2
+                    | Promote
+                li
+                  button(type='button').dropdown-item
+                    i.fi-power.me-2
+                    | Deactivate
+                li
+                  button(type='button').dropdown-item
+                    i.fi-trash.me-2
+                    | Delete
+            .fs-sm.text-light.pb-1 2017
+            h3.h6.mb-1
+              a(href='car-finder-single.html').nav-link-light Ford Explorer XLT 
+            .text-primary.fw-bold.mb-1 $26,950
+            .fs-sm.text-light.opacity-70
+              i.fi-map-pin.me-1
+              | Kansas
+            .border-top.border-light.mt-3.pt-3
+              .row.g-2
+                .col.me-sm-1
+                  .bg-dark.rounded.text-center.w-100.h-100.p-2
+                    i.fi-dashboard.d-block.h4.text-light.mb-0.mx-center
+                    span.fs-xs.text-light 47K mi
+                .col.me-sm-1
+                  .bg-dark.rounded.text-center.w-100.h-100.p-2
+                    i.fi-gearbox.d-block.h4.text-light.mb-0.mx-center
+                    span.fs-xs.text-light Manual
+                .col
+                  .bg-dark.rounded.text-center.w-100.h-100.p-2
+                    i.fi-petrol.d-block.h4.text-light.mb-0.mx-center
+                    span.fs-xs.text-light Diesel
+
+
+//- Footer
+block footer
+  include partials/footer-car-finder

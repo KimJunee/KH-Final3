@@ -1,0 +1,107 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['leaflet/dist/leaflet.css']
+  - var vendorScripts = ['leaflet/dist/leaflet.js']
+  - var parentMenu = 'Pages'
+  - var pageTitle = 'Car Finder | Contact Us'
+  - var bodyClass = 'bg-dark'
+
+//- Navbar
+block navbar
+  include partials/navbar-car-finder
+
+//- Page Content
+block content
+
+  // Page content
+  section.container.my-5.pt-5.pb-lg-5
+
+    // Breadcrumb
+    nav(aria-label='Breadcrumb').mb-4.pt-md-3
+      ol.breadcrumb.breadcrumb-light
+        li.breadcrumb-item
+          a(href='car-finder-home.html') Home
+        li(aria-current='page').breadcrumb-item.active
+          | Contact us
+
+    .row.gy-4
+      .col-lg-4.col-md-6
+        .mb-md-5.mb-4.pb-md-4
+          h1.mb-md-4.text-light
+            | Contact us
+          p.mb-0.fs-lg.text-light.opacity-70
+            | Fill out the form and out team will try to get back to you within 24 hours.
+
+        .d-flex.align-items-start.mb-4.pb-md-3
+          img(src='img/car-finder/icons/envelope.svg' width='32' alt='Envelope icon').me-3.flex-shrink-0
+          div
+            h3.h6.mb-2.pb-1.text-light
+              | General communication
+            p.mb-0.text-light
+              span.opacity-70
+                | For general queries, including partnership opportunities, please email
+              a(href='mailto:example@email.com').ms-1.text-nowrap
+                | example@email.com
+
+        .d-flex.align-items-start.mb-4.pb-md-3
+          img(src='img/car-finder/icons/chat.svg' width='32' alt='Chat icon').me-3.flex-shrink-0
+          div
+            h3.h6.mb-2.pb-1.text-light
+              | General communication
+            p.mb-0.text-light
+              span.opacity-70
+                | We’re here to help! If you have technical issues
+              a(href='car-finder-help-center.html').ms-1.text-nowrap
+                | contact support
+
+        .d-flex.align-items-start.mb-4.pb-md-3
+          img(src='img/car-finder/icons/map-pin.svg' width='32' alt='Map pin icon').me-3.flex-shrink-0
+          div
+            h3.h6.mb-2.pb-1.text-light
+              | Our headquarters
+            p.mb-0.text-light
+              span.opacity-70
+                | 8502 Preston Rd. Inglewood, Maine 98380
+              a(href='#map-location' data-scroll).ms-1.text-nowrap
+                | get directions
+
+
+      .col-md-6.offset-lg-2
+
+        // Contact form
+        form(novalidate).needs-validation
+          .mb-4
+            label(for='c-name').form-label.text-light Full Name
+            input(id='c-name' type='text' required).form-control.form-control-lg.form-control-light
+            .invalid-feedback Please, enter your name
+          .mb-4
+            label(for='c-email').form-label.text-light Your Email
+            input(id='c-email' type='email' required).form-control.form-control-lg.form-control-light
+            .invalid-feedback Please, enter your email
+          .mb-4
+            label(for='c-subject').form-label.text-light Subject
+            select(id='c-subject' required).form-select.form-select-lg.form-select-light
+              option(value='' selected disabled) Choose subject
+              option(value='Subject 1') Subject 1
+              option(value='Subject 2') Subject 2
+              option(value='Subject 3') Subject 3
+            .invalid-feedback Please, choose subject
+          .mb-4
+            label(for='c-message').form-label.text-light Message
+            textarea(id='c-message' rows='4' placeholder='Leave your message' required).form-control.form-control-lg.form-control-light
+            .invalid-feedback Please, leave your message
+          .pt-2
+            button(type='submit').btn.btn-lg.btn-primary.w-sm-auto.w-100
+              | Submit form
+
+
+  // Map location
+  section#map-location.container.mb-5.pb-lg-5
+    .interactive-map(data-map-options='{"mapLayer": "https://api.maptiler.com/maps/pastel/{z}/{x}/{y}.png?key=5vRQzd34MMsINEyeKPIs", "coordinates": [51.5074, -0.1278], "zoom": 10, "markers": [{"coordinates": [51.5074, -0.1278], "popup": "<div class=\'p-3\'><h6>Hi, I\'m in London</h6><p class=\'fs-sm pt-1 mt-n3 mb-0\'>Lorem ipsum dolor sit amet elit.</p></div>"}]}', style="height: 500px;").rounded-3
+
+
+//- Footer
+block footer
+  include partials/footer-car-finder

@@ -1,0 +1,101 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/img-comparison-slider/dist/styles.css', 'vendor/simplebar/dist/simplebar.min.css', 'vendor/prismjs/themes/prism.css', 'vendor/prismjs/plugins/toolbar/prism-toolbar.css', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var scripts = ['vendor/img-comparison-slider/dist/index.js', 'vendor/simplebar/dist/simplebar.min.js', 'vendor/prismjs/components/prism-core.min.js', 'vendor/prismjs/components/prism-markup.min.js', 'vendor/prismjs/components/prism-clike.min.js', 'vendor/prismjs/components/prism-javascript.min.js', 'vendor/prismjs/components/prism-pug.min.js', 'vendor/prismjs/plugins/toolbar/prism-toolbar.min.js', 'vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Image comparison slider'
+  - var pageSubtitle = 'JavaScript based slider component that can be used to demonstrate the difference between two images.'
+  - var isPageTitleBadge = true
+    
+//- Page Content
+block content
+
+  // Info alert
+  .alert.alert-info.d-flex.mb-4(role='alert')
+    i.ai-circle-info.lead.me-2.me-sm-3
+    .text-break
+      p.mb-3 Image comparison slider relies on 3rd party plugin. Make sure to link to <span class='fw-semibold'>plugin css and js</span> files in your document: <span class='fw-semibold'>assets/vendor/img-comparison-slider/dist/styles.css</span> and <span class='fw-semibold'>assets/vendor/img-comparison-slider/dist/index.js</span>.
+      p.mb-1 Use this page as a reference.
+
+  // Example
+  section.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Example
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview1' data-bs-toggle='tab' role='tab' aria-controls='preview1' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview1.tab-pane.fade.show.active(role='tabpanel')
+          .overflow-hidden.rounded-4
+            img-comparison-slider.m-n1
+              figure(slot='first')
+                img(src='../assets/img/landing/coworking-space/parallax-image.jpg' alt='Image before')
+                figcaption.badge.position-absolute.top-50.start-0.translate-middle-y.bg-light.rounded.text-dark.fs-sm.fw-semibold.lh-1.px-3.py-2.ms-3.ms-sm-4 Before
+              figure(slot='second')
+                img(src='../assets/img/landing/coworking-space/parallax-image-grayscale.jpg' alt='Image after')
+                figcaption.badge.position-absolute.top-50.end-0.translate-middle-y.bg-light.rounded.text-dark.fs-sm.fw-semibold.lh-1.px-3.py-2.me-3.me-sm-4 After
+              div(slot='handle' style='width: 42px;')
+                svg(width='42' height='42' viewBox='0 0 42 42' xmlns='http://www.w3.org/2000/svg').text-primary.rounded-circle
+                  g: circle(fill='currentColor' cx='21' cy='21' r='21')
+                  path(fill='white' d='M25.5019 19.7494H15.9147V15.9146L11.1211 20.7081L15.9147 25.5017V21.6669H25.5019V25.5017L30.2955 20.7081L25.5019 15.9146V19.7494Z')
+        #html1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Image comparison slider example --&gt;
+              &lt;div class=&quot;overflow-hidden rounded-4&quot;&gt;
+                &lt;img-comparison-slider class=&quot;m-n1&quot;&gt;
+                  &lt;figure slot=&quot;first&quot;&gt;
+                    &lt;img src=&quot;assets/img/landing/coworking-space/parallax-image.jpg&quot; alt=&quot;Image before&quot;&gt;
+                    &lt;figcaption class=&quot;badge position-absolute top-50 start-0 translate-middle-y bg-light rounded text-dark fs-sm fw-semibold lh-1 px-3 py-2 ms-3 ms-sm-4&quot;&gt;
+                      Before
+                    &lt;/figcaption&gt;
+                  &lt;/figure&gt;
+                  &lt;figure slot=&quot;second&quot;&gt;
+                    &lt;img src=&quot;assets/img/landing/coworking-space/parallax-image-grayscale.jpg&quot; alt=&quot;Image after&quot;&gt;
+                    &lt;figcaption class=&quot;badge position-absolute top-50 end-0 translate-middle-y bg-light rounded text-dark fs-sm fw-semibold lh-1 px-3 py-2 me-3 me-sm-4&quot;&gt;
+                      After
+                    &lt;/figcaption&gt;
+                  &lt;/figure&gt;
+                  &lt;div slot=&quot;handle&quot; style=&quot;width: 42px;&quot;&gt;
+                    &lt;svg class=&quot;text-primary rounded-circle&quot; width=&quot;42&quot; height=&quot;42&quot; viewBox=&quot;0 0 42 42&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
+                      &lt;g&gt;
+                        &lt;circle fill=&quot;currentColor&quot; cx=&quot;21&quot; cy=&quot;21&quot; r=&quot;21&quot;/&gt;
+                      &lt;/g&gt;
+                      &lt;path fill=&quot;white&quot; d=&quot;M25.5019 19.7494H15.9147V15.9146L11.1211 20.7081L15.9147 25.5017V21.6669H25.5019V25.5017L30.2955 20.7081L25.5019 15.9146V19.7494Z&quot;/&gt;
+                    &lt;/svg&gt;
+                  &lt;/div&gt;
+                &lt;/img-comparison-slider&gt;
+              &lt;/div&gt;
+        #pug1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Image comparison slider example
+              .overflow-hidden.rounded-4
+                img-comparison-slider.m-n1
+                  figure(slot=&quot;first&quot;)
+                    img(src=&quot;assets/img/landing/coworking-space/parallax-image.jpg&quot;, alt=&quot;Image before&quot;)
+                    figcaption.badge.position-absolute.top-50.start-0.translate-middle-y.bg-light.rounded.text-dark.fs-sm.fw-semibold.lh-1.px-3.py-2.ms-3.ms-sm-4
+                      | Before
+                  figure(slot=&quot;second&quot;)
+                    img(src=&quot;assets/img/landing/coworking-space/parallax-image-grayscale.jpg&quot;, alt=&quot;Image after&quot;)
+                    figcaption.badge.position-absolute.top-50.end-0.translate-middle-y.bg-light.rounded.text-dark.fs-sm.fw-semibold.lh-1.px-3.py-2.me-3.me-sm-4
+                      | After
+                  div(slot=&quot;handle&quot;, style=&quot;width: 42px;&quot;)
+                    svg(width=&quot;42&quot;, height=&quot;42&quot;, viewBox=&quot;0 0 42 42&quot;, xmlns=&quot;http://www.w3.org/2000/svg&quot;).text-primary.rounded-circle
+                      g: circle(fill=&quot;currentColor&quot;, cx=&quot;21&quot;, cy=&quot;21&quot;, r=&quot;21&quot;)
+                      path(fill=&quot;white&quot; d=&quot;M25.5019 19.7494H15.9147V15.9146L11.1211 20.7081L15.9147 25.5017V21.6669H25.5019V25.5017L30.2955 20.7081L25.5019 15.9146V19.7494Z&quot;)

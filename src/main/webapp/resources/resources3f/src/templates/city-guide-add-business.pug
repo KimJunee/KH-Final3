@@ -1,0 +1,684 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['leaflet/dist/leaflet.css', 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css', 'filepond/dist/filepond.min.css']
+  - var vendorScripts = ['leaflet/dist/leaflet.js', 'filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.min.js', 'filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.min.js', 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.js', 'filepond-plugin-image-crop/dist/filepond-plugin-image-crop.min.js', 'filepond-plugin-image-resize/dist/filepond-plugin-image-resize.min.js', 'filepond-plugin-image-transform/dist/filepond-plugin-image-transform.min.js', 'filepond/dist/filepond.min.js', 'cleave.js/dist/cleave.min.js']
+  - var parentMenu = 'Vendor'
+  - var pageTitle = 'City Guide | Add Business'
+  - var bodyClass = 'bg-secondary'
+
+//- Navbar
+block navbar
+  include partials/navbar-city-guide
+
+//- Page Content
+block content
+
+  // Preview modal
+  #preview-modal.modal.fade(tabindex='-1')
+    .modal-dialog.modal-fullscreen(role='document')
+      .modal-content
+        .modal-header.d-block.d-sm-flex
+          h3.h5.text-muted.fw-normal.modal-title.d-none.d-sm-block Business preview
+          .d-flex.align-items-center
+            a(href='city-guide-business-promotion.html').btn.btn-primary.btn-sm.me-4 Save and continue
+            span.fs-xs.text-muted.ms-auto.me-2 [ESC]
+            button(type='button' data-bs-dismiss='modal').btn-close.ms-0
+        .modal-body.p-0
+          .container.mt-2.mt-sm-0.py-4.py-sm-5
+            h1.h2.mb-2 Berlin Business Hotel
+            p.mb-4.fs-lg Ollenhauer Str. 29, 10118, Berlin
+            .overflow-auto.pb-3.px-2.mx-n2.mb-4(data-simplebar)
+              .row.g-2.g-md-3(style='min-width: 30rem;')
+                .col-8
+                  img(src='img/city-guide/single/01.jpg' alt='Gallery thumbnail').rounded.rounded-md-3
+                .col-4
+                  img(src='img/city-guide/single/02.jpg' alt='Gallery thumbnail').rounded.rounded-md-3.mb-2.mb-md-3
+                  img(src='img/city-guide/single/03.jpg' alt='Gallery thumbnail').rounded.rounded-md-3
+            .row
+              .col-md-7.mb-md-0.mb-4
+                span.badge.bg-success.me-2.mb-3 Verified
+                span.badge.bg-info.me-2.mb-3 New
+                h2.h3.mb-4.pb-4.border-bottom $50-100
+                  span.d-inline-block.ms-1.fs-base.fw-normal.text-body /night
+
+                // About
+                .mb-4.pb-md-3
+                  h3.h4 About
+                  p.mb-1 Lorem tincidunt lectus vitae id vulputate diam quam. Imperdiet non scelerisque turpis sed etiam ultrices. Blandit mollis dignissim egestas consectetur porttitor. Vulputate dolor pretium, dignissim eu augue sit ut convallis. Lectus est, magna urna feugiat sed ultricies sed in lacinia. Fusce potenti sit id pharetra vel ornare. Vestibulum sed tellus ullamcorper arcu.
+                  #seeMoreOverview.collapse
+                    p.mb-1 Asperiores eos molestias, aspernatur assumenda vel corporis ex, magni excepturi totam exercitationem quia inventore quod amet labore impedit quae distinctio? Officiis blanditiis consequatur alias, atque, sed est incidunt accusamus repudiandae tempora repellendus obcaecati delectus ducimus inventore tempore harum numquam autem eligendi culpa.
+                  a(href='#seeMoreOverview' data-bs-toggle='collapse' data-bs-label-collapsed='Show more' data-bs-label-expanded='Show less' role='button' aria-expanded='false' aria-controls='seeMoreOverview').collapse-label.collapsed
+
+                // Amenities
+                .mb-4.pb-md-3
+                  h2.h4 Amenities
+                  ul.list-unstyled.row.row-cols-lg-3.row-cols-md-2.row-cols-1.gy-1.mb-1.text-nowrap
+                    li.col
+                      i.fi-wifi.mt-n1.me-2.fs-lg.align-middle
+                      | Free WiFi
+                    li.col
+                      i.fi-swimming-pool.mt-n1.me-2.fs-lg.align-middle
+                      | 2 swimming pools
+                    li.col
+                      i.fi-pet.mt-n1.me-2.fs-lg.align-middle
+                      | Pets-friendly
+                    li.col
+                      i.fi-parking.mt-n1.me-2.fs-lg.align-middle
+                      | Free parking
+                    li.col
+                      i.fi-spa.mt-n1.me-2.fs-lg.align-middle
+                      | Spa lounge
+                    li.col
+                      i.fi-cafe.mt-n1.me-2.fs-lg.align-middle
+                      | Restaurant
+                    li.col
+                      i.fi-hotel-bell.mt-n1.me-2.fs-lg.align-middle
+                      | Room service
+                    li.col
+                      i.fi-cocktail.mt-n1.me-2.fs-lg.align-middle
+                      | Bar
+                    li.col
+                      i.fi-dumbell.mt-n1.me-2.fs-lg.align-middle
+                      | Fitness Center
+                  #seeMoreAmenities.collapse
+                    ul.list-unstyled.row.row-cols-lg-3.row-cols-md-2.row-cols-1.gy-1.mb-1.text-nowrap
+                      li.col
+                        i.fi-dish.mt-n1.me-2.fs-lg.align-middle
+                        | Dishwasher
+                      li.col
+                        i.fi-thermometer.mt-n1.me-2.fs-lg.align-middle
+                        | Heating
+                  a(href='#seeMoreAmenities' data-bs-toggle='collapse' data-bs-label-collapsed='Show more' data-bs-label-expanded='Show less' role='button' aria-expanded='false' aria-controls='seeMoreAmenities').collapse-label.collapsed
+
+                // Room types
+                .mb-4.pb-md-3
+                  h2.h4 Room types
+                  ul.list-unstyled.row.row-cols-lg-3.row-cols-md-2.row-cols-1.gy-1.mb-1.text-nowrap
+                    li.col
+                      i.fi-no-smoke.mt-n1.me-2.fs-lg.align-middle
+                      | Non-smoking rooms
+                    li.col
+                      i.fi-single-bed.mt-n1.me-2.fs-lg.align-middle
+                      | Single rooms
+                    li.col
+                      i.fi-double-bed.mt-n1.me-2.fs-lg.align-middle
+                      | Family suites
+
+                // Awards
+                .pb-md-3
+                  h2.h4 Awards
+                  ul.list-unstyled
+                    li.d-flex.align-items-center.mb-2
+                      img(src='img/city-guide/single/awards/01.jpg' width='40' alt='Award logo').flex-shrink-0.me-2
+                      div 2020 Traveler’s Choice
+                    li.d-flex.align-items-center.mb-2
+                      img(src='img/city-guide/single/awards/02.jpg' width='40' alt='Award logo').flex-shrink-0.me-2
+                      div TUI Top Quality 2020
+                    li.d-flex.align-items-center.mb-2
+                      img(src='img/city-guide/single/awards/03.jpg' width='40' alt='Award logo').flex-shrink-0.me-2
+                      div TUI Holly 2019
+
+              // Sidebar
+              aside.col-md-5
+
+                // Place card
+                article.card.mb-4.p-2.shadow-sm
+                  .card-body
+
+                    // Place info
+                    .d-flex.align-items-start.mb-3.pb-2.border-bottom
+                      img(src='img/city-guide/brands/hotel.svg' width='60' alt='Place thumbnail').rounded-circle
+                      .ps-2.ms-1
+                        h3.h5.mb-2 Berlin Business Hotel
+                        ul.list-unstyled.d-flex.flex-wrap.fs-sm
+                          li.me-2.mb-1.pe-1
+                            i.fi-star-filled.mt-n1.me-1.text-warning.align-middle.opacity-70
+                            b 4.9 
+                            | (48)
+                          li.me-2.mb-1.pe-1
+                            i.fi-wallet.mt-n1.me-1.align-middle.opacity-70
+                            | $$
+                          li.me-2.mb-1.pe-1
+                            i.fi-map-pin.mt-n1.me-1.align-middle.opacity-70
+                            | 1.4 km from center
+
+                    // Place contacts
+                    .mb-3.pb-3.border-bottom
+                      h4.h5.mb-2 Contacts:
+                      ul.nav.flex-column
+                        li.nav-item.mb-2
+                          a(href='#').nav-link.p-0.fw-normal.d-flex.align-items-start
+                            i.fi-map-pin.mt-1.me-2.align-middle.opacity-70
+                            | Ollenhauer Str. 29, 10118, Berlin
+                        li.nav-item.mb-2
+                          a(href='tel:3025550107').nav-link.d-inline-block.p-0.fw-normal.d-inline-flex.align-items-start
+                            i.fi-phone.mt-1.me-2.align-middle.opacity-70
+                            | (302) 555-0107
+                          | , 
+                          a(href='tel:3025550208').nav-link.d-inline-block.p-0.fw-normal
+                            | (302) 555-0208
+                        li.nav-item.mb-2
+                          a(href='#').nav-link.p-0.fw-normal.d-flex.align-items-start
+                            i.fi-globe.mt-1.me-2.align-middle.opacity-60
+                            | bb-hotel.com
+                        li.nav-item
+                          a(href='mailto:bb-hotel@example.com').nav-link.p-0.fw-normal.d-flex.align-items-start
+                            i.fi-mail.mt-1.me-2.align-middle.opacity-70
+                            | bb-hotel@example.com
+
+                    // Place pricing
+                    .mb-3.pb-4.border-bottom
+                      .row.row-cols-1
+                        .col.mb-3
+                          h4.h5.mb-0
+                            span.fs-4 $50-100&nbsp;
+                            span.fs-base.fw-normal.text-body /night
+                        .col
+                          button(type='button').btn.btn-primary.btn-lg.rounded-pill.w-sm-auto.w-100
+                            | Book now
+                            i.fi-chevron-right.fs-sm.ms-2
+
+                    // Follow
+                    .d-flex.align-items-center
+                      h4.h5.mb-0.me-3 Follow:
+                      .text-nowrap
+                        a(href='#').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.me-2
+                          i.fi-facebook
+                        a(href='#').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.me-2
+                          i.fi-instagram
+                        a(href='#').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle
+                          i.fi-twitter
+
+
+  // Page container
+  .container.mt-5.mb-md-4.py-5
+    .row
+
+      // Page content
+      .col-lg-8
+
+        // Breadcrumb
+        nav(aria-label='Breadcrumb').mb-3.pt-2.pt-lg-3
+          ol.breadcrumb
+            li.breadcrumb-item
+              a(href='city-guide-home-v1.html') Home
+            li(aria-current='page').breadcrumb-item.active
+              | Add business
+
+        // Title
+        .mb-4
+          h1.h2.mb-0 Add business
+          .d-lg-none.pt-3.mb-2 33% content filled
+          .progress.d-lg-none.mb-4(style='height: .25rem;')
+            .progress-bar.bg-warning(role='progressbar' style='width: 33%' aria-valuenow='33' aria-valuemin='0' aria-valuemax='100')
+
+        // Basic info
+        section#basic-info.card.card-body.border-0.shadow-sm.p-4.mb-4
+          h2.h4.mb-4
+            i.fi-info-circle.text-primary.fs-5.mt-n1.me-2
+            | Basic info
+          .mb-3
+            label(for='ab-title').form-label
+              | Official business name 
+              span.text-danger *
+            input(type='text' id='ab-title' value='Berlin Business Hotel' placeholder='Title for your business' required).form-control
+            span.form-text 48 characters left
+          .mb-3
+            label.form-label
+              | Category 
+              span.text-danger *
+            .btn-group.d-block.dropdown(data-bs-toggle='select')
+              button(type='button' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false').btn.btn-outline-secondary.col-md-6.col-12.d-flex.align-items-center.justify-content-between.ps-3.fw-normal.dropdown-toggle
+                span.dropdown-toggle-label Accommodation
+              input(type='hidden')
+              .dropdown-menu.w-100.my-1.p-3
+                .row.row-cols-md-5.row-cols-sm-3.row-cols-2.g-2
+                  .col: button(type='button').dropdown-item.btn.btn-outline-secondary.border-0.d-block.p-3.text-center
+                    i.fi-bed.mb-1.fs-2.text-primary
+                    span.dropdown-item-label.d-block.fs-sm
+                      | Accommodation
+                  .col: button(type='button').dropdown-item.btn.btn-outline-secondary.border-0.d-block.p-3.text-center
+                    i.fi-cafe.mb-1.fs-2.text-primary
+                    span.dropdown-item-label.d-block.fs-sm
+                      | Food &amp; Drink
+                  .col: button(type='button').dropdown-item.btn.btn-outline-secondary.border-0.d-block.p-3.text-center
+                    i.fi-shopping-bag.mb-1.fs-2.text-primary
+                    span.dropdown-item-label.d-block.fs-sm
+                      | Shopping
+                  .col: button(type='button').dropdown-item.btn.btn-outline-secondary.border-0.d-block.p-3.text-center
+                    i.fi-museum.mb-1.fs-2.text-primary
+                    span.dropdown-item-label.d-block.fs-sm
+                      | Art &amp; History
+                  .col: button(type='button').dropdown-item.btn.btn-outline-secondary.border-0.d-block.p-3.text-center
+                    i.fi-entertainment.mb-1.fs-2.text-primary
+                    span.dropdown-item-label.d-block.fs-sm
+                      | Entertainment
+                  .col: button(type='button').dropdown-item.btn.btn-outline-secondary.border-0.d-block.p-3.text-center
+                    i.fi-dumbell.mb-1.fs-2.text-primary
+                    span.dropdown-item-label.d-block.fs-sm
+                      | Fitness &amp; Sport
+                  .col: button(type='button').dropdown-item.btn.btn-outline-secondary.border-0.d-block.p-3.text-center
+                    i.fi-disco-ball.mb-1.fs-2.text-primary
+                    span.dropdown-item-label.d-block.fs-sm
+                      | Night Life
+                  .col: button(type='button').dropdown-item.btn.btn-outline-secondary.border-0.d-block.p-3.text-center
+                    i.fi-meds.mb-1.fs-2.text-primary
+                    span.dropdown-item-label.d-block.fs-sm
+                      | Medicine
+                  .col: button(type='button').dropdown-item.btn.btn-outline-secondary.border-0.d-block.p-3.text-center
+                    i.fi-makeup.mb-1.fs-2.text-primary
+                    span.dropdown-item-label.d-block.fs-sm
+                      | Beauty
+                  .col: button(type='button').dropdown-item.btn.btn-outline-secondary.border-0.d-block.p-3.text-center
+                    i.fi-car.mb-1.fs-2.text-primary
+                    span.dropdown-item-label.d-block.fs-sm
+                      | Car Rental
+          .col-md-6
+            label(for='ab-subcategory').form-label
+              | Subcategory 
+              span.text-danger *
+            select(id='ab-subcategory' required).form-select
+              option(value='' disabled) Choose property type
+              option(value='hotel') Hotel
+              option(value='hostel') Hostel
+              option(value='apartment') Apartment
+              option(value='house') House
+              option(value='commercial') Commercial
+
+
+        // Location
+        section#location.card.card-body.border-0.shadow-sm.p-4.mb-4
+          h2.h4.mb-4
+            i.fi-map-pin.text-primary.fs-5.mt-n1.me-2
+            | Location
+          .row
+            .col-sm-6.mb-3
+              label(for='ab-country').form-label
+                | Country / region 
+                span.text-danger *
+              select(id='ab-country' required).form-select
+                option(value='' disabled) Choose country
+                option(value='Germany' selected) Germany
+                option(value='Belgium') Belgium
+                option(value='Canada') Canada
+                option(value='United States') United States
+            .col-sm-6.mb-3
+              label(for='ab-city').form-label
+                | City 
+                span.text-danger *
+              select(id='ab-city' required).form-select
+                option(value='' disabled) Choose city
+                option(value='Berlin' selected) Berlin
+                option(value='Hamburg') Hamburg
+                option(value='Munich') Munich
+                option(value='Frankfurt am Main') Frankfurt am Main
+                option(value='Stuttgart') Stuttgart
+                option(value='Cologne') Cologne
+          .row
+            .col-sm-8.mb-3
+              label(for='ab-district').form-label
+                | District 
+                span.text-danger *
+              select(id='ab-district' required).form-select
+                option(value='' disabled) Choose district
+                option(value='Berlin-Mitte' selected) Berlin-Mitte
+                option(value='Charlottenburg') Charlottenburg
+                option(value='Prenzlauer Berg') Prenzlauer Berg
+                option(value='Friedrichshain') Friedrichshain
+                option(value='Kreuzberg') Kreuzberg
+            .col-sm-4.mb-3
+              label(for='ab-zip').form-label
+                | Zip code 
+                span.text-danger *
+              input(type='text' id='ab-zip' placeholder='Enter Zip code' value='13127' required).form-control
+          .mb-3
+            label(for='ab-address').form-label
+              | Street address 
+              span.text-danger *
+            input(type='text' id='ab-address' value='Pasewalker Str. 97' required).form-control
+          .form-label.fw-bold.pt-3.pb-2 Display on the map
+          .interactive-map.rounded-3(data-map-options='{"mapLayer": "https://api.maptiler.com/maps/pastel/{z}/{x}/{y}.png?key=5vRQzd34MMsINEyeKPIs", "coordinates": [52.52, 13.405], "zoom": 13, "scrollWheelZoom": false, "markers": [{"coordinates": [52.52, 13.405], "className": "custom-marker-dot", "popup": "<div class=\'p-3\'><h6 class=\'fs-base\'>Berlin Business Hotel</h6><p class=\'fs-xs text-muted pt-1 mt-n3 mb-0\'>Pasewalker Str. 97, Berlin</p></div>"}]}' style='height: 250px;')
+
+
+        // Contacts
+        section#contacts.card.card-body.border-0.shadow-sm.p-4.mb-4
+          h2.h4.mb-4
+            i.fi-phone.text-primary.fs-5.mt-n1.me-2
+            | Contacts
+          .row
+            .col-sm-6.mb-3
+              label(for='ab-email').form-label
+                | Email 
+                span.text-danger *
+              input(type='email' id='ab-email' placeholder='Enter email' required).form-control
+            .col-sm-6.mb-3
+              label(for='ab-phone').form-label
+                | Phone 
+                span.text-danger *
+              input(type='tel' id='ab-phone' placeholder='Enter phone number' required).form-control
+            .col-12.mb-3.pb-3
+              label(for='ab-site').form-label Website
+              input(type='url' id='ab-site' placeholder='Enter your website').form-control
+            .col-12
+              label.form-label.mb-3.fw-bold Socials
+              .d-flex.align-items-center.mb-3
+                .btn.btn-icon.btn-light.btn-xs.shadow-sm.rounded-circle.pe-none.flex-shrink-0.me-3
+                  i.fi-facebook.text-body
+                input(type='text' placeholder='Your Facebook account').form-control
+              .d-flex.align-items-center.mb-3
+                .btn.btn-icon.btn-light.btn-xs.shadow-sm.rounded-circle.pe-none.flex-shrink-0.me-3
+                  i.fi-foursquare.text-body
+                input(type='text' placeholder='Your Foursquare account').form-control
+              .d-flex.align-items-center.mb-3
+                .btn.btn-icon.btn-light.btn-xs.shadow-sm.rounded-circle.pe-none.flex-shrink-0.me-3
+                  i.fi-twitter.text-body
+                input(type='text' placeholder='Your Twitter account').form-control
+              #showMoreSocials.collapse
+                .d-flex.align-items-center.mb-3
+                  .btn.btn-icon.btn-light.btn-xs.shadow-sm.rounded-circle.pe-none.flex-shrink-0.me-3
+                    i.fi-instagram.text-body
+                  input(type='text' placeholder='Your Instagram account').form-control
+                .d-flex.align-items-center.mb-3
+                  .btn.btn-icon.btn-light.btn-xs.shadow-sm.rounded-circle.pe-none.flex-shrink-0.me-3
+                    i.fi-linkedin.text-body
+                  input(type='text' placeholder='Your LinkedIn account').form-control
+              a(href='#showMoreSocials' data-bs-toggle='collapse' data-bs-label-collapsed='Show more' data-bs-label-expanded='Show less' role='button' aria-expanded='false' aria-controls='showMoreSocials').collapse-label.collapsed.d-inline-block.fs-sm.fw-bold.text-decoration-none.pt-2.mb-1
+                i.fi-arrow-down.me-2
+
+
+        // Description
+        section#description.card.card-body.border-0.shadow-sm.p-4.mb-4
+          h2.h4.mb-4
+            i.fi-edit.text-primary.fs-5.mt-n1.me-2
+            | Description
+          label(for='ab-description').form-label
+            | Description 
+            span.text-danger *
+          .row.mb-4
+            .col-md-9.mb-md-0.mb-3
+              textarea(id='ab-description' rows='6' placeholder='Describe your accommodation').form-control
+              span.form-text 8000 characters left
+            .col-md-3
+              input(type='file' accept='image/png, image/jpeg' data-label-idle='<i class="d-inline-block fi-cloud-upload fs-2 text-muted mb-2"></i><br><span>Upload logo</span>' data-style-panel-layout='compact' data-image-preview-height='160' data-image-crop-aspect-ratio='1:1' data-image-resize-target-width='200' data-image-resize-target-height='200').file-uploader.bg-secondary
+          .mb-4
+            label.form-label.d-block.fw-bold.mb-2.pb-1 Total number of rooms &amp; suites
+            .btn-group.btn-group-sm(role='group' aria-label='Choose number of rooms')
+              input(type='radio' id='rooms-5' name='rooms').btn-check
+              label(for='rooms-5').btn.btn-outline-secondary.px-sm-3.px-2.fw-normal 5+
+              input(type='radio' id='rooms-10' name='rooms').btn-check
+              label(for='rooms-10').btn.btn-outline-secondary.px-sm-3.px-2.fw-normal 10+
+              input(type='radio' id='rooms-20' name='rooms').btn-check
+              label(for='rooms-20').btn.btn-outline-secondary.px-sm-3.px-2.fw-normal 20+
+              input(type='radio' id='rooms-50' name='rooms').btn-check
+              label(for='rooms-50').btn.btn-outline-secondary.px-sm-3.px-2.fw-normal 50+
+              input(type='radio' id='rooms-100' name='rooms').btn-check
+              label(for='rooms-100').btn.btn-outline-secondary.px-sm-3.px-2.fw-normal 100+
+              input(type='radio' id='rooms-200' name='rooms').btn-check
+              label(for='rooms-200').btn.btn-outline-secondary.px-sm-3.px-2.fw-normal 200+
+          .mb-4
+            label.form-label.d-block.fw-bold.mb-2.pb-1 Hotel rating
+            .form-check
+              input(type='checkbox' id='5-star').form-check-input
+              label(for='5-star').form-check-label.fs-sm.align-middle.mt-n2
+                +star-rating(5)
+            .form-check
+              input(type='checkbox' id='4-star').form-check-input
+              label(for='4-star').form-check-label.fs-sm.align-middle.mt-n2
+                +star-rating(4)
+            .form-check
+              input(type='checkbox' id='3-star').form-check-input
+              label(for='3-star').form-check-label.fs-sm.align-middle.mt-n2
+                +star-rating(3)
+            .form-check
+              input(type='checkbox' id='2-star').form-check-input
+              label(for='2-star').form-check-label.fs-sm.align-middle.mt-n2
+                +star-rating(2)
+            .form-check
+              input(type='checkbox' id='1-star').form-check-input
+              label(for='1-star').form-check-label.fs-sm.align-middle.mt-n2
+                +star-rating(1)
+          .row.row-cols-md-3.row-cols-sm-2.row-cols-1.gy-md-4.gy-3.mb-4
+            .col
+              label.form-label.d-block.fw-bold.mb-2.pb-1 Minimum stay
+              .form-check
+                input(id='ab-stay-3' type='radio' name='stay').form-check-input
+                label(for='ab-stay-3').form-check-label
+                  | 3 nights or less
+              .form-check
+                input(id='ab-stay-more' type='radio' name='stay' checked).form-check-input
+                label(for='ab-stay-more').form-check-label
+                  | More than 3 nights
+            .col
+              label.form-label.d-block.fw-bold.mb-2.pb-1 On site staff
+              .form-check
+                input(id='ab-on-site-staff-y' type='radio' name='on-site-staff' checked).form-check-input
+                label(for='ab-on-site-staff-y').form-check-label
+                  | Yes
+              .form-check
+                input(id='ab-on-site-staff-n' type='radio' name='on-site-staff').form-check-input
+                label(for='ab-on-site-staff-n').form-check-label
+                  | No
+            .col
+              label.form-label.d-block.fw-bold.mb-2.pb-1 Housekeeping
+              .form-check
+                input(id='ab-housekeeping-included' type='radio' name='housekeeping').form-check-input
+                label(for='ab-housekeeping-included').form-check-label
+                  | Included in room rate
+              .form-check
+                input(id='ab-housekeeping-additional' type='radio' name='housekeeping' checked).form-check-input
+                label(for='ab-housekeeping-additional').form-check-label
+                  | Additional Fee
+            .col
+              label.form-label.d-block.fw-bold.mb-2.pb-1 Housekeeping frequency
+              .form-check
+                input(id='ab-housekeeping-daily' type='radio' name='housekeeping-frequency' checked).form-check-input
+                label(for='ab-housekeeping-daily').form-check-label
+                  | Daily
+              .form-check
+                input(id='ab-housekeeping-weekly' type='radio' name='housekeeping-frequency').form-check-input
+                label(for='ab-housekeeping-weekly').form-check-label
+                  | Weekly
+              .form-check
+                input(id='ab-housekeeping-none' type='radio' name='housekeeping-frequency').form-check-input
+                label(for='ab-housekeeping-none').form-check-label
+                  | None
+            .col
+              label.form-label.d-block.fw-bold.mb-2.pb-1 Front desk
+              .form-check
+                input(id='ab-front-desk-24' type='radio' name='front-desk').form-check-input
+                label(for='ab-front-desk-24').form-check-label
+                  | 24-hour staffing
+              .form-check
+                input(id='ab-front-desk-limited' type='radio' name='front-desk' checked).form-check-input
+                label(for='ab-front-desk-limited').form-check-label
+                  | Limited hours staffing
+              .form-check
+                input(id='ab-front-desk-none' type='radio' name='front-desk').form-check-input
+                label(for='ab-front-desk-none').form-check-label
+                  | None
+            .col
+              label.form-label.d-block.fw-bold.mb-2.pb-1 Bathroom
+              .form-check
+                input(id='ab-bathroom-all' type='radio' name='bathroom').form-check-input
+                label(for='ab-bathroom-all').form-check-label
+                  | All en suite
+              .form-check
+                input(id='ab-bathroom-some' type='radio' name='bathroom' checked).form-check-input
+                label(for='ab-bathroom-some').form-check-label
+                  | Some en suite
+              .form-check
+                input(id='ab-bathroom-shared' type='radio' name='bathroom').form-check-input
+                label(for='ab-bathroom-shared').form-check-label
+                  | Shared
+          .mb-4
+            label.form-label.d-block.fw-bold.mb-2.pb-1 Amenities
+            .row.row-cols-md-3.row-cols-sm-2.row-cols-1
+              .col: .form-check
+                input(id='ab-amenity-wifi' type='checkbox').form-check-input
+                label(for='ab-amenity-wifi').form-check-label
+                  | WiFi
+              .col: .form-check
+                input(id='ab-amenity-pets' type='checkbox').form-check-input
+                label(for='ab-amenity-pets').form-check-label
+                  | Pets-friendly
+              .col: .form-check
+                input(id='ab-amenity-dishwasher' type='checkbox').form-check-input
+                label(for='ab-amenity-dishwasher').form-check-label
+                  | Dishwasher
+              .col: .form-check
+                input(id='ab-amenity-parking' type='checkbox' checked).form-check-input
+                label(for='ab-amenity-parking').form-check-label
+                  | Parking place
+              .col: .form-check
+                input(id='ab-amenity-restaurant' type='checkbox').form-check-input
+                label(for='ab-amenity-restaurant').form-check-label
+                  | Restaurant
+              .col: .form-check
+                input(id='ab-amenity-iron' type='checkbox').form-check-input
+                label(for='ab-amenity-iron').form-check-label
+                  | Iron
+              .col: .form-check
+                input(id='ab-amenity-swimming-pool' type='checkbox' checked).form-check-input
+                label(for='ab-amenity-swimming-pool').form-check-label
+                  | Swimming pool
+              .col: .form-check
+                input(id='ab-amenity-bar' type='checkbox').form-check-input
+                label(for='ab-amenity-bar').form-check-label
+                  | Bar
+              .col: .form-check
+                input(id='ab-amenity-hair-dryer' type='checkbox').form-check-input
+                label(for='ab-amenity-hair-dryer').form-check-label
+                  | Hair dryer
+              .col: .form-check
+                input(id='ab-amenity-spa-lounge' type='checkbox').form-check-input
+                label(for='ab-amenity-spa-lounge').form-check-label
+                  | Spa lounge
+              .col: .form-check
+                input(id='ab-amenity-tv' type='checkbox' checked).form-check-input
+                label(for='ab-amenity-tv').form-check-label
+                  | TV
+              .col: .form-check
+                input(id='ab-amenity-kitchen' type='checkbox').form-check-input
+                label(for='ab-amenity-kitchen').form-check-label
+                  | Kitchen
+              .col: .form-check
+                input(id='ab-amenity-gym' type='checkbox').form-check-input
+                label(for='ab-amenity-gym').form-check-label
+                  | Gym
+              .col: .form-check
+                input(id='ab-amenity-air-conditioning' type='checkbox').form-check-input
+                label(for='ab-amenity-air-conditioning').form-check-label
+                  | Air conditioning
+              .col: .form-check
+                input(id='ab-amenity-breakfast' type='checkbox').form-check-input
+                label(for='ab-amenity-breakfast').form-check-label
+                  | Breakfast
+              .col: .form-check
+                input(id='ab-amenity-laundry-service' type='checkbox').form-check-input
+                label(for='ab-amenity-laundry-service').form-check-label
+                  | Laundry service
+              .col: .form-check
+                input(id='ab-amenity-heating' type='checkbox' checked).form-check-input
+                label(for='ab-amenity-heating').form-check-label
+                  | Heating
+              .col: .form-check
+                input(id='ab-amenity-security-cameras' type='checkbox').form-check-input
+                label(for='ab-amenity-security-cameras').form-check-label
+                  | Security cameras
+          .mb-4
+            label.form-label.d-block.fw-bold.mb-2.pb-1 Room types
+            .form-check
+              input(id='ab-room-non-smoking' type='checkbox').form-check-input
+              label(for='ab-room-non-smoking').form-check-label
+                | Non-smoking rooms
+            .form-check
+              input(id='ab-room-single' type='checkbox').form-check-input
+              label(for='ab-room-single').form-check-label
+                | Single rooms
+            .form-check
+              input(id='ab-room-double' type='checkbox').form-check-input
+              label(for='ab-room-double').form-check-label
+                | Double rooms
+            .form-check
+              input(id='ab-room-family' type='checkbox').form-check-input
+              label(for='ab-room-family').form-check-label
+                | Family suites
+          div
+            label(for='ab-award').form-label.d-block.fw-bold.mb-2.pb-1 Hotel awards
+            input(id='ab-award' type='file').form-control.mb-3
+            a(href='#').fw-bold.text-decoration-none.text-nowrap
+              i.fi-plus.me-2.mt-n1.fs-sm.align-middle
+              | Add more
+
+
+        // Price range
+        section#price.card.card-body.border-0.shadow-sm.p-4.mb-4
+          h2.h4.mb-4
+            i.fi-cash.text-primary.fs-5.mt-n1.me-2
+            | Price range
+          label(for='ab-price').form-label
+            | Price (per night) 
+            span.text-danger *
+          .col-md-8.d-flex.flex-sm-row.flex-column.px-0
+            .d-flex.align-items-center.me-sm-2.mb-sm-0.mb-2
+              input(id='ab-price' type='number' min='50' step='10' placeholder='Min' required).form-control
+              .mx-2 —
+              input(type='number' placeholder='Max' min='60' step='10' required).form-control
+            select.form-select.w-sm-25.ms-sm-0.ms-auto
+              option(value='usd') &#36;
+              option(value='eur') &#8364;
+              option(value='gbp') &#163;
+              option(value='jpy') &#165;
+
+
+        // Photos / video
+        section#photos.card.card-body.border-0.shadow-sm.p-4.mb-4
+          h2.h4.mb-4
+            i.fi-image.text-primary.fs-5.mt-n1.me-2
+            | Photos / video
+          .alert.alert-info.mb-4(role='alert')
+            .d-flex
+              i.fi-alert-circle.me-2.me-sm-3
+              p.fs-sm.mb-1 The maximum photo size is 8 MB. Formats: jpeg, jpg, png. Put the main picture first.<br>The maximum video size is 10 MB. Formats: mp4, mov.
+          input(type='file' multiple data-max-file-size='10MB' accept='image/png, image/jpeg, video/mp4, video/mov' data-label-idle='<div class="btn btn-primary rounded-pill mb-3"><i class="fi-cloud-upload me-1"></i>Upload photos / video</div><br>or drag them in').file-uploader.file-uploader-grid
+        
+        // Action buttons 
+        section.d-sm-flex.justify-content-between.pt-2
+          a(href='#preview-modal' data-bs-toggle='modal').btn.btn-outline-primary.btn-lg.d-block.rounded-pill.mb-3.mb-sm-2
+            i.fi-eye-on.ms-n1.me-2
+            | Preview
+          a(href='city-guide-business-promotion.html').btn.btn-primary.btn-lg.d-block.rounded-pill.mb-2 Save and continue
+
+
+      // Progress of completion
+      aside.col-lg-3.offset-lg-1.d-none.d-lg-block
+        .sticky-top.pt-5
+          h6.pt-5.mt-3.mb-2 33% content filled
+          .progress.mb-4(style='height: .25rem;')
+            .progress-bar.bg-warning(role='progressbar' style='width: 33%' aria-valuenow='33' aria-valuemin='0' aria-valuemax='100')
+          ul.list-unstyled
+            li.d-flex.align-items-center
+              i.fi-check.text-primary.me-2
+              a(href='#basic-info' data-scroll data-scroll-offset='20').nav-link.fw-normal.ps-1.p-0 Basic info
+            li.d-flex.align-items-center
+              i.fi-check.text-primary.me-2
+              a(href='#location' data-scroll data-scroll-offset='20').nav-link.fw-normal.ps-1.p-0 Location
+            li.d-flex.align-items-center
+              i.fi-check.text-muted.me-2
+              a(href='#contacts' data-scroll data-scroll-offset='20').nav-link.fw-normal.ps-1.p-0 Contacts
+            li.d-flex.align-items-center
+              i.fi-check.text-muted.me-2
+              a(href='#description' data-scroll data-scroll-offset='20').nav-link.fw-normal.ps-1.p-0 Description
+            li.d-flex.align-items-center
+              i.fi-check.text-muted.me-2
+              a(href='#price' data-scroll data-scroll-offset='20').nav-link.fw-normal.ps-1.p-0 Price range
+            li.d-flex.align-items-center
+              i.fi-check.text-muted.me-2
+              a(href='#photos' data-scroll data-scroll-offset='20').nav-link.fw-normal.ps-1.p-0 Photos / video
+
+
+//- Footer
+block footer
+  include partials/footer-city-guide

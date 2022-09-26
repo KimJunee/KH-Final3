@@ -1,0 +1,371 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css', 'vendor/prismjs/themes/prism.css', 'vendor/prismjs/plugins/toolbar/prism-toolbar.css', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js', 'vendor/prismjs/components/prism-core.min.js', 'vendor/prismjs/components/prism-markup.min.js', 'vendor/prismjs/components/prism-clike.min.js', 'vendor/prismjs/components/prism-javascript.min.js', 'vendor/prismjs/components/prism-pug.min.js', 'vendor/prismjs/plugins/toolbar/prism-toolbar.min.js', 'vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Around utilities'
+  - var pageSubtitle = 'Custom Around classes with a purpose to reduce the frequency of highly repetitive declarations.'
+  - var isPageTitleBadge = true
+  - var anchorNav = [{'title': 'Faded background colors', 'link': '#bg-faded'}, {'title': 'Translucent image overlay', 'link': '#image-overlay'}, {'title': 'Gradient text', 'link': '#gradient-text'}, {'title': 'Opacity', 'link': '#opacity'}]
+    
+//- Page Content
+block content
+
+  // Faded background colors
+  section#bg-faded.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Faded background colors
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview1' data-bs-toggle='tab' role='tab' aria-controls='preview1' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview1.tab-pane.fade.show.active(role='tabpanel')
+          .bg-faded-primary.p-4.text-center.mb-4
+            h5.text-primary.py-2.mb-0 Primary faded background
+          .bg-secondary.p-4.text-center.mb-4
+            h5.py-2.mb-0 Secondary background
+          .bg-faded-success.p-4.text-center.mb-4
+            h5.text-success.py-2.mb-0 Success faded background
+          .bg-faded-danger.p-4.text-center.mb-4
+            h5.text-danger.py-2.mb-0 Danger faded background
+          .bg-faded-warning.p-4.text-center.mb-4
+            h5.text-warning.py-2.mb-0 Warning faded background
+          .bg-faded-info.p-4.text-center.mb-4
+            h5.text-info.py-2.mb-0 Info faded background
+          .bg-faded-dark.p-4.text-center.mb-4
+            h5.text-dark.py-2.mb-0 Dark faded background
+        #html1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Primary faded background --&gt;
+              &lt;div class=&quot;bg-faded-primary&quot;&gt;...&lt;/div&gt;
+
+              &lt;!-- Secondary background --&gt;
+              &lt;div class=&quot;bg-secondary&quot;&gt;...&lt;/div&gt;
+
+              &lt;!-- Success faded background --&gt;
+              &lt;div class=&quot;bg-faded-success&quot;&gt;...&lt;/div&gt;
+
+              &lt;!-- Danger faded background --&gt;
+              &lt;div class=&quot;bg-faded-danger&quot;&gt;...&lt;/div&gt;
+
+              &lt;!-- Warning faded background --&gt;
+              &lt;div class=&quot;bg-faded-warning&quot;&gt;...&lt;/div&gt;
+
+              &lt;!-- Info faded background --&gt;
+              &lt;div class=&quot;bg-faded-info&quot;&gt;...&lt;/div&gt;
+
+              &lt;!-- Dark faded background --&gt;
+              &lt;div class=&quot;bg-faded-dark&quot;&gt;...&lt;/div&gt;
+        #pug1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Primary faded background
+              .bg-faded-primary
+                | ...
+
+              // Secondary background
+              .bg-secondary
+                | ...
+
+              // Success faded background
+              .bg-faded-success
+                | ...
+
+              // Danger faded background
+              .bg-faded-danger
+                | ...
+
+              // Warning faded background
+              .bg-faded-warning
+                | ...
+              
+              // Info faded background
+              .bg-faded-info
+                | ...
+              
+              // Dark faded background
+              .bg-faded-dark
+                | ...
+
+  // Translucent image overlay
+  section#image-overlay.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Translucent image overlay
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview2' data-bs-toggle='tab' role='tab' aria-controls='preview2' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview2.tab-pane.fade.show.active(role='tabpanel')
+          .row.row-cols-1.row-cols-sm-2.row-cols-md-3.g-3
+            .col
+              .position-relative.bg-size-cover.bg-position-center.py-5(style='background-image: url(../assets/img/landing/corporate/features/03.jpg);')
+                span.position-absolute.top-0.start-0.w-100.h-100.bg-primary.opacity-70
+                .position-relative.fs-lg.fw-semibold.text-white.text-center.zindex-5.py-5
+                  | Primary overlay
+            .col
+              .position-relative.bg-size-cover.bg-position-center.py-5(style='background-image: url(../assets/img/landing/corporate/features/03.jpg);')
+                span.position-absolute.top-0.start-0.w-100.h-100.bg-success.opacity-70
+                .position-relative.fs-lg.fw-semibold.text-white.text-center.zindex-5.py-5
+                  | Success overlay
+            .col
+              .position-relative.bg-size-cover.bg-position-center.py-5(style='background-image: url(../assets/img/landing/corporate/features/03.jpg);')
+                span.position-absolute.top-0.start-0.w-100.h-100.bg-danger.opacity-70
+                .position-relative.fs-lg.fw-semibold.text-white.text-center.zindex-5.py-5
+                  | Danger overlay
+            .col
+              .position-relative.bg-size-cover.bg-position-center.py-5(style='background-image: url(../assets/img/landing/corporate/features/03.jpg);')
+                span.position-absolute.top-0.start-0.w-100.h-100.bg-warning.opacity-70
+                .position-relative.fs-lg.fw-semibold.text-white.text-center.zindex-5.py-5
+                  | Warning overlay
+            .col
+              .position-relative.bg-size-cover.bg-position-center.py-5(style='background-image: url(../assets/img/landing/corporate/features/03.jpg);')
+                span.position-absolute.top-0.start-0.w-100.h-100.bg-info.opacity-70
+                .position-relative.fs-lg.fw-semibold.text-white.text-center.zindex-5.py-5
+                  | Info overlay
+            .col
+              .position-relative.bg-size-cover.bg-position-center.py-5(style='background-image: url(../assets/img/landing/corporate/features/03.jpg);')
+                span.position-absolute.top-0.start-0.w-100.h-100.bg-dark.opacity-60
+                .position-relative.fs-lg.fw-semibold.text-white.text-center.zindex-5.py-5
+                  | Dark overlay
+        #html2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Primary overlay --&gt;
+              &lt;div class=&quot;position-relative bg-size-cover bg-position-center py-5&quot; style=&quot;background-image: url(assets/img/landing/corporate/features/03.jpg);&quot;&gt;
+                &lt;span class=&quot;position-absolute top-0 start-0 w-100 h-100 bg-primary opacity-70&quot;&gt;&lt;/span&gt;
+                &lt;div class=&quot;position-relative fs-lg fw-semibold text-white text-center zindex-5 py-5&quot;&gt;
+                  Primary overlay
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Success overlay --&gt;
+              &lt;div class=&quot;position-relative bg-size-cover bg-position-center py-5&quot; style=&quot;background-image: url(assets/img/landing/corporate/features/03.jpg);&quot;&gt;
+                &lt;span class=&quot;position-absolute top-0 start-0 w-100 h-100 bg-success opacity-70&quot;&gt;&lt;/span&gt;
+                &lt;div class=&quot;position-relative fs-lg fw-semibold text-white text-center zindex-5 py-5&quot;&gt;
+                  Success overlay
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Danger overlay --&gt;
+              &lt;div class=&quot;position-relative bg-size-cover bg-position-center py-5&quot; style=&quot;background-image: url(assets/img/landing/corporate/features/03.jpg);&quot;&gt;
+                &lt;span class=&quot;position-absolute top-0 start-0 w-100 h-100 bg-danger opacity-70&quot;&gt;&lt;/span&gt;
+                &lt;div class=&quot;position-relative fs-lg fw-semibold text-white text-center zindex-5 py-5&quot;&gt;
+                  Danger overlay
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Warning overlay --&gt;
+              &lt;div class=&quot;position-relative bg-size-cover bg-position-center py-5&quot; style=&quot;background-image: url(assets/img/landing/corporate/features/03.jpg);&quot;&gt;
+                &lt;span class=&quot;position-absolute top-0 start-0 w-100 h-100 bg-warning opacity-70&quot;&gt;&lt;/span&gt;
+                &lt;div class=&quot;position-relative fs-lg fw-semibold text-white text-center zindex-5 py-5&quot;&gt;
+                  Warning overlay
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Info overlay --&gt;
+              &lt;div class=&quot;position-relative bg-size-cover bg-position-center py-5&quot; style=&quot;background-image: url(assets/img/landing/corporate/features/03.jpg);&quot;&gt;
+                &lt;span class=&quot;position-absolute top-0 start-0 w-100 h-100 bg-info opacity-70&quot;&gt;&lt;/span&gt;
+                &lt;div class=&quot;position-relative fs-lg fw-semibold text-white text-center zindex-5 py-5&quot;&gt;
+                  Info overlay
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Dark overlay --&gt;
+              &lt;div class=&quot;position-relative bg-size-cover bg-position-center py-5&quot; style=&quot;background-image: url(assets/img/landing/corporate/features/03.jpg);&quot;&gt;
+                &lt;span class=&quot;position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-60&quot;&gt;&lt;/span&gt;
+                &lt;div class=&quot;position-relative fs-lg fw-semibold text-white text-center zindex-5 py-5&quot;&gt;
+                  Dark overlay
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Primary overlay
+              .position-relative.bg-size-cover.bg-position-center.py-5(style=&quot;background-image: url(assets/img/landing/corporate/features/03.jpg);&quot;)
+                span.position-absolute.top-0.start-0.w-100.h-100.bg-primary.opacity-70
+                .position-relative.fs-lg.fw-semibold.text-white.text-center.zindex-5.py-5
+                  | Primary overlay
+
+              // Success overlay
+              .position-relative.bg-size-cover.bg-position-center.py-5(style=&quot;background-image: url(assets/img/landing/corporate/features/03.jpg);&quot;)
+                span.position-absolute.top-0.start-0.w-100.h-100.bg-success.opacity-70
+                .position-relative.fs-lg.fw-semibold.text-white.text-center.zindex-5.py-5
+                  | Success overlay
+
+              // Danger overlay
+              .position-relative.bg-size-cover.bg-position-center.py-5(style=&quot;background-image: url(assets/img/landing/corporate/features/03.jpg);&quot;)
+                span.position-absolute.top-0.start-0.w-100.h-100.bg-danger.opacity-70
+                .position-relative.fs-lg.fw-semibold.text-white.text-center.zindex-5.py-5
+                  | Danger overlay
+
+              // Warning overlay
+              .position-relative.bg-size-cover.bg-position-center.py-5(style=&quot;background-image: url(assets/img/landing/corporate/features/03.jpg);&quot;)
+                span.position-absolute.top-0.start-0.w-100.h-100.bg-warning.opacity-70
+                .position-relative.fs-lg.fw-semibold.text-white.text-center.zindex-5.py-5
+                  | Warning overlay
+              
+              // Info overlay
+              .position-relative.bg-size-cover.bg-position-center.py-5(style=&quot;background-image: url(assets/img/landing/corporate/features/03.jpg);&quot;)
+                span.position-absolute.top-0.start-0.w-100.h-100.bg-info.opacity-70
+                .position-relative.fs-lg.fw-semibold.text-white.text-center.zindex-5.py-5
+                  | Info overlay
+              
+              // Dark overlay
+              .position-relative.bg-size-cover.bg-position-center.py-5(style=&quot;background-image: url(assets/img/landing/corporate/features/03.jpg);&quot;)
+                span.position-absolute.top-0.start-0.w-100.h-100.bg-dark.opacity-60
+                .position-relative.fs-lg.fw-semibold.text-white.text-center.zindex-5.py-5
+                  | Dark overlay
+
+  // Gradient text
+  section#gradient-text.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Gradient text
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview3' data-bs-toggle='tab' role='tab' aria-controls='preview3' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview3.tab-pane.fade.show.active(role='tabpanel')
+          h2.display-4.mb-0
+            span(style='background: linear-gradient(90.72deg, #cbfdb1 3.49%, #acbff1 50.67%, #efa7ec 100.79%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;') I'm a gradient text
+        #html3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Gradient text --&gt;
+              &lt;h2 class=&quot;display-4&quot;&gt;
+                &lt;span style=&quot;background: linear-gradient(90.72deg, #cbfdb1 3.49%, #acbff1 50.67%, #efa7ec 100.79%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;&quot;&gt;
+                  I'm a gradient text
+                &lt;/span&gt;
+              &lt;/h2&gt;
+        #pug3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Gradient text
+              h2.display-4
+                span(style=&quot;background: linear-gradient(90.72deg, #cbfdb1 3.49%, #acbff1 50.67%, #efa7ec 100.79%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;&quot;)
+                  | I'm a gradient text
+
+  // Opacity
+  section#opacity.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Opacity
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview4' data-bs-toggle='tab' role='tab' aria-controls='preview4' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview4.tab-pane.fade.show.active(role='tabpanel')
+          .d-flex.flex-wrap.pt-1
+            span.text-dark.opacity-10.mb-3.me-4 Opacity 10%
+            span.text-dark.opacity-20.mb-3.me-4 Opacity 20%
+            span.text-dark.opacity-25.mb-3.me-4 Opacity 25%
+            span.text-dark.opacity-30.mb-3.me-4 Opacity 30%
+            span.text-dark.opacity-40.mb-3.me-4 Opacity 40%
+            span.text-dark.opacity-50.mb-3.me-4 Opacity 50%
+            span.text-dark.opacity-60.mb-3.me-4 Opacity 60%
+            span.text-dark.opacity-70.mb-3.me-4 Opacity 70%
+            span.text-dark.opacity-75.mb-3.me-4 Opacity 75%
+            span.text-dark.opacity-80.mb-3.me-4 Opacity 80%
+            span.text-dark.opacity-90.mb-3.me-4 Opacity 90%
+            span.text-dark.opacity-100.mb-3.me-4 Opacity 100%
+        #html4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Opacity --&gt;
+              &lt;div class=&quot;opacity-0&quot;&gt;...&lt;/div&gt;
+              &lt;div class=&quot;opacity-10&quot;&gt;...&lt;/div&gt;
+              &lt;div class=&quot;opacity-20&quot;&gt;...&lt;/div&gt;
+              &lt;div class=&quot;opacity-25&quot;&gt;...&lt;/div&gt;
+              &lt;div class=&quot;opacity-30&quot;&gt;...&lt;/div&gt;
+              &lt;div class=&quot;opacity-40&quot;&gt;...&lt;/div&gt;
+              &lt;div class=&quot;opacity-50&quot;&gt;...&lt;/div&gt;
+              &lt;div class=&quot;opacity-60&quot;&gt;...&lt;/div&gt;
+              &lt;div class=&quot;opacity-70&quot;&gt;...&lt;/div&gt;
+              &lt;div class=&quot;opacity-75&quot;&gt;...&lt;/div&gt;
+              &lt;div class=&quot;opacity-80&quot;&gt;...&lt;/div&gt;
+              &lt;div class=&quot;opacity-90&quot;&gt;...&lt;/div&gt;
+              &lt;div class=&quot;opacity-100&quot;&gt;...&lt;/div&gt;
+        #pug4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Opacity
+              .opacity-0
+                | ...
+              .opacity-10
+                | ...
+              .opacity-20
+                | ...
+              .opacity-25
+                | ...
+              .opacity-30
+                | ...
+              .opacity-40
+                | ...
+              .opacity-50
+                | ...
+              .opacity-60
+                | ...
+              .opacity-70
+                | ...
+              .opacity-80
+                | ...
+              .opacity-90
+                | ...
+              .opacity-100
+                | ...

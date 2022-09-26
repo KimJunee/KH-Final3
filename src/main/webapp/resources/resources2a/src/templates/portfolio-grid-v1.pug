@@ -1,0 +1,148 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var scripts = ['vendor/imagesloaded/imagesloaded.pkgd.min.js', 'vendor/shufflejs/dist/shuffle.min.js']
+  - var parentMenu = 'Pages'
+  - var pageTitle = 'Portfolio Grid View v.1'
+  - var navbarExtraClass = 'bg-light'
+
+
+//- Navbar
+block navbar
+  include partials/navbar.pug
+
+
+//- Page Content
+block content
+
+  .container.overflow-hidden.py-5.mt-5.mb-2.mb-md-3.mb-lg-4.mb-xxl-5
+
+    // Breadcrumb
+    +breadcrumb([{'title': 'Portfolio grid v.1'}]).pt-lg-3.pb-lg-4.pb-2
+
+    // Page title
+    h1.text-center.pb-2.pb-md-3.pb-lg-4 Portfolio
+
+    .masonry-filterable
+
+      // Filters
+      ul(style='max-width: 590px;').masonry-filters.nav.nav-pills.fs-sm.flex-nowrap.overflow-auto.text-nowrap.w-100.mx-auto.pb-4.mb-2.mb-sm-3
+        li.nav-item.mb-0
+          a(href='#' data-group='all').nav-link.border.active All
+        li.nav-item.mb-0
+          a(href='#' data-group='branding').nav-link.border Branding
+        li.nav-item.mb-0
+          a(href='#' data-group='ebook').nav-link.border E-books
+        li.nav-item.mb-0
+          a(href='#' data-group='identity').nav-link.border Identity
+        li.nav-item.mb-0
+          a(href='#' data-group='product').nav-link.border Product
+
+
+      // Grid of portfolio items
+      .masonry-grid(data-columns='2')
+
+        // Item
+        article(data-groups='["branding"]').masonry-grid-item.pb-lg-5.mb-3.mb-lg-0.mb-xl-2
+          .card-hover.zoom-effect.mx-auto(style='max-width: 620px;')
+            .zoom-effect-wrapper.rounded-5
+              .zoom-effect-img
+                img(src='assets/img/portfolio/grid/01.jpg' alt='Image')
+            .pt-4.mt-lg-2
+              h2.h5.mb-2
+                a(href='portfolio-single-v1.html').stretched-link.text-nav
+                  | Strategy and design for a handmade tableware company
+              span.fs-sm.text-muted.opacity-0.d-none.d-sm-block Branding, Strategy
+              span.fs-sm.text-muted.d-sm-none Branding, Strategy
+
+        // Item
+        article(data-groups='["product"]').masonry-grid-item.pb-lg-5.mb-3.mb-lg-0.mb-xl-2
+          .card-hover.zoom-effect.mx-auto(style='max-width: 620px;')
+            .zoom-effect-wrapper.rounded-5
+              .zoom-effect-img
+                img(src='assets/img/portfolio/grid/02.jpg' alt='Image')
+            .pt-4.mt-lg-2
+              h2.h5.mb-2
+                a(href='portfolio-single-v1.html').stretched-link.text-nav
+                  | Design for eco bags and merch
+              span.fs-sm.text-muted.opacity-0.d-none.d-sm-block Product design
+              span.fs-sm.text-muted.d-sm-none Product design
+
+        // Item
+        article(data-groups='["branding"]').masonry-grid-item.pb-lg-5.mb-3.mb-lg-0.mb-xl-2
+          .card-hover.zoom-effect.mx-auto(style='max-width: 620px;')
+            .zoom-effect-wrapper.rounded-5
+              .zoom-effect-img
+                img(src='assets/img/portfolio/grid/04.jpg' alt='Image')
+            .pt-4.mt-lg-2
+              h2.h5.mb-2
+                a(href='portfolio-single-v1.html').stretched-link.text-nav
+                  | Bottle for French perfume brand
+              span.fs-sm.text-muted.opacity-0.d-none.d-sm-block Packaging design
+              span.fs-sm.text-muted.d-sm-none Packaging design
+
+        // Item
+        article(data-groups='["ebook"]').masonry-grid-item.pb-lg-5.mb-3.mb-lg-0.mb-xl-2
+          .card-hover.zoom-effect.mx-auto(style='max-width: 620px;')
+            .zoom-effect-wrapper.rounded-5
+              .zoom-effect-img
+                img(src='assets/img/portfolio/grid/03.jpg' alt='Image')
+            .pt-4.mt-lg-2
+              h2.h5.mb-2
+                a(href='portfolio-single-v1.html').stretched-link.text-nav
+                  | Book cover design Twin Fish
+              span.fs-sm.text-muted.opacity-0.d-none.d-sm-block Cover design
+              span.fs-sm.text-muted.d-sm-none Cover design
+
+        // Item
+        article(data-groups='["identity"]').masonry-grid-item.pb-lg-5.mb-3.mb-lg-0.mb-xl-2
+          .card-hover.zoom-effect.mx-auto(style='max-width: 620px;')
+            .zoom-effect-wrapper.rounded-5
+              .zoom-effect-img
+                img(src='assets/img/portfolio/grid/06.jpg' alt='Image')
+            .pt-4.mt-lg-2
+              h2.h5.mb-2
+                a(href='portfolio-single-v1.html').stretched-link.text-nav
+                  | Business cards and identity for Sen Jonson
+              span.fs-sm.text-muted.opacity-0.d-none.d-sm-block Identity design
+              span.fs-sm.text-muted.d-sm-none Identity design
+
+        // Item
+        article(data-groups='["product"]').masonry-grid-item.pb-lg-5.mb-3.mb-lg-0.mb-xl-2
+          .card-hover.zoom-effect.mx-auto(style='max-width: 620px;')
+            .zoom-effect-wrapper.rounded-5
+              .zoom-effect-img
+                img(src='assets/img/portfolio/grid/05.jpg' alt='Image')
+            .pt-4.mt-lg-2
+              h2.h5.mb-2
+                a(href='portfolio-single-v1.html').stretched-link.text-nav
+                  | Toothbrushes made from eco materials
+              span.fs-sm.text-muted.opacity-0.d-none.d-sm-block Product design
+              span.fs-sm.text-muted.d-sm-none Product design
+    
+
+    // Pagination
+    nav.mt-n1.mb-md-2.mb-lg-3.mb-xl-4(aria-label='Portfolio pagination')
+      ul.pagination.justify-content-center
+        li.page-item.active(aria-current='page')
+          span.page-link
+            | 1
+            span.visually-hidden (current)
+        li.page-item
+          a(href="#").page-link
+            | 2
+        li.page-item
+          a(href="#").page-link
+            | 3
+        li.page-item
+          a(href="#").page-link
+            | 4
+        li.page-item
+          a(href="#").page-link
+            | 5
+
+
+//- Footer
+block footer
+  include partials/footer-portfolio.pug

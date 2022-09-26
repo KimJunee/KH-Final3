@@ -1,0 +1,268 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['tiny-slider/dist/tiny-slider.css']
+  - var vendorScripts = ['tiny-slider/dist/min/tiny-slider.js']
+  - var parentMenu = 'Pages'
+  - var pageTitle = 'Real Estate | Blog'
+
+//- Navbar
+block navbar
+  include partials/navbar-real-estate
+
+//- Page Content
+block content
+
+  // Page container
+  .container.mt-5.mb-md-4.py-5
+
+    // Breadcrumb + page title
+    nav(aria-label='breadcrumb').mb-3.pt-md-3
+      ol.breadcrumb
+        li.breadcrumb-item
+          a(href='real-estate-home-v1.html') Home
+        li(aria-current='page').breadcrumb-item.active
+          | Blog
+    h1.d-flex.align-items-end.justify-content-between.mb-4 Real estate news
+    
+
+    // Sponsored posts carousel
+    .tns-carousel-wrapper
+      .tns-carousel-inner(data-carousel-options = '{"mode": "gallery", "nav": false, "controlsContainer": "#sponsored-news-controls"}')
+
+        // Item
+        div
+          article.row
+            .col-md-7.col-lg-8.mb-lg-0.mb-3.mb-md-0
+              a(href='real-estate-blog-single.html').d-block.position-relative
+                span.badge.bg-success.position-absolute.top-0.end-0.m-3.fs-sm Sponsored
+                img(src='img/real-estate/blog/01.jpg' alt='Post image').rounded-3
+            .col-md-5.col-lg-4
+              a(href='#').fs-sm.text-uppercase.text-decoration-none Tips &amp; Advice
+              h2.h5.pt-1
+                a(href='real-estate-blog-single.html').nav-link Looking for a New Place? Use This Time to Create Your Wishlist
+              p.d-md-none.d-xl-block.mb-4 Nulla felis neque ultrices ut aliquam. Pellentesque id semper iaculis scelerisque etiam egestas interdum proin sit. Ornare venenatis, ullamcorper amet arcu ipsum ut morbi enim. Senectus quam egestas facilisi enim diam posuere ultricies interdum sed. Amet, risus eros cursus vitae, sit?
+              a(href='#').d-flex.align-items-center.text-decoration-none
+                img(src='img/avatars/06.jpg' width='48' alt='Kristin Watson').rounded-circle
+                .ps-2
+                  h6.fs-base.text-nav.lh-base.mb-1 Kristin Watson
+                  .d-flex.text-body.fs-sm
+                    span.me-2.pe-1
+                      i.fi-calendar-alt.opacity-60.mt-n1.me-1
+                      | Mar 13
+                    span
+                      i.fi-chat-circle.opacity-60.mt-n1.me-1
+                      | No comments
+
+        // Item
+        div
+          article.row
+            .col-md-7.col-lg-8.mb-lg-0.mb-3.mb-md-0
+              a(href='real-estate-blog-single.html').d-block.position-relative
+                span.badge.bg-success.position-absolute.top-0.end-0.m-3.fs-sm Sponsored
+                img(src='img/real-estate/blog/02.jpg' alt='Post image').rounded-3
+            .col-md-5.col-lg-4
+              a(href='#').fs-sm.text-uppercase.text-decoration-none Industry News
+              h2.h5.pt-1
+                a(href='real-estate-blog-single.html').nav-link Traditional Real Estate Marketing Holds Firm Despite Pandemic
+              p.d-md-none.d-xl-block.mb-4 Phasellus cursus orci pulvinar proin nulla vitae. Arcu faucibus vestibulum fames eget nunc. Ut in sed platea egestas amet purus nibh suspendisse semper. Senectus quam egestas facilisi enim diam posuere ultricies interdum sed. Amet, risus eros cursus vitae, sit. Nulla felis neque ultrices ut aliquam.
+              a(href='#').d-flex.align-items-center.text-decoration-none
+                img(src='img/avatars/04.jpg' width='48' alt='Darrell Steward').rounded-circle
+                .ps-2
+                  h6.fs-base.text-nav.lh-base.mb-1 Darrell Steward
+                  .d-flex.text-body.fs-sm
+                    span.me-2.pe-1
+                      i.fi-calendar-alt.opacity-60.mt-n1.me-1
+                      | Feb 27
+                    span
+                      i.fi-chat-circle.opacity-60.mt-n1.me-1
+                      | 3 comments
+
+    // Carousel custom controls
+    #sponsored-news-controls.tns-carousel-controls.pb-5.pt-2.mt-4.mb-lg-3
+      button(type='button').me-3
+        i.fi-chevron-left.fs-xs
+      button(type='button')
+        i.fi-chevron-right.fs-xs
+
+
+    // Search bar + filters
+    .row.gy-3.mb-4.pb-2
+      .col-md-4.order-md-1.order-2
+        .position-relative
+          input(type='text' placeholder='Search articles by keywords...').form-control.pe-5
+          i.fi-search.position-absolute.top-50.end-0.translate-middle-y.me-3
+      .col-lg-6.col-md-8.offset-lg-2.order-md-2.order-1
+        .row.gy-3
+          .col-6.d-flex.flex-sm-row.flex-column.align-items-sm-center
+            label(for='categories').d-inline-block.me-sm-2.mb-sm-0.mb-2.text-nowrap
+              i.fi-align-left.mt-n1.me-2.align-middle.opacity-70
+              | Category:
+            select(id='categories').form-select
+              option All
+              option Home
+              option Inspiration
+              option Tips &amp; Advice
+              option Industry News
+              option Market Analysis
+          .col-6.d-flex.flex-sm-row.flex-column.align-items-sm-center
+            label(for='sortby').d-inline-block.me-sm-2.mb-sm-0.mb-2.text-nowrap
+              i.fi-arrows-sort.mt-n1.me-2.align-middle.opacity-70
+              | Sort by:
+            select(id='sortby').form-select
+              option Newest
+              option Oldest
+              option Popular
+              option Sponsored
+
+    
+    // Articles grid
+    .row.row-cols-md-2.row-cols-1.gy-md-5.gy-4.mb-lg-5.mb-4
+
+      // Article
+      article.col.pb-2.pb-md-1
+        a(href='real-estate-blog-single.html').d-block.position-relative.mb-3
+          span.badge.bg-info.position-absolute.top-0.end-0.m-3.fs-sm New
+          img(src='img/real-estate/blog/03.jpg' alt='Article image').d-block.rounded-3
+        a(href='#').fs-sm.text-uppercase.text-decoration-none Home improvement
+        h3.h5.mb-2.pt-1
+          a(href='real-estate-blog-single.html').nav-link 10 Delightful Dining Room Decor Trends for Spring
+        p.mb-3 Mi sit montes, aenean tempor sollicitudin volutpat viverra. Tellus amet, vitae ac consectetur blandit at. Odio proin elit, vehicula morbi faucibus vestibulum…
+        a(href='#').d-flex.align-items-center.text-decoration-none
+          img(src='img/avatars/07.jpg' width='48' alt='Cody Fisher').rounded-circle
+          .ps-2
+            h6.fs-base.text-nav.lh-base.mb-1 Cody Fisher
+            .d-flex.text-body.fs-sm
+              span.me-2.pe-1
+                i.fi-calendar-alt.opacity-70.mt-n1.me-1.align-middle
+                | Dec 28
+              span
+                i.fi-chat-circle.opacity-70.mt-n1.me-1.align-middle
+                | 0 comments
+
+      // Article
+      article.col.pb-2.pb-md-1
+        a(href='real-estate-blog-single.html').d-block.position-relative.mb-3
+          img(src='img/real-estate/blog/04.jpg' alt='Article image').d-block.rounded-3
+        a(href='#').fs-sm.text-uppercase.text-decoration-none Inspiration
+        h3.h5.mb-2.pt-1
+          a(href='real-estate-blog-single.html').nav-link 5 Easy-to-Ambitious Projects to Improve Your Home
+        p.mb-3 Phasellus consequat ut sagittis, vestibulum, eget egestas senectus quis congue. Posuere montes, in ultrices vitae, luctus. Ultrices aliquet pellentesque eget...
+        a(href='#').d-flex.align-items-center.text-decoration-none
+          img(src='img/avatars/03.jpg' width='48' alt='Kathryn Murphy').rounded-circle
+          .ps-2
+            h6.fs-base.text-nav.lh-base.mb-1 Kathryn Murphy
+            .d-flex.text-body.fs-sm
+              span.me-2.pe-1
+                i.fi-calendar-alt.opacity-70.mt-n1.me-1.align-middle
+                | Dec 26
+              span
+                i.fi-chat-circle.opacity-70.mt-n1.me-1.align-middle
+                | 4 comments
+
+      // Article
+      article.col.pb-2.pb-md-1
+        a(href='real-estate-blog-single.html').d-block.position-relative.mb-3
+          img(src='img/real-estate/blog/05.jpg' alt='Article image').d-block.rounded-3
+        a(href='#').fs-sm.text-uppercase.text-decoration-none Inspiration
+        h3.h5.mb-2.pt-1
+          a(href='real-estate-blog-single.html').nav-link How Real Estate Drone Photography Can Elevate Your Listing?
+        p.mb-3 Nunc vivamus nam vitae ut faucibus metus pretium nisl. Elementum sed tincidunt nec aliquam tempus. Neque pharetra vitae, mauris malesuada adipiscing...
+        a(href='#').d-flex.align-items-center.text-decoration-none
+          img(src='img/avatars/06.jpg' width='48' alt='Kristin Watson').rounded-circle
+          .ps-2
+            h6.fs-base.text-nav.lh-base.mb-1 Kristin Watson
+            .d-flex.text-body.fs-sm
+              span.me-2.pe-1
+                i.fi-calendar-alt.opacity-70.mt-n1.me-1.align-middle
+                | Dec 12
+              span
+                i.fi-chat-circle.opacity-70.mt-n1.me-1.align-middle
+                | 3 comments
+
+      // Article
+      article.col.pb-2.pb-md-1
+        a(href='real-estate-blog-single.html').d-block.position-relative.mb-3
+          img(src='img/real-estate/blog/06.jpg' alt='Article image').d-block.rounded-3
+        a(href='#').fs-sm.text-uppercase.text-decoration-none Tips &amp; Advice
+        h3.h5.mb-2.pt-1
+          a(href='real-estate-blog-single.html').nav-link 7 Tips for Achieving Maximum Coziness
+        p.mb-3 Enim faucibus mattis feugiat porttitor a arcu quisque. Donec massa volutpat dolor id eget consectetur viverra. Etiam consectetur mauris, scelerisque gravida convallis...
+        a(href='#').d-flex.align-items-center.text-decoration-none
+          img(src='img/avatars/04.jpg' width='48' alt='Darrell Steward').rounded-circle
+          .ps-2
+            h6.fs-base.text-nav.lh-base.mb-1 Darrell Steward
+            .d-flex.text-body.fs-sm
+              span.me-2.pe-1
+                i.fi-calendar-alt.opacity-70.mt-n1.me-1.align-middle
+                | Dec 3
+              span
+                i.fi-chat-circle.opacity-70.mt-n1.me-1.align-middle
+                | 1 comment
+
+      // Article
+      article.col.pb-2.pb-md-1
+        a(href='real-estate-blog-single.html').d-block.position-relative.mb-3
+          img(src='img/real-estate/blog/07.jpg' alt='Article image').d-block.rounded-3
+        a(href='#').fs-sm.text-uppercase.text-decoration-none Industry Views
+        h3.h5.mb-2.pt-1
+          a(href='real-estate-blog-single.html').nav-link How To Modernize Your Home on a Budget
+        p.mb-3 Phasellus cursus orci pulvinar proin nulla vitae. Arcu faucibus vestibulum fames eget nunc. Ut in sed platea egestas amet purus nibh suspendisse semper...
+        a(href='#').d-flex.align-items-center.text-decoration-none
+          img(src='img/avatars/03.jpg' width='48' alt='Kathryn Murphy').rounded-circle
+          .ps-2
+            h6.fs-base.text-nav.lh-base.mb-1 Kathryn Murphy
+            .d-flex.text-body.fs-sm
+              span.me-2.pe-1
+                i.fi-calendar-alt.opacity-70.mt-n1.me-1.align-middle
+                | Oct 17
+              span
+                i.fi-chat-circle.opacity-70.mt-n1.me-1.align-middle
+                | 2 comments
+
+      // Article
+      article.col.pb-2.pb-md-1
+        a(href='real-estate-blog-single.html').d-block.position-relative.mb-3
+          img(src='img/real-estate/blog/08.jpg' alt='Article image').d-block.rounded-3
+        a(href='#').fs-sm.text-uppercase.text-decoration-none Property Market Analysis
+        h3.h5.mb-2.pt-1
+          a(href='real-estate-blog-single.html').nav-link When Is the Right Time to Downsize Your Home?
+        p.mb-3 Parturient purus non consectetur eu arcu, feugiat eget vitae. Tellus at sociis egestas magna integer. Vel sagittis morbi ultrices turpis neque sed venenatis enim laoreet...
+        a(href='#').d-flex.align-items-center.text-decoration-none
+          img(src='img/avatars/07.jpg' width='48' alt='Cody Fisher').rounded-circle
+          .ps-2
+            h6.fs-base.text-nav.lh-base.mb-1 Cody Fisher
+            .d-flex.text-body.fs-sm
+              span.me-2.pe-1
+                i.fi-calendar-alt.opacity-70.mt-n1.me-1.align-middle
+                | Nov 15
+              span
+                i.fi-chat-circle.opacity-70.mt-n1.me-1.align-middle
+                | 0 comments
+
+    // Pagination
+    nav.pt-4.pb-2.border-top(aria-label='Blog pagination')
+      ul.pagination.mb-0
+        li.page-item.d-sm-none
+          span.page-link.page-link-static 1 / 8
+        li.page-item.active(aria-current='page').d-none.d-sm-block
+          span.page-link
+            | 1
+            span.visually-hidden (current)
+        li.page-item.d-none.d-sm-block
+          a(href='#').page-link 2
+        li.page-item.d-none.d-sm-block
+          a(href='#').page-link 3
+        li.page-item.d-none.d-sm-block
+          | ...
+        li.page-item.d-none.d-sm-block
+          a(href='#').page-link 8
+        li.page-item
+          a.page-link(href='#' aria-label='Next')
+            i.fi-chevron-right
+
+
+//- Footer
+block footer
+  include partials/footer-real-estate

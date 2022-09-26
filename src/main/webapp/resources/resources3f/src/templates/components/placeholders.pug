@@ -1,0 +1,289 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['prismjs/themes/prism.css', 'prismjs/plugins/toolbar/prism-toolbar.css', 'prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var vendorScripts = ['prismjs/components/prism-core.min.js', 'prismjs/components/prism-markup.min.js', 'prismjs/components/prism-clike.min.js', 'prismjs/components/prism-javascript.min.js', 'prismjs/components/prism-pug.min.js', 'prismjs/plugins/toolbar/prism-toolbar.min.js', 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Placeholders'
+  - var pageSubtitle = 'Use loading placeholders for your components or pages to indicate something may still be loading.'
+  - var pageTitleLink = {'title': 'Bootstrap docs', 'link': 'https://getbootstrap.com/docs/5.1/components/placeholders/'}
+  - var anchorNav = [{'title': 'Width', 'link': '#placeholders-width'}, {'title': 'Color', 'link': '#placeholders-color'}, {'title': 'Sizing', 'link': '#placeholders-sizing'}, {'title': 'Animation', 'link': '#placeholders-animation'}, {'title': 'Use case example', 'link': '#placeholders-example'}]
+  
+//- Page Content
+block content
+
+  // Width
+  section#placeholders-width.pb-5.mb-md-2
+    h2.h5.mb-3 Width
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result1' data-bs-toggle='tab' role='tab' aria-controls='result1' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result1.tab-pane.fade.show.active(role='tabpanel')
+            span.placeholder.col-6
+            span.placeholder.w-75
+            span(style='width: 33%;').placeholder
+          #html1.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Width via col-* class --&gt;
+                &lt;span class=&quot;placeholder col-6&quot;&gt;&lt;/span&gt;
+
+                &lt;!-- Width via w-* class --&gt;
+                &lt;span class=&quot;placeholder w-75&quot;&gt;&lt;/span&gt;
+
+                &lt;!-- Width via style attribute --&gt;
+                &lt;span class=&quot;placeholder&quot; style=&quot;width: 33%;&quot;&gt;&lt;/span&gt;
+          #pug1.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Width via col-* class
+                span.placeholder.col-6
+
+                // Width via w-* class
+                span.placeholder.w-75
+
+                // Width via style attribute
+                span(style=&quot;width: 33%;&quot;).placeholder
+
+  // Color
+  section#placeholders-color.pb-5.mb-md-2
+    h2.h5.mb-3 Color
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result2' data-bs-toggle='tab' role='tab' aria-controls='result2' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result2.tab-pane.fade.show.active(role='tabpanel')
+            span.placeholder.col-12
+            span.placeholder.col-12.bg-primary
+            span.placeholder.col-12.bg-success
+            span.placeholder.col-12.bg-danger
+            span.placeholder.col-12.bg-warning
+            span.placeholder.col-12.bg-info
+            .bg-dark.p-2.my-2
+              span.placeholder.col-12.bg-light
+            span.placeholder.col-12.bg-dark
+          #html2.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Default --&gt;
+                &lt;span class=&quot;placeholder col-12&quot;&gt;&lt;/span&gt;
+
+                &lt;!-- Primary --&gt;
+                &lt;span class=&quot;placeholder col-12 bg-primary&quot;&gt;&lt;/span&gt;
+
+                &lt;!-- Success --&gt;
+                &lt;span class=&quot;placeholder col-12 bg-success&quot;&gt;&lt;/span&gt;
+
+                &lt;!-- Danger --&gt;
+                &lt;span class=&quot;placeholder col-12 bg-danger&quot;&gt;&lt;/span&gt;
+
+                &lt;!-- Warning --&gt;
+                &lt;span class=&quot;placeholder col-12 bg-warning&quot;&gt;&lt;/span&gt;
+
+                &lt;!-- Info --&gt;
+                &lt;span class=&quot;placeholder col-12 bg-info&quot;&gt;&lt;/span&gt;
+
+                &lt;!-- Light --&gt;
+                &lt;span class=&quot;placeholder col-12 bg-light&quot;&gt;&lt;/span&gt;
+
+                &lt;!-- Dark --&gt;
+                &lt;span class=&quot;placeholder col-12 bg-dark&quot;&gt;&lt;/span&gt;
+          #pug2.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Default
+                span.placeholder.col-12
+
+                // Primary
+                span.placeholder.col-12.bg-primary
+
+                // Success
+                span.placeholder.col-12.bg-success
+
+                // Danger
+                span.placeholder.col-12.bg-danger
+
+                // Warning
+                span.placeholder.col-12.bg-warning
+
+                // Info
+                span.placeholder.col-12.bg-info
+
+                // Light
+                span.placeholder.col-12.bg-light
+
+                // Dark
+                span.placeholder.col-12.bg-dark
+
+  // Sizing
+  section#placeholders-sizing.pb-5.mb-md-2
+    h2.h5.mb-3 Sizing
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result3' data-bs-toggle='tab' role='tab' aria-controls='result3' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result3.tab-pane.fade.show.active(role='tabpanel')
+            span.placeholder.col-12.placeholder-lg
+            span.placeholder.col-12
+            span.placeholder.col-12.placeholder-sm
+            span.placeholder.col-12.placeholder-xs
+          #html3.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Large --&gt;
+                &lt;span class=&quot;placeholder col-12 placeholder-lg&quot;&gt;&lt;/span&gt;
+
+                &lt;!-- Default --&gt;
+                &lt;span class=&quot;placeholder col-12&quot;&gt;&lt;/span&gt;
+
+                &lt;!-- Small --&gt;
+                &lt;span class=&quot;placeholder col-12 placeholder-sm&quot;&gt;&lt;/span&gt;
+
+                &lt;!-- Extra small --&gt;
+                &lt;span class=&quot;placeholder col-12 placeholder-xs&quot;&gt;&lt;/span&gt;
+          #pug3.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Large
+                span.placeholder.col-12.placeholder-lg
+
+                // Default
+                span.placeholder.col-12
+
+                // Small
+                span.placeholder.col-12.placeholder-sm
+
+                // Extra small
+                span.placeholder.col-12.placeholder-xs
+
+  // Animation
+  section#placeholders-animation.pb-5.mb-md-2
+    h2.h5.mb-3 Animation
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result4' data-bs-toggle='tab' role='tab' aria-controls='result4' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result4.tab-pane.fade.show.active(role='tabpanel')
+            p.placeholder-glow
+              span.placeholder.col-12
+            span.placeholder.placeholder-wave.col-12
+          #html4.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Glow animation --&gt;
+                &lt;p class=&quot;placeholder-glow&quot;&gt;
+                  &lt;span class=&quot;placeholder col-12&quot;&gt;&lt;/span&gt;
+                &lt;/p&gt;
+
+                &lt;!-- Wave animation --&gt;
+                &lt;span class=&quot;placeholder placeholder-wave col-12&quot;&gt;&lt;/span&gt;
+          #pug4.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Glow animation
+                p.placeholder-glow
+                  span.placeholder.col-12
+
+                // Wave animation
+                span.placeholder.placeholder-wave.col-12
+
+  // Use case example
+  section#placeholders-example.pb-5.mb-md-2
+    h2.h5.mb-3 Use case example
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result5' data-bs-toggle='tab' role='tab' aria-controls='result5' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html5' data-bs-toggle='tab' role='tab' aria-controls='html5' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug5' data-bs-toggle='tab' role='tab' aria-controls='pug5' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result5.tab-pane.fade.show.active(role='tabpanel')
+            .card.border-0.shadow(aria-hidden='true' style='max-width: 22rem;')
+              .position-relative.placeholder-wave
+                .card-img-top.placeholder.ratio.ratio-16x9
+                i.fi-image.position-absolute.top-50.start-50.translate-middle.fs-1.opacity-40
+              .card-body
+                h5.card-title.placeholder-glow
+                  span.placeholder.col-6
+                p.card-text.placeholder-glow
+                  span.placeholder.placeholder-sm.col-7.me-2
+                  span.placeholder.placeholder-sm.col-4
+                  span.placeholder.placeholder-sm.col-4.me-2
+                  span.placeholder.placeholder-sm.col-6
+                  span.placeholder.placeholder-sm.col-8
+                a(href='#' tabindex='-1').btn.btn-primary.disabled.placeholder.col-6.placeholder-wave
+          #html5.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Loading placeholders example --&gt;
+                &lt;div class=&quot;card border-0 shadow&quot; aria-hidden=&quot;true&quot;&gt;
+                  &lt;div class=&quot;position-relative placeholder-wave&quot;&gt;
+                    &lt;div class=&quot;card-img-top placeholder ratio ratio-16x9&quot;&gt;&lt;/div&gt;
+                    &lt;i class=&quot;fi-image position-absolute top-50 start-50 translate-middle fs-1 opacity-40&quot;&gt;&lt;/i&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;h5 class=&quot;card-title placeholder-glow&quot;&gt;
+                      &lt;span class=&quot;placeholder col-6&quot;&gt;&lt;/span&gt;
+                    &lt;/h5&gt;
+                    &lt;p class=&quot;card-text placeholder-glow&quot;&gt;
+                      &lt;span class=&quot;placeholder placeholder-sm col-7 me-2&quot;&gt;&lt;/span&gt;
+                      &lt;span class=&quot;placeholder placeholder-sm col-4&quot;&gt;&lt;/span&gt;
+                      &lt;span class=&quot;placeholder placeholder-sm col-4 me-2&quot;&gt;&lt;/span&gt;
+                      &lt;span class=&quot;placeholder placeholder-sm col-6&quot;&gt;&lt;/span&gt;
+                      &lt;span class=&quot;placeholder placeholder-sm col-8&quot;&gt;&lt;/span&gt;
+                    &lt;/p&gt;
+                    &lt;a href=&quot;#&quot; tabindex=&quot;-1&quot; class=&quot;btn btn-primary disabled placeholder col-6 placeholder-wave&quot;&gt;&lt;/a&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+          #pug5.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Loading placeholders example
+                .card.border-0.shadow(aria-hidden=&quot;true&quot;)
+                  .position-relative.placeholder-wave
+                    .card-img-top.placeholder.ratio.ratio-16x9
+                    i.fi-image.position-absolute.top-50.start-50.translate-middle.fs-1.opacity-40
+                  .card-body
+                    h5.card-title.placeholder-glow
+                      span.placeholder.col-6
+                    p.card-text.placeholder-glow
+                      span.placeholder.placeholder-sm.col-7.me-2
+                      span.placeholder.placeholder-sm.col-4
+                      span.placeholder.placeholder-sm.col-4.me-2
+                      span.placeholder.placeholder-sm.col-6
+                      span.placeholder.placeholder-sm.col-8
+                    a(href=&quot;#&quot;, tabindex=&quot;-1&quot;).btn.btn-primary.disabled.placeholder.col-6.placeholder-wave

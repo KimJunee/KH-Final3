@@ -1,0 +1,72 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var pageTitle = '404 Error v.3'
+
+
+//- Page Content
+block content
+  .container.overflow-hidden.pb-5
+
+    // Dangling lamp
+    .d-flex.justify-content-center.px-5.mt-n1
+      img(src='assets/img/404/lamp-light.png' width='348' alt='Lamp' style='transform-origin: 50% 0; animation: swinging 3.5s ease-in-out forwards infinite;').d-dark-mode-none
+      img(src='assets/img/404/lamp-dark.png' width='348' alt='Lamp' style='transform-origin: 50% 0; animation: swinging 3.5s ease-in-out forwards infinite;').d-none.d-dark-mode-block
+    
+    // Text + search bar
+    .d-flex.justify-content-center.pb-5.mb-md-2.mb-lg-3.mb-xl-4.mb-xxl-5
+      div(style='max-width: 420px;')
+        .d-none.d-sm-block(style='margin-top: -127px;')
+        .d-sm-none(style='margin-top: -25%;')
+        .d-flex.align-items-center.mb-4
+          h1.display-1.mb-0 404
+          p.text-dark.lead.ps-4.mb-0 Whoops! That page is missing...
+        form.input-group
+          input(type='search' placeholder='Enter keywords' required).form-control
+          button(type='submit').btn.btn-dark Search
+
+
+    // Categories
+    h2.h4.text-center.pb-lg-2.mb-4 Let's go back on track!
+    .row.g-4.pb-3.pb-lg-4.pb-xl-5
+      .col-md-4
+
+        // Card
+        .card.zoom-effect.h-100.border-0.rounded-1.overflow-hidden(style='min-height: 320px;')
+          span.position-absolute.top-0.start-0.w-100.h-100.bg-dark.opacity-10.zindex-2
+          .zoom-effect-wrapper.rounded-1.position-absolute.top-0.start-0.w-100.h-100
+            .zoom-effect-img.bg-size-cover.bg-position-bottom-center.position-absolute.top-0.start-0.w-100.h-100(style='background-image: url(assets/img/shop/categories/01.jpg);')
+          a(href='shop-catalog.html').card-body.d-flex.flex-column.justify-content-end.align-items-start.position-absolute.top-0.start-0.w-100.h-100.text-decoration-none.zindex-3
+            span.bg-light.text-dark.rounded-pill.fs-sm.fw-semibold.lh-1.py-3.px-4 For the living room
+      
+      .col-md-8
+
+        // Card
+        .card.zoom-effect.border-0.rounded-1.overflow-hidden
+          span.position-absolute.top-0.start-0.w-100.h-100.bg-dark.opacity-10.zindex-2
+          .zoom-effect-wrapper.rounded-1
+            img(src='assets/img/shop/categories/02.jpg' alt='Category image').zoom-effect-img
+          a(href='shop-catalog.html').card-body.d-flex.flex-column.justify-content-end.align-items-start.position-absolute.top-0.start-0.w-100.h-100.text-decoration-none.zindex-3
+            span.bg-light.text-dark.rounded-pill.fs-sm.fw-semibold.lh-1.py-3.px-4 For the kitchen
+        
+        .row.g-4.pt-4
+          .col-sm-6
+
+            // Card
+            .card.zoom-effect.border-0.rounded-1.overflow-hidden
+              span.position-absolute.top-0.start-0.w-100.h-100.bg-dark.opacity-10.zindex-2
+              .zoom-effect-wrapper.rounded-1
+                img(src='assets/img/shop/categories/03.jpg' alt='Category image').zoom-effect-img
+              a(href='shop-catalog.html').card-body.d-flex.flex-column.justify-content-end.align-items-start.position-absolute.top-0.start-0.w-100.h-100.text-decoration-none.zindex-3
+                span.bg-light.text-dark.rounded-pill.fs-sm.fw-semibold.lh-1.py-3.px-4 For the bathroom
+          
+          .col-sm-6
+
+            // Card
+            .card.zoom-effect.border-0.rounded-1.overflow-hidden
+              span.position-absolute.top-0.start-0.w-100.h-100.bg-dark.opacity-10.zindex-2
+              .zoom-effect-wrapper.rounded-1
+                img(src='assets/img/shop/categories/04.jpg' alt='Category image').zoom-effect-img
+              a(href='shop-catalog.html').card-body.d-flex.flex-column.justify-content-end.align-items-start.position-absolute.top-0.start-0.w-100.h-100.text-decoration-none.zindex-3
+                span.bg-light.text-dark.rounded-pill.fs-sm.fw-semibold.lh-1.py-3.px-4 For the bedroom

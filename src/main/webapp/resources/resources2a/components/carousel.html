@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Around | Carousel (Slider)</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="Around - Multipurpose Bootstrap HTML Template">
+    <meta name="keywords" content="bootstrap, business, corporate, coworking space, services, creative agency, dashboard, e-commerce, mobile app showcase, saas, multipurpose, product landing, shop, software, ui kit, web studio, landing, dark mode, html5, css3, javascript, gallery, slider, touch, creative">
+    <meta name="author" content="Createx Studio">
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../assets/favicon/site.webmanifest">
+    <link rel="mask-icon" color="#6366f1" href="../assets/favicon/safari-pinned-tab.svg">
+    <meta name="msapplication-TileColor" content="#080032">
+    <meta name="msapplication-config" content="../assets/favicon/browserconfig.xml">
+    <meta name="theme-color" content="white">
+    <!-- Theme mode-->
+    <script>
+      let mode = window.localStorage.getItem('mode'),
+          root = document.getElementsByTagName('html')[0];
+      if (mode !== undefined && mode === 'dark') {
+        root.classList.add('dark-mode');
+      } else {
+        root.classList.remove('dark-mode');
+      }
+      
+      
+    </script>
+    <!-- Import Google Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" id="google-font">
+    <!-- Vendor styles-->
+    <link rel="stylesheet" media="screen" href="../assets/vendor/simplebar/dist/simplebar.min.css"/>
+    <link rel="stylesheet" media="screen" href="../assets/vendor/swiper/swiper-bundle.min.css"/>
+    <link rel="stylesheet" media="screen" href="../assets/vendor/prismjs/themes/prism.css"/>
+    <link rel="stylesheet" media="screen" href="../assets/vendor/prismjs/plugins/toolbar/prism-toolbar.css"/>
+    <link rel="stylesheet" media="screen" href="../assets/vendor/prismjs/plugins/line-numbers/prism-line-numbers.css"/>
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="../assets/css/theme.min.css">
+  </head>
+  <!-- Body-->
+  <body class="bg-secondary">
+    <!-- Navbar-->
+    <header class="navbar navbar-expand justify-content-end fixed-top" data-scroll-header>
+      <div class="container"><a class="navbar-brand pe-xl-2 me-4" href="typography.html"><span class="text-primary flex-shrink-0 me-2">
+            <svg version="1.1" width="35" height="32" viewBox="0 0 36 33" xmlns="http://www.w3.org/2000/svg">
+              <path fill="currentColor" d="M35.6,29c-1.1,3.4-5.4,4.4-7.9,1.9c-2.3-2.2-6.1-3.7-9.4-3.7c-3.1,0-7.5,1.8-10,4.1c-2.2,2-5.8,1.5-7.3-1.1c-1-1.8-1.2-4.1,0-6.2l0.6-1.1l0,0c0.6-0.7,4.4-5.2,12.5-5.7c0.5,1.8,2,3.1,3.9,3.1c2.2,0,4.1-1.9,4.1-4.2s-1.8-4.2-4.1-4.2c-2,0-3.6,1.4-4,3.3H7.7c-0.8,0-1.3-0.9-0.9-1.6l5.6-9.8c2.5-4.5,8.8-4.5,11.3,0L35.1,24C36,25.7,36.1,27.5,35.6,29z"></path>
+            </svg></span>Around<span class="badge bg-warning fs-sm ms-2">UI Kit</span></a>
+        <ul class="navbar-nav d-none d-lg-flex me-auto">
+          <li class="nav-item"><a class="nav-link" href="../index.html"><i class="ai-monitor fs-lg opacity-90 me-2"></i>Live demo</a></li>
+          <li class="nav-item"><a class="nav-link" href="../docs/getting-started.html"><i class="ai-file-text fs-lg opacity-90 me-2"></i>Documentation</a></li>
+        </ul>
+        <div class="form-check form-switch mode-switch pe-lg-1 ms-auto" data-bs-toggle="mode">
+          <input class="form-check-input" type="checkbox" id="theme-mode">
+          <label class="form-check-label" for="theme-mode"><i class="ai-sun fs-lg"></i></label>
+          <label class="form-check-label" for="theme-mode"><i class="ai-moon fs-lg"></i></label>
+        </div>
+        <button class="navbar-toggler d-block d-lg-none ms-3 border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#componentsNav"><span class="navbar-toggler-icon"></span></button><a class="btn btn-sm btn-primary d-none d-lg-inline-flex fs-sm ms-4" href="https://themes.getbootstrap.com/product/around-multipurpose-template-ui-kit/" target="_blank" rel="noopener"><i class="ai-cart d-sm-inline-block fs-xl me-2 ms-n1"></i>Buy now</a>
+      </div>
+    </header>
+    <!-- Desktop sidebar navigation (on screens > 991px) (Offcanvas)-->
+    <aside class="container position-fixed d-none d-lg-block start-50 translate-middle-x h-100 pt-5">
+      <div class="row h-100 pt-5">
+        <div class="col-lg-3 d-flex flex-column pb-3 pt-4" style="height: calc(100% - 2rem);">
+          <div class="h-100 mt-2" data-simplebar>
+            <h3 class="h5 mb-1 pb-2">Content</h3>
+            <ul class="nav flex-column">
+              <li class="nav-item"><a class="nav-link px-0 py-2" href="typography.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Typography</a>
+              </li>
+              <li class="nav-item" id="icons"><a class="nav-link px-0 py-2" href="icon-font.html#icons"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Icon font</a>
+              </li>
+              <li class="nav-item" id="code"><a class="nav-link px-0 py-2" href="code.html#code"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Code</a>
+              </li>
+              <li class="nav-item" id="imgs"><a class="nav-link px-0 py-2" href="images.html#imgs"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Images &amp; figures</a>
+              </li>
+              <li class="nav-item" id="tables"><a class="nav-link px-0 py-2" href="tables.html#tables"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Tables</a>
+              </li>
+            </ul>
+            <h3 class="h5 mb-1 pt-4 pb-2">Components</h3>
+            <ul class="nav flex-column">
+              <li class="nav-item" id="accordion"><a class="nav-link px-0 py-2" href="accordion.html#accordion"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Accordion</a>
+              </li>
+              <li class="nav-item" id="alerts"><a class="nav-link px-0 py-2" href="alerts.html#alerts"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Alerts</a>
+              </li>
+              <li class="nav-item" id="badges"><a class="nav-link px-0 py-2" href="badges.html#badges"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Badges</a>
+              </li>
+              <li class="nav-item" id="blog"><a class="nav-link px-0 py-2" href="blog-components.html#blog"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Blog components</a>
+              </li>
+              <li class="nav-item" id="breadcrumb"><a class="nav-link px-0 py-2" href="breadcrumb.html#breadcrumb"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Breadcrumb</a>
+              </li>
+              <li class="nav-item" id="btns"><a class="nav-link px-0 py-2" href="buttons.html#btns"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Buttons</a>
+              </li>
+              <li class="nav-item" id="btn-group"><a class="nav-link px-0 py-2" href="button-group.html#btn-group"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Button group</a>
+              </li>
+              <li class="nav-item" id="cards-basic"><a class="nav-link px-0 py-2" href="cards-basic.html#cards-basic"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Cards: Basic</a>
+              </li>
+              <li class="nav-item" id="cards-hover"><a class="nav-link px-0 py-2" href="cards-hover.html#cards-hover"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Cards: Hover effects</a>
+              </li>
+              <li class="nav-item" id="carousel"><span class="nav-link px-0 py-2 active"><i class="ai-circle-arrow-down fs-lg opacity-90 me-2"></i>Carousel (Slider)</span>
+                <ul class="nav flex-column border-start ps-3 ms-2 mb-2">
+                  <li class="nav-item"><a class="nav-link fs-sm fw-normal py-1 ps-1 pe-0 mb-1" href="#carousel-navigation" data-scroll="data-scroll">Navigation (Prev / next buttons)</a></li>
+                  <li class="nav-item"><a class="nav-link fs-sm fw-normal py-1 ps-1 pe-0 mb-1" href="#carousel-pagination" data-scroll="data-scroll">Pagination</a></li>
+                  <li class="nav-item"><a class="nav-link fs-sm fw-normal py-1 ps-1 pe-0 mb-1" href="#carousel-multiple-slides" data-scroll="data-scroll">Multiple slides (Responsive) + Controls and pagination outside</a></li>
+                  <li class="nav-item"><a class="nav-link fs-sm fw-normal py-1 ps-1 pe-0 mb-1" href="#carousel-fade" data-scroll="data-scroll">Fade transition</a></li>
+                  <li class="nav-item"><a class="nav-link fs-sm fw-normal py-1 ps-1 pe-0 mb-1" href="#carousel-link-to-content" data-scroll="data-scroll">Link slides to outside content</a></li>
+                </ul>
+              </li>
+              <li class="nav-item" id="charts"><a class="nav-link px-0 py-2" href="charts.html#charts"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Charts</a>
+              </li>
+              <li class="nav-item" id="collapse"><a class="nav-link px-0 py-2" href="collapse.html#collapse"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Collapse</a>
+              </li>
+              <li class="nav-item" id="countdown"><a class="nav-link px-0 py-2" href="countdown.html#countdown"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Countdown</a>
+              </li>
+              <li class="nav-item" id="picker"><a class="nav-link px-0 py-2" href="date-picker.html#picker"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Date / time picker</a>
+              </li>
+              <li class="nav-item" id="dropdowns"><a class="nav-link px-0 py-2" href="dropdowns.html#dropdowns"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Dropdowns</a>
+              </li>
+              <li class="nav-item" id="calendar"><a class="nav-link px-0 py-2" href="calendar.html#calendar"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Event calendar</a>
+              </li>
+              <li class="nav-item" id="forms"><a class="nav-link px-0 py-2" href="forms.html#forms"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Forms</a>
+              </li>
+              <li class="nav-item" id="gallery"><a class="nav-link px-0 py-2" href="gallery.html#gallery"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Gallery (Lightbox)</a>
+              </li>
+              <li class="nav-item" id="hotspots"><a class="nav-link px-0 py-2" href="hotspots.html#hotspots"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Hotspots</a>
+              </li>
+              <li class="nav-item" id="ics"><a class="nav-link px-0 py-2" href="image-comparison-slider.html#ics"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Image comparison slider</a>
+              </li>
+              <li class="nav-item" id="ig"><a class="nav-link px-0 py-2" href="input-group.html#ig"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Input group</a>
+              </li>
+              <li class="nav-item" id="lg"><a class="nav-link px-0 py-2" href="list-group.html#lg"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>List group</a>
+              </li>
+              <li class="nav-item" id="maps"><a class="nav-link px-0 py-2" href="maps.html#maps"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Maps</a>
+              </li>
+              <li class="nav-item" id="modal"><a class="nav-link px-0 py-2" href="modal.html#modal"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Modal</a>
+              </li>
+              <li class="nav-item" id="navbar"><a class="nav-link px-0 py-2" href="navbar.html#navbar"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Navbar</a>
+              </li>
+              <li class="nav-item" id="offcanvas"><a class="nav-link px-0 py-2" href="offcanvas.html#offcanvas"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Offcanvas</a>
+              </li>
+              <li class="nav-item" id="pagination"><a class="nav-link px-0 py-2" href="pagination.html#pagination"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Pagination</a>
+              </li>
+              <li class="nav-item" id="parallax"><a class="nav-link px-0 py-2" href="parallax.html#parallax"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Parallax</a>
+              </li>
+              <li class="nav-item" id="pills"><a class="nav-link px-0 py-2" href="pills.html#pills"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Pills</a>
+              </li>
+              <li class="nav-item" id="placeholders"><a class="nav-link px-0 py-2" href="placeholders.html#placeholders"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Placeholders</a>
+              </li>
+              <li class="nav-item" id="popovers"><a class="nav-link px-0 py-2" href="popovers.html#popovers"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Popovers</a>
+              </li>
+              <li class="nav-item" id="portfolio"><a class="nav-link px-0 py-2" href="portfolio-components.html#portfolio"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Portfolio components</a>
+              </li>
+              <li class="nav-item" id="pricing"><a class="nav-link px-0 py-2" href="pricing.html#pricing"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Pricing</a>
+              </li>
+              <li class="nav-item" id="progress"><a class="nav-link px-0 py-2" href="progress.html#progress"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Progress</a>
+              </li>
+              <li class="nav-item" id="shop"><a class="nav-link px-0 py-2" href="shop-components.html#shop"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Shop components</a>
+              </li>
+              <li class="nav-item" id="social-btns"><a class="nav-link px-0 py-2" href="social-buttons.html#social-btns"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Social buttons</a>
+              </li>
+              <li class="nav-item" id="spinners"><a class="nav-link px-0 py-2" href="spinners.html#spinners"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Spinners</a>
+              </li>
+              <li class="nav-item" id="steps"><a class="nav-link px-0 py-2" href="steps.html#steps"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Steps</a>
+              </li>
+              <li class="nav-item" id="tabs"><a class="nav-link px-0 py-2" href="tabs.html#tabs"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Tabs</a>
+              </li>
+              <li class="nav-item" id="team"><a class="nav-link px-0 py-2" href="team.html#team"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Team</a>
+              </li>
+              <li class="nav-item" id="testimonials"><a class="nav-link px-0 py-2" href="testimonials.html#testimonials"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Testimonials / reviews</a>
+              </li>
+              <li class="nav-item" id="toasts"><a class="nav-link px-0 py-2" href="toasts.html#toasts"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Toasts</a>
+              </li>
+              <li class="nav-item" id="tooltips"><a class="nav-link px-0 py-2" href="tooltips.html#tooltips"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Tooltips</a>
+              </li>
+              <li class="nav-item" id="video"><a class="nav-link px-0 py-2" href="video-popup.html#video"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Video popup</a>
+              </li>
+            </ul>
+            <h3 class="h5 mb-1 pt-4 pb-2">Utilities</h3>
+            <ul class="nav flex-column mb-0">
+              <li class="nav-item"><a class="nav-link px-0 py-2" href="https://getbootstrap.com/docs/5.2/utilities/background/" target="_blank" rel="noopener"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Bootstrap</a></li>
+            </ul>
+            <ul class="nav flex-column">
+              <li class="nav-item" id="utils"><a class="nav-link px-0 py-2" href="utilities.html#utils"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Around utilities</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <!-- Mobile offcanvas navigation (on screens < 992px)-->
+    <div class="offcanvas offcanvas-start" id="componentsNav">
+      <div class="offcanvas-header align-items-center">
+        <div class="d-flex align-items-center">
+          <h4 class="offcanvas-title">Menu</h4>
+        </div>
+        <button class="btn-close" type="button" data-bs-dismiss="offcanvas"></button>
+      </div>
+      <ul class="nav flex-column border-bottom pb-4">
+        <li class="nav-item"><a class="nav-link py-2" href="../index.html"><i class="ai-monitor fs-lg opacity-90 me-2"></i>Live demo</a></li>
+        <li class="nav-item"><a class="nav-link py-2" href="../docs/getting-started.html"><i class="ai-file-text fs-lg opacity-90 me-2"></i>Documentation</a></li>
+      </ul>
+      <div class="offcanvas-body">
+        <h3 class="h5 mb-1 pb-2">Content</h3>
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link px-0 py-2" href="typography.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Typography</a>
+          </li>
+          <li class="nav-item" id="icons=m"><a class="nav-link px-0 py-2" href="icon-font.html#icons=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Icon font</a>
+          </li>
+          <li class="nav-item" id="code=m"><a class="nav-link px-0 py-2" href="code.html#code=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Code</a>
+          </li>
+          <li class="nav-item" id="imgs=m"><a class="nav-link px-0 py-2" href="images.html#imgs=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Images &amp; figures</a>
+          </li>
+          <li class="nav-item" id="tables=m"><a class="nav-link px-0 py-2" href="tables.html#tables=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Tables</a>
+          </li>
+        </ul>
+        <h3 class="h5 mb-1 pt-4 pb-2">Components</h3>
+        <ul class="nav flex-column">
+          <li class="nav-item" id="accordion=m"><a class="nav-link px-0 py-2" href="accordion.html#accordion=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Accordion</a>
+          </li>
+          <li class="nav-item" id="alerts=m"><a class="nav-link px-0 py-2" href="alerts.html#alerts=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Alerts</a>
+          </li>
+          <li class="nav-item" id="badges=m"><a class="nav-link px-0 py-2" href="badges.html#badges=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Badges</a>
+          </li>
+          <li class="nav-item" id="blog=m"><a class="nav-link px-0 py-2" href="blog-components.html#blog=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Blog components</a>
+          </li>
+          <li class="nav-item" id="breadcrumb=m"><a class="nav-link px-0 py-2" href="breadcrumb.html#breadcrumb=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Breadcrumb</a>
+          </li>
+          <li class="nav-item" id="btns=m"><a class="nav-link px-0 py-2" href="buttons.html#btns=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Buttons</a>
+          </li>
+          <li class="nav-item" id="btn-group=m"><a class="nav-link px-0 py-2" href="button-group.html#btn-group=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Button group</a>
+          </li>
+          <li class="nav-item" id="cards-basic=m"><a class="nav-link px-0 py-2" href="cards-basic.html#cards-basic=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Cards: Basic</a>
+          </li>
+          <li class="nav-item" id="cards-hover=m"><a class="nav-link px-0 py-2" href="cards-hover.html#cards-hover=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Cards: Hover effects</a>
+          </li>
+          <li class="nav-item" id="carousel=m"><span class="nav-link px-0 py-2 active"><i class="ai-circle-arrow-down fs-lg opacity-90 me-2"></i>Carousel (Slider)</span>
+            <ul class="nav flex-column border-start ps-3 ms-2 mb-2">
+              <li class="nav-item"><a class="nav-link fs-sm fw-normal py-1 ps-1 pe-0 mb-1" href="#carousel-navigation" data-scroll="data-scroll">Navigation (Prev / next buttons)</a></li>
+              <li class="nav-item"><a class="nav-link fs-sm fw-normal py-1 ps-1 pe-0 mb-1" href="#carousel-pagination" data-scroll="data-scroll">Pagination</a></li>
+              <li class="nav-item"><a class="nav-link fs-sm fw-normal py-1 ps-1 pe-0 mb-1" href="#carousel-multiple-slides" data-scroll="data-scroll">Multiple slides (Responsive) + Controls and pagination outside</a></li>
+              <li class="nav-item"><a class="nav-link fs-sm fw-normal py-1 ps-1 pe-0 mb-1" href="#carousel-fade" data-scroll="data-scroll">Fade transition</a></li>
+              <li class="nav-item"><a class="nav-link fs-sm fw-normal py-1 ps-1 pe-0 mb-1" href="#carousel-link-to-content" data-scroll="data-scroll">Link slides to outside content</a></li>
+            </ul>
+          </li>
+          <li class="nav-item" id="charts=m"><a class="nav-link px-0 py-2" href="charts.html#charts=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Charts</a>
+          </li>
+          <li class="nav-item" id="collapse=m"><a class="nav-link px-0 py-2" href="collapse.html#collapse=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Collapse</a>
+          </li>
+          <li class="nav-item" id="countdown=m"><a class="nav-link px-0 py-2" href="countdown.html#countdown=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Countdown</a>
+          </li>
+          <li class="nav-item" id="picker=m"><a class="nav-link px-0 py-2" href="date-picker.html#picker=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Date / time picker</a>
+          </li>
+          <li class="nav-item" id="dropdowns=m"><a class="nav-link px-0 py-2" href="dropdowns.html#dropdowns=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Dropdowns</a>
+          </li>
+          <li class="nav-item" id="calendar=m"><a class="nav-link px-0 py-2" href="calendar.html#calendar=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Event calendar</a>
+          </li>
+          <li class="nav-item" id="forms=m"><a class="nav-link px-0 py-2" href="forms.html#forms=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Forms</a>
+          </li>
+          <li class="nav-item" id="gallery=m"><a class="nav-link px-0 py-2" href="gallery.html#gallery=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Gallery (Lightbox)</a>
+          </li>
+          <li class="nav-item" id="hotspots=m"><a class="nav-link px-0 py-2" href="hotspots.html#hotspots=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Hotspots</a>
+          </li>
+          <li class="nav-item" id="ics=m"><a class="nav-link px-0 py-2" href="image-comparison-slider.html#ics=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Image comparison slider</a>
+          </li>
+          <li class="nav-item" id="ig=m"><a class="nav-link px-0 py-2" href="input-group.html#ig=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Input group</a>
+          </li>
+          <li class="nav-item" id="lg=m"><a class="nav-link px-0 py-2" href="list-group.html#lg=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>List group</a>
+          </li>
+          <li class="nav-item" id="maps=m"><a class="nav-link px-0 py-2" href="maps.html#maps=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Maps</a>
+          </li>
+          <li class="nav-item" id="modal=m"><a class="nav-link px-0 py-2" href="modal.html#modal=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Modal</a>
+          </li>
+          <li class="nav-item" id="navbar=m"><a class="nav-link px-0 py-2" href="navbar.html#navbar=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Navbar</a>
+          </li>
+          <li class="nav-item" id="offcanvas=m"><a class="nav-link px-0 py-2" href="offcanvas.html#offcanvas=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Offcanvas</a>
+          </li>
+          <li class="nav-item" id="pagination=m"><a class="nav-link px-0 py-2" href="pagination.html#pagination=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Pagination</a>
+          </li>
+          <li class="nav-item" id="parallax=m"><a class="nav-link px-0 py-2" href="parallax.html#parallax=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Parallax</a>
+          </li>
+          <li class="nav-item" id="pills=m"><a class="nav-link px-0 py-2" href="pills.html#pills=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Pills</a>
+          </li>
+          <li class="nav-item" id="placeholders=m"><a class="nav-link px-0 py-2" href="placeholders.html#placeholders=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Placeholders</a>
+          </li>
+          <li class="nav-item" id="popovers=m"><a class="nav-link px-0 py-2" href="popovers.html#popovers=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Popovers</a>
+          </li>
+          <li class="nav-item" id="portfolio=m"><a class="nav-link px-0 py-2" href="portfolio-components.html#portfolio=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Portfolio components</a>
+          </li>
+          <li class="nav-item" id="pricing=m"><a class="nav-link px-0 py-2" href="pricing.html#pricing=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Pricing</a>
+          </li>
+          <li class="nav-item" id="progress=m"><a class="nav-link px-0 py-2" href="progress.html#progress=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Progress</a>
+          </li>
+          <li class="nav-item" id="shop=m"><a class="nav-link px-0 py-2" href="shop-components.html#shop=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Shop components</a>
+          </li>
+          <li class="nav-item" id="social-btns=m"><a class="nav-link px-0 py-2" href="social-buttons.html#social-btns=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Social buttons</a>
+          </li>
+          <li class="nav-item" id="spinners=m"><a class="nav-link px-0 py-2" href="spinners.html#spinners=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Spinners</a>
+          </li>
+          <li class="nav-item" id="steps=m"><a class="nav-link px-0 py-2" href="steps.html#steps=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Steps</a>
+          </li>
+          <li class="nav-item" id="tabs=m"><a class="nav-link px-0 py-2" href="tabs.html#tabs=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Tabs</a>
+          </li>
+          <li class="nav-item" id="team=m"><a class="nav-link px-0 py-2" href="team.html#team=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Team</a>
+          </li>
+          <li class="nav-item" id="testimonials=m"><a class="nav-link px-0 py-2" href="testimonials.html#testimonials=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Testimonials / reviews</a>
+          </li>
+          <li class="nav-item" id="toasts=m"><a class="nav-link px-0 py-2" href="toasts.html#toasts=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Toasts</a>
+          </li>
+          <li class="nav-item" id="tooltips=m"><a class="nav-link px-0 py-2" href="tooltips.html#tooltips=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Tooltips</a>
+          </li>
+          <li class="nav-item" id="video=m"><a class="nav-link px-0 py-2" href="video-popup.html#video=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Video popup</a>
+          </li>
+        </ul>
+        <h3 class="h5 mb-1 pt-4 pb-2">Utilities</h3>
+        <ul class="nav flex-column mb-0">
+          <li class="nav-item"><a class="nav-link px-0 py-2" href="https://getbootstrap.com/docs/5.2/utilities/background/" target="_blank" rel="noopener"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Bootstrap</a></li>
+        </ul>
+        <ul class="nav flex-column">
+          <li class="nav-item" id="utils=m"><a class="nav-link px-0 py-2" href="utilities.html#utils=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Around utilities</a>
+          </li>
+        </ul>
+      </div>
+      <div class="offcanvas-header border-top"><a class="btn btn-primary w-100" href="https://themes.getbootstrap.com/product/around-multipurpose-template-ui-kit/" target="_blank" rel="noopener"><i class="ai-cart d-sm-inline-block fs-xl me-2 ms-n1"></i>Buy now</a></div>
+    </div>
+    <!-- Page content-->
+    <section class="container pt-5 pb-4">
+      <div class="row pt-5 pb-2 pb-sm-3">
+        <div class="col-lg-9 offset-lg-3 position-relative zindex-5">
+          <h1 class="pt-lg-4">Carousel (Slider)</h1>
+          <div class="d-flex flex-wrap flex-md-nowrap justify-content-between pb-3">
+            <p class="text-muted">A slideshow component for cycling through elements (images or slides with any content) like a carousel.</p>
+            <div class="ps-md-4 mb-3"><span class="badge bg-warning fs-sm">Around component</span></div>
+          </div>
+          <!-- Info alert-->
+          <div class="alert alert-info d-flex mb-4" role="alert"><i class="ai-circle-info lead me-2 me-sm-3"></i>
+            <div class="text-break">
+              <p class="mb-2"><span class='fw-semibold'>Carousel component</span> depends on <span class='fw-semibold'>Swiper plugin</span>. Make sure to link to <span class='fw-semibold'>Swiper css and js</span> files in your document:</p>
+              <ul class="list-unstyled mb-2">
+                <li><span class='fw-semibold'>assets/vendor/swiper/swiper-bundle.min.css</span></li>
+                <li><span class='fw-semibold'>assets/vendor/swiper/swiper-bundle.min.js</span></li>
+              </ul>
+              <p class="mb-3">Use this page as a reference.</p>
+              <p class="mb-3">You can pass almost any slider option to <code>data-swiper-options='{}'</code></p>
+              <p class="fw-semibold mb-2">Usefull links</p>
+              <ul class="list-unstyled mb-0">
+                <li class="mb-1"><a class="d-flex align-items-center alert-link text-decoration-none" href="https://swiperjs.com/demos" target="_blank" rel="noopener"><i class="ai-external-link me-2"></i>Swiper slider demos with code examples</a></li>
+                <li class="mb-1"><a class="d-flex align-items-center alert-link text-decoration-none" href="https://swiperjs.com/swiper-api" target="_blank" rel="noopener"><i class="ai-external-link me-2"></i>Swiper slider API: options, methods and events</a></li>
+              </ul>
+            </div>
+          </div>
+          <!-- Navigation (Prev / next buttons)-->
+          <section class="card border-0 mb-4" id="carousel-navigation">
+            <div class="card-body pb-0">
+              <h2 class="h4 mb-n2">Navigation (Prev / next buttons)</h2>
+            </div>
+            <div class="card-header">
+              <ul class="nav nav-tabs card-header-tabs flex-nowrap align-items-center mb-n1" role="tablist">
+                <li class="nav-item me-3"><a class="nav-link px-0 py-2 border-0 rounded-1 active" href="#preview1" data-bs-toggle="tab" role="tab" aria-controls="preview1" aria-selected="true"><i class="ai-show fs-lg opacity-90 me-2"></i>Preview</a></li>
+                <li class="vr opacity-20 my-3 me-3"></li>
+                <li class="nav-item me-3"><a class="nav-link px-0 py-2 border-0 rounded-1" href="#html1" data-bs-toggle="tab" role="tab" aria-controls="html1" aria-selected="false"><i class="ai-code fs-xl opacity-90 me-2"></i>HTML</a></li>
+                <li class="vr opacity-20 my-3 me-3"></li>
+                <li class="nav-item me-0"><a class="nav-link px-0 py-2 border-0 rounded-1" href="#pug1" data-bs-toggle="tab" role="tab" aria-controls="pug1" aria-selected="false"><i class="ai-code-curly opacity-90 me-2"></i>Pug</a></li>
+              </ul>
+            </div>
+            <div class="card-body">
+              <div class="tab-content">
+                <div class="tab-pane fade show active" id="preview1" role="tabpanel">
+                  <div class="d-flex flex-wrap align-items-center">
+                    <div class="d-flex my-2 me-4">
+                      <button class="btn btn-prev btn-icon btn-xl btn-outline-primary rounded-circle me-2" type="button"><i class="ai-arrow-left"></i></button>
+                      <button class="btn btn-prev btn-icon btn-xl btn-outline-primary rounded-circle ms-2" type="button"><i class="ai-arrow-right"></i></button>
+                    </div>
+                    <div class="d-flex my-2 me-4">
+                      <button class="btn btn-prev btn-icon btn-lg btn-outline-primary rounded-circle me-2" type="button"><i class="ai-arrow-left"></i></button>
+                      <button class="btn btn-prev btn-icon btn-lg btn-outline-primary rounded-circle ms-2" type="button"><i class="ai-arrow-right"></i></button>
+                    </div>
+                    <div class="d-flex my-2 me-4">
+                      <button class="btn btn-prev btn-icon btn-outline-primary rounded-circle me-2" type="button"><i class="ai-arrow-left"></i></button>
+                      <button class="btn btn-prev btn-icon btn-outline-primary rounded-circle ms-2" type="button"><i class="ai-arrow-right"></i></button>
+                    </div>
+                    <div class="d-flex my-2">
+                      <button class="btn btn-prev btn-icon btn-sm btn-outline-primary rounded-circle me-2" type="button"><i class="ai-arrow-left"></i></button>
+                      <button class="btn btn-prev btn-icon btn-sm btn-outline-primary rounded-circle ms-2" type="button"><i class="ai-arrow-right"></i></button>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="html1" role="tabpanel">
+                  <pre class="line-numbers"><code class="lang-html">&lt;!-- Extra large prev/next buttons --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-prev btn-icon btn-xl btn-outline-primary rounded-circle me-2&quot;&gt;
+  &lt;i class=&quot;ai-arrow-left&quot;&gt;&lt;/i&gt;
+&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-next btn-icon btn-xl btn-outline-primary rounded-circle ms-2&quot;&gt;
+  &lt;i class=&quot;ai-arrow-right&quot;&gt;&lt;/i&gt;
+&lt;/button&gt;
+
+&lt;!-- Large prev/next buttons --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-prev btn-icon btn-lg btn-outline-primary rounded-circle me-2&quot;&gt;
+  &lt;i class=&quot;ai-arrow-left&quot;&gt;&lt;/i&gt;
+&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-next btn-icon btn-lg btn-outline-primary rounded-circle ms-2&quot;&gt;
+  &lt;i class=&quot;ai-arrow-right&quot;&gt;&lt;/i&gt;
+&lt;/button&gt;
+
+&lt;!-- Normal prev/next buttons --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-prev btn-icon btn-outline-primary rounded-circle me-2&quot;&gt;
+  &lt;i class=&quot;ai-arrow-left&quot;&gt;&lt;/i&gt;
+&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-next btn-icon btn-outline-primary rounded-circle ms-2&quot;&gt;
+  &lt;i class=&quot;ai-arrow-right&quot;&gt;&lt;/i&gt;
+&lt;/button&gt;
+
+&lt;!-- Small prev/next buttons --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-prev btn-icon btn-sm btn-outline-primary rounded-circle me-2&quot;&gt;
+  &lt;i class=&quot;ai-arrow-left&quot;&gt;&lt;/i&gt;
+&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-next btn-icon btn-sm btn-outline-primary rounded-circle ms-2&quot;&gt;
+  &lt;i class=&quot;ai-arrow-right&quot;&gt;&lt;/i&gt;
+&lt;/button&gt;</code></pre>
+                </div>
+                <div class="tab-pane fade" id="pug1" role="tabpanel">
+                  <pre class="line-numbers"><code class="lang-pug">// Extra large prev/next buttons
+button(type=&quot;button&quot;).btn.btn-prev.btn-icon.btn-xl.btn-outline-primary.rounded-circle.me-2
+  i.ai-arrow-left
+button(type=&quot;button&quot;).btn.btn-prev.btn-icon.btn-xl.btn-outline-primary.rounded-circle.ms-2
+  i.ai-arrow-right
+
+// Large prev/next buttons
+button(type=&quot;button&quot;).btn.btn-prev.btn-icon.btn-lg.btn-outline-primary.rounded-circle.me-2
+  i.ai-arrow-left
+button(type=&quot;button&quot;).btn.btn-prev.btn-icon.btn-lg.btn-outline-primary.rounded-circle.ms-2
+  i.ai-arrow-right
+
+// Normal prev/next buttons
+button(type=&quot;button&quot;).btn.btn-prev.btn-icon.btn-outline-primary.rounded-circle.me-2
+  i.ai-arrow-left
+button(type=&quot;button&quot;).btn.btn-prev.btn-icon.btn-outline-primary.rounded-circle.ms-2
+  i.ai-arrow-right
+
+// Small prev/next buttons
+button(type=&quot;button&quot;).btn.btn-prev.btn-icon.btn-sm.btn-outline-primary.rounded-circle.me-2
+  i.ai-arrow-left
+button(type=&quot;button&quot;).btn.btn-prev.btn-icon.btn-sm.btn-outline-primary.rounded-circle.ms-2
+  i.ai-arrow-right
+</code></pre>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Pagination-->
+          <section class="card border-0 mb-4" id="carousel-pagination">
+            <div class="card-body pb-0">
+              <h2 class="h4 mb-n2">Pagination</h2>
+            </div>
+            <div class="card-header">
+              <ul class="nav nav-tabs card-header-tabs flex-nowrap align-items-center mb-n1" role="tablist">
+                <li class="nav-item me-3"><a class="nav-link px-0 py-2 border-0 rounded-1 active" href="#preview2" data-bs-toggle="tab" role="tab" aria-controls="preview2" aria-selected="true"><i class="ai-show fs-lg opacity-90 me-2"></i>Preview</a></li>
+                <li class="vr opacity-20 my-3 me-3"></li>
+                <li class="nav-item me-3"><a class="nav-link px-0 py-2 border-0 rounded-1" href="#html2" data-bs-toggle="tab" role="tab" aria-controls="html2" aria-selected="false"><i class="ai-code fs-xl opacity-90 me-2"></i>HTML</a></li>
+                <li class="vr opacity-20 my-3 me-3"></li>
+                <li class="nav-item me-0"><a class="nav-link px-0 py-2 border-0 rounded-1" href="#pug2" data-bs-toggle="tab" role="tab" aria-controls="pug2" aria-selected="false"><i class="ai-code-curly opacity-90 me-2"></i>Pug</a></li>
+              </ul>
+            </div>
+            <div class="card-body">
+              <div class="tab-content">
+                <div class="tab-pane fade show active" id="preview2" role="tabpanel">
+                  <div class="row row-cols-md-2 row-cols-xl-2 g-4">
+                    <div class="col">
+                      <div class="swiper swiper-nav-onhover" data-swiper-options="{
+                  &quot;spaceBetween&quot;: 20,
+                  &quot;loop&quot;: true,
+                  &quot;pagination&quot;: {
+                    &quot;el&quot;: &quot;.swiper-pagination&quot;,
+                    &quot;clickable&quot;: true
+                  },
+                  &quot;navigation&quot;: {
+                    &quot;prevEl&quot;: &quot;.btn-prev&quot;,
+                    &quot;nextEl&quot;: &quot;.btn-next&quot;
+                  }
+                }">
+                        <div class="swiper-wrapper">
+                          <div class="swiper-slide">
+                            <div class="ratio ratio-16x9 bg-secondary">
+                              <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4">1</div>
+                            </div>
+                          </div>
+                          <div class="swiper-slide">
+                            <div class="ratio ratio-16x9 bg-secondary">
+                              <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4">2</div>
+                            </div>
+                          </div>
+                          <div class="swiper-slide">
+                            <div class="ratio ratio-16x9 bg-secondary">
+                              <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4">3</div>
+                            </div>
+                          </div>
+                        </div>
+                        <button class="btn btn-prev btn-icon btn-sm btn-outline-primary rounded-circle" type="button"><i class="ai-arrow-left"></i></button>
+                        <button class="btn btn-next btn-icon btn-sm btn-outline-primary rounded-circle" type="button"><i class="ai-arrow-right"></i></button>
+                        <div class="swiper-pagination"></div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="swiper swiper-nav-onhover" data-swiper-options="{
+                  &quot;spaceBetween&quot;: 20,
+                  &quot;pagination&quot;: {
+                    &quot;el&quot;: &quot;.swiper-pagination&quot;,
+                    &quot;type&quot;: &quot;progressbar&quot;
+                  },
+                  &quot;navigation&quot;: {
+                    &quot;prevEl&quot;: &quot;.btn-prev&quot;,
+                    &quot;nextEl&quot;: &quot;.btn-next&quot;
+                  }
+                }">
+                        <div class="swiper-wrapper">
+                          <div class="swiper-slide">
+                            <div class="ratio ratio-16x9 bg-secondary">
+                              <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4">1</div>
+                            </div>
+                          </div>
+                          <div class="swiper-slide">
+                            <div class="ratio ratio-16x9 bg-secondary">
+                              <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4">2</div>
+                            </div>
+                          </div>
+                          <div class="swiper-slide">
+                            <div class="ratio ratio-16x9 bg-secondary">
+                              <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4">3</div>
+                            </div>
+                          </div>
+                        </div>
+                        <button class="btn btn-prev btn-icon btn-sm btn-outline-primary rounded-circle" type="button"><i class="ai-arrow-left"></i></button>
+                        <button class="btn btn-next btn-icon btn-sm btn-outline-primary rounded-circle" type="button"><i class="ai-arrow-right"></i></button>
+                        <div class="swiper-pagination"></div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="swiper swiper-nav-onhover" data-swiper-options="{
+                  &quot;spaceBetween&quot;: 20,
+                  &quot;pagination&quot;: {
+                    &quot;el&quot;: &quot;.swiper-pagination&quot;,
+                    &quot;type&quot;: &quot;fraction&quot;
+                  },
+                  &quot;navigation&quot;: {
+                    &quot;prevEl&quot;: &quot;.btn-prev&quot;,
+                    &quot;nextEl&quot;: &quot;.btn-next&quot;
+                  }
+                }">
+                        <div class="swiper-wrapper">
+                          <div class="swiper-slide">
+                            <div class="ratio ratio-16x9 bg-secondary">
+                              <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4">1</div>
+                            </div>
+                          </div>
+                          <div class="swiper-slide">
+                            <div class="ratio ratio-16x9 bg-secondary">
+                              <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4">2</div>
+                            </div>
+                          </div>
+                          <div class="swiper-slide">
+                            <div class="ratio ratio-16x9 bg-secondary">
+                              <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4">3</div>
+                            </div>
+                          </div>
+                        </div>
+                        <button class="btn btn-prev btn-icon btn-sm btn-outline-primary rounded-circle" type="button"><i class="ai-arrow-left"></i></button>
+                        <button class="btn btn-next btn-icon btn-sm btn-outline-primary rounded-circle" type="button"><i class="ai-arrow-right"></i></button>
+                        <div class="swiper-pagination text-muted fs-5 lh-1 opacity-50 fw-semibold"></div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="ratio ratio-16x9">
+                        <div class="swiper" data-swiper-options="{
+                    &quot;direction&quot;: &quot;vertical&quot;,
+                    &quot;mousewheel&quot;: true,
+                    &quot;spaceBetween&quot;: 20,
+                    &quot;scrollbar&quot;: {
+                      &quot;el&quot;: &quot;.swiper-scrollbar&quot;
+                    }
+                  }">
+                          <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                              <div class="ratio ratio-16x9 bg-secondary">
+                                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4">1</div>
+                              </div>
+                            </div>
+                            <div class="swiper-slide">
+                              <div class="ratio ratio-16x9 bg-secondary">
+                                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4">2</div>
+                              </div>
+                            </div>
+                            <div class="swiper-slide">
+                              <div class="ratio ratio-16x9 bg-secondary">
+                                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4">3</div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="swiper-scrollbar"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="html2" role="tabpanel">
+                  <pre class="line-numbers"><code class="lang-html">&lt;!-- Pagination: Bullets --&gt;
+&lt;div class=&quot;swiper swiper-nav-onhover&quot; data-swiper-options='{
+  &quot;spaceBetween&quot;: 20,
+  &quot;loop&quot;: true,
+  &quot;pagination&quot;: {
+    &quot;el&quot;: &quot;.swiper-pagination&quot;,
+    &quot;clickable&quot;: true
+  },
+  &quot;navigation&quot;: {
+    &quot;prevEl&quot;: &quot;.btn-prev&quot;,
+    &quot;nextEl&quot;: &quot;.btn-next&quot;
+  }
+}'&gt;
+  &lt;div class=&quot;swiper-wrapper&quot;&gt;
+
+    &lt;!-- Item --&gt;
+    &lt;div class=&quot;swiper-slide&quot;&gt;
+      &lt;div class=&quot;ratio ratio-16x9 bg-secondary&quot;&gt;
+        &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4&quot;&gt;1&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Item --&gt;
+    &lt;div class=&quot;swiper-slide&quot;&gt;
+      &lt;div class=&quot;ratio ratio-16x9 bg-secondary&quot;&gt;
+        &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4&quot;&gt;2&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Item --&gt;
+    &lt;div class=&quot;swiper-slide&quot;&gt;
+      &lt;div class=&quot;ratio ratio-16x9 bg-secondary&quot;&gt;
+        &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4&quot;&gt;3&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Prev button --&gt;
+  &lt;button type=&quot;button&quot; class=&quot;btn btn-prev btn-icon btn-sm btn-outline-primary rounded-circle&quot;&gt;
+    &lt;i class=&quot;ai-arrow-left&quot;&gt;&lt;/i&gt;
+  &lt;/button&gt;
+
+  &lt;!-- Next button --&gt;
+  &lt;button type=&quot;button&quot; class=&quot;btn btn-prev btn-icon btn-sm btn-outline-primary rounded-circle&quot;&gt;
+    &lt;i class=&quot;ai-arrow-right&quot;&gt;&lt;/i&gt;
+  &lt;/button&gt;
+
+  &lt;!-- Bullets --&gt;
+  &lt;div class=&quot;swiper-pagination&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;!-- Pagination: Progress bar --&gt;
+&lt;div class=&quot;swiper swiper-nav-onhover&quot; data-swiper-options='{
+  &quot;spaceBetween&quot;: 20,
+  &quot;pagination&quot;: {
+    &quot;el&quot;: &quot;.swiper-pagination&quot;,
+    &quot;type&quot;:  &quot;progressbar&quot;
+  },
+  &quot;navigation&quot;: {
+    &quot;prevEl&quot;: &quot;.btn-prev&quot;,
+    &quot;nextEl&quot;: &quot;.btn-next&quot;
+  }
+}'&gt;
+  &lt;div class=&quot;swiper-wrapper&quot;&gt;
+
+    &lt;!-- Item --&gt;
+    &lt;div class=&quot;swiper-slide&quot;&gt;
+      &lt;div class=&quot;ratio ratio-16x9 bg-secondary&quot;&gt;
+        &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4&quot;&gt;1&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Item --&gt;
+    &lt;div class=&quot;swiper-slide&quot;&gt;
+      &lt;div class=&quot;ratio ratio-16x9 bg-secondary&quot;&gt;
+        &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4&quot;&gt;2&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Item --&gt;
+    &lt;div class=&quot;swiper-slide&quot;&gt;
+      &lt;div class=&quot;ratio ratio-16x9 bg-secondary&quot;&gt;
+        &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4&quot;&gt;3&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Prev button --&gt;
+  &lt;button type=&quot;button&quot; class=&quot;btn btn-prev btn-icon btn-sm btn-outline-primary rounded-circle&quot;&gt;
+    &lt;i class=&quot;ai-arrow-left&quot;&gt;&lt;/i&gt;
+  &lt;/button&gt;
+
+  &lt;!-- Next button --&gt;
+  &lt;button type=&quot;button&quot; class=&quot;btn btn-prev btn-icon btn-sm btn-outline-primary rounded-circle&quot;&gt;
+    &lt;i class=&quot;ai-arrow-right&quot;&gt;&lt;/i&gt;
+  &lt;/button&gt;
+
+  &lt;!-- Progress bar --&gt;
+  &lt;div class=&quot;swiper-pagination&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;!-- Pagination: Fraction --&gt;
+&lt;div class=&quot;swiper swiper-nav-onhover&quot; data-swiper-options='{
+  &quot;spaceBetween&quot;: 20,
+  &quot;pagination&quot;: {
+    &quot;el&quot;: &quot;.swiper-pagination&quot;,
+    &quot;type&quot;: &quot;fraction&quot;
+  },
+  &quot;navigation&quot;: {
+    &quot;prevEl&quot;: &quot;.btn-prev&quot;,
+    &quot;nextEl&quot;: &quot;.btn-next&quot;
+  }
+}'&gt;
+  &lt;div class=&quot;swiper-wrapper&quot;&gt;
+
+    &lt;!-- Item --&gt;
+    &lt;div class=&quot;swiper-slide&quot;&gt;
+      &lt;div class=&quot;ratio ratio-16x9 bg-secondary&quot;&gt;
+        &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4&quot;&gt;1&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Item --&gt;
+    &lt;div class=&quot;swiper-slide&quot;&gt;
+      &lt;div class=&quot;ratio ratio-16x9 bg-secondary&quot;&gt;
+        &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4&quot;&gt;2&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Item --&gt;
+    &lt;div class=&quot;swiper-slide&quot;&gt;
+      &lt;div class=&quot;ratio ratio-16x9 bg-secondary&quot;&gt;
+        &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4&quot;&gt;3&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Prev button --&gt;
+  &lt;button type=&quot;button&quot; class=&quot;btn btn-prev btn-icon btn-sm btn-outline-primary rounded-circle&quot;&gt;
+    &lt;i class=&quot;ai-arrow-left&quot;&gt;&lt;/i&gt;
+  &lt;/button&gt;
+
+  &lt;!-- Next button --&gt;
+  &lt;button type=&quot;button&quot; class=&quot;btn btn-prev btn-icon btn-sm btn-outline-primary rounded-circle&quot;&gt;
+    &lt;i class=&quot;ai-arrow-rigsht&quot;&gt;&lt;/i&gt;
+  &lt;/button&gt;
+
+  &lt;!-- Fraction --&gt;
+  &lt;div class=&quot;swiper-pagination text-muted fs-5 lh-1 opacity-50 fw-semibold&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;!-- Pagination: Scrollbar --&gt;
+&lt;div class=&quot;ratio ratio-16x9&quot;&gt;
+  &lt;div class=&quot;swiper&quot; data-swiper-options='{
+    &quot;direction&quot;: &quot;vertical&quot;,
+    &quot;mousewheel&quot;: true,
+    &quot;spaceBetween&quot;: 20,
+    &quot;scrollbar&quot;: {
+      &quot;el&quot;: &quot;.swiper-scrollbar&quot;
+    }
+  }'&gt;
+    &lt;div class=&quot;swiper-wrapper&quot;&gt;
+
+      &lt;!-- Item --&gt;
+      &lt;div class=&quot;swiper-slide&quot;&gt;
+        &lt;div class=&quot;ratio ratio-16x9 bg-secondary&quot;&gt;
+          &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4&quot;&gt;1&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Item --&gt;
+      &lt;div class=&quot;swiper-slide&quot;&gt;
+        &lt;div class=&quot;ratio ratio-16x9 bg-secondary&quot;&gt;
+          &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4&quot;&gt;2&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Item --&gt;
+      &lt;div class=&quot;swiper-slide&quot;&gt;
+        &lt;div class=&quot;ratio ratio-16x9 bg-secondary&quot;&gt;
+          &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4&quot;&gt;3&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Scrollbar --&gt;
+    &lt;div class=&quot;swiper-scrollbar&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+                <div class="tab-pane fade" id="pug2" role="tabpanel">
+                  <pre class="line-numbers"><code class="lang-pug">// Pagination: Bullets
+.swiper.swiper-nav-onhover(
+  data-swiper-options=`{
+    &quot;spaceBetween&quot;: 20,
+    &quot;loop&quot;: true,
+    &quot;pagination&quot;: {
+      &quot;el&quot;: &quot;.swiper-pagination&quot;,
+      &quot;clickable&quot;: true
+    },
+    &quot;navigation&quot;: {
+      &quot;prevEl&quot;: &quot;.btn-prev&quot;,
+      &quot;nextEl&quot;: &quot;.btn-next&quot;
+    }
+  }`
+)
+  .swiper-wrapper
+
+    // Item
+    .swiper-slide
+      .ratio.ratio-16x9.bg-secondary
+        .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-4
+          | 1
+    
+    // Item
+    .swiper-slide
+      .ratio.ratio-16x9.bg-secondary
+        .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-4
+          | 2
+    
+    // Item
+    .swiper-slide
+      .ratio.ratio-16x9.bg-secondary
+        .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-4
+          | 3
+  
+  // Prev button
+  button(type=&quot;button&quot;).btn.btn-prev.btn-icon.btn-sm.btn-outline-primary.rounded-circle
+    i.ai-arrow-left
+  
+  // Next button
+  button(type=&quot;button&quot;).btn.btn-next.btn-icon.btn-sm.btn-outline-primary.rounded-circle
+    i.ai-arrow-right
+
+  // Bullets
+  .swiper-pagination
+
+
+// Pagination: Progress bar
+.swiper.swiper-nav-onhover(
+  data-swiper-options=`{
+    &quot;spaceBetween&quot;: 20,
+    &quot;pagination&quot;: {
+      &quot;el&quot;: &quot;.swiper-pagination&quot;,
+      &quot;type&quot;: &quot;progressbar&quot;
+    },
+    &quot;navigation&quot;: {
+      &quot;prevEl&quot;: &quot;.btn-prev&quot;,
+      &quot;nextEl&quot;: &quot;.btn-next&quot;
+    }
+  }`
+)
+  .swiper-wrapper
+
+    // Item
+    .swiper-slide
+      .ratio.ratio-16x9.bg-secondary
+        .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-4
+          | 1
+    
+    // Item
+    .swiper-slide
+      .ratio.ratio-16x9.bg-secondary
+        .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-4
+          | 2
+    
+    // Item
+    .swiper-slide
+      .ratio.ratio-16x9.bg-secondary
+        .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-4
+          | 3
+  
+  // Prev button
+  button(type=&quot;button&quot;).btn.btn-prev.btn-icon.btn-sm.btn-outline-primary.rounded-circle
+    i.ai-arrow-left
+  
+  // Next button
+  button(type=&quot;button&quot;).btn.btn-next.btn-icon.btn-sm.btn-outline-primary.rounded-circle
+    i.ai-arrow-right
+
+  // Progress bar
+  .swiper-pagination
+
+
+// Pagination: Fraction
+.swiper.swiper-nav-onhover(
+  data-swiper-options=`{
+    &quot;spaceBetween&quot;: 20,
+    &quot;pagination&quot;: {
+      &quot;el&quot;: &quot;.swiper-pagination&quot;,
+      &quot;type&quot;: &quot;fraction&quot;
+    },
+    &quot;navigation&quot;: {
+      &quot;prevEl&quot;: &quot;.btn-prev&quot;,
+      &quot;nextEl&quot;: &quot;.btn-next&quot;
+    }
+  }`
+)
+  .swiper-wrapper
+
+    // Item
+    .swiper-slide
+      .ratio.ratio-16x9.bg-secondary
+        .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-4
+          | 1
+    
+    // Item
+    .swiper-slide
+      .ratio.ratio-16x9.bg-secondary
+        .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-4
+          | 2
+    
+    // Item
+    .swiper-slide
+      .ratio.ratio-16x9.bg-secondary
+        .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-4
+          | 3
+  
+  // Prev button
+  button(type=&quot;button&quot;).btn.btn-prev.btn-icon.btn-sm.btn-outline-primary.rounded-circle
+    i.ai-arrow-left
+  
+  // Next button
+  button(type=&quot;button&quot;).btn.btn-next.btn-icon.btn-sm.btn-outline-primary.rounded-circle
+    i.ai-arrow-right
+
+  // Fraction
+  .swiper-pagination.text-muted.fs-5.lh-1.opacity-50.fw-semibold
+
+
+// Pagination: Scrollbar
+.ratio.ratio-16x9
+  .swiper(
+    data-swiper-options=`{
+      &quot;direction&quot;: &quot;vertical&quot;,
+      &quot;mousewheel&quot;: true,
+      &quot;spaceBetween&quot;: 20,
+      &quot;scrollbar&quot;: {
+        &quot;el&quot;: &quot;.swiper-scrollbar&quot;
+      }
+    }`
+  )
+    .swiper-wrapper
+
+      // Item
+      .swiper-slide
+        .ratio.ratio-16x9.bg-secondary
+          .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-4
+            | 1
+      
+      // Item
+      .swiper-slide
+        .ratio.ratio-16x9.bg-secondary
+          .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-4
+            | 2
+      
+      // Item
+      .swiper-slide
+        .ratio.ratio-16x9.bg-secondary
+          .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-4
+            | 3
+
+    // Scrollbar
+    .swiper-scrollbar
+</code></pre>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Multiple slides (Responsive) + Controls and pagination outside-->
+          <section class="card border-0 mb-4" id="carousel-multiple-slides">
+            <div class="card-body pb-0">
+              <h2 class="h4 mb-n2">Multiple slides (Responsive) + Controls and pagination outside</h2>
+            </div>
+            <div class="card-header">
+              <ul class="nav nav-tabs card-header-tabs flex-nowrap align-items-center mb-n1" role="tablist">
+                <li class="nav-item me-3"><a class="nav-link px-0 py-2 border-0 rounded-1 active" href="#preview3" data-bs-toggle="tab" role="tab" aria-controls="preview3" aria-selected="true"><i class="ai-show fs-lg opacity-90 me-2"></i>Preview</a></li>
+                <li class="vr opacity-20 my-3 me-3"></li>
+                <li class="nav-item me-3"><a class="nav-link px-0 py-2 border-0 rounded-1" href="#html3" data-bs-toggle="tab" role="tab" aria-controls="html3" aria-selected="false"><i class="ai-code fs-xl opacity-90 me-2"></i>HTML</a></li>
+                <li class="vr opacity-20 my-3 me-3"></li>
+                <li class="nav-item me-0"><a class="nav-link px-0 py-2 border-0 rounded-1" href="#pug3" data-bs-toggle="tab" role="tab" aria-controls="pug3" aria-selected="false"><i class="ai-code-curly opacity-90 me-2"></i>Pug</a></li>
+              </ul>
+            </div>
+            <div class="card-body">
+              <div class="tab-content">
+                <div class="tab-pane fade show active" id="preview3" role="tabpanel">
+                  <div class="position-relative px-5">
+                    <button class="btn btn-prev btn-icon btn-sm btn-outline-primary rounded-circle position-absolute top-50 start-0 translate-middle-y mt-n3" type="button" id="prev"><i class="ai-arrow-left"></i></button>
+                    <button class="btn btn-next btn-icon btn-sm btn-outline-primary rounded-circle position-absolute top-50 end-0 translate-middle-y mt-n3" type="button" id="next"><i class="ai-arrow-right"></i></button>
+                    <div class="swiper" data-swiper-options="{
+                &quot;slidesPerView&quot;: 1,
+                &quot;spaceBetween&quot;: 16,
+                &quot;loop&quot;: true,
+                &quot;pagination&quot;: {
+                  &quot;el&quot;: &quot;.swiper-pagination&quot;,
+                  &quot;clickable&quot;: true
+                },
+                &quot;navigation&quot;: {
+                  &quot;prevEl&quot;: &quot;#prev&quot;,
+                  &quot;nextEl&quot;: &quot;#next&quot;
+                },
+                &quot;breakpoints&quot;: {
+                  &quot;600&quot;: {
+                    &quot;slidesPerView&quot;: 2
+                  },
+                  &quot;1000&quot;: {
+                    &quot;slidesPerView&quot;: 3
+                  }
+                }
+              }">
+                      <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                          <div class="ratio ratio-4x3 bg-faded-info">
+                            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-5">1</div>
+                          </div>
+                        </div>
+                        <div class="swiper-slide">
+                          <div class="ratio ratio-4x3 bg-faded-success">
+                            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-5">2</div>
+                          </div>
+                        </div>
+                        <div class="swiper-slide">
+                          <div class="ratio ratio-4x3 bg-faded-danger">
+                            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-5">3</div>
+                          </div>
+                        </div>
+                        <div class="swiper-slide">
+                          <div class="ratio ratio-4x3 bg-faded-warning">
+                            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-5">4</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="swiper-pagination position-relative bottom-0 mt-4"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="html3" role="tabpanel">
+                  <pre class="line-numbers"><code class="lang-html">&lt;!-- Multiple slides responsive slider with external Prev / Next buttons and bullets outside --&gt;
+&lt;div class=&quot;position-relative px-5&quot;&gt;
+
+  &lt;!-- External slider prev/next buttons --&gt;
+  &lt;button type=&quot;button&quot; id=&quot;prev&quot; class=&quot;btn btn-prev btn-icon btn-sm btn-outline-primary rounded-circle position-absolute top-50 start-0 translate-middle-y mt-n3&quot;&gt;
+    &lt;i class=&quot;ai-arrow-left&quot;&gt;&lt;/i&gt;
+  &lt;/button&gt;
+  &lt;button type=&quot;button&quot; id=&quot;next&quot; class=&quot;btn btn-prev btn-icon btn-sm btn-outline-primary rounded-circle position-absolute top-50 end-0 translate-middle-y mt-n3&quot;&gt;
+    &lt;i class=&quot;ai-arrow-right&quot;&gt;&lt;/i&gt;
+  &lt;/button&gt;
+
+  &lt;!-- Slider --&gt;
+  &lt;div class=&quot;swiper&quot; data-swiper-options='{
+    &quot;slidesPerView&quot;: 1,
+    &quot;spaceBetween&quot;: 16,
+    &quot;loop&quot;: true,
+    &quot;pagination&quot;: {
+      &quot;el&quot;: &quot;.swiper-pagination&quot;,
+      &quot;clickable&quot;: true
+    },
+    &quot;navigation&quot;: {
+      &quot;prevEl&quot;: &quot;#prev&quot;,
+      &quot;nextEl&quot;: &quot;#next&quot;
+    },
+    &quot;breakpoints&quot;: {
+      &quot;600&quot;: {
+        &quot;slidesPerView&quot;: 2
+      },
+      &quot;1000&quot;: {
+        &quot;slidesPerView&quot;: 3
+      }
+    }
+  }'&gt;
+    &lt;div class=&quot;swiper-wrapper&quot;&gt;
+
+      &lt;!-- Item --&gt;
+      &lt;div class=&quot;swiper-slide&quot;&gt;
+        &lt;div class=&quot;ratio ratio-4x3 bg-faded-info&quot;&gt;
+          &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4&quot;&gt;1&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Item --&gt;
+      &lt;div class=&quot;swiper-slide&quot;&gt;
+        &lt;div class=&quot;ratio ratio-4x3 bg-faded-success&quot;&gt;
+          &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4&quot;&gt;2&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Item --&gt;
+      &lt;div class=&quot;swiper-slide&quot;&gt;
+        &lt;div class=&quot;ratio ratio-4x3 bg-faded-danger&quot;&gt;
+          &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4&quot;&gt;2&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Item --&gt;
+      &lt;div class=&quot;swiper-slide&quot;&gt;
+        &lt;div class=&quot;ratio ratio-4x3 bg-faded-warning&quot;&gt;
+          &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4&quot;&gt;2&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Pagination (Bullets) --&gt;
+    &lt;div class=&quot;swiper-pagination position-relative bottom-0 mt-4&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+                <div class="tab-pane fade" id="pug3" role="tabpanel">
+                  <pre class="line-numbers"><code class="lang-pug">// Multiple slides responsive slider with external Prev / Next buttons and bullets outside
+.position-relative.px-5
+
+  // External slider prev/next buttons
+  button(type=&quot;button&quot;)#prev.btn.btn-prev.btn-icon.btn-sm.btn-outline-primary.rounded-circle.position-absolute.top-50.start-0.translate-middle-y.mt-n3
+    i.ai-arrow-left
+  button(type=&quot;button&quot;)#next.btn.btn-next.btn-icon.btn-sm.btn-outline-primary.rounded-circle.position-absolute.top-50.end-0.translate-middle-y.mt-n3
+    i.ai-arrow-right
+
+  // Slider
+  .swiper(
+    data-swiper-options=`{
+      &quot;slidesPerView&quot;: 1,
+      &quot;spaceBetween&quot;: 16,
+      &quot;loop&quot;: true,
+      &quot;pagination&quot;: {
+        &quot;el&quot;: &quot;.swiper-pagination&quot;,
+        &quot;clickable&quot;: true
+      },
+      &quot;navigation&quot;: {
+        &quot;prevEl&quot;: &quot;#prev&quot;,
+        &quot;nextEl&quot;: &quot;#next&quot;
+      },
+      &quot;breakpoints&quot;: {
+        &quot;600&quot;: {
+          &quot;slidesPerView&quot;: 2
+        },
+        &quot;1000&quot;: {
+          &quot;slidesPerView&quot;: 3
+        }
+      }
+    }`
+  )
+    .swiper-wrapper
+
+      // Item
+      .swiper-slide
+        .ratio.ratio-4x3.bg-faded-info
+          .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-5
+            | 1
+      
+      // Item
+      .swiper-slide
+        .ratio.ratio-4x3.bg-faded-success
+          .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-5
+            | 2
+      
+      // Item
+      .swiper-slide
+        .ratio.ratio-4x3.bg-faded-danger
+          .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-5
+            | 3
+      
+      // Item
+      .swiper-slide
+        .ratio.ratio-4x3.bg-faded-warning
+          .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-5
+            | 4
+    
+    // Pagination (Bullets)
+    .swiper-pagination.position-relative.bottom-0.mt-4
+</code></pre>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Fade transition-->
+          <section class="card border-0 mb-4" id="carousel-fade">
+            <div class="card-body pb-0">
+              <h2 class="h4 mb-n2">Fade transition</h2>
+            </div>
+            <div class="card-header">
+              <ul class="nav nav-tabs card-header-tabs flex-nowrap align-items-center mb-n1" role="tablist">
+                <li class="nav-item me-3"><a class="nav-link px-0 py-2 border-0 rounded-1 active" href="#preview4" data-bs-toggle="tab" role="tab" aria-controls="preview4" aria-selected="true"><i class="ai-show fs-lg opacity-90 me-2"></i>Preview</a></li>
+                <li class="vr opacity-20 my-3 me-3"></li>
+                <li class="nav-item me-3"><a class="nav-link px-0 py-2 border-0 rounded-1" href="#html4" data-bs-toggle="tab" role="tab" aria-controls="html4" aria-selected="false"><i class="ai-code fs-xl opacity-90 me-2"></i>HTML</a></li>
+                <li class="vr opacity-20 my-3 me-3"></li>
+                <li class="nav-item me-0"><a class="nav-link px-0 py-2 border-0 rounded-1" href="#pug4" data-bs-toggle="tab" role="tab" aria-controls="pug4" aria-selected="false"><i class="ai-code-curly opacity-90 me-2"></i>Pug</a></li>
+              </ul>
+            </div>
+            <div class="card-body">
+              <div class="tab-content">
+                <div class="tab-pane fade show active" id="preview4" role="tabpanel">
+                  <div class="swiper swiper-nav-onhover" data-swiper-options="{
+              &quot;effect&quot;: &quot;fade&quot;,
+              &quot;loop&quot;: true,
+              &quot;navigation&quot;: {
+                &quot;prevEl&quot;: &quot;.btn-prev&quot;,
+                &quot;nextEl&quot;: &quot;.btn-next&quot;
+              }
+            }">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide bg-light">
+                        <div class="ratio ratio-16x9 bg-faded-info">
+                          <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-5">First</div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide bg-light">
+                        <div class="ratio ratio-16x9 bg-faded-danger">
+                          <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-5">Second</div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide bg-light">
+                        <div class="ratio ratio-16x9 bg-faded-warning">
+                          <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-5">Third</div>
+                        </div>
+                      </div>
+                    </div>
+                    <button class="btn btn-prev btn-icon btn-sm btn-outline-primary rounded-circle" type="button"><i class="ai-arrow-left"></i></button>
+                    <button class="btn btn-next btn-icon btn-sm btn-outline-primary rounded-circle" type="button"><i class="ai-arrow-right"></i></button>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="html4" role="tabpanel">
+                  <pre class="line-numbers"><code class="lang-html">&lt;!-- Slider with fade transition between slides --&gt;
+&lt;div class=&quot;swiper&quot; data-swiper-options='{
+  &quot;effect&quot;: &quot;fade&quot;,
+  &quot;loop&quot;: true,
+  &quot;navigation&quot;: {
+    &quot;prevEl&quot;: &quot;.btn-prev&quot;,
+    &quot;nextEl&quot;: &quot;.btn-next&quot;
+  }
+}'&gt;
+  &lt;div class=&quot;swiper-wrapper&quot;&gt;
+
+    &lt;!-- Item --&gt;
+    &lt;div class=&quot;swiper-slide bg-light&quot;&gt;
+      &lt;div class=&quot;ratio ratio-16x9 bg-faded-info&quot;&gt;
+        &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-5&quot;&gt;First&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Item --&gt;
+    &lt;div class=&quot;swiper-slide bg-light&quot;&gt;
+      &lt;div class=&quot;ratio ratio-16x9 bg-faded-danger&quot;&gt;
+        &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-5&quot;&gt;Second&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Item --&gt;
+    &lt;div class=&quot;swiper-slide bg-light&quot;&gt;
+      &lt;div class=&quot;ratio ratio-16x9 bg-faded-warning&quot;&gt;
+        &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-5&quot;&gt;Third&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Prev button --&gt;
+  &lt;button type=&quot;button&quot; class=&quot;btn btn-prev btn-icon btn-sm btn-outline-primary rounded-circle&quot;&gt;
+    &lt;i class=&quot;ai-arrow-left&quot;&gt;&lt;/i&gt;
+  &lt;/button&gt;
+
+  &lt;!-- Next button --&gt;
+  &lt;button type=&quot;button&quot; class=&quot;btn btn-prev btn-icon btn-sm btn-outline-primary rounded-circle&quot;&gt;
+    &lt;i class=&quot;ai-arrow-rigsht&quot;&gt;&lt;/i&gt;
+  &lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+                <div class="tab-pane fade" id="pug4" role="tabpanel">
+                  <pre class="line-numbers"><code class="lang-pug">// Slider with fade transition between slides
+.swiper.swiper-nav-onhover(
+  data-swiper-options=`{
+    &quot;effect&quot;: &quot;fade&quot;,
+    &quot;loop&quot;: true,
+    &quot;navigation&quot;: {
+      &quot;prevEl&quot;: &quot;.btn-prev&quot;,
+      &quot;nextEl&quot;: &quot;.btn-next&quot;
+    }
+  }`
+)
+  .swiper-wrapper
+
+    // Item
+    .swiper-slide.bg-light
+      .ratio.ratio-16x9.bg-faded-info
+        .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-5
+          | First
+    
+    // Item
+    .swiper-slide.bg-light
+      .ratio.ratio-16x9.bg-faded-danger
+        .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-5
+          | Second
+    
+    // Item
+    .swiper-slide.bg-light
+      .ratio.ratio-16x9.bg-faded-warning
+        .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-5
+          | Third
+  
+  // Prev button
+  button(type=&quot;button&quot;).btn.btn-prev.btn-icon.btn-sm.btn-outline-primary.rounded-circle
+    i.ai-arrow-left
+  
+  // Next button
+  button(type=&quot;button&quot;).btn.btn-next.btn-icon.btn-sm.btn-outline-primary.rounded-circle
+    i.ai-arrow-right
+</code></pre>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Link slides to outside content-->
+          <section class="card border-0 mb-4" id="carousel-link-to-content">
+            <div class="card-body pb-0">
+              <h2 class="h4 mb-n2">Link slides to outside content</h2>
+            </div>
+            <div class="card-header">
+              <ul class="nav nav-tabs card-header-tabs flex-nowrap align-items-center mb-n1" role="tablist">
+                <li class="nav-item me-3"><a class="nav-link px-0 py-2 border-0 rounded-1 active" href="#preview5" data-bs-toggle="tab" role="tab" aria-controls="preview5" aria-selected="true"><i class="ai-show fs-lg opacity-90 me-2"></i>Preview</a></li>
+                <li class="vr opacity-20 my-3 me-3"></li>
+                <li class="nav-item me-3"><a class="nav-link px-0 py-2 border-0 rounded-1" href="#html5" data-bs-toggle="tab" role="tab" aria-controls="html5" aria-selected="false"><i class="ai-code fs-xl opacity-90 me-2"></i>HTML</a></li>
+                <li class="vr opacity-20 my-3 me-3"></li>
+                <li class="nav-item me-0"><a class="nav-link px-0 py-2 border-0 rounded-1" href="#pug5" data-bs-toggle="tab" role="tab" aria-controls="pug5" aria-selected="false"><i class="ai-code-curly opacity-90 me-2"></i>Pug</a></li>
+              </ul>
+            </div>
+            <div class="card-body">
+              <div class="tab-content">
+                <div class="tab-pane fade show active" id="preview5" role="tabpanel">
+                  <div class="row align-items-center">
+                    <div class="col-md-5 mb-4 mb-md-0 pb-1 pb-md-0">
+                      <div class="binded-content">
+                        <div class="binded-item active" id="item1">
+                          <div class="ratio ratio-4x3 bg-faded-danger">
+                            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-5"><i class="ai-image text-danger opacity-80"></i></div>
+                          </div>
+                        </div>
+                        <div class="binded-item" id="item2">
+                          <div class="ratio ratio-4x3 bg-faded-success">
+                            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-5"><i class="ai-image text-success opacity-80"></i></div>
+                          </div>
+                        </div>
+                        <div class="binded-item" id="item3">
+                          <div class="ratio ratio-4x3 bg-faded-warning">
+                            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-5"><i class="ai-image text-warning opacity-80"></i></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-7 ps-xl-5">
+                      <div class="swiper" data-swiper-options="{
+                  &quot;spaceBetween&quot;: 30,
+                  &quot;loop&quot;: true,
+                  &quot;bindedContent&quot;: true,
+                  &quot;navigation&quot;: {
+                    &quot;prevEl&quot;: &quot;#prev-btn&quot;,
+                    &quot;nextEl&quot;: &quot;#next-btn&quot;
+                  }
+                }">
+                        <div class="swiper-wrapper text-center text-md-start">
+                          <div class="swiper-slide" data-swiper-binded="#item1">
+                            <h3>First slide</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque varius pulvinar dui eu ullamcorper. Donec a nisl sed felis pretium posuere ut vitae arcu.</p>
+                          </div>
+                          <div class="swiper-slide" data-swiper-binded="#item2">
+                            <h3>Second slide</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque varius pulvinar dui eu ullamcorper. Donec a nisl sed felis pretium posuere ut vitae arcu.</p>
+                          </div>
+                          <div class="swiper-slide" data-swiper-binded="#item3">
+                            <h3>Third slide</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque varius pulvinar dui eu ullamcorper. Donec a nisl sed felis pretium posuere ut vitae arcu.</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="d-flex justify-content-center justify-content-md-start pt-2">
+                        <button class="btn btn-prev btn-icon btn-sm btn-outline-primary rounded-circle me-2" type="button" id="prev-btn"><i class="ai-arrow-left"></i></button>
+                        <button class="btn btn-next btn-icon btn-sm btn-outline-primary rounded-circle ms-2" type="button" id="next-btn"><i class="ai-arrow-right"></i></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="html5" role="tabpanel">
+                  <pre class="line-numbers"><code class="lang-html">&lt;!-- Link swiper slides to any content via binded-content --&gt;
+&lt;div class=&quot;row align-items-center&quot;&gt;
+  &lt;div class=&quot;col-md-5 mb-4 mb-md-0 pb-1 pb-md-0&quot;&gt;
+
+    &lt;!-- Binded items --&gt;
+    &lt;div class=&quot;binded-content&quot;&gt;
+
+      &lt;!-- Item --&gt;
+      &lt;div id=&quot;item1&quot; class=&quot;binded-item active&quot;&gt;
+        &lt;div class=&quot;ratio ratio-4x3 bg-faded-danger&quot;&gt;
+          &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-5&quot;&gt;
+            &lt;i class=&quot;ai-image text-danger opacity-80&quot;&gt;&lt;/i&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Item --&gt;
+      &lt;div id=&quot;item2&quot; class=&quot;binded-item&quot;&gt;
+        &lt;div class=&quot;ratio ratio-4x3 bg-faded-success&quot;&gt;
+          &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-5&quot;&gt;
+            &lt;i class=&quot;ai-image text-success opacity-80&quot;&gt;&lt;/i&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Item --&gt;
+      &lt;div id=&quot;item3&quot; class=&quot;binded-item&quot;&gt;
+        &lt;div class=&quot;ratio ratio-4x3 bg-faded-warning&quot;&gt;
+          &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-5&quot;&gt;
+            &lt;i class=&quot;ai-image text-warning opacity-80&quot;&gt;&lt;/i&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;div class=&quot;col-md-7 ps-xl-5&quot;&gt;
+
+    &lt;!-- Swiper slider --&gt;
+    &lt;div class=&quot;swiper&quot; data-swiper-options='{
+      &quot;spaceBetween&quot;: 30,
+      &quot;loop&quot;: true,
+      &quot;bindedContent&quot;: true,
+      &quot;navigation&quot;: {
+        &quot;prevEl&quot;: &quot;#prev-btn&quot;,
+        &quot;nextEl&quot;: &quot;#next-btn&quot;
+      }
+    }'&gt;
+      &lt;div class=&quot;swiper-wrapper text-center text-md-start&quot;&gt;
+
+        &lt;!-- Item --&gt;
+        &lt;div class=&quot;swiper-slide&quot; data-swiper-binded=&quot;#item1&quot;&gt;
+          &lt;h3&gt; First slide&lt;/h3&gt;
+          &lt;p&gt; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque varius pulvinar dui eu ullamcorper. Donec a nisl sed felis pretium posuere ut vitae arcu.&lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Item --&gt;
+        &lt;div class=&quot;swiper-slide&quot; data-swiper-binded=&quot;#item2&quot;&gt;
+          &lt;h3&gt; Second slide&lt;/h3&gt;
+          &lt;p&gt; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque varius pulvinar dui eu ullamcorper. Donec a nisl sed felis pretium posuere ut vitae arcu.&lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Item --&gt;
+        &lt;div class=&quot;swiper-slide&quot; data-swiper-binded=&quot;#item3&quot;&gt;
+          &lt;h3&gt; Third slide&lt;/h3&gt;
+          &lt;p&gt; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque varius pulvinar dui eu ullamcorper. Donec a nisl sed felis pretium posuere ut vitae arcu.&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Slider controls (Prev / next) --&gt;
+      &lt;div class=&quot;d-flex justify-content-center justify-content-md-start pt-2&quot;&gt;
+        &lt;button type=&quot;button&quot; id=&quot;prev-btn&quot; class=&quot;btn btn-prev btn-icon btn-sm btn-outline-primary rounded-circle me-2&quot;&gt;
+          &lt;i class=&quot;ai-arrow-left&quot;&gt;&lt;/i&gt;
+        &lt;/button&gt;
+        &lt;button type=&quot;button&quot; id=&quot;next-btn&quot; class=&quot;btn btn-prev btn-icon btn-sm btn-outline-primary rounded-circle ms-2&quot;&gt;
+          &lt;i class=&quot;ai-arrow-rigsht&quot;&gt;&lt;/i&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+                <div class="tab-pane fade" id="pug5" role="tabpanel">
+                  <pre class="line-numbers"><code class="lang-pug">// Link swiper slides to any content via binded-content
+.row.align-items-center
+  .col-md-5.mb-4.mb-md-0.pb-1.pb-md-0
+
+    // Binded items
+    .binded-content
+
+      // Item
+      #item1.binded-item.active
+        .ratio.ratio-4x3.bg-faded-danger
+          .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-5
+            i.ai-image.text-danger.opacity-80
+      
+      // Item
+      #item2.binded-item
+        .ratio.ratio-4x3.bg-faded-success
+          .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-5
+            i.ai-image.text-success.opacity-80
+      
+      // Item
+      #item3.binded-item
+        .ratio.ratio-4x3.bg-faded-warning
+          .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-5
+            i.ai-image.text-warning.opacity-80
+  
+  .col-md-7.ps-xl-5
+
+    // Swiper slider
+    .swiper(
+      data-swiper-options=`{
+        &quot;spaceBetween&quot;: 30,
+        &quot;loop&quot;: true,
+        &quot;bindedContent&quot;: true,
+        &quot;navigation&quot;: {
+          &quot;prevEl&quot;: &quot;#prev-btn&quot;,
+          &quot;nextEl&quot;: &quot;#next-btn&quot;
+        }
+      }`
+    )
+      .swiper-wrapper.text-center.text-md-start
+
+        // Item
+        .swiper-slide(data-swiper-binded=&quot;#item1&quot;)
+          h3 First slide
+          p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque varius pulvinar dui eu ullamcorper. Donec a nisl sed felis pretium posuere ut vitae arcu.
+        
+        // Item
+        .swiper-slide(data-swiper-binded=&quot;#item2&quot;)
+          h3 Second slide
+          p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque varius pulvinar dui eu ullamcorper. Donec a nisl sed felis pretium posuere ut vitae arcu.
+
+        // Item
+        .swiper-slide(data-swiper-binded=&quot;#item3&quot;)
+          h3 Third slide
+          p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque varius pulvinar dui eu ullamcorper. Donec a nisl sed felis pretium posuere ut vitae arcu.
+
+    // Slider controls (Prev / next)
+    .d-flex.justify-content-center.justify-content-md-start.pt-2
+      button(type=&quot;button&quot;)#prev-btn.btn.btn-prev.btn-icon.btn-sm.btn-outline-primary.rounded-circle.me-2
+        i.ai-arrow-left
+      button(type=&quot;button&quot;)#next-btn.btn.btn-next.btn-icon.btn-sm.btn-outline-primary.rounded-circle.ms-2
+        i.ai-arrow-right</code></pre>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+    <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll>
+      <svg viewBox="0 0 40 40" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="19" fill="none" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"></circle>
+      </svg><i class="ai-arrow-up">   </i></a>
+    <!-- Vendor scripts: js libraries and plugins-->
+    <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="../assets/vendor/simplebar/dist/simplebar.min.js"></script>
+    <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="../assets/vendor/prismjs/components/prism-core.min.js"></script>
+    <script src="../assets/vendor/prismjs/components/prism-markup.min.js"></script>
+    <script src="../assets/vendor/prismjs/components/prism-clike.min.js"></script>
+    <script src="../assets/vendor/prismjs/components/prism-javascript.min.js"></script>
+    <script src="../assets/vendor/prismjs/components/prism-pug.min.js"></script>
+    <script src="../assets/vendor/prismjs/plugins/toolbar/prism-toolbar.min.js"></script>
+    <script src="../assets/vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+    <script src="../assets/vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <!-- Main theme script-->
+    <script src="../assets/js/theme.min.js"></script>
+  </body>
+</html>

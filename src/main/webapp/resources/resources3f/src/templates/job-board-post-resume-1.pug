@@ -1,0 +1,326 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['flatpickr/dist/flatpickr.min.css']
+  - var vendorScripts = ['flatpickr/dist/flatpickr.min.js']
+  - var parentMenu = 'Account'
+  - var pageTitle = 'Job Board | Post Resume - Basic Info'
+  - var bodyClass = 'bg-secondary'
+
+//- Navbar
+block navbar
+  include partials/navbar-job-board
+
+//- Page Content
+block content
+
+  // Page container
+  .container.mt-5.mb-md-4.py-5
+    
+    // Breadcrumb
+    nav(aria-label='Breadcrumb').mb-3.mb-md-4.pt-md-3
+      ol.breadcrumb
+        li.breadcrumb-item
+          a(href='job-board-home-v1.html') Home
+        li(aria-current='page').breadcrumb-item.active
+          | Post resume
+
+
+    // Page content
+    .row.justify-content-center.pb-sm-2
+      .col-lg-11.col-xl-10
+
+        // Page title
+        .text-center.pb-4.mb-3
+          h1.h2.mb-4 Create online resume
+          p.mb-4 Save time by uploading a resume to prefill some of the fields below. Please, use PDF format.
+          button(type='button').btn.btn-primary.btn-lg.rounded-pill
+            i.fi-upload.me-2
+            | Upload existing resume
+
+        
+        // Steps
+        .bg-light.rounded-3.py-4.px-md-4.mb-3
+          .steps.pt-4.pb-1
+            .step.active
+              .step-progress
+                span.step-progress-start
+                span.step-progress-end
+                span.step-number 1
+              .step-label Basic info
+            .step
+              .step-progress
+                span.step-progress-start
+                span.step-progress-end
+                span.step-number 2
+              .step-label Education
+            .step
+              .step-progress
+                span.step-progress-start
+                span.step-progress-end
+                span.step-number 3
+              .step-label Experience
+            .step
+              .step-progress
+                span.step-progress-start
+                span.step-progress-end
+                span.step-number 4
+              .step-label Skills
+            .step
+              .step-progress
+                span.step-progress-start
+                span.step-progress-end
+                span.step-number 5
+              .step-label Review
+
+
+        // Step 1: Basic Info
+        .bg-light.rounded-3.p-4.p-md-5.mb-3
+          h2.h4.mb-4
+            i.fi-info-circle.text-primary.fs-5.mt-n1.me-2
+            | Basic info
+          .row
+            .col-sm-6.mb-4
+              label(for='pr-fn').form-label
+                | First name <span class='text-danger'>*</span>
+              input(type='text' id='pr-fn' value='Annette' placeholder='Enter your first name' required).form-control.form-control-lg
+            .col-sm-6.mb-4
+              label(for='pr-sn').form-label
+                | Second name <span class='text-danger'>*</span>
+              input(type='text' id='pr-sn' value='Black' placeholder='Enter your second name' required).form-control.form-control-lg
+            .col-sm-6.mb-4
+              label(for='pr-email').form-label
+                | Email address <span class='text-danger'>*</span>
+              input(type='email' id='pr-email' value='annette_black@email.com' placeholder='Enter your email address' required).form-control.form-control-lg
+            .col-sm-6.mb-4
+              label(for='pr-phone').form-label Phone
+              input(type='text' id='pr-phone' value='(302) 555-0107' placeholder='Enter your phone number').form-control.form-control-lg
+            .col-sm-6.mb-4
+              label(for='pr-birth-date').form-label
+                | Date of birth <span class='text-danger'>*</span>
+              .input-group.input-group-lg
+                input(type='text' id='pr-birth-date' placeholder='Choose date' data-datepicker-options='{"altInput": true, "altFormat": "F j, Y", "dateFormat": "Y-m-d"}').form-control.date-picker.rounded.pe-5
+                i.fi-calendar.text-muted.position-absolute.top-50.end-0.translate-middle-y.me-3
+          .row
+            .col-sm-6.mb-4
+              label(for='pr-country').form-label
+                | Country where you want to work <span class='text-danger'>*</span>
+              select(id='pr-country' required).form-select.form-select-lg
+                option(value='' disabled selected) Choose country
+                option(value='Australia') Australia
+                option(value='Belgium') Belgium
+                option(value='Canada') Canada
+                option(value='China') China
+                option(value='Denmark') Denmark
+                option(value='France') France
+                option(value='Germany') Germany
+                option(value='Japan') Japan
+                option(value='UK') UK
+                option(value='USA') USA
+            .col-sm-6.mb-4
+              label(for='pr-city').form-label
+                | City where you want to work <span class='text-danger'>*</span>
+              select(id='pr-city' required).form-select.form-select-lg
+                option(value='' disabled selected) Choose city
+                option(value='Beijing') Beijing
+                option(value='Berlin') Berlin
+                option(value='Brussels') Brussels
+                option(value='Copenhagen') Copenhagen
+                option(value='London') London
+                option(value='Ottawa') Ottawa
+                option(value='Paris') Paris
+                option(value='Sydney') Sydney
+                option(value='Tokyo') Tokyo
+                option(value='Washington') Washington
+            .col-12.mb-4
+              label(for='pr-address').form-label Your address
+              input(type='text' id='pr-address' placeholder='Enter the address').form-control.form-control-lg
+          .pb-4.mb-2
+            label.form-label.fw-bold.mb-3 Socials
+            .d-flex.align-items-center.mb-3
+              .btn.btn-icon.btn-light.btn-xs.shadow-sm.rounded-circle.pe-none.flex-shrink-0.me-3
+                i.fi-facebook.text-body
+              input(type='text' placeholder='Your Facebook account').form-control
+            .d-flex.align-items-center.mb-3
+              .btn.btn-icon.btn-light.btn-xs.shadow-sm.rounded-circle.pe-none.flex-shrink-0.me-3
+                i.fi-linkedin.text-body
+              input(type='text' placeholder='Your LinkedIn account').form-control
+            .d-flex.align-items-center.mb-3
+              .btn.btn-icon.btn-light.btn-xs.shadow-sm.rounded-circle.pe-none.flex-shrink-0.me-3
+                i.fi-twitter.text-body
+              input(type='text' placeholder='Your Twitter account').form-control
+            #showMoreSocials.collapse
+              .d-flex.align-items-center.mb-3
+                .btn.btn-icon.btn-light.btn-xs.shadow-sm.rounded-circle.pe-none.flex-shrink-0.me-3
+                  i.fi-instagram.text-body
+                input(type='text' placeholder='Your Instagram account').form-control
+              .d-flex.align-items-center.mb-3
+                .btn.btn-icon.btn-light.btn-xs.shadow-sm.rounded-circle.pe-none.flex-shrink-0.me-3
+                  i.fi-behance.text-body
+                input(type='text' placeholder='Your Behance account').form-control
+            a(href='#showMoreSocials' data-bs-toggle='collapse' data-bs-label-collapsed='Show more' data-bs-label-expanded='Show less' role='button' aria-expanded='false' aria-controls='showMoreSocials').collapse-label.collapsed.d-inline-block.fs-sm.fw-bold.text-decoration-none.pt-2
+              i.fi-arrow-down.me-2
+          .border-top.pt-4
+            label(for='pr-position').form-label.fw-bold.py-2.mb-1 Position you want to work on
+            input(type='text' id='pr-position' placeholder='Indicate the position' required).form-control.form-control-lg.mb-4
+            label.form-label.fw-bold.pb-1.mb-2 Choose categories for posting resume
+            .row.row-cols-sm-2.row-cols-md-4.gx-3.gx-lg-4.mb-4
+              .col
+                .form-check
+                  input(type='checkbox' id='accounting').form-check-input
+                  label(for='accounting').form-check-label
+                    | Accounting
+                .form-check
+                  input(type='checkbox' id='marketing' checked).form-check-input
+                  label(for='marketing').form-check-label
+                    | Marketing &amp; PR
+                .form-check
+                  input(type='checkbox' id='medicine').form-check-input
+                  label(for='medicine').form-check-label
+                    | Medicine
+                .form-check
+                  input(type='checkbox' id='agriculture').form-check-input
+                  label(for='agriculture').form-check-label
+                    | Agriculture
+                .form-check
+                  input(type='checkbox' id='it' checked).form-check-input
+                  label(for='it').form-check-label
+                    | Internet technology
+                .form-check
+                  input(type='checkbox' id='security').form-check-input
+                  label(for='security').form-check-label
+                    | Security
+              .col
+                .form-check
+                  input(type='checkbox' id='management').form-check-input
+                  label(for='management').form-check-label
+                    | Management
+                .form-check
+                  input(type='checkbox' id='horeca').form-check-input
+                  label(for='horeca').form-check-label
+                    | HoReCa
+                .form-check
+                  input(type='checkbox' id='design' checked).form-check-input
+                  label(for='design').form-check-label
+                    | Design, creativity
+                .form-check
+                  input(type='checkbox' id='sport').form-check-input
+                  label(for='sport').form-check-label
+                    | Fitness &amp; sports
+                .form-check
+                  input(type='checkbox' id='beauty').form-check-input
+                  label(for='beauty').form-check-label
+                    | Beauty
+                .form-check
+                  input(type='checkbox' id='culture').form-check-input
+                  label(for='culture').form-check-label
+                    | Culture
+              .col
+                .form-check
+                  input(type='checkbox' id='music').form-check-input
+                  label(for='music').form-check-label
+                    | Music
+                .form-check
+                  input(type='checkbox' id='logistics').form-check-input
+                  label(for='logistics').form-check-label
+                    | Logistics
+                .form-check
+                  input(type='checkbox' id='education').form-check-input
+                  label(for='education').form-check-label
+                    | Education &amp; science
+                .form-check
+                  input(type='checkbox' id='sales').form-check-input
+                  label(for='sales').form-check-label
+                    | Sales &amp; purchases
+                .form-check
+                  input(type='checkbox' id='industry').form-check-input
+                  label(for='industry').form-check-label
+                    | Industry
+                .form-check
+                  input(type='checkbox' id='transportation').form-check-input
+                  label(for='transportation').form-check-label
+                    | Transportation
+              .col
+                .form-check
+                  input(type='checkbox' id='media').form-check-input
+                  label(for='media').form-check-label
+                    | Mass media &amp; publishing
+                .form-check
+                  input(type='checkbox' id='insurance').form-check-input
+                  label(for='insurance').form-check-label
+                    | Insurance
+                .form-check
+                  input(type='checkbox' id='construction').form-check-input
+                  label(for='construction').form-check-label
+                    | Construction
+                .form-check
+                  input(type='checkbox' id='architecture').form-check-input
+                  label(for='architecture').form-check-label
+                    | Architecture
+                .form-check
+                  input(type='checkbox' id='hr').form-check-input
+                  label(for='hr').form-check-label
+                    | HR management
+                .form-check
+                  input(type='checkbox' id='law').form-check-input
+                  label(for='law').form-check-label
+                    | Law
+            label.form-label.fw-bold.pb-1.mb-2 Job type
+            .row.row-cols-sm-2.row-cols-md-4.gx-3.gx-lg-4.mb-4
+              .col
+                .form-check
+                  input(type='checkbox' id='full-time').form-check-input
+                  label(for='full-time').form-check-label
+                    | Full-time
+                .form-check
+                  input(type='checkbox' id='part-time' checked).form-check-input
+                  label(for='part-time').form-check-label
+                    | Part-time
+                .form-check
+                  input(type='checkbox' id='remote').form-check-input
+                  label(for='remote').form-check-label
+                    | Remote
+              .col
+                .form-check
+                  input(type='checkbox' id='temporary' checked).form-check-input
+                  label(for='temporary').form-check-label
+                    | Temporary
+                .form-check
+                  input(type='checkbox' id='contract').form-check-input
+                  label(for='contract').form-check-label
+                    | Contract
+                .form-check
+                  input(type='checkbox' id='internship').form-check-input
+                  label(for='internship').form-check-label
+                    | Internship
+            label.form-label.fw-bold.pb-1.mb-2 Salary range
+            .row.gx-2.gx-lg-3.gx-xl-4
+              .col-md-2.mb-3.mb-md-0
+                select.form-select.form-select-lg
+                  option(value='usd') &#36;
+                  option(value='eur') &#8364;
+                  option(value='gbp') &#163;
+                  option(value='jpy') &#165;
+              .col-md-7.mb-3.mb-md-0
+                .d-flex.align-items-center
+                  input(type='number' step='100' min='300' placeholder='From').form-control.form-control-lg
+                  .mx-2 &mdash;
+                  input(type='number' step='100' min='500' placeholder='To').form-control.form-control-lg
+              .col-md-3
+                select.form-select.form-select-lg
+                  option(value='monthly') monthly
+                  option(value='per hour') per hour
+                  option(value='weekly') weekly
+                  option(value='annually') annually
+
+        // Navigation
+        .d-flex.flex-column.flex-sm-row.bg-light.rounded-3.p-4.px-md-5
+          a(href='job-board-post-resume-2.html').btn.btn-primary.btn-lg.rounded-pill.ms-sm-auto
+            | Next step
+            i.fi-chevron-right.fs-sm.ms-2
+
+
+//- Footer
+block footer
+  include partials/footer-job-board

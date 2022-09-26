@@ -1,0 +1,574 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/swiper/swiper-bundle.min.css']
+  - var scripts = ['vendor/swiper/swiper-bundle.min.js']
+  - var parentMenu = 'Landings'
+  - var pageTitle = 'Blog Homepage'
+  - var navbarExtraClass = 'bg-light'
+
+
+//- Navbar
+block navbar
+  include partials/navbar.pug
+
+
+//- Page Content
+block content
+
+  // Page title
+  section.container.pt-5.pb-4.pb-lg-0.my-md-2.my-lg-5
+    .row.pt-5.pb-4.pb-lg-5.mb-2.mt-1.mt-sm-2.my-xl-3
+      .col-md-7
+        h1.display-3.fw-medium.text-uppercase.mb-0 Blog about life, work and business
+      .col-md-5.col-lg-4.offset-lg-1.pt-3.pt-md-2
+        p.mb-0 A lot of useful information about health, beauty, travel and life in our blog. Simple and accessible about all important aspects of life.
+    hr
+  
+
+  // Featured posts
+  section.container.mt-2.mt-md-0.pb-5.mb-md-2.mb-lg-3.mb-xl-4.mb-xxl-5
+
+    // Filters
+    .row.align-items-center
+            
+      .col-sm-8.col-lg-4.col-xl-3.offset-xl-1.order-sm-2.mb-3.mb-sm-0
+        .position-relative.mb-lg-2
+          i.ai-search.fs-lg.position-absolute.top-50.start-0.translate-middle-y.ms-3
+          input(type='search' placeholder='Enter keywords..').form-control.rounded-pill.ps-5
+
+      .col-sm-4.col-lg-8.order-sm-1
+
+        // Visible on screens > 991px
+        .d-none.d-lg-flex.flex-wrap.align-items-center
+          h3.h6.mb-2.me-4 Topics:
+          a(href='#').btn.btn-outline-secondary.px-4.rounded-pill.mb-2.me-3 Nature
+          a(href='#').btn.btn-outline-secondary.px-4.rounded-pill.mb-2.me-3 Design
+          a(href='#').btn.btn-outline-secondary.px-4.rounded-pill.mb-2.me-3 Books
+          a(href='#').btn.btn-outline-secondary.px-4.rounded-pill.mb-2.me-3 Fashion
+          a(href='#').btn.btn-outline-secondary.px-4.rounded-pill.mb-2.me-3 Inspiration
+          a(href='#').btn.btn-outline-secondary.px-4.rounded-pill.mb-2 Psychology
+        
+        // Visible on screens < 992px
+        .dropdown.d-lg-none
+          button(type='button' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false').btn.btn-outline-secondary.dropdown-toggle.rounded-pill.w-100
+            | Topics
+          .dropdown-menu.my-1
+            a(href='#').dropdown-item Nature
+            a(href='#').dropdown-item Design
+            a(href='#').dropdown-item Books
+            a(href='#').dropdown-item Fashion
+            a(href='#').dropdown-item Inspiration
+            a(href='#').dropdown-item Psychology
+
+
+    .row.mt-sm-2.mt-lg-0.pt-4.pt-lg-5.pb-md-4
+      .col-md-7.pb-2.pb-md-0.mb-4.mb-md-0
+
+        // Article
+        article.pb-5.pt-sm-1.mb-lg-3.mb-xl-4
+          a(href='blog-single-v1.html')
+            img(src='assets/img/landing/blog/01.jpg' alt='Image').rounded-5
+          h2.h3.pt-3.mt-2.mt-md-3
+            a(href='blog-single-v1.html') The fashion for eco bags with vintage prints will still be relevant for more than one year
+          p Morbi et massa fames ac scelerisque sit commodo dignissim faucibus vel quisque proin lectus. Laoreet sem adipiscing sollicitudin erat massa tellus lorem enim aenean phasellus in hendrerit...
+          .d-flex.flex-wrap.align-items-center.pt-1.mt-n2
+            a(href='#').nav-link.text-muted.fs-sm.fw-normal.p-0.mt-2.me-3
+              | 6
+              i.ai-share.fs-lg.ms-1
+            a(href='#').nav-link.text-muted.fs-sm.fw-normal.d-flex.align-items-end.p-0.mt-2
+              | 12
+              i.ai-message.fs-lg.ms-1
+            span.fs-xs.opacity-20.mt-2.mx-3 |
+            span.fs-sm.text-muted.mt-2 12 hours ago
+            span.fs-xs.opacity-20.mt-2.mx-3 |
+            a(href='#').badge.text-nav.fs-xs.border.mt-2
+              | Fashion
+
+        // Article
+        article.pb-5.pt-sm-1.mb-lg-3.mb-xl-4
+          a(href='blog-single-v1.html')
+            img(src='assets/img/landing/blog/02.jpg' alt='Image').rounded-5
+          h2.h3.pt-3.mt-2.mt-md-3
+            a(href='blog-single-v1.html') How to look for inspiration for new goals in life and remember to give yourself a break?
+          p Egestas in neque scelerisque semper sit at eu cursus faucibus velit cras at aliquam sed dictum at at orci curabitur dictumst viverra non pharetra etiam non, vitae tristique eu in morbi felis...
+          .d-flex.flex-wrap.align-items-center.pt-1.mt-n2
+            a(href='#').nav-link.text-muted.fs-sm.fw-normal.p-0.mt-2.me-3
+              | 13
+              i.ai-share.fs-lg.ms-1
+            a(href='#').nav-link.text-muted.fs-sm.fw-normal.d-flex.align-items-end.p-0.mt-2
+              | 8
+              i.ai-message.fs-lg.ms-1
+            span.fs-xs.opacity-20.mt-2.mx-3 |
+            span.fs-sm.text-muted.mt-2 9 days ago
+            span.fs-xs.opacity-20.mt-2.mx-3 |
+            a(href='#').badge.text-nav.fs-xs.border.mt-2
+              | Inspiration
+
+        // Article
+        article.pb-5.pt-sm-1.mb-lg-3.mb-xl-4
+          a(href='blog-single-v1.html')
+            img(src='assets/img/landing/blog/03.jpg' alt='Image').rounded-5
+          h2.h3.pt-3.mt-2.mt-md-3
+            a(href='blog-single-v1.html') A session with a psychologist as a personal choice or a fashion trend in society
+          p Purus lectus odio lacus nibh habitant ac sapien malesuada sed convallis adipiscing eget convallis amet enim diam tellus sodales ornare vitae molestie nulla tincidunt ac non facilisis faucibus...
+          .d-flex.flex-wrap.align-items-center.pt-1.mt-n2
+            a(href='#').nav-link.text-muted.fs-sm.fw-normal.p-0.mt-2.me-3
+              | 24
+              i.ai-share.fs-lg.ms-1
+            a(href='#').nav-link.text-muted.fs-sm.fw-normal.d-flex.align-items-end.p-0.mt-2
+              | 17
+              i.ai-message.fs-lg.ms-1
+            span.fs-xs.opacity-20.mt-2.mx-3 |
+            span.fs-sm.text-muted.mt-2 2 weeks ago
+            span.fs-xs.opacity-20.mt-2.mx-3 |
+            a(href='#').badge.text-nav.fs-xs.border.mt-2
+              | Psychology
+
+        // More articles button 
+        a(href='blog-list-sidebar.html').btn.btn-primary.mt-n2.mt-sm-n1.mt-md-0 Read all articles
+
+      
+      // Relevant articles sidebar
+      aside.col-md-5.col-xl-4.offset-xl-1(style='margin-top: -115px;')
+        .position-sticky.top-0.ps-md-4.ps-xl-0(style='padding-top: 125px;')
+          h2.h4 Relevant articles
+          article.my-1.my-lg-0.py-2.py-lg-3
+            h3.h6.mb-2.mb-lg-3
+              a(href='blog-single-v1.html') Instagram trends that will definitely work and bring results in the new 2022
+            .d-flex.flex-wrap.align-items-center.mt-n2
+              a(href='#').nav-link.text-muted.fs-sm.fw-normal.p-0.mt-2.me-3
+                | 4
+                i.ai-share.fs-lg.ms-1
+              a(href='#').nav-link.text-muted.fs-sm.fw-normal.d-flex.align-items-end.p-0.mt-2
+                | 6
+                i.ai-message.fs-lg.ms-1
+              span.fs-xs.opacity-20.mt-2.mx-3 |
+              span.fs-sm.text-muted.mt-2 9 hours ago
+          article.my-1.my-lg-0.py-2.py-lg-3
+            h3.h6.mb-2.mb-lg-3
+              a(href='blog-single-v2.html') A session with a psychologist as a personal choice or a fashion trend in society
+            .d-flex.flex-wrap.align-items-center.mt-n2
+              a(href='#').nav-link.text-muted.fs-sm.fw-normal.p-0.mt-2.me-3
+                | 7
+                i.ai-share.fs-lg.ms-1
+              a(href='#').nav-link.text-muted.fs-sm.fw-normal.d-flex.align-items-end.p-0.mt-2
+                | 12
+                i.ai-message.fs-lg.ms-1
+              span.fs-xs.opacity-20.mt-2.mx-3 |
+              span.fs-sm.text-muted.mt-2 2 days ago
+          article.my-1.my-lg-0.py-2.py-lg-3
+            h3.h6.mb-2.mb-lg-3
+              a(href='blog-single-v2.html') Travel destinations to inspire and restore resources
+            .d-flex.flex-wrap.align-items-center.mt-n2
+              a(href='#').nav-link.text-muted.fs-sm.fw-normal.p-0.mt-2.me-3
+                | 5
+                i.ai-share.fs-lg.ms-1
+              a(href='#').nav-link.text-muted.fs-sm.fw-normal.d-flex.align-items-end.p-0.mt-2
+                | 11
+                i.ai-message.fs-lg.ms-1
+              span.fs-xs.opacity-20.mt-2.mx-3 |
+              span.fs-sm.text-muted.mt-2 3 days ago
+          article.my-1.my-lg-0.py-2.py-lg-3
+            h3.h6.mb-2.mb-lg-3
+              a(href='blog-single-v3.html') How to look for inspiration for new goals in life and remember to give yourself a break?
+            .d-flex.flex-wrap.align-items-center.mt-n2
+              a(href='#').nav-link.text-muted.fs-sm.fw-normal.p-0.mt-2.me-3
+                | 18
+                i.ai-share.fs-lg.ms-1
+              a(href='#').nav-link.text-muted.fs-sm.fw-normal.d-flex.align-items-end.p-0.mt-2
+                | 26
+                i.ai-message.fs-lg.ms-1
+              span.fs-xs.opacity-20.mt-2.mx-3 |
+              span.fs-sm.text-muted.mt-2 July 13, 2022
+          article.my-1.my-lg-0.py-2.py-lg-3
+            h3.h6.mb-2.mb-lg-3
+              a(href='blog-single-v1.html') The 15 best books every person should read 
+            .d-flex.flex-wrap.align-items-center.mt-n2
+              a(href='#').nav-link.text-muted.fs-sm.fw-normal.p-0.mt-2.me-3
+                | 15
+                i.ai-share.fs-lg.ms-1
+              a(href='#').nav-link.text-muted.fs-sm.fw-normal.d-flex.align-items-end.p-0.mt-2
+                | 23
+                i.ai-message.fs-lg.ms-1
+              span.fs-xs.opacity-20.mt-2.mx-3 |
+              span.fs-sm.text-muted.mt-2 May 25, 2022
+
+
+  // Popular articles (Carousel)
+  section.bg-secondary.py-5
+    .container.d-flex.align-items-center.pt-lg-2.pt-xl-4.pt-xxl-5.pb-3.mt-1.mt-sm-3.mb-3.my-md-4
+      h2.h1.mb-0 Most popular
+      .d-flex.ms-auto
+        button(type='button')#prev-popular.btn.btn-sm.btn-icon.btn-outline-primary.rounded-circle.ms-3
+          i.ai-arrow-left
+        button(type='button')#next-popular.btn.btn-sm.btn-icon.btn-outline-primary.rounded-circle.ms-3
+          i.ai-arrow-right
+    
+    // Swiper slider
+    .container-start
+      .swiper(data-swiper-options=`{
+        "slidesPerView": 1,
+        "spaceBetween": 24,
+        "loop": true,
+        "navigation": {
+          "prevEl": "#prev-popular",
+          "nextEl": "#next-popular"
+        },
+        "breakpoints": {
+          "576": {
+            "slidesPerView": "auto"
+          }
+        }
+      }`)
+        .swiper-wrapper
+
+          // Item
+          article.swiper-slide.w-sm-auto.h-auto
+            .card.h-100.border-0.mx-auto(style='max-width: 416px;')
+              a(href='blog-single-v1.html')
+                img(src='assets/img/blog/grid/01.jpg' alt='Post image').card-img-top
+              .card-body.pb-4
+                .d-flex.align-items-center.mb-4.mt-n1
+                  span.fs-sm.text-muted 12 hours ago
+                  span.fs-xs.opacity-20.mx-3 |
+                  a(href='#').badge.text-nav.fs-xs.border
+                    | Books
+                h3.h4.card-title
+                  a(href='blog-single-v1.html') Top books for inspiration
+                p.card-text Vulputate auctor lacus imperdiet facilisi tristique nisl pulvinar porta diam duis...
+              .card-footer.pt-3
+                a(href='#').d-flex.align-items-center.text-decoration-none.pb-2
+                  img(src='assets/img/avatar/06.jpg' width='48' alt='Post author').rounded-circle
+                  h6.ps-3.mb-0 Jenny Wilson
+
+          // Item
+          article.swiper-slide.w-sm-auto.h-auto
+            .card.h-100.border-0.mx-auto(style='max-width: 416px;')
+              a(href='blog-single-v2.html')
+                img(src='assets/img/blog/grid/02.jpg' alt='Post image').card-img-top
+              .card-body.pb-4
+                .d-flex.align-items-center.mb-4.mt-n1
+                  span.fs-sm.text-muted 2 days ago
+                  span.fs-xs.opacity-20.mx-3 |
+                  a(href='#').badge.text-nav.fs-xs.border
+                    | Travel
+                h3.h4.card-title
+                  a(href='blog-single-v2.html') Ways to travel in 2022
+                p.card-text Duis consectetur quis enim iaculis eu sagittis posuere imperdiet scelerisque...
+              .card-footer.pt-3
+                a(href='#').d-flex.align-items-center.text-decoration-none.pb-2
+                  img(src='assets/img/avatar/05.jpg' width='48' alt='Post author').rounded-circle
+                  h6.ps-3.mb-0 Darlene Robertson
+
+          // Item
+          article.swiper-slide.w-sm-auto.h-auto
+            .card.h-100.border-0.mx-auto(style='max-width: 416px;')
+              a(href='blog-single-v3.html')
+                img(src='assets/img/blog/grid/03.jpg' alt='Post image').card-img-top
+              .card-body.pb-4
+                .d-flex.align-items-center.mb-4.mt-n1
+                  span.fs-sm.text-muted 1 week ago
+                  span.fs-xs.opacity-20.mx-3 |
+                  a(href='#').badge.text-nav.fs-xs.border
+                    | Inspiration
+                h3.h4.card-title
+                  a(href='blog-single-v3.html') Inspiration in quarantine
+                p.card-text Nec in est vel ac et odio interdum risus maecenas pulvinar potenti gravida sed...
+              .card-footer.pt-3
+                a(href='#').d-flex.align-items-center.text-decoration-none.pb-2
+                  img(src='assets/img/avatar/12.jpg' width='48' alt='Post author').rounded-circle
+                  h6.ps-3.mb-0 Guy Hawkins
+
+          // Item
+          article.swiper-slide.w-sm-auto.h-auto
+            .card.h-100.border-0.mx-auto(style='max-width: 416px;')
+              a(href='blog-single-v1.html')
+                img(src='assets/img/blog/grid/04.jpg' alt='Post image').card-img-top
+              .card-body.pb-4
+                .d-flex.align-items-center.mb-4.mt-n1
+                  span.fs-sm.text-muted July 15, 2022
+                  span.fs-xs.opacity-20.mx-3 |
+                  a(href='#').badge.text-nav.fs-xs.border
+                    | TV Shows
+                h3.h4.card-title
+                  a(href='blog-single-v1.html') New series from Netflix
+                p.card-text Nec gravida senectus donec vivamus quam urna facilisis viverra eget in suspendisse...
+              .card-footer.pt-3
+                a(href='#').d-flex.align-items-center.text-decoration-none.pb-2
+                  img(src='assets/img/avatar/11.jpg' width='48' alt='Post author').rounded-circle
+                  h6.ps-3.mb-0 Lillia Black
+
+          // Item
+          article.swiper-slide.w-sm-auto.h-auto
+            .card.h-100.border-0.mx-auto(style='max-width: 416px;')
+              a(href='blog-single-v2.html')
+                img(src='assets/img/blog/grid/05.jpg' alt='Post image').card-img-top
+              .card-body.pb-4
+                .d-flex.align-items-center.mb-4.mt-n1
+                  span.fs-sm.text-muted May 28, 2022
+                  span.fs-xs.opacity-20.mx-3 |
+                  a(href='#').badge.text-nav.fs-xs.border
+                    | Inspiration
+                h3.h4.card-title
+                  a(href='blog-single-v2.html') How to look for inspiration?
+                p.card-text Risus arcu urna nisl massa nec leo tesque ac suspendisse magna verot ipsum...
+              .card-footer.pt-3
+                a(href='#').d-flex.align-items-center.text-decoration-none.pb-2
+                  img(src='assets/img/avatar/08.jpg' width='48' alt='Post author').rounded-circle
+                  h6.ps-3.mb-0 David Bocous
+
+          // Item
+          article.swiper-slide.w-sm-auto.h-auto
+            .card.h-100.border-0.mx-auto(style='max-width: 416px;')
+              a(href='blog-single-v3.html')
+                img(src='assets/img/blog/grid/06.jpg' alt='Post image').card-img-top
+              .card-body.pb-4
+                .d-flex.align-items-center.mb-4.mt-n1
+                  span.fs-sm.text-muted April 14, 2022
+                  span.fs-xs.opacity-20.mx-3 |
+                  a(href='#').badge.text-nav.fs-xs.border
+                    | Psychology
+                h3.h4.card-title
+                  a(href='blog-single-v3.html') A psychologist as choice
+                p.card-text Eu aenean euismod in tellus ipsum et natoque aliquam maecenas. Sed lectus...
+              .card-footer.pt-3
+                a(href='#').d-flex.align-items-center.text-decoration-none.pb-2
+                  img(src='assets/img/avatar/12.jpg' width='48' alt='Post author').rounded-circle
+                  h6.ps-3.mb-0 Guy Hawkins
+
+    // All articles button
+    .container.text-center.pt-4.pb-1.pb-sm-3.pb-md-4.py-lg-5.mb-xl-1.mb-xxl-4.mt-2.mt-lg-0
+      a(href='blog-grid-sidebar.html').btn.btn-primary.mb-1 Read all articles
+
+
+  // Latest posts
+  section.container.py-5.my-md-2.my-lg-3.my-xl-4.my-xxl-5
+    h2.h1.pb-3.py-md-4 Latest posts
+    .row.pb-md-4.pb-lg-5
+
+      // Featured article
+      .col-lg-6.pb-2.pb-lg-0.mb-4.mb-lg-0
+        article(style='background-image: url(assets/img/landing/blog/04.jpg);').card.h-100.border-0.position-relative.overflow-hidden.bg-size-cover.bg-position-center.me-lg-4
+          .bg-dark.position-absolute.top-0.start-0.w-100.h-100.opacity-60
+          .card-body.d-flex.flex-column.position-relative.zindex-2.mt-sm-5
+            h3.pt-5.mt-4.mt-sm-5.mt-lg-auto
+              a(href='blog-single-v1.html').stretched-link.text-light Travel destinations to inspire and restore resources
+            p.card-text.text-light.opacity-70 Morbi et massa scelerisque sit commodo dignissim faucibus vel quisque proin lectus laoreet pharetra at condimentum...
+            .d-flex.align-items-center
+              span.fs-sm.text-light.opacity-50 9 hours ago
+              span.fs-xs.text-light.opacity-30.mx-3 |
+              a(href='#').badge.text-ligh.fs-xs.border.border-light
+                | Travel
+      
+      // Other articles
+      .col-lg-6
+        .row.row-cols-1.row-cols-sm-2.g-4
+          article.col.py-1.py-xl-2
+            .border-bottom.pb-4.ms-xl-3
+              h3.h4
+                a(href='blog-single-v2.html') The 15 best books every person should read
+              p Egestas neque sceleri semper sit at eu cursus faucibus velit cras aliquam sed dictum at at orci...
+              .d-flex.align-items-center
+                span.fs-sm.text-muted 12 hours ago
+                span.fs-xs.opacity-20.mx-3 |
+                a(href='#').badge.text-nav.fs-xs.border
+                  | Books
+          article.col.py-1.py-xl-2
+            .border-bottom.pb-4.ms-xl-3
+              h3.h4
+                a(href='blog-single-v3.html') Destinations to inspire and restore resources
+              p Purus lectus odio lacus nibh habitant ac sapien malesuada sed convallis adipiscing eget convallis...
+              .d-flex.align-items-center
+                span.fs-sm.text-muted 3 days ago
+                span.fs-xs.opacity-20.mx-3 |
+                a(href='#').badge.text-nav.fs-xs.border
+                  | Travel
+          article.col.py-1.py-xl-2
+            .border-bottom.pb-4.ms-xl-3
+              h3.h4
+                a(href='blog-single-v1.html') The fashion for eco bags with vintage prints
+              p Morbi et massa fames ac scelerisque sit commodo dignissim faucibus vel quisque proin lectus...
+              .d-flex.align-items-center
+                span.fs-sm.text-muted 12 hours ago
+                span.fs-xs.opacity-20.mx-3 |
+                a(href='#').badge.text-nav.fs-xs.border
+                  | Fashion
+          article.col.py-1.py-xl-2
+            .border-bottom.pb-4.ms-xl-3
+              h3.h4
+                a(href='blog-single-v2.html') How to look for inspiration for new goals
+              p Nec gravida senectus donec vivamus quam urna facilisis viverra eget in suspendisse dignissim...
+              .d-flex.align-items-center
+                span.fs-sm.text-muted 3 days ago
+                span.fs-xs.opacity-20.mx-3 |
+                a(href='#').badge.text-nav.fs-xs.border
+                  | Psychology
+
+
+  // Authors
+  section.container-start.pt-xl-2.pb-5.mb-2.mb-lg-3.mb-xl-4.mb-xxl-5
+    .row.g-0.pb-md-4.pb-lg-5
+      .col-xl-2
+        .d-flex.flex-xl-column.align-items-center.align-items-xl-start.pe-xl-5.pb-3.pb-lg-4.mb-3
+          h2.h1.mb-0.mb-xl-5 Top authors
+          .d-flex.ms-auto.ms-xl-0
+            button(type='button')#prev-author.btn.btn-sm.btn-icon.btn-outline-primary.rounded-circle.me-3
+              i.ai-arrow-left
+            button(type='button')#next-author.btn.btn-sm.btn-icon.btn-outline-primary.rounded-circle
+              i.ai-arrow-right
+      .col-xl-9.offset-xl-1
+        .swiper(data-swiper-options=`{
+          "slidesPerView": 1,
+          "spaceBetween": 24,
+          "loop": true,
+          "navigation": {
+            "prevEl": "#prev-author",
+            "nextEl": "#next-author"
+          },
+          "breakpoints": {
+            "576": {
+              "slidesPerView": 2
+            },
+            "1000": {
+              "slidesPerView": 3
+            },
+            "1400": {
+              "slidesPerView": "auto"
+            }
+          }
+        }`)
+          .swiper-wrapper
+
+            // Item
+            .swiper-slide.w-xxl-auto
+              a(href='#' style='max-width: 416px;').d-block.card-hover.text-decoration-none.mx-auto
+                .bg-secondary.rounded-5.position-relative.overflow-hidden
+                  .position-absolute.top-0.start-0.w-100.h-100.bg-size-cover.bg-position-center.opacity-0(style='background-image: url(assets/img/landing/blog/authors/hover.svg);')
+                  img(src='assets/img/landing/blog/authors/01.png' alt='Author picture').position-relative.zindex-2
+                .border-bottom.pt-4.pb-3
+                  h3.h4.mb-1 Jane Cooper
+                  p.text-muted.mb-0 Chief editor
+
+            // Item
+            .swiper-slide.w-xxl-auto
+              a(href='#' style='max-width: 416px;').d-block.card-hover.text-decoration-none.mx-auto
+                .bg-secondary.rounded-5.position-relative.overflow-hidden
+                  .position-absolute.top-0.start-0.w-100.h-100.bg-size-cover.bg-position-center.opacity-0(style='background-image: url(assets/img/landing/blog/authors/hover.svg);')
+                  img(src='assets/img/landing/blog/authors/02.png' alt='Author picture').position-relative.zindex-2
+                .border-bottom.pt-4.pb-3
+                  h3.h4.mb-1 Darlene Robertson
+                  p.text-muted.mb-0 Marketing consultant
+
+            // Item
+            .swiper-slide.w-xxl-auto
+              a(href='#' style='max-width: 416px;').d-block.card-hover.text-decoration-none.mx-auto
+                .bg-secondary.rounded-5.position-relative.overflow-hidden
+                  .position-absolute.top-0.start-0.w-100.h-100.bg-size-cover.bg-position-center.opacity-0(style='background-image: url(assets/img/landing/blog/authors/hover.svg);')
+                  img(src='assets/img/landing/blog/authors/03.png' alt='Author picture').position-relative.zindex-2
+                .border-bottom.pt-4.pb-3
+                  h3.h4.mb-1 Guy Hawkins
+                  p.text-muted.mb-0 Psychologist
+
+            // Item
+            .swiper-slide.w-xxl-auto
+              a(href='#' style='max-width: 416px;').d-block.card-hover.text-decoration-none.mx-auto
+                .bg-secondary.rounded-5.position-relative.overflow-hidden
+                  .position-absolute.top-0.start-0.w-100.h-100.bg-size-cover.bg-position-center.opacity-0(style='background-image: url(assets/img/landing/blog/authors/hover.svg);')
+                  img(src='assets/img/landing/blog/authors/04.png' alt='Author picture').position-relative.zindex-2
+                .border-bottom.pt-4.pb-3
+                  h3.h4.mb-1 Cameron Williamson
+                  p.text-muted.mb-0 Fashion blogger
+
+            // Item
+            .swiper-slide.w-xxl-auto
+              a(href='#' style='max-width: 416px;').d-block.card-hover.text-decoration-none.mx-auto
+                .bg-secondary.rounded-5.position-relative.overflow-hidden
+                  .position-absolute.top-0.start-0.w-100.h-100.bg-size-cover.bg-position-center.opacity-0(style='background-image: url(assets/img/landing/blog/authors/hover.svg);')
+                  img(src='assets/img/landing/blog/authors/05.png' alt='Author picture').position-relative.zindex-2
+                .border-bottom.pt-4.pb-3
+                  h3.h4.mb-1 Albert Flores
+                  p.text-muted.mb-0 Travel blogger
+
+
+  // Editor's picks (Carousel on screens < 992px)
+  section.container.pb-5.mb-2.mb-lg-3.mb-xl-4.mb-xxl-5
+    h2.h1.pb-3.pb-lg-4 Editor's picks
+    .swiper(data-swiper-options=`
+      {
+        "spaceBetween": 24,
+        "pagination": {
+          "el": ".swiper-pagination",
+          "clickable": true
+        },
+        "breakpoints": {
+          "576": { "slidesPerView": 2 },
+          "992": { "slidesPerView": 3 }
+        }
+      }
+    `)
+      .swiper-wrapper
+
+        // Item
+        article.swiper-slide.h-auto
+          .card.border-0.bg-secondary
+            .card-body.pb-4
+              .d-flex.align-items-center.mb-4.mt-n1
+                span.fs-sm.text-muted 12 hours ago
+                span.fs-xs.opacity-20.mx-3 |
+                a(href='#').badge.text-nav.fs-xs.border
+                  | Fashion
+              h3.h4.card-title
+                a(href='blog-single-v1.html') The fashion for eco bags with vintage prints
+              p.card-text Morbi et massa fames ac scelerisque sit commodo dignissim faucibus vel quisque...
+            .card-footer.pt-3
+              a(href='#').d-flex.align-items-center.text-decoration-none.pb-2
+                img(src='assets/img/avatar/11.jpg' width='48' alt='Post author').rounded-circle
+                h6.ps-3.mb-0 Lillia Black
+
+        // Item
+        article.swiper-slide.h-auto
+          .card.border-0.bg-secondary
+            .card-body.pb-4
+              .d-flex.align-items-center.mb-4.mt-n1
+                span.fs-sm.text-muted 12 hours ago
+                span.fs-xs.opacity-20.mx-3 |
+                a(href='#').badge.text-nav.fs-xs.border
+                  | Inspiration
+              h3.h4.card-title
+                a(href='blog-single-v2.html') How to look for inspiration for new goals
+              p.card-text Morbi et massa fames ac scelerisque sit commodo dignissim faucibus vel quisque...
+            .card-footer.pt-3
+              a(href='#').d-flex.align-items-center.text-decoration-none.pb-2
+                img(src='assets/img/avatar/05.jpg' width='48' alt='Post author').rounded-circle
+                h6.ps-3.mb-0 Darlene Robertson
+
+        // Item
+        article.swiper-slide.h-auto
+          .card.border-0.bg-secondary
+            .card-body.pb-4
+              .d-flex.align-items-center.mb-4.mt-n1
+                span.fs-sm.text-muted July 16, 2022
+                span.fs-xs.opacity-20.mx-3 |
+                a(href='#').badge.text-nav.fs-xs.border
+                  | Travel
+              h3.h4.card-title
+                a(href='blog-single-v3.html') Destinations to inspire and restore resources
+              p.card-text Nec gravida senectus donec vivamus quam urna facilisis viverra eget in suspendisse...
+            .card-footer.pt-3
+              a(href='#').d-flex.align-items-center.text-decoration-none.pb-2
+                img(src='assets/img/avatar/08.jpg' width='48' alt='Post author').rounded-circle
+                h6.ps-3.mb-0 Guy Hawkins
+
+      // Pagination (bullets)
+      .swiper-pagination.position-relative.bottom-0.mt-2.pt-4.d-lg-none
+  
+    // Read more button
+    .text-center.pt-4.mt-2.mt-lg-0.pt-lg-5.pb-sm-2.pb-md-4
+      a(href='blog-grid-sidebar.html').btn.btn-primary Read all articles
+
+
+//- Footer
+block footer
+  include partials/footer-blog.pug

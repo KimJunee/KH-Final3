@@ -1,0 +1,96 @@
+extends ../partials/layout-docs
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js']
+  - var pageTitle = 'Project structure'
+    
+//- Page Content
+block content
+
+  .d-flex.align-items-start.border-bottom.pb-3
+    i.ai-folder-minus.fs-xl.text-primary
+    .ps-2.ms-1
+      h6.text-nav.mb-1 Around
+      p.fs-sm.mb-0 Folder contains all template's source and production files.
+  .d-flex.align-items-start.border-bottom.ps-4.py-3
+    i.ai-folder-minus.fs-xl.text-primary
+    .ps-2.ms-1
+      h6.text-nav.mb-1 Around / assets
+      p.fs-sm.mb-0 This folder holds compiled from source template's asset files.
+  .d-flex.align-items-start.border-bottom.ps-5.py-3
+    i.ai-folder-plus.fs-xl.text-primary
+    .ps-2.ms-1
+      h6.text-nav.mb-1 Around / assets / css
+      p.fs-sm.mb-0 Here you'll find compiled .css files: <code>theme.css</code> and <code>theme.min.css</code>
+  .d-flex.align-items-start.border-bottom.ps-5.py-3
+    i.ai-folder-plus.fs-xl.text-primary
+    .ps-2.ms-1
+      h6.text-nav.mb-1 Around / assets / favicon
+      p.fs-sm.mb-0 Favicon images for all browsers and platforms. They are linked in the <code>&lt;head&gt;</code> section of html document.
+  .d-flex.align-items-start.border-bottom.ps-5.py-3
+    i.ai-folder-plus.fs-xl.text-primary
+    .ps-2.ms-1
+      h6.text-nav.mb-1 Around / assets / fonts
+      p.fs-sm.mb-0 Folder with Around icons font files. Additionaly there is selection.json file for icon set customization. Learn more in <a href='ui-icons.html' class='fw-medium'>UI icons (Icon font)</a> section.
+  .d-flex.align-items-start.border-bottom.ps-5.py-3
+    i.ai-folder-plus.fs-xl.text-primary
+    .ps-2.ms-1
+      h6.text-nav.mb-1 Around / assets / img
+      p.fs-sm.mb-0 Folder contains all graphic assets like images, illustrations, vector icons, etc. divided into subfolders.
+  .d-flex.align-items-start.border-bottom.ps-5.py-3
+    i.ai-folder-plus.fs-xl.text-primary
+    .ps-2.ms-1
+      h6.text-nav.mb-1 Around / assets / js
+      p.fs-sm.mb-0 This folder contains compiled <code>theme.js</code>, compiled and minified <code>theme.min.js</code> files.
+  .d-flex.align-items-start.border-bottom.ps-5.py-3
+    i.ai-folder-plus.fs-xl.text-primary
+    .ps-2.ms-1
+      h6.text-nav.mb-1 Around / assets / json
+      p.fs-sm.mb-0 Configuration .json files for Lottie player animations.
+  .d-flex.align-items-start.border-bottom.ps-5.py-3
+    i.ai-folder-plus.fs-xl.text-primary
+    .ps-2.ms-1
+      h6.text-nav.mb-1 Around / assets / vendor
+      p.fs-sm.mb-0 This folder contains all vendor plugins' .js / .css files. Learn how to install new vendor plugins in <a href='install-vendor-plugin.html' class='fw-medium'>this section</a>. 
+  .d-flex.align-items-start.border-bottom.ps-4.py-3
+    i.ai-folder-minus.fs-xl.text-primary
+    .ps-2.ms-1
+      h6.text-nav.mb-1 Around / src
+      p.fs-sm.mb-0 Folder with source files.
+  .d-flex.align-items-start.border-bottom.ps-5.py-3
+    i.ai-folder-plus.fs-xl.text-primary
+    .ps-2.ms-1
+      h6.text-nav.mb-1 Around / src / js
+      p.fs-sm.mb-0 This folder contains main <code>theme.js</code> and <code>components</code> subfolder with all modules. <code>theme.js</code> is processed (compiled / minified) into 2 files: <code>assets/js/theme.js</code> and <code>assets/js/theme.min.js</code>. The latter is linked to all .html documents.
+  .d-flex.align-items-start.border-bottom.ps-5.py-3
+    i.ai-folder-plus.fs-xl.text-primary
+    .ps-2.ms-1
+      h6.text-nav.mb-1 Around / src / scss
+      p.fs-sm.mb-0 This folder contains all project <code>.scss</code> files that are compiled and minified to styles in <code>assets/css</code> folder.
+  .d-flex.align-items-start.border-bottom.ps-5.py-3
+    i.ai-folder-plus.fs-xl.text-primary
+    .ps-2.ms-1
+      h6.text-nav.mb-1 Around / src / templates
+      p.fs-sm.mb-0 This folder contains all <code>.pug</code> files that are compiled into HTML in root folder, <code>components</code> and <code>docs</code> folders.
+  .d-flex.align-items-start.border-bottom.ps-4.py-3
+    i.ai-folder-minus.fs-xl.text-primary
+    .ps-2.ms-1
+      h6.text-nav.mb-1 Around / components
+      p.fs-sm.mb-0 Around UI Kit - all the component <code>.html</code> pages with code snippets.
+  .d-flex.align-items-start.border-bottom.ps-4.py-3
+    i.ai-folder-minus.fs-xl.text-primary
+    .ps-2.ms-1
+      h6.text-nav.mb-1 Around / docs
+      p.fs-sm.mb-0 Documentation you are reading now.
+  .d-flex.align-items-start.border-bottom.ps-4.py-3
+    i.ai-file.fs-xl.text-primary
+    .ps-2.ms-1
+      h6.text-nav.mb-1 Around / package.json
+      p.fs-sm.mb-0 File contains meta data about your app or module. Most importantly, it includes the list of dependencies to install from npm repository when running <kbd>npm install</kbd>.
+  .d-flex.align-items-start.ps-4.py-3
+    i.ai-file.fs-xl.text-primary
+    .ps-2.ms-1
+      h6.text-nav.mb-1 Around / gulpfile.js
+      p.fs-sm.mb-0 Configuration file for Gulp. It contains all Gulp tasks you will perform while working on Createx based project. Learn more about it from <a href='working-with-gulp.html' class='fw-medium'>Working with Gulp</a> section or <a href='https://gulpjs.com/docs/en/getting-started/quick-start' class='fw-medium' target='_blank' rel='noopener'>official Gulp documentation</a>.

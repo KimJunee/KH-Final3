@@ -1,0 +1,323 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css', 'vendor/prismjs/themes/prism.css', 'vendor/prismjs/plugins/toolbar/prism-toolbar.css', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js', 'vendor/prismjs/components/prism-core.min.js', 'vendor/prismjs/components/prism-markup.min.js', 'vendor/prismjs/components/prism-clike.min.js', 'vendor/prismjs/components/prism-javascript.min.js', 'vendor/prismjs/components/prism-pug.min.js', 'vendor/prismjs/plugins/toolbar/prism-toolbar.min.js', 'vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Code'
+  - var pageSubtitle = 'Displaying inline and multiline blocks of code.'
+  - var pageTitleLink = {'title': 'Bootstrap docs', 'link': 'https://getbootstrap.com/docs/5.2/content/reboot/#inline-code'}
+  - var anchorNav = [{'title': 'Inline code', 'link': '#code-inline'}, {'title': 'User input', 'link': '#code-user-input'}, {'title': 'Variables', 'link': '#code-variables'}, {'title': 'Code block', 'link': '#code-block'}, {'title': 'Code block scrollable', 'link': '#code-scrollable'}, {'title': 'Code highlighting', 'link': '#code-highlighting'}]
+    
+//- Page Content
+block content
+
+  // Inline code
+  section#code-inline.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Inline code
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview1' data-bs-toggle='tab' role='tab' aria-controls='preview1' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview1.tab-pane.fade.show.active(role='tabpanel')
+          p.mb-1 Wrap inline snippets of code with <code>&lt;code&gt;</code>. Be sure to escape HTML angle brackets.
+        #html1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;p&gt;Wrap inline snippets of code with &lt;code&gt;&amp;lt;code&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+        #pug1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              p Wrap inline snippets of code with &lt;code&gt;&amp;lt;code&amp;gt;&lt;/code&gt;.
+
+  // User input
+  section#code-user-input.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 User input
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview2' data-bs-toggle='tab' role='tab' aria-controls='preview2' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview2.tab-pane.fade.show.active(role='tabpanel')
+          p.mb-1 To switch directories, type <kbd>cd</kbd> followed by the name of the directory.<br> To edit settings, press <kbd><kbd>ctrl</kbd> + <kbd>,</kbd></kbd>
+        #html2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;p&gt;
+                To switch directories, type &lt;kbd&gt;cd&lt;/kbd&gt; followed by the name of the directory.
+                To edit settings, press &lt;kbd&gt;&lt;kbd&gt;ctrl&lt;/kbd&gt; + &lt;kbd&gt;,&lt;/kbd&gt;&lt;/kbd&gt;
+              &lt;/p&gt;
+        #pug2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              p
+                | To switch directories, type &lt;kbd&gt;cd&lt;/kbd&gt; followed by the name of the directory.
+                | To edit settings, press &lt;kbd&gt;&lt;kbd&gt;ctrl&lt;/kbd&gt; + &lt;kbd&gt;,&lt;/kbd&gt;&lt;/kbd&gt;
+
+  // Variables
+  section#code-variables.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Variables
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview3' data-bs-toggle='tab' role='tab' aria-controls='preview3' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview3.tab-pane.fade.show.active(role='tabpanel')
+          var y 
+          | =
+          var mx 
+          | + 
+          var b
+        #html3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;var&gt;y&lt;/var&gt; = &lt;var&gt;mx&lt;/var&gt; + &lt;var&gt;b&lt;/var&gt;
+        #pug3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              var y 
+              | =
+              var mx 
+              | + 
+              var b
+
+  // Code block
+  section#code-block.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Code block
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview4' data-bs-toggle='tab' role='tab' aria-controls='preview4' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview4.tab-pane.fade.show.active(role='tabpanel')
+          pre: code &lt;p&gt;Sample text here...&lt;/p&gt;<br>&lt;p&gt;And another line of sample text here...&lt;/p&gt;
+        #html4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;pre&gt;
+                &lt;code&gt;&amp;lt;p&amp;gt;Sample text here...&amp;lt;/p&amp;gt;
+                &amp;lt;p&amp;gt;And another line of sample text here...&amp;lt;/p&amp;gt;&lt;/code&gt;
+              &lt;/pre&gt;
+        #pug4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              pre
+                code
+                  &amp;lt;p&amp;gt;Sample text here...&amp;lt;/p&amp;gt;
+                  &amp;lt;p&amp;gt;And another line of sample text here...&amp;lt;/p&amp;gt;
+
+  // Code block scrollable
+  section#code-scrollable.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Code block scrollable
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview5' data-bs-toggle='tab' role='tab' aria-controls='preview5' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html5' data-bs-toggle='tab' role='tab' aria-controls='html5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug5' data-bs-toggle='tab' role='tab' aria-controls='pug5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview5.tab-pane.fade.show.active(role='tabpanel')
+          pre(style='height: 21.5rem;').overflow-auto
+            code.
+              &lt;div class=&quot;table-responsive&quot;&gt;
+                &lt;table class=&quot;table&quot;&gt;
+                  &lt;thead&gt;
+                    &lt;tr&gt;
+                      &lt;th&gt;#&lt;/th&gt;
+                      &lt;th&gt;First Name&lt;/th&gt;
+                      &lt;th&gt;Last Name&lt;/th&gt;
+                      &lt;th&gt;Position&lt;/th&gt;
+                      &lt;th&gt;Phone&lt;/th&gt;
+                    &lt;/tr&gt;
+                  &lt;/thead&gt;
+                  &lt;tbody&gt;
+                    &lt;tr&gt;
+                      &lt;th scope=&quot;row&quot;&gt;1&lt;/th&gt;
+                      &lt;td&gt;John&lt;/td&gt;
+                      &lt;td&gt;Doe&lt;/td&gt;
+                      &lt;td&gt;CEO, Founder&lt;/td&gt;
+                      &lt;td&gt;+3 555 68 70&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;th scope=&quot;row&quot;&gt;2&lt;/th&gt;
+                      &lt;td&gt;Anna&lt;/td&gt;
+                      &lt;td&gt;Cabana&lt;/td&gt;
+                      &lt;td&gt;Designer&lt;/td&gt;
+                      &lt;td&gt;+3 434 65 93&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;th scope=&quot;row&quot;&gt;3&lt;/th&gt;
+                      &lt;td&gt;Kale&lt;/td&gt;
+                      &lt;td&gt;Thornton&lt;/td&gt;
+                      &lt;td&gt;Developer&lt;/td&gt;
+                      &lt;td&gt;+3 285 42 88&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;th scope=&quot;row&quot;&gt;4&lt;/th&gt;
+                      &lt;td&gt;Jane&lt;/td&gt;
+                      &lt;td&gt;Birkins&lt;/td&gt;
+                      &lt;td&gt;Support&lt;/td&gt;
+                      &lt;td&gt;+3 774 28 50&lt;/td&gt;
+                    &lt;/tr&gt;
+                  &lt;/tbody&gt;
+                &lt;/table&gt;
+              &lt;/div&gt;
+        #html5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;pre class=&quot;overflow-auto&quot; style=&quot;height: 22rem;&quot;&gt;
+                &lt;code&gt;
+                  Code goes here...
+                &lt;/code&gt;
+              &lt;/pre&gt;
+        #pug5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              pre(style=&quot;height: 22rem;&quot;).overflow-auto
+                code.
+                  | Code goes here...
+
+  // Code highlighting
+  section#code-highlighting.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Code highlighting
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview6' data-bs-toggle='tab' role='tab' aria-controls='preview6' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html6' data-bs-toggle='tab' role='tab' aria-controls='html6' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug6' data-bs-toggle='tab' role='tab' aria-controls='pug6' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview6.tab-pane.fade.show.active(role='tabpanel')
+          pre.line-numbers
+            code.lang-html.
+              &lt;div class=&quot;table-responsive&quot;&gt;
+                &lt;table class=&quot;table&quot;&gt;
+                  &lt;thead&gt;
+                    &lt;tr&gt;
+                      &lt;th&gt;#&lt;/th&gt;
+                      &lt;th&gt;First Name&lt;/th&gt;
+                      &lt;th&gt;Last Name&lt;/th&gt;
+                      &lt;th&gt;Position&lt;/th&gt;
+                      &lt;th&gt;Phone&lt;/th&gt;
+                    &lt;/tr&gt;
+                  &lt;/thead&gt;
+                  &lt;tbody&gt;
+                    &lt;tr&gt;
+                      &lt;th scope=&quot;row&quot;&gt;1&lt;/th&gt;
+                      &lt;td&gt;John&lt;/td&gt;
+                      &lt;td&gt;Doe&lt;/td&gt;
+                      &lt;td&gt;CEO, Founder&lt;/td&gt;
+                      &lt;td&gt;+3 555 68 70&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;th scope=&quot;row&quot;&gt;2&lt;/th&gt;
+                      &lt;td&gt;Anna&lt;/td&gt;
+                      &lt;td&gt;Cabana&lt;/td&gt;
+                      &lt;td&gt;Designer&lt;/td&gt;
+                      &lt;td&gt;+3 434 65 93&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;th scope=&quot;row&quot;&gt;3&lt;/th&gt;
+                      &lt;td&gt;Kale&lt;/td&gt;
+                      &lt;td&gt;Thornton&lt;/td&gt;
+                      &lt;td&gt;Developer&lt;/td&gt;
+                      &lt;td&gt;+3 285 42 88&lt;/td&gt;
+                    &lt;/tr&gt;
+                  &lt;/tbody&gt;
+                &lt;/table&gt;
+              &lt;/div&gt;
+        #html6.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;pre class=&quot;line-numbers&quot;&gt;
+                &lt;code class=&quot;lang-html&quot;&gt;
+                  HTML code goes here...
+                &lt;/code&gt;
+              &lt;/pre&gt;
+        #pug6.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              pre.line-numbers
+                code.lang-html.
+                  | HTML code goes here...

@@ -1,0 +1,185 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var scripts = ['vendor/imagesloaded/imagesloaded.pkgd.min.js', 'vendor/shufflejs/dist/shuffle.min.js']
+  - var parentMenu = 'Pages'
+  - var pageTitle = 'Blog Grid with Sidebar'
+  - var navbarExtraClass = 'bg-light'
+  - var isFixedButton = true
+
+
+//- Navbar
+block navbar
+  include partials/navbar.pug
+
+
+//- Page Content
+block content
+  .container.pt-5.pb-lg-5.pb-md-4.pb-2.my-5
+
+    // Breadcrumb
+    +breadcrumb([{'title': 'Blog grid with sidebar'}]).pt-lg-3.pb-lg-4.pb-2
+
+    .row.mb-md-2.mb-xl-4
+
+      // Blog posts
+      .col-lg-9.col-xl-8.pe-lg-4.pe-xl-0
+        h1.pb-3.pb-lg-4 Blog grid with sidebar
+        .masonry-grid.mb-2.mb-md-4.pb-lg-3(data-columns='2')
+
+          // Post
+          article.masonry-grid-item
+            .card.border-0.bg-secondary
+              .card-body.pb-4
+                .d-flex.align-items-center.mb-4.mt-n1
+                  span.fs-sm.text-muted 9 hours ago
+                  span.fs-xs.opacity-20.mx-3 |
+                  a(href='#').badge.text-nav.fs-xs.border
+                    | Brand strategy
+                h3.h4.card-title
+                  a(href='blog-single-v1.html') Business strategy for a brand of vintage bags
+                p.card-text Pharetra in morbi quis is massa maecenas arcu vulputate pulvinar elit non nullage a, duis tortor mi massa ipsum in eu eu eget libero pulvinar elit vulputate...
+              .card-footer.pt-3
+                a(href='#').d-flex.align-items-center.text-decoration-none.pb-2
+                  img(src='assets/img/avatar/05.jpg' width='48' alt='Post author').rounded-circle
+                  h6.ps-3.mb-0 Darlene Robertson
+
+          // Post
+          article.masonry-grid-item
+            .card.border-0.bg-secondary
+              a(href='blog-single-v2.html')
+                img(src='assets/img/blog/grid/01.jpg' alt='Post image').card-img-top
+              .card-body.pb-4
+                .d-flex.align-items-center.mb-4.mt-n1
+                  span.fs-sm.text-muted 12 hours ago
+                  span.fs-xs.opacity-20.mx-3 |
+                  a(href='#').badge.text-nav.fs-xs.border
+                    | Books
+                h3.h4.card-title
+                  a(href='blog-single-v2.html') Top books for inspiration
+                p.card-text Vulputate auctor lacus imperdiet facilisi tristique nisl pulvinar porta diam duis odio
+              .card-footer.pt-3
+                a(href='#').d-flex.align-items-center.text-decoration-none.pb-2
+                  img(src='assets/img/avatar/06.jpg' width='48' alt='Post author').rounded-circle
+                  h6.ps-3.mb-0 Jenny Wilson
+
+          // Post
+          article.masonry-grid-item
+            .card.border-0.bg-secondary
+              .card-body.pb-4
+                .d-flex.align-items-center.mb-4.mt-n1
+                  span.fs-sm.text-muted July 16, 2022
+                  span.fs-xs.opacity-20.mx-3 |
+                  a(href='#').badge.text-nav.fs-xs.border
+                    | Inspiration
+                h3.h4.card-title
+                  a(href='blog-single-v3.html') How to look for inspiration for new goals
+                p.card-text Pharetra in morbi quis is massa maecenas arcu vulputate pulvinar elit non nullage a, duis tortor mi massa ipsum in eu eu eget libero pulvinar elit vulputate...
+              .card-footer.pt-3
+                a(href='#').d-flex.align-items-center.text-decoration-none.pb-2
+                  img(src='assets/img/avatar/12.jpg' width='48' alt='Post author').rounded-circle
+                  h6.ps-3.mb-0 Guy Hawkins
+
+          // Post
+          article.masonry-grid-item
+            .card.border-0.bg-secondary
+              .card-body.pb-4
+                .d-flex.align-items-center.mb-4.mt-n1
+                  span.fs-sm.text-muted June 10, 2022
+                  span.fs-xs.opacity-20.mx-3 |
+                  a(href='#').badge.text-nav.fs-xs.border
+                    | Ecommerce
+                h3.h4.card-title
+                  a(href='blog-single-v1.html') Sales on social networks for the eco cosmetics
+                p.card-text Morbi et massa fames ac scelerisque sit commodo dignissim faucibus vel quisque proin lectus et massa fames ac scelerisque sit commodo dignissim...
+              .card-footer.pt-3
+                a(href='#').d-flex.align-items-center.text-decoration-none.pb-2
+                  img(src='assets/img/avatar/11.jpg' width='48' alt='Post author').rounded-circle
+                  h6.ps-3.mb-0 Lillia Black
+
+          // Post
+          article.masonry-grid-item
+            .card.border-0.bg-secondary
+              a(href='blog-single-v2.html')
+                img(src='assets/img/blog/grid/02.jpg' alt='Post image').card-img-top
+              .card-body.pb-4
+                .d-flex.align-items-center.mb-4.mt-n1
+                  span.fs-sm.text-muted January 9, 2022
+                  span.fs-xs.opacity-20.mx-3 |
+                  a(href='#').badge.text-nav.fs-xs.border
+                    | Travel
+                h3.h4.card-title
+                  a(href='blog-single-v2.html') Ways to travel in 2022
+                p.card-text Duis consectetur quis enim iaculis eu sagittis posuere imperdiet scelerisque
+              .card-footer.pt-3
+                a(href='#').d-flex.align-items-center.text-decoration-none.pb-2
+                  img(src='assets/img/avatar/05.jpg' width='48' alt='Post author').rounded-circle
+                  h6.ps-3.mb-0 Darlene Robertson
+
+          // Post
+          article.masonry-grid-item
+            .card.border-0.bg-secondary
+              .card-body.pb-4
+                .d-flex.align-items-center.mb-4.mt-n1
+                  span.fs-sm.text-muted December 15,  2022
+                  span.fs-xs.opacity-20.mx-3 |
+                  a(href='#').badge.text-nav.fs-xs.border
+                    | Inspiration
+                h3.h4.card-title
+                  a(href='blog-single-v3.html') Destinations to inspire and restore resources
+                p.card-text Non purus odio venenatis velit sed tellus sed ultrices neque adipiscing sit turpis vel nisl lacus, aenean sed luctus adipiscing ut orci molestie arcu, sapien sed felis...
+              .card-footer.pt-3
+                a(href='#').d-flex.align-items-center.text-decoration-none.pb-2
+                  img(src='assets/img/avatar/06.jpg' width='48' alt='Post author').rounded-circle
+                  h6.ps-3.mb-0 Jenny Wilson
+
+        
+        // Pagination
+        .row.gy-3.align-items-center
+          .col.col-md-4.col-6.order-md-1.order-1
+            .d-flex.align-items-center
+              span.text-muted.fs-sm Show
+              select.form-select.form-select-flush.w-auto
+                option(value='6') 6
+                option(value='9') 9
+                option(value='12') 12
+                option(value='24') 24
+          .col.col-md-4.col-12.order-md-2.order-3.text-center
+            button(type='button').btn.btn-primary.w-md-auto.w-100
+              | Load more posts
+          .col.col-md-4.col-6.order-md-3.order-2
+            nav(aria-label='Page navigation')
+              ul.pagination.pagination-sm.justify-content-end
+                li.page-item.active(aria-current='page')
+                  span.page-link
+                    | 1
+                    span.visually-hidden (current)
+                li.page-item
+                  a(href='#').page-link
+                    | 2
+                li.page-item
+                  a(href='#').page-link
+                    | 3
+                li.page-item
+                  a(href='#').page-link
+                    | 4
+                li.page-item
+                  a(href='#').page-link
+                    | 5
+
+      
+      // Sidebar (offcanvas on sreens < 992px)
+      aside.col-lg-3.offset-xl-1
+        include partials/sidebar-blog.pug
+
+
+  // Sidebar toggle button
+  button(data-bs-toggle='offcanvas' data-bs-target='#sidebarBlog').d-lg-none.btn.btn-sm.fs-sm.btn-primary.w-100.rounded-0.fixed-bottom
+    i.ai-layout-column.me-2
+    | Sidebar
+
+
+//- Footer
+block footer
+  include partials/footer-blog.pug

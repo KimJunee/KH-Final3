@@ -1,0 +1,38 @@
+//- Account sidebar navigation (offcanvas on sreens < 992px)
+#sidebarAccount.offcanvas-lg.offcanvas-start
+  button(type='button' data-bs-dismiss='offcanvas' data-bs-target='#sidebarAccount').btn-close.position-absolute.top-0.end-0.mt-3.me-3.d-lg-none
+  .offcanvas-body
+    .pb-2.pb-lg-0.mb-4.mb-lg-5
+      img(src='assets/img/avatar/02.jpg' width='80' alt='Isabella Bocouse').d-block.rounded-circle.mb-2
+      h3.h5.mb-1 Isabella Bocouse
+      p.fs-sm.text-muted.mb-0 bocouse@example.com
+    nav.nav.flex-column.pb-2.pb-lg-4.mb-3
+      h4.fs-xs.fw-medium.text-muted.text-uppercase.pb-1.mb-2 Account
+      a(href='account-overview.html')&attributes(pageTitle === 'Account - Overview' ? {'class': 'nav-link fw-semibold py-2 px-0 active'} : {'class': 'nav-link fw-semibold py-2 px-0'})
+        i.ai-user-check.fs-5.opacity-60.me-2
+        | Overview
+      a(href='account-settings.html')&attributes(pageTitle === 'Account - Settings' ? {'class': 'nav-link fw-semibold py-2 px-0 active'} : {'class': 'nav-link fw-semibold py-2 px-0'})
+        i.ai-settings.fs-5.opacity-60.me-2
+        | Settings
+      a(href='account-billing.html')&attributes(pageTitle === 'Account - Billing' ? {'class': 'nav-link fw-semibold py-2 px-0 active'} : {'class': 'nav-link fw-semibold py-2 px-0'})
+        i.ai-wallet.fs-5.opacity-60.me-2
+        | Billing
+    nav.nav.flex-column.pb-2.pb-lg-4.mb-1
+      h4.fs-xs.fw-medium.text-muted.text-uppercase.pb-1.mb-2 Dashboard
+      a(href='account-orders.html')&attributes(pageTitle === 'Account - Orders' ? {'class': 'nav-link fw-semibold py-2 px-0 active'} : {'class': 'nav-link fw-semibold py-2 px-0'})
+        i.ai-cart.fs-5.opacity-60.me-2
+        | Orders
+      a(href='account-earnings.html')&attributes(pageTitle === 'Account - Earnings' ? {'class': 'nav-link fw-semibold py-2 px-0 active'} : {'class': 'nav-link fw-semibold py-2 px-0'})
+        i.ai-activity.fs-5.opacity-60.me-2
+        | Earnings
+      a(href='account-chat.html')&attributes(pageTitle === 'Account - Chat' ? {'class': 'nav-link fw-semibold py-2 px-0 active'} : {'class': 'nav-link fw-semibold py-2 px-0'})
+        i.ai-messages.fs-5.opacity-60.me-2
+        | Chat
+        span.badge.bg-danger.ms-auto 4
+      a(href='account-favorites.html')&attributes(pageTitle === 'Account - Favorites' ? {'class': 'nav-link fw-semibold py-2 px-0 active'} : {'class': 'nav-link fw-semibold py-2 px-0'})
+        i.ai-heart.fs-5.opacity-60.me-2
+        | Favorites
+    nav.nav.flex-column
+      a(href='account-signin.html').nav-link.fw-semibold.py-2.px-0
+        i.ai-logout.fs-5.opacity-60.me-2
+        | Sign out

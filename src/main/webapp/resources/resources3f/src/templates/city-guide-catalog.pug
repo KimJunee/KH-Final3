@@ -1,0 +1,418 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['leaflet/dist/leaflet.css', 'nouislider/dist/nouislider.min.css']
+  - var vendorScripts = ['leaflet/dist/leaflet.js', 'nouislider/dist/nouislider.min.js']
+  - var parentMenu = 'Catalog'
+  - var pageTitle = 'City Guide | Catalog'
+  - var bodyClass = 'fixed-bottom-btn'
+
+//- Navbar
+block navbar
+  include partials/navbar-city-guide
+
+//- Page Content
+block content
+
+  // Page container
+  .container-fluid.mt-5.pt-5.p-0
+    .row.g-0.mt-n3
+
+      // Filters sidebar (Offcanvas on mobile)
+      aside.col-lg-4.col-xl-3.border-top-lg.border-end-lg.shadow-sm.px-3.px-xl-4.px-xxl-5.pt-lg-2
+        include partials/sidebar-filters-city-guide
+
+      // Page content
+      .col-lg-8.col-xl-9.position-relative.overflow-hidden.pb-5.pt-4.px-3.px-xl-4.px-xxl-5
+
+        // Map popup
+        #map.map-popup.invisible
+          button(type='button' data-bs-toggle-class='invisible' data-bs-target='#map').btn.btn-icon.btn-light.btn-sm.shadow-sm.rounded-circle
+            i.fi-x.fs-xs
+          .interactive-map(data-map-options-json='json/map-options-city-guide.json')
+
+
+        // Breadcrumb
+        nav(aria-label='Breadcrumb').mb-3.pt-md-2
+          ol.breadcrumb
+            li.breadcrumb-item
+              a(href='city-guide-home-v1.html') Home
+            li(aria-current='page').breadcrumb-item.active
+              | Find accommodation
+
+        // Title
+        .d-sm-flex.align-items-center.justify-content-between.pb-3.pb-sm-4
+          h1.h2.mb-sm-0 Find accommodation
+          a(href='#' data-bs-toggle-class='invisible' data-bs-target='#map').d-inline-block.fw-bold.text-decoration-none.py-1
+            i.fi-map.me-2
+            | Map view
+
+        // Sorting
+        .d-flex.flex-sm-row.flex-column.align-items-sm-center.align-items-stretch.my-2
+          .d-flex.align-items-center.flex-shrink-0
+            label(for='sortby').fs-sm.me-2.pe-1.text-nowrap
+              i.fi-arrows-sort.text-muted.mt-n1.me-2
+              | Sort by:
+            select(id='sortby').form-select.form-select-sm
+              option Newest
+              option Popularity
+              option Low - High Price
+              option High - Low Price
+              option High rating
+              option Average Rating
+          hr.d-none.d-sm-block.w-100.mx-4
+          .d-none.d-sm-flex.align-items-center.flex-shrink-0.text-muted
+            i.fi-check-circle.me-2
+            span.fs-sm.mt-n1 148 results
+
+
+        // Catalog grid
+        .row.row-cols-xl-3.row-cols-sm-2.row-cols-1.gy-4.gx-3.gx-xxl-4.py-4
+
+          // Item
+          .col.pb-sm-2
+            article.position-relative
+              .position-relative.mb-3
+                button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Favorites').btn.btn-icon.btn-light-primary.btn-xs.text-primary.rounded-circle.position-absolute.top-0.end-0.m-3.zindex-5
+                  i.fi-heart
+                img(src='img/city-guide/catalog/01.jpg' alt='Article img').rounded-3
+              h3.mb-2.fs-lg
+                a(href='city-guide-single.html').nav-link.stretched-link Berlin Business Hotel
+              ul.list-inline.mb-0.fs-xs
+                li.list-inline-item.pe-1
+                  i.fi-star-filled.mt-n1.me-1.fs-base.text-warning.align-middle
+                  b 5.0
+                  span.text-muted &nbsp;(48)
+                li.list-inline-item.pe-1
+                  i.fi-credit-card.mt-n1.me-1.fs-base.text-muted.align-middle
+                  | $$
+                li.list-inline-item.pe-1
+                  i.fi-map-pin.mt-n1.me-1.fs-base.text-muted.align-middle
+                  | 1.4 km from center
+
+          // Item
+          .col.pb-sm-2
+            article.position-relative
+              .position-relative.mb-3
+                button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Favorites').btn.btn-icon.btn-light-primary.btn-xs.text-primary.rounded-circle.position-absolute.top-0.end-0.m-3.zindex-5
+                  i.fi-heart
+                img(src='img/city-guide/catalog/02.jpg' alt='Article img').rounded-3
+              h3.mb-2.fs-lg
+                a(href='city-guide-single.html').nav-link.stretched-link Big Tree Cottage
+              ul.list-inline.mb-0.fs-xs
+                li.list-inline-item.pe-1
+                  i.fi-star-filled.mt-n1.me-1.fs-base.text-warning.align-middle
+                  b 4.8
+                  span.text-muted &nbsp;(24)
+                li.list-inline-item.pe-1
+                  i.fi-credit-card.mt-n1.me-1.fs-base.text-muted.align-middle
+                  | $$$
+                li.list-inline-item.pe-1
+                  i.fi-map-pin.mt-n1.me-1.fs-base.text-muted.align-middle
+                  | 0.5 km from center
+
+          // Item
+          .col.pb-sm-2
+            article.position-relative
+              .position-relative.mb-3
+                button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Favorites').btn.btn-icon.btn-light-primary.btn-xs.text-primary.rounded-circle.position-absolute.top-0.end-0.m-3.zindex-5
+                  i.fi-heart
+                img(src='img/city-guide/catalog/03.jpg' alt='Article img').rounded-3
+              h3.mb-2.fs-lg
+                a(href='city-guide-single.html').nav-link.stretched-link Grand Resort &amp; Spa
+              ul.list-inline.mb-0.fs-xs
+                li.list-inline-item.pe-1
+                  i.fi-star-filled.mt-n1.me-1.fs-base.text-warning.align-middle
+                  b 4.9
+                  span.text-muted &nbsp;(43)
+                li.list-inline-item.pe-1
+                  i.fi-credit-card.mt-n1.me-1.fs-base.text-muted.align-middle
+                  | $$$
+                li.list-inline-item.pe-1
+                  i.fi-map-pin.mt-n1.me-1.fs-base.text-muted.align-middle
+                  | 1.8 km from center
+
+          // Item
+          .col.pb-sm-2
+            article.position-relative
+              .position-relative.mb-3
+                button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Favorites').btn.btn-icon.btn-light-primary.btn-xs.text-primary.rounded-circle.position-absolute.top-0.end-0.m-3.zindex-5
+                  i.fi-heart
+                img(src='img/city-guide/catalog/04.jpg' alt='Article img').rounded-3
+              h3.mb-2.fs-lg
+                a(href='city-guide-single.html').nav-link.stretched-link Serene Stays
+              ul.list-inline.mb-0.fs-xs
+                li.list-inline-item.pe-1
+                  i.fi-star-filled.mt-n1.me-1.fs-base.text-warning.align-middle
+                  b 5.0
+                  span.text-muted &nbsp;(12)
+                li.list-inline-item.pe-1
+                  i.fi-credit-card.mt-n1.me-1.fs-base.text-muted.align-middle
+                  | $$$
+                li.list-inline-item.pe-1
+                  i.fi-map-pin.mt-n1.me-1.fs-base.text-muted.align-middle
+                  | 3.2 km from center
+
+          // Item
+          .col.pb-sm-2
+            article.position-relative
+              .position-relative.mb-3
+                button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Favorites').btn.btn-icon.btn-light-primary.btn-xs.text-primary.rounded-circle.position-absolute.top-0.end-0.m-3.zindex-5
+                  i.fi-heart
+                img(src='img/city-guide/catalog/05.jpg' alt='Article img').rounded-3
+              h3.mb-2.fs-lg
+                a(href='city-guide-single.html').nav-link.stretched-link Leisure Inn
+              ul.list-inline.mb-0.fs-xs
+                li.list-inline-item.pe-1
+                  i.fi-star-filled.mt-n1.me-1.fs-base.text-warning.align-middle
+                  b 4.0
+                  span.text-muted &nbsp;(9)
+                li.list-inline-item.pe-1
+                  i.fi-credit-card.mt-n1.me-1.fs-base.text-muted.align-middle
+                  | $
+                li.list-inline-item.pe-1
+                  i.fi-map-pin.mt-n1.me-1.fs-base.text-muted.align-middle
+                  | 2.1 km from center
+
+          // Item
+          .col.pb-sm-2
+            article.position-relative
+              .position-relative.mb-3
+                button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Favorites').btn.btn-icon.btn-light-primary.btn-xs.text-primary.rounded-circle.position-absolute.top-0.end-0.m-3.zindex-5
+                  i.fi-heart
+                img(src='img/city-guide/catalog/06.jpg' alt='Article img').rounded-3
+              h3.mb-2.fs-lg
+                a(href='city-guide-single.html').nav-link.stretched-link Bliss Apartment
+              ul.list-inline.mb-0.fs-xs
+                li.list-inline-item.pe-1
+                  i.fi-star-filled.mt-n1.me-1.fs-base.text-warning.align-middle
+                  b 4.8
+                  span.text-muted &nbsp;(32)
+                li.list-inline-item.pe-1
+                  i.fi-credit-card.mt-n1.me-1.fs-base.text-muted.align-middle
+                  | $
+                li.list-inline-item.pe-1
+                  i.fi-map-pin.mt-n1.me-1.fs-base.text-muted.align-middle
+                  | 1.9 km from center
+
+          // Item
+          .col.pb-sm-2
+            article.position-relative
+              .position-relative.mb-3
+                button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Favorites').btn.btn-icon.btn-light-primary.btn-xs.text-primary.rounded-circle.position-absolute.top-0.end-0.m-3.zindex-5
+                  i.fi-heart
+                img(src='img/city-guide/catalog/07.jpg' alt='Article img').rounded-3
+              h3.mb-2.fs-lg
+                a(href='city-guide-single.html').nav-link.stretched-link Merry Berry Motel
+              ul.list-inline.mb-0.fs-xs
+                li.list-inline-item.pe-1
+                  i.fi-star-filled.mt-n1.me-1.fs-base.text-warning.align-middle
+                  b 4.5
+                  span.text-muted &nbsp;(13)
+                li.list-inline-item.pe-1
+                  i.fi-credit-card.mt-n1.me-1.fs-base.text-muted.align-middle
+                  | $$
+                li.list-inline-item.pe-1
+                  i.fi-map-pin.mt-n1.me-1.fs-base.text-muted.align-middle
+                  | 0.4 km from center
+
+          // Item
+          .col.pb-sm-2
+            article.position-relative
+              .position-relative.mb-3
+                button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Favorites').btn.btn-icon.btn-light-primary.btn-xs.text-primary.rounded-circle.position-absolute.top-0.end-0.m-3.zindex-5
+                  i.fi-heart
+                img(src='img/city-guide/catalog/08.jpg' alt='Article img').rounded-3
+              h3.mb-2.fs-lg
+                a(href='city-guide-single.html').nav-link.stretched-link Serenity Hotel
+              ul.list-inline.mb-0.fs-xs
+                li.list-inline-item.pe-1
+                  i.fi-star-filled.mt-n1.me-1.fs-base.text-warning.align-middle
+                  b 5.0
+                  span.text-muted &nbsp;(17)
+                li.list-inline-item.pe-1
+                  i.fi-credit-card.mt-n1.me-1.fs-base.text-muted.align-middle
+                  | $$$
+                li.list-inline-item.pe-1
+                  i.fi-map-pin.mt-n1.me-1.fs-base.text-muted.align-middle
+                  | 1.6 km from center
+
+          // Item
+          .col.pb-sm-2
+            article.position-relative
+              .position-relative.mb-3
+                button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Favorites').btn.btn-icon.btn-light-primary.btn-xs.text-primary.rounded-circle.position-absolute.top-0.end-0.m-3.zindex-5
+                  i.fi-heart
+                img(src='img/city-guide/catalog/09.jpg' alt='Article img').rounded-3
+              h3.mb-2.fs-lg
+                a(href='city-guide-single.html').nav-link.stretched-link Repose Hotel
+              ul.list-inline.mb-0.fs-xs
+                li.list-inline-item.pe-1
+                  i.fi-star-filled.mt-n1.me-1.fs-base.text-warning.align-middle
+                  b 5.0
+                  span.text-muted &nbsp;(45)
+                li.list-inline-item.pe-1
+                  i.fi-credit-card.mt-n1.me-1.fs-base.text-muted.align-middle
+                  | $$
+                li.list-inline-item.pe-1
+                  i.fi-map-pin.mt-n1.me-1.fs-base.text-muted.align-middle
+                  | 1.4 km from center
+
+          // Item
+          .col.pb-sm-2
+            article.position-relative
+              .position-relative.mb-3
+                button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Favorites').btn.btn-icon.btn-light-primary.btn-xs.text-primary.rounded-circle.position-absolute.top-0.end-0.m-3.zindex-5
+                  i.fi-heart
+                img(src='img/city-guide/catalog/10.jpg' alt='Article img').rounded-3
+              h3.mb-2.fs-lg
+                a(href='city-guide-single.html').nav-link.stretched-link Tranquil Hostel
+              ul.list-inline.mb-0.fs-xs
+                li.list-inline-item.pe-1
+                  i.fi-star-filled.mt-n1.me-1.fs-base.text-warning.align-middle
+                  b 4.0
+                  span.text-muted &nbsp;(15)
+                li.list-inline-item.pe-1
+                  i.fi-credit-card.mt-n1.me-1.fs-base.text-muted.align-middle
+                  | $
+                li.list-inline-item.pe-1
+                  i.fi-map-pin.mt-n1.me-1.fs-base.text-muted.align-middle
+                  | 1.7 km from center
+
+          // Item
+          .col.pb-sm-2
+            article.position-relative
+              .position-relative.mb-3
+                button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Favorites').btn.btn-icon.btn-light-primary.btn-xs.text-primary.rounded-circle.position-absolute.top-0.end-0.m-3.zindex-5
+                  i.fi-heart
+                img(src='img/city-guide/catalog/11.jpg' alt='Article img').rounded-3
+              h3.mb-2.fs-lg
+                a(href='city-guide-single.html').nav-link.stretched-link Soothe &amp; Stay
+              ul.list-inline.mb-0.fs-xs
+                li.list-inline-item.pe-1
+                  i.fi-star-filled.mt-n1.me-1.fs-base.text-warning.align-middle
+                  b 4.6
+                  span.text-muted &nbsp;(10)
+                li.list-inline-item.pe-1
+                  i.fi-credit-card.mt-n1.me-1.fs-base.text-muted.align-middle
+                  | $$
+                li.list-inline-item.pe-1
+                  i.fi-map-pin.mt-n1.me-1.fs-base.text-muted.align-middle
+                  | 2.4 km from center
+
+          // Item
+          .col.pb-sm-2
+            article.position-relative
+              .position-relative.mb-3
+                button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Favorites').btn.btn-icon.btn-light-primary.btn-xs.text-primary.rounded-circle.position-absolute.top-0.end-0.m-3.zindex-5
+                  i.fi-heart
+                img(src='img/city-guide/catalog/12.jpg' alt='Article img').rounded-3
+              h3.mb-2.fs-lg
+                a(href='city-guide-single.html').nav-link.stretched-link Best Nest Apartment
+              ul.list-inline.mb-0.fs-xs
+                li.list-inline-item.pe-1
+                  i.fi-star-filled.mt-n1.me-1.fs-base.text-warning.align-middle
+                  b 4.9
+                  span.text-muted &nbsp;(10)
+                li.list-inline-item.pe-1
+                  i.fi-credit-card.mt-n1.me-1.fs-base.text-muted.align-middle
+                  | $$$
+                li.list-inline-item.pe-1
+                  i.fi-map-pin.mt-n1.me-1.fs-base.text-muted.align-middle
+                  | 1.1 km from center
+
+          // Item
+          .col.pb-sm-2
+            article.position-relative
+              .position-relative.mb-3
+                button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Favorites').btn.btn-icon.btn-light-primary.btn-xs.text-primary.rounded-circle.position-absolute.top-0.end-0.m-3.zindex-5
+                  i.fi-heart
+                img(src='img/city-guide/catalog/13.jpg' alt='Article img').rounded-3
+              h3.mb-2.fs-lg
+                a(href='city-guide-single.html').nav-link.stretched-link Pine Cottage
+              ul.list-inline.mb-0.fs-xs
+                li.list-inline-item.pe-1
+                  i.fi-star-filled.mt-n1.me-1.fs-base.text-warning.align-middle
+                  b 5.0
+                  span.text-muted &nbsp;(12)
+                li.list-inline-item.pe-1
+                  i.fi-credit-card.mt-n1.me-1.fs-base.text-muted.align-middle
+                  | $$
+                li.list-inline-item.pe-1
+                  i.fi-map-pin.mt-n1.me-1.fs-base.text-muted.align-middle
+                  | 4.7 km from center
+
+          // Item
+          .col.pb-sm-2
+            article.position-relative
+              .position-relative.mb-3
+                button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Favorites').btn.btn-icon.btn-light-primary.btn-xs.text-primary.rounded-circle.position-absolute.top-0.end-0.m-3.zindex-5
+                  i.fi-heart
+                img(src='img/city-guide/catalog/14.jpg' alt='Article img').rounded-3
+              h3.mb-2.fs-lg
+                a(href='city-guide-single.html').nav-link.stretched-link Greenpoint Boutique Hotel
+              ul.list-inline.mb-0.fs-xs
+                li.list-inline-item.pe-1
+                  i.fi-star-filled.mt-n1.me-1.fs-base.text-warning.align-middle
+                  b 4.9
+                  span.text-muted &nbsp;(12)
+                li.list-inline-item.pe-1
+                  i.fi-credit-card.mt-n1.me-1.fs-base.text-muted.align-middle
+                  | $$
+                li.list-inline-item.pe-1
+                  i.fi-map-pin.mt-n1.me-1.fs-base.text-muted.align-middle
+                  | 0.4 km from center
+
+          // Item
+          .col.pb-sm-2
+            article.position-relative
+              .position-relative.mb-3
+                button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Favorites').btn.btn-icon.btn-light-primary.btn-xs.text-primary.rounded-circle.position-absolute.top-0.end-0.m-3.zindex-5
+                  i.fi-heart
+                img(src='img/city-guide/catalog/15.jpg' alt='Article img').rounded-3
+              h3.mb-2.fs-lg
+                a(href='city-guide-single.html').nav-link.stretched-link Crystal Apartment
+              ul.list-inline.mb-0.fs-xs
+                li.list-inline-item.pe-1
+                  i.fi-star-filled.mt-n1.me-1.fs-base.text-warning.align-middle
+                  b 4.9
+                  span.text-muted &nbsp;(52)
+                li.list-inline-item.pe-1
+                  i.fi-credit-card.mt-n1.me-1.fs-base.text-muted.align-middle
+                  | $$
+                li.list-inline-item.pe-1
+                  i.fi-map-pin.mt-n1.me-1.fs-base.text-muted.align-middle
+                  | 1.5 km from center
+
+
+        // Pagination
+        nav.border-top.pb-md-4.pt-4(aria-label='Pagination')
+          ul.pagination.mb-1
+            li.page-item.d-sm-none
+              span.page-link.page-link-static 1 / 5
+            li.page-item.active.d-none.d-sm-block(aria-current='page')
+              span.page-link
+                | 1
+                span.visually-hidden (current)
+            li.page-item.d-none.d-sm-block
+              a(href='#').page-link 2
+            li.page-item.d-none.d-sm-block
+              a(href='#').page-link 3
+            li.page-item.d-none.d-sm-block
+              | ...
+            li.page-item.d-none.d-sm-block
+              a(href='#').page-link 8
+            li.page-item
+              a(href='#' aria-label='Next').page-link
+                i.fi-chevron-right
+
+
+//- Footer
+block footer
+  include partials/footer-city-guide
+
+  // Filters sidebar toggle button (mobile)
+  button(type='button' data-bs-toggle='offcanvas' data-bs-target='#filters-sidebar').btn.btn-primary.btn-sm.w-100.rounded-0.fixed-bottom.d-lg-none
+    i.fi-filter.me-2
+    | Filters

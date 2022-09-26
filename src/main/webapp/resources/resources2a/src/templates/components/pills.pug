@@ -1,0 +1,523 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css', 'vendor/prismjs/themes/prism.css', 'vendor/prismjs/plugins/toolbar/prism-toolbar.css', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js', 'vendor/prismjs/components/prism-core.min.js', 'vendor/prismjs/components/prism-markup.min.js', 'vendor/prismjs/components/prism-clike.min.js', 'vendor/prismjs/components/prism-javascript.min.js', 'vendor/prismjs/components/prism-pug.min.js', 'vendor/prismjs/plugins/toolbar/prism-toolbar.min.js', 'vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Pills'
+  - var pageSubtitle = 'Button-like navigation component.'
+  - var pageTitleLink = {'title': 'Bootstrap docs', 'link': 'https://getbootstrap.com/docs/5.2/components/navs-tabs/#pills'}
+  - var anchorNav = [{'title': 'Basic example', 'link': '#pills-basic'}, {'title': 'Rounded pills', 'link': '#pills-rounded'}, {'title': 'Fill and justify', 'link': '#pills-fill'}, {'title': 'Pills with dropdowns', 'link': '#pills-dropdown'}, {'title': 'Vertical pills', 'link': '#pills-vertical'}, {'title': 'Tabs-like behavior', 'link': '#pills-tabs'}]
+    
+//- Page Content
+block content
+
+  // Basic example
+  section#pills-basic.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Basic example
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview1' data-bs-toggle='tab' role='tab' aria-controls='preview1' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview1.tab-pane.fade.show.active(role='tabpanel')
+          ul(class='nav nav-pills')
+            li.nav-item
+              a(href='#' class='nav-link active') Active
+            li.nav-item
+              a(href='#' class='nav-link') Link
+            li.nav-item
+              a(href='#' class='nav-link') Link
+            li.nav-item
+              a(href='#' class='nav-link disabled') Disabled
+        #html1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Nav pills --&gt;
+              &lt;ul class=&quot;nav nav-pills&quot;&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link active&quot;&gt;Active&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;Link&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;Link&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link disabled&quot; tabindex=&quot;-1&quot; aria-disabled=&quot;true&quot;&gt;Disabled&lt;/a&gt;
+                &lt;/li&gt;
+              &lt;/ul&gt;
+        #pug1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Nav pills
+              ul(class=&quot;nav nav-pills&quot;)
+                li.nav-item
+                  a(href=&quot;#&quot;, class=&quot;nav-link active&quot;)
+                    | Active
+                li.nav-item
+                  a(href=&quot;#&quot;, class=&quot;nav-link&quot;)
+                    | Link
+                li.nav-item
+                  a(href=&quot;#&quot;, class=&quot;nav-link&quot;)
+                    | Link
+                li.nav-item
+                  a(href=&quot;#&quot;, class=&quot;nav-link disabled&quot;, tabindex=&quot;-1&quot;, aria-disabled=&quot;true&quot;)
+                    | Disabled
+
+  // Rounded pills
+  section#pills-rounded.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Rounded pills
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview2' data-bs-toggle='tab' role='tab' aria-controls='preview2' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview2.tab-pane.fade.show.active(role='tabpanel')
+          ul(class='nav nav-pills')
+            li.nav-item
+              a(href='#' class='nav-link rounded active') Active
+            li.nav-item
+              a(href='#' class='nav-link rounded') Link
+            li.nav-item
+              a(href='#' class='nav-link rounded') Link
+            li.nav-item
+              a(href='#' class='nav-link rounded disabled') Disabled
+        #html2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Nav pills --&gt;
+              &lt;ul class=&quot;nav nav-pills&quot;&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link rounded active&quot;&gt;Active&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link rounded&quot;&gt;Link&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link rounded&quot;&gt;Link&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link rounded disabled&quot; tabindex=&quot;-1&quot; aria-disabled=&quot;true&quot;&gt;Disabled&lt;/a&gt;
+                &lt;/li&gt;
+              &lt;/ul&gt;
+        #pug2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Nav pills
+              ul(class=&quot;nav nav-pills&quot;)
+                li.nav-item
+                  a(href=&quot;#&quot;, class=&quot;nav-link rounded active&quot;)
+                    | Active
+                li.nav-item
+                  a(href=&quot;#&quot;, class=&quot;nav-link rounded&quot;)
+                    | Link
+                li.nav-item
+                  a(href=&quot;#&quot;, class=&quot;nav-link rounded&quot;)
+                    | Link
+                li.nav-item
+                  a(href=&quot;#&quot;, class=&quot;nav-link rounded disabled&quot;, tabindex=&quot;-1&quot;, aria-disabled=&quot;true&quot;)
+                    | Disabled
+
+  // Fill and justify
+  section#pills-fill.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Fill and justify
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview3' data-bs-toggle='tab' role='tab' aria-controls='preview3' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview3.tab-pane.fade.show.active(role='tabpanel')
+          ul(class='nav nav-pills nav-fill mb-4')
+            li.nav-item
+              a(href='#' class='nav-link active') Active
+            li.nav-item
+              a(href='#' class='nav-link') Much longer nav link
+            li.nav-item
+              a(href='#' class='nav-link') Link
+            li.nav-item
+              a(href='#' class='nav-link disabled' tabindex='-1' aria-disabled='true') Disabled
+          ul(class='nav nav-pills nav-justified')
+            li.nav-item
+              a(href='#' class='nav-link active') Active
+            li.nav-item
+              a(href='#' class='nav-link') Link
+            li.nav-item
+              a(href='#' class='nav-link') Link
+            li.nav-item
+              a(href='#' class='nav-link disabled' tabindex='-1' aria-disabled='true') Disabled
+        #html3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Nav pills: Fill --&gt;
+              &lt;ul class=&quot;nav nav-pills nav-fill&quot;&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link active&quot;&gt;Active&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;Much longer nav link&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;Link&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link disabled&quot; tabindex=&quot;-1&quot; aria-disabled=&quot;true&quot;&gt;Disabled&lt;/a&gt;
+                &lt;/li&gt;
+              &lt;/ul&gt;
+
+              &lt;!-- Nav pills: Justified --&gt;
+              &lt;ul class=&quot;nav nav-pills nav-justified&quot;&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link active&quot;&gt;Active&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;Link&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;Link&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link disabled&quot; tabindex=&quot;-1&quot; aria-disabled=&quot;true&quot;&gt;Disabled&lt;/a&gt;
+                &lt;/li&gt;
+              &lt;/ul&gt;
+        #pug3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Nav pills: Fill
+              ul(class=&quot;nav nav-pills nav-fill&quot;)
+                li.nav-item
+                  a(href=&quot;#&quot;, class=&quot;nav-link active&quot;)
+                    | Active
+                li.nav-item
+                  a(href=&quot;#&quot;, class=&quot;nav-link&quot;)
+                    | Much longer nav link
+                li.nav-item
+                  a(href=&quot;#&quot;, class=&quot;nav-link&quot;)
+                    | Link
+                li.nav-item
+                  a(href=&quot;#&quot;, class=&quot;nav-link disabled&quot;,  tabindex=&quot;-1&quot;, aria-disabled=&quot;true&quot;)
+                    | Disabled
+
+              // Nav pills: Justified
+              ul(class=&quot;nav nav-pills nav-justified&quot;)
+                li.nav-item
+                  a(href=&quot;#&quot;, class=&quot;nav-link active&quot;)
+                    | Active
+                li.nav-item
+                  a(href=&quot;#&quot;, class=&quot;nav-link&quot;)
+                    | Link
+                li.nav-item
+                  a(href=&quot;#&quot;, class=&quot;nav-link&quot;)
+                    | Link
+                li.nav-item
+                  a(href=&quot;#&quot;, class=&quot;nav-link disabled&quot;,  tabindex=&quot;-1&quot;, aria-disabled=&quot;true&quot;)
+                    | Disabled
+
+  // Pills with dropdowns
+  section#pills-dropdown.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Pills with dropdowns
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview4' data-bs-toggle='tab' role='tab' aria-controls='preview4' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview4.tab-pane.fade.show.active(role='tabpanel')
+          ul(class='nav nav-pills')
+            li.nav-item
+              a(href='#' class='nav-link active') Active
+            li.nav-item.dropdown
+              a(href='#' class='nav-link dropdown-toggle' data-bs-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false') Dropdown
+              .dropdown-menu.my-1
+                a(href='#').dropdown-item Action
+                a(href='#').dropdown-item Another action
+                a(href='#').dropdown-item Something else here
+                .dropdown-divider
+                a(href='#').dropdown-item Separated link
+            li.nav-item
+              a(href='#' class='nav-link') Link
+            li.nav-item
+              a(href='#' class='nav-link disabled' tabindex='-1' aria-disabled='true') Disabled
+        #html4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Pills with dropdowns --&gt;
+              &lt;ul class=&quot;nav nav-pills&quot;&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link active&quot;&gt;Active&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;nav-item dropdown&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link dropdown-toggle&quot; data-bs-toggle=&quot;dropdown&quot; role=&quot;button&quot; aria-haspopup=&quot;true&quot; aria-expanded=&quot;false&quot;&gt;Dropdown&lt;/a&gt;
+                  &lt;div class=&quot;dropdown-menu my-1&quot;&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Action&lt;/a&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Another action&lt;/a&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Something else here&lt;/a&gt;
+                    &lt;div class=&quot;dropdown-divider&quot;&gt;&lt;/div&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Separated link&lt;/a&gt;
+                  &lt;/div&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;Link&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link disabled&quot; tabindex=&quot;-1&quot; aria-disabled=&quot;true&quot;&gt;Disabled&lt;/a&gt;
+                &lt;/li&gt;
+              &lt;/ul&gt;
+        #pug4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Pills with dropdowns
+              ul(class=&quot;nav nav-pills&quot;)
+                li.nav-item
+                  a(href=&quot;#&quot;, class=&quot;nav-link active&quot;)
+                    | Active
+                li.nav-item.dropdown
+                  a(href=&quot;#&quot;, class=&quot;nav-link dropdown-toggle&quot;, data-bs-toggle=&quot;dropdown&quot;, role=&quot;button&quot;, aria-haspopup=&quot;true&quot;, aria-expanded=&quot;false&quot;)
+                    | Dropdown
+                  .dropdown-menu.my-1
+                    a(href='#').dropdown-item
+                      | Action
+                    a(href='#').dropdown-item
+                      | Another action
+                    a(href='#').dropdown-item
+                      | Something else here
+                    .dropdown-divider
+                    a(href='#').dropdown-item
+                      | Separated link
+                li.nav-item
+                  a(href=&quot;#&quot;, class=&quot;nav-link&quot;)
+                    | Link
+                li.nav-item
+                  a(href=&quot;#&quot;, class=&quot;nav-link disabled&quot;,  tabindex=&quot;-1&quot;, aria-disabled=&quot;true&quot;)
+                    | Disabled
+
+  // Vertical pills
+  section#pills-vertical.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Vertical pills
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview5' data-bs-toggle='tab' role='tab' aria-controls='preview5' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html5' data-bs-toggle='tab' role='tab' aria-controls='html5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug5' data-bs-toggle='tab' role='tab' aria-controls='pug5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview5.tab-pane.fade.show.active(role='tabpanel')
+          ul(class='nav nav-pills flex-column' style='max-width: 15rem;')
+            li.nav-item
+              a(href='#' class='nav-link active') Active
+            li.nav-item
+              a(href='#' class='nav-link') Link
+            li.nav-item
+              a(href='#' class='nav-link') Link
+            li.nav-item
+              a(href='#' class='nav-link disabled') Disabled
+        #html5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Vertical pills --&gt;
+              &lt;ul class=&quot;nav nav-pills flex-column&quot;&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link active&quot;&gt;Active&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;Link&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;Link&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link disabled&quot; tabindex=&quot;-1&quot; aria-disabled=&quot;true&quot;&gt;Disabled&lt;/a&gt;
+                &lt;/li&gt;
+              &lt;/ul&gt;
+        #pug5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Vertical pills
+              ul(class=&quot;nav nav-pills flex-column&quot;)
+                li.nav-item
+                  a(href=&quot;#&quot;, class=&quot;nav-link active&quot;)
+                    | Active
+                li.nav-item
+                  a(href=&quot;#&quot;, class=&quot;nav-link&quot;)
+                    | Link
+                li.nav-item
+                  a(href=&quot;#&quot;, class=&quot;nav-link&quot;)
+                    | Link
+                li.nav-item
+                  a(href=&quot;#&quot;, class=&quot;nav-link disabled&quot;, tabindex=&quot;-1&quot;, aria-disabled=&quot;true&quot;)
+                    | Disabled
+
+  // Tabs-like behavior
+  section#pills-tabs.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Tabs-like behavior
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview6' data-bs-toggle='tab' role='tab' aria-controls='preview6' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html6' data-bs-toggle='tab' role='tab' aria-controls='html6' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug6' data-bs-toggle='tab' role='tab' aria-controls='pug6' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview6.tab-pane.fade.show.active(role='tabpanel')
+          ul(class='nav nav-pills' role='tablist')
+            li.nav-item
+              a(href='#home' class='nav-link active' id='pills-home' data-bs-toggle='pill' role='tab' aria-controls='home' aria-selected='true')
+                i.ai-home.me-2
+                | Home
+            li.nav-item
+              a(href='#profile' class='nav-link' id='pills-profile' data-bs-toggle='pill' role='tab' aria-controls='profile' aria-selected='false')
+                i.ai-user.me-2
+                | Profile
+            li.nav-item
+              a(href='#messages' class='nav-link' id='pills-messages' data-bs-toggle='pill' role='tab' aria-controls='messages' aria-selected='false')
+                i.ai-messages.me-2
+                | Messages
+          .tab-content
+            #home.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='pills-home')
+              p.mb-0 Consequat occaecat ullamco amet non eiusmod nostrud dolore irure incididunt est duis anim sunt officia. Fugiat velit proident aliquip nisi incididunt nostrud exercitation proident est nisi. Irure magna elit commodo anim ex veniam culpa eiusmod id nostrud sit cupidatat in veniam ad. Eiusmod consequat eu adipisicing minim anim aliquip cupidatat culpa excepteur quis. Occaecat sit eu exercitation irure Lorem incididunt nostrud.
+            #profile.tab-pane.fade(role='tabpanel' aria-labelledby='pills-profile')
+              p.mb-0 Ad pariatur nostrud pariatur exercitation ipsum ipsum culpa mollit commodo mollit ex. Aute sunt incididunt amet commodo est sint nisi deserunt pariatur do. Aliquip ex eiusmod voluptate exercitation cillum id incididunt elit sunt. Qui minim sit magna Lorem id et dolore velit Lorem amet exercitation duis deserunt. Anim id labore elit adipisicing ut in id occaecat pariatur ut ullamco.
+            #messages.tab-pane.fade(role='tabpanel' aria-labelledby='pills-messages')
+              p.mb-0 Est quis nulla laborum officia ad nisi ex nostrud culpa Lorem excepteur aliquip dolor aliqua irure ex. Nulla ut duis ipsum nisi elit fugiat commodo sunt reprehenderit laborum veniam eu veniam. Eiusmod minim exercitation fugiat irure ex labore incididunt do fugiat commodo aliquip sit id deserunt reprehenderit aliquip nostrud. Amet ex cupidatat excepteur aute veniam incididunt mollit cupidatat esse irure officia elit do ipsum ullamco Lorem. Ullamco ut ad minim do mollit labore ipsum laboris ipsum commodo sunt tempor enim incididunt. Commodo quis sunt dolore aliquip aute tempor irure magna enim minim reprehenderit. Ullamco consectetur culpa veniam sint cillum aliqua incididunt velit ullamco sunt ullamco quis quis commodo voluptate. Mollit nulla nostrud adipisicing aliqua cupidatat aliqua pariatur mollit voluptate voluptate consequat non.
+        #html6.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Nav pills --&gt;
+              &lt;ul class=&quot;nav nav-pills&quot; role=&quot;tablist&quot;&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                  &lt;a href=&quot;#home&quot; class=&quot;nav-link active&quot; id=&quot;pills-home&quot; data-bs-toggle=&quot;pill&quot; role=&quot;tab&quot; aria-controls=&quot;home&quot; aria-selected=&quot;true&quot;&gt;
+                    &lt;i class=&quot;ai-home me-2&quot;&gt;&lt;/i&gt;
+                    Home
+                  &lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                  &lt;a href=&quot;#profile&quot; class=&quot;nav-link&quot; id=&quot;pills-profile&quot; data-bs-toggle=&quot;pill&quot; role=&quot;tab&quot; aria-controls=&quot;profile&quot; aria-selected=&quot;false&quot;&gt;
+                    &lt;i class=&quot;ai-user me-2&quot;&gt;&lt;/i&gt;
+                    Profile
+                  &lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                  &lt;a href=&quot;#messages&quot; class=&quot;nav-link&quot; id=&quot;pills-messages&quot; data-bs-toggle=&quot;pill&quot; role=&quot;tab&quot; aria-controls=&quot;messages&quot; aria-selected=&quot;false&quot;&gt;
+                    &lt;i class=&quot;ai-messages me-2&quot;&gt;&lt;/i&gt;
+                    Messages
+                  &lt;/a&gt;
+                &lt;/li&gt;
+              &lt;/ul&gt;
+
+              &lt;!-- Pills content --&gt;
+              &lt;div class=&quot;tab-content&quot;&gt;
+                &lt;div id=&quot;home&quot; class=&quot;tab-pane fade show active&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;pills-home&quot;&gt;
+                  ...
+                &lt;/div&gt;
+                &lt;div id=&quot;profile&quot; class=&quot;tab-pane fade&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;pills-profile&quot;&gt;
+                  ...
+                &lt;/div&gt;
+                &lt;div id=&quot;messages&quot; class=&quot;tab-pane fade&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;pills-messages&quot;&gt;
+                  ...
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug6.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Nav pills
+              ul(class=&quot;nav nav-pills&quot;, role=&quot;tablist&quot;)
+                li.nav-item
+                  a(href=&quot;#home&quot;, class=&quot;nav-link active&quot;, id=&quot;pills-home&quot;, data-bs-toggle=&quot;pill&quot;, role=&quot;tab&quot;, aria-controls=&quot;home&quot;, aria-selected=&quot;true&quot;)
+                    i.ai-home.me-2
+                    | Home
+                li.nav-item
+                  a(href=&quot;#profile&quot;, class=&quot;nav-link&quot;, id=&quot;pills-profile&quot;, data-bs-toggle=&quot;pill&quot;, role=&quot;tab&quot;, aria-controls=&quot;profile&quot;, aria-selected=&quot;false&quot;)
+                    i.ai-user.me-2
+                    | Profile
+                li.nav-item
+                  a(href=&quot;#messages&quot;, class=&quot;nav-link&quot;, id=&quot;pills-messages&quot;, data-bs-toggle=&quot;pill&quot;, role=&quot;tab&quot;, aria-controls=&quot;messages&quot;, aria-selected=&quot;false&quot;)
+                    i.ai-messages.me-2
+                    | Messages
+
+              // Pills content
+              .tab-content
+                #home.tab-pane.fade.show.active(role=&quot;tabpanel&quot;, aria-labelledby=&quot;pills-home1&quot;)
+                  | ...
+                #profile.tab-pane.fade(role=&quot;tabpanel&quot;, aria-labelledby=&quot;pills-profile1&quot;)
+                  | ...
+                #messages.tab-pane.fade(role=&quot;tabpanel&quot;, aria-labelledby=&quot;pills-messages1&quot;)
+                  | ...

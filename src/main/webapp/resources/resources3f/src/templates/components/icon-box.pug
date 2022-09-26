@@ -1,0 +1,586 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['prismjs/themes/prism.css', 'prismjs/plugins/toolbar/prism-toolbar.css', 'prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var vendorScripts = ['prismjs/components/prism-core.min.js', 'prismjs/components/prism-markup.min.js', 'prismjs/components/prism-clike.min.js', 'prismjs/components/prism-javascript.min.js', 'prismjs/components/prism-pug.min.js', 'prismjs/plugins/toolbar/prism-toolbar.min.js', 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Icon box'
+  - var pageSubtitle = 'A simple component to describe the various benefits of a product.'
+  - var isPageTitleBadge = true
+  - var anchorNav = [{'title': 'Media type and shape', 'link': '#icon-box-media-type-shape'}, {'title': 'Alignment', 'link': '#icon-box-alignment'}, {'title': 'Card style', 'link': '#icon-box-card'}, {'title': 'Pill style', 'link': '#icon-box-pill'}, {'title': 'Color variants', 'link': '#icon-box-colors'}, {'title': 'Light version', 'link': '#icon-box-light'}]
+  
+//- Page Content
+block content
+  
+  // Media type and shape
+  section#icon-box-media-type-shape.pb-5.mb-md-2
+    h2.h5.mb-3 Media type and shape
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result1' data-bs-toggle='tab' role='tab' aria-controls='result1' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result1.tab-pane.fade.show.active(role='tabpanel')
+            .d-sm-flex
+              .icon-box.mb-4.mb-sm-3.me-sm-5(style='max-width: 18rem;')
+                .icon-box-media.bg-faded-primary.text-primary.mb-3
+                  i.fi-bed
+                h3.icon-box-title.fs-base Rounded font icon media
+                p.fs-sm Aenean urna dictum adipiscing nec, cras quisque. Nunc in mauris.
+              .icon-box.mb-4.mb-sm-3(style='max-width: 18rem;')
+                .icon-box-media.mb-3(style='background-image: url(../img/job-board/blog/thumbs/01.jpg);')
+                h3.icon-box-title.fs-base.icon-box-title Rounded image media
+                p.fs-sm Aenean urna dictum adipiscing nec, cras quisque. Nunc in mauris.
+            .d-sm-flex
+              .icon-box.mb-4.mb-sm-3.me-sm-5(style='max-width: 18rem;')
+                .icon-box-media.bg-faded-accent.text-accent.rounded-circle.mb-3
+                  i.fi-cafe
+                h3.icon-box-title.fs-base Cicle font icon media
+                p.fs-sm Aenean urna dictum adipiscing nec, cras quisque. Nunc in mauris.
+              .icon-box.mb-4.mb-sm-3(style='max-width: 18rem;')
+                .icon-box-media.rounded-circle.mb-3(style='background-image: url(../img/job-board/blog/thumbs/02.jpg);')
+                h3.icon-box-title.fs-base.icon-box-title Cicle image media
+                p.fs-sm Aenean urna dictum adipiscing nec, cras quisque. Nunc in mauris.
+          #html1.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Icon box: Rounded font icon media --&gt;
+                &lt;div class=&quot;icon-box&quot;&gt;
+                  &lt;div class=&quot;icon-box-media bg-faded-primary text-primary mb-3&quot;&gt;
+                    &lt;i class=&quot;fi-bed&quot;&gt;&lt;/i&gt;
+                  &lt;/div&gt;
+                  &lt;h3 class=&quot;icon-box-title fs-base&quot;&gt;Rounded font icon media&lt;/h3&gt;
+                  &lt;p class=&quot;fs-sm&quot;&gt;Aenean urna dictum adipiscing nec, cras quisque. Nunc in mauris.&lt;/p&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Icon box: Rounded image media --&gt;
+                &lt;div class=&quot;icon-box&quot;&gt;
+                  &lt;div class=&quot;icon-box-media mb-3&quot; style=&quot;background-image: url(path-to-image);&quot;&gt;&lt;/div&gt;
+                  &lt;h3 class=&quot;icon-box-title fs-base icon-box-title&quot;&gt;Rounded image media&lt;/h3&gt;
+                  &lt;p class=&quot;fs-sm&quot;&gt;Aenean urna dictum adipiscing nec, cras quisque. Nunc in mauris.&lt;/p&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Icon box: Cicle font icon media --&gt;
+                &lt;div class=&quot;icon-box&quot;&gt;
+                  &lt;div class=&quot;icon-box-media bg-faded-accent text-accent rounded-circle mb-3&quot;&gt;
+                    &lt;i class=&quot;fi-cafe&quot;&gt;&lt;/i&gt;
+                  &lt;/div&gt;
+                  &lt;h3 class=&quot;icon-box-title fs-base&quot;&gt;Cicle font icon media&lt;/h3&gt;
+                  &lt;p class=&quot;fs-sm&quot;&gt;Aenean urna dictum adipiscing nec, cras quisque. Nunc in mauris.&lt;/p&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Icon box: Cicle image media --&gt;
+                &lt;div class=&quot;icon-box&quot;&gt;
+                  &lt;div class=&quot;icon-box-media rounded-circle mb-3&quot; style=&quot;background-image: url(path-to-image);&quot;&gt;&lt;/div&gt;
+                  &lt;h3 class=&quot;icon-box-title fs-base icon-box-title&quot;&gt;Cicle image media&lt;/h3&gt;
+                  &lt;p class=&quot;fs-sm&quot;&gt;Aenean urna dictum adipiscing nec, cras quisque. Nunc in mauris.&lt;/p&gt;
+                &lt;/div&gt;
+          #pug1.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Icon box: Rounded font icon media
+                .icon-box
+                  .icon-box-media.bg-faded-primary.text-primary.mb-3
+                    i.fi-bed
+                  h3.icon-box-title.fs-base Rounded font icon media
+                  p.fs-sm Aenean urna dictum adipiscing nec, cras quisque. Nunc in mauris.
+
+                // Icon box: Rounded image media
+                .icon-box
+                  .icon-box-media.mb-3(style=&quot;background-image: url(path-to-image);&quot;)
+                  h3.icon-box-title.fs-base.icon-box-title Rounded image media
+                  p.fs-sm Aenean urna dictum adipiscing nec, cras quisque. Nunc in mauris.
+
+                // Icon box: Cicle font icon media
+                .icon-box
+                  .icon-box-media.bg-faded-accent.text-accent.rounded-circle.mb-3
+                    i.fi-cafe
+                  h3.icon-box-title.fs-base Cicle font icon media
+                  p.fs-sm Aenean urna dictum adipiscing nec, cras quisque. Nunc in mauris.
+
+                // Icon box: Cicle image media
+                .icon-box
+                  .icon-box-media.rounded-circle.mb-3(style=&quot;background-image: url(path-to-image);&quot;)
+                  h3.icon-box-title.fs-base.icon-box-title Cicle image media
+                  p.fs-sm Aenean urna dictum adipiscing nec, cras quisque. Nunc in mauris.
+
+  // Alignment
+  section#icon-box-alignment.pb-5.mb-md-2
+    h2.h5.mb-3 Alignment
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result2' data-bs-toggle='tab' role='tab' aria-controls='result2' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result2.tab-pane.fade.show.active(role='tabpanel')
+            .d-sm-flex
+              .icon-box.text-center.me-sm-5.mb-4.mb-sm-3(style='max-width: 18rem;')
+                .icon-box-media.bg-faded-primary.text-primary.mb-3.mx-auto
+                  i.fi-apartment
+                h3.icon-box-title.fs-base Center aligned
+                p.fs-sm Aenean urna dictum adipiscing nec, cras quisque. Nunc in mauris.
+              .icon-box.text-end.mb-4.mb-sm-3(style='max-width: 18rem;')
+                .icon-box-media.bg-faded-primary.text-primary.mb-3.ms-auto
+                  i.fi-apartment
+                h3.cs-icon-box-title.fs-base Right aligned
+                p.fs-sm Aenean urna dictum adipiscing nec, cras quisque. Nunc in mauris.
+          #html2.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Center aligned --&gt;
+                &lt;div class=&quot;icon-box text-center&quot;&gt;
+                  &lt;div class=&quot;icon-box-media bg-faded-primary text-primary mb-3 mx-auto&quot;&gt;
+                    &lt;i class=&quot;fi-apartment&quot;&gt;&lt;/i&gt;
+                  &lt;/div&gt;
+                  &lt;h3 class=&quot;icon-box-title fs-base&quot;&gt;Center aligned&lt;/h3&gt;
+                  &lt;p class=&quot;fs-sm&quot;&gt;Aenean urna dictum adipiscing nec, cras quisque. Nunc in mauris.&lt;/p&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Right aligned --&gt;
+                &lt;div class=&quot;icon-box text-end&quot;&gt;
+                  &lt;div class=&quot;icon-box-media bg-faded-primary text-primary mb-3 ms-auto&quot;&gt;
+                    &lt;i class=&quot;fi-apartment&quot;&gt;&lt;/i&gt;
+                  &lt;/div&gt;
+                  &lt;h3 class=&quot;icon-box-title fs-base&quot;&gt;Right aligned&lt;/h3&gt;
+                  &lt;p class=&quot;fs-sm&quot;&gt;Aenean urna dictum adipiscing nec, cras quisque. Nunc in mauris.&lt;/p&gt;
+                &lt;/div&gt;
+          #pug2.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Center alignment
+                .icon-box.text-center
+                  .icon-box-media.bg-faded-primary.text-primary.mb-3.mx-auto
+                    i.fi-apartment
+                  h3.icon-box-title.fs-base Center aligned
+                  p.fs-sm Aenean urna dictum adipiscing nec, cras quisque. Nunc in mauris.
+
+                // Right alignment
+                .icon-box.text-end
+                  .icon-box-media.bg-faded-primary.text-primary.mb-3.ms-auto
+                    i.fi-apartment
+                  h3.cs-icon-box-title.fs-base Right aligned
+                  p.fs-sm Aenean urna dictum adipiscing nec, cras quisque. Nunc in mauris.
+
+  // Card style
+  section#icon-box-card.pb-5.mb-md-2
+    h2.h5.mb-3 Card style
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result3' data-bs-toggle='tab' role='tab' aria-controls='result3' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result3.tab-pane.fade.show.active(role='tabpanel')
+            .d-sm-flex
+              a(href='#' style='max-width: 12.5rem;').icon-box.card.card-body.card-hover.text-center.me-sm-4.mb-4
+                .icon-box-media.bg-faded-primary.text-primary.rounded-circle.mb-3.mx-auto
+                  i.fi-meds
+                h3.icon-box-title.fs-base.mb-0 Border card
+              a(href='#' style='max-width: 12.5rem;').icon-box.card.card-body.border-0.shadow-sm.card-hover.text-center.me-sm-4.mb-4
+                .icon-box-media.bg-faded-primary.text-primary.rounded-circle.mb-3.mx-auto
+                  i.fi-house-chosen
+                h3.icon-box-title.fs-base.mb-0 Shadow card
+              a(href='#' style='max-width: 12.5rem;').icon-box.card.card-body.border-0.bg-secondary.card-hover.text-center.me-sm-4.mb-4
+                .icon-box-media.bg-light.text-primary.rounded-circle.mb-3.mx-auto
+                  i.fi-spa
+                h3.icon-box-title.fs-base.mb-0 Background card
+          #html3.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Icon box inside card with border --&gt;
+                &lt;a href=&quot;#&quot; class=&quot;icon-box card card-body card-hover text-center&quot;&gt;
+                  &lt;div class=&quot;icon-box-media bg-faded-primary text-primary rounded-circle mb-3 mx-auto&quot;&gt;
+                    &lt;i class=&quot;fi-meds&quot;&gt;&lt;/i&gt;
+                  &lt;/div&gt;
+                  &lt;h3 class=&quot;icon-box-title fs-base mb-0&quot;&gt;Border card&lt;/h3&gt;
+                &lt;/a&gt;
+
+                &lt;!-- Icon box inside card with shadow --&gt;
+                &lt;a href=&quot;#&quot; class=&quot;icon-box card card-body border-0 shadow-sm card-hover text-center&quot;&gt;
+                  &lt;div class=&quot;icon-box-media bg-faded-primary text-primary rounded-circle mb-3 mx-auto&quot;&gt;
+                    &lt;i class=&quot;fi-house-chosen&quot;&gt;&lt;/i&gt;
+                  &lt;/div&gt;
+                  &lt;h3 class=&quot;icon-box-title fs-base mb-0&quot;&gt;Shadow card&lt;/h3&gt;
+                &lt;/a&gt;
+
+                &lt;!-- Icon box inside card with background --&gt;
+                &lt;a href=&quot;#&quot; class=&quot;icon-box card card-body border-0 bg-secondary card-hover text-center&quot;&gt;
+                  &lt;div class=&quot;icon-box-media bg-light text-primary rounded-circle mb-3 mx-auto&quot;&gt;
+                    &lt;i class=&quot;fi-spa&quot;&gt;&lt;/i&gt;
+                  &lt;/div&gt;
+                  &lt;h3 class=&quot;icon-box-title fs-base mb-0&quot;&gt;Background card&lt;/h3&gt;
+                &lt;/a&gt;
+          #pug3.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Icon box inside card with border
+                a(href=&quot;#&quot;).icon-box.card.card-body.card-hover.text-center
+                  .icon-box-media.bg-faded-primary.text-primary.rounded-circle.mb-3.mx-auto
+                    i.fi-meds
+                  h3.icon-box-title.fs-base.mb-0 Border card
+
+                // Icon box inside card with shadow
+                a(href=&quot;#&quot;).icon-box.card.card-body.border-0.shadow-sm.card-hover.text-center
+                  .icon-box-media.bg-faded-primary.text-primary.rounded-circle.mb-3.mx-auto
+                    i.fi-house-chosen
+                  h3.icon-box-title.fs-base.mb-0 Shadow card
+                
+                // Icon box inside card with background
+                a(href=&quot;#&quot;).icon-box.card.card-body.border-0.bg-secondary.card-hover.text-center
+                  .icon-box-media.bg-light.text-primary.rounded-circle.mb-3.mx-auto
+                    i.fi-spa
+                  h3.icon-box-title.fs-base.mb-0 Background card
+
+  // Pill style
+  section#icon-box-pill.pb-5.mb-md-2
+    h2.h5.mb-3 Pill style
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result4' data-bs-toggle='tab' role='tab' aria-controls='result4' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result4.tab-pane.fade.show.active(role='tabpanel')
+            .d-sm-flex
+              a(href='#' style='max-width: 14rem;').icon-box.card.flex-row.align-items-center.card-hover.py-2.ps-2.pe-4.me-sm-4.mb-4
+                .icon-box-media.bg-faded-primary.text-primary.me-2
+                  i.fi-meds
+                h3.icon-box-title.fs-sm.ps-1.mb-0 Border card
+              a(href='#' style='max-width: 14rem;').icon-box.card.flex-row.align-items-center.card-hover.border-0.shadow-sm.py-2.ps-2.pe-4.me-sm-4.mb-4
+                .icon-box-media.bg-faded-primary.text-primary.me-2
+                  i.fi-house-chosen
+                h3.icon-box-title.fs-sm.ps-1.mb-0 Shadow card
+              a(href='#' style='max-width: 14rem;').icon-box.card.flex-row.align-items-center.card-hover.border-0.bg-secondary.py-2.ps-2.pe-4.me-sm-4.mb-4
+                .icon-box-media.bg-light.text-primary.me-2
+                  i.fi-spa
+                h3.icon-box-title.fs-sm.ps-1.mb-0 Background card
+            .d-sm-flex
+              a(href='#' style='max-width: 14rem;').icon-box.card.flex-row.align-items-center.card-hover.rounded-pill.py-2.ps-2.pe-4.me-sm-4.mb-4
+                .icon-box-media.bg-faded-primary.text-primary.rounded-circle.me-2
+                  i.fi-meds
+                h3.icon-box-title.fs-sm.ps-1.mb-0 Border card
+              a(href='#' style='max-width: 14rem;').icon-box.card.flex-row.align-items-center.card-hover.border-0.shadow-sm.rounded-pill.py-2.ps-2.pe-4.me-sm-4.mb-4
+                .icon-box-media.bg-faded-primary.text-primary.rounded-circle.me-2
+                  i.fi-house-chosen
+                h3.icon-box-title.fs-sm.ps-1.mb-0 Shadow card
+              a(href='#' style='max-width: 14rem;').icon-box.card.flex-row.align-items-center.card-hover.border-0.bg-secondary.rounded-pill.py-2.ps-2.pe-4.me-sm-4.mb-4
+                .icon-box-media.bg-light.text-primary.rounded-circle.me-2
+                  i.fi-spa
+                h3.icon-box-title.fs-sm.ps-1.mb-0 Background card
+          #html4.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Icon box inside horizontal card with border (Rounded) --&gt;
+                &lt;a href=&quot;#&quot; class=&quot;icon-box card flex-row align-items-center card-hover py-2 ps-2 pe-4&quot;&gt;
+                  &lt;div class=&quot;icon-box-media bg-faded-primary text-primary me-2&quot;&gt;
+                    &lt;i class=&quot;fi-meds&quot;&gt;&lt;/i&gt;
+                  &lt;/div&gt;
+                  &lt;h3 class=&quot;icon-box-title fs-sm ps-1 mb-0&quot;&gt;Border card&lt;/h3&gt;
+                &lt;/a&gt;
+
+                &lt;!-- Icon box inside horizontal card with shadow (Rounded) --&gt;
+                &lt;a href=&quot;#&quot; class=&quot;icon-box card flex-row align-items-center card-hover border-0 shadow-sm py-2 ps-2 pe-4&quot;&gt;
+                  &lt;div class=&quot;icon-box-media bg-faded-primary text-primary me-2&quot;&gt;
+                    &lt;i class=&quot;fi-house-chosen&quot;&gt;&lt;/i&gt;
+                  &lt;/div&gt;
+                  &lt;h3 class=&quot;icon-box-title fs-sm ps-1 mb-0&quot;&gt;Shadow card&lt;/h3&gt;
+                &lt;/a&gt;
+
+                &lt;!-- Icon box inside horizontal card with background (Rounded) --&gt;
+                &lt;a href=&quot;#&quot; class=&quot;icon-box card flex-row align-items-center card-hover border-0 bg-secondary py-2 ps-2 pe-4&quot; style=&quot;max-width: 14rem;&quot;&gt;
+                  &lt;div class=&quot;icon-box-media bg-light text-primary me-2&quot;&gt;
+                    &lt;i class=&quot;fi-spa&quot;&gt;&lt;/i&gt;
+                  &lt;/div&gt;
+                  &lt;h3 class=&quot;icon-box-title fs-sm ps-1 mb-0&quot;&gt;Background card&lt;/h3&gt;
+                &lt;/a&gt;
+
+                &lt;!-- Icon box inside horizontal card with border (Pill) --&gt;
+                &lt;a href=&quot;#&quot; class=&quot;icon-box card flex-row align-items-center card-hover rounded-pill py-2 ps-2 pe-4&quot;&gt;
+                  &lt;div class=&quot;icon-box-media bg-faded-primary text-primary rounded-circle me-2&quot;&gt;
+                    &lt;i class=&quot;fi-meds&quot;&gt;&lt;/i&gt;
+                  &lt;/div&gt;
+                  &lt;h3 class=&quot;icon-box-title fs-sm ps-1 mb-0&quot;&gt;Border card&lt;/h3&gt;
+                &lt;/a&gt;
+
+                &lt;!-- Icon box inside horizontal card with shadow (Pill) --&gt;
+                &lt;a href=&quot;#&quot; class=&quot;icon-box card flex-row align-items-center card-hover border-0 shadow-sm rounded-pill py-2 ps-2 pe-4&quot;&gt;
+                  &lt;div class=&quot;icon-box-media bg-faded-primary text-primary rounded-circle me-2&quot;&gt;
+                    &lt;i class=&quot;fi-house-chosen&quot;&gt;&lt;/i&gt;
+                  &lt;/div&gt;
+                  &lt;h3 class=&quot;icon-box-title fs-sm ps-1 mb-0&quot;&gt;Shadow card&lt;/h3&gt;
+                &lt;/a&gt;
+
+                &lt;!-- Icon box inside horizontal card with background (Pill) --&gt;
+                &lt;a href=&quot;#&quot; class=&quot;icon-box card flex-row align-items-center card-hover border-0 bg-secondary rounded-pill py-2 ps-2 pe-4&quot;&gt;
+                  &lt;div class=&quot;icon-box-media bg-light text-primary rounded-circle me-2&quot;&gt;
+                    &lt;i class=&quot;fi-spa&quot;&gt;&lt;/i&gt;
+                  &lt;/div&gt;
+                  &lt;h3 class=&quot;icon-box-title fs-sm ps-1 mb-0&quot;&gt;Background card&lt;/h3&gt;
+                &lt;/a&gt;
+          #pug4.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Icon box inside horizontal card with border (Rounded)
+                a(href=&quot;#&quot;).icon-box.card.flex-row.align-items-center.card-hover.py-2.ps-2.pe-4
+                  .icon-box-media.bg-faded-primary.text-primary.me-2
+                    i.fi-meds
+                  h3.icon-box-title.fs-sm.ps-1.mb-0 Border card
+
+                // Icon box inside horizontal card with shadow (Rounded)
+                a(href=&quot;#&quot;).icon-box.card.flex-row.align-items-center.card-hover.border-0.shadow-sm.py-2.ps-2.pe-4
+                  .icon-box-media.bg-faded-primary.text-primary.me-2
+                    i.fi-house-chosen
+                  h3.icon-box-title.fs-sm.ps-1.mb-0 Shadow card
+
+                // Icon box inside horizontal card with background (Rounded)
+                a(href=&quot;#&quot;).icon-box.card.flex-row.align-items-center.card-hover.border-0.bg-secondary.py-2.ps-2.pe-4
+                  .icon-box-media.bg-light.text-primary.me-2
+                    i.fi-spa
+                  h3.icon-box-title.fs-sm.ps-1.mb-0 Background card
+
+                // Icon box inside horizontal card with border (Pill)
+                a(href=&quot;#&quot;).icon-box.card.flex-row.align-items-center.card-hover.rounded-pill.py-2.ps-2.pe-4
+                  .icon-box-media.bg-faded-primary.text-primary.rounded-circle.me-2
+                    i.fi-meds
+                  h3.icon-box-title.fs-sm.ps-1.mb-0 Border card
+
+                // Icon box inside horizontal card with shadow (Pill)
+                a(href=&quot;#&quot;).icon-box.card.flex-row.align-items-center.card-hover.border-0.shadow-sm.rounded-pill.py-2.ps-2.pe-4
+                  .icon-box-media.bg-faded-primary.text-primary.rounded-circle.me-2
+                    i.fi-house-chosen
+                  h3.icon-box-title.fs-sm.ps-1.mb-0 Shadow card
+
+                // Icon box inside horizontal card with background (Pill)
+                a(href=&quot;#&quot;).icon-box.card.flex-row.align-items-center.card-hover.border-0.bg-secondary.rounded-pill.py-2.ps-2.pe-4
+                  .icon-box-media.bg-light.text-primary.rounded-circle.me-2
+                    i.fi-spa
+                  h3.icon-box-title.fs-sm.ps-1.mb-0 Background card
+
+  // Color variants
+  section#icon-box-colors.pb-5.mb-md-2
+    h2.h5.mb-3 Color variants
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result5' data-bs-toggle='tab' role='tab' aria-controls='result5' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html5' data-bs-toggle='tab' role='tab' aria-controls='html5' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug5' data-bs-toggle='tab' role='tab' aria-controls='pug5' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result5.tab-pane.fade.show.active(role='tabpanel')
+            .row.g-4
+              .col-xxl-2.col-sm-3.col-6.icon-box.text-center
+                .icon-box-media.bg-faded-primary.text-primary.rounded-circle.mx-auto.mb-3
+                  i.fi-apartment
+                h3.icon-box-title.fs-sm Primary icon box
+              .col-xxl-2.col-sm-3.col-6.icon-box.text-center
+                .icon-box-media.bg-faded-accent.text-accent.rounded-circle.mx-auto.mb-3
+                  i.fi-bath
+                h3.icon-box-title.fs-sm Accent icon box
+              .col-xxl-2.col-sm-3.col-6.icon-box.text-center
+                .icon-box-media.bg-faded-success.text-success.rounded-circle.mx-auto.mb-3
+                  i.fi-bed
+                h3.icon-box-title.fs-sm Success icon box
+              .col-xxl-2.col-sm-3.col-6.icon-box.text-center
+                .icon-box-media.bg-faded-info.text-info.rounded-circle.mx-auto.mb-3
+                  i.fi-billboard-house
+                h3.icon-box-title.fs-sm Info icon box
+              .col-xxl-2.col-sm-3.col-6.icon-box.text-center
+                .icon-box-media.bg-faded-warning.text-warning.rounded-circle.mx-auto.mb-3
+                  i.fi-cafe
+                h3.icon-box-title.fs-sm Warning icon box
+              .col-xxl-2.col-sm-3.col-6.icon-box.text-center
+                .icon-box-media.bg-faded-danger.text-danger.rounded-circle.mx-auto.mb-3
+                  i.fi-cctv
+                h3.icon-box-title.fs-sm Danger icon box
+          #html5.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Primary icon box --&gt;
+                &lt;div class=&quot;icon-box text-center&quot;&gt;
+                  &lt;div class=&quot;icon-box-media bg-faded-primary text-primary rounded-circle mx-auto mb-3&quot;&gt;
+                    &lt;i class=&quot;fi-apartment&quot;&gt;&lt;/i&gt;
+                  &lt;/div&gt;
+                  &lt;h3 class=&quot;icon-box-title fs-sm&quot;&gt;Primary icon box&lt;/h3&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Accent icon box --&gt;
+                &lt;div class=&quot;icon-box text-center&quot;&gt;
+                  &lt;div class=&quot;icon-box-media bg-faded-accent text-accent rounded-circle mx-auto mb-3&quot;&gt;
+                    &lt;i class=&quot;fi-bath&quot;&gt;&lt;/i&gt;
+                  &lt;/div&gt;
+                  &lt;h3 class=&quot;icon-box-title fs-sm&quot;&gt;Accent icon box&lt;/h3&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Success icon box --&gt;
+                &lt;div class=&quot;icon-box text-center&quot;&gt;
+                  &lt;div class=&quot;icon-box-media bg-faded-success text-success rounded-circle mx-auto mb-3&quot;&gt;
+                    &lt;i class=&quot;fi-bed&quot;&gt;&lt;/i&gt;
+                  &lt;/div&gt;
+                  &lt;h3 class=&quot;icon-box-title fs-sm&quot;&gt;Success icon box&lt;/h3&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Info icon box --&gt;
+                &lt;div class=&quot;icon-box text-center&quot;&gt;
+                  &lt;div class=&quot;icon-box-media bg-faded-info text-info rounded-circle mx-auto mb-3&quot;&gt;
+                    &lt;i class=&quot;fi-billboard-house&quot;&gt;&lt;/i&gt;
+                  &lt;/div&gt;
+                  &lt;h3 class=&quot;icon-box-title fs-sm&quot;&gt;Info icon box&lt;/h3&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Warning icon box --&gt;
+                &lt;div class=&quot;icon-box text-center&quot;&gt;
+                  &lt;div class=&quot;icon-box-media bg-faded-warning text-warning rounded-circle mx-auto mb-3&quot;&gt;
+                    &lt;i class=&quot;fi-cafe&quot;&gt;&lt;/i&gt;
+                  &lt;/div&gt;
+                  &lt;h3 class=&quot;icon-box-title fs-sm&quot;&gt;Warning icon box&lt;/h3&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Danger icon box --&gt;
+                &lt;div class=&quot;icon-box text-center&quot;&gt;
+                  &lt;div class=&quot;icon-box-media bg-faded-danger text-danger rounded-circle mx-auto mb-3&quot;&gt;
+                    &lt;i class=&quot;fi-cctv&quot;&gt;&lt;/i&gt;
+                  &lt;/div&gt;
+                  &lt;h3 class=&quot;icon-box-title fs-sm&quot;&gt;Danger icon box&lt;/h3&gt;
+                &lt;/div&gt;
+          #pug5.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Primary icon box
+                .icon-box.text-center
+                  .icon-box-media.bg-faded-primary.text-primary.rounded-circle.mx-auto.mb-3
+                    i.fi-apartment
+                  h3.icon-box-title.fs-sm Primary icon box
+
+                // Accent icon box
+                .icon-box.text-center
+                  .icon-box-media.bg-faded-accent.text-accent.rounded-circle.mx-auto.mb-3
+                    i.fi-bath
+                  h3.icon-box-title.fs-sm Accent icon box
+
+                // Success icon box
+                .icon-box.text-center
+                  .icon-box-media.bg-faded-success.text-success.rounded-circle.mx-auto.mb-3
+                    i.fi-bed
+                  h3.icon-box-title.fs-sm Success icon box
+                
+                // Info icon box
+                .icon-box.text-center
+                  .icon-box-media.bg-faded-info.text-info.rounded-circle.mx-auto.mb-3
+                    i.fi-billboard-house
+                  h3.icon-box-title.fs-sm Info icon box
+
+                // Warning icon box
+                .icon-box.text-center
+                  .icon-box-media.bg-faded-warning.text-warning.rounded-circle.mx-auto.mb-3
+                    i.fi-cafe
+                  h3.icon-box-title.fs-sm Warning icon box
+
+                // Danger icon box
+                .icon-box.text-center
+                  .icon-box-media.bg-faded-danger.text-danger.rounded-circle.mx-auto.mb-3
+                    i.fi-cctv
+                  h3.icon-box-title.fs-sm Danger icon box
+
+  // Light version
+  section#icon-box-light.pb-5.mb-md-2
+    h2.h5.mb-3 Light version
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result6' data-bs-toggle='tab' role='tab' aria-controls='result6' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html6' data-bs-toggle='tab' role='tab' aria-controls='html6' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug6' data-bs-toggle='tab' role='tab' aria-controls='pug6' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result6.tab-pane.m-n3.p-3.bg-dark.fade.show.active(role='tabpanel')
+            .d-flex.flex-wrap.align-items-center
+              .icon-box.text-center.mb-4.mb-sm-3.me-sm-5(style='max-width: 18rem;')
+                .icon-box-media.bg-faded-light.text-light.mx-auto.mb-3
+                  i.fi-bed
+                h3.icon-box-title.fs-base.text-light Basic icon box
+                p.fs-sm.text-light.opacity-60 Aenean urna dictum adipiscing nec, cras quisque. Nunc in mauris.
+              a(href='#' style='max-width: 12.5rem;').icon-box.card.card-body.card-light.card-hover.text-center.me-4.me-sm-5.mb-4
+                .icon-box-media.bg-faded-light.text-light.rounded-circle.mb-3.mx-auto
+                  i.fi-spa
+                h3.icon-box-title.fs-base.text-light.mb-0 Card icon box
+              a(href='#' style='max-width: 14rem;').icon-box.card.card-light.flex-row.align-items-center.card-hover.rounded-pill.py-2.ps-2.pe-4.mb-4
+                .icon-box-media.bg-faded-light.text-light.rounded-circle.me-2
+                  i.fi-meds
+                h3.icon-box-title.fs-sm.text-light.ps-1.mb-0 Pill icon box
+          #html6.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Light basic icon box --&gt;
+                &lt;div class=&quot;icon-box text-center&quot;&gt;
+                  &lt;div class=&quot;icon-box-media bg-faded-light text-light mx-auto mb-3&quot;&gt;
+                    &lt;i class=&quot;fi-bed&quot;&gt;&lt;/i&gt;
+                  &lt;/div&gt;
+                  &lt;h3 class=&quot;icon-box-title fs-base text-light&quot;&gt;Basic icon box&lt;/h3&gt;
+                  &lt;p class=&quot;fs-sm text-light opacity-60&quot;&gt;Aenean urna dictum adipiscing nec, cras quisque. Nunc in mauris.&lt;/p&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Light card icon box --&gt;
+                &lt;a href=&quot;#&quot; class=&quot;icon-box card card-body card-light card-hover text-center&quot;&gt;
+                  &lt;div class=&quot;icon-box-media bg-faded-light text-light rounded-circle mb-3 mx-auto&quot;&gt;
+                    &lt;i class=&quot;fi-spa&quot;&gt;&lt;/i&gt;
+                  &lt;/div&gt;
+                  &lt;h3 class=&quot;icon-box-title fs-base text-light mb-0&quot;&gt;Card icon box&lt;/h3&gt;
+                &lt;/a&gt;
+
+                &lt;!-- Light pill icon box --&gt;
+                &lt;a href=&quot;#&quot; class=&quot;icon-box card card-light flex-row align-items-center card-hover rounded-pill py-2 ps-2 pe-4&quot;&gt;
+                  &lt;div class=&quot;icon-box-media bg-faded-light text-light rounded-circle me-2&quot;&gt;
+                    &lt;i class=&quot;fi-meds&quot;&gt;&lt;/i&gt;
+                  &lt;/div&gt;
+                  &lt;h3 class=&quot;icon-box-title fs-sm text-light ps-1 mb-0&quot;&gt;Pill icon box&lt;/h3&gt;
+                &lt;/a&gt;
+          #pug6.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Light basic icon box
+                .icon-box.text-center
+                  .icon-box-media.bg-faded-light.text-light.mx-auto.mb-3
+                    i.fi-bed
+                  h3.icon-box-title.fs-base.text-light Basic icon box
+                  p.fs-sm.text-light.opacity-60 Aenean urna dictum adipiscing nec, cras quisque. Nunc in mauris.
+
+                // Light card icon box
+                a(href=&quot;#&quot;).icon-box.card.card-body.card-light.card-hover.text-center
+                  .icon-box-media.bg-faded-light.text-light.rounded-circle.mb-3.mx-auto
+                    i.fi-spa
+                  h3.icon-box-title.fs-base.text-light.mb-0 Card icon box
+
+                // Light pill icon box
+                a(href=&quot;#&quot;).icon-box.card.card-light.flex-row.align-items-center.card-hover.rounded-pill.py-2.ps-2.pe-4
+                  .icon-box-media.bg-faded-light.text-light.rounded-circle.me-2
+                    i.fi-meds
+                  h3.icon-box-title.fs-sm.text-light.ps-1.mb-0 Pill icon box

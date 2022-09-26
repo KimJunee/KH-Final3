@@ -1,0 +1,44 @@
+//
+// Charts
+// Based on https://github.com/gionkunz/chartist-js
+// --------------------------------------------------
+
+
+.ct-chart {
+  --#{$prefix}chart-line-color: #{$chart-line-color};
+  --#{$prefix}chart-line-width: #{$chart-line-stroke-width};
+  --#{$prefix}chart-point-color: #{$chart-line-color};
+  --#{$prefix}chart-point-size: #{$chart-line-point-size};
+  --#{$prefix}chart-bar-color: #{$chart-bar-color};
+  --#{$prefix}chart-bar-width: #{$chart-bar-width};
+  --#{$prefix}chart-pie-label-color: #{$white};
+}
+
+
+// Line chart
+
+.ct-line {
+  stroke: var(--#{$prefix}chart-line-color) !important;
+  stroke-width: var(--#{$prefix}chart-line-width);
+}
+.ct-point {
+  stroke: var(--#{$prefix}chart-point-color) !important;
+  stroke-width: var(--#{$prefix}chart-point-size);
+}
+
+
+// Bar chart
+
+.ct-bar {
+  stroke: var(--#{$prefix}chart-bar-color) !important;
+  stroke-width: var(--#{$prefix}chart-bar-width);
+}
+
+
+// Pie chart
+
+.ct-chart-pie .ct-label,
+.ct-chart-donut .ct-label {
+  fill: var(--#{$prefix}chart-pie-label-color);
+  @include font-size(var(--#{$prefix}body-font-size));
+}

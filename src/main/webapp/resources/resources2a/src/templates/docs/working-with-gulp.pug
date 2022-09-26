@@ -1,0 +1,52 @@
+extends ../partials/layout-docs
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js']
+  - var pageTitle = 'Working with Gulp'
+    
+//- Page Content
+block content
+
+    p As has been mentioned in previous section, <span class='fw-semibold'>Gulp</span> is a JavaScript task runner. It helps with performing repetitive tasks like minification, compilation, unit testing, linting, etc. This is possible thanks to extensive Gulp Plugins library.
+    p
+      | Gulp tasks are already set up for you. They are stored inside <code>Around/gulpfile.js</code>. But in order to have access to them via you Command Line tool you will need to install <span class='fw-semibold'>gulp-cli node package</span>. Gulp CLI stands for Gulp Command Line Interface. 
+      u.d-block.text-dark.pt-2 To do that type following line in your terminal:
+    kbd.d-inline-block.mb-3 npm install -g gulp-cli
+    span.d-block.text-info.mb-4 * if you are on Mac make sure to use <span class='fw-semibold'>sudo</span> to install packages globally otherwise you may runt into error.
+
+    h2.h3.pt-3 Gulp CLI commands
+    ul.pt-2
+      li.pb-3 
+        kbd.me-2 gulp
+        | or
+        kbd.ms-2 npm run build
+        |  - this main command will fire default gulp task which includes: <u class='text-dark'>launching BrowserSync, moving vendor libraries from node_modules directory to dist folder, javascript, sass and pug compilation and lanching watch task</u>. BrowserSync will create dev server and sync your browser with your code editor. Note: to use other separate tasks explained below you will need to open other Terminal window and leave the one with running server intact.
+      li.pb-3 
+        kbd gulp clean
+        |  - as the name implies it cleans assets folder from generated (compiled assests like css, js, vendor libs, etc.)
+      li.pb-3 
+        kbd gulp vendor
+        |  - moves vendor libraries from <code>node_modules</code> directory to <code>assets/vendor</code> folder. Please check this article explaining how to add new vendor plugin to your project - <a href='install-vendor-plugin.html' class='fw-semibold'>Installing Vendor plugins with Npm and Gulp</a>
+      li.pb-3 
+        kbd.me-2 gulp js:expanded
+        | and
+        kbd.ms-2 gulp js:minified
+        |  - compiles ES6 modules from <code>src/js/components</code> folder, applies polyfill using Babel and then minifies and uglifies main <code>theme.js</code> file and creates 2 files in <code>assets/js</code> folder: <code>theme.js</code> and <code>theme.min.js</code>. The latter is linked to your HTML document. Babel gives you an opportunity to write ES6 javascript and be sure it will be compiled to ES5 js that has a better support across browsers.
+      li.pb-3 
+        kbd gulp pug
+        |  - compiles <code>.pug</code> from <code>src/templates</code> folder to <code>.html</code> in root folder.
+      li.pb-3 
+        kbd gulp sass:expanded
+        |  - compiles <code>.scss</code> files into non-minified CSS (assets/css/theme.css).
+      li.pb-3 
+        kbd gulp sass:minified
+        |  - compiles <code>.scss</code> files into minified CSS (assets/css/theme.min.css).
+      li.pb-3 
+        kbd gulp watch
+        |  - launches <code>watch</code> task. It will watch changes of your <code>.scss</code> / <code>.js</code> / <code>.pug</code> files and automatically compile them into <code>.css</code> / <code>.js</code> / <code>.html</code>.
+    
+    h2.h3.pt-3 Next steps
+    p Now when you are equiped with all necessary tools and dev invironment is all set you are ready to dive into Around customization.
+    p Take some time to familiarize yourself with <a href='project-structure.html' class='fw-semibold'>Project structure</a>.

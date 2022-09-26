@@ -1,0 +1,33 @@
+extends ../partials/layout-docs
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js']
+  - var pageTitle = 'Getting started'
+    
+//- Page Content
+block content
+
+  // Info callout
+  .card.bg-secondary.border-0.border-start.border-4.border-danger.rounded-4.mb-5
+    .card-body
+      h2.h4.fw-normal.lh-base <span class='fw-semibold'>Around template</span> you are currently viewing is a <span class='fw-semibold'>Static HTML (Bootstrap 5) Temaplate,</span> <span class='text-danger fw-semibold'>NOT a WordPress Theme!</span>
+      p.fs-lg.mb-1 Please DO NOT try to install Around files into WordPress this will not work. If you need a WordPress version of Around do not hesitate to contact us via email <a href='mailto:support@createx.studio'>support@createx.studio</a>. We'll put you on the waiting list and notify you when Around WordPress is released.
+  
+  h2.h3 Prerequisites
+  p Make sure you are familiar with the following technologies before purchasing Around HTML (Bootstrap 5) Template:
+  ul.ps-4
+    li.mb-2 HTML / CSS / JS (required)
+    li.mb-2 Bootstrap 5 (required)
+    li.mb-2 Sass / Scss (highly recommended). It's much easier to customize a template using Scss variables then find and replace codde in vanilla CSS.
+    li.mb-2 Pug (optional)*. Pug is a high performance Node.js Templating Engine for HTML.
+    li.mb-2 Gulp (optional)*. Gulp is a task runner and automation tool. It will help you to compile Scss, bundle JS modules, minifies output files, etc.
+    li Npm (optional)*. Npm is a package manager for Node. With Npm can manage (install, update, delete) your project dependencies much easier.
+  p * All the configuration files like <code>package.json</code> and <code>gulfile.js</code> are included in the download package.
+  h2.h3.pt-4.mt-4 Next steps
+  p There are 2 ways of customizing Around template:
+  ol.ps-4
+    li.mb-2 Using <a href='dev-setup.html' class='fw-medium'>Pro Front-end Setup</a> (highly recommended)
+    li.mb-1 Editing CSS directly or using GUI tool (<a href='https://prepros.io/' target='_blank' rel='noopener'>Prepros.io</a>) to compile Scss
+    

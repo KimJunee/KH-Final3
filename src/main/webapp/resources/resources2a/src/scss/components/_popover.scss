@@ -1,0 +1,19 @@
+//
+// Popover
+// --------------------------------------------------
+
+
+.popover {
+  --#{$prefix}popover-arrow-border: var(--#{$prefix}border-color);
+  box-shadow: $popover-box-shadow;
+}
+
+.popover-header {
+  width: calc(100% - (var(--#{$prefix}popover-header-padding-x) * 2));
+  margin: auto;
+  padding: {
+    right: 0;
+    left: 0;
+  }
+  border-bottom-color: var(--#{$prefix}border-color);
+}

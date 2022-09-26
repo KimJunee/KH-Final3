@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Around | Sources and credits</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="Around - Multipurpose Bootstrap HTML Template">
+    <meta name="keywords" content="bootstrap, business, corporate, coworking space, services, creative agency, dashboard, e-commerce, mobile app showcase, saas, multipurpose, product landing, shop, software, ui kit, web studio, landing, dark mode, html5, css3, javascript, gallery, slider, touch, creative">
+    <meta name="author" content="Createx Studio">
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../assets/favicon/site.webmanifest">
+    <link rel="mask-icon" color="#6366f1" href="../assets/favicon/safari-pinned-tab.svg">
+    <meta name="msapplication-TileColor" content="#080032">
+    <meta name="msapplication-config" content="../assets/favicon/browserconfig.xml">
+    <meta name="theme-color" content="white">
+    <!-- Theme mode-->
+    <script>
+      let mode = window.localStorage.getItem('mode'),
+          root = document.getElementsByTagName('html')[0];
+      if (mode !== undefined && mode === 'dark') {
+        root.classList.add('dark-mode');
+      } else {
+        root.classList.remove('dark-mode');
+      }
+      
+      
+    </script>
+    <!-- Import Google Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" id="google-font">
+    <!-- Vendor styles-->
+    <link rel="stylesheet" media="screen" href="../assets/vendor/simplebar/dist/simplebar.min.css"/>
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="../assets/css/theme.min.css">
+  </head>
+  <!-- Body-->
+  <body class="bg-secondary">
+    <!-- Navbar-->
+    <header class="navbar navbar-expand justify-content-end fixed-top" data-scroll-header>
+      <div class="container"><a class="navbar-brand pe-xl-2 me-4" href="typography.html"><span class="text-primary flex-shrink-0 me-2">
+            <svg version="1.1" width="35" height="32" viewBox="0 0 36 33" xmlns="http://www.w3.org/2000/svg">
+              <path fill="currentColor" d="M35.6,29c-1.1,3.4-5.4,4.4-7.9,1.9c-2.3-2.2-6.1-3.7-9.4-3.7c-3.1,0-7.5,1.8-10,4.1c-2.2,2-5.8,1.5-7.3-1.1c-1-1.8-1.2-4.1,0-6.2l0.6-1.1l0,0c0.6-0.7,4.4-5.2,12.5-5.7c0.5,1.8,2,3.1,3.9,3.1c2.2,0,4.1-1.9,4.1-4.2s-1.8-4.2-4.1-4.2c-2,0-3.6,1.4-4,3.3H7.7c-0.8,0-1.3-0.9-0.9-1.6l5.6-9.8c2.5-4.5,8.8-4.5,11.3,0L35.1,24C36,25.7,36.1,27.5,35.6,29z"></path>
+            </svg></span>Around<span class="badge bg-info fs-sm ms-2">Docs</span></a>
+        <ul class="navbar-nav d-none d-lg-flex me-auto">
+          <li class="nav-item"><a class="nav-link" href="../index.html"><i class="ai-monitor fs-lg opacity-90 me-2"></i>Live demo</a></li>
+          <li class="nav-item"><a class="nav-link" href="../components/typography.html"><i class="ai-layer fs-lg opacity-90 me-2"></i>UI Kit (Components)</a></li>
+        </ul>
+        <div class="form-check form-switch mode-switch pe-lg-1 ms-auto" data-bs-toggle="mode">
+          <input class="form-check-input" type="checkbox" id="theme-mode">
+          <label class="form-check-label" for="theme-mode"><i class="ai-sun fs-lg"></i></label>
+          <label class="form-check-label" for="theme-mode"><i class="ai-moon fs-lg"></i></label>
+        </div>
+        <button class="navbar-toggler d-block d-lg-none ms-3 border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#docsNav"><span class="navbar-toggler-icon"></span></button><a class="btn btn-sm btn-primary d-none d-lg-inline-flex fs-sm ms-4" href="https://themes.getbootstrap.com/product/around-multipurpose-template-ui-kit/" target="_blank" rel="noopener"><i class="ai-cart d-sm-inline-block fs-xl me-2 ms-n1"></i>Buy now</a>
+      </div>
+    </header>
+    <!-- Desktop sidebar navigation (on screens > 991px) (Offcanvas)-->
+    <aside class="container position-fixed d-none d-lg-block start-50 translate-middle-x h-100 pt-5">
+      <div class="row h-100 pt-5">
+        <div class="col-lg-3 d-flex flex-column pb-3 pt-4" style="height: calc(100% - 2rem);">
+          <div class="h-100 mt-2" data-simplebar>
+            <h3 class="h5 mb-1 pb-2">Contents</h3>
+            <ul class="nav flex-column">
+              <li class="nav-item"><a class="nav-link px-0 py-2" href="getting-started.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Getting started</a>
+              </li>
+              <li class="nav-item"><a class="nav-link px-0 py-2" href="dev-setup.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Dev environment setup</a>
+              </li>
+              <li class="nav-item"><a class="nav-link px-0 py-2" href="working-with-gulp.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Working with Gulp</a>
+              </li>
+              <li class="nav-item"><a class="nav-link px-0 py-2" href="project-structure.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Project structure</a>
+              </li>
+              <li class="nav-item"><a class="nav-link px-0 py-2" href="install-vendor-plugin.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Installing Vendor plugins with Npm and Gulp</a>
+              </li>
+              <li class="nav-item"><a class="nav-link px-0 py-2" href="using-preprocessors.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Using Pug &amp; Sass</a>
+              </li>
+              <li class="nav-item"><a class="nav-link px-0 py-2" href="autoprefixer.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Browser support</a>
+              </li>
+              <li class="nav-item"><a class="nav-link px-0 py-2" href="theme-mode.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Theme mode</a>
+              </li>
+              <li class="nav-item"><a class="nav-link px-0 py-2" href="global-colors.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Global colors</a>
+              </li>
+              <li class="nav-item"><a class="nav-link px-0 py-2" href="components.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Components</a>
+              </li>
+              <li class="nav-item"><a class="nav-link px-0 py-2" href="utilities.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Utility classes</a>
+              </li>
+              <li class="nav-item"><a class="nav-link px-0 py-2" href="ui-icons.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>UI icons (Icon font)</a>
+              </li>
+              <li class="nav-item"><a class="nav-link px-0 py-2" href="mailchimp.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Mailchimp subscription form</a>
+              </li>
+              <li class="nav-item"><span class="nav-link px-0 py-2 active"><i class="ai-circle-arrow-down fs-lg opacity-90 me-2"></i>Sources and credits</span>
+              </li>
+              <li class="nav-item"><a class="nav-link px-0 py-2" href="changelog.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Changelog</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <!-- Mobile offcanvas navigation (on screens < 992px)-->
+    <div class="offcanvas offcanvas-start" id="docsNav">
+      <div class="offcanvas-header align-items-center">
+        <div class="d-flex align-items-center">
+          <h4 class="offcanvas-title">Menu</h4>
+        </div>
+        <button class="btn-close" type="button" data-bs-dismiss="offcanvas"></button>
+      </div>
+      <ul class="nav flex-column border-bottom pb-4">
+        <li class="nav-item"><a class="nav-link py-2" href="../index.html"><i class="ai-monitor fs-lg opacity-90 me-2"></i>Live demo</a></li>
+        <li class="nav-item"><a class="nav-link py-2" href="../components/typography.html"><i class="ai-layer fs-lg opacity-90 me-2"></i>UI Kit (Components)</a></li>
+      </ul>
+      <div class="offcanvas-body">
+        <h3 class="h5 mb-1 pb-2">Contents</h3>
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link px-0 py-2" href="getting-started.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Getting started</a>
+          </li>
+          <li class="nav-item"><a class="nav-link px-0 py-2" href="dev-setup.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Dev environment setup</a>
+          </li>
+          <li class="nav-item"><a class="nav-link px-0 py-2" href="working-with-gulp.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Working with Gulp</a>
+          </li>
+          <li class="nav-item"><a class="nav-link px-0 py-2" href="project-structure.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Project structure</a>
+          </li>
+          <li class="nav-item"><a class="nav-link px-0 py-2" href="install-vendor-plugin.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Installing Vendor plugins with Npm and Gulp</a>
+          </li>
+          <li class="nav-item"><a class="nav-link px-0 py-2" href="using-preprocessors.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Using Pug &amp; Sass</a>
+          </li>
+          <li class="nav-item"><a class="nav-link px-0 py-2" href="autoprefixer.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Browser support</a>
+          </li>
+          <li class="nav-item"><a class="nav-link px-0 py-2" href="theme-mode.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Theme mode</a>
+          </li>
+          <li class="nav-item"><a class="nav-link px-0 py-2" href="global-colors.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Global colors</a>
+          </li>
+          <li class="nav-item"><a class="nav-link px-0 py-2" href="components.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Components</a>
+          </li>
+          <li class="nav-item"><a class="nav-link px-0 py-2" href="utilities.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Utility classes</a>
+          </li>
+          <li class="nav-item"><a class="nav-link px-0 py-2" href="ui-icons.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>UI icons (Icon font)</a>
+          </li>
+          <li class="nav-item"><a class="nav-link px-0 py-2" href="mailchimp.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Mailchimp subscription form</a>
+          </li>
+          <li class="nav-item"><span class="nav-link px-0 py-2 active"><i class="ai-circle-arrow-down fs-lg opacity-90 me-2"></i>Sources and credits</span>
+          </li>
+          <li class="nav-item"><a class="nav-link px-0 py-2" href="changelog.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Changelog</a>
+          </li>
+        </ul>
+      </div>
+      <div class="offcanvas-header border-top"><a class="btn btn-primary w-100" href="https://themes.getbootstrap.com/product/around-multipurpose-template-ui-kit/" target="_blank" rel="noopener"><i class="ai-cart d-sm-inline-block fs-xl me-2 ms-n1"></i>Buy now</a></div>
+    </div>
+    <!-- Page content-->
+    <section class="container pt-5 pb-4">
+      <div class="row pt-5 mt-lg-4 pb-2 pb-sm-3">
+        <div class="col-lg-9 offset-lg-3 position-relative zindex-5">
+          <div class="card border-0 mb-4">
+            <div class="card-body">
+              <h1 class="pt-1 pt-lg-2 pb-2 pb-sm-3 pb-lg-4">Sources and credits</h1>
+              <p>While making this template we used 3rd party plugins, images, icons, fonts, etc... and want to thank their creators.</p>
+              <h2 class="h4 pt-3">Plugins, Libraries and Frameworks</h2>
+              <ul class="list-unstyled">
+                <li class="mb-2"><span class="text-nav fw-semibold">Bootstrap 5 - </span><a href="https://getbootstrap.com/" target="_blank" rel="noopener">https://getbootstrap.com/</a></li>
+                <li class="mb-2"><span class="text-nav fw-semibold">Sass - </span><a href="http://sass-lang.com/" target="_blank" rel="noopener">http://sass-lang.com/</a></li>
+                <li class="mb-2"><span class="text-nav fw-semibold">Swiper - </span><a href="https://swiperjs.com/" target="_blank" rel="noopener">https://swiperjs.com/</a></li>
+                <li class="mb-2"><span class="text-nav fw-semibold">Jarallax - </span><a href="https://github.com/nk-o/jarallax" target="_blank" rel="noopener">https://github.com/nk-o/jarallax</a></li>
+                <li class="mb-2"><span class="text-nav fw-semibold">Lightgallery.js - </span><a href="https://www.lightgalleryjs.com/" target="_blank" rel="noopener">https://www.lightgalleryjs.com/</a></li>
+                <li class="mb-2"><span class="text-nav fw-semibold">FullCalendar - </span><a href="https://fullcalendar.io/" target="_blank" rel="noopener">https://fullcalendar.io/</a></li>
+                <li class="mb-2"><span class="text-nav fw-semibold">noUiSlider - </span><a href="https://refreshless.com/nouislider/" target="_blank" rel="noopener">https://refreshless.com/nouislider/</a></li>
+                <li class="mb-2"><span class="text-nav fw-semibold">Shuffle - </span><a href="https://vestride.github.io/Shuffle/" target="_blank" rel="noopener">https://vestride.github.io/Shuffle/</a></li>
+                <li class="mb-2"><span class="text-nav fw-semibold">AOS (Animate on Scroll) - </span><a href="https://michalsnik.github.io/aos/" target="_blank" rel="noopener">https://michalsnik.github.io/aos/</a></li>
+                <li class="mb-2"><span class="text-nav fw-semibold">Leaflet - </span><a href="https://leafletjs.com/" target="_blank" rel="noopener">https://leafletjs.com/</a></li>
+                <li class="mb-2"><span class="text-nav fw-semibold">LottieFiles Web Player - </span><a href="https://lottiefiles.com/web-player" target="_blank" rel="noopener">https://lottiefiles.com/web-player</a></li>
+                <li class="mb-2"><span class="text-nav fw-semibold">Image Comparison Slider - </span><a href="https://img-comparison-slider.sneas.io/" target="_blank" rel="noopener">https://img-comparison-slider.sneas.io/</a></li>
+                <li class="mb-2"><span class="text-nav fw-semibold">Smooth Scroll - </span><a href="https://github.com/cferdinandi/smooth-scroll/" target="_blank" rel="noopener">https://github.com/cferdinandi/smooth-scroll/</a></li>
+                <li class="mb-2"><span class="text-nav fw-semibold">Parallax.js - </span><a href="https://github.com/wagerfield/parallax" target="_blank" rel="noopener">https://github.com/wagerfield/parallax</a></li>
+                <li class="mb-2"><span class="text-nav fw-semibold">Chartist - </span><a href="https://gionkunz.github.io/chartist-js/" target="_blank" rel="noopener">https://gionkunz.github.io/chartist-js/</a></li>
+                <li class="mb-2"><span class="text-nav fw-semibold">Flatpickr - </span><a href="https://flatpickr.js.org/" target="_blank" rel="noopener">https://flatpickr.js.org/</a></li>
+                <li class="mb-2"><span class="text-nav fw-semibold">Cleave.js - </span><a href="https://nosir.github.io/cleave.js/" target="_blank" rel="noopener">https://nosir.github.io/cleave.js/</a></li>
+                <li class="mb-2"><span class="text-nav fw-semibold">imagesLoaded - </span><a href="https://imagesloaded.desandro.com/" target="_blank" rel="noopener">https://imagesloaded.desandro.com/</a></li>
+                <li class="mb-2"><span class="text-nav fw-semibold">TimezZ - </span><a href="https://github.com/BrooonS/timezz" target="_blank" rel="noopener">https://github.com/BrooonS/timezz</a></li>
+                <li class="mb-2"><span class="text-nav fw-semibold">Popper.js - </span><a href="https://popper.js.org/" target="_blank" rel="noopener">https://popper.js.org/</a></li>
+                <li class="mb-2"><span class="text-nav fw-semibold">Prism.js - </span><a href="https://prismjs.com/" target="_blank" rel="noopener">https://prismjs.com/</a></li>
+                <li class="mb-2"><span class="text-nav fw-semibold">Node.js - </span><a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a></li>
+                <li class="mb-2"><span class="text-nav fw-semibold">Gulp - </span><a href="https://gulpjs.com/" target="_blank" rel="noopener">https://gulpjs.com/</a></li>
+              </ul>
+              <h2 class="h4 pt-3 pt-lg-4">Google Fonts</h2>
+              <ul class="list-unstyled">
+                <li><span class="text-nav fw-semibold">Inter - </span><a href="https://fonts.google.com/specimen/Inter" target="_blank" rel="noopener">https://fonts.google.com/specimen/Inter</a></li>
+              </ul>
+              <h2 class="h4 pt-3 pt-lg-4">Font Icons <span class='fs-base fw-medium text-muted'>(converted to font with Icomoon)</span></h2>
+              <ul class="list-unstyled">
+                <li class="mb-2"><span class="text-nav fw-semibold">Atomicons - </span><a href="https://atomicons.com/" target="_blank" rel="noopener">https://atomicons.com/</a></li>
+                <li class="mb-2"><span class="text-nav fw-semibold">Social Icons - </span><a href="https://www.flaticon.com/packs/social-logo-2" target="_blank" rel="noopener">https://www.flaticon.com/packs/social-logo-2</a></li>
+              </ul>
+              <h2 class="h4 pt-3 pt-lg-4">Avatar Library</h2>
+              <ul class="list-unstyled">
+                <li><a href="https://ui8.net/themeselect/products/free-avatar-library-for-figma-and-sketch" target="_blank" rel="noopener">https://ui8.net/themeselect/products/free-avatar-library-for-figma-and-sketch</a></li>
+              </ul>
+              <h2 class="h4 pt-3 pt-lg-4">Flags <span class='fs-base fw-medium text-muted'>(Language switcher)</span></h2>
+              <ul class="list-unstyled">
+                <li><a href="https://www.flaticon.com/packs/international-flags-6" target="_blank" rel="noopener">https://www.flaticon.com/packs/international-flags-6</a></li>
+              </ul>
+              <h2 class="h4 pt-3 pt-lg-4">Logos</h2>
+              <ul class="list-unstyled">
+                <li class="mb-2"><a href="https://logoipsum.com/" target="_blank" rel="noopener">https://logoipsum.com/</a></li>
+                <li class="mb-2"><a href="https://worldvectorlogo.com" target="_blank" rel="noopener">https://worldvectorlogo.com</a></li>
+              </ul>
+              <h2 class="h4 pt-3 pt-lg-4">Graphic Assets</h2>
+              <ul class="list-unstyled mb-0">
+                <li class="mb-2"><span class="text-nav fw-semibold">Freepick - </span><a href="https://freepik.com" target="_blank" rel="noopener">https://freepik.com</a></li>
+                <li class="mb-2"><span class="text-nav fw-semibold">Flaticon - </span><a href="https://www.flaticon.com/" target="_blank" rel="noopener">https://www.flaticon.com/</a></li>
+                <li class="mb-2"><span class="text-nav fw-semibold">Pexels - </span><a href="https://www.pexels.com" target="_blank" rel="noopener">https://www.pexels.com</a></li>
+                <li class="mb-2"><span class="text-nav fw-semibold">Unsplash - </span><a href="https://unsplash.com/" target="_blank" rel="noopener">https://unsplash.com/</a></li>
+                <li class="mb-2"><span class="text-nav fw-semibold">Craftwork - </span><a href="https://craftwork.design/" target="_blank" rel="noopener">https://craftwork.design/</a></li>
+                <li class="mb-2"><span class="text-nav fw-semibold">UI8 - </span><a href="https://ui8.net/" target="_blank" rel="noopener">https://ui8.net/</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll>
+      <svg viewBox="0 0 40 40" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="19" fill="none" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"></circle>
+      </svg><i class="ai-arrow-up">   </i></a>
+    <!-- Vendor scripts: js libraries and plugins-->
+    <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="../assets/vendor/simplebar/dist/simplebar.min.js"></script>
+    <!-- Main theme script-->
+    <script src="../assets/js/theme.min.js"></script>
+  </body>
+</html>

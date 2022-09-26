@@ -1,0 +1,182 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css', 'vendor/prismjs/themes/prism.css', 'vendor/prismjs/plugins/toolbar/prism-toolbar.css', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js', 'vendor/prismjs/components/prism-core.min.js', 'vendor/prismjs/components/prism-markup.min.js', 'vendor/prismjs/components/prism-clike.min.js', 'vendor/prismjs/components/prism-javascript.min.js', 'vendor/prismjs/components/prism-pug.min.js', 'vendor/prismjs/plugins/toolbar/prism-toolbar.min.js', 'vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Hotspots'
+  - var pageSubtitle = 'Create an image with interactive hotspots that show hidden description on hover / click / focus.'
+  - var isPageTitleBadge = true
+  - var anchorNav = [{'title': 'Style 1', 'link': '#hotspots-style-1'}, {'title': 'Style 2', 'link': '#hotspots-style-2'}]
+    
+//- Page Content
+block content
+
+  // Style 1
+  section#hotspots-style-1.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Style 1
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview1' data-bs-toggle='tab' role='tab' aria-controls='preview1' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview1.tab-pane.fade.show.active(role='tabpanel')
+          .hotspots(style='max-width: 650px;')
+            img(src='../assets/img/landing/product/hotspots-image.png' alt='Image').d-block
+            .hotspot(style='top: 8%; right: 16%;' data-bs-toggle='popover' data-bs-trigger='hover' title='Memory foam ear pads' data-bs-content='Lorem ipsum dolor sit amet, consectetur adipiscing elit sed.')
+              .hotspot-inner: i.ai-plus
+            .hotspot(style='bottom: 9%; left: 48%;' data-bs-toggle='popover' data-bs-trigger='hover' title='Noise suppression' data-bs-content='Vivamus sagittis lacus vel augue laoreet rutrum faucibus ornare.')
+              .hotspot-inner: i.ai-plus
+            .hotspot(style='bottom: 36%; left: 6%;' data-bs-toggle='popover' data-bs-trigger='hover' data-bs-placement='top' title='Wireless Bluetooth' data-bs-content='Excepteur sint occaecat cupidatat non proident sunt culpa officia.')
+              .hotspot-inner: i.ai-plus
+        #html1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Hotspots style 1 with popover on hover --&gt;
+              &lt;div class=&quot;hotspots&quot; style=&quot;max-width: 650px;&quot;&gt;
+
+                &lt;!-- Underlying image --&gt;
+                &lt;img src=&quot;assets/img/landing/product/hotspots-image.png&quot; class=&quot;d-block&quot; alt=&quot;Image&quot;&gt;
+
+                &lt;!-- Hotspot --&gt;
+                &lt;div class=&quot;hotspot&quot; style=&quot;top: 8%; right: 16%;&quot; data-bs-toggle=&quot;popover&quot; data-bs-trigger=&quot;hover&quot; title=&quot;Memory foam ear pads&quot; data-bs-content=&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit sed.&quot;&gt;
+                  &lt;div class=&quot;hotspot-inner&quot;&gt;
+                    &lt;i class=&quot;ai-plus&quot;&gt;&lt;/i&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Hotspot --&gt;
+                &lt;div class=&quot;hotspot&quot; style=&quot;bottom: 9%; left: 48%;&quot; data-bs-toggle=&quot;popover&quot; data-bs-trigger=&quot;hover&quot; title=&quot;Noise suppression&quot; data-bs-content=&quot;Vivamus sagittis lacus vel augue laoreet rutrum faucibus ornare.&quot;&gt;
+                  &lt;div class=&quot;hotspot-inner&quot;&gt;
+                    &lt;i class=&quot;ai-plus&quot;&gt;&lt;/i&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Hotspot --&gt;
+                &lt;div class=&quot;hotspot&quot; style=&quot;bottom: 36%; left: 6%;&quot; data-bs-toggle=&quot;popover&quot; data-bs-trigger=&quot;hover&quot; data-bs-placement=&quot;top&quot; title=&quot;Wireless Bluetooth&quot; data-bs-content=&quot;Excepteur sint occaecat cupidatat non proident sunt culpa officia.&quot;&gt;
+                  &lt;div class=&quot;hotspot-inner&quot;&gt;
+                    &lt;i class=&quot;ai-plus&quot;&gt;&lt;/i&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Hotspots style 1 with popover on hover
+              .hotspots(style=&quot;max-width: 650px;&quot;)
+
+                // Underlying image
+                img(src=&quot;assets/img/landing/product/hotspots-image.png&quot;, alt=&quot;Image&quot;).d-block
+
+                // Hotspot
+                .hotspot(style=&quot;top: 8%; right: 16%;&quot;, data-bs-toggle=&quot;popover&quot;, data-bs-trigger=&quot;hover&quot;, title=&quot;Memory foam ear pads&quot;, data-bs-content=&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit sed.&quot;)
+                  .hotspot-inner
+                    i.ai-plus
+                
+                // Hotspot
+                .hotspot(style=&quot;bottom: 9%; left: 48%;&quot;, data-bs-toggle=&quot;popover&quot;, data-bs-trigger=&quot;hover&quot;, title=&quot;Noise suppression&quot;, data-bs-content=&quot;Vivamus sagittis lacus vel augue laoreet rutrum faucibus ornare.&quot;)
+                  .hotspot-inner
+                    i.ai-plus
+
+                // Hotspot
+                .hotspot(style=&quot;bottom: 36%; left: 6%;&quot;, data-bs-toggle=&quot;popover&quot;, data-bs-trigger=&quot;hover&quot;, data-bs-placement=&quot;top&quot;, title=&quot;Wireless Bluetooth&quot;, data-bs-content=&quot;Excepteur sint occaecat cupidatat non proident sunt culpa officia.&quot;)
+                  .hotspot-inner
+                    i.ai-plus
+
+  // Style 2
+  section#hotspots-style-2.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Style 2
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview2' data-bs-toggle='tab' role='tab' aria-controls='preview2' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview2.tab-pane.fade.show.active(role='tabpanel')
+          .hotspots.hotspots-alt(style='max-width: 700px;')
+            img(src='../assets/img/landing/shop/gallery/01.jpg' alt='Image').d-block.rounded-1
+            a.hotspot(style='top: 20%; left: 27%;' tabindex='0' role='button' data-bs-toggle='popover' data-bs-trigger='focus' data-bs-placement='bottom' data-bs-html='true' data-bs-content='<a href="#" class="d-flex text-decoration-none mb-2"><span class="h6 fs-sm mb-0">Bronze floor<br>led lamp</span><i class="ai-chevron-right fs-xl text-dark ms-2"></i></a><span>$185.00</span>')
+              .hotspot-inner
+            a.hotspot(style='top: 14.7%; right: 32.7%;' tabindex='0' role='button' data-bs-toggle='popover' data-bs-trigger='focus' data-bs-placement='bottom' data-bs-html='true' data-bs-content='<a href="#" class="d-flex text-decoration-none mb-2"><span class="h6 fs-sm mb-0">Photo frame<br>Defacto</span><i class="ai-chevron-right fs-xl text-dark ms-2"></i></a><span>$21.00</span>')
+              .hotspot-inner
+            a.hotspot(style='bottom: 41%; left: 34.6%;' tabindex='0' role='button' data-bs-toggle='popover' data-bs-trigger='focus' data-bs-placement='top' data-bs-html='true' data-bs-content='<a href="#" class="d-flex text-decoration-none mb-2"><span class="h6 fs-sm mb-0">Yellow satin<br>armchair</span><i class="ai-chevron-right fs-xl text-dark ms-2"></i></a><span>$276.00</span>')
+              .hotspot-inner
+            a.hotspot(style='bottom: 24.3%; right: 27.5%;' tabindex='0' role='button' data-bs-toggle='popover' data-bs-trigger='focus' data-bs-placement='top' data-bs-html='true' data-bs-content='<a href="#" class="d-flex text-decoration-none mb-2"><span class="h6 fs-sm mb-0">Gary concrete<br>table stand</span><i class="ai-chevron-right fs-xl text-dark ms-2"></i></a><span>$35.00</span>')
+              .hotspot-inner
+        #html2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Hotspots style 2 with popover on focus --&gt;
+              &lt;div class=&quot;hotspots hotspots-alt&quot;&gt;
+
+                &lt;!-- Underlying image --&gt;
+                &lt;img src=&quot;assets/img/landing/shop/gallery/01.jpg&quot; class=&quot;d-block rounded-1&quot; alt=&quot;Image&quot;&gt;
+
+                &lt;!-- Hotspot --&gt;
+                &lt;a class=&quot;hotspot&quot; style=&quot;top: 20%; left: 27%;&quot; tabindex=&quot;0&quot; role=&quot;button&quot; data-bs-toggle=&quot;popover&quot; data-bs-trigger=&quot;focus&quot; data-bs-placement=&quot;bottom&quot; data-bs-html=&quot;true&quot; data-bs-content='&lt;a href=&quot;#&quot; class=&quot;d-flex text-decoration-none mb-2&quot;&gt;&lt;span class=&quot;h6 fs-sm mb-0&quot;&gt;Bronze floor&lt;br&gt;led lamp&lt;/span&gt;&lt;i class=&quot;ai-chevron-right fs-xl text-dark ms-2&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;span&gt;$185.00&lt;/span&gt;'&gt;&lt;/div&gt;
+                &lt;/a&gt;
+
+                &lt;!-- Hotspot --&gt;
+                &lt;a class=&quot;hotspot&quot; style=&quot;top: 14.7%; right: 32.7%;&quot; tabindex=&quot;0&quot; role=&quot;button&quot; data-bs-toggle=&quot;popover&quot; data-bs-trigger=&quot;focus&quot; data-bs-placement=&quot;bottom&quot; data-bs-html=&quot;true&quot; data-bs-content='&lt;a href=&quot;#&quot; class=&quot;d-flex text-decoration-none mb-2&quot;&gt;&lt;span class=&quot;h6 fs-sm mb-0&quot;&gt;Photo frame&lt;br&gt;Defacto&lt;/span&gt;&lt;i class=&quot;ai-chevron-right fs-xl text-dark ms-2&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;span&gt;$21.00&lt;/span&gt;'&gt;&lt;/div&gt;
+                &lt;/a&gt;
+
+                &lt;!-- Hotspot --&gt;
+                &lt;a class=&quot;hotspot&quot; style=&quot;bottom: 41%; left: 34.6%;&quot; tabindex=&quot;0&quot; role=&quot;button&quot; data-bs-toggle=&quot;popover&quot; data-bs-trigger=&quot;focus&quot; data-bs-placement=&quot;top&quot; data-bs-html=&quot;true&quot; data-bs-content='&lt;a href=&quot;#&quot; class=&quot;d-flex text-decoration-none mb-2&quot;&gt;&lt;span class=&quot;h6 fs-sm mb-0&quot;&gt;Yellow satin&lt;br&gt;armchair&lt;/span&gt;&lt;i class=&quot;ai-chevron-right fs-xl text-dark ms-2&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;span&gt;$276.00&lt;/span&gt;'&gt;&lt;/div&gt;
+                &lt;/a&gt;
+
+                &lt;!-- Hotspot --&gt;
+                &lt;a class=&quot;hotspot&quot; style=&quot;bottom: 24.3%; right: 27.5%;&quot; tabindex=&quot;0&quot; role=&quot;button&quot; data-bs-toggle=&quot;popover&quot; data-bs-trigger=&quot;focus&quot; data-bs-placement=&quot;top&quot; data-bs-html='true' data-bs-content='&lt;a href=&quot;#&quot; class=&quot;d-flex text-decoration-none mb-2&quot;&gt;&lt;span class=&quot;h6 fs-sm mb-0&quot;&gt;Gary concrete&lt;br&gt;table stand&lt;/span&gt;&lt;i class=&quot;ai-chevron-right fs-xl text-dark ms-2&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;span&gt;$35.00&lt;/span&gt;'&gt;&lt;/div&gt;
+                &lt;/a&gt;
+
+              &lt;/div&gt;
+        #pug2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Hotspots style 2 with popover on focus
+              .hotspots.hotspots-alt
+
+                // Underlying image
+                img(src=&quot;assets/img/landing/shop/gallery/01.jpg&quot;, alt=&quot;Image&quot;).d-block.rounded-1
+
+                // Hotspot
+                a.hotspot(style=&quot;top: 20%; left: 27%;&quot;, tabindex=&quot;0&quot;, role=&quot;button&quot;, data-bs-toggle=&quot;popover&quot;, data-bs-trigger=&quot;focus&quot;, data-bs-placement=&quot;bottom&quot;, data-bs-html=&quot;true&quot;, data-bs-content='&lt;a href=&quot;#&quot; class=&quot;d-flex text-decoration-none mb-2&quot;&gt;&lt;span class=&quot;h6 fs-sm mb-0&quot;&gt;Bronze floor&lt;br&gt;led lamp&lt;/span&gt;&lt;i class=&quot;ai-chevron-right fs-xl text-dark ms-2&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;span&gt;$185.00&lt;/span&gt;')
+                  .hotspot-inner
+                
+                // Hotspot
+                a.hotspot(style=&quot;top: 14.7%; right: 32.7%;&quot;, tabindex=&quot;0&quot;, role=&quot;button&quot;, data-bs-toggle=&quot;popover&quot;, data-bs-trigger=&quot;focus&quot;, data-bs-placement=&quot;bottom&quot;, data-bs-html=&quot;true&quot;, data-bs-content='&lt;a href=&quot;#&quot; class=&quot;d-flex text-decoration-none mb-2&quot;&gt;&lt;span class=&quot;h6 fs-sm mb-0&quot;&gt;Photo frame&lt;br&gt;Defacto&lt;/span&gt;&lt;i class=&quot;ai-chevron-right fs-xl text-dark ms-2&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;span&gt;$21.00&lt;/span&gt;')
+                  .hotspot-inner
+                
+                // Hotspot
+                a.hotspot(style=&quot;bottom: 41%; left: 34.6%;&quot;, tabindex=&quot;0&quot;, role=&quot;button&quot;, data-bs-toggle=&quot;popover&quot;, data-bs-trigger=&quot;focus&quot;, data-bs-placement=&quot;top&quot;, data-bs-html=&quot;true&quot;, data-bs-content='&lt;a href=&quot;#&quot; class=&quot;d-flex text-decoration-none mb-2&quot;&gt;&lt;span class=&quot;h6 fs-sm mb-0&quot;&gt;Yellow satin&lt;br&gt;armchair&lt;/span&gt;&lt;i class=&quot;ai-chevron-right fs-xl text-dark ms-2&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;span&gt;$276.00&lt;/span&gt;')
+                  .hotspot-inner
+                
+                // Hotspot
+                a.hotspot(style=&quot;bottom: 24.3%; right: 27.5%;&quot;, tabindex=&quot;0&quot;, role=&quot;button&quot;, data-bs-toggle=&quot;popover&quot;, data-bs-trigger=&quot;focus&quot;, data-bs-placement=&quot;top&quot;, data-bs-html=&quot;true&quot;, data-bs-content='&lt;a href=&quot;#&quot; class=&quot;d-flex text-decoration-none mb-2&quot;&gt;&lt;span class=&quot;h6 fs-sm mb-0&quot;&gt;Gary concrete&lt;br&gt;table stand&lt;/span&gt;&lt;i class=&quot;ai-chevron-right fs-xl text-dark ms-2&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;span&gt;$35.00&lt;/span&gt;')
+                  .hotspot-inner

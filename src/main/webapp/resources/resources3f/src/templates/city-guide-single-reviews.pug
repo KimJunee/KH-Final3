@@ -1,0 +1,444 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['lightgallery/css/lightgallery-bundle.min.css', 'tiny-slider/dist/tiny-slider.css', 'nouislider/dist/nouislider.min.css', 'flatpickr/dist/flatpickr.min.css', 'tiny-slider/dist/tiny-slider.css']
+  - var vendorScripts = ['lightgallery/lightgallery.min.js', 'flatpickr/dist/flatpickr.min.js', 'tiny-slider/dist/min/tiny-slider.js', 'tiny-slider/dist/min/tiny-slider.js']
+  - var parentMenu = 'Catalog'
+  - var pageTitle = 'City Guide | Single Place - Reviews'
+
+//- Navbar
+block navbar
+  include partials/navbar-city-guide
+
+//- Page Content
+block content
+
+  // Review modal
+  #modal-review.modal.fade(tabindex='-1')
+    .modal-dialog.modal-dialog-centered(role='document')
+      .modal-content
+        .modal-header.d-block.position-relative.border-0.pb-0.px-sm-5.px-4
+          h3.modal-title.mt-4.text-center Leave a review
+          button(type='button' data-bs-dismiss='modal' aria-label='Close').btn-close.position-absolute.top-0.end-0.mt-3.me-3
+        .modal-body.px-sm-5.px-4
+          form(novalidate).needs-validation
+            .mb-3
+              label(for='review-name').form-label Name <span class='text-danger'>*</span>
+              input(type='text' id='review-name' placeholder='Your name' required).form-control
+              .invalid-feedback Please let us know your name.
+            .mb-3
+              label(for='review-email').form-label Email <span class='text-danger'>*</span>
+              input(type='email' id='review-email' placeholder='Your email address' required).form-control
+              .invalid-feedback Please provide a valid email address.
+            .mb-3
+              label(for='review-rating').form-label Rating <span class='text-danger'>*</span>
+              select(id='review-rating' required).form-control.form-select
+                option(value='' selected disabled hidden) Choose rating
+                option(value='5 stars') 5 stars
+                option(value='4 stars') 4 stars
+                option(value='3 stars') 3 stars
+                option(value='2 stars') 2 stars
+                option(value='1 star') 1 star
+              .invalid-feedback Please rate the property.
+            .mb-4
+              label(for='review-text').form-label Review <span class='text-danger'>*</span>
+              textarea(id='review-text' rows='5' placeholder='Your review message' required).form-control
+              .invalid-feedback Please write your review.
+            button(type='submit').btn.btn-primary.d-block.rounded-pill.w-100.mb-4 Submit a review
+
+
+  // Page header
+  section.container.pt-5.mt-5
+
+    // Breadcrumb
+    nav(aria-label='breadcrumb').mb-3.pt-md-3
+      ol.breadcrumb
+        li.breadcrumb-item
+          a(href='city-guide-home-v1.html') Home
+        li.breadcrumb-item
+          a(href='city-guide-catalog.html') Find accommodation
+        li(aria-current='page').breadcrumb-item.active
+          | Berlin Business Hotel
+
+    .d-sm-flex.align-items-center.justify-content-between.mb-4.pb-sm-2
+      h1.h2.me-3.mb-sm-0 Berlin Business Hotel
+      .text-nowrap
+        button(type='button' data-bs-toggle='tooltip' title='Add to Wishlist').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle
+          i.fi-heart
+        .dropdown.d-inline-block(data-bs-toggle='tooltip' title='Share')
+          button(type='button' data-bs-toggle='dropdown').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.ms-2
+            i.fi-share
+          .dropdown-menu.dropdown-menu-end.my-1
+            button(type='button').dropdown-item
+              i.fi-facebook.fs-base.opacity-75.me-2
+              | Facebook
+            button(type='button').dropdown-item
+              i.fi-twitter.fs-base.opacity-75.me-2
+              | Twitter
+            button(type='button').dropdown-item
+              i.fi-instagram.fs-base.opacity-75.me-2
+              | Instagram
+
+    // Nav pills
+    ul.nav.nav-pills.border-bottom.pb-3.mb-4
+      li.nav-item
+        a(href='city-guide-single.html').nav-link.d-flex.align-items-center
+          i.fi-image.me-2
+          | Gallery
+      li.nav-item
+        a(href='city-guide-single-info.html').nav-link.d-flex.align-items-center
+          i.fi-info-circle.me-2
+          | Info
+      li.nav-item
+        a(href='city-guide-single-reviews.html').nav-link.d-flex.align-items-center.active
+          i.fi-edit.me-2
+          | Reviews
+
+
+  // Page content
+  section.container.pb-5.mb-md-4
+    .row
+
+      // Left column
+      .col-md-7.mb-md-0.mb-4.pb-md-0.pb-2
+
+        h2.h4.mb-4 Average rating
+        .row.mb-md-5.mb-4
+
+          // Rating breakdown
+          .col-sm-8.order-sm-1.order-2
+            .d-flex.align-items-center.mb-2.fs-sm
+              .text-nowrap 5
+                i.fi-star.mt-n1.ms-1.align-middle.opacity-70
+              .progress.w-100.mx-3
+                .progress-bar.bg-warning(role='progressbar' style='width: 80%' aria-valuenow='80' aria-valuemin='0' aria-valuemax='100')
+              span(style='min-width: 48px;') 80%
+            .d-flex.align-items-center.mb-2.fs-sm
+              .text-nowrap 4
+                i.fi-star.mt-n1.ms-1.align-middle.opacity-70
+              .progress.w-100.mx-3
+                .progress-bar.bg-warning(role='progressbar' style='width: 10%' aria-valuenow='10' aria-valuemin='0' aria-valuemax='100')
+              span(style='min-width: 48px;') 10%
+            .d-flex.align-items-center.mb-2.fs-sm
+              .text-nowrap 3
+                i.fi-star.mt-n1.ms-1.align-middle.opacity-70
+              .progress.w-100.mx-3
+                .progress-bar.bg-warning(role='progressbar' style='width: 0%' aria-valuenow='0' aria-valuemin='0' aria-valuemax='100')
+              span(style='min-width: 48px;') 0%
+            .d-flex.align-items-center.mb-2.fs-sm
+              .text-nowrap 2
+                i.fi-star.mt-n1.ms-1.align-middle.opacity-70
+              .progress.w-100.mx-3
+                .progress-bar.bg-warning(role='progressbar' style='width: 0%' aria-valuenow='0' aria-valuemin='0' aria-valuemax='100')
+              span(style='min-width: 48px;') 0%
+            .d-flex.align-items-center.mb-2.fs-sm
+              .text-nowrap 1
+                i.fi-star.mt-n1.ms-1.align-middle.opacity-70
+              .progress.w-100.mx-3
+                .progress-bar.bg-warning(role='progressbar' style='width: 10%' aria-valuenow='10' aria-valuemin='0' aria-valuemax='100')
+              span(style='min-width: 48px;') 10%
+
+          // Score
+          .col-sm-4.order-sm-2.order-1.mb-sm-0.mb-3.text-center
+            h5.display-4.mb-2 4,7
+            div: +star-rating(5)
+            span.fs-sm 48 reviews
+
+        // Add review btn + Reviews sort
+        .d-flex.flex-sm-row.flex-column.align-items-sm-center.justify-content-between.mb-4.pb-4.border-bottom
+          a(href='#modal-review' data-bs-toggle='modal').btn.btn-outline-primary.rounded-pill.mb-sm-0.mb-3
+            i.fi-edit.mt-n1.me-1.align-middle
+            | Add review
+          .d-flex.align-items-center.ms-sm-4
+            label(for='reviews-sort').d-inline-block.me-2.pe-1.text-muted.text-nowrap
+              i.fi-arrows-sort.mt-n1.me-1.align-middle.opacity-80
+              | Sort by:
+            select(id='reviews-sort' style='min-width: 180px;').form-select
+              option Newest
+              option Oldest
+              option Popular
+              option High rating
+              option Low rating
+
+        // Review
+        .mb-4.pb-4.border-bottom
+          .d-flex.justify-content-between.mb-3
+            .d-flex.align-items-center.pe-2
+              img(src='img/avatars/03.jpg' width='48' alt='Avatar').rounded-circle.me-1
+              .ps-2
+                h6.fs-base.mb-0 Annette Black
+                +star-rating(5)
+            span.text-muted.fs-sm Jan 17, 2021
+          p Elementum ut quam tincidunt egestas vitae elit, hendrerit. Ullamcorper nulla amet lobortis elit, nibh condimentum enim. Aliquam felis nisl tellus sodales lectus dictum tristique proin vitae. Odio fermentum viverra tortor quis.
+          .d-flex.align-items-center
+            button(type='button').btn-like
+              i.fi-like
+              span (3)
+            .border-end.me-1 &nbsp;
+            button(type='button').btn-dislike
+              i.fi-dislike
+              span (0)
+
+        // Review
+        .mb-4.pb-4.border-bottom
+          .d-flex.justify-content-between.mb-3
+            .d-flex.align-items-center.pe-2
+              img(src='img/avatars/13.png' width='48' alt='Avatar').rounded-circle.me-1
+              .ps-2
+                h6.fs-base.mb-0 Darrell Steward
+                +star-rating(4)
+            span.text-muted.fs-sm Dec 1, 2020
+          p Vel dictum nunc ut tristique. Egestas diam amet, ut proin hendrerit. Dui accumsan at phasellus tempus consequat dignissim.
+          .d-flex.align-items-center
+            button(type='button').btn-like
+              i.fi-like
+              span (0)
+            .border-end.me-1 &nbsp;
+            button(type='button').btn-dislike
+              i.fi-dislike
+              span (1)
+
+        // Review
+        .mb-4.pb-4.border-bottom
+          .d-flex.justify-content-between.mb-3
+            .d-flex.align-items-center.pe-2
+              img(src='img/avatars/13.png' width='48' alt='Avatar').rounded-circle.me-1
+              .ps-2
+                h6.fs-base.mb-0 Floyd Miles
+                +star-rating(5)
+            span.text-muted.fs-sm Oct  28, 2020
+          p Viverra nunc blandit sapien non imperdiet sit. Purus tempus elementum aliquam eu urna. A aenean duis non egestas at libero porttitor integer eget. Sed dictum lobortis laoreet gravida.
+          .d-flex.align-items-center
+            button(type='button').btn-like
+              i.fi-like
+              span (2)
+            .border-end.me-1 &nbsp;
+            button(type='button').btn-dislike
+              i.fi-dislike
+              span (1)
+
+        // Review
+        .mb-4.pb-4.border-bottom
+          .d-flex.justify-content-between.mb-3
+            .d-flex.align-items-center.pe-2
+              img(src='img/avatars/04.jpg' width='48' alt='Avatar').rounded-circle.me-1
+              .ps-2
+                h6.fs-base.mb-0 Ralph Edwards
+                +star-rating(4)
+            span.text-muted.fs-sm Sep 14, 2020
+          p Elementum nisl, egestas nam consectetur nisl, at pellentesque cras. Non sed ac vivamus dolor dignissim ut. Nisl sapien blandit pulvinar sagittis donec sociis ipsum arcu est. Tempus, rutrum morbi scelerisque tempor mi. Etiam urna, cras bibendum leo nec faucibus velit. Tempor lectus dignissim at auctor integer neque quam amet.
+          .d-flex.align-items-center
+            button(type='button').btn-like
+              i.fi-like
+              span (0)
+            .border-end.me-1 &nbsp;
+            button(type='button').btn-dislike
+              i.fi-dislike
+              span (0)
+
+        // Review pagination + Add review btn
+        .d-flex.align-items-center.justify-content-between
+          nav(aria-label='Reviews pagination')
+            ul.pagination.mb-0
+              li.page-item.d-sm-none
+                span.page-link.page-link-static 1 / 8
+              li.page-item.active(aria-current='page').d-none.d-sm-block
+                span.page-link
+                  | 1
+                  span.visually-hidden (current)
+              li.page-item.d-none.d-sm-block
+                a(href='#').page-link 2
+              li.page-item.d-none.d-sm-block
+                a(href='#').page-link 3
+              li.page-item.d-none.d-sm-block
+                | ...
+              li.page-item.d-none.d-sm-block
+                a(href='#').page-link 8
+              li.page-item
+                a.page-link(href='#' aria-label='Next')
+                  i.fi-chevron-right
+          a(href='#modal-review' data-bs-toggle='modal').btn.btn-outline-primary.rounded-pill.ms-4
+            i.fi-edit.mt-n1.me-1.align-middle
+            | Add review
+
+
+      // Sidebar
+      aside.col-md-5
+
+        // Place card
+        .card.mb-4.p-2.shadow-sm
+          .card-body
+
+            // Place info
+            .d-flex.align-items-start.mb-3.pb-2.border-bottom
+              img(src='img/city-guide/brands/hotel.svg' width='60' alt='Thumbnail')
+              .ps-2.ms-1
+                h3.h5.mb-2  Berlin Business Hotel
+                ul.list-unstyled.d-flex.flex-wrap.fs-sm
+                  li.me-2.mb-1.pe-1
+                    i.fi-star-filled.mt-n1.me-1.text-warning.align-middle.opacity-70
+                    b 4.9 
+                    | (48)
+                  li.me-2.mb-1.pe-1
+                    i.fi-wallet.mt-n1.me-1.align-middle.opacity-70
+                    | $$
+                  li.me-2.mb-1.pe-1
+                    i.fi-map-pin.mt-n1.me-1.align-middle.opacity-70
+                    | 1.4 km from center
+
+            // Place contacts
+            .mb-3.pb-3.border-bottom
+              h4.h5.mb-2 Contacts:
+              ul.nav.flex-column
+                li.nav-item.mb-2
+                  a(href='#').nav-link.p-0.fw-normal.d-flex.align-items-start
+                    i.fi-map-pin.mt-1.me-2.align-middle.opacity-70
+                    | Ollenhauer Str. 29, 10118, Berlin
+                li.nav-item.mb-2
+                  a(href='tel:3025550107').nav-link.d-inline-block.p-0.fw-normal.d-inline-flex.align-items-start
+                    i.fi-phone.mt-1.me-2.align-middle.opacity-70
+                    | (302) 555-0107
+                  | , 
+                  a(href='tel:3025550208').nav-link.d-inline-block.p-0.fw-normal
+                    | (302) 555-0208
+                li.nav-item.mb-2
+                  a(href='#').nav-link.p-0.fw-normal.d-flex.align-items-start
+                    i.fi-globe.mt-1.me-2.align-middle.opacity-60
+                    | bb-hotel.com
+                li.nav-item
+                  a(href='mailto:bb-hotel@example.com').nav-link.p-0.fw-normal.d-flex.align-items-start
+                    i.fi-mail.mt-1.me-2.align-middle.opacity-70
+                    | bb-hotel@example.com
+
+            // Place pricing
+            .mb-3.pb-4.border-bottom
+              .row.row-cols-1
+                .col.mb-3
+                  h4.h5.mb-0
+                    span.fs-4 $50-100&nbsp;
+                    span.fs-base.fw-normal.text-body /night
+                .col
+                  a(href='#').btn.btn-primary.btn-lg.rounded-pill.w-sm-auto.w-100
+                    | Book now
+                    i.fi-chevron-right.fs-sm.ms-2
+
+            // Place following
+            .d-flex.align-items-center
+              h4.h5.mb-0.me-3 Follow:
+              .text-nowrap
+                a(href='#').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.me-2
+                  i.fi-facebook
+                a(href='#').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.me-2
+                  i.fi-instagram
+                a(href='#').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle
+                  i.fi-twitter
+
+        // Location (Map)
+        .position-relative
+          img(src='img/city-guide/single/map-sm.jpg' alt='Map').rounded-3
+          .d-flex.w-100.h-100.flex-column.align-items-center.justify-content-center.position-absolute.top-0.start-0
+            img(src='img/city-guide/brands/hotel.svg' width='40' alt='Place logo').d-block.mx-auto.mb-4.rounded-circle.bg-white.shadow
+            a(href='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2423.924340088787!2d13.428504251724927!3d52.58906113876177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a85284201593ab%3A0x28af69e02ce0e2fc!2sBusinesshotel%20Berlin!5e0!3m2!1sru!2sua!4v1618908622013!5m2!1sru!2sua' data-iframe='true' data-bs-toggle='lightbox').btn.btn-primary.rounded-pill.stretched-link
+              i.fi-route.me-2
+              | Get directions
+
+
+  // Recently viewed
+  section.container.pb-5.mb-lg-4
+    .d-flex.align-items-center.justify-content-between.mb-4.pb-2
+      h2.h3.mb-0 Recently viewed
+      a(href='city-guide-catalog.html').btn.btn-link.fw-normal.ms-sm-3.p-0
+        | View all
+        i.fi-arrow-long-right.ms-2
+    .tns-carousel-wrapper.tns-controls-outside-xxl.tns-nav-outside.mb-xxl-2
+      .tns-carousel-inner(data-carousel-options='{"items": 3, "gutter": 24, "responsive": {"0":{"items":1,"nav":true},"500":{"items":2},"850":{"items":3},"1400":{"items":3,"nav":false}}}')
+
+        // Item
+        div
+          .position-relative
+            .position-relative.mb-3
+              button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light-primary.btn-xs.text-primary.rounded-circle.position-absolute.top-0.end-0.m-3.zindex-5
+                i.fi-heart
+              img(src='img/city-guide/catalog/09.jpg' alt='Article img').rounded-3
+            h3.mb-2.fs-lg
+              a(href='#').nav-link.stretched-link Repose Hotel
+            ul.list-inline.mb-0.fs-xs
+              li.list-inline-item.pe-1
+                i.fi-star-filled.mt-n1.me-1.fs-base.text-warning.align-middle
+                b 5.0
+                span.text-muted &nbsp;(48)
+              li.list-inline-item.pe-1
+                i.fi-credit-card.mt-n1.me-1.fs-base.text-muted.align-middle
+                | $$
+              li.list-inline-item.pe-1
+                i.fi-map-pin.mt-n1.me-1.fs-base.text-muted.align-middle
+                | 1.4 km from center
+
+        // Item
+        div
+          .position-relative
+            .position-relative.mb-3
+              button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light-primary.btn-xs.text-primary.rounded-circle.position-absolute.top-0.end-0.m-3.zindex-5
+                i.fi-heart
+              img(src='img/city-guide/catalog/05.jpg' alt='Article img').rounded-3
+            h3.mb-2.fs-lg
+              a(href='#').nav-link.stretched-link Leisure Inn
+            ul.list-inline.mb-0.fs-xs
+              li.list-inline-item.pe-1
+                i.fi-star-filled.mt-n1.me-1.fs-base.text-warning.align-middle
+                b 4.8
+                span.text-muted &nbsp;(24)
+              li.list-inline-item.pe-1
+                i.fi-credit-card.mt-n1.me-1.fs-base.text-muted.align-middle
+                | $$$
+              li.list-inline-item.pe-1
+                i.fi-map-pin.mt-n1.me-1.fs-base.text-muted.align-middle
+                | 0.5 km from center
+
+        // Item
+        div
+          .position-relative
+            .position-relative.mb-3
+              button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light-primary.btn-xs.text-primary.rounded-circle.position-absolute.top-0.end-0.m-3.zindex-5
+                i.fi-heart
+              img(src='img/city-guide/catalog/11.jpg' alt='Article img').rounded-3
+            h3.mb-2.fs-lg
+              a(href='#').nav-link.stretched-link Soothe &amp; Stay
+            ul.list-inline.mb-0.fs-xs
+              li.list-inline-item.pe-1
+                i.fi-star-filled.mt-n1.me-1.fs-base.text-warning.align-middle
+                b 4.9
+                span.text-muted &nbsp;(43)
+              li.list-inline-item.pe-1
+                i.fi-credit-card.mt-n1.me-1.fs-base.text-muted.align-middle
+                | $$$
+              li.list-inline-item.pe-1
+                i.fi-map-pin.mt-n1.me-1.fs-base.text-muted.align-middle
+                | 1.8 km from center
+
+        // Item
+        div
+          .position-relative
+            .position-relative.mb-3
+              button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light-primary.btn-xs.text-primary.rounded-circle.position-absolute.top-0.end-0.m-3.zindex-5
+                i.fi-heart
+              img(src='img/city-guide/catalog/04.jpg' alt='Article img').rounded-3
+            h3.mb-2.fs-lg
+              a(href='#').nav-link.stretched-link Merry Berry Motel
+            ul.list-inline.mb-0.fs-xs
+              li.list-inline-item.pe-1
+                i.fi-star-filled.mt-n1.me-1.fs-base.text-warning.align-middle
+                b 4.5
+                span.text-muted &nbsp;(13)
+              li.list-inline-item.pe-1
+                i.fi-credit-card.mt-n1.me-1.fs-base.text-muted.align-middle
+                | $$
+              li.list-inline-item.pe-1
+                i.fi-map-pin.mt-n1.me-1.fs-base.text-muted.align-middle
+                | 0.4 km from center
+
+
+//- Footer
+block footer
+  include partials/footer-city-guide

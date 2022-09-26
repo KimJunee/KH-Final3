@@ -1,0 +1,2067 @@
+//
+// Font Icons
+// Font generated using:
+// https://icomoon.io/app
+// --------------------------------------------------
+
+
+// Define icon code variables
+
+$ai-activity: '\e900';
+$ai-airbnb: '\e901';
+$ai-align-center: '\e902';
+$ai-align-justify: '\e903';
+$ai-align-left: '\e904';
+$ai-align-right: '\e905';
+$ai-anchor: '\e906';
+$ai-apple: '\e907';
+$ai-archive: '\e908';
+$ai-arrow-down-left: '\e909';
+$ai-arrow-down-right: '\e90a';
+$ai-arrow-down: '\e90b';
+$ai-arrow-left: '\e90c';
+$ai-arrow-right: '\e90d';
+$ai-arrow-up-left: '\e90e';
+$ai-arrow-up-right: '\e90f';
+$ai-arrow-up: '\e910';
+$ai-at: '\e911';
+$ai-award: '\e912';
+$ai-bar-chart-1: '\e913';
+$ai-bar-chart-2: '\e914';
+$ai-bar-chart-3: '\e915';
+$ai-battery-1: '\e916';
+$ai-battery-2: '\e917';
+$ai-battery-3: '\e918';
+$ai-battery-charge: '\e919';
+$ai-battery: '\e91a';
+$ai-behance: '\e91b';
+$ai-bell-minus: '\e91c';
+$ai-bell-off: '\e91d';
+$ai-bell-plus: '\e91e';
+$ai-bell: '\e91f';
+$ai-blogger: '\e920';
+$ai-bluetooth: '\e921';
+$ai-book: '\e922';
+$ai-bookmark-minus: '\e923';
+$ai-bookmark-plus: '\e924';
+$ai-bookmark: '\e925';
+$ai-box: '\e926';
+$ai-briefcase-plus: '\e927';
+$ai-briefcase: '\e928';
+$ai-bulb: '\e929';
+$ai-calendar-check: '\e92a';
+$ai-calendar-minus: '\e92b';
+$ai-calendar-plus: '\e92c';
+$ai-calendar-x: '\e92d';
+$ai-calendar: '\e92e';
+$ai-camera-off: '\e92f';
+$ai-camera: '\e930';
+$ai-capsule: '\e931';
+$ai-card: '\e932';
+$ai-cart: '\e933';
+$ai-cast: '\e934';
+$ai-check: '\e935';
+$ai-checks: '\e936';
+$ai-chevron-down: '\e937';
+$ai-chevron-left: '\e938';
+$ai-chevron-right: '\e939';
+$ai-chevron-up: '\e93a';
+$ai-chevrons-down: '\e93b';
+$ai-chevrons-left: '\e93c';
+$ai-chevrons-right: '\e93d';
+$ai-chevrons-up: '\e93e';
+$ai-chip: '\e93f';
+$ai-circle-alert: '\e940';
+$ai-circle-arrow-down: '\e941';
+$ai-circle-arrow-left: '\e942';
+$ai-circle-arrow-right: '\e943';
+$ai-circle-arrow-up: '\e944';
+$ai-circle-check: '\e945';
+$ai-circle-help: '\e946';
+$ai-circle-info: '\e947';
+$ai-circle-minus: '\e948';
+$ai-circle-plus: '\e949';
+$ai-circle-slash: '\e94a';
+$ai-circle-x: '\e94b';
+$ai-clipboard: '\e94c';
+$ai-cloud-download: '\e94d';
+$ai-cloud-drizzle: '\e94e';
+$ai-cloud-lightning: '\e94f';
+$ai-cloud-rain: '\e950';
+$ai-cloud-snow: '\e951';
+$ai-cloud-upload: '\e952';
+$ai-cloud: '\e953';
+$ai-code-curly: '\e954';
+$ai-code: '\e955';
+$ai-codepen: '\e956';
+$ai-collapse: '\e957';
+$ai-command: '\e958';
+$ai-compass: '\e959';
+$ai-copy: '\e95a';
+$ai-crop: '\e95b';
+$ai-cross: '\e95c';
+$ai-crosshair: '\e95d';
+$ai-cup-hot: '\e95e';
+$ai-cup: '\e95f';
+$ai-database: '\e960';
+$ai-delete: '\e961';
+$ai-disc: '\e962';
+$ai-discord: '\e963';
+$ai-discount: '\e964';
+$ai-dislike: '\e965';
+$ai-disqus: '\e966';
+$ai-dollar: '\e967';
+$ai-dots-horizontal: '\e968';
+$ai-dots-vertical: '\e969';
+$ai-dots: '\e96a';
+$ai-download: '\e96b';
+$ai-drawer: '\e96c';
+$ai-dribbble: '\e96d';
+$ai-dropbox: '\e96e';
+$ai-droplet: '\e96f';
+$ai-edit-alt: '\e970';
+$ai-edit: '\e971';
+$ai-emoji-happy: '\e972';
+$ai-emoji-meh: '\e973';
+$ai-emoji-sad: '\e974';
+$ai-emoji-smile: '\e975';
+$ai-emoji-surprise: '\e976';
+$ai-evernote: '\e977';
+$ai-expand: '\e978';
+$ai-external-link: '\e979';
+$ai-facebook: '\e97a';
+$ai-fast-forward: '\e97b';
+$ai-file-minus: '\e97c';
+$ai-file-plus: '\e97d';
+$ai-file-text: '\e97e';
+$ai-file: '\e97f';
+$ai-filter: '\e980';
+$ai-flag: '\e981';
+$ai-flickr: '\e982';
+$ai-folder-minus: '\e983';
+$ai-folder-plus: '\e984';
+$ai-folder: '\e985';
+$ai-foursquare: '\e986';
+$ai-gift: '\e987';
+$ai-github: '\e988';
+$ai-globe: '\e989';
+$ai-google-drive: '\e98a';
+$ai-google-play: '\e98b';
+$ai-google: '\e98c';
+$ai-grid: '\e98d';
+$ai-hangouts: '\e98e';
+$ai-hard-drive: '\e98f';
+$ai-hashtag: '\e990';
+$ai-headphone: '\e991';
+$ai-heart-filled: '\e992';
+$ai-heart: '\e993';
+$ai-help: '\e994';
+$ai-hide: '\e995';
+$ai-home: '\e996';
+$ai-horizontal-align-center: '\e997';
+$ai-horizontal-align-left: '\e998';
+$ai-horizontal-align-right: '\e999';
+$ai-image: '\e99a';
+$ai-inbox: '\e99b';
+$ai-instagram: '\e99c';
+$ai-joystick: '\e99d';
+$ai-key: '\e99e';
+$ai-kickstarter: '\e99f';
+$ai-layer: '\e9a0';
+$ai-layout-column: '\e9a1';
+$ai-layout-grid: '\e9a2';
+$ai-layout-row: '\e9a3';
+$ai-layout-side: '\e9a4';
+$ai-like: '\e9a5';
+$ai-link: '\e9a6';
+$ai-linkedin: '\e9a7';
+$ai-list: '\e9a8';
+$ai-lock-closed: '\e9a9';
+$ai-lock-open: '\e9aa';
+$ai-login: '\e9ab';
+$ai-logout: '\e9ac';
+$ai-mail: '\e9ad';
+$ai-map-pin: '\e9ae';
+$ai-map: '\e9af';
+$ai-maximize: '\e9b0';
+$ai-medium: '\e9b1';
+$ai-menu: '\e9b2';
+$ai-message-minus: '\e9b3';
+$ai-message-plus: '\e9b4';
+$ai-message: '\e9b5';
+$ai-messages: '\e9b6';
+$ai-messenger: '\e9b7';
+$ai-microphone-off: '\e9b8';
+$ai-microphone: '\e9b9';
+$ai-minimize: '\e9ba';
+$ai-mobile: '\e9bb';
+$ai-monitor: '\e9bc';
+$ai-moon: '\e9bd';
+$ai-movie: '\e9be';
+$ai-music: '\e9bf';
+$ai-note: '\e9c0';
+$ai-octagon-alert: '\e9c1';
+$ai-octagon: '\e9c2';
+$ai-odnoklassniki: '\e9c3';
+$ai-open-book: '\e9c4';
+$ai-paint-roll: '\e9c5';
+$ai-paperclip: '\e9c6';
+$ai-patreon: '\e9c7';
+$ai-pause: '\e9c8';
+$ai-paypal: '\e9c9';
+$ai-pen: '\e9ca';
+$ai-pencil: '\e9cb';
+$ai-phone-call: '\e9cc';
+$ai-phone-in: '\e9cd';
+$ai-phone-out: '\e9ce';
+$ai-phone-x: '\e9cf';
+$ai-phone: '\e9d0';
+$ai-pie-chart: '\e9d1';
+$ai-pin: '\e9d2';
+$ai-pinterest: '\e9d3';
+$ai-planet: '\e9d4';
+$ai-play-filled: '\e9d5';
+$ai-play-next: '\e9d6';
+$ai-play-previous: '\e9d7';
+$ai-play: '\e9d8';
+$ai-plug: '\e9d9';
+$ai-power: '\e9da';
+$ai-printer: '\e9db';
+$ai-pulse: '\e9dc';
+$ai-quora: '\e9dd';
+$ai-reddit: '\e9de';
+$ai-redo: '\e9df';
+$ai-refresh: '\e9e0';
+$ai-repeat: '\e9e1';
+$ai-rewind: '\e9e2';
+$ai-rotate-left: '\e9e3';
+$ai-rotate-right: '\e9e4';
+$ai-rss: '\e9e5';
+$ai-save: '\e9e6';
+$ai-scan: '\e9e7';
+$ai-search: '\e9e8';
+$ai-send: '\e9e9';
+$ai-server: '\e9ea';
+$ai-settings: '\e9eb';
+$ai-share: '\e9ec';
+$ai-shield: '\e9ed';
+$ai-shopping-bag: '\e9ee';
+$ai-show: '\e9ef';
+$ai-shuffle: '\e9f0';
+$ai-skype: '\e9f1';
+$ai-slack: '\e9f2';
+$ai-slider: '\e9f3';
+$ai-snapchat: '\e9f4';
+$ai-soundcloud: '\e9f5';
+$ai-speaker: '\e9f6';
+$ai-spotify: '\e9f7';
+$ai-square-info: '\e9f8';
+$ai-square-minus: '\e9f9';
+$ai-square-plus: '\e9fa';
+$ai-square-x: '\e9fb';
+$ai-square: '\e9fc';
+$ai-stack-overflow: '\e9fd';
+$ai-star-filled: '\e9fe';
+$ai-star-half: '\e9ff';
+$ai-star: '\ea00';
+$ai-steam: '\ea01';
+$ai-sticker: '\ea02';
+$ai-sun: '\ea03';
+$ai-table-column: '\ea04';
+$ai-table-row: '\ea05';
+$ai-table: '\ea06';
+$ai-tablet: '\ea07';
+$ai-tag: '\ea08';
+$ai-telegram: '\ea09';
+$ai-terminal: '\ea0a';
+$ai-time: '\ea0b';
+$ai-tinder: '\ea0c';
+$ai-toggle-left: '\ea0d';
+$ai-toggle-right: '\ea0e';
+$ai-tool: '\ea0f';
+$ai-trash: '\ea10';
+$ai-trello: '\ea11';
+$ai-triangle-alert: '\ea12';
+$ai-triangle: '\ea13';
+$ai-tumblr: '\ea14';
+$ai-twitch: '\ea15';
+$ai-twitter: '\ea16';
+$ai-undo: '\ea17';
+$ai-upload: '\ea18';
+$ai-user-check: '\ea19';
+$ai-user-group: '\ea1a';
+$ai-user-minus: '\ea1b';
+$ai-user-plus: '\ea1c';
+$ai-user-x: '\ea1d';
+$ai-user: '\ea1e';
+$ai-vertical-align-bottom: '\ea1f';
+$ai-vertical-align-center: '\ea20';
+$ai-vertical-align-top: '\ea21';
+$ai-viber: '\ea22';
+$ai-video-off: '\ea23';
+$ai-video: '\ea24';
+$ai-vimeo: '\ea25';
+$ai-vk: '\ea26';
+$ai-volume-1: '\ea27';
+$ai-volume-2: '\ea28';
+$ai-volume-x: '\ea29';
+$ai-volume: '\ea2a';
+$ai-vote-down: '\ea2b';
+$ai-vote-up: '\ea2c';
+$ai-wallet: '\ea2d';
+$ai-wechat: '\ea2e';
+$ai-whatsapp: '\ea2f';
+$ai-wifi-off: '\ea30';
+$ai-wifi: '\ea31';
+$ai-wordpress: '\ea32';
+$ai-xing: '\ea33';
+$ai-yelp: '\ea34';
+$ai-youtube: '\ea35';
+$ai-zoom-in: '\ea36';
+$ai-zoom-out: '\ea37';
+$ai-bulb-alt: '\ea38';
+$ai-chart: '\ea39';
+$ai-check-alt: '\ea3a';
+$ai-circle-check-filled: '\ea3b';
+$ai-dashboard: '\ea3c';
+$ai-mail-filled: '\ea3d';
+$ai-rocket: '\ea3e';
+$ai-quotes: '\ea3f';
+$ai-search-settings: '\ea40';
+$ai-settings-filled: '\ea41';
+$ai-tiktok: '\ea42';
+$ai-zoom: '\ea43';
+$ai-cross-alt: '\ea44';
+$ai-cafe: '\ea45';
+$ai-flower: '\ea46';
+$ai-rug: '\ea47';
+$ai-sofa: '\ea48';
+$ai-spa: '\ea49';
+$ai-towel: '\ea4a';
+$ai-plus: '\ea4b';
+$ai-canteen: '\ea4c';
+$ai-clock: '\ea4d';
+$ai-parking: '\ea4e';
+$ai-shower: '\ea4f';
+$ai-space: '\ea50';
+$ai-stairs: '\ea51';
+
+
+// Icons styles
+
+@font-face {
+  font-family: $icons-font-family;
+  src:
+    url('#{$icons-font-path}/#{$icons-font-family}.ttf?den6mh') format('truetype'),
+    url('#{$icons-font-path}/#{$icons-font-family}.woff?den6mh') format('woff'),
+    url('#{$icons-font-path}/#{$icons-font-family}.svg?den6mh##{$icons-font-family}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^='ai-'], [class*=' ai-'],
+[class^='bi-'], [class*=' bi-'] {
+  display: inline-block;
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '#{$icons-font-family}' !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+.ai-activity {
+  &:before {
+    content: $ai-activity; 
+  }
+}
+.ai-airbnb {
+  &:before {
+    content: $ai-airbnb; 
+  }
+}
+.ai-align-center {
+  &:before {
+    content: $ai-align-center; 
+  }
+}
+.ai-align-justify {
+  &:before {
+    content: $ai-align-justify; 
+  }
+}
+.ai-align-left {
+  &:before {
+    content: $ai-align-left; 
+  }
+}
+.ai-align-right {
+  &:before {
+    content: $ai-align-right; 
+  }
+}
+.ai-anchor {
+  &:before {
+    content: $ai-anchor; 
+  }
+}
+.ai-apple {
+  &:before {
+    content: $ai-apple; 
+  }
+}
+.ai-archive {
+  &:before {
+    content: $ai-archive; 
+  }
+}
+.ai-arrow-down-left {
+  &:before {
+    content: $ai-arrow-down-left; 
+  }
+}
+.ai-arrow-down-right {
+  &:before {
+    content: $ai-arrow-down-right; 
+  }
+}
+.ai-arrow-down {
+  &:before {
+    content: $ai-arrow-down; 
+  }
+}
+.ai-arrow-left {
+  &:before {
+    content: $ai-arrow-left; 
+  }
+}
+.ai-arrow-right {
+  &:before {
+    content: $ai-arrow-right; 
+  }
+}
+.ai-arrow-up-left {
+  &:before {
+    content: $ai-arrow-up-left; 
+  }
+}
+.ai-arrow-up-right {
+  &:before {
+    content: $ai-arrow-up-right; 
+  }
+}
+.ai-arrow-up {
+  &:before {
+    content: $ai-arrow-up; 
+  }
+}
+.ai-at {
+  &:before {
+    content: $ai-at; 
+  }
+}
+.ai-award {
+  &:before {
+    content: $ai-award; 
+  }
+}
+.ai-bar-chart-1 {
+  &:before {
+    content: $ai-bar-chart-1; 
+  }
+}
+.ai-bar-chart-2 {
+  &:before {
+    content: $ai-bar-chart-2; 
+  }
+}
+.ai-bar-chart-3 {
+  &:before {
+    content: $ai-bar-chart-3; 
+  }
+}
+.ai-battery-1 {
+  &:before {
+    content: $ai-battery-1; 
+  }
+}
+.ai-battery-2 {
+  &:before {
+    content: $ai-battery-2; 
+  }
+}
+.ai-battery-3 {
+  &:before {
+    content: $ai-battery-3; 
+  }
+}
+.ai-battery-charge {
+  &:before {
+    content: $ai-battery-charge; 
+  }
+}
+.ai-battery {
+  &:before {
+    content: $ai-battery; 
+  }
+}
+.ai-behance {
+  &:before {
+    content: $ai-behance; 
+  }
+}
+.ai-bell-minus {
+  &:before {
+    content: $ai-bell-minus; 
+  }
+}
+.ai-bell-off {
+  &:before {
+    content: $ai-bell-off; 
+  }
+}
+.ai-bell-plus {
+  &:before {
+    content: $ai-bell-plus; 
+  }
+}
+.ai-bell {
+  &:before {
+    content: $ai-bell; 
+  }
+}
+.ai-blogger {
+  &:before {
+    content: $ai-blogger; 
+  }
+}
+.ai-bluetooth {
+  &:before {
+    content: $ai-bluetooth; 
+  }
+}
+.ai-book {
+  &:before {
+    content: $ai-book; 
+  }
+}
+.ai-bookmark-minus {
+  &:before {
+    content: $ai-bookmark-minus; 
+  }
+}
+.ai-bookmark-plus {
+  &:before {
+    content: $ai-bookmark-plus; 
+  }
+}
+.ai-bookmark {
+  &:before {
+    content: $ai-bookmark; 
+  }
+}
+.ai-box {
+  &:before {
+    content: $ai-box; 
+  }
+}
+.ai-briefcase-plus {
+  &:before {
+    content: $ai-briefcase-plus; 
+  }
+}
+.ai-briefcase {
+  &:before {
+    content: $ai-briefcase; 
+  }
+}
+.ai-bulb {
+  &:before {
+    content: $ai-bulb; 
+  }
+}
+.ai-calendar-check {
+  &:before {
+    content: $ai-calendar-check; 
+  }
+}
+.ai-calendar-minus {
+  &:before {
+    content: $ai-calendar-minus; 
+  }
+}
+.ai-calendar-plus {
+  &:before {
+    content: $ai-calendar-plus; 
+  }
+}
+.ai-calendar-x {
+  &:before {
+    content: $ai-calendar-x; 
+  }
+}
+.ai-calendar {
+  &:before {
+    content: $ai-calendar; 
+  }
+}
+.ai-camera-off {
+  &:before {
+    content: $ai-camera-off; 
+  }
+}
+.ai-camera {
+  &:before {
+    content: $ai-camera; 
+  }
+}
+.ai-capsule {
+  &:before {
+    content: $ai-capsule; 
+  }
+}
+.ai-card {
+  &:before {
+    content: $ai-card; 
+  }
+}
+.ai-cart {
+  &:before {
+    content: $ai-cart; 
+  }
+}
+.ai-cast {
+  &:before {
+    content: $ai-cast; 
+  }
+}
+.ai-check {
+  &:before {
+    content: $ai-check; 
+  }
+}
+.ai-checks {
+  &:before {
+    content: $ai-checks; 
+  }
+}
+.ai-chevron-down {
+  &:before {
+    content: $ai-chevron-down; 
+  }
+}
+.ai-chevron-left,
+.bi-chevron-left {
+  &:before {
+    content: $ai-chevron-left; 
+  }
+}
+.ai-chevron-right,
+.bi-chevron-right {
+  &:before {
+    content: $ai-chevron-right; 
+  }
+}
+.ai-chevron-up {
+  &:before {
+    content: $ai-chevron-up; 
+  }
+}
+.ai-chevrons-down {
+  &:before {
+    content: $ai-chevrons-down; 
+  }
+}
+.ai-chevrons-left {
+  &:before {
+    content: $ai-chevrons-left; 
+  }
+}
+.ai-chevrons-right {
+  &:before {
+    content: $ai-chevrons-right; 
+  }
+}
+.ai-chevrons-up {
+  &:before {
+    content: $ai-chevrons-up; 
+  }
+}
+.ai-chip {
+  &:before {
+    content: $ai-chip; 
+  }
+}
+.ai-circle-alert {
+  &:before {
+    content: $ai-circle-alert; 
+  }
+}
+.ai-circle-arrow-down {
+  &:before {
+    content: $ai-circle-arrow-down; 
+  }
+}
+.ai-circle-arrow-left {
+  &:before {
+    content: $ai-circle-arrow-left; 
+  }
+}
+.ai-circle-arrow-right {
+  &:before {
+    content: $ai-circle-arrow-right; 
+  }
+}
+.ai-circle-arrow-up {
+  &:before {
+    content: $ai-circle-arrow-up; 
+  }
+}
+.ai-circle-check {
+  &:before {
+    content: $ai-circle-check; 
+  }
+}
+.ai-circle-help {
+  &:before {
+    content: $ai-circle-help; 
+  }
+}
+.ai-circle-info {
+  &:before {
+    content: $ai-circle-info; 
+  }
+}
+.ai-circle-minus {
+  &:before {
+    content: $ai-circle-minus; 
+  }
+}
+.ai-circle-plus {
+  &:before {
+    content: $ai-circle-plus; 
+  }
+}
+.ai-circle-slash {
+  &:before {
+    content: $ai-circle-slash; 
+  }
+}
+.ai-circle-x {
+  &:before {
+    content: $ai-circle-x; 
+  }
+}
+.ai-clipboard {
+  &:before {
+    content: $ai-clipboard; 
+  }
+}
+.ai-cloud-download {
+  &:before {
+    content: $ai-cloud-download; 
+  }
+}
+.ai-cloud-drizzle {
+  &:before {
+    content: $ai-cloud-drizzle; 
+  }
+}
+.ai-cloud-lightning {
+  &:before {
+    content: $ai-cloud-lightning; 
+  }
+}
+.ai-cloud-rain {
+  &:before {
+    content: $ai-cloud-rain; 
+  }
+}
+.ai-cloud-snow {
+  &:before {
+    content: $ai-cloud-snow; 
+  }
+}
+.ai-cloud-upload {
+  &:before {
+    content: $ai-cloud-upload; 
+  }
+}
+.ai-cloud {
+  &:before {
+    content: $ai-cloud; 
+  }
+}
+.ai-code-curly {
+  &:before {
+    content: $ai-code-curly; 
+  }
+}
+.ai-code {
+  &:before {
+    content: $ai-code; 
+  }
+}
+.ai-codepen {
+  &:before {
+    content: $ai-codepen; 
+  }
+}
+.ai-collapse {
+  &:before {
+    content: $ai-collapse; 
+  }
+}
+.ai-command {
+  &:before {
+    content: $ai-command; 
+  }
+}
+.ai-compass {
+  &:before {
+    content: $ai-compass; 
+  }
+}
+.ai-copy {
+  &:before {
+    content: $ai-copy; 
+  }
+}
+.ai-crop {
+  &:before {
+    content: $ai-crop; 
+  }
+}
+.ai-cross {
+  &:before {
+    content: $ai-cross; 
+  }
+}
+.ai-crosshair {
+  &:before {
+    content: $ai-crosshair; 
+  }
+}
+.ai-cup-hot {
+  &:before {
+    content: $ai-cup-hot; 
+  }
+}
+.ai-cup {
+  &:before {
+    content: $ai-cup; 
+  }
+}
+.ai-database {
+  &:before {
+    content: $ai-database; 
+  }
+}
+.ai-delete {
+  &:before {
+    content: $ai-delete; 
+  }
+}
+.ai-disc {
+  &:before {
+    content: $ai-disc; 
+  }
+}
+.ai-discord {
+  &:before {
+    content: $ai-discord; 
+  }
+}
+.ai-discount {
+  &:before {
+    content: $ai-discount; 
+  }
+}
+.ai-dislike {
+  &:before {
+    content: $ai-dislike; 
+  }
+}
+.ai-disqus {
+  &:before {
+    content: $ai-disqus; 
+  }
+}
+.ai-dollar {
+  &:before {
+    content: $ai-dollar; 
+  }
+}
+.ai-dots-horizontal {
+  &:before {
+    content: $ai-dots-horizontal; 
+  }
+}
+.ai-dots-vertical {
+  &:before {
+    content: $ai-dots-vertical; 
+  }
+}
+.ai-dots {
+  &:before {
+    content: $ai-dots; 
+  }
+}
+.ai-download {
+  &:before {
+    content: $ai-download; 
+  }
+}
+.ai-drawer {
+  &:before {
+    content: $ai-drawer; 
+  }
+}
+.ai-dribbble {
+  &:before {
+    content: $ai-dribbble; 
+  }
+}
+.ai-dropbox {
+  &:before {
+    content: $ai-dropbox; 
+  }
+}
+.ai-droplet {
+  &:before {
+    content: $ai-droplet; 
+  }
+}
+.ai-edit-alt {
+  &:before {
+    content: $ai-edit-alt; 
+  }
+}
+.ai-edit {
+  &:before {
+    content: $ai-edit; 
+  }
+}
+.ai-emoji-happy {
+  &:before {
+    content: $ai-emoji-happy; 
+  }
+}
+.ai-emoji-meh {
+  &:before {
+    content: $ai-emoji-meh; 
+  }
+}
+.ai-emoji-sad {
+  &:before {
+    content: $ai-emoji-sad; 
+  }
+}
+.ai-emoji-smile {
+  &:before {
+    content: $ai-emoji-smile; 
+  }
+}
+.ai-emoji-surprise {
+  &:before {
+    content: $ai-emoji-surprise; 
+  }
+}
+.ai-evernote {
+  &:before {
+    content: $ai-evernote; 
+  }
+}
+.ai-expand {
+  &:before {
+    content: $ai-expand; 
+  }
+}
+.ai-external-link {
+  &:before {
+    content: $ai-external-link; 
+  }
+}
+.ai-facebook {
+  &:before {
+    content: $ai-facebook; 
+  }
+}
+.ai-fast-forward {
+  &:before {
+    content: $ai-fast-forward; 
+  }
+}
+.ai-file-minus {
+  &:before {
+    content: $ai-file-minus; 
+  }
+}
+.ai-file-plus {
+  &:before {
+    content: $ai-file-plus; 
+  }
+}
+.ai-file-text {
+  &:before {
+    content: $ai-file-text; 
+  }
+}
+.ai-file {
+  &:before {
+    content: $ai-file; 
+  }
+}
+.ai-filter {
+  &:before {
+    content: $ai-filter; 
+  }
+}
+.ai-flag {
+  &:before {
+    content: $ai-flag; 
+  }
+}
+.ai-flickr {
+  &:before {
+    content: $ai-flickr; 
+  }
+}
+.ai-folder-minus {
+  &:before {
+    content: $ai-folder-minus; 
+  }
+}
+.ai-folder-plus {
+  &:before {
+    content: $ai-folder-plus; 
+  }
+}
+.ai-folder {
+  &:before {
+    content: $ai-folder; 
+  }
+}
+.ai-foursquare {
+  &:before {
+    content: $ai-foursquare; 
+  }
+}
+.ai-gift {
+  &:before {
+    content: $ai-gift; 
+  }
+}
+.ai-github {
+  &:before {
+    content: $ai-github; 
+  }
+}
+.ai-globe {
+  &:before {
+    content: $ai-globe; 
+  }
+}
+.ai-google-drive {
+  &:before {
+    content: $ai-google-drive; 
+  }
+}
+.ai-google-play {
+  &:before {
+    content: $ai-google-play; 
+  }
+}
+.ai-google {
+  &:before {
+    content: $ai-google; 
+  }
+}
+.ai-grid {
+  &:before {
+    content: $ai-grid; 
+  }
+}
+.ai-hangouts {
+  &:before {
+    content: $ai-hangouts; 
+  }
+}
+.ai-hard-drive {
+  &:before {
+    content: $ai-hard-drive; 
+  }
+}
+.ai-hashtag {
+  &:before {
+    content: $ai-hashtag; 
+  }
+}
+.ai-headphone {
+  &:before {
+    content: $ai-headphone; 
+  }
+}
+.ai-heart-filled {
+  &:before {
+    content: $ai-heart-filled; 
+  }
+}
+.ai-heart {
+  &:before {
+    content: $ai-heart; 
+  }
+}
+.ai-help {
+  &:before {
+    content: $ai-help; 
+  }
+}
+.ai-hide {
+  &:before {
+    content: $ai-hide; 
+  }
+}
+.ai-home {
+  &:before {
+    content: $ai-home; 
+  }
+}
+.ai-horizontal-align-center {
+  &:before {
+    content: $ai-horizontal-align-center; 
+  }
+}
+.ai-horizontal-align-left {
+  &:before {
+    content: $ai-horizontal-align-left; 
+  }
+}
+.ai-horizontal-align-right {
+  &:before {
+    content: $ai-horizontal-align-right; 
+  }
+}
+.ai-image {
+  &:before {
+    content: $ai-image; 
+  }
+}
+.ai-inbox {
+  &:before {
+    content: $ai-inbox; 
+  }
+}
+.ai-instagram {
+  &:before {
+    content: $ai-instagram; 
+  }
+}
+.ai-joystick {
+  &:before {
+    content: $ai-joystick; 
+  }
+}
+.ai-key {
+  &:before {
+    content: $ai-key; 
+  }
+}
+.ai-kickstarter {
+  &:before {
+    content: $ai-kickstarter; 
+  }
+}
+.ai-layer {
+  &:before {
+    content: $ai-layer; 
+  }
+}
+.ai-layout-column {
+  &:before {
+    content: $ai-layout-column; 
+  }
+}
+.ai-layout-grid {
+  &:before {
+    content: $ai-layout-grid; 
+  }
+}
+.ai-layout-row {
+  &:before {
+    content: $ai-layout-row; 
+  }
+}
+.ai-layout-side {
+  &:before {
+    content: $ai-layout-side; 
+  }
+}
+.ai-like {
+  &:before {
+    content: $ai-like; 
+  }
+}
+.ai-link {
+  &:before {
+    content: $ai-link; 
+  }
+}
+.ai-linkedin {
+  &:before {
+    content: $ai-linkedin; 
+  }
+}
+.ai-list {
+  &:before {
+    content: $ai-list; 
+  }
+}
+.ai-lock-closed {
+  &:before {
+    content: $ai-lock-closed; 
+  }
+}
+.ai-lock-open {
+  &:before {
+    content: $ai-lock-open; 
+  }
+}
+.ai-login {
+  &:before {
+    content: $ai-login; 
+  }
+}
+.ai-logout {
+  &:before {
+    content: $ai-logout; 
+  }
+}
+.ai-mail {
+  &:before {
+    content: $ai-mail; 
+  }
+}
+.ai-map-pin {
+  &:before {
+    content: $ai-map-pin; 
+  }
+}
+.ai-map {
+  &:before {
+    content: $ai-map; 
+  }
+}
+.ai-maximize {
+  &:before {
+    content: $ai-maximize; 
+  }
+}
+.ai-medium {
+  &:before {
+    content: $ai-medium; 
+  }
+}
+.ai-menu {
+  &:before {
+    content: $ai-menu; 
+  }
+}
+.ai-message-minus {
+  &:before {
+    content: $ai-message-minus; 
+  }
+}
+.ai-message-plus {
+  &:before {
+    content: $ai-message-plus; 
+  }
+}
+.ai-message {
+  &:before {
+    content: $ai-message; 
+  }
+}
+.ai-messages {
+  &:before {
+    content: $ai-messages; 
+  }
+}
+.ai-messenger {
+  &:before {
+    content: $ai-messenger; 
+  }
+}
+.ai-microphone-off {
+  &:before {
+    content: $ai-microphone-off; 
+  }
+}
+.ai-microphone {
+  &:before {
+    content: $ai-microphone; 
+  }
+}
+.ai-minimize {
+  &:before {
+    content: $ai-minimize; 
+  }
+}
+.ai-mobile {
+  &:before {
+    content: $ai-mobile; 
+  }
+}
+.ai-monitor {
+  &:before {
+    content: $ai-monitor; 
+  }
+}
+.ai-moon {
+  &:before {
+    content: $ai-moon; 
+  }
+}
+.ai-movie {
+  &:before {
+    content: $ai-movie; 
+  }
+}
+.ai-music {
+  &:before {
+    content: $ai-music; 
+  }
+}
+.ai-note {
+  &:before {
+    content: $ai-note; 
+  }
+}
+.ai-octagon-alert {
+  &:before {
+    content: $ai-octagon-alert; 
+  }
+}
+.ai-octagon {
+  &:before {
+    content: $ai-octagon; 
+  }
+}
+.ai-odnoklassniki {
+  &:before {
+    content: $ai-odnoklassniki; 
+  }
+}
+.ai-open-book {
+  &:before {
+    content: $ai-open-book; 
+  }
+}
+.ai-paint-roll {
+  &:before {
+    content: $ai-paint-roll; 
+  }
+}
+.ai-paperclip {
+  &:before {
+    content: $ai-paperclip; 
+  }
+}
+.ai-patreon {
+  &:before {
+    content: $ai-patreon; 
+  }
+}
+.ai-pause {
+  &:before {
+    content: $ai-pause; 
+  }
+}
+.ai-paypal {
+  &:before {
+    content: $ai-paypal; 
+  }
+}
+.ai-pen {
+  &:before {
+    content: $ai-pen; 
+  }
+}
+.ai-pencil {
+  &:before {
+    content: $ai-pencil; 
+  }
+}
+.ai-phone-call {
+  &:before {
+    content: $ai-phone-call; 
+  }
+}
+.ai-phone-in {
+  &:before {
+    content: $ai-phone-in; 
+  }
+}
+.ai-phone-out {
+  &:before {
+    content: $ai-phone-out; 
+  }
+}
+.ai-phone-x {
+  &:before {
+    content: $ai-phone-x; 
+  }
+}
+.ai-phone {
+  &:before {
+    content: $ai-phone; 
+  }
+}
+.ai-pie-chart {
+  &:before {
+    content: $ai-pie-chart; 
+  }
+}
+.ai-pin {
+  &:before {
+    content: $ai-pin; 
+  }
+}
+.ai-pinterest {
+  &:before {
+    content: $ai-pinterest; 
+  }
+}
+.ai-planet {
+  &:before {
+    content: $ai-planet; 
+  }
+}
+.ai-play-filled {
+  &:before {
+    content: $ai-play-filled; 
+  }
+}
+.ai-play-next {
+  &:before {
+    content: $ai-play-next; 
+  }
+}
+.ai-play-previous {
+  &:before {
+    content: $ai-play-previous; 
+  }
+}
+.ai-play {
+  &:before {
+    content: $ai-play; 
+  }
+}
+.ai-plug {
+  &:before {
+    content: $ai-plug; 
+  }
+}
+.ai-power {
+  &:before {
+    content: $ai-power; 
+  }
+}
+.ai-printer {
+  &:before {
+    content: $ai-printer; 
+  }
+}
+.ai-pulse {
+  &:before {
+    content: $ai-pulse; 
+  }
+}
+.ai-quora {
+  &:before {
+    content: $ai-quora; 
+  }
+}
+.ai-reddit {
+  &:before {
+    content: $ai-reddit; 
+  }
+}
+.ai-redo {
+  &:before {
+    content: $ai-redo; 
+  }
+}
+.ai-refresh {
+  &:before {
+    content: $ai-refresh; 
+  }
+}
+.ai-repeat {
+  &:before {
+    content: $ai-repeat; 
+  }
+}
+.ai-rewind {
+  &:before {
+    content: $ai-rewind; 
+  }
+}
+.ai-rotate-left {
+  &:before {
+    content: $ai-rotate-left; 
+  }
+}
+.ai-rotate-right {
+  &:before {
+    content: $ai-rotate-right; 
+  }
+}
+.ai-rss {
+  &:before {
+    content: $ai-rss; 
+  }
+}
+.ai-save {
+  &:before {
+    content: $ai-save; 
+  }
+}
+.ai-scan {
+  &:before {
+    content: $ai-scan; 
+  }
+}
+.ai-search {
+  &:before {
+    content: $ai-search; 
+  }
+}
+.ai-send {
+  &:before {
+    content: $ai-send; 
+  }
+}
+.ai-server {
+  &:before {
+    content: $ai-server; 
+  }
+}
+.ai-settings {
+  &:before {
+    content: $ai-settings; 
+  }
+}
+.ai-share {
+  &:before {
+    content: $ai-share; 
+  }
+}
+.ai-shield {
+  &:before {
+    content: $ai-shield; 
+  }
+}
+.ai-shopping-bag {
+  &:before {
+    content: $ai-shopping-bag; 
+  }
+}
+.ai-show {
+  &:before {
+    content: $ai-show; 
+  }
+}
+.ai-shuffle {
+  &:before {
+    content: $ai-shuffle; 
+  }
+}
+.ai-skype {
+  &:before {
+    content: $ai-skype; 
+  }
+}
+.ai-slack {
+  &:before {
+    content: $ai-slack; 
+  }
+}
+.ai-slider {
+  &:before {
+    content: $ai-slider; 
+  }
+}
+.ai-snapchat {
+  &:before {
+    content: $ai-snapchat; 
+  }
+}
+.ai-soundcloud {
+  &:before {
+    content: $ai-soundcloud; 
+  }
+}
+.ai-speaker {
+  &:before {
+    content: $ai-speaker; 
+  }
+}
+.ai-spotify {
+  &:before {
+    content: $ai-spotify; 
+  }
+}
+.ai-square-info {
+  &:before {
+    content: $ai-square-info; 
+  }
+}
+.ai-square-minus {
+  &:before {
+    content: $ai-square-minus; 
+  }
+}
+.ai-square-plus {
+  &:before {
+    content: $ai-square-plus; 
+  }
+}
+.ai-square-x {
+  &:before {
+    content: $ai-square-x; 
+  }
+}
+.ai-square {
+  &:before {
+    content: $ai-square; 
+  }
+}
+.ai-stack-overflow {
+  &:before {
+    content: $ai-stack-overflow; 
+  }
+}
+.ai-star-filled {
+  &:before {
+    content: $ai-star-filled; 
+  }
+}
+.ai-star-half {
+  &:before {
+    content: $ai-star-half; 
+  }
+}
+.ai-star {
+  &:before {
+    content: $ai-star; 
+  }
+}
+.ai-steam {
+  &:before {
+    content: $ai-steam; 
+  }
+}
+.ai-sticker {
+  &:before {
+    content: $ai-sticker; 
+  }
+}
+.ai-sun {
+  &:before {
+    content: $ai-sun; 
+  }
+}
+.ai-table-column {
+  &:before {
+    content: $ai-table-column; 
+  }
+}
+.ai-table-row {
+  &:before {
+    content: $ai-table-row; 
+  }
+}
+.ai-table {
+  &:before {
+    content: $ai-table; 
+  }
+}
+.ai-tablet {
+  &:before {
+    content: $ai-tablet; 
+  }
+}
+.ai-tag {
+  &:before {
+    content: $ai-tag; 
+  }
+}
+.ai-telegram {
+  &:before {
+    content: $ai-telegram; 
+  }
+}
+.ai-terminal {
+  &:before {
+    content: $ai-terminal; 
+  }
+}
+.ai-time {
+  &:before {
+    content: $ai-time; 
+  }
+}
+.ai-tinder {
+  &:before {
+    content: $ai-tinder; 
+  }
+}
+.ai-toggle-left {
+  &:before {
+    content: $ai-toggle-left; 
+  }
+}
+.ai-toggle-right {
+  &:before {
+    content: $ai-toggle-right; 
+  }
+}
+.ai-tool {
+  &:before {
+    content: $ai-tool; 
+  }
+}
+.ai-trash {
+  &:before {
+    content: $ai-trash; 
+  }
+}
+.ai-trello {
+  &:before {
+    content: $ai-trello; 
+  }
+}
+.ai-triangle-alert {
+  &:before {
+    content: $ai-triangle-alert; 
+  }
+}
+.ai-triangle {
+  &:before {
+    content: $ai-triangle; 
+  }
+}
+.ai-tumblr {
+  &:before {
+    content: $ai-tumblr; 
+  }
+}
+.ai-twitch {
+  &:before {
+    content: $ai-twitch; 
+  }
+}
+.ai-twitter {
+  &:before {
+    content: $ai-twitter; 
+  }
+}
+.ai-undo {
+  &:before {
+    content: $ai-undo; 
+  }
+}
+.ai-upload {
+  &:before {
+    content: $ai-upload; 
+  }
+}
+.ai-user-check {
+  &:before {
+    content: $ai-user-check; 
+  }
+}
+.ai-user-group {
+  &:before {
+    content: $ai-user-group; 
+  }
+}
+.ai-user-minus {
+  &:before {
+    content: $ai-user-minus; 
+  }
+}
+.ai-user-plus {
+  &:before {
+    content: $ai-user-plus; 
+  }
+}
+.ai-user-x {
+  &:before {
+    content: $ai-user-x; 
+  }
+}
+.ai-user {
+  &:before {
+    content: $ai-user; 
+  }
+}
+.ai-vertical-align-bottom {
+  &:before {
+    content: $ai-vertical-align-bottom; 
+  }
+}
+.ai-vertical-align-center {
+  &:before {
+    content: $ai-vertical-align-center; 
+  }
+}
+.ai-vertical-align-top {
+  &:before {
+    content: $ai-vertical-align-top; 
+  }
+}
+.ai-viber {
+  &:before {
+    content: $ai-viber; 
+  }
+}
+.ai-video-off {
+  &:before {
+    content: $ai-video-off; 
+  }
+}
+.ai-video {
+  &:before {
+    content: $ai-video; 
+  }
+}
+.ai-vimeo {
+  &:before {
+    content: $ai-vimeo; 
+  }
+}
+.ai-vk {
+  &:before {
+    content: $ai-vk; 
+  }
+}
+.ai-volume-1 {
+  &:before {
+    content: $ai-volume-1; 
+  }
+}
+.ai-volume-2 {
+  &:before {
+    content: $ai-volume-2; 
+  }
+}
+.ai-volume-x {
+  &:before {
+    content: $ai-volume-x; 
+  }
+}
+.ai-volume {
+  &:before {
+    content: $ai-volume; 
+  }
+}
+.ai-vote-down {
+  &:before {
+    content: $ai-vote-down; 
+  }
+}
+.ai-vote-up {
+  &:before {
+    content: $ai-vote-up; 
+  }
+}
+.ai-wallet {
+  &:before {
+    content: $ai-wallet; 
+  }
+}
+.ai-wechat {
+  &:before {
+    content: $ai-wechat; 
+  }
+}
+.ai-whatsapp {
+  &:before {
+    content: $ai-whatsapp; 
+  }
+}
+.ai-wifi-off {
+  &:before {
+    content: $ai-wifi-off; 
+  }
+}
+.ai-wifi {
+  &:before {
+    content: $ai-wifi; 
+  }
+}
+.ai-wordpress {
+  &:before {
+    content: $ai-wordpress; 
+  }
+}
+.ai-xing {
+  &:before {
+    content: $ai-xing; 
+  }
+}
+.ai-yelp {
+  &:before {
+    content: $ai-yelp; 
+  }
+}
+.ai-youtube {
+  &:before {
+    content: $ai-youtube; 
+  }
+}
+.ai-zoom-in {
+  &:before {
+    content: $ai-zoom-in; 
+  }
+}
+.ai-zoom-out {
+  &:before {
+    content: $ai-zoom-out; 
+  }
+}
+.ai-bulb-alt {
+  &:before {
+    content: $ai-bulb-alt; 
+  }
+}
+.ai-chart {
+  &:before {
+    content: $ai-chart; 
+  }
+}
+.ai-check-alt {
+  &:before {
+    content: $ai-check-alt; 
+  }
+}
+.ai-circle-check-filled {
+  &:before {
+    content: $ai-circle-check-filled; 
+  }
+}
+.ai-dashboard {
+  &:before {
+    content: $ai-dashboard; 
+  }
+}
+.ai-mail-filled {
+  &:before {
+    content: $ai-mail-filled; 
+  }
+}
+.ai-rocket {
+  &:before {
+    content: $ai-rocket; 
+  }
+}
+.ai-quotes {
+  &:before {
+    content: $ai-quotes; 
+  }
+}
+.ai-search-settings {
+  &:before {
+    content: $ai-search-settings; 
+  }
+}
+.ai-settings-filled {
+  &:before {
+    content: $ai-settings-filled; 
+  }
+}
+.ai-tiktok {
+  &:before {
+    content: $ai-tiktok; 
+  }
+}
+.ai-zoom {
+  &:before {
+    content: $ai-zoom; 
+  }
+}
+.ai-cross-alt {
+  &:before {
+    content: $ai-cross-alt; 
+  }
+}
+.ai-cafe {
+  &:before {
+    content: $ai-cafe; 
+  }
+}
+.ai-flower {
+  &:before {
+    content: $ai-flower; 
+  }
+}
+.ai-rug {
+  &:before {
+    content: $ai-rug; 
+  }
+}
+.ai-sofa {
+  &:before {
+    content: $ai-sofa; 
+  }
+}
+.ai-spa {
+  &:before {
+    content: $ai-spa; 
+  }
+}
+.ai-towel {
+  &:before {
+    content: $ai-towel; 
+  }
+}
+.ai-plus {
+  &:before {
+    content: $ai-plus; 
+  }
+}
+.ai-canteen {
+  &:before {
+    content: $ai-canteen; 
+  }
+}
+.ai-clock {
+  &:before {
+    content: $ai-clock; 
+  }
+}
+.ai-parking {
+  &:before {
+    content: $ai-parking; 
+  }
+}
+.ai-shower {
+  &:before {
+    content: $ai-shower; 
+  }
+}
+.ai-space {
+  &:before {
+    content: $ai-space; 
+  }
+}
+.ai-stairs {
+  &:before {
+    content: $ai-stairs; 
+  }
+}

@@ -1,0 +1,48 @@
+//- Include config.pug file that holds all variables
+block config
+  include ../helpers/config
+
+//- Mixins - reusable code snippets
+include ../helpers/mixins
+
+doctype html
+html(lang='en')
+
+  //- head.pug template
+  include head 
+  
+  // Body
+  body()&attributes(bodyAttributes)
+
+    if isPageLoading
+      // Page loading spinner
+      .page-loading.active
+        .page-loading-inner
+          .page-spinner
+          span Loading...
+
+    // Page wrapper
+    main.page-wrapper
+
+      //- Navbar template
+      block navbar
+
+      // Page content
+      block content
+
+    //- Footer template
+    block footer
+
+    // Back to top button
+    a(href='#top' data-scroll).btn-scroll-top
+      svg(viewBox='0 0 40 40' fill='currentColor' xmlns='http://www.w3.org/2000/svg')
+        circle(cx='20' cy='20' r='19' fill='none' stroke='currentColor' stroke-width='1.5' stroke-miterlimit='10')
+      i.ai-arrow-up
+    
+    // Vendor scripts: js libraries and plugins
+    script()&attributes(isNestedFile ? {'src': '../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js'} : {'src': 'assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js'})
+    script()&attributes(isNestedFile ? {'src': '../assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js'} : {'src': 'assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js'})
+    +scripts
+
+    // Main theme script
+    script()&attributes(isNestedFile ? {'src': '../assets//js/theme.min.js'} : {'src': 'assets/js/theme.min.js'})

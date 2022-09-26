@@ -1,0 +1,517 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['tiny-slider/dist/tiny-slider.css']
+  - var vendorScripts = ['jarallax/dist/jarallax.min.js', 'tiny-slider/dist/min/tiny-slider.js']
+  - var parentMenu = 'Pages'
+  - var pageTitle = 'City Guide | About'
+
+//- Navbar
+block navbar
+  include partials/navbar-city-guide
+
+//- Page Content
+block content
+
+  // Page header
+  section.mt-5.pt-4
+
+    // Parallax container
+    div(data-jarallax data-speed='0.5').jarallax.mt-2
+
+      // Parallax image
+      .jarallax-img(style='background-image: url(img/city-guide/about/hero-bg.jpg); background-position: 36% center !important;').bg-secondary
+
+      // Section content
+      .container.py-3
+
+        // Breadcrumb
+        nav(aria-label='breadcrumb').pt-3
+          ol.breadcrumb.breadcrumb-light.mb-lg-5
+            li.breadcrumb-item
+              a(href='city-guide-home-v1.html') Home
+            li(aria-current='page').breadcrumb-item.active
+              | About
+
+        // Text
+        .col-md-6.col-sm-8.py-md-5.py-4.px-0
+          h1.display-4.mb-4.pb-md-2.text-light
+            | Fall in <i class='fi-heart fs-1 text-primary'></i> with new places!
+          p.mb-sm-5.mb-4.pb-md-5.pb-3.lead.text-light
+            | We are your personal guide to unique experiences. We know the best places to see and events in any part of the world. Don't miss anything with our help!
+
+
+  // Features
+  section.position-relative.bg-white.rounded-xxl-4.mb-5.pb-1.py-md-3.zindex-5(style='margin-top: -30px;')
+    .container.pt-5.mb-4.mb-md-5
+
+      h2.text-center The values we live by
+      p(style='max-width: 616px;').mb-4.pb-2.mx-auto.fs-lg.text-center
+        | Travelers across the globe use our platform to discover where to stay, what to do and where to eat in any part of the world.
+
+      // Features grid
+      .row.row-cols-lg-4.row-cols-md-3.row-cols-sm-2.row-cols-1.g-4.justify-content-center
+        
+        // Feature item
+        .col
+          .card.border-0.shadow-sm.card-hover.h-100
+            .card-body.icon-box
+              .icon-box-media.bg-faded-accent.text-accent.rounded-circle.mb-3
+                i.fi-bed
+              h3.h5.card-title
+                | Safety is our priority
+              p.card-text.fs-sm
+                | Vel et aliquet diam vulputate hendrerit lorem eget amet adipiscing. At ut ut consectetur in sed.
+
+        // Feature item
+        .col
+          .card.border-0.shadow-sm.card-hover.h-100
+            .card-body.icon-box
+              .icon-box-media.bg-faded-warning.text-warning.rounded-circle.mb-3
+                i.fi-cash
+              h3.h5.card-title
+                | Fair price
+              p.card-text.fs-sm
+                | Tincidunt mauris sit eu, lacinia pharetra, lorem neque dui. Maecenas ultricies laoreet facilisis fusce amet.
+
+        // Feature item
+        .col
+          .card.border-0.shadow-sm.card-hover.h-100
+            .card-body.icon-box
+              .icon-box-media.bg-faded-primary.text-primary.rounded-circle.mb-3
+                i.fi-heart
+              h3.h5.card-title
+                | Empathy
+              p.card-text.fs-sm
+                | Id velit, dui condimentum dictumst sapien quis a elementum dignissim. Dignissim ultrices scelerisque.
+
+        // Feature item
+        .col
+          .card.border-0.shadow-sm.card-hover.h-100
+            .card-body.icon-box
+              .icon-box-media.bg-faded-success.text-success.rounded-circle.mb-3
+                i.fi-users
+              h3.h5.card-title
+                | Results-driven team
+              p.card-text.fs-sm
+                | Tincidunt mauris sit eu, lacinia pharetra, lorem neque dui. Maecenas ultricies laoreet facilisis fusce amet.
+
+        // Feature item
+        .col
+          .card.border-0.shadow-sm.card-hover.h-100
+            .card-body.icon-box
+              .icon-box-media.bg-faded-primary.text-primary.rounded-circle.mb-3
+                i.fi-briefcase
+              h3.h5.card-title
+                | Daily hard work
+              p.card-text.fs-sm
+                | Elementum quisque cursus sagittis purus mauris. Ultrices ut eu egestas at tristique malesuada.
+
+        // Feature item
+        .col
+          .card.border-0.shadow-sm.card-hover.h-100
+            .card-body.icon-box
+              .icon-box-media.bg-faded-success.text-success.rounded-circle.mb-3
+                i.fi-chat-left
+              h3.h5.card-title
+                | Communication
+              p.card-text.fs-sm
+                | Faucibus sollicitudin id vitae pharetra tristique cursus id. Blandit at proin purus cursus id sem.
+
+        // Feature item
+        .col
+          .card.border-0.shadow-sm.card-hover.h-100
+            .card-body.icon-box
+              .icon-box-media.bg-faded-info.text-info.rounded-circle.mb-3
+                i.fi-like
+              h3.h5.card-title
+                | Passion &amp; enthusiasm
+              p.card-text.fs-sm
+                | Cras aliquam fringilla sollicitudin quis potenti lacinia volutpat nisl amet. Felis gravida sed sit nec nulla id morbi.
+
+        // Feature item
+        .col
+          .card.border-0.shadow-sm.card-hover.h-100
+            .card-body.icon-box
+              .icon-box-media.bg-faded-warning.text-warning.rounded-circle.mb-3
+                i.fi-checkbox-checked-alt
+              h3.h5.card-title
+                | Simple solutions
+              p.card-text.fs-sm
+                | Porta vulputate commodo ut pulvinar. Fames augue dui faucibus porttitor dis duis id faucibus.
+
+
+  // Add business
+  section.container.mb-5.pb-2.pb-lg-5
+    .row.align-items-lg-center.gy-4
+      .col-md-6
+        img(src='img/city-guide/about/01.jpg' alt='Cover').rounded-3
+      .col-lg-5.offset-lg-1.col-md-6
+        h2.mb-lg-4 Get new customers with our catalog easily!
+        p.mb-lg-4.fs-lg.text-muted Et quis dictum malesuada phasellus feugiat laoreet lacus. Imperdiet sed a dignissim mauris amet bibendum. Non odio molestie feugiat sed ullamcorper nunc.
+        ul.list-unstyled.mb-4.pb-lg-3
+          li.d-flex
+            i.fi-check.mt-1.me-2.pe-1.text-primary
+            | Nec placerat massa vitae arcu, sodales tortor.
+          li.d-flex
+            i.fi-check.mt-1.me-2.pe-1.text-primary
+            | Risus consectetur nulla vitae at donec est felis eget turpis.
+          li.d-flex
+            i.fi-check.mt-1.me-2.pe-1.text-primary
+            | Elit, sed vel turpis donec molestie elit, morbi aliquam.
+          li.d-flex
+            i.fi-check.mt-1.me-2.pe-1.text-primary
+            | Orci tincidunt consectetun quam massa at.
+          li.d-flex
+            i.fi-check.mt-1.me-2.pe-1.text-primary
+            | Ac aenean proin amet bibendum dolor placerat.
+          li.d-flex
+            i.fi-check.mt-1.me-2.pe-1.text-primary
+            | Leo quis nisi lorem morbi egestas sed lacus.
+        a(href='city-guide-add-business.html').btn.btn-lg.btn-primary.rounded-pill
+          i.fi-plus.me-2
+          | Add Business
+
+
+  // FAQ
+  section.container.mb-5.pb-lg-5
+    h2.mb-sm-4.pb-md-2.text-center Frequently asked questions
+
+    // FAQ grid
+    .row.row-cols-lg-3.row-cols-sm-2.row-cols-1.g-sm-4.g-0
+
+      // Grid item
+      .col
+        .card.border-0.h-100
+          .card-body
+            h3.h5.text-primary 01. Getting started
+            a(href='city-guide-help-center.html').nav-link.mb-2.p-0.fw-normal
+              | Quis arcu euismod est, varius nisi?
+            a(href='city-guide-help-center.html').nav-link.mb-2.p-0.fw-normal
+              | Aliquam, commodo sed nibh?
+            a(href='city-guide-help-center.html').nav-link.mb-2.p-0.fw-normal
+              | Faucibus felis fames mauris dolor purus?
+            a(href='city-guide-help-center.html').nav-link.mb-2.p-0.fw-normal
+              | Odio diam, tellus facilisi?
+            a(href='city-guide-help-center.html').nav-link.mb-2.p-0.fw-normal
+              | Eu quisque libero, sed neque?
+            a(href='city-guide-help-center.html').nav-link.mb-2.p-0.fw-normal
+              | Lectus sed sit cursus amet, vitae tempor?
+
+      // Grid item
+      .col
+        .card.border-0.h-100
+          .card-body
+            h3.h5.text-primary 02.Partnership
+            a(href='city-guide-help-center.html').nav-link.mb-2.p-0.fw-normal
+              | Tincidunt molestie scelerisque?
+            a(href='city-guide-help-center.html').nav-link.mb-2.p-0.fw-normal
+              | Nunc, ipsum ut augue fusce ornare?
+            a(href='city-guide-help-center.html').nav-link.mb-2.p-0.fw-normal
+              | Velit, mauris amet feugiat condimentum mollis?
+            a(href='city-guide-help-center.html').nav-link.mb-2.p-0.fw-normal
+              | Lacus, sed fames mi cras id?
+            a(href='city-guide-help-center.html').nav-link.mb-2.p-0.fw-normal
+              | Adipiscing magna suspendisse?
+            a(href='city-guide-help-center.html').nav-link.mb-2.p-0.fw-normal
+              | Libero pellentesque ultricies maecenas?
+
+      // Grid item
+      .col
+        .card.border-0.h-100
+          .card-body
+            h3.h5.text-primary 03. Account &amp; profile
+            a(href='city-guide-help-center.html').nav-link.mb-2.p-0.fw-normal
+              | Cursus fusce volutpat tempor?
+            a(href='city-guide-help-center.html').nav-link.mb-2.p-0.fw-normal
+              | A senectus auctor sodales gravida non elit?
+            a(href='city-guide-help-center.html').nav-link.mb-2.p-0.fw-normal
+              | Mauris accumsan vel rhoncus?
+            a(href='city-guide-help-center.html').nav-link.mb-2.p-0.fw-normal
+              | Cras nunc, semper lectus turpis?
+            a(href='city-guide-help-center.html').nav-link.mb-2.p-0.fw-normal
+              | Pulvinar sed morbi massa nulla dolor eget?
+            a(href='city-guide-help-center.html').nav-link.mb-2.p-0.fw-normal
+              | Bibendum mattis amet amet?
+
+      // Grid item
+      .col
+        .card.border-0.h-100
+          .card-body
+            h3.h5.text-primary 04. Privacy &amp; security
+            a(href='city-guide-help-center.html').nav-link.mb-2.p-0.fw-normal
+              | Pellentesque ante quisque sit?
+            a(href='city-guide-help-center.html').nav-link.mb-2.p-0.fw-normal
+              | Eu quam bibendum adipiscing leo?
+            a(href='city-guide-help-center.html').nav-link.mb-2.p-0.fw-normal
+              | Massa fermentum, eget nec elementum?
+            a(href='city-guide-help-center.html').nav-link.mb-2.p-0.fw-normal
+              | In quis pulvinar amet morbi praesent?
+            a(href='city-guide-help-center.html').nav-link.mb-2.p-0.fw-normal
+              | Eros, dolor in consequat netus?
+            a(href='city-guide-help-center.html').nav-link.mb-2.p-0.fw-normal
+              | Quis gravida felis dui non gravida?
+
+      // Grid item
+      .col
+        .card.border-0.h-100
+          .card-body
+            h3.h5.text-primary 05. Transactions
+            a(href='city-guide-help-center.html').nav-link.mb-2.p-0.fw-normal
+              | Nisl urna id aliquam sed vitae pellentesque?
+            a(href='city-guide-help-center.html').nav-link.mb-2.p-0.fw-normal
+              | Nam morbi faucibus ultricies euismod?
+            a(href='city-guide-help-center.html').nav-link.mb-2.p-0.fw-normal
+              | Amet scelerisque consectetur consequa?
+            a(href='city-guide-help-center.html').nav-link.mb-2.p-0.fw-normal
+              | Sapien at fames urna in id at?
+            a(href='city-guide-help-center.html').nav-link.mb-2.p-0.fw-normal
+              | Fames id nullam et id proin ante ultrices?
+            a(href='city-guide-help-center.html').nav-link.mb-2.p-0.fw-normal
+              | Quis ultricies turpis commodo, elit lectus?
+
+      // Grid item
+      .col
+        .card.border-0.h-100
+          .card-body
+            h3.h5.text-primary 06. Privacy &amp; security
+            a(href='city-guide-help-center.html').nav-link.mb-2.p-0.fw-normal
+              | Lacus eget amet blandit egestas?
+            a(href='city-guide-help-center.html').nav-link.mb-2.p-0.fw-normal
+              | Augue at donec molestie vulputate cum?
+            a(href='city-guide-help-center.html').nav-link.mb-2.p-0.fw-normal
+              | Viverra adipiscing nisl, lacus at et?
+            a(href='city-guide-help-center.html').nav-link.mb-2.p-0.fw-normal
+              | Sagittis dictum hendrerit faucibus malesuada?
+            a(href='city-guide-help-center.html').nav-link.mb-2.p-0.fw-normal
+              | Tempus est non sapien tempus?
+            a(href='city-guide-help-center.html').nav-link.mb-2.p-0.fw-normal
+              | Nunc est hendrerit volutpat nunc donec?
+
+
+  // The people behind Finder
+  section.container.mb-5.pb-2.pb-lg-5
+    h2.mb-4.text-center The people behind Finder
+
+    // Team carousel
+    .tns-carousel-wrapper.tns-controls-outside-xxl.tns-nav-outside.tns-nav-outside-flush.mx-n2
+      .tns-carousel-inner.row.gx-4.mx-0.pt-3.pb-4(data-carousel-options='{"items": 4, "responsive": {"0":{"items":1},"500":{"items":2},"768":{"items":3},"992":{"items":4}}}')
+
+        // Team slide
+        .col
+          .card.border-0.shadow-sm
+            img(src='img/city-guide/about/team/01.jpg' alt='Devon Lane').card-img-top
+            .card-body.text-center
+              h3.h5.card-title.mb-2 Devon Lane
+              span.d-inline-block.mb-3.fs-sm President &amp; CEO
+              .pt-1
+                a(href='#').btn.btn-icon.btn-light-primary.btn-xs.rounded-circle.shadow-sm.mx-2
+                  i.fi-facebook
+                a(href='#').btn.btn-icon.btn-light-primary.btn-xs.rounded-circle.shadow-sm.mx-2
+                  i.fi-twitter
+                a(href='#').btn.btn-icon.btn-light-primary.btn-xs.rounded-circle.shadow-sm.mx-2
+                  i.fi-instagram
+
+        // Team slide
+        .col
+          .card.border-0.shadow-sm
+            img(src='img/city-guide/about/team/02.jpg' alt='Dianne Russell').card-img-top
+            .card-body.text-center
+              h3.h5.card-title.mb-2 Dianne Russell
+              span.d-inline-block.mb-3.fs-sm Chief Financial Officer
+              .pt-1
+                a(href='#').btn.btn-icon.btn-light-primary.btn-xs.rounded-circle.shadow-sm.mx-2
+                  i.fi-facebook
+                a(href='#').btn.btn-icon.btn-light-primary.btn-xs.rounded-circle.shadow-sm.mx-2
+                  i.fi-twitter
+                a(href='#').btn.btn-icon.btn-light-primary.btn-xs.rounded-circle.shadow-sm.mx-2
+                  i.fi-instagram
+
+        // Team slide
+        .col
+          .card.border-0.shadow-sm
+            img(src='img/city-guide/about/team/03.jpg' alt='Ronald Richards').card-img-top
+            .card-body.text-center
+              h3.h5.card-title.mb-2 Ronald Richards
+              span.d-inline-block.mb-3.fs-sm Technology Officer
+              .pt-1
+                a(href='#').btn.btn-icon.btn-light-primary.btn-xs.rounded-circle.shadow-sm.mx-2
+                  i.fi-facebook
+                a(href='#').btn.btn-icon.btn-light-primary.btn-xs.rounded-circle.shadow-sm.mx-2
+                  i.fi-twitter
+                a(href='#').btn.btn-icon.btn-light-primary.btn-xs.rounded-circle.shadow-sm.mx-2
+                  i.fi-instagram
+
+        // Team slide
+        .col
+          .card.border-0.shadow-sm
+            img(src='img/city-guide/about/team/04.jpg' alt='RAlbert Flores').card-img-top
+            .card-body.text-center
+              h3.h5.card-title.mb-2 Albert Flores
+              span.d-inline-block.mb-3.fs-sm Commercial Officer
+              .pt-1
+                a(href='#').btn.btn-icon.btn-light-primary.btn-xs.rounded-circle.shadow-sm.mx-2
+                  i.fi-facebook
+                a(href='#').btn.btn-icon.btn-light-primary.btn-xs.rounded-circle.shadow-sm.mx-2
+                  i.fi-twitter
+                a(href='#').btn.btn-icon.btn-light-primary.btn-xs.rounded-circle.shadow-sm.mx-2
+                  i.fi-instagram
+
+        // Team slide
+        .col
+          .card.border-0.shadow-sm
+            img(src='img/city-guide/about/team/01.jpg' alt='Devon Lane').card-img-top
+            .card-body.text-center
+              h3.h5.card-title.mb-2 Devon Lane
+              span.d-inline-block.mb-3.fs-sm President &amp; CEO
+              .pt-1
+                a(href='#').btn.btn-icon.btn-light-primary.btn-xs.rounded-circle.shadow-sm.mx-2
+                  i.fi-facebook
+                a(href='#').btn.btn-icon.btn-light-primary.btn-xs.rounded-circle.shadow-sm.mx-2
+                  i.fi-twitter
+                a(href='#').btn.btn-icon.btn-light-primary.btn-xs.rounded-circle.shadow-sm.mx-2
+                  i.fi-instagram
+
+        // Team slide
+        .col
+          .card.border-0.shadow-sm
+            img(src='img/city-guide/about/team/02.jpg' alt='Dianne Russell').card-img-top
+            .card-body.text-center
+              h3.h5.card-title.mb-2 Dianne Russell
+              span.d-inline-block.mb-3.fs-sm Chief Financial Officer
+              .pt-1
+                a(href='#').btn.btn-icon.btn-light-primary.btn-xs.rounded-circle.shadow-sm.mx-2
+                  i.fi-facebook
+                a(href='#').btn.btn-icon.btn-light-primary.btn-xs.rounded-circle.shadow-sm.mx-2
+                  i.fi-twitter
+                a(href='#').btn.btn-icon.btn-light-primary.btn-xs.rounded-circle.shadow-sm.mx-2
+                  i.fi-instagram
+
+        // Team slide
+        .col
+          .card.border-0.shadow-sm
+            img(src='img/city-guide/about/team/03.jpg' alt='Ronald Richards').card-img-top
+            .card-body.text-center
+              h3.h5.card-title.mb-2 Ronald Richards
+              span.d-inline-block.mb-3.fs-sm Technology Officer
+              .pt-1
+                a(href='#').btn.btn-icon.btn-light-primary.btn-xs.rounded-circle.shadow-sm.mx-2
+                  i.fi-facebook
+                a(href='#').btn.btn-icon.btn-light-primary.btn-xs.rounded-circle.shadow-sm.mx-2
+                  i.fi-twitter
+                a(href='#').btn.btn-icon.btn-light-primary.btn-xs.rounded-circle.shadow-sm.mx-2
+                  i.fi-instagram
+
+        // Team slide
+        .col
+          .card.border-0.shadow-sm
+            img(src='img/city-guide/about/team/04.jpg' alt='RAlbert Flores').card-img-top
+            .card-body.text-center
+              h3.h5.card-title.mb-2 Albert Flores
+              span.d-inline-block.mb-3.fs-sm Commercial Officer
+              .pt-1
+                a(href='#').btn.btn-icon.btn-light-primary.btn-xs.rounded-circle.shadow-sm.mx-2
+                  i.fi-facebook
+                a(href='#').btn.btn-icon.btn-light-primary.btn-xs.rounded-circle.shadow-sm.mx-2
+                  i.fi-twitter
+                a(href='#').btn.btn-icon.btn-light-primary.btn-xs.rounded-circle.shadow-sm.mx-2
+                  i.fi-instagram
+
+
+  // The people behind Finder
+  section.container.mb-5.pb-2.pb-lg-5
+    h2.mb-4.pb-2.text-center World city guides
+    img(src='img/city-guide/about/map.jpg' alt='World map')
+
+
+  // Blog: Latest posts
+  section.container.my-5.py-lg-4
+    .d-sm-flex.align-items-center.justify-content-between.mb-4.pb-2
+      h2.h3.mb-sm-0 Don’t miss the latest posts
+      a(href='city-guide-blog.html').btn.btn-link.fw-normal.ms-sm-3.p-0
+        | Go to blog
+        i.fi-arrow-long-right.ms-2
+
+    // Carousel
+    .tns-carousel-wrapper.tns-nav-outside.mb-md-2
+      .tns-carousel-inner.d-block(data-carousel-options='{"controls": false, "gutter": 24, "autoHeight": true, "responsive": {"0":{"items":1,"nav":true},"500":{"items":2},"850":{"items":3},"1200":{"items":3}}}')
+
+        // Item
+        article
+          a(href='city-guide-blog-single.html').d-block.mb-3
+            img(src='img/city-guide/blog/01.jpg' alt='Post image').rounded-3
+          a(href='#').fs-xs.text-uppercase.text-decoration-none Travelling
+          h3.fs-base.pt-1
+            a(href='city-guide-blog-single.html').nav-link Air Travel in the Time of COVID-19
+          a(href='#').d-flex.align-items-center.text-decoration-none
+            img(src='img/avatars/16.png' width='44' alt='Avatar').rounded-circle
+            .ps-2
+              h6.fs-sm.text-nav.lh-base.mb-1 Bessie Cooper
+              .d-flex.text-body.fs-xs
+                span.me-2.pe-1
+                  i.fi-calendar-alt.opacity-70.mt-n1.me-1.align-middle
+                  | May 24
+                span
+                  i.fi-chat-circle.opacity-70.mt-n1.me-1.align-middle
+                  | No comments
+
+        // Item
+        article
+          a(href='city-guide-blog-single.html').d-block.mb-3
+            img(src='img/city-guide/blog/02.jpg' alt='Post image').rounded-3
+          a(href='#').fs-xs.text-uppercase.text-decoration-none Entertainment
+          h3.fs-base.pt-1
+            a(href='city-guide-blog-single.html').nav-link 10 World-Class Museums You Can Visit Online
+          a(href='#').d-flex.align-items-center.text-decoration-none
+            img(src='img/avatars/18.png' width='44' alt='Avatar').rounded-circle
+            .ps-2
+              h6.fs-sm.text-nav.lh-base.mb-1 Annette Black
+              .d-flex.text-body.fs-xs
+                span.me-2.pe-1
+                  i.fi-calendar-alt.opacity-70.mt-n1.me-1.align-middle
+                  | Apr 28
+                span
+                  i.fi-chat-circle.opacity-70.mt-n1.me-1.align-middle
+                  | 4 comments
+
+        // Item
+        article
+          a(href='city-guide-blog-single.html').d-block.mb-3
+            img(src='img/city-guide/blog/03.jpg' alt='Post image').rounded-3
+          a(href='#').fs-xs.text-uppercase.text-decoration-none Travelling
+          h3.fs-base.pt-1
+            a(href='city-guide-blog-single.html').nav-link 7 Tips for Solo Travelers in Africa
+          a(href='#').d-flex.align-items-center.text-decoration-none
+            img(src='img/avatars/17.png' width='44' alt='Avatar').rounded-circle
+            .ps-2
+              h6.fs-sm.text-nav.lh-base.mb-1 Ralph Edwards
+              .d-flex.text-body.fs-xs
+                span.me-2.pe-1
+                  i.fi-calendar-alt.opacity-70.mt-n1.me-1.align-middle
+                  | Apr 15
+                span
+                  i.fi-chat-circle.opacity-70.mt-n1.me-1.align-middle
+                  | 2 comments
+
+
+  // Stay informed (subscribe form)
+  section.container.mb-5.pb-lg-5
+    .rounded-3.bg-faded-accent.py-5.px-sm-5.px-4
+      div(style='max-width: 605px;').mx-auto.py-md-4.text-center
+        h2 Stay informed
+        p.mb-4.pb-2.fs-lg Subscribe to our newsletter, be the first to see the latest news &amp; advice.
+        form.form-group.rounded-pill.mb-3
+          .input-group.input-group-lg
+            span.input-group-text.text-muted
+              i.fi-mail
+            input(type='email' placeholder='Your email').form-control
+          button(type='button').btn.btn-primary.btn-lg.rounded-pill
+            | Subscribe
+        .form-text
+          | * By signing up you agree to our <a href='#' class='text-decoration-none'>Privacy Policy</a>
+
+
+//- Footer
+block footer
+  include partials/footer-city-guide

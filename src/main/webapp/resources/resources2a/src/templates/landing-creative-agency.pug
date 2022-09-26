@@ -1,0 +1,516 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/swiper/swiper-bundle.min.css']
+  - var scripts = ['vendor/imagesloaded/imagesloaded.pkgd.min.js', 'vendor/shufflejs/dist/shuffle.min.js', 'vendor/swiper/swiper-bundle.min.js']
+  - var parentMenu = 'Landings'
+  - var pageTitle = 'Creative Agency'
+  - var navbarExtraClass = 'bg-light'
+  - var buttonShape = 'rounded-0'
+
+
+//- Navbar
+block navbar
+  include partials/navbar.pug
+
+
+//- Page Content
+block content
+
+  // Hero
+  section.container.py-5.mt-5.mb-xl-3.mb-xxl-5
+    .row.pt-2
+
+      // Text + CTA button
+      .col-lg-6.d-flex.flex-column.mb-4.mb-lg-0.pb-sm-3.pb-lg-0
+        h1.display-1.text-uppercase.fw-bold.mt-auto.mb-2
+          | Creative <span class='fw-normal'>solutions</span> studio
+          span.d-none.d-md-inline-block.align-middle.ms-4(style='width: 120px; height: 2px; background-color: currentColor;')
+        .d-flex.align-items-center.py-4.py-lg-5
+          a(href='#').btn.btn-lg.btn-primary.rounded-0.me-2.me-sm-3 Let's work together
+          .flex-shrink-sm-0
+            img(src='assets/img/brands/clutch-rating-dark.svg' width='155' alt='Clutch').d-dark-mode-none
+            img(src='assets/img/brands/clutch-rating-light.svg' width='155' alt='Clutch').d-none.d-dark-mode-block
+        ul.nav.mt-auto.mx-n2.pt-sm-3.pt-lg-0
+          li.nav-item.me-3
+            a(href='#').nav-link.p-2 instagram
+          li.nav-item.me-3
+            a(href='#').nav-link.p-2 dribbble
+          li.nav-item
+            a(href='#').nav-link.p-2 behance
+
+      // Services (grid of cards)
+      .col-lg-6
+        .row.row-cols-1.row-cols-sm-2.g-1
+          .col
+            a(href='#').card-flip
+              .card-flip-inner
+                .card-flip-front(style='background-image: url(assets/img/landing/creative-agency/services/01.jpg);')
+                  .d-flex.flex-column.h-100.ignore-dark-mode
+                    h2.fs-lg.fw-normal.mb-0.mt-auto Strategy
+                .card-flip-back.bg-secondary
+                  .d-flex.flex-column.h-100.px-sm-2.pt-sm-2.px-lg-0.pt-lg-0.px-xl-3.pt-xl-3
+                    h3.h4 Strategy
+                    p.text-body.mb-3 Leo vitae sem eget eget at in vivamus placerat in sodales tristique a risusiis senectusic vitae sem eget eget at in vivamus placerat in sodales.
+                    .text-end.pt-3.pt-sm-2.pt-xl-4.mt-auto.me-sm-n2.me-lg-0.me-xl-n3
+                      .btn.btn-sm.btn-icon.btn-outline-primary.rounded-circle
+                        i.ai-arrow-right
+          .col
+            a(href='#').card-flip
+              .card-flip-inner
+                .card-flip-front(style='background-image: url(assets/img/landing/creative-agency/services/02.jpg);')
+                  .d-flex.flex-column.h-100.ignore-dark-mode
+                    h2.fs-lg.fw-normal.mb-0.mt-auto Social
+                .card-flip-back.bg-secondary
+                  .d-flex.flex-column.h-100.px-sm-2.pt-sm-2.px-lg-0.pt-lg-0.px-xl-3.pt-xl-3
+                    h3.h4 Social
+                    ul.text-body.ps-4.mb-3
+                      li.mb-2 Social media posts
+                      li.mb-2 Content plan
+                      li.mb-2 Advertising launch
+                      li.mb-2 Photo and video content
+                      li.mb-1 Cases and portfolio
+                    .text-end.pt-3.pt-sm-2.pt-xl-4.mt-auto.me-sm-n2.me-lg-0.me-xl-n3
+                      .btn.btn-sm.btn-icon.btn-outline-primary.rounded-circle
+                        i.ai-arrow-right
+          .col.order-sm-2
+            a(href='#').card-flip
+              .card-flip-inner
+                .card-flip-front(style='background-image: url(assets/img/landing/creative-agency/services/04.jpg);')
+                  .d-flex.flex-column.h-100.ignore-dark-mode
+                    h2.fs-lg.fw-normal.mb-0.mt-auto Web design
+                .card-flip-back.bg-secondary
+                  .d-flex.flex-column.h-100.px-sm-2.pt-sm-2.px-lg-0.pt-lg-0.px-xl-3.pt-xl-3
+                    h3.h4 Web design
+                    p.text-body.mb-3 Pharetra in morbi quis is massa maecenas arcu vulputate in pulvinar elit non nullage a, duis tortor mi massa ipsum in eu eu eget libero.
+                    .text-end.pt-3.pt-sm-2.pt-xl-4.mt-auto.me-sm-n2.me-lg-0.me-xl-n3
+                      .btn.btn-sm.btn-icon.btn-outline-primary.rounded-circle
+                        i.ai-arrow-right
+          .col.order-sm-1
+            a(href='#').card-flip
+              .card-flip-inner
+                .card-flip-front(style='background-image: url(assets/img/landing/creative-agency/services/03.jpg);')
+                  .d-flex.flex-column.h-100.ignore-dark-mode
+                    h2.fs-lg.fw-normal.mb-0.mt-auto Branding
+                .card-flip-back.bg-secondary
+                  .d-flex.flex-column.h-100.px-sm-2.pt-sm-2.px-lg-0.pt-lg-0.px-xl-3.pt-xl-3
+                    h3.h4 Branding
+                    ul.text-body.ps-4.mb-3
+                      li.mb-2 Identity design
+                      li.mb-2 Brand book creation
+                      li.mb-2 Colors and fonts
+                      li.mb-2 Banners and covers
+                      li.mb-1 Visual style
+                    .text-end.pt-3.pt-sm-2.pt-xl-4.mt-auto.me-sm-n2.me-lg-0.me-xl-n3
+                      .btn.btn-sm.btn-icon.btn-outline-primary.rounded-circle
+                        i.ai-arrow-right
+
+
+  // About
+  section.container.py-md-4.py-lg-5.mb-xl-3.mb-xxl-5
+    .row.pt-sm-2
+      .col-xl-10
+        p.fs-2.text-dark.pb-md-2.mb-lg-5 From the first stages of developing a project plan idea, we pay special attention <span class='fw-semibold'>to design solutions to existing problems,</span> create brands that become part of history, and create a digital skill that harnesses the power of <span class='fw-semibold'>creativity and humanity.</span>
+    .row.pb-5
+      .col-sm-4.col-lg-3.mb-3
+        h3.display-1.mb-0.mb-sm-1 16
+        span.fs-sm Awards in various industries
+      .col-sm-4.col-lg-3.mb-3
+        h3.display-1.mb-0.mb-sm-1 22
+        span.fs-sm Full time specialists
+      .col-sm-4.col-lg-3.mb-2.mb-sm-3
+        h3.display-1.mb-0.mb-sm-1 205
+        span.fs-sm Happy clients all over the world
+
+
+  // Our projects (Filterable masonry grid)
+  section.container.overflow-hidden.pb-5.mb-2.mb-lg-3.mb-xl-4.mb-xxl-5
+    .masonry-filterable
+      .row.pb-lg-4.mb-2.mb-sm-3
+
+        // Page title
+        .col-xxl-3.col-lg-4.text-center.text-lg-start
+          h1 Our Projects
+          p.mb-4.mb-lg-0 We will put our industry expertise for creativity to work for your project
+
+        // Filters
+        .col-xxl-9.col-lg-8.d-flex
+          ul(style='max-width: 456px;').masonry-filters.nav.nav-pills.fs-sm.flex-nowrap.overflow-auto.text-nowrap.w-100.mx-auto.me-lg-0.pb-3
+            li.nav-item.mb-0
+              a(href='#' data-group='all').nav-link.border.active All
+            li.nav-item.mb-0
+              a(href='#' data-group='branding').nav-link.border Branding
+            li.nav-item.mb-0
+              a(href='#' data-group='stationery').nav-link.border Stationery
+            li.nav-item.mb-0
+              a(href='#' data-group='web').nav-link.border Web
+
+
+      // Grid of portfolio items
+      .masonry-grid(data-columns='2')
+
+        // Item
+        article(data-groups='["branding"]').masonry-grid-item.pb-5.mb-md-2.mb-lg-4.mb-xl-5
+          .zoom-effect.position-relative.border-bottom.pb-3(style='max-width: 512px;')
+            .zoom-effect-wrapper
+              .zoom-effect-img
+                img(src='assets/img/portfolio/grid/07.jpg' alt='Image')
+            .pt-4.mt-lg-2
+              h2.h4.mb-2
+                a(href='portfolio-single-v2.html').stretched-link Healthy Yellow
+              .d-flex.justify-content-between.fs-lg.text-muted
+                span Branding, Packaging
+                span 2022
+
+        // Item
+        article(data-groups='["stationery"]').masonry-grid-item.pb-5.mb-md-2.mb-lg-4.mb-xl-5
+          .zoom-effect.position-relative.border-bottom.pb-3(style='max-width: 704px;')
+            .zoom-effect-wrapper
+              .zoom-effect-img
+                img(src='assets/img/portfolio/grid/08.jpg' alt='Image')
+            .pt-4.mt-lg-2
+              h2.h4.mb-2
+                a(href='portfolio-single-v2.html').stretched-link Sen Jonson
+              .d-flex.justify-content-between.fs-lg.text-muted
+                span Stationery design
+                span 2022
+
+        // Item
+        article(data-groups='["branding"]').masonry-grid-item.pb-5.mb-md-2.mb-lg-4.mb-xl-5
+          .zoom-effect.position-relative.border-bottom.pb-3(style='max-width: 467px;')
+            .zoom-effect-wrapper
+              .zoom-effect-img
+                img(src='assets/img/portfolio/grid/09.jpg' alt='Image')
+            .pt-4.mt-lg-2
+              h2.h4.mb-2
+                a(href='portfolio-single-v2.html').stretched-link Gradient
+              .d-flex.justify-content-between.fs-lg.text-muted
+                span Branding, Packaging
+                span 2022
+
+        // Item
+        article(data-groups='["stationery"]').masonry-grid-item.pb-5.mb-md-2.mb-lg-4.mb-xl-5
+          .zoom-effect.position-relative.border-bottom.ms-auto.pb-3(style='max-width: 605px;')
+            .zoom-effect-wrapper
+              .zoom-effect-img
+                img(src='assets/img/portfolio/grid/10.jpg' alt='Image')
+            .pt-4.mt-lg-2
+              h2.h4.mb-2
+                a(href='portfolio-single-v2.html').stretched-link D.G.Vent
+              .d-flex.justify-content-between.fs-lg.text-muted
+                span Stationery design
+                span 2021
+
+        // Item
+        article(data-groups='["stationery"]').masonry-grid-item.pb-5.mb-md-2.mb-lg-4.mb-xl-5
+          .zoom-effect.position-relative.border-bottom.pb-3(style='max-width: 550px;')
+            .zoom-effect-wrapper
+              .zoom-effect-img
+                img(src='assets/img/portfolio/grid/11.jpg' alt='Image')
+            .pt-4.mt-lg-2
+              h2.h4.mb-2
+                a(href='portfolio-single-v2.html').stretched-link Doe design
+              .d-flex.justify-content-between.fs-lg.text-muted
+                span Branding, Stationery
+                span 2021
+
+        // Item
+        article(data-groups='["web"]').masonry-grid-item.pb-5.mb-md-2.mb-lg-4.mb-xl-5
+          .zoom-effect.position-relative.border-bottom.mx-auto.pb-3(style='max-width: 470px;')
+            .zoom-effect-wrapper
+              .zoom-effect-img
+                img(src='assets/img/portfolio/grid/12.jpg' alt='Image')
+            .pt-4.mt-lg-2
+              h2.h4.mb-2
+                a(href='portfolio-single-v2.html').stretched-link The Studio
+              .d-flex.justify-content-between.fs-lg.text-muted
+                span Web design
+                span 2020
+
+      
+      // Button
+      .text-center.pb-sm-2.pb-md-4.mt-n1.mt-lg-n2
+        a(href='#').btn.btn-lg.btn-outline-dark.rounded-0 Let's work together
+
+
+  // Clients (Logos autoplay slider)
+  section.pt-sm-1.pt-lg-3.pt-xl-4
+    .container.text-center
+      h2.h1 We partner with more than 60 brands
+      p.pb-1.pb-sm-2.pb-md-3.pb-lg-4.mb-3 Clients who have become our friends for many years
+    .swiper.pb-3.pb-sm-4.mb-xl-2(data-swiper-options=`{
+      "loop": true,
+      "grabCursor": false,
+      "centeredSlides": true,
+      "autoplay": {
+        "delay": 0,
+        "disableOnInteraction": false
+      },
+      "freeMode": true,
+      "speed": 10000,
+      "freeModeMomentum": false,
+      "breakpoints": {
+        "0": { "slidesPerView": 2 },
+        "600": { "slidesPerView": 3 },
+        "800": { "slidesPerView": 4 },
+        "1200": { "slidesPerView": 5 },
+        "1400": { "slidesPerView": 6 },
+        "1600": { "slidesPerView": 7 }
+      }
+    }`)
+      .swiper-wrapper(style='transition-timing-function: linear !important;')
+        .swiper-slide
+          img(src='assets/img/brands/starcraft-dark.svg' width='196' alt='Starcraft').d-block.d-dark-mode-none.mx-auto
+          img(src='assets/img/brands/starcraft-light.svg' width='196' alt='Starcraft').d-none.d-dark-mode-block.mx-auto
+        .swiper-slide
+          img(src='assets/img/brands/auchan.svg' width='196' alt='Auchan').d-block.mx-auto
+        .swiper-slide
+          img(src='assets/img/brands/klinos.svg' width='196' alt='Klinos').d-block.mx-auto
+        .swiper-slide
+          img(src='assets/img/brands/suzuki.svg' width='196' alt='Suzuki').d-block.mx-auto
+        .swiper-slide
+          img(src='assets/img/brands/airbnb.svg' width='196' alt='Airbnb').d-block.mx-auto
+        .swiper-slide
+          img(src='assets/img/brands/philips.svg' width='196' alt='Philips').d-block.mx-auto
+        .swiper-slide
+          img(src='assets/img/brands/careem.svg' width='196' alt='Careem').d-block.mx-auto
+        .swiper-slide
+          img(src='assets/img/brands/puma-dark.svg' width='196' alt='Puma').d-block.d-dark-mode-none.mx-auto
+          img(src='assets/img/brands/puma-light.svg' width='196' alt='Puma').d-none.d-dark-mode-block.mx-auto
+        .swiper-slide
+          img(src='assets/img/brands/alpine.svg' width='196' alt='Alpine').d-block.mx-auto
+    .swiper(dir='rtl' data-swiper-options=`{
+      "loop": true,
+      "grabCursor": false,
+      "centeredSlides": true,
+      "autoplay": {
+        "delay": 0,
+        "disableOnInteraction": false
+      },
+      "freeMode": true,
+      "speed": 8500,
+      "freeModeMomentum": false,
+      "breakpoints": {
+        "0": { "slidesPerView": 2 },
+        "600": { "slidesPerView": 3 },
+        "800": { "slidesPerView": 4 },
+        "1200": { "slidesPerView": 5 },
+        "1400": { "slidesPerView": 6 },
+        "1600": { "slidesPerView": 7 }
+      }
+    }`)
+      .swiper-wrapper(style='transition-timing-function: linear !important;')
+        .swiper-slide
+          img(src='assets/img/brands/heineken.svg' width='196' alt='Heineken').d-block.mx-auto
+        .swiper-slide
+          img(src='assets/img/brands/champion-dark.svg' width='196' alt='Champion').d-block.d-dark-mode-none.mx-auto
+          img(src='assets/img/brands/champion-light.svg' width='196' alt='Champion').d-none.d-dark-mode-block.mx-auto
+        .swiper-slide
+          img(src='assets/img/brands/auchan.svg' width='196' alt='Auchan').d-block.mx-auto
+        .swiper-slide
+          img(src='assets/img/brands/philips.svg' width='196' alt='Philips').d-block.mx-auto
+        .swiper-slide
+          img(src='assets/img/brands/airbnb.svg' width='196' alt='Airbnb').d-block.mx-auto
+        .swiper-slide
+          img(src='assets/img/brands/alpine.svg' width='196' alt='Alpine').d-block.mx-auto
+        .swiper-slide
+          img(src='assets/img/brands/puma-dark.svg' width='196' alt='Puma').d-block.d-dark-mode-none.mx-auto
+          img(src='assets/img/brands/puma-light.svg' width='196' alt='Puma').d-none.d-dark-mode-block.mx-auto
+        .swiper-slide
+          img(src='assets/img/brands/foster.svg' width='196' alt='Foster').d-block.mx-auto
+        .swiper-slide
+          img(src='assets/img/brands/starcraft-dark.svg' width='196' alt='Starcraft').d-block.d-dark-mode-none.mx-auto
+          img(src='assets/img/brands/starcraft-light.svg' width='196' alt='Starcraft').d-none.d-dark-mode-block.mx-auto
+
+
+  // Testimonials (Carousel)
+  section.container.position-relative.zindex-2.py-5.mt-n3.mt-sm-0.mb-md-3.my-lg-3.my-xl-4.my-xxl-5
+    .row.py-md-4.py-lg-5
+      .col-md-9.col-lg-7.order-md-2
+
+        // Swiper slider
+        .swiper(
+          data-swiper-options=`{
+            "spaceBetween": 40,
+            "loop": true,
+            "bindedContent": true,
+            "autoHeight": true,
+            "pagination": {
+              "el": ".testimonials-count",
+              "type": "fraction"
+            },
+            "navigation": {
+              "prevEl": "#prev-testimonial",
+              "nextEl": "#next-testimonial"
+            }
+          }`
+        )
+          .swiper-wrapper
+
+            // Item
+            .swiper-slide(data-swiper-binded='#testimonial-1')
+              .d-flex.d-md-none.pt-3.mb-3
+                i.ai-quotes.d-md-none.text-primary.display-3.mt-n2
+                .ps-3
+                  h3.h5.mb-0 Lilia Bocouse
+                  p.text-muted.mb-0 Head of Marketing
+              h2.mb-lg-4 Awesome experience with a professional team. Thank you :)
+              p.lead.mb-0 Suspendisse mauris elit, pellentesque nec purus sed, finibus finibus ipsum. Proin posuere, metus sed porttitor pellentesque, ante magna tincidunt mi, nec fermentum dui ligula vel massa. Praesent ultrices iaculis arcu iaculis ultrices. Maecenas vitae nulla odio. In laoreet, lectus in tempus ultricies.  
+
+            // Item
+            .swiper-slide(data-swiper-binded='#testimonial-2')
+              .d-flex.d-md-none.pt-3.mb-3
+                i.ai-quotes.d-md-none.text-primary.display-3.mt-n2
+                .ps-3
+                  h3.h5.mb-0 Robert Fox
+                  p.text-muted.mb-0 Marketing Coordinator
+              h2.mb-lg-4 Thanks to your talented team for the banding we dreamed about
+              p.lead.mb-0 Leo vitae sem eget eget at in vivamus placerat sodales tristique risusiis senectusic quisque faucibus est justo egetert lobortis ultrices eu dignissim etiamier turpis tincidunt eget placerat feugiat senectusic quisque faucibus placerat sodales vitae tempor morbi tellus pulvinar tristique in turpis.  
+
+            // Item
+            .swiper-slide(data-swiper-binded='#testimonial-3')
+              .d-flex.d-md-none.pt-3.mb-3
+                i.ai-quotes.d-md-none.text-primary.display-3.mt-n2
+                .ps-3
+                  h3.h5.mb-0 Jenny Wilson
+                  p.text-muted.mb-0 CEO, Co-Founder
+              h2.mb-lg-4 Thanks to you, we have created a unique branding that is our pride!
+              p.lead.mb-0 Duis sapien velit, rutrum ac rutrum dapibus, auctor ut lacus. Aenean sit amet erat augue. Aenean finibus, nibh sed malesuada maximus, nisi tellus iaculis quam, eget egestas mi felis eu urna. Quisque id nisl commodo, egestas eros ac, cursus odio. Ut nec rutrum magna, vel tempor erat. Vivamus nec tempus purus.  
+
+      .col-md-3.offset-lg-1.order-md-1.mt-n3
+        i.ai-quotes.d-none.d-md-block.text-primary.ms-n2.mb-1(style='font-size: 150px;')
+
+        // Contnetn binded to slider (on screens > 768px)
+        .binded-content.h-auto.d-none.d-md-block
+          #testimonial-1.binded-item.h-auto.active
+            h3.h5.mb-1 Lilia Bocouse
+            p.text-muted.mb-0 Head of Marketing
+          #testimonial-2.binded-item.h-auto
+            h3.h5.mb-1 Robert Fox
+            p.text-muted.mb-0 Marketing Coordinator
+          #testimonial-3.binded-item.h-auto
+            h3.h5.mb-1 Jenny Wilson
+            p.text-muted.mb-0 CEO, Co-Founder
+      
+        // Swiper controls
+        .d-flex.align-items-center.pb-2.pb-md-0.pt-4.mt-3
+          button(type='button')#prev-testimonial.btn.btn-icon.btn-sm.btn-outline-primary.rounded-circle.me-3
+            i.ai-arrow-left
+          .testimonials-count.fw-medium.flex-shrink-0.text-center(style='width: 2.5rem;')
+          button(type='button')#next-testimonial.btn.btn-icon.btn-sm.btn-outline-primary.rounded-circle.ms-3
+            i.ai-arrow-right
+     
+
+  // Team
+  section.container.pt-2.pt-xxl-3.pb-5.mb-sm-2.mb-lg-3.mb-xl-4.mb-xxl-5
+    .row.pb-md-3
+      .col-md-4.mb-2.mb-sm-3.mb-md-4.pb-2(style='margin-top: -120px;')
+        .position-sticky.top-0(style='padding-top: 120px;')
+          h2.display-3.mb-0.mb-md-3.pb-lg-3 Meat our creative team
+          a(href='#').btn.btn-lg.btn-link.px-0
+            | View all 16 members
+            i.ai-arrow-right.ms-2
+      .col-md-8
+        .row.row-cols-1.row-cols-sm-2.g-4
+
+          // Item
+          .col
+            .card-hover.pb-3.mb-lg-2.mb-xl-3.me-sm-1.pe-xl-3
+              .position-relative
+                img(src='assets/img/landing/creative-agency/team/01.jpg' alt='Image')
+                .d-flex.justify-content-center.position-absolute.start-0.bottom-0.w-100.px-3.mb-4.opacity-0
+                  a(href='#').btn.btn-light.btn-icon.btn-sm.btn-facebook.rounded-circle.mx-2
+                    i.ai-facebook
+                  a(href='#').btn.btn-light.btn-icon.btn-sm.btn-dribbble.rounded-circle.mx-2
+                    i.ai-dribbble
+                  a(href='#').btn.btn-light.btn-icon.btn-sm.btn-stack-overflow.rounded-circle.mx-2
+                    i.ai-stack-overflow
+              .border-bottom.pt-4.pb-3
+                h3.h4.mb-2 Nick Black
+                span.fs-lg.text-muted Web Designer
+
+          // Item
+          .col
+            .card-hover.pb-3.mb-lg-2.mb-xl-3.ms-sm-1.ps-xl-3
+              .position-relative
+                img(src='assets/img/landing/creative-agency/team/02.jpg' alt='Image')
+                .d-flex.justify-content-center.position-absolute.start-0.bottom-0.w-100.px-3.mb-4.opacity-0
+                  a(href='#').btn.btn-light.btn-icon.btn-sm.btn-facebook.rounded-circle.mx-2
+                    i.ai-facebook
+                  a(href='#').btn.btn-light.btn-icon.btn-sm.btn-instagram.rounded-circle.mx-2
+                    i.ai-instagram
+                  a(href='#').btn.btn-light.btn-icon.btn-sm.btn-behance.rounded-circle.mx-2
+                    i.ai-behance
+              .border-bottom.pt-4.pb-3
+                h3.h4.mb-2 Emilia Denver
+                span.fs-lg.text-muted Identity Designer
+
+          // Item
+          .col
+            .card-hover.pb-3.mb-lg-2.mb-xl-3.me-sm-1.pe-xl-3
+              .position-relative
+                img(src='assets/img/landing/creative-agency/team/03.jpg' alt='Image')
+                .d-flex.justify-content-center.position-absolute.start-0.bottom-0.w-100.px-3.mb-4.opacity-0
+                  a(href='#').btn.btn-light.btn-icon.btn-sm.btn-facebook.rounded-circle.mx-2
+                    i.ai-facebook
+                  a(href='#').btn.btn-light.btn-icon.btn-sm.btn-twitter.rounded-circle.mx-2
+                    i.ai-twitter
+                  a(href='#').btn.btn-light.btn-icon.btn-sm.btn-google.rounded-circle.mx-2
+                    i.ai-google
+              .border-bottom.pt-4.pb-3
+                h3.h4.mb-2 Jane Cooper
+                span.fs-lg.text-muted Marketing Coordinator
+
+          // Item
+          .col
+            .card-hover.pb-3.mb-lg-2.mb-xl-3.ms-sm-1.ps-xl-3
+              .position-relative
+                img(src='assets/img/landing/creative-agency/team/04.jpg' alt='Image')
+                .d-flex.justify-content-center.position-absolute.start-0.bottom-0.w-100.px-3.mb-4.opacity-0
+                  a(href='#').btn.btn-light.btn-icon.btn-sm.btn-facebook.rounded-circle.mx-2
+                    i.ai-facebook
+                  a(href='#').btn.btn-light.btn-icon.btn-sm.btn-dribbble.rounded-circle.mx-2
+                    i.ai-dribbble
+                  a(href='#').btn.btn-light.btn-icon.btn-sm.btn-behance.rounded-circle.mx-2
+                    i.ai-behance
+              .border-bottom.pt-4.pb-3
+                h3.h4.mb-2 Jenny Wilson
+                span.fs-lg.text-muted Web Designer
+
+          // Item
+          .col
+            .card-hover.pb-3.mb-lg-2.mb-xl-3.me-sm-1.pe-xl-3
+              .position-relative
+                img(src='assets/img/landing/creative-agency/team/05.jpg' alt='Image')
+                .d-flex.justify-content-center.position-absolute.start-0.bottom-0.w-100.px-3.mb-4.opacity-0
+                  a(href='#').btn.btn-light.btn-icon.btn-sm.btn-instagram.rounded-circle.mx-2
+                    i.ai-instagram
+                  a(href='#').btn.btn-light.btn-icon.btn-sm.btn-dribbble.rounded-circle.mx-2
+                    i.ai-dribbble
+                  a(href='#').btn.btn-light.btn-icon.btn-sm.btn-behance.rounded-circle.mx-2
+                    i.ai-behance
+              .border-bottom.pt-4.pb-3
+                h3.h4.mb-2 Robert Fox
+                span.fs-lg.text-muted Graphic Designer
+
+          // Item
+          .col
+            .card-hover.pb-3.mb-lg-2.mb-xl-3.ms-sm-1.ps-xl-3
+              .position-relative
+                img(src='assets/img/landing/creative-agency/team/06.jpg' alt='Image')
+                .d-flex.justify-content-center.position-absolute.start-0.bottom-0.w-100.px-3.mb-4.opacity-0
+                  a(href='#').btn.btn-light.btn-icon.btn-sm.btn-facebook.rounded-circle.mx-2
+                    i.ai-facebook
+                  a(href='#').btn.btn-light.btn-icon.btn-sm.btn-twitter.rounded-circle.mx-2
+                    i.ai-twitter
+                  a(href='#').btn.btn-light.btn-icon.btn-sm.btn-behance.rounded-circle.mx-2
+                    i.ai-behance
+              .border-bottom.pt-4.pb-3
+                h3.h4.mb-2 Jacob Jones
+                span.fs-lg.text-muted Branding Designer
+
+
+//- Footer
+block footer
+  include partials/footer-portfolio.pug

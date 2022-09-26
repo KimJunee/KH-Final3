@@ -1,0 +1,43 @@
+extends ../partials/layout-docs
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['prismjs/themes/prism.css', 'prismjs/plugins/toolbar/prism-toolbar.css', 'prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var vendorScripts = ['prismjs/components/prism-core.min.js', 'prismjs/components/prism-markup.min.js', 'prismjs/components/prism-clike.min.js', 'prismjs/components/prism-javascript.min.js', 'prismjs/components/prism-pug.min.js', 'prismjs/plugins/toolbar/prism-toolbar.min.js', 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'UI icons (Icon font)'
+  
+//- Page Content
+block content
+  .pb-5
+    p Finder includes the collection of vector based font icons to use across the website. See the code example below:
+    .card.border-0.shadow
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#html' data-bs-toggle='tab' role='tab' aria-controls='html' aria-selected='true').nav-link.active HTML
+          li.nav-item
+            a(href='#pug' data-bs-toggle='tab' role='tab' aria-controls='pug' aria-selected='false').nav-link Pug
+          li.nav-item
+            a(href='#result' data-bs-toggle='tab' role='tab' aria-controls='result' aria-selected='false').nav-link Result
+      .card-body
+        .tab-content
+          #html.tab-pane.fade.show.active(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;i class=&quot;fi-camera-plus&quot;&gt;&lt;/i&gt;
+          #pug.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                i.fi-camera-plus
+          #result.tab-pane.fade(role='tabpanel')
+            i.fi-camera-plus.lead
+    a(href='../components/icon-font.html' target='_blank' rel='noopener').d-inline-block.fw-bold.pt-4 You can find the list of all available icons as well as their respective css classes here.
+    h2.h4.pt-5 Add new icons to the set
+    p In order to add new icons to the set follow these easy steps:
+    ol.pb-3
+      li Upload this file to <a href='https://icomoon.io/app' class='fw-bold' target='_blank' rel='noopener'>Icomoon App</a>. See the screnshot below.
+      li Add new icons by dragging them to the end of the list (this is important to add icons to the end). Make sure you upload icons in <span class='fw-bold'>.svg format</span>. Each SVG icon should be <span class='fw-bold'>24x24px</span> and <span class='fw-bold'>all paths should be outlined (converted to shapes)</span> for better rendering.
+      li Make sure to select new icons with selection tool at the top and click <span class='fw-bold'>Generate Font</span>.
+      li Download generated font, extact .zip archive. Copy new font files as well as selection.json to <code>Finder/dist/fonts</code>.
+      li Open <code>styles.css</code> or <code>styles.scss</code> (depending on whether you use CSS or SCSS) inside downloaded .zip, copy your new icons styles and add them to <code>Finder/src/scss/components/icons.scss</code> to the end of the file.
+    img(src='../img/docs/icomoon.png' alt='Icomoon App').d-block.img-thumbnail.mb-2

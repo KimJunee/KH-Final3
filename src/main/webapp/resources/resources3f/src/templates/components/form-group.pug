@@ -1,0 +1,781 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['prismjs/themes/prism.css', 'prismjs/plugins/toolbar/prism-toolbar.css', 'prismjs/plugins/line-numbers/prism-line-numbers.css', 'nouislider/dist/nouislider.min.css']
+  - var vendorScripts = ['prismjs/components/prism-core.min.js', 'prismjs/components/prism-markup.min.js', 'prismjs/components/prism-clike.min.js', 'prismjs/components/prism-javascript.min.js', 'prismjs/components/prism-pug.min.js', 'prismjs/plugins/toolbar/prism-toolbar.min.js', 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'prismjs/plugins/line-numbers/prism-line-numbers.min.js', 'nouislider/dist/nouislider.min.js']
+  - var pageTitle = 'Form group'
+  - var pageSubtitle = 'Component for grouping form controls, buttons, dropdowns together.'
+  - var isPageTitleBadge = true
+  - var anchorNav = [{'title': 'Supported controls', 'link': '#form-group-controls'}, {'title': 'Multiple controls (Responsive)', 'link': '#form-group-multiple'}, {'title': 'Pill shape', 'link': '#form-group-pill'}, {'title': 'Sizing', 'link': '#form-group-sizing'}, {'title': 'Light version', 'link': '#form-group-light'}]
+  
+//- Page Content
+block content
+  
+  // Supported controls
+  section#form-group-controls.pb-5.mb-md-2
+    h2.h5.mb-3 Supported controls
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result1' data-bs-toggle='tab' role='tab' aria-controls='result1' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result1.tab-pane.fade.show.active(role='tabpanel')
+            form.form-group.mb-3(style='max-width: 25rem;')
+              input(type='text' placeholder='Text input').form-control
+              button(type='button').btn.btn-translucent-primary Button
+            form.form-group.mb-3(style='max-width: 25rem;')
+              select.form-select
+                option Select box
+                option Option item 1
+                option Option item 2
+                option Option item 3
+              button(type='button').btn.btn-translucent-primary Button
+            form.form-group.mb-3(style='max-width: 25rem;')
+              .input-group
+                span.input-group-text.text-muted
+                  i.fi-camera-plus
+                input(type='text' placeholder='Input group').form-control
+              button(type='button').btn.btn-translucent-primary Button
+            form.form-group.mb-3(style='max-width: 25rem;')
+              .dropdown(data-bs-toggle='select')
+                button(type='button' data-bs-toggle='dropdown').btn.btn-link.dropdown-toggle
+                  span.dropdown-toggle-label Dropdown here 
+                input(type='hidden')
+                ul.dropdown-menu
+                  li
+                    a(href='#').dropdown-item
+                      span.dropdown-item-label Action
+                  li
+                    a(href='#').dropdown-item
+                      span.dropdown-item-label Another action
+                  li
+                    a(href='#').dropdown-item
+                      span.dropdown-item-label Something else here
+                  li.dropdown-divider
+                  li
+                    a(href='#').dropdown-item
+                      span.dropdown-item-label Separated link
+              button(type='button').btn.btn-translucent-primary.ms-auto Button
+            form.form-group.mb-1(style='max-width: 25rem;')
+              .range-slider(data-start-min='450' data-min='0' data-max='1000' data-step='1')
+                .range-slider-ui
+                input(type='hidden').form-control.range-slider-value-min
+              button(type='button').btn.btn-translucent-primary.ms-auto Button
+          #html1.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Form group: Text input + Button --&gt;
+                &lt;form class=&quot;form-group&quot;&gt;
+                  &lt;input class=&quot;form-control&quot; type=&quot;text&quot; placeholder=&quot;Text input&quot;&gt;
+                  &lt;button type=&quot;button&quot; class=&quot;btn btn-translucent-primary&quot;&gt;Button&lt;/button&gt;
+                &lt;/form&gt;
+                
+                &lt;!-- Form group: Select + Button --&gt;
+                &lt;form class=&quot;form-group&quot;&gt;
+                  &lt;select class=&quot;form-select&quot;&gt;
+                    &lt;option&gt;Select box&lt;/option&gt;
+                    &lt;option&gt;Option item 1&lt;/option&gt;
+                    &lt;option&gt;Option item 2&lt;/option&gt;
+                    &lt;option&gt;Option item 3&lt;/option&gt;
+                  &lt;/select&gt;
+                  &lt;button type=&quot;button&quot; class=&quot;btn btn-translucent-primary&quot;&gt;Button&lt;/button&gt;
+                &lt;/form&gt;
+
+                &lt;!-- Form group: Input group + Button --&gt;
+                &lt;form class=&quot;form-group&quot;&gt;
+                  &lt;div class=&quot;input-group&quot;&gt;
+                    &lt;span class=&quot;input-group-text text-muted&quot;&gt;
+                      &lt;i class=&quot;fi-camera-plus&quot;&gt;&lt;/i&gt;
+                    &lt;/span&gt;
+                    &lt;input class=&quot;form-control&quot; type=&quot;text&quot; placeholder=&quot;Input group&quot;&gt;
+                  &lt;/div&gt;
+                  &lt;button type=&quot;button&quot; class=&quot;btn btn-translucent-primary&quot;&gt;Button&lt;/button&gt;
+                &lt;/form&gt;
+
+                &lt;!-- Form group: Dropdown + Button --&gt;
+                &lt;form class=&quot;form-group&quot;&gt;
+                  &lt;div class=&quot;dropdown&quot; data-bs-toggle=&quot;select&quot;&gt;
+                    &lt;button class=&quot;btn btn-link dropdown-toggle&quot; type=&quot;button&quot; data-bs-toggle=&quot;dropdown&quot;&gt;&lt;span class=&quot;dropdown-toggle-label&quot;&gt;Dropdown here &lt;/span&gt;&lt;/button&gt;
+                    &lt;input type=&quot;hidden&quot;&gt;
+                    &lt;ul class=&quot;dropdown-menu&quot;&gt;
+                      &lt;li&gt;
+                        &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;
+                          &lt;span class=&quot;dropdown-item-label&quot;&gt;Action&lt;/span&gt;
+                        &lt;/a&gt;
+                      &lt;/li&gt;
+                      &lt;li&gt;
+                        &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;
+                          &lt;span class=&quot;dropdown-item-label&quot;&gt;Another action&lt;/span&gt;
+                        &lt;/a&gt;
+                      &lt;/li&gt;
+                      &lt;li&gt;
+                        &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;
+                          &lt;span class=&quot;dropdown-item-label&quot;&gt;Something else here&lt;/span&gt;
+                        &lt;/a&gt;
+                      &lt;/li&gt;
+                      &lt;li class=&quot;dropdown-divider&quot;&gt;&lt;/li&gt;
+                      &lt;li&gt;
+                        &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;
+                          &lt;span class=&quot;dropdown-item-label&quot;&gt;Separated link&lt;/span&gt;
+                        &lt;/a&gt;
+                      &lt;/li&gt;
+                    &lt;/ul&gt;
+                  &lt;/div&gt;
+                  &lt;button type=&quot;button&quot; class=&quot;btn btn-translucent-primary ms-auto&quot;&gt;Button&lt;/button&gt;
+                &lt;/form&gt;
+
+                &lt;!-- Form group: Range slider + Button --&gt;
+                &lt;form class=&quot;form-group&quot;&gt;
+                  &lt;div class=&quot;range-slider&quot; data-start-min=&quot;450&quot; data-min=&quot;0&quot; data-max=&quot;1000&quot; data-step=&quot;1&quot;&gt;
+                    &lt;div class=&quot;range-slider-ui&quot;&gt;&lt;/div&gt;
+                    &lt;input type=&quot;hidden&quot; class=&quot;form-control range-slider-value-min&quot;&gt;
+                  &lt;/div&gt;
+                  &lt;button type=&quot;button&quot; class=&quot;btn btn-translucent-primary ms-auto&quot;&gt;Button&lt;/button&gt;
+                &lt;/form&gt;
+          #pug1.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Form group: Text input + Button
+                form.form-group
+                  input(type=&quot;text&quot;, placeholder=&quot;Text input&quot;).form-control
+                  button(type=&quot;button&quot;).btn.btn-translucent-primary
+                    | Button
+
+                // Form group: Select + Button
+                form.form-group
+                  select.form-select
+                    option Select box
+                    option Option item 1
+                    option Option item 2
+                    option Option item 3
+                  button(type=&quot;button&quot;).btn.btn-translucent-primary
+                    | Button
+
+                // Form group: Input group + Button
+                form.form-group
+                  .input-group
+                    span.input-group-text.text-muted
+                      i.fi-camera-plus
+                    input(type=&quot;text&quot; placeholder=&quot;Input group&quot;).form-control
+                  button(type=&quot;button&quot;).btn.btn-translucent-primary
+                    | Button
+
+                // Form group: Dropdown + Button
+                form.form-group
+                  .dropdown(data-bs-toggle=&quot;select&quot;)
+                    button(type=&quot;button&quot;, data-bs-toggle=&quot;dropdown&quot;).btn.btn-link.dropdown-toggle
+                      span.dropdown-toggle-label Dropdown here 
+                    input(type=&quot;hidden&quot;)
+                    ul.dropdown-menu
+                      li
+                        a(href=&quot;#&quot;).dropdown-item
+                          span.dropdown-item-label Action
+                      li
+                        a(href=&quot;#&quot;).dropdown-item
+                          span.dropdown-item-label Another action
+                      li
+                        a(href=&quot;#&quot;).dropdown-item
+                          span.dropdown-item-label Something else here
+                      li.dropdown-divider
+                      li
+                        a(href=&quot;#&quot;).dropdown-item
+                          span.dropdown-item-label Separated link
+                  button(type=&quot;button&quot;).btn.btn-translucent-primary.ms-auto
+                    | Button
+                
+                // Form group: Range slider + Button
+                form.form-group
+                  .range-slider(data-start-min=&quot;450&quot;, data-min=&quot;0&quot;, data-max=&quot;1000&quot;, data-step=&quot;1&quot;)
+                    .range-slider-ui
+                    input(type=&quot;hidden&quot;).form-control.range-slider-value-min
+                  button(type=&quot;button&quot;).btn.btn-translucent-primary.ms-auto
+                    | Button
+  
+  // Multiple controls (Responsive)
+  section#form-group-multiple.pb-5.mb-md-2
+    h2.h5.mb-3 Multiple controls (Responsive)
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result2' data-bs-toggle='tab' role='tab' aria-controls='result2' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result2.tab-pane.fade.show.active(role='tabpanel')            
+            form.form-group.d-block
+              .row.g-0.ms-sm-n2
+                .col-md-7.d-sm-flex.align-items-center
+                  .input-group.w-sm-50.border-end-sm
+                    span.input-group-text.text-muted
+                      i.fi-search
+                    input(type='text' placeholder='Search site...').form-control
+                  hr.d-sm-none.my-2
+                  .dropdown.w-sm-50.border-end-md(data-bs-toggle='select')
+                    button(type='button' data-bs-toggle='dropdown').btn.btn-link.dropdown-toggle
+                      i.fi-list.me-2
+                      span.dropdown-toggle-label All categories
+                    input(type='hidden')
+                    ul.dropdown-menu
+                      li
+                        a(href='#').dropdown-item
+                          span.dropdown-item-label Accomodation
+                      li
+                        a(href='#').dropdown-item
+                          span.dropdown-item-label Food &amp; Drink
+                      li
+                        a(href='#').dropdown-item
+                          span.dropdown-item-label Shopping
+                      li
+                        a(href='#').dropdown-item
+                          span.dropdown-item-label Art &amp; History
+                hr.d-md-none.mt-2
+                .col-md-5.d-sm-flex.align-items-center.pt-4.pt-md-0
+                  .d-flex.align-items-center.w-100.pt-2.pb-4.py-sm-0.ps-3
+                    i.fi-cash.fs-lg.text-muted.me-2
+                    span.text-muted Price
+                    .range-slider(data-start-min='450' data-min='0' data-max='1000' data-step='1')
+                      .range-slider-ui
+                      input(type='hidden').form-control.range-slider-value-min
+                  button(type='button').btn.btn-primary.w-100.w-md-auto Search
+          #html2.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Form group: Multiple controls (Responsive) --&gt;
+                &lt;form class=&quot;form-group d-block&quot;&gt;
+                  &lt;div class=&quot;row g-0 ms-sm-n2&quot;&gt;
+                    &lt;div class=&quot;col-md-7 d-sm-flex align-items-center&quot;&gt;
+                      &lt;div class=&quot;input-group w-sm-50 border-end-sm&quot;&gt;
+                        &lt;span class=&quot;input-group-text text-muted&quot;&gt;
+                          &lt;i class=&quot;fi-search&quot;&gt;&lt;/i&gt;
+                        &lt;/span&gt;
+                        &lt;input class=&quot;form-control&quot; type=&quot;text&quot; placeholder=&quot;Search site...&quot;&gt;
+                      &lt;/div&gt;
+                      &lt;hr class=&quot;d-sm-none my-2&quot;&gt;
+                      &lt;div class=&quot;dropdown w-sm-50 border-end-md&quot; data-bs-toggle=&quot;select&quot;&gt;
+                        &lt;button class=&quot;btn btn-link dropdown-toggle&quot; type=&quot;button&quot; data-bs-toggle=&quot;dropdown&quot;&gt;
+                          &lt;i class=&quot;fi-list me-2&quot;&gt;&lt;/i&gt;
+                          &lt;span class=&quot;dropdown-toggle-label&quot;&gt;All categories&lt;/span&gt;
+                        &lt;/button&gt;
+                        &lt;input type=&quot;hidden&quot;&gt;
+                        &lt;ul class=&quot;dropdown-menu&quot;&gt;
+                          &lt;li&gt;
+                            &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;
+                              &lt;span class=&quot;dropdown-item-label&quot;&gt;Accomodation&lt;/span&gt;
+                            &lt;/a&gt;
+                          &lt;/li&gt;
+                          &lt;li&gt;
+                            &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;
+                              &lt;span class=&quot;dropdown-item-label&quot;&gt;Food &amp; Drink&lt;/span&gt;
+                            &lt;/a&gt;
+                          &lt;/li&gt;
+                          &lt;li&gt;
+                            &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;
+                              &lt;span class=&quot;dropdown-item-label&quot;&gt;Shopping&lt;/span&gt;
+                            &lt;/a&gt;
+                          &lt;/li&gt;
+                          &lt;li&gt;
+                            &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;
+                              &lt;span class=&quot;dropdown-item-label&quot;&gt;Art &amp; History&lt;/span&gt;
+                            &lt;/a&gt;
+                          &lt;/li&gt;
+                        &lt;/ul&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;hr class=&quot;d-md-none mt-2&quot;&gt;
+                    &lt;div class=&quot;col-md-5 d-sm-flex align-items-center pt-4 pt-md-0&quot;&gt;
+                      &lt;div class=&quot;d-flex align-items-center w-100 pt-2 pb-4 py-sm-0 ps-3&quot;&gt;
+                        &lt;i class=&quot;fi-cash fs-lg text-muted me-2&quot;&gt;&lt;/i&gt;
+                        &lt;span class=&quot;text-muted&quot;&gt;Price&lt;/span&gt;
+                        &lt;div class=&quot;range-slider&quot; data-start-min=&quot;450&quot; data-min=&quot;0&quot; data-max=&quot;1000&quot; data-step=&quot;1&quot;&gt;
+                          &lt;div class=&quot;range-slider-ui&quot;&gt;&lt;/div&gt;
+                          &lt;input type=&quot;hidden&quot; class=&quot;form-control range-slider-value-min&quot;&gt;
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+                      &lt;button type=&quot;button&quot; class=&quot;btn btn-primary w-100 w-md-auto&quot;&gt;Search&lt;/button&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/form&gt;
+          #pug2.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Form group: Multiple controls (Responsive)
+                form.form-group.d-block
+                  .row.g-0.ms-sm-n2
+                    .col-md-7.d-sm-flex.align-items-center
+                      .input-group.w-sm-50.border-end-sm
+                        span.input-group-text.text-muted
+                          i.fi-search
+                        input(type=&quot;text&quot;, placeholder=&quot;Search site...&quot;).form-control
+                      hr.d-sm-none.my-2
+                      .dropdown.w-sm-50.border-end-md(data-bs-toggle=&quot;select&quot;)
+                        button(type=&quot;button&quot;, data-bs-toggle=&quot;dropdown&quot;).btn.btn-link.dropdown-toggle
+                          i.fi-list.me-2
+                          span.dropdown-toggle-label All categories
+                        input(type=&quot;hidden&quot;)
+                        ul.dropdown-menu
+                          li
+                            a(href=&quot;#&quot;).dropdown-item
+                              span.dropdown-item-label Accomodation
+                          li
+                            a(href=&quot;#&quot;).dropdown-item
+                              span.dropdown-item-label Food &amp;amp; Drink
+                          li
+                            a(href=&quot;#&quot;).dropdown-item
+                              span.dropdown-item-label Shopping
+                          li
+                            a(href=&quot;#&quot;).dropdown-item
+                              span.dropdown-item-label Art &amp;amp; History
+                    hr.d-md-none.mt-2
+                    .col-md-5.d-sm-flex.align-items-center.pt-4.pt-md-0
+                      .d-flex.align-items-center.w-100.pt-2.pb-4.py-sm-0.ps-3
+                        i.fi-cash.fs-lg.text-muted.me-2
+                        span.text-muted Price
+                        .range-slider(data-start-min=&quot;450&quot;, data-min=&quot;0&quot;, data-max=&quot;1000&quot;, data-step=&quot;1&quot;)
+                          .range-slider-ui
+                          input(type=&quot;hidden&quot;).form-control.range-slider-value-min
+                      button(type=&quot;button&quot;).btn.btn-primary.w-100.w-md-auto
+                        | Search
+  
+  // Pill shape
+  section#form-group-pill.pb-5.mb-md-2
+    h2.h5.mb-3 Pill shape
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result3' data-bs-toggle='tab' role='tab' aria-controls='result3' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result3.tab-pane.fade.show.active(role='tabpanel')            
+            form.form-group.d-block.rounded-md-pill
+              .row.g-0.ms-sm-n2
+                .col-md-7.d-sm-flex.align-items-center
+                  .input-group.w-sm-50.border-end-sm
+                    span.input-group-text.text-muted.rounded-pill
+                      i.fi-search
+                    input(type='text' placeholder='Search site...').form-control
+                  hr.d-sm-none.my-2
+                  .dropdown.w-sm-50.border-end-md(data-bs-toggle='select')
+                    button(type='button' data-bs-toggle='dropdown').btn.btn-link.dropdown-toggle
+                      i.fi-list.me-2
+                      span.dropdown-toggle-label All categories
+                    input(type='hidden')
+                    ul.dropdown-menu
+                      li
+                        a(href='#').dropdown-item
+                          span.dropdown-item-label Accomodation
+                      li
+                        a(href='#').dropdown-item
+                          span.dropdown-item-label Food &amp; Drink
+                      li
+                        a(href='#').dropdown-item
+                          span.dropdown-item-label Shopping
+                      li
+                        a(href='#').dropdown-item
+                          span.dropdown-item-label Art &amp; History
+                hr.d-md-none.mt-2
+                .col-md-5.d-sm-flex.align-items-center.pt-4.pt-md-0
+                  .d-flex.align-items-center.w-100.pt-2.pb-4.py-sm-0.ps-3
+                    i.fi-cash.fs-lg.text-muted.me-2
+                    span.text-muted Price
+                    .range-slider(data-start-min='450' data-min='0' data-max='1000' data-step='1')
+                      .range-slider-ui
+                      input(type='hidden').form-control.range-slider-value-min
+                  button(type='button').btn.btn-primary.rounded-pill.w-100.w-md-auto Search
+          #html3.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Form group pill shape: Multiple controls (Responsive) --&gt;
+                &lt;form class=&quot;form-group d-block rounded-md-pill&quot;&gt;
+                  &lt;div class=&quot;row g-0 ms-sm-n2&quot;&gt;
+                    &lt;div class=&quot;col-md-7 d-sm-flex align-items-center&quot;&gt;
+                      &lt;div class=&quot;input-group w-sm-50 border-end-sm&quot;&gt;
+                        &lt;span class=&quot;input-group-text text-muted rounded-pill&quot;&gt;
+                          &lt;i class=&quot;fi-search&quot;&gt;&lt;/i&gt;
+                        &lt;/span&gt;
+                        &lt;input class=&quot;form-control&quot; type=&quot;text&quot; placeholder=&quot;Search site...&quot;&gt;
+                      &lt;/div&gt;
+                      &lt;hr class=&quot;d-sm-none my-2&quot;&gt;
+                      &lt;div class=&quot;dropdown w-sm-50 border-end-md&quot; data-bs-toggle=&quot;select&quot;&gt;
+                        &lt;button class=&quot;btn btn-link dropdown-toggle&quot; type=&quot;button&quot; data-bs-toggle=&quot;dropdown&quot;&gt;
+                          &lt;i class=&quot;fi-list me-2&quot;&gt;&lt;/i&gt;
+                          &lt;span class=&quot;dropdown-toggle-label&quot;&gt;All categories&lt;/span&gt;
+                        &lt;/button&gt;
+                        &lt;input type=&quot;hidden&quot;&gt;
+                        &lt;ul class=&quot;dropdown-menu&quot;&gt;
+                          &lt;li&gt;
+                            &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;
+                              &lt;span class=&quot;dropdown-item-label&quot;&gt;Accomodation&lt;/span&gt;
+                            &lt;/a&gt;
+                          &lt;/li&gt;
+                          &lt;li&gt;
+                            &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;
+                              &lt;span class=&quot;dropdown-item-label&quot;&gt;Food &amp; Drink&lt;/span&gt;
+                            &lt;/a&gt;
+                          &lt;/li&gt;
+                          &lt;li&gt;
+                            &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;
+                              &lt;span class=&quot;dropdown-item-label&quot;&gt;Shopping&lt;/span&gt;
+                            &lt;/a&gt;
+                          &lt;/li&gt;
+                          &lt;li&gt;
+                            &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;
+                              &lt;span class=&quot;dropdown-item-label&quot;&gt;Art &amp; History&lt;/span&gt;
+                            &lt;/a&gt;
+                          &lt;/li&gt;
+                        &lt;/ul&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;hr class=&quot;d-md-none mt-2&quot;&gt;
+                    &lt;div class=&quot;col-md-5 d-sm-flex align-items-center pt-4 pt-md-0&quot;&gt;
+                      &lt;div class=&quot;d-flex align-items-center w-100 pt-2 pb-4 py-sm-0 ps-3&quot;&gt;
+                        &lt;i class=&quot;fi-cash fs-lg text-muted me-2&quot;&gt;&lt;/i&gt;
+                        &lt;span class=&quot;text-muted&quot;&gt;Price&lt;/span&gt;
+                        &lt;div class=&quot;range-slider&quot; data-start-min=&quot;450&quot; data-min=&quot;0&quot; data-max=&quot;1000&quot; data-step=&quot;1&quot;&gt;
+                          &lt;div class=&quot;range-slider-ui&quot;&gt;&lt;/div&gt;
+                          &lt;input type=&quot;hidden&quot; class=&quot;form-control range-slider-value-min&quot;&gt;
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+                      &lt;button type=&quot;button&quot; class=&quot;btn btn-primary rounded-pill w-100 w-md-auto&quot;&gt;Search&lt;/button&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/form&gt;
+          #pug3.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Form group pill shape: Multiple controls (Responsive)
+                form.form-group.d-block.rounded-md-pill
+                  .row.g-0.ms-sm-n2
+                    .col-md-7.d-sm-flex.align-items-center
+                      .input-group.w-sm-50.border-end-sm
+                        span.input-group-text.text-muted.rounded-pill
+                          i.fi-search
+                        input(type=&quot;text&quot;, placeholder=&quot;Search site...&quot;).form-control
+                      hr.d-sm-none.my-2
+                      .dropdown.w-sm-50.border-end-md(data-bs-toggle=&quot;select&quot;)
+                        button(type=&quot;button&quot;, data-bs-toggle=&quot;dropdown&quot;).btn.btn-link.dropdown-toggle
+                          i.fi-list.me-2
+                          span.dropdown-toggle-label All categories
+                        input(type=&quot;hidden&quot;)
+                        ul.dropdown-menu
+                          li
+                            a(href=&quot;#&quot;).dropdown-item
+                              span.dropdown-item-label Accomodation
+                          li
+                            a(href=&quot;#&quot;).dropdown-item
+                              span.dropdown-item-label Food &amp;amp; Drink
+                          li
+                            a(href=&quot;#&quot;).dropdown-item
+                              span.dropdown-item-label Shopping
+                          li
+                            a(href=&quot;#&quot;).dropdown-item
+                              span.dropdown-item-label Art &amp;amp; History
+                    hr.d-md-none.mt-2
+                    .col-md-5.d-sm-flex.align-items-center.pt-4.pt-md-0
+                      .d-flex.align-items-center.w-100.pt-2.pb-4.py-sm-0.ps-3
+                        i.fi-cash.fs-lg.text-muted.me-2
+                        span.text-muted Price
+                        .range-slider(data-start-min=&quot;450&quot;, data-min=&quot;0&quot;, data-max=&quot;1000&quot;, data-step=&quot;1&quot;)
+                          .range-slider-ui
+                          input(type=&quot;hidden&quot;).form-control.range-slider-value-min
+                      button(type=&quot;button&quot;).btn.btn-primary.rounded-pill.w-100.w-md-auto
+                        | Search
+  
+  // Sizing
+  section#form-group-sizing.pb-5.mb-md-2
+    h2.h5.mb-3 Sizing
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result4' data-bs-toggle='tab' role='tab' aria-controls='result4' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result4.tab-pane.fade.show.active(role='tabpanel')            
+            form.form-group.mb-3(style='max-width: 25rem;')
+              .input-group.input-group-lg
+                span.input-group-text.text-muted
+                  i.fi-search
+                input(type='text' placeholder='Search query...').form-control
+              button(type='button').btn.btn-translucent-primary.btn-lg Search
+            form.form-group.mb-3(style='max-width: 25rem;')
+              .input-group
+                span.input-group-text.text-muted
+                  i.fi-search
+                input(type='text' placeholder='Search query...').form-control
+              button(type='button').btn.btn-translucent-primary Search
+            form.form-group.mb-1(style='max-width: 25rem;')
+              .input-group.input-group-sm
+                span.input-group-text.text-muted
+                  i.fi-search
+                input(type='text' placeholder='Search query...').form-control
+              button(type='button').btn.btn-translucent-primary.btn-sm Search
+          #html4.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Large form group --&gt;
+                &lt;form class=&quot;form-group&quot;&gt;
+                  &lt;div class=&quot;input-group input-group-lg&quot;&gt;
+                    &lt;span class=&quot;input-group-text text-muted&quot;&gt;
+                      &lt;i class=&quot;fi-search&quot;&gt;&lt;/i&gt;
+                    &lt;/span&gt;
+                    &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Search query...&quot;&gt;
+                  &lt;/div&gt;
+                  &lt;button type=&quot;button&quot; class=&quot;btn btn-translucent-primary btn-lg&quot;&gt;Search&lt;/button&gt;
+                &lt;/form&gt;
+
+                &lt;!-- Normal form group --&gt;
+                &lt;form class=&quot;form-group&quot;&gt;
+                  &lt;div class=&quot;input-group&quot;&gt;
+                    &lt;span class=&quot;input-group-text text-muted&quot;&gt;
+                      &lt;i class=&quot;fi-search&quot;&gt;&lt;/i&gt;
+                    &lt;/span&gt;
+                    &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Search query...&quot;&gt;
+                  &lt;/div&gt;
+                  &lt;button type=&quot;button&quot; class=&quot;btn btn-translucent-primary&quot;&gt;Search&lt;/button&gt;
+                &lt;/form&gt;
+
+                &lt;!-- Small form group --&gt;
+                &lt;form class=&quot;form-group&quot;&gt;
+                  &lt;div class=&quot;input-group input-group-sm&quot;&gt;
+                    &lt;span class=&quot;input-group-text text-muted&quot;&gt;
+                      &lt;i class=&quot;fi-search&quot;&gt;&lt;/i&gt;
+                    &lt;/span&gt;
+                    &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Search query...&quot;&gt;
+                  &lt;/div&gt;
+                  &lt;button type=&quot;button&quot; class=&quot;btn btn-translucent-primary btn-sm&quot;&gt;Search&lt;/button&gt;
+                &lt;/form&gt;
+          #pug4.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Large form group
+                form.form-group
+                  .input-group.input-group-lg
+                    span.input-group-text.text-muted
+                      i.fi-search
+                    input(type=&quot;text&quot;, placeholder=&quot;Search query...&quot;).form-control
+                  button(type=&quot;button&quot;).btn.btn-translucent-primary.btn-lg
+                    | Search
+
+                // Normal form group
+                form.form-group
+                  .input-group
+                    span.input-group-text.text-muted
+                      i.fi-search
+                    input(type=&quot;text&quot;, placeholder=&quot;Search query...&quot;).form-control
+                  button(type=&quot;button&quot;).btn.btn-translucent-primary
+                    | Search
+
+                // Small form group
+                form.form-group
+                  .input-group.input-group-sm
+                    span.input-group-text.text-muted
+                      i.fi-search
+                    input(type=&quot;text&quot;, placeholder=&quot;Search query...&quot;).form-control
+                  button(type=&quot;button&quot;).btn.btn-translucent-primary.btn-sm
+                    | Search
+  
+  // Light version
+  section#form-group-light.pb-5.mb-md-2
+    h2.h5.mb-3 Light version
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result5' data-bs-toggle='tab' role='tab' aria-controls='result5' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html5' data-bs-toggle='tab' role='tab' aria-controls='html5' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug5' data-bs-toggle='tab' role='tab' aria-controls='pug5' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result5.tab-pane.m-n3.p-3.bg-dark.fade.show.active(role='tabpanel')
+            form.form-group.form-group-light.mb-3(style='max-width: 25rem;')
+              input(type='text' placeholder='Text input').form-control
+              button(type='button').btn.btn-primary Button
+            form.form-group.form-group-light.mb-3(style='max-width: 25rem;')
+              select.form-select.form-select-light
+                option Select box
+                option Option item 1
+                option Option item 2
+                option Option item 3
+              button(type='button').btn.btn-primary Button
+            form.form-group.form-group-light.mb-3(style='max-width: 25rem;')
+              .input-group
+                span.input-group-text 
+                  i.fi-camera-plus
+                input(type='text' placeholder='Input group').form-control
+              button(type='button').btn.btn-primary Button
+            form.form-group.form-group-light.mb-3(style='max-width: 25rem;')
+              .dropdown(data-bs-toggle='select')
+                button(type='button' data-bs-toggle='dropdown').btn.btn-link.dropdown-toggle
+                  span.dropdown-toggle-label Dropdown here 
+                input(type='hidden')
+                ul.dropdown-menu.dropdown-menu-dark
+                  li
+                    a(href='#').dropdown-item
+                      span.dropdown-item-label Action
+                  li
+                    a(href='#').dropdown-item
+                      span.dropdown-item-label Another action
+                  li
+                    a(href='#').dropdown-item
+                      span.dropdown-item-label Something else here
+                  li.dropdown-divider
+                  li
+                    a(href='#').dropdown-item
+                      span.dropdown-item-label Separated link
+              button(type='button').btn.btn-primary.ms-auto Button
+            form.form-group.form-group-light.mb-1(style='max-width: 25rem;')
+              .range-slider(data-start-min='450' data-min='0' data-max='1000' data-step='1')
+                .range-slider-ui
+                input(type='hidden').form-control.range-slider-value-min
+              button(type='button').btn.btn-primary.ms-auto Button
+          #html5.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Light form group: Text input + Button --&gt;
+                &lt;form class=&quot;form-group form-group-light&quot;&gt;
+                  &lt;input class=&quot;form-control&quot; type=&quot;text&quot; placeholder=&quot;Text input&quot;&gt;
+                  &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Button&lt;/button&gt;
+                &lt;/form&gt;
+                
+                &lt;!-- Light form group: Select + Button --&gt;
+                &lt;form class=&quot;form-group form-group-light&quot;&gt;
+                  &lt;select class=&quot;form-select&quot;&gt;
+                    &lt;option&gt;Select box&lt;/option&gt;
+                    &lt;option&gt;Option item 1&lt;/option&gt;
+                    &lt;option&gt;Option item 2&lt;/option&gt;
+                    &lt;option&gt;Option item 3&lt;/option&gt;
+                  &lt;/select&gt;
+                  &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Button&lt;/button&gt;
+                &lt;/form&gt;
+
+                &lt;!-- Light form group: Input group + Button --&gt;
+                &lt;form class=&quot;form-group form-group-light&quot;&gt;
+                  &lt;div class=&quot;input-group&quot;&gt;
+                    &lt;span class=&quot;input-group-text&quot;&gt;
+                      &lt;i class=&quot;fi-camera-plus&quot;&gt;&lt;/i&gt;
+                    &lt;/span&gt;
+                    &lt;input class=&quot;form-control&quot; type=&quot;text&quot; placeholder=&quot;Input group&quot;&gt;
+                  &lt;/div&gt;
+                  &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Button&lt;/button&gt;
+                &lt;/form&gt;
+
+                &lt;!-- Light form group: Dropdown + Button --&gt;
+                &lt;form class=&quot;form-group form-group-light&quot;&gt;
+                  &lt;div class=&quot;dropdown&quot; data-bs-toggle=&quot;select&quot;&gt;
+                    &lt;button class=&quot;btn btn-link dropdown-toggle&quot; type=&quot;button&quot; data-bs-toggle=&quot;dropdown&quot;&gt;&lt;span class=&quot;dropdown-toggle-label&quot;&gt;Dropdown here &lt;/span&gt;&lt;/button&gt;
+                    &lt;input type=&quot;hidden&quot;&gt;
+                    &lt;ul class=&quot;dropdown-menu dropdown-menu-dark&quot;&gt;
+                      &lt;li&gt;
+                        &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;
+                          &lt;span class=&quot;dropdown-item-label&quot;&gt;Action&lt;/span&gt;
+                        &lt;/a&gt;
+                      &lt;/li&gt;
+                      &lt;li&gt;
+                        &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;
+                          &lt;span class=&quot;dropdown-item-label&quot;&gt;Another action&lt;/span&gt;
+                        &lt;/a&gt;
+                      &lt;/li&gt;
+                      &lt;li&gt;
+                        &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;
+                          &lt;span class=&quot;dropdown-item-label&quot;&gt;Something else here&lt;/span&gt;
+                        &lt;/a&gt;
+                      &lt;/li&gt;
+                      &lt;li class=&quot;dropdown-divider&quot;&gt;&lt;/li&gt;
+                      &lt;li&gt;
+                        &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;
+                          &lt;span class=&quot;dropdown-item-label&quot;&gt;Separated link&lt;/span&gt;
+                        &lt;/a&gt;
+                      &lt;/li&gt;
+                    &lt;/ul&gt;
+                  &lt;/div&gt;
+                  &lt;button type=&quot;button&quot; class=&quot;btn btn-primary ms-auto&quot;&gt;Button&lt;/button&gt;
+                &lt;/form&gt;
+
+                &lt;!-- Light form group: Range slider + Button --&gt;
+                &lt;form class=&quot;form-group form-group-light&quot;&gt;
+                  &lt;div class=&quot;range-slider&quot; data-start-min=&quot;450&quot; data-min=&quot;0&quot; data-max=&quot;1000&quot; data-step=&quot;1&quot;&gt;
+                    &lt;div class=&quot;range-slider-ui&quot;&gt;&lt;/div&gt;
+                    &lt;input type=&quot;hidden&quot; class=&quot;form-control range-slider-value-min&quot;&gt;
+                  &lt;/div&gt;
+                  &lt;button type=&quot;button&quot; class=&quot;btn btn-primary ms-auto&quot;&gt;Button&lt;/button&gt;
+                &lt;/form&gt;
+          #pug5.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Light form group: Text input + Button
+                form.form-group.form-group-light
+                  input(type=&quot;text&quot;, placeholder=&quot;Text input&quot;).form-control
+                  button(type=&quot;button&quot;).btn.btn-primary
+                    | Button
+
+                // Light form group: Select + Button
+                form.form-group.form-group-light
+                  select.form-select
+                    option Select box
+                    option Option item 1
+                    option Option item 2
+                    option Option item 3
+                  button(type=&quot;button&quot;).btn.btn-primary
+                    | Button
+
+                // Light form group: Input group + Button
+                form.form-group.form-group-light
+                  .input-group
+                    span.input-group-text 
+                      i.fi-camera-plus
+                    input(type=&quot;text&quot; placeholder=&quot;Input group&quot;).form-control
+                  button(type=&quot;button&quot;).btn.btn-primary
+                    | Button
+
+                // Light form group: Dropdown + Button
+                form.form-group.form-group-light
+                  .dropdown(data-bs-toggle=&quot;select&quot;)
+                    button(type=&quot;button&quot;, data-bs-toggle=&quot;dropdown&quot;).btn.btn-link.dropdown-toggle
+                      span.dropdown-toggle-label Dropdown here 
+                    input(type=&quot;hidden&quot;)
+                    ul.dropdown-menu.dropdown-menu-dark
+                      li
+                        a(href=&quot;#&quot;).dropdown-item
+                          span.dropdown-item-label Action
+                      li
+                        a(href=&quot;#&quot;).dropdown-item
+                          span.dropdown-item-label Another action
+                      li
+                        a(href=&quot;#&quot;).dropdown-item
+                          span.dropdown-item-label Something else here
+                      li.dropdown-divider
+                      li
+                        a(href=&quot;#&quot;).dropdown-item
+                          span.dropdown-item-label Separated link
+                  button(type=&quot;button&quot;).btn.btn-primary.ms-auto
+                    | Button
+                
+                // Light form group: Range slider + Button
+                form.form-group.form-group-light
+                  .range-slider(data-start-min=&quot;450&quot;, data-min=&quot;0&quot;, data-max=&quot;1000&quot;, data-step=&quot;1&quot;)
+                    .range-slider-ui
+                    input(type=&quot;hidden&quot;).form-control.range-slider-value-min
+                  button(type=&quot;button&quot;).btn.btn-primary.ms-auto
+                    | Button

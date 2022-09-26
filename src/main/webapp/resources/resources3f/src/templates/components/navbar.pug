@@ -1,0 +1,845 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['prismjs/themes/prism.css', 'prismjs/plugins/toolbar/prism-toolbar.css', 'prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var vendorScripts = ['prismjs/components/prism-core.min.js', 'prismjs/components/prism-markup.min.js', 'prismjs/components/prism-clike.min.js', 'prismjs/components/prism-javascript.min.js', 'prismjs/components/prism-pug.min.js', 'prismjs/plugins/toolbar/prism-toolbar.min.js', 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Navbar'
+  - var pageSubtitle = 'Responsive navigation header that includes support for branding, navigation, and more.'
+  - var pageTitleLink = {'title': 'Bootstrap docs', 'link': 'https://getbootstrap.com/docs/5.1/components/navbar/'}
+  - var anchorNav = [{'title': 'Light version', 'link': '#navbar-light'}, {'title': 'Dark version', 'link': '#navbar-dark'}, {'title': 'Alternative color schemes', 'link': '#navbar-alt-colors'}, {'title': 'User account dropdown', 'link': '#navbar-user'}, {'title': 'Search field', 'link': '#navbar-search'}, {'title': 'Offcanvas mobile menu', 'link': '#navbar-offcanvas'}]
+  
+//- Page Content
+block content
+
+  // Light version
+  section#navbar-light.pb-5
+    h2.h5.mb-3 Light version
+    .card.border-0
+      .card-header.ps-0
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result1' data-bs-toggle='tab' role='tab' aria-controls='result1' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link Pug
+      .card-body.px-0.pb-0
+        .tab-content
+          #result1.tab-pane.fade.show.active(role='tabpanel')
+            header.navbar.navbar-expand-lg.navbar-light.bg-light.shadow-sm.rounded
+              .container.px-3
+                a(href='#').navbar-brand.me-2.me-xl-4
+                  img(src='../img/logo/logo-dark.svg' width='116' alt='Finder').d-block
+                button(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation').navbar-toggler.ms-auto
+                  span.navbar-toggler-icon
+                a(href='#').btn.btn-primary.btn-sm.ms-2.order-lg-3
+                  i.fi-plus.me-2
+                  | Add<span class='d-none d-sm-inline'> listing</span>
+                #navbarNav.collapse.navbar-collapse.order-lg-2
+                  ul.navbar-nav
+                    li.nav-item.active
+                      a(href='#').nav-link Home
+                    li.nav-item
+                      a(href='#').nav-link Link
+                    li.nav-item.dropdown
+                      a(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false').nav-link.dropdown-toggle Dropdown
+                      ul.dropdown-menu
+                        li: a(href='#').dropdown-item Action link
+                        li.dropdown
+                          a(href='#').dropdown-item.dropdown-toggle Dropdown
+                          ul.dropdown-menu
+                            li: a(href='#').dropdown-item Action link
+                            li: a(href='#').dropdown-item Another action
+                            li: a(href='#').dropdown-item Something else here
+                            li: a(href='#').dropdown-item Yet another link
+                        li: a(href='#').dropdown-item Another action
+                        li.dropdown-divider 
+                        li: a(href='#').dropdown-item Something else here
+                    li.nav-item
+                      a(href='#' tabindex='-1' aria-disabled='true').nav-link.disabled Disabled
+          #html1.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Light navbar: Dark links against light background --&gt;
+                &lt;header class=&quot;navbar navbar-expand-lg navbar-light bg-light shadow-sm&quot;&gt;
+                  &lt;div class=&quot;container&quot;&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;navbar-brand me-2 me-xl-4&quot;&gt;
+                      &lt;img class=&quot;d-block&quot; src=&quot;path-to-logo-image&quot; width=&quot;116&quot; alt=&quot;Finder&quot;&gt;
+                    &lt;/a&gt;
+                    &lt;button class=&quot;navbar-toggler ms-auto&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbarNav&quot; aria-controls=&quot;navbarNav&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;&lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;&lt;/button&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;btn btn-primary btn-sm ms-2 order-lg-3&quot;&gt;
+                      &lt;i class=&quot;fi-plus me-2&quot;&gt;&lt;/i&gt;Add&lt;span class='d-none d-sm-inline'&gt; listing&lt;/span&gt;
+                    &lt;/a&gt;
+                    &lt;div class=&quot;collapse navbar-collapse order-lg-2&quot; id=&quot;navbarNav&quot;&gt;
+                      &lt;ul class=&quot;navbar-nav&quot;&gt;
+                        &lt;li class=&quot;nav-item active&quot;&gt;
+                          &lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;Home&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li class=&quot;nav-item&quot;&gt;
+                          &lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;Link&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li class=&quot;nav-item dropdown&quot;&gt;
+                          &lt;a href=&quot;#&quot; class=&quot;nav-link dropdown-toggle&quot; role=&quot;button&quot; data-bs-toggle=&quot;dropdown&quot; aria-expanded=&quot;false&quot;&gt;Dropdown&lt;/a&gt;
+                          &lt;ul class=&quot;dropdown-menu&quot;&gt;
+                            &lt;li&gt;
+                              &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Action link&lt;/a&gt;
+                            &lt;/li&gt;
+                            &lt;li class=&quot;dropdown&quot;&gt;
+                              &lt;a href=&quot;#&quot; class=&quot;dropdown-item dropdown-toggle&quot;&gt;Dropdown&lt;/a&gt;
+                              &lt;ul class=&quot;dropdown-menu&quot;&gt;
+                                &lt;li&gt;
+                                  &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Action link&lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li&gt;
+                                  &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Another action&lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li&gt;
+                                  &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Something else here&lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li&gt;
+                                  &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Yet another link&lt;/a&gt;
+                                &lt;/li&gt;
+                              &lt;/ul&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                              &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Another action&lt;/a&gt;
+                            &lt;/li&gt;
+                            &lt;li class=&quot;dropdown-divider&quot;&gt;&lt;/li&gt;
+                            &lt;li&gt;
+                              &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Something else here&lt;/a&gt;
+                            &lt;/li&gt;
+                          &lt;/ul&gt;
+                        &lt;/li&gt;
+                        &lt;li class=&quot;nav-item&quot;&gt;
+                          &lt;a href=&quot;#&quot; class=&quot;nav-link disabled&quot; tabindex=&quot;-1&quot; aria-disabled=&quot;true&quot;&gt;Disabled&lt;/a&gt;
+                        &lt;/li&gt;
+                      &lt;/ul&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/header&gt;
+          #pug1.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Light navbar: Dark links against light background
+                header.navbar.navbar-expand-lg.navbar-light.bg-light.shadow-sm
+                  .container
+                    a(href=&quot;#&quot;).navbar-brand.me-2.me-xl-4
+                      img(src=&quot;path-to-logo-image&quot;, width=&quot;116&quot;, alt=&quot;Finder&quot;).d-block
+                    button(type=&quot;button&quot;, data-bs-toggle=&quot;collapse&quot;, data-bs-target=&quot;#navbarNav&quot;, aria-controls=&quot;navbarNav&quot;, aria-expanded=&quot;false&quot;, aria-label=&quot;Toggle navigation&quot;).navbar-toggler.ms-auto
+                      span.navbar-toggler-icon
+                    a(href=&quot;#&quot;).btn.btn-primary.btn-sm.ms-2.order-lg-3
+                      i.fi-plus.me-2
+                      | Add&lt;span class=&quot;d-none d-sm-inline&quot;&gt; listing&lt;/span&gt;
+                    #navbarNav.collapse.navbar-collapse.order-lg-2
+                      ul.navbar-nav
+                        li.nav-item.active
+                          a(href=&quot;#&quot;).nav-link Home
+                        li.nav-item
+                          a(href=&quot;#&quot;).nav-link Link
+                        li.nav-item.dropdown
+                          a(href=&quot;#&quot;, role=&quot;button&quot;, data-bs-toggle=&quot;dropdown&quot;, aria-expanded=&quot;false&quot;).nav-link.dropdown-toggle Dropdown
+                          ul.dropdown-menu
+                            li: a(href=&quot;#&quot;).dropdown-item Action link
+                            li.dropdown
+                              a(href=&quot;#&quot;).dropdown-item.dropdown-toggle Dropdown
+                              ul.dropdown-menu
+                                li: a(href=&quot;#&quot;).dropdown-item Action link
+                                li: a(href=&quot;#&quot;).dropdown-item Another action
+                                li: a(href=&quot;#&quot;).dropdown-item Something else here
+                                li: a(href=&quot;#&quot;).dropdown-item Yet another link
+                            li: a(href=&quot;#&quot;).dropdown-item Another action
+                            li.dropdown-divider 
+                            li: a(href=&quot;#&quot;).dropdown-item Something else here
+                        li.nav-item
+                          a(href=&quot;#&quot;, tabindex=&quot;-1&quot;, aria-disabled=&quot;true&quot;).nav-link.disabled Disabled
+
+  // Dark version
+  section#navbar-dark.pb-5
+    h2.h5.mb-3 Dark version
+    .card.border-0
+      .card-header.ps-0
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result2' data-bs-toggle='tab' role='tab' aria-controls='result2' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link Pug
+      .card-body.px-0.pb-0
+        .tab-content
+          #result2.tab-pane.fade.show.active(role='tabpanel')
+            header.navbar.navbar-expand-lg.navbar-dark.bg-dark.rounded
+              .container.px-3
+                a(href='#').navbar-brand.me-2.me-xl-4
+                  img(src='../img/logo/logo-light.svg' width='116' alt='Finder').d-block
+                button(type='button' data-bs-toggle='collapse' data-bs-target='#navbarDarkNav' aria-controls='navbarDarkNav' aria-expanded='false' aria-label='Toggle navigation').navbar-toggler.ms-auto
+                  span.navbar-toggler-icon
+                a(href='#').btn.btn-primary.btn-sm.ms-2.order-lg-3
+                  i.fi-plus.me-2
+                  | Add<span class='d-none d-sm-inline'> listing</span>
+                #navbarDarkNav.collapse.navbar-collapse.order-lg-2
+                  ul.navbar-nav
+                    li.nav-item.active
+                      a(href='#').nav-link Home
+                    li.nav-item
+                      a(href='#').nav-link Link
+                    li.nav-item.dropdown
+                      a(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false').nav-link.dropdown-toggle Dropdown
+                      ul.dropdown-menu.dropdown-menu-dark
+                        li: a(href='#').dropdown-item Action link
+                        li.dropdown
+                          a(href='#').dropdown-item.dropdown-toggle Dropdown
+                          ul.dropdown-menu.dropdown-menu-dark
+                            li: a(href='#').dropdown-item Action link
+                            li: a(href='#').dropdown-item Another action
+                            li: a(href='#').dropdown-item Something else here
+                            li: a(href='#').dropdown-item Yet another link
+                        li: a(href='#').dropdown-item Another action
+                        li.dropdown-divider 
+                        li: a(href='#').dropdown-item Something else here
+                    li.nav-item
+                      a(href='#' tabindex='-1' aria-disabled='true').nav-link.disabled Disabled
+          #html2.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Dark navbar: Light links against dark background --&gt;
+                &lt;header class=&quot;navbar navbar-expand-lg navbar-dark bg-dark&quot;&gt;
+                  &lt;div class=&quot;container&quot;&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;navbar-brand me-2 me-xl-4&quot;&gt;
+                      &lt;img class=&quot;d-block&quot; src=&quot;path-to-logo-image&quot; width=&quot;116&quot; alt=&quot;Finder&quot;&gt;
+                    &lt;/a&gt;
+                    &lt;button class=&quot;navbar-toggler ms-auto&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbarDarkNav&quot; aria-controls=&quot;navbarDarkNav&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;&lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;&lt;/button&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;btn btn-primary btn-sm ms-2 order-lg-3&quot;&gt;
+                      &lt;i class=&quot;fi-plus me-2&quot;&gt;&lt;/i&gt;Add&lt;span class='d-none d-sm-inline'&gt; listing&lt;/span&gt;
+                    &lt;/a&gt;
+                    &lt;div class=&quot;collapse navbar-collapse order-lg-2&quot; id=&quot;navbarDarkNav&quot;&gt;
+                      &lt;ul class=&quot;navbar-nav&quot;&gt;
+                        &lt;li class=&quot;nav-item active&quot;&gt;
+                          &lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;Home&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li class=&quot;nav-item&quot;&gt;
+                          &lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;Link&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li class=&quot;nav-item dropdown&quot;&gt;
+                          &lt;a href=&quot;#&quot; class=&quot;nav-link dropdown-toggle&quot; role=&quot;button&quot; data-bs-toggle=&quot;dropdown&quot; aria-expanded=&quot;false&quot;&gt;Dropdown&lt;/a&gt;
+                          &lt;ul class=&quot;dropdown-menu dropdown-menu-dark&quot;&gt;
+                            &lt;li&gt;
+                              &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Action link&lt;/a&gt;
+                            &lt;/li&gt;
+                            &lt;li class=&quot;dropdown&quot;&gt;
+                              &lt;a href=&quot;#&quot; class=&quot;dropdown-item dropdown-toggle&quot;&gt;Dropdown&lt;/a&gt;
+                              &lt;ul class=&quot;dropdown-menu dropdown-menu-dark&quot;&gt;
+                                &lt;li&gt;
+                                  &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Action link&lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li&gt;
+                                  &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Another action&lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li&gt;
+                                  &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Something else here&lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li&gt;
+                                  &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Yet another link&lt;/a&gt;
+                                &lt;/li&gt;
+                              &lt;/ul&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                              &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Another action&lt;/a&gt;
+                            &lt;/li&gt;
+                            &lt;li class=&quot;dropdown-divider&quot;&gt;&lt;/li&gt;
+                            &lt;li&gt;
+                              &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Something else here&lt;/a&gt;
+                            &lt;/li&gt;
+                          &lt;/ul&gt;
+                        &lt;/li&gt;
+                        &lt;li class=&quot;nav-item&quot;&gt;
+                          &lt;a href=&quot;#&quot; class=&quot;nav-link disabled&quot; tabindex=&quot;-1&quot; aria-disabled=&quot;true&quot;&gt;Disabled&lt;/a&gt;
+                        &lt;/li&gt;
+                      &lt;/ul&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/header&gt;
+          #pug2.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Dark navbar: Light links against dark background
+                header.navbar.navbar-expand-lg.navbar-dark.bg-dark
+                  .container
+                    a(href=&quot;#&quot;).navbar-brand.me-2.me-xl-4
+                      img(src=&quot;path-to-logo-image&quot;, width=&quot;116&quot;, alt=&quot;Finder&quot;).d-block
+                    button(type=&quot;button&quot;, data-bs-toggle=&quot;collapse&quot;, data-bs-target=&quot;#navbarDarkNav&quot;, aria-controls=&quot;navbarDarkNav&quot;, aria-expanded=&quot;false&quot;, aria-label=&quot;Toggle navigation&quot;).navbar-toggler.ms-auto
+                      span.navbar-toggler-icon
+                    a(href=&quot;#&quot;).btn.btn-primary.btn-sm.ms-2.order-lg-3
+                      i.fi-plus.me-2
+                      | Add&lt;span class=&quot;d-none d-sm-inline&quot;&gt; listing&lt;/span&gt;
+                    #navbarDarkNav.collapse.navbar-collapse.order-lg-2
+                      ul.navbar-nav
+                        li.nav-item.active
+                          a(href=&quot;#&quot;).nav-link Home
+                        li.nav-item
+                          a(href=&quot;#&quot;).nav-link Link
+                        li.nav-item.dropdown
+                          a(href=&quot;#&quot;, role=&quot;button&quot;, data-bs-toggle=&quot;dropdown&quot;, aria-expanded=&quot;false&quot;).nav-link.dropdown-toggle Dropdown
+                          ul.dropdown-menu.dropdown-menu-dark
+                            li: a(href=&quot;#&quot;).dropdown-item Action link
+                            li.dropdown
+                              a(href=&quot;#&quot;).dropdown-item.dropdown-toggle Dropdown
+                              ul.dropdown-menu.dropdown-menu-dark
+                                li: a(href=&quot;#&quot;).dropdown-item Action link
+                                li: a(href=&quot;#&quot;).dropdown-item Another action
+                                li: a(href=&quot;#&quot;).dropdown-item Something else here
+                                li: a(href=&quot;#&quot;).dropdown-item Yet another link
+                            li: a(href=&quot;#&quot;).dropdown-item Another action
+                            li.dropdown-divider 
+                            li: a(href=&quot;#&quot;).dropdown-item Something else here
+                        li.nav-item
+                          a(href=&quot;#&quot;, tabindex=&quot;-1&quot;, aria-disabled=&quot;true&quot;).nav-link.disabled Disabled
+
+  // Alternative color schemes
+  section#navbar-alt-colors.pb-5
+    h2.h5.mb-3 Alternative color schemes
+    .card.border-0
+      .card-header.ps-0
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result3' data-bs-toggle='tab' role='tab' aria-controls='result3' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link Pug
+      .card-body.px-0.pb-0
+        .tab-content
+          #result3.tab-pane.fade.show.active(role='tabpanel')
+            header.navbar.navbar-expand-lg.navbar-dark.bg-accent.rounded.mb-3
+              .container.px-3
+                a(href='#').navbar-brand.me-2.me-xl-4
+                  img(src='../img/logo/logo-light.svg' width='116' alt='Finder').d-block
+                button(type='button' data-bs-toggle='collapse' data-bs-target='#navbarAccentNav' aria-controls='navbarAccentNav' aria-expanded='false' aria-label='Toggle navigation').navbar-toggler.ms-auto
+                  span.navbar-toggler-icon
+                a(href='#').btn.btn-primary.btn-sm.ms-2.order-lg-3
+                  i.fi-plus.me-2
+                  | Add<span class='d-none d-sm-inline'> listing</span>
+                #navbarAccentNav.collapse.navbar-collapse.order-lg-2
+                  ul.navbar-nav
+                    li.nav-item.active
+                      a(href='#').nav-link Home
+                    li.nav-item
+                      a(href='#').nav-link Features
+                    li.nav-item
+                      a(href='#').nav-link Pricing
+                    li.nav-item
+                      a(href='#').nav-link About
+            header.navbar.navbar-expand-lg.navbar-light.bg-secondary.rounded
+              .container.px-3
+                a(href='#').navbar-brand.me-2.me-xl-4
+                  img(src='../img/logo/logo-dark.svg' width='116' alt='Finder').d-block
+                button(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSecondaryNav' aria-controls='navbarSecondaryNav' aria-expanded='false' aria-label='Toggle navigation').navbar-toggler.ms-auto
+                  span.navbar-toggler-icon
+                a(href='#').btn.btn-primary.btn-sm.ms-2.order-lg-3
+                  i.fi-plus.me-2
+                  | Add<span class='d-none d-sm-inline'> listing</span>
+                #navbarSecondaryNav.collapse.navbar-collapse.order-lg-2
+                  ul.navbar-nav
+                    li.nav-item.active
+                      a(href='#').nav-link Home
+                    li.nav-item
+                      a(href='#').nav-link Features
+                    li.nav-item
+                      a(href='#').nav-link Pricing
+                    li.nav-item
+                      a(href='#').nav-link About
+          #html3.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Accent navbar --&gt;
+                &lt;header class=&quot;navbar navbar-expand-lg navbar-dark bg-accent&quot;&gt;
+                  &lt;div class=&quot;container&quot;&gt;
+                    &lt;!-- Navbar content goes here --&gt;
+                  &lt;/div&gt;
+                &lt;/header&gt;
+                
+                &lt;!-- Secondary navbar --&gt;
+                &lt;header class=&quot;navbar navbar-expand-lg navbar-light bg-secondary&quot;&gt;
+                  &lt;div class=&quot;container&quot;&gt;
+                    &lt;!-- Navbar content goes here --&gt;
+                  &lt;/div&gt;
+                &lt;/header&gt;
+          #pug3.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Accent navbar
+                header.navbar.navbar-expand-lg.navbar-dark.bg-accent
+                  .container
+                    // Navbar content goes here
+                
+                // Secondary navbar
+                header.navbar.navbar-expand-lg.navbar-light.bg-secondary
+                  .container
+                    // Navbar content goes here
+
+  // User account dropdown
+  section#navbar-user.pb-5
+    h2.h5.mb-3 User account dropdown
+    .card.border-0
+      .card-header.ps-0
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result4' data-bs-toggle='tab' role='tab' aria-controls='result4' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link Pug
+      .card-body.px-0.pb-0
+        .tab-content
+          #result4.tab-pane.fade.show.active(role='tabpanel')
+            header.navbar.navbar-expand-lg.navbar-light.bg-light.rounded.shadow-sm
+              .container.px-3
+                a(href='#').navbar-brand.flex-shrink-0.me-2.me-xl-4
+                  img(src='../img/logo/logo-dark.svg' width='116' alt='Finder').d-block
+                button(type='button' data-bs-toggle='collapse' data-bs-target='#navbarUserNav' aria-controls='navbarUserNav' aria-expanded='false' aria-label='Toggle navigation').navbar-toggler.ms-auto
+                  span.navbar-toggler-icon
+                .dropdown.order-lg-3
+                  a(href='#' data-bs-toggle='dropdown').d-inline-block.py-1.ms-2
+                    img(src='../img/avatars/02.jpg' width='40' alt='User').rounded-circle
+                  .dropdown-menu.dropdown-menu-end
+                    .d-flex.align-items-start.border-bottom.px-3.py-1.mb-2(style='width: 16rem;')
+                      img(src='../img/avatars/01.jpg' width='48' alt='User').rounded-circle
+                      .ps-2
+                        h6.fs-base.mb-0 Robert Fox
+                        +star-rating(5,'sm')
+                        .fs-xs.py-2
+                          | (302) 555-0107
+                          br
+                          | robert_fox@gmail.com
+                    a(href='#').dropdown-item
+                      i.fi-user.opacity-60.me-2
+                      | Personal Info
+                    a(href='#').dropdown-item
+                      i.fi-lock.opacity-60.me-2
+                      | Password &amp; Security
+                    a(href='#').dropdown-item
+                      i.fi-list.opacity-60.me-2
+                      | My Listings
+                    a(href='#').dropdown-item
+                      i.fi-heart.opacity-60.me-2
+                      | Wishlist
+                    a(href='#').dropdown-item
+                      i.fi-star.opacity-60.me-2
+                      | Reviews
+                    a(href='#').dropdown-item
+                      i.fi-bell.opacity-60.me-2
+                      | Notifications
+                    .dropdown-divider
+                    a(href='#').dropdown-item Help
+                    a(href='#').dropdown-item Sign Out
+                #navbarUserNav.collapse.navbar-collapse.order-lg-2
+                  ul.navbar-nav
+                    li.nav-item.active
+                      a(href='#').nav-link Home
+                    li.nav-item
+                      a(href='#').nav-link Features
+                    li.nav-item
+                      a(href='#').nav-link Pricing
+                    li.nav-item
+                      a(href='#').nav-link About
+          #html4.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Navbar with user account dropdown --&gt;
+                &lt;header class=&quot;navbar navbar-expand-lg navbar-light bg-light shadow-sm&quot;&gt;
+                  &lt;div class=&quot;container&quot;&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;navbar-brand flex-shrink-0 me-2 me-xl-4&quot;&gt;
+                      &lt;img class=&quot;d-block&quot; src=&quot;path-to-logo-image&quot; width=&quot;116&quot; alt=&quot;Finder&quot;&gt;
+                    &lt;/a&gt;
+                    &lt;button type=&quot;button&quot; class=&quot;navbar-toggler ms-auto&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbarUserNav&quot; aria-controls=&quot;navbarUserNav&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;
+                      &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+                    &lt;/button&gt;
+                    &lt;div class=&quot;dropdown order-lg-3&quot;&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;d-inline-block py-1&quot; data-bs-toggle=&quot;dropdown&quot;&gt;
+                        &lt;img class=&quot;rounded-circle&quot; src=&quot;path-to-user-avatar-image&quot; width=&quot;40&quot; alt=&quot;User&quot;&gt;
+                      &lt;/a&gt;
+                      &lt;div class=&quot;dropdown-menu dropdown-menu-end&quot;&gt;
+                        &lt;div class=&quot;d-flex align-items-start border-bottom px-3 py-1 mb-2&quot; style=&quot;width: 16rem;&quot;&gt;
+                          &lt;img class=&quot;rounded-circle&quot; src=&quot;path-to-user-avatar-image&quot; width=&quot;48&quot; alt=&quot;User&quot;&gt;
+                          &lt;div class=&quot;ps-2&quot;&gt;
+                            &lt;h6 class=&quot;fs-base mb-0&quot;&gt;Robert Fox&lt;/h6&gt;
+                            &lt;div class=&quot;star-rating star-rating-sm&quot;&gt;
+                              &lt;i class=&quot;star-rating-icon fi-star-filled active&quot;&gt;&lt;/i&gt;
+                              &lt;i class=&quot;star-rating-icon fi-star-filled active&quot;&gt;&lt;/i&gt;
+                              &lt;i class=&quot;star-rating-icon fi-star-filled active&quot;&gt;&lt;/i&gt;
+                              &lt;i class=&quot;star-rating-icon fi-star-filled active&quot;&gt;&lt;/i&gt;
+                              &lt;i class=&quot;star-rating-icon fi-star-filled active&quot;&gt;&lt;/i&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;fs-xs py-2&quot;&gt;(302) 555-0107&lt;br&gt;robert_fox@gmail.com&lt;/div&gt;
+                          &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;
+                          &lt;i class=&quot;fi-user opacity-60 me-2&quot;&gt;&lt;/i&gt;
+                          Personal Info
+                        &lt;/a&gt;
+                        &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;
+                          &lt;i class=&quot;fi-lock opacity-60 me-2&quot;&gt;&lt;/i&gt;
+                          Password &amp; Security
+                        &lt;/a&gt;
+                        &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;
+                          &lt;i class=&quot;fi-list opacity-60 me-2&quot;&gt;&lt;/i&gt;
+                          My Listings
+                        &lt;/a&gt;
+                        &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;
+                          &lt;i class=&quot;fi-heart opacity-60 me-2&quot;&gt;&lt;/i&gt;
+                          Wishlist
+                        &lt;/a&gt;
+                        &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;
+                          &lt;i class=&quot;fi-star opacity-60 me-2&quot;&gt;&lt;/i&gt;
+                          Reviews
+                        &lt;/a&gt;
+                        &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;
+                          &lt;i class=&quot;fi-bell opacity-60 me-2&quot;&gt;&lt;/i&gt;
+                          Notifications
+                        &lt;/a&gt;
+                        &lt;div class=&quot;dropdown-divider&quot;&gt;&lt;/div&gt;
+                        &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Help&lt;/a&gt;
+                        &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Sign Out&lt;/a&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;collapse navbar-collapse order-lg-2&quot; id=&quot;navbarUserNav&quot;&gt;
+                      &lt;ul class=&quot;navbar-nav&quot;&gt;
+                        &lt;li class=&quot;nav-item active&quot;&gt;
+                          &lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;Home&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li class=&quot;nav-item&quot;&gt;
+                          &lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;Features&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li class=&quot;nav-item&quot;&gt;
+                          &lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;Pricing&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li class=&quot;nav-item&quot;&gt;
+                          &lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;About&lt;/a&gt;
+                        &lt;/li&gt;
+                      &lt;/ul&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/header&gt;
+          #pug4.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Navbar with user account dropdown
+                header.navbar.navbar-expand-lg.navbar-light.bg-light.shadow-sm
+                  .container
+                    a(href=&quot;#&quot;).navbar-brand.flex-shrink-0.me-2.me-xl-4
+                      img(src=&quot;path-to-logo-image&quot;, width=&quot;116&quot;, alt=&quot;Finder&quot;).d-block
+                    button(type=&quot;button&quot;, data-bs-toggle=&quot;collapse&quot;, data-bs-target=&quot;#navbarUserNav&quot;, aria-controls=&quot;navbarUserNav&quot;, aria-expanded=&quot;false&quot;, aria-label=&quot;Toggle navigation&quot;).navbar-toggler.ms-auto
+                      span.navbar-toggler-icon
+                    .dropdown.order-lg-3
+                      a(href=&quot;#&quot;, data-bs-toggle=&quot;dropdown&quot;).d-inline-block.py-1
+                        img(src=&quot;path-to-user-avatar-image&quot;, width=&quot;40&quot;, alt=&quot;User&quot;).rounded-circle
+                      .dropdown-menu.dropdown-menu-end
+                        .d-flex.align-items-start.border-bottom.px-3.py-1.mb-2(style=&quot;width: 16rem;&quot;)
+                          img(src=&quot;path-to-user-avatar-image&quot;, width=&quot;48&quot;, alt=&quot;User&quot;).rounded-circle
+                          .ps-2
+                            h6.fs-base.mb-0 Robert Fox
+                            +star-rating(5,&quot;sm&quot;)
+                            .fs-xs.py-2
+                              | (302) 555-0107
+                              br
+                              | robert_fox@gmail.com
+                        a(href=&quot;#&quot;).dropdown-item
+                          i.fi-user.opacity-60.me-2
+                          | Personal Info
+                        a(href=&quot;#&quot;).dropdown-item
+                          i.fi-lock.opacity-60.me-2
+                          | Password &amp;amp; Security
+                        a(href=&quot;#&quot;).dropdown-item
+                          i.fi-list.opacity-60.me-2
+                          | My Listings
+                        a(href=&quot;#&quot;).dropdown-item
+                          i.fi-heart.opacity-60.me-2
+                          | Wishlist
+                        a(href=&quot;#&quot;).dropdown-item
+                          i.fi-star.opacity-60.me-2
+                          | Reviews
+                        a(href=&quot;#&quot;).dropdown-item
+                          i.fi-bell.opacity-60.me-2
+                          | Notifications
+                        .dropdown-divider
+                        a(href=&quot;#&quot;).dropdown-item
+                          | Help
+                        a(href=&quot;#&quot;).dropdown-item
+                          | Sign Out
+                    #navbarUserNav.collapse.navbar-collapse.order-lg-2
+                      ul.navbar-nav
+                        li.nav-item.active
+                          a(href=&quot;#&quot;).nav-link
+                            | Home
+                        li.nav-item
+                          a(href=&quot;#&quot;).nav-link
+                            | Features
+                        li.nav-item
+                          a(href=&quot;#&quot;).nav-link
+                            | Pricing
+                        li.nav-item
+                          a(href=&quot;#&quot;).nav-link
+                            | About
+
+  // Search field
+  section#navbar-search.pb-5
+    h2.h5.mb-3 Search field
+    .card.border-0
+      .card-header.ps-0
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result5' data-bs-toggle='tab' role='tab' aria-controls='result5' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html5' data-bs-toggle='tab' role='tab' aria-controls='html5' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug5' data-bs-toggle='tab' role='tab' aria-controls='pug5' aria-selected='false').nav-link Pug
+      .card-body.px-0.pb-0
+        .tab-content
+          #result5.tab-pane.fade.show.active(role='tabpanel')
+            header.navbar.navbar-expand-lg.navbar-light.bg-light.rounded.shadow-sm
+              .container.px-3
+                a(href='#').navbar-brand.flex-shrink-0.me-2.me-xl-4
+                  img(src='../img/logo/logo-dark.svg' width='116' alt='Finder').d-block
+                button(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSearchNav' aria-controls='navbarSearchNav' aria-expanded='false' aria-label='Toggle navigation').navbar-toggler.ms-auto
+                  span.navbar-toggler-icon
+                .input-group.input-group-sm.d-none.d-lg-flex.ps-2.ps-xxl-5.order-lg-3
+                  i.fi-search.position-absolute.text-muted.top-50.translate-middle-y.ms-2
+                  input(type='search' placeholder='Search site...').form-control.border-top-0.border-start-0.border-end-0.rounded-0
+                #navbarSearchNav.collapse.navbar-collapse.order-lg-2
+                  .d-lg-none.bg-secondary.border.mx-n3.p-3.mt-3
+                    .input-group
+                      i.fi-search.position-absolute.text-muted.top-50.translate-middle-y.ps-1.ms-2
+                      input(type='search' placeholder='Search site...').form-control.rounded-2
+                  ul.navbar-nav
+                    li.nav-item.active
+                      a(href='#').nav-link Home
+                    li.nav-item
+                      a(href='#').nav-link Features
+                    li.nav-item
+                      a(href='#').nav-link Pricing
+                    li.nav-item
+                      a(href='#').nav-link About
+          #html5.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Navbar with search field --&gt;
+                &lt;header class=&quot;navbar navbar-expand-lg navbar-light bg-light shadow-sm&quot;&gt;
+                  &lt;div class=&quot;container&quot;&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;navbar-brand flex-shrink-0 me-2 me-xl-4&quot;&gt;
+                      &lt;img class=&quot;d-block&quot; src=&quot;path-to-logo-image&quot; width=&quot;116&quot; alt=&quot;Finder&quot;&gt;
+                    &lt;/a&gt;
+                    &lt;button class=&quot;navbar-toggler ms-auto&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbarSearchNav&quot; aria-controls=&quot;navbarSearchNav&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;
+                      &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+                    &lt;/button&gt;
+
+                    &lt;!-- Search visible on desktop --&gt;
+                    &lt;div class=&quot;input-group input-group-sm d-none d-lg-flex ps-2 ps-xxl-5 order-lg-3&quot;&gt;
+                      &lt;i class=&quot;fi-search position-absolute text-muted top-50 translate-middle-y ms-2&quot;&gt;&lt;/i&gt;
+                      &lt;input class=&quot;form-control border-top-0 border-start-0 border-end-0 rounded-0&quot; type=&quot;search&quot; placeholder=&quot;Search site...&quot;&gt;
+                    &lt;/div&gt;
+
+                    &lt;div class=&quot;collapse navbar-collapse order-lg-2&quot; id=&quot;navbarSearchNav&quot;&gt;
+                      
+                      &lt;!-- Search visible on mobile --&gt;
+                      &lt;div class=&quot;d-lg-none bg-secondary border mx-n3 p-3 mt-3&quot;&gt;
+                        &lt;div class=&quot;input-group&quot;&gt;
+                          &lt;i class=&quot;fi-search position-absolute text-muted top-50 translate-middle-y ps-1 ms-2&quot;&gt;&lt;/i&gt;
+                          &lt;input class=&quot;form-control rounded-2&quot; type=&quot;search&quot; placeholder=&quot;Search site...&quot;&gt;
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+
+                      &lt;!-- Navigation --&gt;
+                      &lt;ul class=&quot;navbar-nav&quot;&gt;
+                        &lt;li class=&quot;nav-item active&quot;&gt;
+                          &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Home&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li class=&quot;nav-item&quot;&gt;
+                          &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Features&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li class=&quot;nav-item&quot;&gt;
+                          &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Pricing&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li class=&quot;nav-item&quot;&gt;
+                          &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;About&lt;/a&gt;
+                        &lt;/li&gt;
+                      &lt;/ul&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/header&gt;
+          #pug5.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Navbar with search field
+                header.navbar.navbar-expand-lg.navbar-light.bg-light.shadow-sm
+                  .container
+                    a(href=&quot;#&quot;).navbar-brand.flex-shrink-0.me-2.me-xl-4
+                      img(src=&quot;path-to-logo-image&quot;, width=&quot;116&quot;, alt=&quot;Finder&quot;).d-block
+                    button(type=&quot;button&quot;, data-bs-toggle=&quot;collapse&quot;, data-bs-target=&quot;#navbarSearchNav&quot;, aria-controls=&quot;navbarSearchNav&quot;, aria-expanded=&quot;false&quot;, aria-label=&quot;Toggle navigation&quot;).navbar-toggler.ms-auto
+                      span.navbar-toggler-icon
+
+                    // Search visible on desktop
+                    .input-group.input-group-sm.d-none.d-lg-flex.ps-2.ps-xxl-5.order-lg-3
+                      i.fi-search.position-absolute.text-muted.top-50.translate-middle-y.ms-2
+                      input(type=&quot;search&quot;, placeholder=&quot;Search site...&quot;).form-control.border-top-0.border-start-0.border-end-0.rounded-0
+
+                    #navbarSearchNav.collapse.navbar-collapse.order-lg-2
+
+                      // Search visible on mobile
+                      .d-lg-none.bg-secondary.border.mx-n3.p-3.mt-3
+                        .input-group
+                          i.fi-search.position-absolute.text-muted.top-50.translate-middle-y.ps-1.ms-2
+                          input(type=&quot;search&quot;, placeholder=&quot;Search site...&quot;).form-control.rounded-2
+                      
+                      // Navigation
+                      ul.navbar-nav
+                        li.nav-item.active
+                          a(href=&quot;#&quot;).nav-link Home
+                        li.nav-item
+                          a(href=&quot;#&quot;).nav-link Features
+                        li.nav-item
+                          a(href=&quot;#&quot;).nav-link Pricing
+                        li.nav-item
+                          a(href=&quot;#&quot;).nav-link About
+
+  // Offcanvas mobile menu
+  section#navbar-offcanvas.pb-5
+    h2.h5.mb-3 Offcanvas mobile menu
+    .card.border-0
+      .card-header.ps-0
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result6' data-bs-toggle='tab' role='tab' aria-controls='result6' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html6' data-bs-toggle='tab' role='tab' aria-controls='html6' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug6' data-bs-toggle='tab' role='tab' aria-controls='pug6' aria-selected='false').nav-link Pug
+      .card-body.px-0.pb-0
+        .tab-content
+          #result6.tab-pane.fade.show.active(role='tabpanel')
+            iframe.w-100.shadow.mt-2(src='navbar-offcanvas.html' height='500' style='max-width: 360px;')
+          #html6.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Navbar with offcanvas menu on mobile --&gt;
+                &lt;header class=&quot;navbar navbar-expand-lg navbar-light bg-light shadow-sm&quot;&gt;
+                  &lt;div class=&quot;container&quot;&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;navbar-brand me-2 me-xl-4&quot;&gt;
+                      &lt;img class=&quot;d-block&quot; src=&quot;path-to-logo-image&quot; width=&quot;116&quot; alt=&quot;Finder&quot;&gt;
+                    &lt;/a&gt;
+                    &lt;button type=&quot;button&quot; class=&quot;navbar-toggler ms-auto&quot; data-bs-toggle=&quot;offcanvas&quot; data-bs-target=&quot;#navbarNav&quot; aria-controls=&quot;navbarNav&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;
+                      &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+                    &lt;/button&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;btn btn-primary btn-sm ms-2 order-lg-3&quot;&gt;
+                      &lt;i class=&quot;fi-plus me-2&quot;&gt;&lt;/i&gt;
+                      Add&lt;span class='d-none d-sm-inline'&gt; listing&lt;/span&gt;
+                    &lt;/a&gt;
+                    &lt;div class=&quot;offcanvas offcanvas-start order-lg-2&quot; id=&quot;navbarNav&quot;&gt;
+                      &lt;div class=&quot;offcanvas-header shadow-sm&quot;&gt;
+                        &lt;h6 class=&quot;offcanvas-title&quot;&gt;Menu&lt;/h6&gt;
+                        &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;offcanvas&quot;&gt;&lt;/button&gt;
+                      &lt;/div&gt;
+                      &lt;div class=&quot;offcanvas-body&quot;&gt;
+                        &lt;ul class=&quot;navbar-nav mt-0&quot;&gt;
+                          &lt;li class=&quot;nav-item active&quot;&gt;
+                            &lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;Home&lt;/a&gt;
+                          &lt;/li&gt;
+                          &lt;li class=&quot;nav-item&quot;&gt;
+                            &lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;Link&lt;/a&gt;
+                          &lt;/li&gt;
+                          &lt;li class=&quot;nav-item dropdown&quot;&gt;
+                            &lt;a href=&quot;#&quot; class=&quot;nav-link dropdown-toggle&quot; role=&quot;button&quot; data-bs-toggle=&quot;dropdown&quot; aria-expanded=&quot;false&quot;&gt;Dropdown&lt;/a&gt;
+                            &lt;ul class=&quot;dropdown-menu&quot;&gt;
+                              &lt;li&gt;
+                                &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Action link&lt;/a&gt;
+                              &lt;/li&gt;
+                              &lt;li class=&quot;dropdown&quot;&gt;
+                                &lt;a href=&quot;#&quot; class=&quot;dropdown-item dropdown-toggle&quot; role=&quot;button&quot; data-bs-toggle=&quot;dropdown&quot; aria-expanded=&quot;false&quot;&gt;Dropdown&lt;/a&gt;
+                                &lt;ul class=&quot;dropdown-menu&quot;&gt;
+                                  &lt;li&gt;
+                                    &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Action link&lt;/a&gt;
+                                  &lt;/li&gt;
+                                  &lt;li&gt;
+                                    &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Another action&lt;/a&gt;
+                                  &lt;/li&gt;
+                                  &lt;li&gt;
+                                    &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Something else here&lt;/a&gt;
+                                  &lt;/li&gt;
+                                  &lt;li&gt;
+                                    &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Yet another link&lt;/a&gt;
+                                  &lt;/li&gt;
+                                &lt;/ul&gt;
+                              &lt;/li&gt;
+                              &lt;li&gt;
+                                &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Another action&lt;/a&gt;
+                              &lt;/li&gt;
+                              &lt;li&gt;
+                                &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Something else here&lt;/a&gt;
+                              &lt;/li&gt;
+                            &lt;/ul&gt;
+                          &lt;/li&gt;
+                          &lt;li class=&quot;nav-item&quot;&gt;
+                            &lt;a href=&quot;#&quot; class=&quot;nav-link disabled&quot; tabindex=&quot;-1&quot; aria-disabled=&quot;true&quot;&gt;Disabled&lt;/a&gt;
+                          &lt;/li&gt;
+                        &lt;/ul&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/header&gt;
+          #pug6.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Navbar with offcanvas menu on mobile
+                header.navbar.navbar-expand-lg.navbar-light.bg-light.shadow-sm
+                  .container
+                    a(href=&quot;#&quot;).navbar-brand.me-2.me-xl-4
+                      img(src=&quot;path-to-logo-image&quot;, width=&quot;116&quot;, alt=&quot;Finder&quot;).d-block
+                    button(type=&quot;button&quot;, data-bs-toggle=&quot;offcanvas&quot;, data-bs-target=&quot;#navbarNav&quot;, aria-controls=&quot;navbarNav&quot;, aria-expanded=&quot;false&quot;, aria-label=&quot;Toggle navigation&quot;).navbar-toggler.ms-auto
+                      span.navbar-toggler-icon
+                    a(href=&quot;#&quot;).btn.btn-primary.btn-sm.ms-2.order-lg-3
+                      i.fi-plus.me-2
+                      | Add&lt;span class=&quot;d-none d-sm-inline&quot;&gt; listing&lt;/span&gt;
+                    #navbarNav.offcanvas.offcanvas-start.order-lg-2
+                      .offcanvas-header.shadow-sm
+                        h6.offcanvas-title Menu
+                        button(type=&quot;button&quot;, data-bs-dismiss=&quot;offcanvas&quot;).btn-close
+                      .offcanvas-body
+                        ul.navbar-nav.mt-0
+                          li.nav-item.active
+                            a(href=&quot;#&quot;).nav-link
+                              | Home
+                          li.nav-item
+                            a(href=&quot;#&quot;).nav-link
+                              | Link
+                          li.nav-item.dropdown
+                            a(href=&quot;#&quot;, role=&quot;button&quot;, data-bs-toggle=&quot;dropdown&quot;, aria-expanded=&quot;false&quot;).nav-link.dropdown-toggle
+                              | Dropdown
+                            ul.dropdown-menu
+                              li
+                                a(href=&quot;#&quot;).dropdown-item
+                                  | Action link
+                              li.dropdown
+                                a(href=&quot;#&quot;, role=&quot;button&quot;, data-bs-toggle=&quot;dropdown&quot;, aria-expanded=&quot;false&quot;).dropdown-item.dropdown-toggle
+                                  | Dropdown
+                                ul.dropdown-menu
+                                  li
+                                    a(href=&quot;#&quot;).dropdown-item
+                                      | Action link
+                                  li
+                                    a(href=&quot;#&quot;).dropdown-item
+                                      | Another action
+                                  li
+                                    a(href=&quot;#&quot;).dropdown-item
+                                      | Something else here
+                                  li
+                                    a(href=&quot;#&quot;).dropdown-item
+                                      | Yet another link
+                              li
+                                a(href=&quot;#&quot;).dropdown-item
+                                  | Another action
+                              li
+                                a(href=&quot;#&quot;).dropdown-item
+                                  | Something else here
+                          li.nav-item
+                            a(href=&quot;#&quot;, tabindex=&quot;-1&quot;, aria-disabled=&quot;true&quot;).nav-link.disabled
+                              | Disabled

@@ -1,0 +1,30 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var vendorScripts = ['@lottiefiles/lottie-player/dist/lottie-player.js']
+  - var parentMenu = 'Pages'
+  - var pageTitle = 'Job Board | 404 Not Found'
+
+//- Page Content
+block content
+
+  section(style='background: radial-gradient(95.96% 126.3% at 88.07% 109.91%, #F4F1FF 6.21%, #F5F4F8 40.55%, rgba(245, 244, 248, 0) 100%);').d-flex.align-items-center.position-relative.min-vh-100.pt-sm-5.pt-4.pb-5
+    .container
+      .row.gy-4
+        .col-md-5.align-self-sm-end.mt-lg-5.pt-lg-5
+          div(style='max-width: 526px;').ratio.ratio-1x1.mx-auto
+            lottie-player(src='json/animation-job-board-404.json' background='transparent' speed='1' loop autoplay)
+        .col-lg-5.col-md-6.offset-lg-2.offset-md-1.text-md-start.text-center
+          h1.display-3.mb-4.pb-md-3
+            | Whoops, <br> the page is gone <span class='text-nowrap'>:(</span>
+          p.lead.mb-md-5.mb-4
+            | The link you clicked may be broken or the page may have been removed. You can try the search box or get back to the <a href='job-board-home-v1.html'>homepage</a>.
+
+          // Search form
+          form.form-group.rounded-pill
+            .input-group.input-group-lg
+              input(type='text' placeholder='Your search keywords...').form-control
+            button(type='submit').btn.btn-primary.btn-lg.rounded-pill
+              | Search
+              

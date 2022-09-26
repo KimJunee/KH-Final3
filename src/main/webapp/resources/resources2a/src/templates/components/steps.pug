@@ -1,0 +1,755 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css', 'vendor/prismjs/themes/prism.css', 'vendor/prismjs/plugins/toolbar/prism-toolbar.css', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js', 'vendor/prismjs/components/prism-core.min.js', 'vendor/prismjs/components/prism-markup.min.js', 'vendor/prismjs/components/prism-clike.min.js', 'vendor/prismjs/components/prism-javascript.min.js', 'vendor/prismjs/components/prism-pug.min.js', 'vendor/prismjs/plugins/toolbar/prism-toolbar.min.js', 'vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Steps'
+  - var pageSubtitle = 'Component is designed to showcase numbered steps of the process or timeline.'
+  - var isPageTitleBadge = true
+  - var anchorNav = [{'title': 'Horizontal layout', 'link': '#steps-horizontal'}, {'title': 'Animate on hover', 'link': '#steps-hover'}, {'title': 'Alignment', 'link': '#steps-alignment'}, {'title': 'Vertical layout', 'link': '#steps-vertical'}, {'title': 'No connector', 'link': '#steps-no-connector'}, {'title': 'Card style', 'link': '#steps-cards'}, {'title': 'Icons instead of numbers', 'link': '#steps-icons'}]
+    
+//- Page Content
+block content
+
+  // Horizontal layout
+  section#steps-horizontal.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Horizontal layout
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview1' data-bs-toggle='tab' role='tab' aria-controls='preview1' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview1.tab-pane.fade.show.active(role='tabpanel')
+          .steps.steps-horizontal-md
+            .step.active
+              .step-number
+                .step-number-inner 01
+              .step-body
+                h5.pb-1.mb-2 Choose your course
+                p.mb-0 Nulla faucibus mauris pellentesque blandit faucibus non. Sit ut et at suspendisse gravida hendrerit.
+            .step
+              .step-number
+                .step-number-inner 02
+              .step-body
+                h5.pb-1.mb-2 Learn by doing
+                p.mb-0 Tristique sed pharetra feugiat tempor sagittis. Ultricies eu bibendum adipiscing lacinia.
+            .step
+              .step-number
+                .step-number-inner 03
+              .step-body
+                h5.pb-1.mb-2 Get instant feedback
+                p.mb-0 Duis euismod enim, facilisis risus tellus pharetra lectus diam neque. Nec ultrices mi faucibus est.
+        #html1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Horizontal steps --&gt;
+              &lt;!-- Convert steps to horizontal layout on certain breakpoint by adding steps-horizontal-sm, steps-horizontal-md, steps-horizontal-lg, steps-horizontal-xl, steps-horizontal-xxl --&gt;
+              &lt;div class=&quot;steps steps-horizontal-md&quot;&gt;
+
+                &lt;!-- Active step --&gt;
+                &lt;div class=&quot;step active&quot;&gt;
+                  &lt;div class=&quot;step-number&quot;&gt;
+                    &lt;div class=&quot;step-number-inner&quot;&gt;01&lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;step-body&quot;&gt;
+                    &lt;h5 class=&quot;pb-1 mb-2&quot;&gt;Choose your course&lt;/h5&gt;
+                    &lt;p class=&quot;mb-0&quot;&gt;Nulla faucibus mauris pellentesque blandit faucibus non. Sit ut et at suspendisse gravida hendrerit.&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Step --&gt;
+                &lt;div class=&quot;step active&quot;&gt;
+                  &lt;div class=&quot;step-number&quot;&gt;
+                    &lt;div class=&quot;step-number-inner&quot;&gt;02&lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;step-body&quot;&gt;
+                    &lt;h5 class=&quot;pb-1 mb-2&quot;&gt;Learn by doing&lt;/h5&gt;
+                    &lt;p class=&quot;mb-0&quot;&gt;Tristique sed pharetra feugiat tempor sagittis. Ultricies eu bibendum adipiscing lacinia.&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Step --&gt;
+                &lt;div class=&quot;step active&quot;&gt;
+                  &lt;div class=&quot;step-number&quot;&gt;
+                    &lt;div class=&quot;step-number-inner&quot;&gt;03&lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;step-body&quot;&gt;
+                    &lt;h5 class=&quot;pb-1 mb-2&quot;&gt;Get instant feedback&lt;/h5&gt;
+                    &lt;p class=&quot;mb-0&quot;&gt;Duis euismod enim, facilisis risus tellus pharetra lectus diam neque. Nec ultrices mi faucibus est.&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Horizontal steps
+              // Convert steps to horizontal layout on certain breakpoint by adding steps-horizontal-sm, steps-horizontal-md, steps-horizontal-lg, steps-horizontal-xl, steps-horizontal-xxl
+              .steps.steps-horizontal-md
+
+                // Active step
+                .step.active
+                  .step-number
+                    .step-number-inner 01
+                  .step-body
+                    h5.pb-1.mb-2 Choose your course
+                    p.mb-0 Nulla faucibus mauris pellentesque blandit faucibus non. Sit ut et at suspendisse gravida hendrerit.
+                
+                // Step
+                .step
+                  .step-number
+                    .step-number-inner 02
+                  .step-body
+                    h5.pb-1.mb-2 Learn by doing
+                    p.mb-0 Tristique sed pharetra feugiat tempor sagittis. Ultricies eu bibendum adipiscing lacinia.
+                
+                // Step
+                .step
+                  .step-number
+                    .step-number-inner 03
+                  .step-body
+                    h5.pb-1.mb-2 Get instant feedback
+                    p.mb-0 Duis euismod enim, facilisis risus tellus pharetra lectus diam neque. Nec ultrices mi faucibus est.
+
+  // Animate on hover
+  section#steps-hover.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Animate on hover
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview2' data-bs-toggle='tab' role='tab' aria-controls='preview2' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview2.tab-pane.fade.show.active(role='tabpanel')
+          .steps.steps-horizontal-md.steps-hoverable
+            .step
+              .step-number
+                .step-number-inner 01
+              .step-body
+                h5.pb-1.mb-2 Choose your course
+                p.mb-0 Nulla faucibus mauris pellentesque blandit faucibus non. Sit ut et at suspendisse gravida hendrerit.
+            .step
+              .step-number
+                .step-number-inner 02
+              .step-body
+                h5.pb-1.mb-2 Learn by doing
+                p.mb-0 Tristique sed pharetra feugiat tempor sagittis. Ultricies eu bibendum adipiscing lacinia.
+            .step
+              .step-number
+                .step-number-inner 03
+              .step-body
+                h5.pb-1.mb-2 Get instant feedback
+                p.mb-0 Duis euismod enim, facilisis risus tellus pharetra lectus diam neque. Nec ultrices mi faucibus est.
+        #html2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Animate steps on hover --&gt;
+              &lt;!-- Create hoverable steps by adding "steps-hoverable" class --&gt;
+              &lt;div class=&quot;steps steps-horizontal-md steps-hoverable&quot;&gt;
+
+                &lt;!-- Step --&gt;
+                &lt;div class=&quot;step&quot;&gt;
+                  &lt;div class=&quot;step-number&quot;&gt;
+                    &lt;div class=&quot;step-number-inner&quot;&gt;01&lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;step-body&quot;&gt;
+                    &lt;h5 class=&quot;pb-1 mb-2&quot;&gt;Choose your course&lt;/h5&gt;
+                    &lt;p class=&quot;mb-0&quot;&gt;Nulla faucibus mauris pellentesque blandit faucibus non. Sit ut et at suspendisse gravida hendrerit.&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Step --&gt;
+                &lt;div class=&quot;step active&quot;&gt;
+                  &lt;div class=&quot;step-number&quot;&gt;
+                    &lt;div class=&quot;step-number-inner&quot;&gt;02&lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;step-body&quot;&gt;
+                    &lt;h5 class=&quot;pb-1 mb-2&quot;&gt;Learn by doing&lt;/h5&gt;
+                    &lt;p class=&quot;mb-0&quot;&gt;Tristique sed pharetra feugiat tempor sagittis. Ultricies eu bibendum adipiscing lacinia.&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Step --&gt;
+                &lt;div class=&quot;step active&quot;&gt;
+                  &lt;div class=&quot;step-number&quot;&gt;
+                    &lt;div class=&quot;step-number-inner&quot;&gt;03&lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;step-body&quot;&gt;
+                    &lt;h5 class=&quot;pb-1 mb-2&quot;&gt;Get instant feedback&lt;/h5&gt;
+                    &lt;p class=&quot;mb-0&quot;&gt;Duis euismod enim, facilisis risus tellus pharetra lectus diam neque. Nec ultrices mi faucibus est.&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Horizontal steps
+              // Convert steps to horizontal layout on certain breakpoint by adding steps-horizontal-sm, steps-horizontal-md, steps-horizontal-lg, steps-horizontal-xl, steps-horizontal-xxl
+              .steps.steps-horizontal-md.steps-hoverable
+
+                // Step
+                .step
+                  .step-number
+                    .step-number-inner 01
+                  .step-body
+                    h5.pb-1.mb-2 Choose your course
+                    p.mb-0 Nulla faucibus mauris pellentesque blandit faucibus non. Sit ut et at suspendisse gravida hendrerit.
+                
+                // Step
+                .step
+                  .step-number
+                    .step-number-inner 02
+                  .step-body
+                    h5.pb-1.mb-2 Learn by doing
+                    p.mb-0 Tristique sed pharetra feugiat tempor sagittis. Ultricies eu bibendum adipiscing lacinia.
+                
+                // Step
+                .step
+                  .step-number
+                    .step-number-inner 03
+                  .step-body
+                    h5.pb-1.mb-2 Get instant feedback
+                    p.mb-0 Duis euismod enim, facilisis risus tellus pharetra lectus diam neque. Nec ultrices mi faucibus est.
+
+  // Alignment
+  section#steps-alignment.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Alignment
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview3' data-bs-toggle='tab' role='tab' aria-controls='preview3' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview3.tab-pane.fade.show.active(role='tabpanel')
+          .steps.steps-horizontal-md.steps-center.pb-md-2.pb-lg-3.mb-5
+            .step.active
+              .step-number
+                .step-number-inner 01
+              .step-body
+                h5.pb-1.mb-2 Choose your course
+                p.mb-0 Nulla faucibus mauris pellentesque blandit faucibus non. Sit ut et at suspendisse gravida hendrerit.
+            .step
+              .step-number
+                .step-number-inner 02
+              .step-body
+                h5.pb-1.mb-2 Learn by doing
+                p.mb-0 Tristique sed pharetra feugiat tempor sagittis. Ultricies eu bibendum adipiscing lacinia.
+            .step
+              .step-number
+                .step-number-inner 03
+              .step-body
+                h5.pb-1.mb-2 Get instant feedback
+                p.mb-0 Duis euismod enim, facilisis risus tellus pharetra lectus diam neque. Nec ultrices mi faucibus est.
+          .steps.steps-horizontal-md.steps-end
+            .step.active
+              .step-number
+                .step-number-inner 01
+              .step-body
+                h5.pb-1.mb-2 Choose your course
+                p.mb-0 Nulla faucibus mauris pellentesque blandit faucibus non. Sit ut et at suspendisse gravida hendrerit.
+            .step
+              .step-number
+                .step-number-inner 02
+              .step-body
+                h5.pb-1.mb-2 Learn by doing
+                p.mb-0 Tristique sed pharetra feugiat tempor sagittis. Ultricies eu bibendum adipiscing lacinia.
+            .step
+              .step-number
+                .step-number-inner 03
+              .step-body
+                h5.pb-1.mb-2 Get instant feedback
+                p.mb-0 Duis euismod enim, facilisis risus tellus pharetra lectus diam neque. Nec ultrices mi faucibus est.
+        #html3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Center aligned steps --&gt;
+              &lt;div class=&quot;steps steps-horizontal-md steps-center&quot;&gt;
+                ...
+              &lt;/div&gt;
+
+              &lt;!-- Right aligned steps --&gt;
+              &lt;div class=&quot;steps steps-horizontal-md steps-end&quot;&gt;
+                ...
+              &lt;/div&gt;
+        #pug3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Center aligned steps
+              .steps.steps-horizontal-md.steps-center
+                // ...
+
+              // Right aligned steps
+              .steps.steps-horizontal-md.steps-end
+                // ...
+
+  // Vertical layout
+  section#steps-vertical.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Vertical layout
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview4' data-bs-toggle='tab' role='tab' aria-controls='preview4' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview4.tab-pane.fade.show.active(role='tabpanel')
+          .steps(style='max-width: 500px;')
+            .step.active
+              .step-number
+                .step-number-inner 01
+              .step-body
+                h5.pb-1.mb-2 Choose your course
+                p.mb-0 Nulla faucibus mauris pellentesque blandit faucibus non. Sit ut et at suspendisse gravida hendrerit.
+            .step
+              .step-number
+                .step-number-inner 02
+              .step-body
+                h5.pb-1.mb-2 Learn by doing
+                p.mb-0 Tristique sed pharetra feugiat tempor sagittis. Ultricies eu bibendum adipiscing lacinia.
+            .step
+              .step-number
+                .step-number-inner 03
+              .step-body
+                h5.pb-1.mb-2 Get instant feedback
+                p.mb-0 Duis euismod enim, facilisis risus tellus pharetra lectus diam neque. Nec ultrices mi faucibus est.
+        #html4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Vertical steps (default) --&gt;
+              &lt;div class=&quot;steps&quot;&gt;
+
+                &lt;!-- Active step --&gt;
+                &lt;div class=&quot;step active&quot;&gt;
+                  &lt;div class=&quot;step-number&quot;&gt;
+                    &lt;div class=&quot;step-number-inner&quot;&gt;01&lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;step-body&quot;&gt;
+                    &lt;h5 class=&quot;pb-1 mb-2&quot;&gt;Choose your course&lt;/h5&gt;
+                    &lt;p class=&quot;mb-0&quot;&gt;Nulla faucibus mauris pellentesque blandit faucibus non. Sit ut et at suspendisse gravida hendrerit.&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Step --&gt;
+                &lt;div class=&quot;step active&quot;&gt;
+                  &lt;div class=&quot;step-number&quot;&gt;
+                    &lt;div class=&quot;step-number-inner&quot;&gt;02&lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;step-body&quot;&gt;
+                    &lt;h5 class=&quot;pb-1 mb-2&quot;&gt;Learn by doing&lt;/h5&gt;
+                    &lt;p class=&quot;mb-0&quot;&gt;Tristique sed pharetra feugiat tempor sagittis. Ultricies eu bibendum adipiscing lacinia.&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Step --&gt;
+                &lt;div class=&quot;step active&quot;&gt;
+                  &lt;div class=&quot;step-number&quot;&gt;
+                    &lt;div class=&quot;step-number-inner&quot;&gt;03&lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;step-body&quot;&gt;
+                    &lt;h5 class=&quot;pb-1 mb-2&quot;&gt;Get instant feedback&lt;/h5&gt;
+                    &lt;p class=&quot;mb-0&quot;&gt;Duis euismod enim, facilisis risus tellus pharetra lectus diam neque. Nec ultrices mi faucibus est.&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Vertical steps (default)
+              .steps
+
+                // Active step
+                .step.active
+                  .step-number
+                    .step-number-inner 01
+                  .step-body
+                    h5.pb-1.mb-2 Choose your course
+                    p.mb-0 Nulla faucibus mauris pellentesque blandit faucibus non. Sit ut et at suspendisse gravida hendrerit.
+                
+                // Step
+                .step
+                  .step-number
+                    .step-number-inner 02
+                  .step-body
+                    h5.pb-1.mb-2 Learn by doing
+                    p.mb-0 Tristique sed pharetra feugiat tempor sagittis. Ultricies eu bibendum adipiscing lacinia.
+                
+                // Step
+                .step
+                  .step-number
+                    .step-number-inner 03
+                  .step-body
+                    h5.pb-1.mb-2 Get instant feedback
+                    p.mb-0 Duis euismod enim, facilisis risus tellus pharetra lectus diam neque. Nec ultrices mi faucibus est.
+
+  // No connector
+  section#steps-no-connector.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 No connector
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview5' data-bs-toggle='tab' role='tab' aria-controls='preview5' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html5' data-bs-toggle='tab' role='tab' aria-controls='html5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug5' data-bs-toggle='tab' role='tab' aria-controls='pug5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview5.tab-pane.fade.show.active(role='tabpanel')
+          .steps.steps-no-connector(style='max-width: 500px;')
+            .step.active
+              .step-number
+                .step-number-inner 01
+              .step-body
+                h5.pb-1.mb-2 Choose your course
+                p.mb-0 Nulla faucibus mauris pellentesque blandit faucibus non. Sit ut et at suspendisse gravida hendrerit.
+            .step
+              .step-number
+                .step-number-inner 02
+              .step-body
+                h5.pb-1.mb-2 Learn by doing
+                p.mb-0 Tristique sed pharetra feugiat tempor sagittis. Ultricies eu bibendum adipiscing lacinia.
+            .step
+              .step-number
+                .step-number-inner 03
+              .step-body
+                h5.pb-1.mb-2 Get instant feedback
+                p.mb-0 Duis euismod enim, facilisis risus tellus pharetra lectus diam neque. Nec ultrices mi faucibus est.
+        #html5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Steps without connector --&gt;
+              &lt;!-- Remove the connector between steps by adding "steps-no-connector" class --&gt;
+              &lt;div class=&quot;steps steps-no-connector&quot;&gt;
+
+                &lt;!-- Active step --&gt;
+                &lt;div class=&quot;step active&quot;&gt;
+                  &lt;div class=&quot;step-number&quot;&gt;
+                    &lt;div class=&quot;step-number-inner&quot;&gt;01&lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;step-body&quot;&gt;
+                    &lt;h5 class=&quot;pb-1 mb-2&quot;&gt;Choose your course&lt;/h5&gt;
+                    &lt;p class=&quot;mb-0&quot;&gt;Nulla faucibus mauris pellentesque blandit faucibus non. Sit ut et at suspendisse gravida hendrerit.&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Step --&gt;
+                &lt;div class=&quot;step&quot;&gt;
+                  &lt;div class=&quot;step-number&quot;&gt;
+                    &lt;div class=&quot;step-number-inner&quot;&gt;02&lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;step-body&quot;&gt;
+                    &lt;h5 class=&quot;pb-1 mb-2&quot;&gt;Learn by doing&lt;/h5&gt;
+                    &lt;p class=&quot;mb-0&quot;&gt;Tristique sed pharetra feugiat tempor sagittis. Ultricies eu bibendum adipiscing lacinia.&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Step --&gt;
+                &lt;div class=&quot;step&quot;&gt;
+                  &lt;div class=&quot;step-number&quot;&gt;
+                    &lt;div class=&quot;step-number-inner&quot;&gt;03&lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;step-body&quot;&gt;
+                    &lt;h5 class=&quot;pb-1 mb-2&quot;&gt;Get instant feedback&lt;/h5&gt;
+                    &lt;p class=&quot;mb-0&quot;&gt;Duis euismod enim, facilisis risus tellus pharetra lectus diam neque. Nec ultrices mi faucibus est.&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Steps without connector
+              // Remove the connector between steps by adding "steps-no-connector" class
+              .steps.steps-no-connector
+
+                // Active step
+                .step.active
+                  .step-number
+                    .step-number-inner 01
+                  .step-body
+                    h5.pb-1.mb-2 Choose your course
+                    p.mb-0 Nulla faucibus mauris pellentesque blandit faucibus non. Sit ut et at suspendisse gravida hendrerit.
+                
+                // Step
+                .step
+                  .step-number
+                    .step-number-inner 02
+                  .step-body
+                    h5.pb-1.mb-2 Learn by doing
+                    p.mb-0 Tristique sed pharetra feugiat tempor sagittis. Ultricies eu bibendum adipiscing lacinia.
+                
+                // Step
+                .step
+                  .step-number
+                    .step-number-inner 03
+                  .step-body
+                    h5.pb-1.mb-2 Get instant feedback
+                    p.mb-0 Duis euismod enim, facilisis risus tellus pharetra lectus diam neque. Nec ultrices mi faucibus est.
+
+  // Card style
+  section#steps-cards.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Card style
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview6' data-bs-toggle='tab' role='tab' aria-controls='preview6' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html6' data-bs-toggle='tab' role='tab' aria-controls='html6' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug6' data-bs-toggle='tab' role='tab' aria-controls='pug6' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview6.tab-pane.fade.show.active(role='tabpanel')
+          div(style='max-width: 500px;')
+            .position-relative.d-flex.justify-content-end.mb-3.py-1
+              .btn.btn-lg.btn-icon.btn-primary.fs-xl.fw-bold.rounded-circle.position-absolute.top-50.start-0.translate-middle-y.zindex-2.pe-none
+                | 01
+              .card.ps-3(style='width: calc(100% - 1.75rem);')
+                .card-body.ps-4
+                  h3.h5.card-title.pb-2.mb-1 Formulation of the problem
+                  p.card-text Find aute irure dolor in reprehenderi voluptate velit esse cillum dolore eu fugiat nulla pariatur luctus.
+            .position-relative.d-flex.justify-content-end.mt-3.py-1
+              .btn.btn-lg.btn-icon.btn-primary.fs-xl.fw-bold.rounded-circle.position-absolute.top-50.start-0.translate-middle-y.zindex-2.pe-none
+                | 02
+              .card.border-0.bg-secondary.ps-3(style='width: calc(100% - 1.75rem);')
+                .card-body.ps-4
+                  h3.h5.card-title.pb-2.mb-1 Assessment of the current state
+                  p.card-text Risus quam quis at euismod vitae dui elementu eu in diam malesuada mattis ut urna integer erat nibh.
+        #html6.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Card like steps --&gt;
+              &lt;!-- Card with border (default) example --&gt;
+              &lt;div class=&quot;position-relative d-flex justify-content-end my-3 py-1&quot;&gt;
+                &lt;div class=&quot;btn btn-lg btn-icon btn-primary fs-xl fw-bold rounded-circle position-absolute top-50 start-0 translate-middle-y zindex-2 pe-none&quot;&gt;01&lt;/div&gt;
+                &lt;div class=&quot;card ps-3&quot; style=&quot;width: calc(100% - 1.75rem);&quot;&gt;
+                  &lt;div class=&quot;card-body ps-4&quot;&gt;
+                    &lt;h3 class=&quot;h5 card-title pb-2 mb-1&quot;&gt;Formulation of the problem&lt;/h3&gt;
+                    &lt;p class=&quot;card-text&quot;&gt;Find aute irure dolor in reprehenderi voluptate velit esse cillum dolore eu fugiat nulla pariatur luctus.&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Card with gray background example --&gt;
+              &lt;div class=&quot;position-relative d-flex justify-content-end my-3 py-1&quot;&gt;
+                &lt;div class=&quot;btn btn-lg btn-icon btn-primary fs-xl fw-bold rounded-circle position-absolute top-50 start-0 translate-middle-y zindex-2 pe-none&quot;&gt;02&lt;/div&gt;
+                &lt;div class=&quot;card border-0 bg-secondary ps-3&quot; style=&quot;width: calc(100% - 1.75rem);&quot;&gt;
+                  &lt;div class=&quot;card-body ps-4&quot;&gt;
+                    &lt;h3 class=&quot;h5 card-title pb-2 mb-1&quot;&gt;Assessment of the current state&lt;/h3&gt;
+                    &lt;p class=&quot;card-text&quot;&gt;Risus quam quis at euismod vitae dui elementu eu in diam malesuada mattis ut urna integer erat nibh.&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug6.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Card like steps
+              // Card with border (default) example
+              .position-relative.d-flex.justify-content-end.my-3.py-1
+                .btn.btn-lg.btn-icon.btn-primary.fs-xl.fw-bold.rounded-circle.position-absolute.top-50.start-0.translate-middle-y.zindex-2
+                  | 01
+                .card.ps-1(style=&quot;width: calc(100% - 1.75rem);&quot;)
+                  .card-body
+                    h3.h5.card-title.pb-2.mb-1 Formulation of the problem
+                    p.card-text Find aute irure dolor in reprehenderi voluptate velit esse cillum dolore eu fugiat nulla pariatur luctus.
+
+              // Card with gray background example
+              .position-relative.d-flex.justify-content-end.my-3.py-1
+                .btn.btn-lg.btn-icon.btn-primary.fs-xl.fw-bold.rounded-circle.position-absolute.top-50.start-0.translate-middle-y.zindex-2
+                  | 02
+                .card.border-0.bg-secondary.ps-1(style=&quot;width: calc(100% - 1.75rem);&quot;)
+                  .card-body
+                    h3.h5.card-title.pb-2.mb-1 Assessment of the current state
+                    p.card-text Risus quam quis at euismod vitae dui elementu eu in diam malesuada mattis ut urna integer erat nibh.
+
+  // Icons instead of numbers
+  section#steps-icons.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Icons instead of numbers
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview7' data-bs-toggle='tab' role='tab' aria-controls='preview7' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html7' data-bs-toggle='tab' role='tab' aria-controls='html7' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug7' data-bs-toggle='tab' role='tab' aria-controls='pug7' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview7.tab-pane.fade.show.active(role='tabpanel')
+          .steps(style='max-width: 500px;')
+            .step.active
+              .step-number
+                .step-number-inner.fs-4
+                  i.ai-search
+              .step-body
+                h5.pb-1.mb-2 Research &amp; Analysis
+                p.mb-0 Nulla faucibus mauris pellentesque blandit faucibus non. Sit ut et at suspendisse gravida hendrerit.
+            .step
+              .step-number
+                .step-number-inner.fs-4
+                  i.ai-layout-side
+              .step-body
+                h5.pb-1.mb-2 Prototyping
+                p.mb-0 Tristique sed pharetra feugiat tempor sagittis. Ultricies eu bibendum adipiscing lacinia.
+            .step
+              .step-number
+                .step-number-inner.fs-4
+                  i.ai-monitor
+              .step-body
+                h5.pb-1.mb-2 Pixel-perfect UI Design
+                p.mb-0 Duis euismod enim, facilisis risus tellus pharetra lectus diam neque. Nec ultrices mi faucibus est.
+        #html7.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Steps with icons instead of numbers --&gt;
+              &lt;div class=&quot;steps&quot;&gt;
+
+                &lt;!-- Active step --&gt;
+                &lt;div class=&quot;step active&quot;&gt;
+                  &lt;div class=&quot;step-number&quot;&gt;
+                    &lt;div class=&quot;step-number-inner fs-4&quot;&gt;
+                      &lt;i class=&quot;ai-search&quot;&gt;&lt;/i&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;step-body&quot;&gt;
+                    &lt;h5 class=&quot;pb-1 mb-2&quot;&gt;Research &amp;amp; Analysis&lt;/h5&gt;
+                    &lt;p class=&quot;mb-0&quot;&gt;Nulla faucibus mauris pellentesque blandit faucibus non. Sit ut et at suspendisse gravida hendrerit.&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Step --&gt;
+                &lt;div class=&quot;step active&quot;&gt;
+                  &lt;div class=&quot;step-number&quot;&gt;
+                    &lt;div class=&quot;step-number-inner fs-4&quot;&gt;
+                      &lt;i class=&quot;ai-layout-side&quot;&gt;&lt;/i&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;step-body&quot;&gt;
+                    &lt;h5 class=&quot;pb-1 mb-2&quot;&gt;Prototyping&lt;/h5&gt;
+                    &lt;p class=&quot;mb-0&quot;&gt;Tristique sed pharetra feugiat tempor sagittis. Ultricies eu bibendum adipiscing lacinia.&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Step --&gt;
+                &lt;div class=&quot;step active&quot;&gt;
+                  &lt;div class=&quot;step-number&quot;&gt;
+                    &lt;div class=&quot;step-number-inner fs-4&quot;&gt;
+                      &lt;i class=&quot;ai-monitor&quot;&gt;&lt;/i&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;step-body&quot;&gt;
+                    &lt;h5 class=&quot;pb-1 mb-2&quot;&gt;Pixel-perfect UI Design&lt;/h5&gt;
+                    &lt;p class=&quot;mb-0&quot;&gt;Duis euismod enim, facilisis risus tellus pharetra lectus diam neque. Nec ultrices mi faucibus est.&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug7.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Steps with icons instead of numbers
+              .steps
+
+                // Active step
+                .step.active
+                  .step-number
+                    .step-number-inner.fs-4
+                      i.ai-search
+                  .step-body
+                    h5.pb-1.mb-2 Research &amp; Analysis
+                    p.mb-0 Nulla faucibus mauris pellentesque blandit faucibus non. Sit ut et at suspendisse gravida hendrerit.
+                
+                // Step
+                .step
+                  .step-number
+                    .step-number-inner.fs-4
+                      i.ai-layout-side
+                  .step-body
+                    h5.pb-1.mb-2 Prototyping
+                    p.mb-0 Tristique sed pharetra feugiat tempor sagittis. Ultricies eu bibendum adipiscing lacinia.
+                
+                // Step
+                .step
+                  .step-number
+                    .step-number-inner.fs-4
+                      i.ai-monitor
+                  .step-body
+                    h5.pb-1.mb-2 Pixel-perfect UI Design
+                    p.mb-0 Duis euismod enim, facilisis risus tellus pharetra lectus diam neque. Nec ultrices mi faucibus est.

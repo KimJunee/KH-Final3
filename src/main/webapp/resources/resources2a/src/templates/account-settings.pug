@@ -1,0 +1,240 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var scripts = ['vendor/cleave.js/dist/cleave.min.js']
+  - var parentMenu = 'Account'
+  - var pageTitle = 'Account - Settings'
+  - var isSignedIn = true
+  - var isFixedButton = true
+  - var bodyAttributes = {'class': 'bg-secondary'}
+
+
+//- Navbar
+block navbar
+  include partials/navbar.pug
+
+
+//- Page Content
+block content
+  .container.py-5.mt-4.mt-lg-5.mb-lg-4.my-xl-5
+    .row.pt-sm-2.pt-lg-0
+
+      // Sidebar (offcanvas on sreens < 992px)
+      aside.col-lg-3.pe-lg-4.pe-xl-5.mt-n3
+        .position-lg-sticky.top-0
+          .d-none.d-lg-block(style='padding-top: 105px;')
+          include partials/sidebar-account.pug
+
+
+      // Page content
+      .col-lg-9.pt-4.pb-2.pb-sm-4
+        h1.h2.mb-4 Settings
+
+        // Basic info
+        section.card.border-0.py-1.p-md-2.p-xl-3.p-xxl-4.mb-4
+          .card-body
+            .d-flex.align-items-center.mt-sm-n1.pb-4.mb-0.mb-lg-1.mb-xl-3
+              i.ai-user.text-primary.lead.pe-1.me-2
+              h2.h4.mb-0 Basic info
+            .d-flex.align-items-center
+              .dropdown
+                a(href='#' data-bs-toggle='dropdown' aria-expanded='false' style='width: 80px; height: 80px; background-image: url(assets/img/avatar/02.jpg);').d-flex.flex-column.justify-content-end.position-relative.overflow-hidden.rounded-circle.bg-size-cover.bg-position-center.flex-shrink-0
+                  span(style='background-color: rgba(0,0,0,.5)').d-block.text-light.text-center.lh-1.pb-1
+                    i.ai-camera
+                .dropdown-menu.my-1
+                  a(href='#').dropdown-item.fw-normal
+                    i.ai-camera.fs-base.opacity-70.me-2
+                    | Upload new photo
+                  a(href='#').dropdown-item.text-danger.fw-normal
+                    i.ai-trash.fs-base.me-2
+                    | Delete photo
+              .ps-3
+                h3.h6.mb-1 Profile picture
+                p.fs-sm.text-muted.mb-0 PNG or JPG no bigger than 1000px wide and tall.
+            .row.g-3.g-sm-4.mt-0.mt-lg-2
+              .col-sm-6
+                label(for='fn').form-label First name
+                input(type='text' value='Isabella')#fn.form-control
+              .col-sm-6
+                label(for='ln').form-label Last name
+                input(type='text' value='Bocouse')#ln.form-control
+              .col-sm-6
+                label(for='email').form-label Email address
+                input(type='email' value='bocouse@example.com')#email.form-control
+              .col-sm-6
+                label(for='phone').form-label Phone <span class='text-muted'>(optional)</span>
+                input(type='tel' data-format='{"numericOnly": true, "delimiters": ["+1 ", " ", " "], "blocks": [0, 3, 3, 2]}' placeholder='+1 ___ ___ __')#phone.form-control
+              .col-sm-6
+                label(for='country').form-label Country
+                select#country.form-select
+                  option(value='' selected disabled) Select country
+                  option(value='Australia') Australia
+                  option(value='Belgium') Belgium
+                  option(value='Canada') Canada
+                  option(value='Denmark') Denmark
+                  option(value='USA') USA
+              .col-sm-6
+                label(for='language').form-label Language
+                select#language.form-select
+                  option(value='' selected disabled) Select language
+                  option(value='English') English
+                  option(value='Français') Français
+                  option(value='Deutsch') Deutsch
+                  option(value='Italiano') Italiano
+              .col-sm-6
+                label(for='timezone').form-label Time zone
+                select#timezone.form-select
+                  option(value='' selected disabled) Select time zone
+                  option(value='AST') Atlantic Standard Time (AST)
+                  option(value='EST') Eastern Standard Time (EST)
+                  option(value='CST') Central Standard Time (CST)
+                  option(value='MST') Mountain Standard Time (MST)
+                  option(value='PST') Pacific Standard Time (PST)
+                  option(value='AKST') Alaskan Standard Time (AKST)
+                  option(value='HST') Hawaii-Aleutian Standard Time (HST)
+              .col-sm-6
+                label(for='currency').form-label Currency
+                select#currency.form-select
+                  option(value='' selected disabled) Select currency
+                  option(value='usd') $ USD
+                  option(value='eur') € EUR
+                  option(value='ukp') £ UKP
+                  option(value='jpy') ¥ JPY
+              .col-12
+                label(for='bio').form-label Bio
+                textarea(rows='5' placeholder='Add a bio')#bio.form-control
+              .col-12.d-sm-flex.align-items-center.pt-sm-2.pt-md-3
+                .form-label.text-muted.mb-2.mb-sm-0.me-sm-4 Gender:
+                .form-check.form-check-inline.mb-0
+                  input(type='radio' name='gender' value='Male')#male.form-check-input
+                  label(for='male').form-check-label Male
+                .form-check.form-check-inline.mb-0
+                  input(type='radio' name='gender' value='Female' checked)#female.form-check-input
+                  label(for='female').form-check-label Female
+                .form-check.form-check-inline.mb-0
+                  input(type='radio' name='gender' value='Other')#other.form-check-input
+                  label(for='other').form-check-label Other
+              .col-12.d-sm-flex.align-items-center
+                .form-label.text-muted.mb-2.mb-sm-0.me-sm-4 Communication:
+                .form-check.form-check-inline.mb-0
+                  input(type='checkbox' name='communication' value='Email' checked)#c-email.form-check-input
+                  label(for='c-email').form-check-label Email
+                .form-check.form-check-inline.mb-0
+                  input(type='checkbox' name='communication' value='Phone')#c-phone.form-check-input
+                  label(for='c-phone').form-check-label Phone
+              .col-12.d-flex.justify-content-end.pt-3
+                button(type='button').btn.btn-secondary Cancel
+                button(type='button').btn.btn-primary.ms-3 Save changes
+
+        
+        // Password
+        section.card.border-0.py-1.p-md-2.p-xl-3.p-xxl-4.mb-4
+          .card-body
+            .d-flex.align-items-center.pb-4.mt-sm-n1.mb-0.mb-lg-1.mb-xl-3
+              i.ai-lock-closed.text-primary.lead.pe-1.me-2
+              h2.h4.mb-0 Password change
+            .row.align-items-center.g-3.g-sm-4.pb-3
+              .col-sm-6
+                label(for='current-pass').form-label Current password
+                .password-toggle
+                  input(type='password' value='hidden@password')#current-pass.form-control
+                  label(aria-label='Show/hide password').password-toggle-btn
+                    input(type='checkbox').password-toggle-check
+                    span.password-toggle-indicator
+              .col-sm-6
+                a(href='account-password-recovery.html').d-inline-block.fs-sm.fw-semibold.text-decoration-none.mt-sm-4 Forgot password?
+              .col-sm-6
+                label(for='new-pass').form-label New password
+                .password-toggle
+                  input(type='password')#new-pass.form-control
+                  label(aria-label='Show/hide password').password-toggle-btn
+                    input(type='checkbox').password-toggle-check
+                    span.password-toggle-indicator
+              .col-sm-6
+                label(for='confirm-pass').form-label Confirm new password
+                .password-toggle
+                  input(type='password')#confirm-pass.form-control
+                  label(aria-label='Show/hide password').password-toggle-btn
+                    input(type='checkbox').password-toggle-check
+                    span.password-toggle-indicator
+            
+            .alert.alert-info.d-flex.my-3.my-sm-4
+              i.ai-circle-info.fs-xl.me-2
+              p.mb-0 Password must be minimum 8 characters long - the more, the better.
+            
+            .d-flex.justify-content-end.pt-3
+              button(type='button').btn.btn-secondary Cancel
+              button(type='button').btn.btn-primary.ms-3 Save changes
+
+        
+        // Notifications
+        section.card.border-0.py-1.p-md-2.p-xl-3.p-xxl-4.mb-4
+          .card-body
+            .d-flex.align-items-center.pb-4.mt-sm-n1.mb-0.mb-lg-1.mb-xl-3
+              i.ai-bell.text-primary.lead.pe-1.me-2
+              h2.h4.mb-0 Notifications
+              button(type='button' data-bs-toggle='checkbox' data-bs-target='#checkboxList').btn.btn-sm.btn-outline-secondary.ms-auto
+                | Toggle all
+            #checkboxList
+              .form-check.form-switch.d-flex.pb-md-2.mb-4
+                input(type='checkbox' checked)#product-sold.form-check-input.flex-shrink-0
+                label(for='product-sold').form-check-label.ps-3.ps-sm-4
+                  span.h6.d-block.mb-2 Product sold notifications
+                  span.fs-sm.text-muted Send an email when someone purchased one of my products
+              .form-check.form-switch.d-flex.pb-md-2.mb-4
+                input(type='checkbox' checked)#product-update.form-check-input.flex-shrink-0
+                label(for='product-update').form-check-label.ps-3.ps-sm-4
+                  span.h6.d-block.mb-2 Product update notifications
+                  span.fs-sm.text-muted Send an email when a product I've purchased is updated
+              .form-check.form-switch.d-flex.pb-md-2.mb-4
+                input(type='checkbox')#product-comment.form-check-input.flex-shrink-0
+                label(for='product-comment').form-check-label.ps-3.ps-sm-4
+                  span.h6.d-block.mb-2 Product comment notifications
+                  span.fs-sm.text-muted Send an email when someone comments on one of my products
+              .form-check.form-switch.d-flex.pb-md-2.mb-4
+                input(type='checkbox' checked)#product-review.form-check-input.flex-shrink-0
+                label(for='product-review').form-check-label.ps-3.ps-sm-4
+                  span.h6.d-block.mb-2 Product review notifications
+                  span.fs-sm.text-muted Send an email when someone leaves a review with his/her rating
+            .form-check.form-switch.d-flex
+              input(type='checkbox' disabled)#daily-summary.form-check-input.flex-shrink-0
+              label(for='daily-summary').form-check-label.opacity-100.ps-3.ps-sm-4
+                span.h6.text-muted.d-block.mb-2
+                  | Daily summary emails
+                  span.badge.bg-faded-danger.text-danger.ms-3
+                    | Only for premium
+                span.fs-sm.text-muted Send an email when someone leaves a review with his/her rating
+        
+       
+        // Delete account
+        section.card.border-0.py-1.p-md-2.p-xl-3.p-xxl-4
+          .card-body
+            .d-flex.align-items-center.pb-4.mt-sm-n1.mb-0.mb-lg-1.mb-xl-3
+              i.ai-trash.text-primary.lead.pe-1.me-2
+              h2.h4.mb-0 Delete account
+            .alert.alert-warning.d-flex.mb-4
+              i.ai-triangle-alert.fs-xl.me-2
+              p.mb-0 When you delete your account, your public profile will be deactivated immediately. If you change your mind before the 14 days are up, sign in with your email and password, and we'll send a link to reactivate account. <a href='#' class='alert-link'>Learn more</a>
+            .form-check
+              input(type='checkbox')#confirm.form-check-input
+              label(for='confirm').form-check-label.text-dark.fw-medium Yes, I want to delete my account
+            .d-flex.flex-column.flex-sm-row.justify-content-end.pt-4.mt-sm-2.mt-md-3
+              button(type='button').btn.btn-danger
+                i.ai-trash.ms-n1.me-2
+                | Delete account
+
+  
+  // Divider for dark mode only
+  hr.d-none.d-dark-mode-block
+
+
+  // Sidebar toggle button
+  button(data-bs-toggle='offcanvas' data-bs-target='#sidebarAccount').d-lg-none.btn.btn-sm.fs-sm.btn-primary.w-100.rounded-0.fixed-bottom
+    i.ai-menu.me-2
+    | Account menu
+
+
+//- Footer
+block footer
+  include partials/footer-shop.pug

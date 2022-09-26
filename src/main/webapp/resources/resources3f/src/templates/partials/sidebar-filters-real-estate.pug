@@ -1,0 +1,196 @@
+#filters-sidebar.offcanvas.offcanvas-start.offcanvas-collapse
+  .offcanvas-header.d-flex.d-lg-none.align-items-center
+    h2.h5.mb-0 Filters
+    button(type='button' data-bs-dismiss='offcanvas').btn-close
+  .offcanvas-header.d-block.border-bottom.pt-0.pt-lg-4.px-lg-0
+    ul.nav.nav-tabs.mb-0
+      li.nav-item
+        a(href='real-estate-catalog-rent.html')&attributes(pageTitle === 'Real Estate | Property for Rent' ? {'class': 'nav-link active'} : {'class': 'nav-link'})
+          i.fi-rent.fs-base.me-2
+          | For rent
+      li.nav-item
+        a(href='real-estate-catalog-sale.html')&attributes(pageTitle === 'Real Estate | Property for Sale' ? {'class': 'nav-link active'} : {'class': 'nav-link'})
+          i.fi-home.fs-base.me-2
+          | For sale
+  .offcanvas-body.py-lg-4
+    .pb-4.mb-2
+      h3.h6 Location
+      select.form-select.mb-2
+        option(value='' disabled) Choose city
+        option(value='Chicago') Chicago
+        option(value='Dallas') Dallas
+        option(value='Los Angeles') Los Angeles
+        option(value='New York' selected) New York
+        option(value='San Diego') San Diego
+      select.form-select
+        option(value='' selected disabled) Choose district
+        option(value='Brooklyn') Brooklyn
+        option(value='Manhattan') Manhattan
+        option(value='Staten Island') Staten Island
+        option(value='The Bronx') The Bronx
+        option(value='Queens') Queens
+    .pb-4.mb-2
+      h3.h6 Property type
+      .overflow-auto(data-simplebar data-simplebar-auto-hide='false' style='height: 11rem;')
+        .form-check
+          input(type='checkbox' id='house').form-check-input
+          label(for='house').form-check-label.fs-sm
+            | House
+        .form-check
+          input(type='checkbox' id='apartment' checked).form-check-input
+          label(for='apartment').form-check-label.fs-sm
+            | Apartment
+        .form-check
+          input(type='checkbox' id='room').form-check-input
+          label(for='room').form-check-label.fs-sm
+            | Room
+        .form-check
+          input(type='checkbox' id='office').form-check-input
+          label(for='office').form-check-label.fs-sm
+            | Office
+        .form-check
+          input(type='checkbox' id='commercial').form-check-input
+          label(for='commercial').form-check-label.fs-sm
+            | Commercial
+        .form-check
+          input(type='checkbox' id='land').form-check-input
+          label(for='land').form-check-label.fs-sm
+            | Land
+        .form-check
+          input(type='checkbox' id='daily').form-check-input
+          label(for='daily').form-check-label.fs-sm
+            | Daily rental
+        .form-check
+          input(type='checkbox' id='new-building').form-check-input
+          label(for='new-building').form-check-label.fs-sm
+            | New building
+        .form-check
+          input(type='checkbox' id='parking-lot').form-check-input
+          label(for='parking-lot').form-check-label.fs-sm
+            | Parking lot
+    .pb-4.mb-2
+      if pageTitle === 'Real Estate | Property for Rent'
+        h3.h6 Price per month
+        .range-slider(data-start-min='1100' data-start-max='3000' data-min='200' data-max='5000' data-step='100')
+          .range-slider-ui
+          .d-flex.align-items-center
+            .w-50.pe-2
+              .input-group
+                span.input-group-text.fs-base $
+                input(type='text').form-control.range-slider-value-min
+            .text-muted &mdash;
+            .w-50.ps-2
+              .input-group
+                span.input-group-text.fs-base $
+                input(type='text').form-control.range-slider-value-max
+      else
+        h3.h6 Property price
+        .range-slider(data-start-min='90000' data-start-max='250000' data-min='30000' data-max='500000' data-step='1000')
+          .range-slider-ui
+          .d-flex.align-items-center
+            .w-50.pe-2
+              .input-group
+                span.input-group-text.fs-base $
+                input(type='text').form-control.range-slider-value-min
+            .text-muted &mdash;
+            .w-50.ps-2
+              .input-group
+                span.input-group-text.fs-base $
+                input(type='text').form-control.range-slider-value-max
+    .pb-4.mb-2
+      h3.h6.pt-1 Beds &amp; baths
+      label.d-block.fs-sm.mb-1 Bedrooms
+      .btn-group.btn-group-sm(role='group' aria-label='Choose number of bedrooms')
+        input(type='radio' id='studio' name='bedrooms').btn-check
+        label(for='studio').btn.btn-outline-secondary.fw-normal Studio
+        input(type='radio' id='bedrooms-1' name='bedrooms' checked).btn-check
+        label(for='bedrooms-1').btn.btn-outline-secondary.fw-normal 1
+        input(type='radio' id='bedrooms-2' name='bedrooms').btn-check
+        label(for='bedrooms-2').btn.btn-outline-secondary.fw-normal 2
+        input(type='radio' id='bedrooms-3' name='bedrooms').btn-check
+        label(for='bedrooms-3').btn.btn-outline-secondary.fw-normal 3
+        input(type='radio' id='bedrooms-4' name='bedrooms').btn-check
+        label(for='bedrooms-4').btn.btn-outline-secondary.fw-normal 4+
+      label.d-block.fs-sm.pt-2.my-1 Bathrooms
+      .btn-group.btn-group-sm(role='group' aria-label='Choose number of bathrooms')
+        input(type='radio' id='bathrooms-1' name='bathrooms').btn-check
+        label(for='bathrooms-1').btn.btn-outline-secondary.fw-normal 1
+        input(type='radio' id='bathrooms-2' name='bathrooms').btn-check
+        label(for='bathrooms-2').btn.btn-outline-secondary.fw-normal 2
+        input(type='radio' id='bathrooms-3' name='bathrooms').btn-check
+        label(for='bathrooms-3').btn.btn-outline-secondary.fw-normal 3
+        input(type='radio' id='bathrooms-4' name='bathrooms').btn-check
+        label(for='bathrooms-4').btn.btn-outline-secondary.fw-normal 4
+    .pb-4.mb-2
+      h3.h6.pt-1 Square metres
+      .d-flex.align-items-center
+        input(type='number' min='20' max='500' step='10' placeholder='Min').form-control.w-100
+        .mx-2 &mdash;
+        input(type='number' min='20' max='500' step='10' placeholder='Max').form-control.w-100
+    .pb-4.mb-2
+      h3.h6 Amenities
+      .overflow-auto(data-simplebar data-simplebar-auto-hide='false' style='height: 11rem;')
+        .form-check
+          input(type='checkbox' id='air-condition' checked).form-check-input
+          label(for='air-condition').form-check-label.fs-sm
+            | Air conditioning
+        .form-check
+          input(type='checkbox' id='balcony').form-check-input
+          label(for='balcony').form-check-label.fs-sm
+            | Balcony
+        .form-check
+          input(type='checkbox' id='garage' checked).form-check-input
+          label(for='garage').form-check-label.fs-sm
+            | Garage
+        .form-check
+          input(type='checkbox' id='gym').form-check-input
+          label(for='gym').form-check-label.fs-sm
+            | Gym
+        .form-check
+          input(type='checkbox' id='parking').form-check-input
+          label(for='parking').form-check-label.fs-sm
+            | Parking
+        .form-check
+          input(type='checkbox' id='pool').form-check-input
+          label(for='pool').form-check-label.fs-sm
+            | Pool
+        .form-check
+          input(type='checkbox' id='camera').form-check-input
+          label(for='camera').form-check-label.fs-sm
+            | Security cameras
+        .form-check
+          input(type='checkbox' id='wifi' checked).form-check-input
+          label(for='wifi').form-check-label.fs-sm
+            | WiFi
+        .form-check
+          input(type='checkbox' id='laundry').form-check-input
+          label(for='laundry').form-check-label.fs-sm
+            | Laundry
+        .form-check
+          input(type='checkbox' id='dishwasher').form-check-input
+          label(for='dishwasher').form-check-label.fs-sm
+            | Dishwasher
+    .pb-4.mb-2
+      h3.h6 Pets
+      .form-check
+        input(type='checkbox' id='allow-cats').form-check-input
+        label(for='allow-cats').form-check-label.fs-sm
+          | Cats allowed
+      .form-check
+        input(type='checkbox' id='allow-dogs').form-check-input
+        label(for='allow-dogs').form-check-label.fs-sm
+          | Dogs allowed
+    .pb-4.mb-2
+      h3.h6 Additional options
+      .form-check
+        input(type='checkbox' id='verified').form-check-input
+        label(for='verified').form-check-label.fs-sm
+          | Verified
+      .form-check
+        input(type='checkbox' id='featured').form-check-input
+        label(for='featured').form-check-label.fs-sm
+          | Featured
+    .border-top.py-4
+      button(type='button').btn.btn-outline-primary
+        i.fi-rotate-right.me-2
+        | Reset filters

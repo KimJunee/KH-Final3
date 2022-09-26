@@ -1,0 +1,489 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['prismjs/themes/prism.css', 'prismjs/plugins/toolbar/prism-toolbar.css', 'prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var vendorScripts = ['prismjs/components/prism-core.min.js', 'prismjs/components/prism-markup.min.js', 'prismjs/components/prism-clike.min.js', 'prismjs/components/prism-javascript.min.js', 'prismjs/components/prism-pug.min.js', 'prismjs/plugins/toolbar/prism-toolbar.min.js', 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Input group'
+  - var pageSubtitle = 'Extend form controls by adding text, buttons, etc. on either side.'
+  - var pageTitleLink = {'title': 'Bootstrap docs', 'link': 'https://getbootstrap.com/docs/5.1/forms/input-group/'}
+  - var anchorNav = [{'title': 'Addon position', 'link': '#ig-addon-position'}, {'title': 'Different addon types', 'link': '#ig-addon-types'}, {'title': 'Multiple inputs', 'link': '#ig-addon-multiple'}, {'title': 'Button addons', 'link': '#ig-addon-button'}, {'title': 'Sizing', 'link': '#ig-sizing'}]
+  
+//- Page Content
+block content
+
+  // Addon position
+  section#ig-addon-position.pb-5.mb-md-2
+    h2.h5.mb-3 Addon position
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result1' data-bs-toggle='tab' role='tab' aria-controls='result1' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result1.tab-pane.fade.show.active(role='tabpanel')
+            .input-group.mb-3
+              span.input-group-text: i.fi-lock
+              input(type='password' placeholder='Password').form-control
+            .input-group.mb-3
+              input(type='text' placeholder="Recipient's e-mail").form-control
+              span.input-group-text @example.com
+            .input-group
+              span.input-group-text.fs-lg.py-1 $
+              input(type='text' placeholder='Amount').form-control
+              span.input-group-text .00
+          #html1.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Addon on the left --&gt;
+                &lt;div class=&quot;input-group&quot;&gt;
+                  &lt;span class=&quot;input-group-text&quot;&gt;
+                    &lt;i class=&quot;fi-lock&quot;&gt;&lt;/i&gt;
+                  &lt;/span&gt;
+                  &lt;input type=&quot;password&quot; class=&quot;form-control&quot; placeholder=&quot;Password&quot;&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Addon on the right --&gt;
+                &lt;div class=&quot;input-group&quot;&gt;
+                  &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Recipient's e-mail&quot;&gt;
+                  &lt;span class=&quot;input-group-text&quot;&gt;@example.com&lt;/span&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Addons on both sides --&gt;
+                &lt;div class=&quot;input-group&quot;&gt;
+                  &lt;span class=&quot;input-group-text fs-lg py-1&quot;&gt;$&lt;/span&gt;
+                  &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Amount&quot;&gt;
+                  &lt;span class=&quot;input-group-text&quot;&gt;.00&lt;/span&gt;
+                &lt;/div&gt;
+          #pug1.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Addon on the left
+                .input-group
+                  span.input-group-text
+                    i.fi-lock
+                  input(type=&quot;password&quot;, placeholder=&quot;Password&quot;).form-control
+
+                // Addon on the right
+                .input-group
+                  input(type=&quot;text&quot;, placeholder=&quot;Recipient's e-mail&quot;).form-control
+                  span.input-group-text
+                    | @example.com
+                
+                // Addons on both sides
+                .input-group
+                  span.input-group-text.fs-lg.py-1
+                    | $
+                  input(type=&quot;text&quot;, placeholder=&quot;Amount&quot;).form-control
+                  span.input-group-text
+                    | .00
+
+  // Different addon types
+  section#ig-addon-types.pb-5.mb-md-2
+    h2.h5.mb-3 Different addon types
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result3' data-bs-toggle='tab' role='tab' aria-controls='result3' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result3.tab-pane.fade.show.active(role='tabpanel')
+            .input-group.mb-3
+              span.input-group-text: i.fi-chat-left
+              textarea(placeholder='Type your message here...' rows='6').form-control
+            .input-group.mb-3
+              span.input-group-text.fw-bold.text-dark Options
+              select.form-select
+                option Choose one...
+                option One
+                option Two
+                option Three
+                option Four
+                option Five
+            .input-group.mb-3
+              .input-group-text.py-1.pe-2
+                .form-check
+                  input(type='checkbox' id='ex-check-1').form-check-input
+                  label(for='ex-check-1').form-check-label
+              input(type='text' placeholder='Checkbox here').form-control
+            .input-group
+              .input-group-text.py-1.pe-2
+                .form-check
+                  input(type='radio' id='ex-radio-1' name='radio').form-check-input
+                  label(for='ex-radio-1').form-check-label
+              input(type='text' placeholder='Radio button here').form-control
+          #html3.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Icon addon --&gt;
+                &lt;div class=&quot;input-group&quot;&gt;
+                  &lt;span class=&quot;input-group-text&quot;&gt;
+                    &lt;i class=&quot;fi-chat-left&quot;&gt;&lt;/i&gt;
+                  &lt;/span&gt;
+                  &lt;textarea class=&quot;form-control&quot; placeholder=&quot;Type your message here...&quot; rows=&quot;6&quot;&gt;&lt;/textarea&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Textual addon --&gt;
+                &lt;div class=&quot;input-group&quot;&gt;
+                  &lt;span class=&quot;input-group-text fw-bold text-dark&quot;&gt;Options&lt;/span&gt;
+                  &lt;select class=&quot;form-select&quot;&gt;
+                    &lt;option&gt;Choose one...&lt;/option&gt;
+                    &lt;option&gt;One&lt;/option&gt;
+                    &lt;option&gt;Two&lt;/option&gt;
+                    &lt;option&gt;Three&lt;/option&gt;
+                  &lt;/select&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Checkbox addon --&gt;
+                &lt;div class=&quot;input-group&quot;&gt;
+                  &lt;div class=&quot;input-group-text py-1 pe-2&quot;&gt;
+                    &lt;div class=&quot;form-check&quot;&gt;
+                      &lt;input class=&quot;form-check-input&quot; type=&quot;checkbox&quot; id=&quot;ex-check-1&quot;&gt;
+                      &lt;label class=&quot;form-check-label&quot; for=&quot;ex-check-1&quot;&gt;&lt;/label&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;input class=&quot;form-control&quot; type=&quot;text&quot; placeholder=&quot;Checkbox here&quot;&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Radio button addon --&gt;
+                &lt;div class=&quot;input-group&quot;&gt;
+                    &lt;div class=&quot;input-group-text py-1 pe-2&quot;&gt;
+                      &lt;div class=&quot;form-check&quot;&gt;
+                        &lt;input class=&quot;form-check-input&quot; type=&quot;radio&quot; id=&quot;ex-radio-1&quot; name=&quot;radio&quot;&gt;
+                        &lt;label class=&quot;form-check-label&quot; for=&quot;ex-radio-1&quot;&gt;&lt;/label&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;input class=&quot;form-control&quot; type=&quot;text&quot; placeholder=&quot;Radio button here&quot;&gt;
+                &lt;/div&gt;
+          #pug3.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Icon addon
+                .input-group
+                  span.input-group-text
+                    i.fi-chat-left
+                  textarea(placeholder=&quot;Type your message here...&quot;, rows=&quot;6&quot;).form-control
+
+                // Textual addon
+                .input-group
+                  span.input-group-text.fw-bold.text-dark
+                    | Options
+                  select.form-select
+                    option Choose one...
+                    option One
+                    option Two
+                    option Three
+                    option Four
+                    option Five
+
+                // Checkbox addon
+                .input-group.mb-3
+                  .input-group-text.py-1.pe-2
+                    .form-check
+                      input(type=&quot;checkbox&quot;, id=&quot;ex-check-1&quot;).form-check-input
+                      label(for=&quot;ex-check-1&quot;).form-check-label
+                  input(type=&quot;text&quot;, placeholder=&quot;Checkbox here&quot;).form-control
+
+                // Radio button addon
+                .input-group.mb-3
+                  .input-group-text.py-1.pe-2
+                    .form-check
+                      input(type=&quot;radio&quot;, id=&quot;ex-radio-1&quot;, name=&quot;radio&quot;).form-check-input
+                      label(for=&quot;ex-radio-1&quot;).form-check-label
+                  input(type=&quot;text&quot;, placeholder=&quot;Radio button here&quot;).form-control
+
+  // Multiple inputs
+  section#ig-addon-multiple.pb-5.mb-md-2
+    h2.h5.mb-3 Multiple inputs
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result4' data-bs-toggle='tab' role='tab' aria-controls='result4' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result4.tab-pane.fade.show.active(role='tabpanel')
+            .input-group.mb-3
+              span.input-group-text.fw-bold.text-dark Full name
+              input(type='text' placeholder='First name').form-control
+              input(type='text' placeholder='Last name').form-control
+            .input-group
+              input(type='time' value='07:45').form-control
+              input(type='time' value='09:00').form-control
+              span.input-group-text: i.fi-clock
+          #html4.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Multiple inputs (addon on the left) --&gt;
+                &lt;div class=&quot;input-group&quot;&gt;
+                  &lt;span class=&quot;input-group-text fw-bold text-dark&quot;&gt;Full name&lt;/span&gt;
+                  &lt;input class=&quot;form-control&quot; type=&quot;text&quot; placeholder=&quot;First name&quot;&gt;
+                  &lt;input class=&quot;form-control&quot; type=&quot;text&quot; placeholder=&quot;Last name&quot;&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Multiple inputs (addon on the right) --&gt;
+                &lt;div class=&quot;input-group&quot;&gt;
+                  &lt;input class=&quot;form-control&quot; type=&quot;time&quot; value=&quot;07:45&quot;&gt;
+                  &lt;input class=&quot;form-control&quot; type=&quot;time&quot; value=&quot;09:00&quot;&gt;
+                  &lt;span class=&quot;input-group-text&quot;&gt;
+                    &lt;i class=&quot;fi-clock&quot;&gt;&lt;/i&gt;
+                  &lt;/span&gt;
+                &lt;/div&gt;
+          #pug4.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Multiple inputs (addon on the left)
+                .input-group
+                  span.input-group-text.fw-bold.text-dark Full name
+                  input(type=&quot;text&quot;, placeholder=&quot;First name&quot;).form-control
+                  input(type=&quot;text&quot;, placeholder=&quot;Last name&quot;).form-control
+
+                // Multiple inputs (addon on the right)
+                .input-group
+                  input(type=&quot;time&quot;, value=&quot;07:45&quot;).form-control
+                  input(type=&quot;time&quot;, value=&quot;09:00&quot;).form-control
+                  span.input-group-text
+                    i.fi-clock
+
+  // Button addons
+  section#ig-addon-button.pb-5.mb-md-2
+    h2.h5.mb-3 Button addons
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result5' data-bs-toggle='tab' role='tab' aria-controls='result5' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html5' data-bs-toggle='tab' role='tab' aria-controls='html5' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug5' data-bs-toggle='tab' role='tab' aria-controls='pug5' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result5.tab-pane.fade.show.active(role='tabpanel')
+            .input-group.mb-3
+              button(type='button').btn.btn-primary Button
+              input(type='text' placeholder='Button on the left').form-control
+            .input-group.mb-3
+              input(type='text' placeholder='Button on the right').form-control
+              button(type='button').btn.btn-primary Button
+            .input-group.mb-3
+              button(type='button' data-bs-toggle='dropdown').btn.btn-primary.dropdown-toggle Dropdown
+              .dropdown-menu.my-1
+                a(href='#').dropdown-item Action
+                a(href='#').dropdown-item Another action
+                a(href='#').dropdown-item Something else here
+              input(type='text' placeholder='Dropdown on the left').form-control
+            .input-group.mb-3
+              input(type='text' placeholder='Dropdown on the right').form-control
+              button(type='button' data-bs-toggle='dropdown').btn.btn-primary.dropdown-toggle Dropdown
+              .dropdown-menu.dropdown-menu-end.my-1
+                a(href='#').dropdown-item Action
+                a(href='#').dropdown-item Another action
+                a(href='#').dropdown-item Something else here
+            .input-group
+              input(type='text' placeholder='Links on the right').form-control
+              .input-group-text.p-0
+                a(href='#').d-block.text-body.px-3.py-2
+                  i.fi-edit.mt-n1
+              .input-group-text.p-0
+                a(href='#').d-block.text-success.px-3.py-2
+                  i.fi-check.mt-n1
+              .input-group-text.p-0
+                a(href='#').d-block.text-danger.px-3.py-2
+                  i.fi-trash.mt-n1
+          #html5.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Button addon on the left --&gt;
+                &lt;div class=&quot;input-group&quot;&gt;
+                  &lt;button class=&quot;btn btn-primary&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
+                  &lt;input class=&quot;form-control&quot; type=&quot;text&quot; placeholder=&quot;Button on the left&quot;&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Button addon on the right --&gt;
+                &lt;div class=&quot;input-group&quot;&gt;
+                  &lt;input class=&quot;form-control&quot; type=&quot;text&quot; placeholder=&quot;Button on the right&quot;&gt;
+                  &lt;button class=&quot;btn btn-primary&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
+                &lt;/div&gt;
+                
+                &lt;!-- Dropdown addon on the left --&gt;
+                &lt;div class=&quot;input-group&quot;&gt;
+                  &lt;button class=&quot;btn btn-primary dropdown-toggle&quot; type=&quot;button&quot; data-bs-toggle=&quot;dropdown&quot;&gt;Dropdown&lt;/button&gt;
+                  &lt;div class=&quot;dropdown-menu my-1&quot;&gt;
+                    &lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Action&lt;/a&gt;
+                    &lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Another action&lt;/a&gt;
+                    &lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Something else here&lt;/a&gt;
+                  &lt;/div&gt;
+                  &lt;input class=&quot;form-control&quot; type=&quot;text&quot; placeholder=&quot;Dropdown on the right&quot;&gt;
+                &lt;/div&gt;
+                
+                &lt;!-- Dropdown addon on the right --&gt;
+                &lt;div class=&quot;input-group&quot;&gt;
+                  &lt;input class=&quot;form-control&quot; type=&quot;text&quot; placeholder=&quot;Dropdown on the right&quot;&gt;
+                  &lt;button class=&quot;btn btn-primary dropdown-toggle&quot; type=&quot;button&quot; data-bs-toggle=&quot;dropdown&quot;&gt;Dropdown&lt;/button&gt;
+                  &lt;div class=&quot;dropdown-menu dropdown-menu-end my-1&quot;&gt;
+                    &lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Action&lt;/a&gt;
+                    &lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Another action&lt;/a&gt;
+                    &lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Something else here&lt;/a&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Multiple icon link addons --&gt;
+                &lt;div class=&quot;input-group&quot;&gt;
+                  &lt;input class=&quot;form-control&quot; type=&quot;text&quot; placeholder=&quot;Icon links on the right&quot;&gt;
+                  &lt;div class=&quot;input-group-text p-0&quot;&gt;
+                    &lt;a class=&quot;d-block text-body px-3 py-2&quot; href=&quot;#&quot;&gt;
+                      &lt;i class=&quot;fi-edit mt-n1&quot;&gt;&lt;/i&gt;
+                    &lt;/a&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;input-group-text p-0&quot;&gt;
+                    &lt;a class=&quot;d-block text-success px-3 py-2&quot; href=&quot;#&quot;&gt;
+                      &lt;i class=&quot;fi-check mt-n1&quot;&gt;&lt;/i&gt;
+                    &lt;/a&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;input-group-text p-0&quot;&gt;
+                    &lt;a class=&quot;d-block text-danger px-3 py-2&quot; href=&quot;#&quot;&gt;
+                      &lt;i class=&quot;fi-trash mt-n1&quot;&gt;&lt;/i&gt;
+                    &lt;/a&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+          #pug5.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Button addon on the left
+                .input-group
+                  button.btn.btn-primary(type=&quot;button&quot;) Button
+                  input(type=&quot;text&quot;, placeholder=&quot;Button on the left&quot;).form-control
+
+                // Button addon on the right
+                .input-group
+                  input(type=&quot;text&quot;, placeholder=&quot;Button on the right&quot;).form-control
+                  button.btn.btn-primary(type=&quot;button&quot;) Button
+
+                // Dropdown addon on the left
+                .input-group
+                  button(type=&quot;button&quot;, data-bs-toggle=&quot;dropdown&quot;).btn.btn-primary.dropdown-toggle Dropdown
+                  .dropdown-menu.my-1
+                    a.dropdown-item(href=&quot;#&quot;) Action
+                    a.dropdown-item(href=&quot;#&quot;) Another action
+                    a.dropdown-item(href=&quot;#&quot;) Something else here
+                  input(type=&quot;text&quot;, placeholder=&quot;Dropdown on the left&quot;).form-control
+                
+                // Dropdown addon on the right
+                .input-group
+                  input(type=&quot;text&quot;, placeholder=&quot;Dropdown on the right&quot;).form-control
+                  button.btn.btn-primary.dropdown-toggle(type=&quot;button&quot;, data-bs-toggle=&quot;dropdown&quot;) Dropdown
+                  .dropdown-menu.dropdown-menu-end.my-1
+                    a.dropdown-item(href=&quot;#&quot;) Action
+                    a.dropdown-item(href=&quot;#&quot;) Another action
+                    a.dropdown-item(href=&quot;#&quot;) Something else here
+                
+                // Multiple icon link addons
+                .input-group
+                  input(type=&quot;text&quot;, placeholder=&quot;Icon links on the right&quot;).form-control
+                  .input-group-text.p-0
+                    a(href=&quot;#&quot;).d-block.text-body.px-3.py-2
+                      i.fi-edit.mt-n1
+                  .input-group-text.p-0
+                    a(href=&quot;#&quot;).d-block.text-success.px-3.py-2
+                      i.fi-check.mt-n1
+                  .input-group-text.p-0
+                    a(href=&quot;#&quot;).d-block.text-danger.px-3.py-2
+                      i.fi-trash.mt-n1
+
+  // Sizing
+  section#ig-sizing.pb-5.mb-md-2
+    h2.h4.mb-3 Sizing
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result6' data-bs-toggle='tab' role='tab' aria-controls='result6' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html6' data-bs-toggle='tab' role='tab' aria-controls='html6' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug6' data-bs-toggle='tab' role='tab' aria-controls='pug6' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result6.tab-pane.fade.show.active(role='tabpanel')
+            .d-md-flex
+              .w-100.me-md-3.mb-md-0.mb-3
+                .input-group.input-group-lg.mb-3
+                  span.input-group-text
+                    i.fi-lock
+                  input(type='password' placeholder='Password').form-control
+                .input-group.mb-3
+                  span.input-group-text
+                    i.fi-lock
+                  input(type='password' placeholder='Password').form-control
+                .input-group.input-group-sm
+                  span.input-group-text
+                    i.fi-lock
+                  input(type='password' placeholder='Password').form-control
+              .w-100
+                .input-group.input-group-lg.mb-3
+                  select.form-select
+                    option Choose option
+                    option Option item 1
+                    option Option item 2
+                    option Option item 3
+                  button(type='button').btn.btn-primary Submit
+                .input-group.mb-3
+                  select.form-select
+                    option Choose option
+                    option Option item 1
+                    option Option item 2
+                    option Option item 3
+                  button(type='button').btn.btn-primary Submit
+                .input-group.input-group-sm
+                  select.form-select
+                    option Choose option
+                    option Option item 1
+                    option Option item 2
+                    option Option item 3
+                  button(type='button').btn.btn-primary Submit
+          #html6.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Input group large --&gt;
+                &lt;div class=&quot;input-group input-group-lg&quot;&gt;
+                  ...
+                &lt;/div&gt;
+
+                &lt;!-- Input group normal --&gt;
+                &lt;div class=&quot;input-group&quot;&gt;
+                  ...
+                &lt;/div&gt;
+
+                &lt;!-- Input group small --&gt;
+                &lt;div class=&quot;input-group input-group-sm&quot;&gt;
+                  ...
+                &lt;/div&gt;
+          #pug6.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Input group large
+                .input-group.input-group-lg
+                  | ...
+
+                // Input group normal
+                .input-group
+                  | ...
+
+                // Input group small
+                .input-group.input-group-sm
+                  | ...

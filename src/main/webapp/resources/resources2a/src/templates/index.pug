@@ -1,0 +1,356 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/aos/dist/aos.css', 'vendor/img-comparison-slider/dist/styles.css']
+  - var scripts = ['vendor/parallax-js/dist/parallax.min.js', 'vendor/aos/dist/aos.js', 'vendor/@lottiefiles/lottie-player/dist/lottie-player.js', 'vendor/img-comparison-slider/dist/index.js']
+  - var parentMenu = 'Landings'
+  - var pageTitle = 'Multipurpose Bootstrap Template'
+  - var isScrollDownButton = true
+
+
+//- Navbar
+block navbar
+  .dark-mode
+    include partials/navbar
+
+
+//- Page Content
+block content
+
+  // Hero
+  section.bg-dark.dark-mode.position-relative.min-vh-100.overflow-hidden.pt-5
+    svg(width='262' height='160' viewBox='0 0 262 160' fill='none' xmlns='http://www.w3.org/2000/svg' style='left: 6%;').position-absolute.top-0
+      ellipse(cx='131' cy='30.5' rx='131' ry='129.5' fill='white' fill-opacity='.03')
+    .container.position-relative.zindex-5.text-center.pt-5.mt-lg-4.mt-xl-5
+      h1.display-1.pt-4.mt-sm-3
+        span.text-white.fw-normal Have a look 
+        span.d-inline-flex.align-items-center
+          span.text-white Ar
+          img(src='assets/img/landing/intro/avatar.png' width='51' alt='Image').flex-shrink-0.mt-2
+          span.text-white und!
+      p.fs-xl.mb-5 And you will find everything you need to build a great looking website
+      a(href='#landings' data-scroll data-scroll-offset='20').scroll-down-btn
+        .mouse
+        p Landings
+    .d-none.d-lg-block(style='margin-top: -80px;')
+    .d-none.d-sm-block.d-lg-none(style='margin-top: -40px;')
+    .parallax.mx-auto.mb-n5(style='max-width: 1606px;')
+      .parallax-layer(data-depth='-0.1')
+        img(src='assets/img/landing/intro/hero/01.png' alt='Background shapes')
+      .parallax-layer.zindex-2(data-depth='0.12')
+        img(src='assets/img/landing/intro/hero/02.png' alt='Foreground shape')
+      .parallax-layer.zindex-2(data-depth='0.35')
+        img(src='assets/img/landing/intro/hero/03.png' alt='Foreground shape')
+      .parallax-layer.zindex-2(data-depth='0.23')
+        img(src='assets/img/landing/intro/hero/04.png' alt='Foreground shape')
+  
+
+  // Landings
+  section#landings.bg-gray.py-2.py-lg-3.py-xl-4.py-xxl-5
+    .container.py-5.mt-1.mb-2.mt-sm-2.mb-sm-3.mt-md-3.mb-md-4.my-lg-4.my-xl-5
+      h2.display-5.text-center.pt-xxl-2 Landing pages
+      p.fs-lg.text-center.pb-3.pb-lg-0.mb-lg-5 Choose from pre-built layouts of our unique landing pages
+      .row.row-cols-1.row-cols-sm-2.row-cols-lg-3.gy-5.pb-xl-3
+
+        // Mobile App Showcase
+        .col
+          .card-hover.card-lifted.position-relative.mx-auto(style='max-width: 416px;')
+            .card-lifted.overflow-hidden.rounded-3.mb-3
+              img(src='assets/img/landing/intro/landings/mobile-app-showcase-light.jpg' alt='Mobile App Showcase').d-dark-mode-none
+              img(src='assets/img/landing/intro/landings/mobile-app-showcase-dark.jpg' alt='Mobile App Showcase').d-none.d-dark-mode-block
+            h3.h5.text-center.mb-0: a(href='landing-mobile-app-showcase.html').stretched-link Mobile App Showcase
+
+        // Product Landing
+        .col
+          .card-hover.card-lifted.position-relative.mx-auto(style='max-width: 416px;')
+            .card-lifted.overflow-hidden.rounded-3.mb-3
+              img(src='assets/img/landing/intro/landings/product-landing-light.jpg' alt='Product Landing').d-dark-mode-none
+              img(src='assets/img/landing/intro/landings/product-landing-dark.jpg' alt='Product Landing').d-none.d-dark-mode-block
+            h3.h5.text-center.mb-0: a(href='landing-product.html').stretched-link Product Landing
+
+        // SaaS v.1
+        .col
+          .card-hover.card-lifted.position-relative.mx-auto(style='max-width: 416px;')
+            .card-lifted.overflow-hidden.rounded-3.mb-3
+              img(src='assets/img/landing/intro/landings/saas-v1-light.jpg' alt='SaaS v.1').d-dark-mode-none
+              img(src='assets/img/landing/intro/landings/saas-v1-dark.jpg' alt='SaaS v.1').d-none.d-dark-mode-block
+            h3.h5.text-center.mb-0: a(href='landing-saas-v1.html').stretched-link SaaS v.1
+
+        // SaaS v.2
+        .col
+          .card-hover.card-lifted.position-relative.mx-auto(style='max-width: 416px;')
+            .card-lifted.overflow-hidden.rounded-3.mb-3
+              img(src='assets/img/landing/intro/landings/saas-v2-light.jpg' alt='SaaS v.2').d-dark-mode-none
+              img(src='assets/img/landing/intro/landings/saas-v2-dark.jpg' alt='SaaS v.2').d-none.d-dark-mode-block
+            h3.h5.text-center.mb-0: a(href='landing-saas-v2.html').stretched-link SaaS v.2
+
+        // Marketing Agency
+        .col
+          .card-hover.card-lifted.position-relative.mx-auto(style='max-width: 416px;')
+            .card-lifted.overflow-hidden.rounded-3.mb-3
+              img(src='assets/img/landing/intro/landings/marketing-agency-light.jpg' alt='Marketing Agency').d-dark-mode-none
+              img(src='assets/img/landing/intro/landings/marketing-agency-dark.jpg' alt='Marketing Agency').d-none.d-dark-mode-block
+            h3.h5.text-center.mb-0: a(href='landing-marketing-agency.html').stretched-link Marketing Agency
+
+        // Shop Homepage
+        .col
+          .card-hover.card-lifted.position-relative.mx-auto(style='max-width: 416px;')
+            .card-lifted.overflow-hidden.rounded-3.mb-3
+              img(src='assets/img/landing/intro/landings/shop-homepage-light.jpg' alt='Shop Homepage').d-dark-mode-none
+              img(src='assets/img/landing/intro/landings/shop-homepage-dark.jpg' alt='Shop Homepage').d-none.d-dark-mode-block
+            h3.h5.text-center.mb-0: a(href='landing-shop.html').stretched-link Shop Homepage
+
+        // Creative Agency
+        .col
+          .card-hover.card-lifted.position-relative.mx-auto(style='max-width: 416px;')
+            .card-lifted.overflow-hidden.rounded-3.mb-3
+              img(src='assets/img/landing/intro/landings/creative-agency-light.jpg' alt='Creative Agency').d-dark-mode-none
+              img(src='assets/img/landing/intro/landings/creative-agency-dark.jpg' alt='Creative Agency').d-none.d-dark-mode-block
+            h3.h5.text-center.mb-0: a(href='landing-creative-agency.html').stretched-link Creative Agency
+
+        // Web Studio
+        .col
+          .card-hover.card-lifted.position-relative.mx-auto(style='max-width: 416px;')
+            .card-lifted.overflow-hidden.rounded-3.mb-3
+              img(src='assets/img/landing/intro/landings/web-studio-light.jpg' alt='Web Studio').d-dark-mode-none
+              img(src='assets/img/landing/intro/landings/web-studio-dark.jpg' alt='Web Studio').d-none.d-dark-mode-block
+            h3.h5.text-center.mb-0: a(href='landing-web-studio.html').stretched-link Web Studio
+
+        // Corporate
+        .col
+          .card-hover.card-lifted.position-relative.mx-auto(style='max-width: 416px;')
+            .card-lifted.overflow-hidden.rounded-3.mb-3
+              img(src='assets/img/landing/intro/landings/corporate-light.jpg' alt='Corporate').d-dark-mode-none
+              img(src='assets/img/landing/intro/landings/corporate-dark.jpg' alt='Corporate').d-none.d-dark-mode-block
+            h3.h5.text-center.mb-0: a(href='landing-corporate.html').stretched-link Corporate
+
+        // Business Consulting
+        .col
+          .card-hover.card-lifted.position-relative.mx-auto(style='max-width: 416px;')
+            .card-lifted.overflow-hidden.rounded-3.mb-3
+              img(src='assets/img/landing/intro/landings/business-consulting-light.jpg' alt='Business Consulting').d-dark-mode-none
+              img(src='assets/img/landing/intro/landings/business-consulting-dark.jpg' alt='Business Consulting').d-none.d-dark-mode-block
+            h3.h5.text-center.mb-0: a(href='landing-business-consulting.html').stretched-link Business Consulting
+
+        // Coworking Space
+        .col
+          .card-hover.card-lifted.position-relative.mx-auto(style='max-width: 416px;')
+            .card-lifted.overflow-hidden.rounded-3.mb-3
+              img(src='assets/img/landing/intro/landings/coworking-space-light.jpg' alt='Coworking Space').d-dark-mode-none
+              img(src='assets/img/landing/intro/landings/coworking-space-dark.jpg' alt='Coworking Space').d-none.d-dark-mode-block
+            h3.h5.text-center.mb-0: a(href='landing-coworking-space.html').stretched-link Coworking Space
+
+        // Yoga Studio
+        .col
+          .card-hover.card-lifted.position-relative.mx-auto(style='max-width: 416px;')
+            .card-lifted.overflow-hidden.rounded-3.mb-3
+              img(src='assets/img/landing/intro/landings/yoga-studio-light.jpg' alt='Yoga Studio').d-dark-mode-none
+              img(src='assets/img/landing/intro/landings/yoga-studio-dark.jpg' alt='Yoga Studio').d-none.d-dark-mode-block
+            h3.h5.text-center.mb-0: a(href='landing-yoga-studio.html').stretched-link Yoga Studio
+
+        // Blog Homepage
+        .col
+          .card-hover.card-lifted.position-relative.mx-auto(style='max-width: 416px;')
+            .card-lifted.overflow-hidden.rounded-3.mb-3
+              img(src='assets/img/landing/intro/landings/blog-homepage-light.jpg' alt='Blog Homepage').d-dark-mode-none
+              img(src='assets/img/landing/intro/landings/blog-homepage-dark.jpg' alt='Blog Homepage').d-none.d-dark-mode-block
+            h3.h5.text-center.mb-0: a(href='landing-blog.html').stretched-link Blog Homepage
+          
+        // Coming Soon
+        .col
+          .card.border-0.bg-transparent.h-100
+            .card-body.d-flex.justify-content-center.align-items-center.border-dashed.border-2.rounded-3.py-5.mb-3
+              .py-5(style='width: 5.5rem;')
+                lottie-player(src='assets/json/animation-sandwatch-light.json' background='transparent' speed='1' loop autoplay).d-dark-mode-none
+                lottie-player(src='assets/json/animation-sandwatch-dark.json' background='transparent' speed='1' loop autoplay).d-none.d-dark-mode-block
+            h3.h5.text-nav.text-center.mb-0 Coming Soon
+  
+
+  // Inner pages
+  section.overflow-hidden.pt-2.pt-sm-3.pt-md-4.pt-lg-3.pb-1.pb-sm-3.pb-md-4.pb-lg-5
+    .container.position-relative.py-5.my-lg-3.my-xl-4.my-xxl-5
+      .position-absolute(style='margin-left: -12.7%;' data-aos='zoom-in' data-aos-duration='500' data-aos-offset='300' data-disable-parallax-down='lg')
+        svg(width='744' height='744' viewBox='0 0 744 744' fill='currentColor' xmlns='http://www.w3.org/2000/svg' ).text-warning.d-none.d-lg-block
+          circle(cx='372' cy='372' r='372')
+      .d-none.d-xxl-block(style='height: 190px;')
+      .d-none.d-lg-block.d-xxl-none(style='height: 150px;')
+      .row.justify-content-center.justify-content-lg-start.position-relative.zindex-2
+        .col-sm-10.col-md-8.col-lg-5.col-xl-4.text-center.text-lg-start(data-aos='fade-up' data-aos-duration='850' data-aos-offset='120' data-disable-parallax-down='lg')
+          .ignore-dark-mode.d-none.d-lg-block
+            h2.display-5.mb-4 Inner pages for everything you may need
+            p.fs-lg.text-dark.pb-3.pb-sm-4.mb-lg-0 Big collection of thoroughly designed inner page templates from User Account/Dashboard to Specialty pages like 404 and Coming Soon.
+          .d-lg-none
+            h2.display-5.mb-4 Inner pages for everything you may need
+            p.fs-lg.text-dark.pb-3.pb-sm-4.mb-lg-0 Big collection of thoroughly designed inner page templates from User Account/Dashboard to Specialty pages like 404 and Coming Soon.
+      .d-none.d-xl-block(style='margin-top: -240px;')
+      .d-none.d-lg-block.d-xl-none(style='margin-top: -160px;')
+      .d-flex.position-relative.zindex-2.mb-3
+        .flex-xxl-shrink-0.position-relative.zindex-2(style='max-width: 540px; margin-top: 26%; margin-right: -9.6%;' data-aos='fade-up' data-aos-duration='500'  data-aos-delay='400' data-disable-parallax-down='lg')
+          img(src='assets/img/landing/intro/pages/01-light.jpg' alt='Page' style='box-shadow: 1.875rem .625rem 5rem rgba(65,81,98, .2);').rounded-3.mt-n5.mt-lg-0.d-block.d-dark-mode-none
+          img(src='assets/img/landing/intro/pages/01-dark.jpg' alt='Page' style='box-shadow: 1.875rem .625rem 5rem rgba(0,0,0, .2);').border.rounded-3.mt-n5.mt-lg-0.d-none.d-dark-mode-block
+        .flex-xxl-shrink-0.position-relative.zindex-1(style='max-width: 481px; margin-top: 17.6%; margin-right: -8.5%;' data-aos='fade-up' data-aos-duration='500' data-aos-delay='200' data-disable-parallax-down='lg')
+          img(src='assets/img/landing/intro/pages/02-light.jpg' alt='Page' style='box-shadow: 1.875rem .625rem 5rem rgba(65,81,98, .2);').rounded-3.mt-n5.mt-lg-0.d-block.d-dark-mode-none
+          img(src='assets/img/landing/intro/pages/02-dark.jpg' alt='Page' style='box-shadow: 1.875rem .625rem 5rem rgba(0,0,0, .2);').border.rounded-3.mt-n5.mt-lg-0.d-none.d-dark-mode-block
+        .flex-xxl-shrink-0(style='max-width: 510px;' data-aos='fade-up' data-aos-duration='500' data-aos-offset='250' data-disable-parallax-down='lg')
+          img(src='assets/img/landing/intro/pages/03-light.jpg' alt='Page' style='box-shadow: 1.875rem .625rem 5rem rgba(65,81,98, .2);').rounded-3.d-block.d-dark-mode-none
+          img(src='assets/img/landing/intro/pages/03-dark.jpg' alt='Page' style='box-shadow: 1.875rem .625rem 5rem rgba(0,0,0, .2);').border.rounded-3.d-none.d-dark-mode-block
+  
+  
+  // Light / Dark mode (Comparison slider)
+  section.d-flex.w-100.position-relative.overflow-hidden
+    .position-relative.flex-xl-shrink-0.zindex-5.start-50.translate-middle-x.my-n1(style='max-width: 1920px;')
+      .mx-md-n5.mx-xl-0
+        .mx-n4.mx-sm-n5.mx-xl-0
+          .mx-n5.mx-xl-0
+            img-comparison-slider.mx-n5.mx-xl-0
+              img(slot='first' src='assets/img/landing/intro/dark-mode.jpg' alt='Dak Mode')
+              img(slot='second' src='assets/img/landing/intro/light-mode.jpg' alt='Light Mode')
+              div(slot='handle' style='width: 42px;')
+                svg(width='42' height='42' viewBox='0 0 42 42' xmlns='http://www.w3.org/2000/svg').text-primary.rounded-circle
+                  g: circle(fill='currentColor' cx='21' cy='21' r='21')
+                  path(fill='white' d='M25.5019 19.7494H15.9147V15.9146L11.1211 20.7081L15.9147 25.5017V21.6669H25.5019V25.5017L30.2955 20.7081L25.5019 15.9146V19.7494Z')
+    .position-absolute.top-0.start-0.w-50.h-100.bg-dark
+    .position-absolute.top-0.end-0.w-50.h-100(style='background-color: #f6f9fc;')
+  
+
+  // Customizer
+  section.container.pt-5.mt-lg-3.mt-xl-4.mt-xxl-5
+    h2.display-5.text-center.pt-2.pt-sm-3.pt-md-4.pt-lg-5.pb-lg-3.mt-xxl-2.mb-0 Around customizer
+
+    // Colors
+    .row.align-items-center.py-4.mt-2.mt-sm-3.mt-md-4.mb-2.mb-md-3.mb-lg-4(data-aos='fade-up' data-aos-duration='600' data-aos-offset='300' data-disable-parallax-down='md')
+      .col-md-6.col-lg-7.order-md-2.d-flex.justify-content-end
+        img(src='assets/img/landing/intro/customizer/colors-light.svg' width='593' alt='Colors').d-dark-mode-none
+        img(src='assets/img/landing/intro/customizer/colors-dark.svg' width='593' alt='Colors').d-none.d-dark-mode-block
+      .col-md-6.col-lg-5.order-md-1.mt-md-n5(data-aos='fade-up' data-aos-duration='850' data-aos-offset='200' data-disable-parallax-down='md')
+        span.badge.fs-sm.bg-faded-primary.text-primary.mb-4 Colors
+        h2.mb-4 Change theme brand colors quickly and easily
+        p.fs-lg.mb-0.mb-lg-4 Customize theme colors to match your brand palette using the color picker or just type in the color hex. Supported colors: primary, warning, success, info, danger.
+
+    // Typography
+    .row.align-items-center.py-4.my-2.my-md-3.my-lg-4(data-aos='fade-up' data-aos-duration='600' data-aos-offset='300' data-disable-parallax-down='md')
+      .col-md-6.col-lg-7
+        img(src='assets/img/landing/intro/customizer/typography-light.svg' width='636' alt='Typography').d-dark-mode-none
+        img(src='assets/img/landing/intro/customizer/typography-dark.svg' width='636' alt='Typography').d-none.d-dark-mode-block
+      .col-md-6.col-lg-5.mt-md-n4(data-aos='fade-up' data-aos-duration='850' data-aos-offset='200' data-disable-parallax-down='md')
+        span.badge.fs-sm.bg-faded-info.text-info.mb-4 Typography
+        h2.mb-4 Set up fonts from the huge Google font collection
+        p.fs-lg.mb-0.mb-lg-4 Easily change the font to your liking. Choose the font from Google Fonts library of 1,442 open source font families. Update headings and body font sizes right from customizer.
+
+    // Borders
+    .row.align-items-center.py-4.my-2.my-md-3.my-lg-4(data-aos='fade-up' data-aos-duration='600' data-aos-offset='300' data-disable-parallax-down='md')
+      .col-md-6.col-lg-7.order-md-2.d-flex.justify-content-end.pb-2.pb-md-0.mb-4.mb-md-0
+        img(src='assets/img/landing/intro/customizer/borders-light.svg' width='636' alt='Borders').d-dark-mode-none
+        img(src='assets/img/landing/intro/customizer/borders-dark.svg' width='636' alt='Borders').d-none.d-dark-mode-block
+      .col-md-6.col-lg-5.order-md-1(data-aos='fade-up' data-aos-duration='850' data-aos-offset='200' data-disable-parallax-down='md')
+        span.badge.fs-sm.bg-faded-danger.text-danger.mb-4 Borders
+        h2.mb-4 Rounded or square? Customize borders as you wish
+        p.fs-lg.mb-0.mb-lg-4 It's up to you to make your website soft and friendly with increased border radius or add business vibes with less rounded shapes. You can also change border width.
+  
+
+  // Features
+  section.container.py-5.mt-n4.mt-sm-n3.mt-md-0.my-lg-3.my-xl-4.my-xxl-5
+    h2.display-5.text-center.pt-md-3.pt-lg-4.pb-xxl-2.mt-xl-3.mb-4.mb-sm-5 More Around features
+    .row.row-cols-1.row-cols-sm-2.row-cols-lg-3.gy-4.gy-sm-5.pb-md-4.pb-lg-5.mb-2.mb-lg-0.mb-xxl-2
+
+      // Item
+      .col.text-center.text-sm-start.pt-2.pt-sm-0
+        .pe-md-3.pe-lg-3.pe-xl-5
+          img(src='assets/img/landing/intro/features/bootstrap.png' width='56' alt='Bootstrap').d-inline-block.mb-3.mb-lg-4
+          h3.h5.mb-2 Built with latest Bootstrap
+          p.mb-0 Around is the powerful front-end solution for websits and web apps based on Bootstrap 5 - the world's most popular responsive, mobile-first front-end component library.
+
+      // Item
+      .col.text-center.text-sm-start.pt-2.pt-sm-0
+        .ps-md-3.px-lg-2.px-xl-4
+          img(src='assets/img/landing/intro/features/sass.png' width='56' alt='Sass').d-inline-block.mb-3.mb-lg-4
+          h3.h5.mb-2 Easy to Customize with Sass
+          p.mb-0 Around is built using Sass. Easily change colors, typography and much more. It is the most mature, stable, and powerful CSS extension language in the world.
+
+      // Item
+      .col.text-center.text-sm-start.pt-2.pt-sm-0
+        .pe-md-3.ps-lg-3.ps-xl-5
+          img(src='assets/img/landing/intro/features/gulp.png' width='56' alt='Gulp').d-inline-block.mb-3.mb-lg-4
+          h3.h5.mb-2 Kick-start your development
+          p.mb-0 Start your development process fast and easy with Node.js and Gulp setup. Configuration files are included in the download package. Full tasks automation and local server hot reload.
+
+      // Item
+      .col.text-center.text-sm-start.pt-2.pt-sm-0
+        .ps-md-3.pe-lg-3.pe-xl-5
+          img(src='assets/img/landing/intro/features/pug.png' width='56' alt='Pug').d-inline-block.mb-3.mb-lg-4
+          h3.h5.mb-2 Pug - Node templating engine
+          p.mb-0 No need to write huge amount of HTML if you don't want to. Pug provides features not available in plain HTML like variables, includes, mixins, functions, etc.
+
+      // Item
+      .col.text-center.text-sm-start.pt-2.pt-sm-0
+        .pe-md-3.px-lg-2.px-xl-4
+          img(src='assets/img/landing/intro/features/js.png' width='56' alt='JavaScript').d-inline-block.mb-3.mb-lg-4
+          h3.h5.mb-2 Future-proof JavaScript
+          p.mb-0 Around core scripts as well as all dependencies are written in vanilla JS. And now with Bootstrap 5 we finally don't need jQuery any more and we can use ES6 modules to structure the code.
+
+      // Item
+      .col.text-center.text-sm-start.pt-2.pt-sm-0
+        .ps-md-3.ps-lg-3.ps-xl-5
+          img(src='assets/img/landing/intro/features/html5.png' width='56' alt='HTML5').d-inline-block.mb-3.mb-lg-4
+          h3.h5.mb-2 W3C valid HTML code
+          p.mb-0 All HTML files are checked with W3C validator to ensure 100% valid code. As you probably know invalid HTML limits innovation, but Around is innovative at its core.
+
+      // Item
+      .col.text-center.text-sm-start.pt-2.pt-sm-0
+        .pe-md-3.pe-lg-3.pe-xl-5
+          img(src='assets/img/landing/intro/features/touch.png' width='56' alt='Touch support').d-inline-block.mb-3.mb-lg-4
+          h3.h5.mb-2 Touch-enabled sliders
+          p.mb-0 In the era of touch screens it's important to ensure great user experience on handheld devices, when it comes to such frequently used interface component as slider.
+
+      // Item
+      .col.text-center.text-sm-start.pt-2.pt-sm-0
+        .ps-md-3.px-lg-2.px-xl-4
+          img(src='assets/img/landing/intro/features/google-fonts.png' width='56' alt='Google Fonts').d-inline-block.mb-3.mb-lg-4
+          h3.h5.mb-2 Google fonts
+          p.mb-0 Around uses Google font (Inter) which is free, fast to load and of very high quality. Currently Google fonts library includes 1400+ font families to choose from.
+
+      // Item
+      .col.text-center.text-sm-start.pt-2.pt-sm-0
+        .pe-md-3.ps-lg-3.ps-xl-5
+          img(src='assets/img/landing/intro/features/vector.png' width='56' alt='Vector icons').d-inline-block.mb-3.mb-lg-4
+          h3.h5.mb-2 Vector based HD ready icons
+          p.mb-0 Around is equiped with font-based icon pack and svg icons to ensure that infographics and interface icons look sharp on any device with any screen resolution and pixel density.
+  
+
+  // Subscription CTA
+  section.container
+    .bg-dark.position-relative.rounded-5.overflow-hidden.px-4.pt-1.pb-2.py-sm-4.py-lg-5
+      .d-none.d-dark-mode-block.position-absolute.top-0.start-0.w-100.h-100(style='background-color: rgba(255,255,255, .02);')
+      .position-absolute.top-0.end-0.pe-5.zindex-2
+        svg(width='514' height='254' viewBox='0 0 514 254' fill='white' fill-opacity='.03' xmlns='http://www.w3.org/2000/svg').me-5
+          ellipse(cx='257' cy='0.5' rx='257' ry='253.5')
+      .d-none.d-lg-flex.position-absolute.start-0.bottom-0.ms-n4
+        div(data-aos='fade-left' data-aos-duration='700' data-aos-anchor-placement='bottom-bottom')   
+          svg(width='117' height='117' viewBox='0 0 117 117' fill='currentColor' xmlns='http://www.w3.org/2000/svg').text-primary
+            circle(cx='58.5' cy='58.5' r='58.5')
+        div(data-aos='fade-right' data-aos-duration='700' data-aos-anchor-placement='bottom-bottom')
+          svg(width='117' height='117' viewBox='0 0 117 117' fill='currentColor' xmlns='http://www.w3.org/2000/svg').text-warning
+            path(d='M-2.51516e-06 58.5C-3.52666e-06 70.0702 3.43096 81.3806 9.85902 91.0008C16.2871 100.621 25.4235 108.119 36.113 112.547C46.8025 116.975 58.5649 118.133 69.9128 115.876C81.2607 113.619 91.6844 108.047 99.8657 99.8657C108.047 91.6844 113.619 81.2607 115.876 69.9128C118.133 58.5649 116.975 46.8025 112.547 36.113C108.119 25.4235 100.621 16.2871 91.0009 9.85903C81.3806 3.43096 70.0702 -4.24071e-06 58.5 -5.11423e-06L58.5 58.5L-2.51516e-06 58.5Z')
+      .dark-mode.position-relative.zindex-3.text-center.py-5.my-xl-3.mx-auto(style='max-width: 565px;')
+        h2.display-5 Subscribe to Newsletter
+        p.fs-lg.pb-3.mb-3.mb-lg-4 Subscribe to our newsletter to receive early discount offers, new templates info and updates.
+        form(action='https://studio.us12.list-manage.com/subscribe/post?u=c7103e2c981361a6639545bd5&amp;id=29ca296126' method='post' name='mc-embedded-subscribe-form' target='_blank' novalidate style='max-width: 500px;').subscription-form.validate.mx-auto
+          .input-group
+            span.input-group-text
+              i.ai-mail
+            input(type='email' name='EMAIL' placeholder='Enter your email' required)#subscr-email.form-control
+            button(type='submit' name='subscribe').btn.btn-primary
+              | Subscribe*
+          // real people should not fill this in and expect good things - do not remove this or risk form bot signups
+          div(style='position: absolute; left: -5000px;' aria-hidden='true')
+            input(type='text' name='b_c7103e2c981361a6639545bd5_29ca296126' tabindex='-1').subscription-form-antispam
+          .subscription-status.mx-auto
+
+
+//- Footer
+block footer
+  footer.footer.py-4
+    .container.text-center.py-3
+      span.text-muted &copy; All rights reserved. Made with <span class='text-danger'>❤</span> by 
+      a(href='https://createx.studio/' target='_blank' rel='noopener').nav-link.d-inline.fw-normal.p-0 Createx Studio

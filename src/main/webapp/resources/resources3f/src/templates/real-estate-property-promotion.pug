@@ -1,0 +1,136 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var parentMenu = 'Vendor'
+  - var pageTitle = 'Real Estate | Property Promotion'
+
+//- Navbar
+block navbar
+  include partials/navbar-real-estate
+
+//- Page Content
+block content
+
+  // Page container
+  .container.mt-5.mb-md-4.py-5
+    
+    // Title + Breadcrumb
+    nav(aria-label='Breadcrumb').mb-3.pt-md-3
+      ol.breadcrumb
+        li.breadcrumb-item
+          a(href='real-estate-home-v1.html') Home
+        li.breadcrumb-item
+          a(href='real-estate-add-property.html') Add property
+        li(aria-current='page').breadcrumb-item.active
+          | Promotion page
+    h1.h2.mb-4 Promotion page
+    h2.h3.pb-2.mb-4 Select your perfect plan to promote your ad
+    .row
+      .col-sm-6.col-md-4.mb-4
+        .card.shadow-sm
+          .card-body
+            img(src='img/pricing/icon-1.svg' width='72' alt='Icon').d-block.mx-auto.mt-2.mb-4
+            h2.h5.fw-normal.text-center.py-1.mb-0 Easy Start
+            .d-flex.align-items-end.justify-content-center.mb-4
+              .h1.mb-0 $5
+              .pb-2.ps-2 /month
+            ul.list-unstyled.d-block.mb-0.mx-auto(style='max-width: 16rem;')
+              li.d-flex
+                i.fi-check.text-primary.fs-sm.mt-1.me-2
+                span 3x more views
+              li.d-flex
+                i.fi-check.text-primary.fs-sm.mt-1.me-2
+                span Top ads for 3 days
+              li.d-flex.text-muted
+                i.fi-x.fs-xs.mt-2.me-2
+                span Moving up the list
+              li.d-flex.text-muted
+                i.fi-x.fs-xs.mt-2.me-2
+                span Featured badge in the results
+          .card-footer.py-2.border-0
+            .border-top.text-center.pt-4.pb-3
+              a(href='#').btn.btn-outline-primary Choose plan
+      .col-sm-6.col-md-4.mb-4
+        .card.shadow
+          .card-body
+            img(src='img/pricing/icon-2.svg' width='72' alt='Icon').d-block.mx-auto.mt-2.mb-4
+            h2.h5.fw-normal.text-center.py-1.mb-0 Fast Sale
+            .d-flex.align-items-end.justify-content-center.mb-4
+              .h1.mb-0 $15
+              .pb-2.ps-2 /month
+            ul.list-unstyled.d-block.mb-0.mx-auto(style='max-width: 16rem;')
+              li.d-flex
+                i.fi-check.text-primary.fs-sm.mt-1.me-2
+                span 10x more views
+              li.d-flex
+                i.fi-check.text-primary.fs-sm.mt-1.me-2
+                span Top ads for 5 days
+              li.d-flex
+                i.fi-check.text-primary.fs-sm.mt-1.me-2
+                span Moving up the list
+              li.d-flex.text-muted
+                i.fi-x.fs-xs.mt-2.me-2
+                span Featured badge in the results
+          .card-footer.py-2.border-0
+            .border-top.text-center.pt-4.pb-3
+              a(href='#').btn.btn-primary Choose plan
+      .col-md-4.mb-4
+        .card.shadow-sm
+          .card-body
+            img(src='img/pricing/icon-3.svg' width='72' alt='Icon').d-block.mx-auto.mt-2.mb-4
+            h2.h5.fw-normal.text-center.py-1.mb-0 Turbo Boost
+            .d-flex.align-items-end.justify-content-center.mb-4
+              .h1.mb-0 $25
+              .pb-2.ps-2 /month
+            ul.list-unstyled.d-block.mb-0.mx-auto(style='max-width: 16rem;')
+              li.d-flex
+                i.fi-check.text-primary.fs-sm.mt-1.me-2
+                span 20x more views
+              li.d-flex
+                i.fi-check.text-primary.fs-sm.mt-1.me-2
+                span Top ads for 10 days
+              li.d-flex
+                i.fi-check.text-primary.fs-xs.mt-2.me-2
+                span Moving up the list
+              li.d-flex
+                i.fi-check.text-primary.fs-xs.mt-2.me-2
+                span Featured badge in the results
+          .card-footer.py-2.border-0
+            .border-top.text-center.pt-4.pb-3
+              a(href='#').btn.btn-outline-primary Choose plan
+
+    h2.h3.pt-4.pt-md-5.mb-4 Other services
+    .card.card-hover.card-body.px-4.mb-2
+      .form-check
+        input(type='checkbox' id='ad-option-1' checked).form-check-input
+        label(for='ad-option-1').form-check-label.d-sm-flex.align-items-center.justify-content-between
+          span.d-block.px-1
+            span.d-block.h6.mb-2 Check and certify my ad by Finder experts
+            span.d-block.mb-2.mb-sm-0 Ads with Certified badge get <strong>10x</strong> more views
+          span.d-block.h4.mb-0 $35
+    .card.card-hover.card-body.px-4.mb-2
+      .form-check
+        input(type='checkbox' id='ad-option-2').form-check-input
+        label(for='ad-option-2').form-check-label.d-sm-flex.align-items-center.justify-content-between
+          span.d-block.px-1
+            span.d-block.h6.mb-2 10 lifts to the top of the list (daily, 7 days)
+            span.d-block.mb-2.mb-sm-0 Your ad will be seen by as many people as possible
+          span.d-block.h4.mb-0 $20
+    .card.card-hover.card-body.px-4.mb-2
+      .form-check
+        input(type='checkbox' id='ad-option-3').form-check-input
+        label(for='ad-option-3').form-check-label.d-sm-flex.align-items-center.justify-content-between
+          span.d-block.px-1
+            span.d-block.h6.mb-2 Featured ad for 7 days
+            span.d-block.mb-2.mb-sm-0 Ads with Featured badge get <strong>5x</strong> more views  
+          span.d-block.h4.mb-0 $15
+    .text-end.pt-4
+      .h4.mb-4 Total: $35
+      button(type='button').btn.btn-outline-secondary.btn-lg.me-2 Do not promote
+      button(type='button').btn.btn-primary.btn-lg Submit
+
+
+//- Footer
+block footer
+  include partials/footer-real-estate

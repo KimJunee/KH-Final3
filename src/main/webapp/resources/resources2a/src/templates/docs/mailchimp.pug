@@ -1,0 +1,98 @@
+extends ../partials/layout-docs
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css', 'vendor/prismjs/themes/prism.css', 'vendor/prismjs/plugins/toolbar/prism-toolbar.css', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js', 'vendor/prismjs/components/prism-core.min.js', 'vendor/prismjs/components/prism-markup.min.js', 'vendor/prismjs/components/prism-clike.min.js', 'vendor/prismjs/components/prism-javascript.min.js', 'vendor/prismjs/components/prism-pug.min.js', 'vendor/prismjs/plugins/toolbar/prism-toolbar.min.js', 'vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Mailchimp subscription form'
+    
+//- Page Content
+block content
+
+  p Mailchimp is a marketing automation platform and an email marketing service.
+  p.mb-4 In other words this Mailchimp widget will help you to collect user emails right from your website to run email marketing campaign via Mailchimp web application. Below is the live example of the widget that collects emails for Createx Studio.
+
+  ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.border-bottom.pb-2.mb-4
+    li.nav-item.me-3
+      a(href='#preview' data-bs-toggle='tab' role='tab' aria-controls='preview' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+        i.ai-show.fs-lg.opacity-90.me-2
+        | Preview
+    li.vr.opacity-20.my-3.me-3
+    li.nav-item.me-3
+      a(href='#html' data-bs-toggle='tab' role='tab' aria-controls='html' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+        i.ai-code.fs-xl.opacity-90.me-2
+        | HTML
+    li.vr.opacity-20.my-3.me-3
+    li.nav-item.me-0
+      a(href='#pug' data-bs-toggle='tab' role='tab' aria-controls='pug' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+        i.ai-code-curly.opacity-90.me-2
+        | Pug
+  .tab-content
+    #preview.tab-pane.fade.show.active(role='tabpanel')
+      form(action='https://studio.us12.list-manage.com/subscribe/post?u=c7103e2c981361a6639545bd5&amp;id=29ca296126' method='post' name='mc-embedded-subscribe-form' target='_blank' novalidate style='max-width: 430px;').subscription-form.validate
+        label(for='subscr-email').form-label.fs-base.mb-2 Subscribe to newsletter
+        .input-group
+          span.input-group-text
+            i.ai-mail
+          input(type='email' name='EMAIL' placeholder='Enter your email' required)#subscr-email.form-control
+          button(type='submit' name='subscribe').btn.btn-primary
+            | Subscribe*
+        // real people should not fill this in and expect good things - do not remove this or risk form bot signups
+        div(style='position: absolute; left: -5000px;' aria-hidden='true')
+          input(type='text' name='b_c7103e2c981361a6639545bd5_29ca296126' tabindex='-1').subscription-form-antispam
+        .subscription-status
+        .form-text.pt-1 *Subscribe to our newsletter to receive early discount offers, updates, promo materials and new products info.
+    #html.tab-pane.fade(role='tabpanel')
+      pre.line-numbers.rounded-3
+        code(class='lang-html').
+          &lt;!-- Widget: Subscription (MailChimp Ajax)
+          Instructions how to get MailChimp action link:
+          1. Log in to your MailChimp Dashboard / Audience / Manage Audience / Signup forms / Embedded forms
+          2. In the provided code find form action link and copy it
+          3. Paste it to the form action attribute below
+          4. Also in the form code provided by MailChimp find antispam input and copy it name attribute contents
+          5. Paste what you have copied from name attribute to the name attribute of input with class "subscription-form-antispam" --&gt;
+          &lt;form class=&quot;subscription-form validate&quot; action=&quot;mailchimp-embedded-form-atcion-link&quot; method=&quot;post&quot; name=&quot;mc-embedded-subscribe-form&quot; target=&quot;_blank&quot; novalidate&gt;
+            &lt;label for=&quot;subscr-email&quot; class=&quot;form-label fs-base mb-2&quot;&gt;Subscribe to newsletter&lt;/label&gt;
+            &lt;div class=&quot;input-group&quot;&gt;
+              &lt;span class=&quot;input-group-text&quot;&gt;
+                &lt;i class=&quot;ai-mail&quot;&gt;&lt;/i&gt;
+              &lt;/span&gt;
+              &lt;input type=&quot;email&quot; class=&quot;form-control&quot; id=&quot;subscr-email&quot; name=&quot;EMAIL&quot; placeholder=&quot;Enter your email&quot; required&gt;
+              &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot; name=&quot;subscribe&quot;&gt;Subscribe*&lt;/button&gt;
+            &lt;/div&gt;
+
+            &lt;!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups --&gt;
+            &lt;div style=&quot;position: absolute; left: -5000px;&quot; aria-hidden=&quot;true&quot;&gt;
+              &lt;input type=&quot;text&quot; class=&quot;subscription-form-antispam&quot; name=&quot;mailchimp-embedded-form-antispam-name-attribute&quot; tabindex=&quot;-1&quot;&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;subscription-status&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;form-text pt-1&quot;&gt;*Subscribe to our newsletter to receive early discount offers, updates, promo materials and new products info.&lt;/div&gt;
+          &lt;/form&gt;
+    #pug.tab-pane.fade(role='tabpanel')
+      pre.line-numbers.rounded-3
+        code(class='lang-pug').
+          // Widget: Subscription (MailChimp Ajax)
+          // Instructions how to get MailChimp action link:
+          // 1. Log in to your MailChimp Dashboard / Audience / Manage Audience / Signup forms / Embedded forms
+          // 2. In the provided code find form action link and copy it
+          // 3. Paste it to the form action attribute below
+          // 4. Also in the form code provided by MailChimp find antispam input and copy it name attribute contents
+          // 5. Paste what you have copied from name attribute to the name attribute of input with class "subscription-form-antispam"
+          form(action=&quot;mailchimp-embedded-form-atcion-link&quot;, method=&quot;post&quot;, name=&quot;mc-embedded-subscribe-form&quot;, target=&quot;_blank&quot;, novalidate).subscription-form.validate
+            label(for=&quot;subscr-email&quot;).form-label.fs-base.mb-2
+              | Subscribe to newsletter
+            .input-group
+              span.input-group-text
+                i.ai-mail
+              input(type=&quot;email&quot;, name=&quot;EMAIL&quot;, placeholder=&quot;Enter your email&quot;, required)#subscr-email.form-control
+              button(type=&quot;submit&quot;, name=&quot;subscribe&quot;).btn.btn-primary
+                | Subscribe*
+
+            // real people should not fill this in and expect good things - do not remove this or risk form bot signups
+            div(style=&quot;position: absolute; left: -5000px;&quot;, aria-hidden=&quot;true&quot;)
+              input(type=&quot;text&quot;, name=&quot;mailchimp-embedded-form-antispam-name-attribute&quot;, tabindex=&quot;-1&quot;).subscription-form-antispam
+
+            .subscription-status
+            .form-text.pt-1 *Subscribe to our newsletter to receive early discount offers, updates, promo materials and new products info.

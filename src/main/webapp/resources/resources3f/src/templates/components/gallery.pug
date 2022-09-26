@@ -1,0 +1,546 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['prismjs/themes/prism.css', 'prismjs/plugins/toolbar/prism-toolbar.css', 'prismjs/plugins/line-numbers/prism-line-numbers.css', 'lightgallery/css/lightgallery-bundle.min.css', 'tiny-slider/dist/tiny-slider.css']
+  - var vendorScripts = ['prismjs/components/prism-core.min.js', 'prismjs/components/prism-markup.min.js', 'prismjs/components/prism-clike.min.js', 'prismjs/components/prism-javascript.min.js', 'prismjs/components/prism-pug.min.js', 'prismjs/plugins/toolbar/prism-toolbar.min.js', 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'prismjs/plugins/line-numbers/prism-line-numbers.min.js', 'lightgallery/lightgallery.min.js', 'lightgallery/plugins/fullscreen/lg-fullscreen.min.js', 'lightgallery/plugins/zoom/lg-zoom.min.js', 'lightgallery/plugins/video/lg-video.min.js', 'lightgallery/plugins/thumbnail/lg-thumbnail.min.js', 'tiny-slider/dist/min/tiny-slider.js']
+  - var pageTitle = 'Gallery'
+  - var pageSubtitle = 'JavaScript based lightbox component for presenting various types of media.'
+  - var isPageTitleBadge = true
+  - var anchorNav = [{'title': 'Media: Image', 'link': '#gallery-image'}, {'title': 'Media: Video', 'link': '#gallery-video'}, {'title': 'Media: Iframe (Google map)', 'link': '#gallery-iframe'}, {'title': 'Grid with gutters', 'link': '#gallery-grid-gutters'}, {'title': 'Grid no gutters', 'link': '#gallery-grid-nogutters'}, {'title': 'Inside card', 'link': '#gallery-card'}, {'title': 'Inside carousel', 'link': '#gallery-carousel'}, {'title': 'Thumbnails', 'link': '#gallery-thumbnails'}]
+  
+//- Page Content
+block content
+
+  .alert.alert-info.mb-5(role='alert')
+    .d-flex
+      i.fi-alert-circle.lead.me-2.me-sm-3
+      .text-break
+        p.mb-2 Gallery component relies on 3rd party plugin. Make sure to link to <strong>Light Gallery css and js</strong> files in your document: <strong>vendor/lightgallery/css/lightgallery-bundle.min.css</strong> and <strong>lightgallery/lightgallery.min.js</strong>. If you need extra features like zooming, fullscreen view or video you need to include additional plugins: 
+        ul.fw-bold
+          li vendor/lightgallery/plugins/fullscreen/lg-fullscreen.min.js
+          li vendor/lightgallery/plugins/zoom/lg-zoom.min.js
+          li vendor/lightgallery/plugins/video/lg-video.min.js
+          li vendor/lightgallery/plugins/thumbnail/lg-thumbnail.min.js
+        p.mb-2 For Carousel example you will need <strong>Tiny Slider plugin css and js</strong> linked to your document: <strong>vendor/tiny-slider/dist/tiny-slider.css</strong> and <strong>vendor/tiny-slider/dist/min/tiny-slider.js</strong>.
+        p.mb-1 Use this page as a reference.
+  
+  // Media: Image
+  section#gallery-image.pb-5.mb-md-2
+    h2.h5.mb-3 Media: Image
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result1' data-bs-toggle='tab' role='tab' aria-controls='result1' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result1.tab-pane.fade.show.active(role='tabpanel')
+            .gallery(style='max-width: 25rem;')
+              a(href='../img/real-estate/single/07.jpg' data-sub-html='<h6 class="fs-sm text-light">Gallery image caption</h6>').gallery-item.rounded-2
+                img(src='../img/real-estate/single/th07.jpg' alt='Gallery thumbnail')
+                span.gallery-item-caption Gallery image caption
+          #html1.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Image gallery --&gt;
+                &lt;div class=&quot;gallery&quot;&gt;
+                  &lt;a href=&quot;path-to-large-image&quot; class=&quot;gallery-item rounded-2&quot; data-sub-html='&lt;h6 class=&quot;fs-sm text-light&quot;&gt;Gallery image caption&lt;/h6&gt;'&gt;
+                    &lt;img src=&quot;path-to-thumbnail-image&quot; alt=&quot;Gallery thumbnail&quot;&gt;
+                    &lt;span class=&quot;gallery-item-caption&quot;&gt;Gallery image caption&lt;/span&gt;
+                  &lt;/a&gt;
+                &lt;/div&gt;
+          #pug1.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Image gallery
+                .gallery
+                  a(href=&quot;path-to-large-image&quot;, data-sub-html='&lt;h6 class=&quot;fs-sm text-light&quot;&gt;Gallery image caption&lt;/h6&gt;').gallery-item.rounded-2
+                    img(src=&quot;path-to-thumbnail-image&quot;, alt=&quot;Gallery thumbnail&quot;)
+                    span.gallery-item-caption Gallery image caption
+  
+  // Media: Video
+  section#gallery-video.pb-5.mb-md-2
+    h2.h5.mb-3 Media: Video
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result2' data-bs-toggle='tab' role='tab' aria-controls='result2' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result2.tab-pane.fade.show.active(role='tabpanel')
+            .gallery(data-video='true' style='max-width: 25rem;')
+              a(href='https://www.youtube.com/watch?v=BBOlp54-gW4' data-sub-html='<h6 class="fs-sm text-light">Gallery video caption</h6>').gallery-item.video-item.rounded-2
+                img(src='../img/real-estate/single/th06.jpg' alt='Gallery thumbnail')
+                span.gallery-item-caption Gallery video caption
+          #html2.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Video gallery --&gt;
+                &lt;div class=&quot;gallery&quot; data-video=&quot;true&quot;&gt;
+                  &lt;a href=&quot;link-to-youtube/vimeo-video&quot; class=&quot;gallery-item video-item rounded-2&quot; data-sub-html='&lt;h6 class=&quot;fs-sm text-light&quot;&gt;Gallery video caption&lt;/h6&gt;'&gt;
+                    &lt;img src=&quot;path-to-thumbnail-image&quot; alt=&quot;Gallery thumbnail&quot;&gt;
+                    &lt;span class=&quot;gallery-item-caption&quot;&gt;Gallery video caption&lt;/span&gt;
+                  &lt;/a&gt;
+                &lt;/div&gt;
+          #pug2.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Video gallery
+                .gallery(data-video=&quot;true&quot;)
+                  a(href=&quot;link-to-youtube/vimeo-video&quot;, data-sub-html='&lt;h6 class=&quot;fs-sm text-light&quot;&gt;Gallery video caption&lt;/h6&gt;').gallery-item.video-item.rounded-2
+                    img(src=&quot;path-to-thumbnail-image&quot;, alt=&quot;Gallery thumbnail&quot;)
+                    span.gallery-item-caption Gallery video caption
+  
+  // Media: Iframe (Google map)
+  section#gallery-iframe.pb-5.mb-md-2
+    h2.h5.mb-3 Media: Iframe (Google map)
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result3' data-bs-toggle='tab' role='tab' aria-controls='result3' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result3.tab-pane.fade.show.active(role='tabpanel')
+            .gallery(style='max-width: 25rem;')
+              a(href='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.91476818218!2d-74.11976253858133!3d40.69740344296443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sua!4v1568574342685!5m2!1sen!2sua' data-iframe='true' data-sub-html='<h6 class="fs-sm text-light">Google map embed</h6>').gallery-item.rounded-2
+                img(src='../img/components/04.jpg', alt='Map preview')
+                span.gallery-item-caption Google map embed
+          #html3.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Iframe (Google map) --&gt;
+                &lt;div class=&quot;gallery&quot;&gt;
+                  &lt;a href=&quot;link-to-google-map-embed&quot; data-iframe=&quot;true&quot; class=&quot;gallery-item rounded-2&quot; data-sub-html='&lt;h6 class=&quot;fs-sm text-light&quot;&gt;Google map embed&lt;/h6&gt;'&gt;
+                    &lt;img src=&quot;path-to-thumbnail-image&quot; alt=&quot;Gallery thumbnail&quot;&gt;
+                    &lt;span class=&quot;gallery-item-caption&quot;&gt;Google map embed&lt;/span&gt;
+                  &lt;/a&gt;
+                &lt;/div&gt;
+          #pug3.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Iframe (Google map)
+                .gallery
+                  a(href=&quot;link-to-google-map-embed&quot;, data-iframe=&quot;true&quot;, data-sub-html='&lt;h6 class=&quot;fs-sm text-light&quot;&gt;Google map embed&lt;/h6&gt;').gallery-item.rounded-2
+                    img(src=&quot;path-to-thumbnail-image&quot;, alt=&quot;Gallery thumbnail&quot;)
+                    span.gallery-item-caption Google map embed
+
+  // Grid with gutters
+  section#gallery-grid-gutters.pb-5.mb-md-2
+    h2.h5.mb-3 Grid with gutters
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result4' data-bs-toggle='tab' role='tab' aria-controls='result4' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result4.tab-pane.fade.show.active(role='tabpanel')
+            .row.g-4.gallery(data-video='true')
+              .col-xl-4.col-sm-6
+                a(href='../img/real-estate/single/03.jpg' data-sub-html='<h6 class="fs-sm text-light">Gallery image caption #1</h6>').gallery-item.rounded-2
+                  img(src='../img/real-estate/single/th03.jpg' alt='Gallery thumbnail')
+                  span.gallery-item-caption Gallery image caption #1
+              .col-xl-4.col-sm-6
+                a(href='../img/real-estate/single/04.jpg' data-sub-html='<h6 class="fs-sm text-light">Gallery image caption #2</h6>').gallery-item.rounded-2
+                  img(src='../img/real-estate/single/th04.jpg' alt='Gallery thumbnail')
+                  span.gallery-item-caption Gallery image caption #2
+              .col-xl-4.col-sm-6
+                a(href='https://www.youtube.com/watch?v=BBOlp54-gW4' data-sub-html='<h6 class="fs-sm text-light">Gallery image caption #3</h6>').gallery-item.video-item.rounded-2
+                  img(src='../img/real-estate/single/th05.jpg' alt='Gallery thumbnail')
+                  span.gallery-item-caption Gallery image caption #3
+              .col-xl-4.col-sm-6
+                a(href='../img/real-estate/single/06.jpg' data-sub-html='<h6 class="fs-sm text-light">Gallery image caption #4</h6>').gallery-item.rounded-2
+                  img(src='../img/real-estate/single/th06.jpg' alt='Gallery thumbnail')
+                  span.gallery-item-caption Gallery image caption #4
+              .col-xl-4.col-sm-6
+                a(href='https://www.youtube.com/watch?v=DuLp5spvqXA' data-sub-html='<h6 class="fs-sm text-light">Gallery image caption #5</h6>').gallery-item.video-item.rounded-2
+                  img(src='../img/real-estate/single/th07.jpg' alt='Gallery thumbnail')
+                  span.gallery-item-caption Gallery image caption #5
+              .col-xl-4.col-sm-6
+                a(href='../img/real-estate/single/08.jpg' data-sub-html='<h6 class="fs-sm text-light">Gallery image caption #6</h6>').gallery-item.rounded-2
+                  img(src='../img/real-estate/single/th08.jpg' alt='Gallery thumbnail')
+                  span.gallery-item-caption Gallery image caption #6
+          #html4.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Gallery grid with gutters --&gt;
+                &lt;div class=&quot;row g-4 gallery&quot; data-video=&quot;true&quot;&gt;
+
+                  &lt;!-- Item --&gt;
+                  &lt;div class=&quot;col-xl-4 col-sm-6&quot;&gt;
+                    &lt;a href=&quot;path-to-large-image&quot; class=&quot;gallery-item rounded-2&quot; data-sub-html='&lt;h6 class=&quot;fs-sm text-light&quot;&gt;Gallery image caption&lt;/h6&gt;'&gt;
+                      &lt;img src=&quot;path-to-thumbnail-image&quot; alt=&quot;Gallery thumbnail&quot;&gt;
+                      &lt;span class=&quot;gallery-item-caption&quot;&gt;Gallery image caption&lt;/span&gt;
+                    &lt;/a&gt;
+                  &lt;/div&gt;
+
+                  &lt;!-- Item --&gt;
+                  &lt;div class=&quot;col-xl-4 col-sm-6&quot;&gt;
+                    ....
+                  &lt;/div&gt;
+
+                  &lt;!-- Add as many columns with gallery item inside as you need --&gt;
+                &lt;/div&gt;
+          #pug4.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Gallery grid with gutters
+                .row.g-4.gallery(data-video=&quot;true&quot;)
+
+                  //- Item
+                  .col-xl-4.col-sm-6
+                    a(href=&quot;path-to-large-image&quot;, data-sub-html='&lt;h6 class=&quot;fs-sm text-light&quot;&gt;Gallery image caption&lt;/h6&gt;').gallery-item.rounded-2
+                      img(src=&quot;path-to-thumbnail-image&quot;, alt=&quot;Gallery thumbnail&quot;)
+                      span.gallery-item-caption Gallery image caption
+                  
+                  //- Item
+                  .col-xl-4.col-sm-6
+                    ...
+
+                  //- Add as many columns with gallery item inside as you need
+
+  // Grid no gutters
+  section#gallery-grid-nogutters.pb-5.mb-md-2
+    h2.h5.mb-3 Grid no gutters
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result5' data-bs-toggle='tab' role='tab' aria-controls='result5' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html5' data-bs-toggle='tab' role='tab' aria-controls='html5' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug5' data-bs-toggle='tab' role='tab' aria-controls='pug5' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result5.tab-pane.fade.show.active(role='tabpanel')
+            .row.gallery.g-0(data-video='true')
+              .col-xl-4.col-sm-6.border.border-light
+                a(href='../img/real-estate/single/03.jpg' data-sub-html='<h6 class="fs-sm text-light">Gallery image caption #1</h6>').gallery-item
+                  img(src='../img/real-estate/single/th03.jpg' alt='Gallery thumbnail')
+                  span.gallery-item-caption Gallery image caption #1
+              .col-xl-4.col-sm-6.border.border-light
+                a(href='../img/real-estate/single/04.jpg' data-sub-html='<h6 class="fs-sm text-light">Gallery image caption #2</h6>').gallery-item
+                  img(src='../img/real-estate/single/th04.jpg' alt='Gallery thumbnail')
+                  span.gallery-item-caption Gallery image caption #2
+              .col-xl-4.col-sm-6.border.border-light
+                a(href='https://www.youtube.com/watch?v=BBOlp54-gW4' data-sub-html='<h6 class="fs-sm text-light">Gallery image caption #3</h6>').gallery-item.video-item
+                  img(src='../img/real-estate/single/th05.jpg' alt='Gallery thumbnail')
+                  span.gallery-item-caption Gallery image caption #3
+              .col-xl-4.col-sm-6.border.border-light
+                a(href='../img/real-estate/single/06.jpg' data-sub-html='<h6 class="fs-sm text-light">Gallery image caption #4</h6>').gallery-item
+                  img(src='../img/real-estate/single/th06.jpg' alt='Gallery thumbnail')
+                  span.gallery-item-caption Gallery image caption #4
+              .col-xl-4.col-sm-6.border.border-light
+                a(href='https://www.youtube.com/watch?v=DuLp5spvqXA' data-sub-html='<h6 class="fs-sm text-light">Gallery image caption #5</h6>').gallery-item.video-item
+                  img(src='../img/real-estate/single/th07.jpg' alt='Gallery thumbnail')
+                  span.gallery-item-caption Gallery image caption #5
+              .col-xl-4.col-sm-6.border.border-light
+                a(href='../img/real-estate/single/08.jpg' data-sub-html='<h6 class="fs-sm text-light">Gallery image caption #6</h6>').gallery-item
+                  img(src='../img/real-estate/single/th08.jpg' alt='Gallery thumbnail')
+                  span.gallery-item-caption Gallery image caption #6
+          #html5.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Gallery grid no gutters --&gt;
+                &lt;div class=&quot;row gallery g-0&quot; data-video=&quot;true&quot;&gt;
+
+                  &lt;!-- Item --&gt;
+                  &lt;div class=&quot;col-xl-4 col-sm-6 border border-light&quot;&gt;
+                    &lt;a href=&quot;path-to-large-image&quot; class=&quot;gallery-item&quot; data-sub-html='&lt;h6 class=&quot;fs-sm text-light&quot;&gt;Gallery image caption&lt;/h6&gt;'&gt;
+                      &lt;img src=&quot;path-to-thumbnail-image&quot; alt=&quot;Gallery thumbnail&quot;&gt;
+                      &lt;span class=&quot;gallery-item-caption&quot;&gt;Gallery image caption&lt;/span&gt;
+                    &lt;/a&gt;
+                  &lt;/div&gt;
+
+                  &lt;!-- Item --&gt;
+                  &lt;div class=&quot;col-xl-4 col-sm-6 border border-light&quot;&gt;
+                    ....
+                  &lt;/div&gt;
+                  
+                  &lt;!-- Add as many columns with gallery item inside as you need --&gt;
+                &lt;/div&gt;
+          #pug5.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Gallery grid no gutters
+                .row.gallery.g-0(data-video=&quot;true&quot;)
+
+                  //- Item
+                  .col-xl-4.col-sm-6.border.border-light
+                    a(href=&quot;path-to-large-image&quot;, data-sub-html='&lt;h6 class=&quot;fs-sm text-light&quot;&gt;Gallery image caption&lt;/h6&gt;').gallery-item
+                      img(src=&quot;path-to-thumbnail-image&quot;, alt=&quot;Gallery thumbnail&quot;)
+                      span.gallery-item-caption Gallery image caption
+                  
+                  //- Item
+                  .col-xl-4.col-sm-6.border.border-light
+                    ...
+
+                  //- Add as many columns with gallery item inside as you need
+
+  // Inside card
+  section#gallery-card.pb-5.mb-md-2
+    h2.h5.mb-3 Inside card
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result6' data-bs-toggle='tab' role='tab' aria-controls='result6' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html6' data-bs-toggle='tab' role='tab' aria-controls='html6' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug6' data-bs-toggle='tab' role='tab' aria-controls='pug6' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result6.tab-pane.fade.show.active(role='tabpanel')
+            .card.gallery(style='max-width: 25rem;')
+              a(href='../img/real-estate/single/02.jpg' data-sub-html='<h6 class="fs-sm text-light">Gallery image caption</h6>').gallery-item.card-img-top
+                img(src='../img/real-estate/single/02.jpg' alt='Gallery thumbnail')
+              .card-body
+                h5.card-title Card with gallery thumbnail
+                p.card-text.fs-sm.text-muted Some quick example text to build on the card title and make up the bulk of the card's content.
+                a(href='#').btn.btn-sm.btn-primary Go somewhere
+          #html6.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Gallery inside card --&gt;
+                &lt;div class=&quot;card gallery&quot;&gt;
+                  &lt;a href=&quot;path-to-large-image&quot; class=&quot;gallery-item card-img-top&quot; data-sub-html='&lt;h6 class=&quot;fs-sm text-light&quot;&gt;Gallery image caption&lt;/h6&gt;'&gt;
+                    &lt;img src=&quot;path-to-thumbnail-image&quot; alt=&quot;Gallery thumbnail&quot;&gt;
+                  &lt;/a&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;h5 class=&quot;card-title&quot;&gt;Card with gallery thumbnail&lt;/h5&gt;
+                    &lt;p class=&quot;card-text fs-sm text-muted&quot;&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;btn btn-sm btn-primary&quot;&gt;Go somewhere&lt;/a&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+          #pug6.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Gallery inside card
+                .card.gallery
+                  a(href=&quot;path-to-large-image&quot;, data-sub-html='&lt;h6 class=&quot;fs-sm text-light&quot;&gt;Gallery image caption&lt;/h6&gt;').gallery-item.rounded-2
+                    img(src=&quot;path-to-thumbnail-image&quot;, alt&quot;Gallery thumbnail&quot;)
+                  .card-body
+                    h5.card-title
+                      | Card with gallery thumbnail
+                    p.card-text.fs-sm.text-muted
+                      | Some quick example text to build on the card title and make up the bulk of the card's content.
+                    a.btn.btn-sm.btn-primary(href=&quot;#&quot;) Go somewhere
+
+  // Inside carousel
+  section#gallery-carousel.pb-5.mb-md-2
+    h2.h5.mb-3 Inside carousel
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result7' data-bs-toggle='tab' role='tab' aria-controls='result7' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html7' data-bs-toggle='tab' role='tab' aria-controls='html7' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug7' data-bs-toggle='tab' role='tab' aria-controls='pug7' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result7.tab-pane.fade.show.active(role='tabpanel')
+            .px-5
+              .tns-carousel-wrapper.tns-controls-outside.tns-nav-outside.gallery(data-video='true')
+                .tns-carousel-inner(data-carousel-options='{"responsive": {"0":{"items":1, "gutter": 16},"576":{"items":2, "gutter": 20},"1400":{"items":3, "gutter": 24}}}')
+                  div
+                    a(href='../img/real-estate/single/03.jpg' data-sub-html='<h6 class="fs-sm text-light">Gallery image caption #1</h6>').gallery-item.rounded-2
+                      img(src='../img/real-estate/single/th03.jpg' alt='Gallery thumbnail')
+                      span.gallery-item-caption Gallery image caption #1
+                  div
+                    a(href='../img/real-estate/single/04.jpg' data-sub-html='<h6 class="fs-sm text-light">Gallery image caption #2</h6>').gallery-item.rounded-2
+                      img(src='../img/real-estate/single/th04.jpg' alt='Gallery thumbnail')
+                      span.gallery-item-caption Gallery image caption #2
+                  div
+                    a(href='https://www.youtube.com/watch?v=BBOlp54-gW4' data-sub-html='<h6 class="fs-sm text-light">Gallery image caption #3</h6>').gallery-item.video-item.rounded-2
+                      img(src='../img/real-estate/single/th05.jpg' alt='Gallery thumbnail')
+                      span.gallery-item-caption Gallery image caption #3
+                  div
+                    a(href='../img/real-estate/single/06.jpg' data-sub-html='<h6 class="fs-sm text-light">Gallery image caption #4</h6>').gallery-item.rounded-2
+                      img(src='../img/real-estate/single/th06.jpg' alt='Gallery thumbnail')
+                      span.gallery-item-caption Gallery image caption #4
+                  div
+                    a(href='https://www.youtube.com/watch?v=DuLp5spvqXA' data-sub-html='<h6 class="fs-sm text-light">Gallery image caption #5</h6>').gallery-item.video-item.rounded-2
+                      img(src='../img/real-estate/single/th07.jpg' alt='Gallery thumbnail')
+                      span.gallery-item-caption Gallery image caption #5
+                  div
+                    a(href='../img/real-estate/single/08.jpg' data-sub-html='<h6 class="fs-sm text-light">Gallery image caption #6</h6>').gallery-item.rounded-2
+                      img(src='../img/real-estate/single/th08.jpg' alt='Gallery thumbnail')
+                      span.gallery-item-caption Gallery image caption #6
+          #html7.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Gallery inside carousel  --&gt;
+                &lt;div class=&quot;tns-carousel-wrapper tns-controls-outside tns-nav-outside gallery&quot; data-video=&quot;true&quot;&gt;
+                  &lt;div class=&quot;tns-carousel-inner&quot; data-carousel-options='{&quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1, &quot;gutter&quot;: 16},&quot;576&quot;:{&quot;items&quot;:2, &quot;gutter&quot;: 20},&quot;991&quot;:{&quot;items&quot;:3, &quot;gutter&quot;: 24}}}'&gt;
+
+                    &lt;!-- Item --&gt;
+                    &lt;div&gt;
+                      &lt;a href=&quot;path-to-large-image&quot; class=&quot;gallery-item&quot; data-sub-html='&lt;h6 class=&quot;fs-sm text-light&quot;&gt;Gallery image caption&lt;/h6&gt;'&gt;
+                        &lt;img src=&quot;path-to-thumbnail-image&quot; alt=&quot;Gallery thumbnail&quot;&gt;
+                        &lt;span class=&quot;gallery-item-caption&quot;&gt;Gallery image caption&lt;/span&gt;
+                      &lt;/a&gt;
+                    &lt;/div&gt;
+
+                     &lt;!-- Add as many gallery items wrapped in divs as you need --&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+          #pug7.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Gallery inside carousel
+                .tns-carousel-wrapper.tns-controls-outside.tns-nav-outside.gallery(data-video=&quot;true&quot;)
+                  .tns-carousel-inner(data-carousel-options='{&quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1, &quot;gutter&quot;: 16},&quot;576&quot;:{&quot;items&quot;:2, &quot;gutter&quot;: 20},&quot;991&quot;:{&quot;items&quot;:3, &quot;gutter&quot;: 24}}}')
+
+                    //- Item
+                    div
+                      a(href=&quot;path-to-large-image&quot;, data-sub-html='&lt;h6 class=&quot;fs-sm text-light&quot;&gt;Gallery image caption&lt;/h6&gt;').gallery-item.rounded-2
+                        img(src=&quot;path-to-thumbnail-image&quot;, alt=&quot;Gallery thumbnail&quot;)
+                        span.gallery-item-caption Gallery image caption
+                    
+                    //- Add as many gallery items wrapped in divs as you need
+
+  // Thumbnails
+  section#gallery-thumbnails.pb-5.mb-md-2
+    h2.h5.mb-3 Thumbnails
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result8' data-bs-toggle='tab' role='tab' aria-controls='result8' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html8' data-bs-toggle='tab' role='tab' aria-controls='html8' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug8' data-bs-toggle='tab' role='tab' aria-controls='pug8' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result8.tab-pane.fade.show.active(role='tabpanel')
+            .row.g-2.g-md-3.gallery(data-thumbnails='true')
+              .col-sm-8
+                a(href='../img/real-estate/single/01.jpg' data-sub-html='<h6 class="fs-sm text-light">Image caption #1</h6>').gallery-item.rounded-3
+                  img(src='../img/real-estate/single/01.jpg' alt='Gallery thumbnail')
+              .col-sm-4
+                a(href='../img/real-estate/single/02.jpg' data-sub-html='<h6 class="fs-sm text-light">Image caption #2</h6>').gallery-item.rounded-3.mb-2.mb-md-3
+                  img(src='../img/real-estate/single/02.jpg' alt='Gallery thumbnail')
+                a(href='../img/real-estate/single/03.jpg' data-sub-html='<h6 class="fs-sm text-light">Image caption #3</h6>').gallery-item.rounded-3
+                  img(src='../img/real-estate/single/03.jpg' alt='Gallery thumbnail')
+              .col-12
+                .row.g-2.g-md-3
+                  .col-sm
+                    a(href='../img/real-estate/single/04.jpg' data-sub-html='<h6 class="fs-sm text-light">Image caption #4</h6>').gallery-item.rounded-2
+                      img(src='../img/real-estate/single/th04.jpg' alt='Gallery thumbnail')
+                  .col-sm
+                    a(href='../img/real-estate/single/05.jpg' data-sub-html='<h6 class="fs-sm text-light">Image caption #5</h6>').gallery-item.rounded-2
+                      img(src='../img/real-estate/single/th05.jpg' alt='Gallery thumbnail')
+                  .col-sm
+                    a(href='../img/real-estate/single/06.jpg' data-sub-html='<h6 class="fs-sm text-light">Image caption #6</h6>').gallery-item.rounded-2
+                      img(src='../img/real-estate/single/th06.jpg' alt='Gallery thumbnail')
+                  .col-sm
+                    a(href='../img/real-estate/single/07.jpg' data-sub-html='<h6 class="fs-sm text-light">Image caption #7</h6>').gallery-item.rounded-2
+                      img(src='../img/real-estate/single/th07.jpg' alt='Gallery thumbnail')
+                  .col-sm
+                    a(href='../img/real-estate/single/08.jpg' data-sub-html='<h6 class="fs-sm text-light">Image caption #8</h6>').gallery-item.more-item.rounded-2
+                      img(src='../img/real-estate/single/th08.jpg' alt='Gallery thumbnail')
+                      span.gallery-item-caption.fs-base +5 <span class='d-inline d-sm-none d-md-inline'>photos</span>
+          #html8.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Gallery with thumbnails  --&gt;
+                &lt;div class=&quot;row g-2 g-md-3 gallery&quot; data-thumbnails=&quot;true&quot;&gt;
+                  &lt;div class=&quot;col-sm-8&quot;&gt;
+                    &lt;a href=&quot;path-to-large-image&quot; class=&quot;gallery-item rounded-3&quot; data-sub-html=&quot;&lt;h6 class=&quot;fs-sm text-light&quot;&gt;Image caption #1&lt;/h6&gt;&quot;&gt;
+                      &lt;img src=&quot;path-to-thumbnail-image&quot; alt=&quot;Gallery thumbnail&quot;&gt;
+                    &lt;/a&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;col-sm-4&quot;&gt;
+                    &lt;a href=&quot;path-to-large-image&quot; class=&quot;gallery-item rounded-3 mb-2 mb-md-3&quot; data-sub-html=&quot;&lt;h6 class=&quot;fs-sm text-light&quot;&gt;Image caption #2&lt;/h6&gt;&quot;&gt;
+                      &lt;img src=&quot;path-to-thumbnail-image&quot; alt=&quot;Gallery thumbnail&quot;&gt;
+                    &lt;/a&gt;
+                    &lt;a href=&quot;path-to-large-image&quot; class=&quot;gallery-item rounded-3&quot; data-sub-html=&quot;&lt;h6 class=&quot;fs-sm text-light&quot;&gt;Image caption #3&lt;/h6&gt;&quot;&gt;
+                      &lt;img src=&quot;path-to-thumbnail-image&quot; alt=&quot;Gallery thumbnail&quot;&gt;
+                    &lt;/a&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;col-12&quot;&gt;
+                    &lt;div class=&quot;row g-2 g-md-3&quot;&gt;
+                      &lt;div class=&quot;col-sm&quot;&gt;
+                        &lt;a href=&quot;path-to-large-image&quot; class=&quot;gallery-item rounded-2&quot; data-sub-html=&quot;&lt;h6 class=&quot;fs-sm text-light&quot;&gt;Image caption #4&lt;/h6&gt;&quot;&gt;
+                          &lt;img src=&quot;path-to-thumbnail-image&quot; alt=&quot;Gallery thumbnail&quot;&gt;
+                        &lt;/a&gt;
+                      &lt;/div&gt;
+                      &lt;div class=&quot;col-sm&quot;&gt;
+                        &lt;a href=&quot;path-to-large-image&quot; class=&quot;gallery-item rounded-2&quot; data-sub-html=&quot;&lt;h6 class=&quot;fs-sm text-light&quot;&gt;Image caption #5&lt;/h6&gt;&quot;&gt;
+                          &lt;img src=&quot;path-to-thumbnail-image&quot; alt=&quot;Gallery thumbnail&quot;&gt;
+                        &lt;/a&gt;
+                      &lt;/div&gt;
+                      &lt;div class=&quot;col-sm&quot;&gt;
+                        &lt;a href=&quot;path-to-large-image&quot; class=&quot;gallery-item rounded-2&quot; data-sub-html=&quot;&lt;h6 class=&quot;fs-sm text-light&quot;&gt;Image caption #6&lt;/h6&gt;&quot;&gt;
+                          &lt;img src=&quot;path-to-thumbnail-image&quot; alt=&quot;Gallery thumbnail&quot;&gt;
+                        &lt;/a&gt;
+                      &lt;/div&gt;
+                      &lt;div class=&quot;col-sm&quot;&gt;
+                        &lt;a href=&quot;path-to-large-image&quot; class=&quot;gallery-item rounded-2&quot; data-sub-html=&quot;&lt;h6 class=&quot;fs-sm text-light&quot;&gt;Image caption #7&lt;/h6&gt;&quot;&gt;
+                          &lt;img src=&quot;path-to-thumbnail-image&quot; alt=&quot;Gallery thumbnail&quot;&gt;
+                        &lt;/a&gt;
+                      &lt;/div&gt;
+                      &lt;div class=&quot;col-sm&quot;&gt;
+                        &lt;a href=&quot;path-to-large-image&quot; class=&quot;gallery-item more-item rounded-2&quot; data-sub-html=&quot;&lt;h6 class=&quot;fs-sm text-light&quot;&gt;Image caption #8&lt;/h6&gt;&quot;&gt;
+                          &lt;img src=&quot;path-to-thumbnail-image&quot; alt=&quot;Gallery thumbnail&quot;&gt;
+                          &lt;span class=&quot;gallery-item-caption fs-base&quot;&gt;+5 &lt;span class='d-inline d-sm-none d-md-inline'&gt;photos&lt;/span&gt;&lt;/span&gt;
+                        &lt;/a&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+          #pug8.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Gallery with thumbnails
+                .row.g-2.g-md-3.gallery(data-thumbnails=&quot;true&quot;)
+                  .col-sm-8
+                    a(href=&quot;path-to-large-image&quot;, data-sub-html=&quot;&lt;h6 class=&quot;fs-sm text-light&quot;&gt;Image caption #1&lt;/h6&gt;&quot;).gallery-item.rounded-3
+                      img(src=&quot;path-to-thumbnail-image&quot;, alt=&quot;Gallery thumbnail&quot;)
+                  .col-sm-4
+                    a(href=&quot;path-to-large-image&quot;, data-sub-html=&quot;&lt;h6 class=&quot;fs-sm text-light&quot;&gt;Image caption #2&lt;/h6&gt;&quot;).gallery-item.rounded-3.mb-2.mb-md-3
+                      img(src=&quot;path-to-thumbnail-image&quot;, alt=&quot;Gallery thumbnail&quot;)
+                    a(href=&quot;path-to-large-image&quot;, data-sub-html=&quot;&lt;h6 class=&quot;fs-sm text-light&quot;&gt;Image caption #3&lt;/h6&gt;&quot;).gallery-item.rounded-3
+                      img(src=&quot;path-to-thumbnail-image&quot;, alt=&quot;Gallery thumbnail&quot;)
+                  .col-12
+                    .row.g-2.g-md-3
+                      .col-sm
+                        a(href=&quot;path-to-large-image&quot;, data-sub-html=&quot;&lt;h6 class=&quot;fs-sm text-light&quot;&gt;Image caption #4&lt;/h6&gt;&quot;).gallery-item.rounded-2
+                          img(src=&quot;path-to-thumbnail-image&quot;, alt=&quot;Gallery thumbnail&quot;)
+                      .col-sm
+                        a(href=&quot;path-to-large-image&quot;, data-sub-html=&quot;&lt;h6 class=&quot;fs-sm text-light&quot;&gt;Image caption #5&lt;/h6&gt;&quot;).gallery-item.rounded-2
+                          img(src=&quot;path-to-thumbnail-image&quot;, alt=&quot;Gallery thumbnail&quot;)
+                      .col-sm
+                        a(href=&quot;path-to-large-image&quot;, data-sub-html=&quot;&lt;h6 class=&quot;fs-sm text-light&quot;&gt;Image caption #6&lt;/h6&gt;&quot;).gallery-item.rounded-2
+                          img(src=&quot;path-to-thumbnail-image&quot;, alt=&quot;Gallery thumbnail&quot;)
+                      .col-sm
+                        a(href=&quot;path-to-large-image&quot;, data-sub-html=&quot;&lt;h6 class=&quot;fs-sm text-light&quot;&gt;Image caption #7&lt;/h6&gt;&quot;).gallery-item.rounded-2
+                          img(src=&quot;path-to-thumbnail-image&quot;, alt=&quot;Gallery thumbnail&quot;)
+                      .col-sm
+                        a(href=&quot;path-to-large-image&quot;, data-sub-html=&quot;&lt;h6 class=&quot;fs-sm text-light&quot;&gt;Image caption #8&lt;/h6&gt;&quot;).gallery-item.more-item.rounded-2
+                          img(src=&quot;path-to-thumbnail-image&quot;, alt=&quot;Gallery thumbnail&quot;)
+                          span.gallery-item-caption.fs-base +5 &lt;span class=&quot;d-inline d-sm-none d-md-inline&quot;&gt;photos&lt;/span&gt;

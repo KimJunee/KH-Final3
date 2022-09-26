@@ -1,0 +1,138 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var parentMenu = 'Pages'
+  - var pageTitle = 'Real Estate | Help Center'
+  - var bodyClass = 'fixed-bottom-btn'
+
+//- Navbar
+block navbar
+  include partials/navbar-real-estate
+
+//- Page Content
+block content
+
+  // Breadcrumb
+  .container.mt-5.mb-md-4.pt-5
+    nav(aria-label='breadcrumb').mb-3.pt-md-3
+      ol.breadcrumb
+        li.breadcrumb-item
+          a(href='real-estate-home-v1.html') Home
+        li(aria-current='page').breadcrumb-item.active
+          | Help center
+
+
+  // Page header
+  section.container.mb-4.pb-lg-5
+    h1(style='max-width: 856px;').mx-auto.mb-4.pb-2.text-center
+      | Hi, how can we help?
+
+    // Search form
+    form.form-group.mb-4
+      .input-group.input-group-lg
+        input(type='text' placeholder='What are you looking for?').form-control
+      button(type='submit').btn.btn-primary.btn-lg.px-sm-4.px-3
+        i.fi-search.me-sm-2
+        span.d-sm-inline.d-none Search
+
+    .d-flex.flex-md-row.flex-column.align-items-md-center
+      .pb-2.mb-2.me-2.flex-shrink-0.fw-bold
+        | Popular sections:
+      .text-nowrap.overflow-auto.pb-2
+        div
+          a(href='#').btn.btn-xs.btn-outline-secondary.rounded-pill.fw-normal.mb-2.me-2
+            | Notifications
+          a(href='#').btn.btn-xs.btn-outline-secondary.rounded-pill.fw-normal.mb-2.me-2
+            | Getting started
+          a(href='#').btn.btn-xs.btn-outline-secondary.rounded-pill.fw-normal.mb-2.me-2
+            | Transactions
+          a(href='#').btn.btn-xs.btn-outline-secondary.rounded-pill.fw-normal.mb-2.me-2
+            | Account questions
+          a(href='#').btn.btn-xs.btn-outline-secondary.rounded-pill.fw-normal.mb-2.me-2
+            | Mortgage
+          a(href='#').btn.btn-xs.btn-outline-secondary.rounded-pill.fw-normal.mb-2.me-2
+            | Guides
+
+
+  // Page content
+  section.container.mb-md-5.mb-4.pb-lg-5
+    .row
+
+      // Sidebar offcanvas
+      aside.col-xl-2.col-lg-3
+        #help-sidebar.offcanvas.offcanvas-start.offcanvas-collapse
+          .offcanvas-header.shadow-sm.mb-2
+            h2.h5.mb-0 FAQ
+            button(type='button' data-bs-dismiss='offcanvas').btn-close
+          .offcanvas-body
+            ul(class='nav nav-tabs navbar-nav flex-column m-0 text-lg-center')
+              li.nav-item.px-0
+                a(href='#' class='nav-link active').px-3
+                  | Renters &amp; Rentals
+              li.nav-item.px-0
+                a(href='#' class='nav-link').px-3
+                  | Property Buyers
+              li.nav-item.px-0
+                a(href='#' class='nav-link').px-3
+                  | Property Owners
+              li.nav-item.px-0
+                a(href='#' class='nav-link').px-3
+                  | Mortgages
+              li.nav-item.px-0
+                a(href='#' class='nav-link').px-3
+                  | Mobile&nbsp;App&nbsp;Questions
+
+      // Content
+      .col-lg-9.offset-xl-1.col-lg-8
+        h2.mb-md-4.mb-3.pb-md-2
+          | Renters &amp; Rentals
+        .pb-md-2
+          h3.h5 Are the rental listings on Finder filtered for scams?
+          p Blandit adipiscing duis sit tellus rhoncus, amet, sit vitae gravida. Tincidunt placerat ultrices eu, senectus vitae accumsan massa in. Ultricies imperdiet duis feugiat lorem. Pretium turpis faucibus sit urna nisi lorem interdum. Diam semper et ac neque ac.
+        .pb-md-2
+          h3.h5 How do rental listings get on Finder?
+          p Amet posuere imperdiet placerat volutpat elit tellus lectus. Et sit massa volutpat id condimentum velit risus quam ut. Fames ut pulvinar ut ac sed elementum sed. Bibendum interdum ut sit ullamcorper arcu. Proin pharetra proin mi ultricies diam sit. Arcu faucibus ut adipiscing odio habitasse at ut amet maecenas. Suscipit eget mi felis eu mi scelerisque. Mattis condimentum ut eget eu, aliquam id blandit urna, mattis. Amet pharetra nibh tincidunt eu. Gravida pellentesque nisl mi in lectus. Sed sed diam facilisis et. Bibendum leo sit sagittis nunc, suspendisse venenatis. Aliquam eget morbi nibh nascetur diam urna, convallis.
+        .pb-md-2
+          h3.h5 How can I find out more about my rights as a tenant?
+          p Morbi egestas quam ultrices fames dapibus proin amet, placerat cum. Feugiat nibh nulla pellentesque viverra elementum nibh tortor orci. A vitae hac id accumsan. At lacus velit donec vivamus. Auctor pharetra, ipsum aliquam lacus morbi at feugiat nullam. In eu tellus elementum varius tristique. Varius pretium vestibulum feugiat dapibus tempor amet, ultricies. At urna diam viverra sed suspendisse. In at adipiscing nisl at ultrices curabitur tempor.
+        .pb-md-2
+          h3.h5 How do I report a suspicious rental listing?
+          p Mus sed odio eu maecenas augue ut sodales. Purus, massa consequat sagittis at id ornare ullamcorper. Risus nibh vivamus semper mattis. Purus et ultrices nec tellus enim arcu diam. Sit ut lorem leo posuere enim rutrum parturient. Eget ligula massa pulvinar quisque fusce maecenas et vulputate venenatis.
+        .pb-md-2
+          h3.h5 Why can't I verify my identity?
+          p Pulvinar ante sed neque, morbi in at. Justo, a etiam nulla non nunc, integer platea massa. Vestibulum integer ac nisi dignissim nec. Ut tellus erat orci habitant. Non, nunc egestas purus nisi, enim mi sit a imperdiet. Eget viverra elementum volutpat vulputate nunc metus est sed. Quis enim, eget malesuada habitasse et et tristique lectus id. Odio eget iaculis sollicitudin fames cursus sed massa. Non faucibus vitae donec vestibulum, morbi egestas a rutrum.
+        .pb-md-2
+          h3.h5 Can I use your service to pay my landlord for utilities?
+          p Eu amet nec in ut faucibus sed fringilla. In nibh cras imperdiet at. In quam pulvinar vel tempus ultricies diam turpis. Eu, integer ac morbi a, aenean et quis amet, pellentesque. Sem volutpat dui amet metus. Laoreet pulvinar vitae convallis a augue laoreet.
+        .pb-md-2
+          h3.h5 Can I pay a few months’ rent in advance?
+          p Pellentesque massa mauris elit morbi. Id aliquam in lacus convallis eget cras mauris felis lobortis. Tempus at at venenatis pulvinar lobortis. Semper et nisl, tincidunt enim, etiam pretium lacinia. Diam tellus arcu, sagittis lorem viverra eros tristique. Tellus sem et tellus nunc dictum. Pellentesque suspendisse pellentesque augue egestas mi nunc facilisis sapien aliquam. Ac semper facilisi posuere justo, te
+        .pb-md-2
+          h3.h5 How do you protect my personal information?
+          p Donec ipsum, diam, imperdiet id sociis cursus cras donec eget. Nunc, vitae lobortis ullamcorper diam consequat risus viverra odio a. Nibh scelerisque sed in at velit sit.
+        .pb-md-2
+          h3.h5 What happens to my information after my application is accepted or declined?
+          p Pretium vitae facilisis in faucibus gravida pulvinar ridiculus cum. Enim, a vitae tortor feugiat urna, iaculis. Ullamcorper tortor sollicitudin odio tempus elementum ut blandit commodo. Condimentum arcu ac nec, dolor ante sagittis nibh in tempus. Posuere ullamcorper cursus adipiscing etiam ullamcorper orci tristique.
+
+
+  // Contact us
+  section.container.mb-5.pb-lg-5
+    .row.align-items-sm-center
+      .col-sm-5
+        img(src='img/real-estate/illustrations/support.svg' alt='Illustration')
+      .col-md-6.offset-md-1.col-sm-7.text-sm-start.text-center
+        h2.mb-4.pb-md-3
+          | Can’t find what you are looking for?
+        a(href='real-estate-contacts.html').btn.btn-lg.btn-primary
+          | Contact us now
+
+
+//- Footer
+block footer
+  include partials/footer-real-estate
+
+  // Filters sidebar toggle button (mobile)
+  button(type='button' data-bs-toggle='offcanvas' data-bs-target='#help-sidebar').btn.btn-primary.btn-sm.w-100.rounded-0.fixed-bottom.d-lg-none
+    i.fi-sidebar-right.me-2
+    | FAQ Links

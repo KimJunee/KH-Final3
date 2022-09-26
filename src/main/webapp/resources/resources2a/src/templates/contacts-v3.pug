@@ -1,0 +1,104 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/leaflet/dist/leaflet.css']
+  - var scripts = ['vendor/leaflet/dist/leaflet.js']
+  - var parentMenu = 'Pages'
+  - var pageTitle = 'Contacts v.3'
+  - var navbarExtraClass = 'bg-light'
+
+
+//- Navbar
+block navbar
+  include partials/navbar.pug
+
+
+//- Page Content
+block content
+
+  section.container.pt-5.pb-lg-2.pb-xl-4.py-xxl-5.my-5
+    
+    // Breadcrumb
+    +breadcrumb([{'title': 'Contacts v.3'}]).pt-lg-3.pb-lg-4.pb-2
+
+    // Page title
+    h1.display-2.pb-2.mb-sm-4.mb-lg-5 Contacts
+
+    // Contact details
+    .border-top.pb-sm-3.pt-4
+      .row.row-cols-1.row-cols-sm-2.row-cols-md-3.row-cols-lg-4.g-4.pt-2
+
+        // Address
+        .col.pb-2
+          h4.mb-lg-4 Address
+          p.fs-lg.fw-medium.pb-3.mb-3 514 Magnolia St. Orlando, FL 32806
+          a(href='#').btn.btn-primary
+            i.ai-map-pin.me-1
+            | Get directions
+
+        // Phone
+        .col.pb-2
+          h4.mb-lg-4 Phone
+          ul.list-unstyled.mb-0
+            li.pb-1.mb-2
+              span.d-block.fs-sm.text-muted.mb-1 Main office
+              a(href='tel:+178632256033').nav-link.fs-lg.p-0 +1 (786) 322 560 33
+            li.pb-1.mb-2
+              span.d-block.fs-sm.text-muted.mb-1 Reception room
+              a(href='tel:+178630056044').nav-link.fs-lg.p-0 +1 (786) 300 560 44
+            li
+              span.d-block.fs-sm.text-muted.mb-1 Franchise
+              a(href='tel:+178630050055').nav-link.fs-lg.p-0 +1 (786) 300 500 55
+
+        // Schedule
+        .col.pb-2
+          h4.mb-lg-4 Schedule
+          ul.list-unstyled.mb-0
+            li.pb-1.mb-2
+              span.d-block.fs-sm.text-muted.mb-1 Mon - Thu
+              .d-flex.align-items-center
+                span.text-nav.fs-lg.fw-medium 10:00
+                span(style='width: 36px; height: 1px;').border-top.mx-4
+                span.text-nav.fs-lg.fw-medium 22:00
+            li.pb-1.mb-2
+              span.d-block.fs-sm.text-muted.mb-1 Fri - Sat
+              .d-flex.align-items-center
+                span.text-nav.fs-lg.fw-medium 10:00
+                span(style='width: 36px; height: 1px;').border-top.mx-4
+                span.text-nav.fs-lg.fw-medium 20:00
+            li
+              span.d-block.fs-sm.text-muted.mb-1 Sun
+              .d-flex.align-items-center
+                span.text-nav.fs-lg.fw-medium 12:00
+                span(style='width: 36px; height: 1px;').border-top.mx-4
+                span.text-nav.fs-lg.fw-medium 16:00
+
+        // Email
+        .col.pb-2
+          h4.mb-lg-4 Email
+          a(href='mailto:email@example.com').nav-link.fs-lg.p-0 email@example.com
+
+
+  // Map
+  section.position-relative
+    .d-none.d-xl-block(style='height: 570px;')
+    .d-none.d-lg-block.d-xl-none(style='height: 450px;')
+    .d-none.d-md-block.d-lg-none(style='height: 380px;')
+    .d-md-none(style='height:280px;')
+    .interactive-map.position-absolute.top-0.start-0.w-100.h-100(data-map-options=`{
+      "center": [28.5384, -81.3789],
+      "zoom": 10,
+      "scrollWheelZoom": false,
+      "markers": [
+        {
+          "position": [28.5384, -81.3789],
+          "popup": "<div class='p-3'><h6>We are in Orlando, FL</h6><p class='fs-sm pt-1 mt-n3 mb-0'>514 Magnolia St. Orlando, FL 32806</p></div>"
+        }
+      ]
+    }`)
+
+
+//- Footer
+block footer
+  include partials/footer.pug

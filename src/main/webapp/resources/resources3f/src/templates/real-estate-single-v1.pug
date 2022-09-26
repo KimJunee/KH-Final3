@@ -1,0 +1,561 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['lightgallery/css/lightgallery-bundle.min.css', 'tiny-slider/dist/tiny-slider.css', 'flatpickr/dist/flatpickr.min.css']
+  - var vendorScripts = ['lightgallery/lightgallery.min.js', 'lightgallery/plugins/fullscreen/lg-fullscreen.min.js', 'lightgallery/plugins/zoom/lg-zoom.min.js', 'lightgallery/plugins/thumbnail/lg-thumbnail.min.js', 'flatpickr/dist/flatpickr.min.js', 'tiny-slider/dist/min/tiny-slider.js']
+  - var parentMenu = 'Catalog'
+  - var pageTitle = 'Real Estate | Single Property v.1'
+
+//- Navbar
+block navbar
+  include partials/navbar-real-estate
+
+//- Page Content
+block content
+
+  // Review modal
+  #modal-review.modal.fade(tabindex='-1')
+    .modal-dialog.modal-dialog-centered(role='document')
+      .modal-content
+        .modal-header.d-block.position-relative.border-0.pb-0.px-sm-5.px-4
+          h3.modal-title.mt-4.text-center Leave a review
+          button(type='button' data-bs-dismiss='modal' aria-label='Close').btn-close.position-absolute.top-0.end-0.mt-3.me-3
+        .modal-body.px-sm-5.px-4
+          form(novalidate).needs-validation
+            .mb-3
+              label(for='review-name').form-label Name <span class='text-danger'>*</span>
+              input(type='text' id='review-name' placeholder='Your name' required).form-control
+              .invalid-feedback Please let us know your name.
+            .mb-3
+              label(for='review-email').form-label Email <span class='text-danger'>*</span>
+              input(type='email' id='review-email' placeholder='Your email address' required).form-control
+              .invalid-feedback Please provide a valid email address.
+            .mb-3
+              label(for='review-rating').form-label Rating <span class='text-danger'>*</span>
+              select(id='review-rating' required).form-control.form-select
+                option(value='' selected disabled hidden) Choose rating
+                option(value='5 stars') 5 stars
+                option(value='4 stars') 4 stars
+                option(value='3 stars') 3 stars
+                option(value='2 stars') 2 stars
+                option(value='1 star') 1 star
+              .invalid-feedback Please rate the property.
+            .mb-4
+              label(for='review-text').form-label Review <span class='text-danger'>*</span>
+              textarea(id='review-text' rows='5' placeholder='Your review message' required).form-control
+              .invalid-feedback Please write your review.
+            button(type='submit').btn.btn-primary.d-block.w-100.mb-4 Submit a review
+
+
+  // Page header
+  section.container.pt-5.mt-5
+
+    // Breadcrumb
+    nav(aria-label='breadcrumb').mb-3.pt-md-3
+      ol.breadcrumb
+        li.breadcrumb-item: a(href='real-estate-home-v1.html') Home
+        li.breadcrumb-item: a(href='real-estate-catalog-rent.html') Property for rent
+        li(aria-current='page').breadcrumb-item.active Pine Apartments
+    h1.h2.mb-2 Pine Apartments
+    p.mb-2.pb-1.fs-lg 28 Jackson Ave Long Island City, NY 67234
+
+    // Features + Sharing
+    .d-flex.justify-content-between.align-items-center
+      ul.d-flex.mb-4.list-unstyled
+        li.me-3.pe-3.border-end
+          b.me-1 4
+          i.fi-bed.mt-n1.lead.align-middle.text-muted
+        li.me-3.pe-3.border-end
+          b.me-1 2
+          i.fi-bath.mt-n1.lead.align-middle.text-muted
+        li.me-3.pe-3.border-end
+          b.me-1 2
+          i.fi-car.mt-n1.lead.align-middle.text-muted
+        li
+          b 56 
+          | sq.m
+      .text-nowrap
+        button(type='button' data-bs-toggle='tooltip' title='Add to Wishlist').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.ms-2.mb-2
+          i.fi-heart
+        .dropdown.d-inline-block(data-bs-toggle='tooltip' title='Share')
+          button(type='button' data-bs-toggle='dropdown').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.ms-2.mb-2
+            i.fi-share
+          .dropdown-menu.dropdown-menu-end.my-1
+            button(type='button').dropdown-item
+              i.fi-facebook.fs-base.opacity-75.me-2
+              | Facebook
+            button(type='button').dropdown-item
+              i.fi-twitter.fs-base.opacity-75.me-2
+              | Twitter
+            button(type='button').dropdown-item
+              i.fi-instagram.fs-base.opacity-75.me-2
+              | Instagram
+
+
+  // Gallery
+  section.container.overflow-auto.mb-4.pb-3(data-simplebar)
+    .row.g-2.g-md-3.gallery(data-thumbnails='true' style='min-width: 30rem;')
+      .col-8
+        a(href='img/real-estate/single/01.jpg' data-sub-html='<h6 class="fs-sm text-light">Bathroom</h6>').gallery-item.rounded.rounded-md-3
+          img(src='img/real-estate/single/01.jpg' alt='Gallery thumbnail')
+      .col-4
+        a(href='img/real-estate/single/02.jpg' data-sub-html='<h6 class="fs-sm text-light">Bedroom</h6>').gallery-item.rounded.rounded-md-3.mb-2.mb-md-3
+          img(src='img/real-estate/single/02.jpg' alt='Gallery thumbnail')
+        a(href='img/real-estate/single/03.jpg' data-sub-html='<h6 class="fs-sm text-light">Living room</h6>').gallery-item.rounded.rounded-md-3
+          img(src='img/real-estate/single/03.jpg' alt='Gallery thumbnail')
+      .col-12
+        .row.g-2.g-md-3
+          .col
+            a(href='img/real-estate/single/04.jpg' data-sub-html='<h6 class="fs-sm text-light">Bedroom</h6>').gallery-item.rounded-1.rounded-md-2
+              img(src='img/real-estate/single/th04.jpg' alt='Gallery thumbnail')
+          .col
+            a(href='img/real-estate/single/05.jpg' data-sub-html='<h6 class="fs-sm text-light">Kitchen</h6>').gallery-item.rounded-1.rounded-md-2
+              img(src='img/real-estate/single/th05.jpg' alt='Gallery thumbnail')
+          .col
+            a(href='img/real-estate/single/06.jpg' data-sub-html='<h6 class="fs-sm text-light">Living room</h6>').gallery-item.rounded-1.rounded-md-2
+              img(src='img/real-estate/single/th06.jpg' alt='Gallery thumbnail')
+          .col
+            a(href='img/real-estate/single/07.jpg' data-sub-html='<h6 class="fs-sm text-light">Bathroom</h6>').gallery-item.rounded-1.rounded-md-2
+              img(src='img/real-estate/single/th07.jpg' alt='Gallery thumbnail')
+          .col
+            a(href='img/real-estate/single/08.jpg' data-sub-html='<h6 class="fs-sm text-light">Bathroom</h6>').gallery-item.more-item.rounded-1.rounded-md-2
+              img(src='img/real-estate/single/th08.jpg' alt='Gallery thumbnail')
+              span.gallery-item-caption.fs-base +5 <span class='d-none d-md-inline'>photos</span>
+
+
+  // Post content
+  section.container.mb-5.pb-1
+    .row
+      .col-md-7.mb-md-0.mb-4
+        span.badge.bg-success.me-2.mb-3 Verified
+        span.badge.bg-info.me-2.mb-3 New
+        h2.h3.mb-4.pb-4.border-bottom $2,000
+          span.d-inline-block.ms-1.fs-base.fw-normal.text-body /month
+
+        // Overview
+        .mb-4.pb-md-3
+          h3.h4 Overview
+          p.mb-1 Lorem tincidunt lectus vitae id vulputate diam quam. Imperdiet non scelerisque turpis sed etiam ultrices. Blandit mollis dignissim egestas consectetur porttitor. Vulputate dolor pretium, dignissim eu augue sit ut convallis. Lectus est, magna urna feugiat sed ultricies sed in lacinia. Fusce potenti sit id pharetra vel ornare. Vestibulum sed tellus ullamcorper arcu.
+          #seeMoreOverview.collapse
+            p.mb-1 Asperiores eos molestias, aspernatur assumenda vel corporis ex, magni excepturi totam exercitationem quia inventore quod amet labore impedit quae distinctio? Officiis blanditiis consequatur alias, atque, sed est incidunt accusamus repudiandae tempora repellendus obcaecati delectus ducimus inventore tempore harum numquam autem eligendi culpa.
+          a(href='#seeMoreOverview' data-bs-toggle='collapse' data-bs-label-collapsed='Show more' data-bs-label-expanded='Show less' role='button' aria-expanded='false' aria-controls='seeMoreOverview').collapse-label.collapsed
+
+        // Property Details
+        .mb-4.pb-md-3
+          h3.h4 Property Details
+          ul.list-unstyled.mb-0
+            li
+              b Type: 
+              | apartment
+            li
+              b Apartment area: 
+              | 56 sq.m
+            li
+              b Built: 
+              | 2015
+            li
+              b Bedrooms: 
+              | 4
+            li
+              b Bathrooms: 
+              | 2
+            li
+              b Parking places: 
+              | 2
+            li
+              b Pets allowed: 
+              | cats only
+
+        // Amenities
+        .mb-4.pb-md-3
+          h3.h4 Amenities
+          ul.list-unstyled.row.row-cols-lg-3.row-cols-md-2.row-cols-1.gy-1.mb-1.text-nowrap
+            li.col
+              i.fi-wifi.mt-n1.me-2.fs-lg.align-middle
+              | WiFi
+            li.col
+              i.fi-thermometer.mt-n1.me-2.fs-lg.align-middle
+              | Heating
+            li.col
+              i.fi-dish.mt-n1.me-2.fs-lg.align-middle
+              | Dishwasher
+            li.col
+              i.fi-parking.mt-n1.me-2.fs-lg.align-middle
+              | Parking place
+            li.col
+              i.fi-snowflake.mt-n1.me-2.fs-lg.align-middle
+              | Air conditioning
+            li.col
+              i.fi-iron.mt-n1.me-2.fs-lg.align-middle
+              | Iron
+            li.col
+              i.fi-tv.mt-n1.me-2.fs-lg.align-middle
+              | TV
+            li.col
+              i.fi-laundry.mt-n1.me-2.fs-lg.align-middle
+              | Laundry
+            li.col
+              i.fi-cctv.mt-n1.me-2.fs-lg.align-middle
+              | Security cameras
+          #seeMoreAmenities.collapse
+            ul.list-unstyled.row.row-cols-lg-3.row-cols-md-2.row-cols-1.gy-1.mb-1.text-nowrap
+              li.col
+                i.fi-no-smoke.mt-n1.me-2.fs-lg.align-middle
+                | No smocking
+              li.col
+                i.fi-pet.mt-n1.me-2.fs-lg.align-middle
+                | Cats
+              li.col
+                i.fi-swimming-pool.mt-n1.me-2.fs-lg.align-middle
+                | Swimming pool
+              li.col
+                i.fi-double-bed.mt-n1.me-2.fs-lg.align-middle
+                | Double bed
+              li.col
+                i.fi-bed.mt-n1.me-2.fs-lg.align-middle
+                | Single bed
+          a(href='#seeMoreAmenities' data-bs-toggle='collapse' data-bs-label-collapsed='Show more' data-bs-label-expanded='Show less' role='button' aria-expanded='false' aria-controls='seeMoreAmenities').collapse-label.collapsed
+
+        // Post meta
+        .mb-lg-5.mb-md-4.pb-lg-2.py-4.border-top
+          ul.d-flex.mb-4.list-unstyled.fs-sm
+            li.me-3.pe-3.border-end
+              | Published: 
+              b Dec 9, 2020
+            li.me-3.pe-3.border-end
+              | Ad number: 
+              b 681013232
+            li.me-3.pe-3
+              | Views: 
+              b 48
+
+        // Reviews
+        .mb-4.pb-4.border-bottom
+          h3.h4.pb-3
+            i.fi-star-filled.mt-n1.me-2.lead.align-middle.text-warning
+            | 4,9 (32 reviews)
+          .d-flex.flex-sm-row.flex-column.align-items-sm-center.align-items-stretch.justify-content-between
+            a(href='#modal-review' data-bs-toggle='modal').btn.btn-outline-primary.mb-sm-0.mb-3
+              i.fi-edit.me-1
+              | Add review
+            .d-flex.align-items-center.ms-sm-4
+              label(for='reviews-sorting').me-2.pe-1.text-nowrap
+                i.fi-arrows-sort.text-muted.mt-n1.me-2
+                | Sort by:
+              select(id='reviews-sorting').form-select
+                option Newest
+                option Oldest
+                option Popular
+                option High rating
+                option Low rating
+
+        // Review
+        .mb-4.pb-4.border-bottom
+          .d-flex.justify-content-between.mb-3
+            .d-flex.align-items-center.pe-2
+              img(src='img/avatars/03.jpg' width='48' alt='Avatar').rounded-circle.me-1
+              .ps-2
+                h6.fs-base.mb-0 Annette Black
+                +star-rating(5)
+            span.text-muted.fs-sm Jan 17, 2021
+          p Elementum ut quam tincidunt egestas vitae elit, hendrerit. Ullamcorper nulla amet lobortis elit, nibh condimentum enim. Aliquam felis nisl tellus sodales lectus dictum tristique proin vitae. Odio fermentum viverra tortor quis.
+          .d-flex.align-items-center
+            button(type='button').btn-like
+              i.fi-like
+              span (3)
+            .border-end.me-1 &nbsp;
+            button(type='button').btn-dislike
+              i.fi-dislike
+              span (0)
+
+        // Review
+        .mb-4.pb-4.border-bottom
+          .d-flex.justify-content-between.mb-3
+            .d-flex.align-items-center.pe-2
+              img(src='img/avatars/13.png' width='48' alt='Avatar').rounded-circle.me-1
+              .ps-2
+                h6.fs-base.mb-0 Darrell Steward
+                +star-rating(3)
+            span.text-muted.fs-sm Dec 1, 2020
+          p Vel dictum nunc ut tristique. Egestas diam amet, ut proin hendrerit. Dui accumsan at phasellus tempus consequat dignissim.
+          .d-flex.align-items-center
+            button(type='button').btn-like
+              i.fi-like
+              span (0)
+            .border-end.me-1 &nbsp;
+            button(type='button').btn-dislike
+              i.fi-dislike
+              span (1)
+
+        // Review
+        .mb-4.pb-4.border-bottom
+          .d-flex.justify-content-between.mb-3
+            .d-flex.align-items-center.pe-2
+              img(src='img/avatars/05.jpg' width='48' alt='Avatar').rounded-circle.me-1
+              .ps-2
+                h6.fs-base.mb-0 Floyd Miles
+                +star-rating(5)
+            span.text-muted.fs-sm Oct  28, 2020
+          p Viverra nunc blandit sapien non imperdiet sit. Purus tempus elementum aliquam eu urna. A aenean duis non egestas at libero porttitor integer eget. Sed dictum lobortis laoreet gravida.
+          .d-flex.align-items-center
+            button(type='button').btn-like
+              i.fi-like
+              span (2)
+            .border-end.me-1 &nbsp;
+            button(type='button').btn-dislike
+              i.fi-dislike
+              span (1)
+
+        // Review
+        .mb-4.pb-4.border-bottom
+          .d-flex.justify-content-between.mb-3
+            .d-flex.align-items-center.pe-2
+              img(src='img/avatars/04.jpg' width='48' alt='Avatar').rounded-circle.me-1
+              .ps-2
+                h6.fs-base.mb-0 Ralph Edwards
+                +star-rating(4)
+            span.text-muted.fs-sm Sep 14, 2020
+          p Elementum nisl, egestas nam consectetur nisl, at pellentesque cras. Non sed ac vivamus dolor dignissim ut. Nisl sapien blandit pulvinar sagittis donec sociis ipsum arcu est. Tempus, rutrum morbi scelerisque tempor mi. Etiam urna, cras bibendum leo nec faucibus velit. Tempor lectus dignissim at auctor integer neque quam amet.
+          .d-flex.align-items-center
+            button(type='button').btn-like
+              i.fi-like
+              span (0)
+            .border-end.me-1 &nbsp;
+            button(type='button').btn-dislike
+              i.fi-dislike
+              span (0)
+
+        // Pagination
+        nav.mt-2.mb-4(aria-label='Reviews pagination')
+          ul.pagination
+            li.page-item.d-sm-none
+              span.page-link.page-link-static 1 / 5
+            li.page-item.active.d-none.d-sm-block(aria-current='page')
+              span.page-link
+                | 1
+                span.visually-hidden (current)
+            li.page-item.d-none.d-sm-block
+              a(href='#').page-link 2
+            li.page-item.d-none.d-sm-block
+              a(href='#').page-link 3
+            li.page-item.d-none.d-sm-block
+              | ...
+            li.page-item.d-none.d-sm-block
+              a(href='#').page-link 8
+            li.page-item
+              a(href='#' aria-label='Next').page-link
+                i.fi-chevron-right
+
+
+      // Sidebar
+      aside.col-lg-4.col-md-5.ms-lg-auto.pb-1
+
+        // Contact card
+        .card.shadow-sm.mb-4
+          .card-body
+            .d-flex.align-items-start.justify-content-between
+              a(href='real-estate-vendor-properties.html').text-decoration-none
+                img(src='img/avatars/22.jpg' width='60' alt='Avatar').rounded-circle.mb-2
+                h5.mb-1 Floyd Miles
+                .mb-1
+                  +star-rating(5)
+                  span.ms-1.fs-sm.text-muted (45 reviews)
+                p.text-body Imperial Property Group Agent
+              .ms-4.flex-shrink-0
+                a(href='#').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.ms-2.mb-2
+                  i.fi-facebook
+                a(href='#').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.ms-2.mb-2
+                  i.fi-linkedin
+            ul.list-unstyled.border-bottom.mb-4.pb-4
+              li
+                a(href='tel:3025550107').nav-link.fw-normal.p-0
+                  i.fi-phone.mt-n1.me-2.align-middle.opacity-60
+                  | (302) 555-0107
+              li
+                a(href='mailto:floyd_miles@email.com').nav-link.fw-normal.p-0
+                  i.fi-mail.mt-n1.me-2.align-middle.opacity-60
+                  | floyd_miles@email.com
+
+            // Contact form
+            form(novalidate).needs-validation
+              .mb-3
+                input(type='text' placeholder='Your name*' required).form-control
+                .invalid-feedback Please enter your name!
+              .mb-3
+                input(type='email' placeholder='Email*' required).form-control
+                .invalid-feedback Please provide valid email address!
+              input(type='tel' placeholder='Phone').form-control.mb-3
+              .input-group.mb-3
+                input(type='text' placeholder='Choose date' data-datepicker-options='{"altInput": true, "altFormat": "F j, Y", "dateFormat": "Y-m-d"}').form-control.date-picker.rounded.pe-5
+                i.fi-calendar.position-absolute.top-50.end-0.translate-middle-y.me-3
+              textarea(rows='3' placeholder='Message' style='resize: none;').form-control.mb-3
+              .form-check.mb-4
+                input(id='form-submit' type='checkbox' checked).form-check-input
+                label(for='form-submit').form-check-label.fs-sm
+                  | Send news, tips and promos from Finder to my email.
+              button(type='submit').btn.btn-lg.btn-primary.d-block.w-100 Send request
+
+        // Location (Map)
+        .pt-2
+          .position-relative.mb-2
+            img(src='img/real-estate/single/map.jpg' alt='Map').rounded-3
+            .d-flex.w-100.h-100.align-items-center.justify-content-center.position-absolute.top-0.start-0
+              a(href='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.6145424811048!2d-73.93999278406218!3d40.74850644331743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2592979d4827f%3A0x3a5d8b3cf779f3b6!2s28%20Jackson%20Ave%2C%20Long%20Island%20City%2C%20NY%2011101%2C%20USA!5e0!3m2!1sen!2sua!4v1618074552281!5m2!1sen!2sua' data-iframe='true' data-bs-toggle='lightbox').btn.btn-primary.stretched-link
+                i.fi-route.me-2
+                | Get directions
+          p.mb-0.fs-sm.text-center 28 Jackson Ave Long Island City, NY 67234
+
+
+  // Recently viewed
+  section.container.mb-5.pb-2.pb-lg-4
+    .d-flex.align-items-center.justify-content-between.mb-3
+      h2.h3.mb-0 Recently viewed
+      a(href='real-estate-catalog-rent.html').btn.btn-link.fw-normal.p-0
+        | View all
+        i.fi-arrow-long-right.ms-2
+    .tns-carousel-wrapper.tns-controls-outside-xxl.tns-nav-outside.tns-nav-outside-flush.mx-n2
+      .tns-carousel-inner.row.gx-4.mx-0.pt-3.pb-4(data-carousel-options='{"items": 4, "responsive": {"0":{"items":1},"500":{"items":2},"768":{"items":3},"992":{"items":4}}}')
+
+        // Item
+        .col
+          .card.shadow-sm.card-hover.border-0.h-100
+            .card-img-top.card-img-hover
+              a(href='real-estate-single-v1.html').img-overlay
+              .position-absolute.start-0.top-0.pt-3.ps-3
+                span.d-table.badge.bg-success.mb-1 Verified
+                span.d-table.badge.bg-info New
+              .content-overlay.end-0.top-0.pt-3.pe-3
+                button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                  i.fi-heart
+              img(src='img/real-estate/catalog/01.jpg' alt='Image')
+            .card-body.position-relative.pb-3
+              h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For rent
+              h3.h6.mb-2.fs-base
+                a(href='real-estate-single-v1.html').nav-link.stretched-link 3-bed Apartment | 67 sq.m
+              p.mb-2.fs-sm.text-muted 3811 Ditmars Blvd Astoria, NY 11105
+              .fw-bold
+                i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+                | $1,629
+            .card-footer.d-flex.align-items-center.justify-content-center.mx-3.pt-3.text-nowrap
+              span.d-inline-block.mx-1.px-2.fs-sm 3
+                i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+              span.d-inline-block.mx-1.px-2.fs-sm 2
+                i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+              span.d-inline-block.mx-1.px-2.fs-sm 2
+                i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+
+        // Item
+        .col
+          .card.shadow-sm.card-hover.border-0.h-100
+            .card-img-top.card-img-hover
+              a(href='real-estate-single-v1.html').img-overlay
+              .position-absolute.start-0.top-0.pt-3.ps-3
+                span.d-table.badge.bg-success.mb-1 Verified
+                span.d-table.badge.bg-danger Featured
+              .content-overlay.end-0.top-0.pt-3.pe-3
+                button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                  i.fi-heart
+              img(src='img/real-estate/catalog/02.jpg' alt='Image')
+            .card-body.position-relative.pb-3
+              h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For sale
+              h3.h6.mb-2.fs-base
+                a(href='real-estate-single-v1.html').nav-link.stretched-link Family Home| 120 sq.m
+              p.mb-2.fs-sm.text-muted 67-04 Myrtle Ave Glendale, NY 11385
+              .fw-bold
+                i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+                | $84,000
+            .card-footer.d-flex.align-items-center.justify-content-center.mx-3.pt-3.text-nowrap
+              span.d-inline-block.mx-1.px-2.fs-sm 4
+                i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+              span.d-inline-block.mx-1.px-2.fs-sm 2
+                i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+              span.d-inline-block.mx-1.px-2.fs-sm 2
+                i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+
+        // Item
+        .col
+          .card.shadow-sm.card-hover.border-0.h-100
+            .card-img-top.card-img-hover
+              a(href='real-estate-single-v1.html').img-overlay
+              .position-absolute.start-0.top-0.pt-3.ps-3
+                span.d-table.badge.bg-success Verified
+              .content-overlay.end-0.top-0.pt-3.pe-3
+                button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                  i.fi-heart
+              img(src='img/real-estate/catalog/03.jpg' alt='Image')
+            .card-body.position-relative.pb-3
+              h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For rent
+              h3.h6.mb-2.fs-base
+                a(href='real-estate-single-v1.html').nav-link.stretched-link Greenpoint Rentals | 85 sq.m
+              p.mb-2.fs-sm.text-muted 1510 Castle Hill Ave Bronx, NY 10462
+              .fw-bold
+                i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+                | $1,330
+            .card-footer.d-flex.align-items-center.justify-content-center.mx-3.pt-3.text-nowrap
+              span.d-inline-block.mx-1.px-2.fs-sm 1
+                i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+              span.d-inline-block.mx-1.px-2.fs-sm 1
+                i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+              span.d-inline-block.mx-1.px-2.fs-sm 1
+                i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+
+        // Item
+        .col
+          .card.shadow-sm.card-hover.border-0.h-100
+            .card-img-top.card-img-hover
+              a(href='real-estate-single-v1.html').img-overlay
+              .position-absolute.start-0.top-0.pt-3.ps-3
+                span.d-table.badge.bg-success.mb-1 Verified
+                span.d-table.badge.bg-info New
+              .content-overlay.end-0.top-0.pt-3.pe-3
+                button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                  i.fi-heart
+              img(src='img/real-estate/catalog/04.jpg' alt='Image')
+            .card-body.position-relative.pb-3
+              h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For sale
+              h3.h6.mb-2.fs-base
+                a(href='real-estate-single-v1.html').nav-link.stretched-link Studio | 32 sq.m
+              p.mb-2.fs-sm.text-muted 140-60 Beech Ave Flushing, NY 11355
+              .fw-bold
+                i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+                | $65,000
+            .card-footer.d-flex.align-items-center.justify-content-center.mx-3.pt-3.text-nowrap
+              span.d-inline-block.mx-1.px-2.fs-sm 1
+                i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+              span.d-inline-block.mx-1.px-2.fs-sm 1
+                i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+              span.d-inline-block.mx-1.px-2.fs-sm 2
+                i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+
+        // Item
+        .col
+          .card.shadow-sm.card-hover.border-0.h-100
+            .card-img-top.card-img-hover
+              a(href='real-estate-single-v1.html').img-overlay
+              .position-absolute.start-0.top-0.pt-3.ps-3
+                span.d-table.badge.bg-success.mb-1 Verified
+              .content-overlay.end-0.top-0.pt-3.pe-3
+                button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                  i.fi-heart
+              img(src='img/real-estate/catalog/05.jpg' alt='Image')
+            .card-body.position-relative.pb-3
+              h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For sale
+              h3.h6.mb-2.fs-base
+                a(href='real-estate-single-v1.html').nav-link.stretched-link Cottage | 120 sq.m
+              p.mb-2.fs-sm.text-muted 42 Broadway New York, NY 10004
+              .fw-bold
+                i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+                | $184,000
+            .card-footer.d-flex.align-items-center.justify-content-center.mx-3.pt-3.text-nowrap
+              span.d-inline-block.mx-1.px-2.fs-sm 4
+                i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+              span.d-inline-block.mx-1.px-2.fs-sm 2
+                i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+              span.d-inline-block.mx-1.px-2.fs-sm 1
+                i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+
+
+//- Footer
+block footer
+  include partials/footer-real-estate

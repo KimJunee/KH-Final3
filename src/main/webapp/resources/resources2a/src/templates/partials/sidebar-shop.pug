@@ -1,0 +1,226 @@
+//- Shop sidebar filters (offcanvas on sreens < 992px)
+#shopSidebar.offcanvas-lg.offcanvas-start
+  .offcanvas-header
+    h5.offcanvas-title Filters
+    button(type='button' data-bs-dismiss='offcanvas' data-bs-target='#shopSidebar').btn-close
+  .offcanvas-body.pt-2.pt-lg-0.pe-lg-4
+
+    // Categories (accordion with checkboxes)
+    h3.h5 Categories
+    #shopCategories.accordion.accordion-alt.pb-2.mb-4
+      .accordion-item.mb-0
+        h4.accordion-header
+          button(type='button' data-bs-toggle='collapse' data-bs-target='#livingRoom' aria-expanded='true' aria-controls='livingRoom').accordion-button.fs-xl.fw-medium.py-2
+            span.fs-base Living room
+        #livingRoom.accordion-collapse.collapse.show(data-bs-parent="#shopCategories")
+          .accordion-body.py-1.mb-1
+            .form-check
+              input(type='checkbox')#lr-all.form-check-input
+              label(for='lr-all').form-check-label.d-flex.align-items-center
+                span.text-nav.fw-medium View all
+                span.fs-xs.text-muted.ms-auto 697
+            .form-check
+              input(type='checkbox' checked)#lr-vases.form-check-input
+              label(for='lr-vases').form-check-label.d-flex.align-items-center
+                span.text-nav.fw-medium Vases
+                span.fs-xs.text-muted.ms-auto 234
+            .form-check
+              input(type='checkbox')#lr-mirrors.form-check-input
+              label(for='lr-mirrors').form-check-label.d-flex.align-items-center
+                span.text-nav.fw-medium Mirrors
+                span.fs-xs.text-muted.ms-auto 182
+            .form-check
+              input(type='checkbox')#lr-paintings.form-check-input
+              label(for='lr-paintings').form-check-label.d-flex.align-items-center
+                span.text-nav.fw-medium Paintings
+                span.fs-xs.text-muted.ms-auto 133
+            .form-check
+              input(type='checkbox')#lr-furniture.form-check-input
+              label(for='lr-furniture').form-check-label.d-flex.align-items-center
+                span.text-nav.fw-medium Furniture
+                span.fs-xs.text-muted.ms-auto 24
+            .form-check
+              input(type='checkbox' checked)#lr-clocks.form-check-input
+              label(for='lr-clocks').form-check-label.d-flex.align-items-center
+                span.text-nav.fw-medium Clocks
+                span.fs-xs.text-muted.ms-auto 49
+            .form-check
+              input(type='checkbox')#lr-frames.form-check-input
+              label(for='lr-frames').form-check-label.d-flex.align-items-center
+                span.text-nav.fw-medium Photo frames
+                span.fs-xs.text-muted.ms-auto 75
+      .accordion-item.mb-0
+        h4.accordion-header
+          button(type='button' data-bs-toggle='collapse' data-bs-target='#kitchen' aria-expanded='false' aria-controls='kitchen').accordion-button.collapsed.fs-xl.fw-medium.py-2
+            span.fs-base Kitchen
+        #kitchen.accordion-collapse.collapse(data-bs-parent="#shopCategories")
+          .accordion-body.py-1.mb-1
+            .form-check
+              input(type='checkbox')#kitchen-all.form-check-input
+              label(for='kitchen-all').form-check-label.d-flex.align-items-center
+                span.text-nav.fw-medium View all
+                span.fs-xs.text-muted.ms-auto 813
+            .form-check
+              input(type='checkbox')#kitchen-cutlery.form-check-input
+              label(for='kitchen-cutlery').form-check-label.d-flex.align-items-center
+                span.text-nav.fw-medium Cutlery
+                span.fs-xs.text-muted.ms-auto 387
+            .form-check
+              input(type='checkbox')#kitchen-storage.form-check-input
+              label(for='kitchen-storage').form-check-label.d-flex.align-items-center
+                span.text-nav.fw-medium Storage
+                span.fs-xs.text-muted.ms-auto 124
+            .form-check
+              input(type='checkbox')#kitchen-bins.form-check-input
+              label(for='kitchen-bins').form-check-label.d-flex.align-items-center
+                span.text-nav.fw-medium Waste bins
+                span.fs-xs.text-muted.ms-auto 59
+            .form-check
+              input(type='checkbox')#kitchen-holders.form-check-input
+              label(for='kitchen-holders').form-check-label.d-flex.align-items-center
+                span.text-nav.fw-medium Holders
+                span.fs-xs.text-muted.ms-auto 227
+            .form-check
+              input(type='checkbox')#kitchen-sinks.form-check-input
+              label(for='kitchen-sinks').form-check-label.d-flex.align-items-center
+                span.text-nav.fw-medium Sinks
+                span.fs-xs.text-muted.ms-auto 16
+      .accordion-item.mb-0
+        h4.accordion-header
+          button(type='button' data-bs-toggle='collapse' data-bs-target='#bathroom' aria-expanded='false' aria-controls='bathroom').accordion-button.collapsed.fs-xl.fw-medium.py-2
+            span.fs-base Bathroom
+        #bathroom.accordion-collapse.collapse(data-bs-parent="#shopCategories")
+          .accordion-body.py-1.mb-1
+            .form-check
+              input(type='checkbox')#bathroom-all.form-check-input
+              label(for='bathroom-all').form-check-label.d-flex.align-items-center
+                span.text-nav.fw-medium View all
+                span.fs-xs.text-muted.ms-auto 1416
+            .form-check
+              input(type='checkbox')#bathroom-showers.form-check-input
+              label(for='bathroom-showers').form-check-label.d-flex.align-items-center
+                span.text-nav.fw-medium Showers
+                span.fs-xs.text-muted.ms-auto 113
+            .form-check
+              input(type='checkbox')#bathroom-basins.form-check-input
+              label(for='bathroom-basins').form-check-label.d-flex.align-items-center
+                span.text-nav.fw-medium Basins
+                span.fs-xs.text-muted.ms-auto 98
+            .form-check
+              input(type='checkbox')#bathroom-dispensers.form-check-input
+              label(for='bathroom-dispensers').form-check-label.d-flex.align-items-center
+                span.text-nav.fw-medium Dispensers
+                span.fs-xs.text-muted.ms-auto 205
+            .form-check
+              input(type='checkbox')#bathroom-cleaning.form-check-input
+              label(for='bathroom-cleaning').form-check-label.d-flex.align-items-center
+                span.text-nav.fw-medium Cleaning
+                span.fs-xs.text-muted.ms-auto 747
+            .form-check
+              input(type='checkbox')#bathroom-holders.form-check-input
+              label(for='bathroom-holders').form-check-label.d-flex.align-items-center
+                span.text-nav.fw-medium Holders
+                span.fs-xs.text-muted.ms-auto 253
+      .accordion-item.mb-0
+        h4.accordion-header
+          button(type='button' data-bs-toggle='collapse' data-bs-target='#bedroom' aria-expanded='false' aria-controls='bedroom').accordion-button.collapsed.fs-xl.fw-medium.py-2
+            span.fs-base Bedroom
+        #bedroom.accordion-collapse.collapse(data-bs-parent="#shopCategories")
+          .accordion-body.py-1.mb-1
+            .form-check
+              input(type='checkbox')#bedroom-all.form-check-input
+              label(for='bedroom-all').form-check-label.d-flex.align-items-center
+                span.text-nav.fw-medium View all
+                span.fs-xs.text-muted.ms-auto 1219
+            .form-check
+              input(type='checkbox')#bedroom-furniture.form-check-input
+              label(for='bedroom-furniture').form-check-label.d-flex.align-items-center
+                span.text-nav.fw-medium Furniture
+                span.fs-xs.text-muted.ms-auto 43
+            .form-check
+              input(type='checkbox')#bedroom-linen.form-check-input
+              label(for='bedroom-linen').form-check-label.d-flex.align-items-center
+                span.text-nav.fw-medium Bed linen
+                span.fs-xs.text-muted.ms-auto 528
+            .form-check
+              input(type='checkbox')#bedroom-lighting.form-check-input
+              label(for='bedroom-lighting').form-check-label.d-flex.align-items-center
+                span.text-nav.fw-medium Lighting
+                span.fs-xs.text-muted.ms-auto 391
+            .form-check
+              input(type='checkbox')#bedroom-storage.form-check-input
+              label(for='bedroom-storage').form-check-label.d-flex.align-items-center
+                span.text-nav.fw-medium Storage
+                span.fs-xs.text-muted.ms-auto 75
+            .form-check
+              input(type='checkbox')#bedroom-mirrors.form-check-input
+              label(for='bedroom-mirrors').form-check-label.d-flex.align-items-center
+                span.text-nav.fw-medium Mirrors
+                span.fs-xs.text-muted.ms-auto 182
+
+    
+    // Price (range slider + inputs)
+    h3.h5 Price
+    .range-slider.pb-3.mb-4(data-start-min='10' data-start-max='50' data-min='0' data-max='80' data-step='1')
+      .range-slider-ui
+      .d-flex
+        .d-flex.align-items-center.w-50
+          label(for='price-min').form-label.fs-xs.me-2.mb-0 From
+          input(type='number' style='max-width: 6rem;')#price-min.form-control.form-control-sm.range-slider-value-min
+        .d-flex.align-items-center.justify-content-end.w-50
+          label(for='price-max').form-label.fs-xs.me-2.mb-0 To
+          input(type='number' style='max-width: 6rem;')#price-max.form-control.form-control-sm.range-slider-value-max
+
+    
+    // Color (checkboxes)
+    h3.h5 Color
+    .d-flex.pb-2.mb-4
+      .me-2.mb-2
+        input(type='checkbox' value='Black' checked)#color1.btn-check
+        label(for='color1').btn.btn-icon.btn-sm.btn-outline-secondary.rounded-circle
+          span(style='width: 1.5rem; height: 1.5rem; background-color: #1d211f;').d-block.rounded-circle
+      .me-2.mb-2
+        input(type='checkbox' value='Soft beige')#color2.btn-check
+        label(for='color2').btn.btn-icon.btn-sm.btn-outline-secondary.rounded-circle
+          span(style='width: 1.5rem; height: 1.5rem; background-color: #d9c9a1;').d-block.rounded-circle
+      .me-2.mb-2
+        input(type='checkbox' value='Bluish sky')#color3.btn-check
+        label(for='color3').btn.btn-icon.btn-sm.btn-outline-secondary.rounded-circle
+          span(style='width: 1.5rem; height: 1.5rem; background-color: #a1b7d9;').d-block.rounded-circle
+      .me-2.mb-2
+        input(type='checkbox' value='Green grass')#color4.btn-check
+        label(for='color4').btn.btn-icon.btn-sm.btn-outline-secondary.rounded-circle
+          span(style='width: 1.5rem; height: 1.5rem; background-color: #74947d;').d-block.rounded-circle
+      .me-2.mb-2
+        input(type='checkbox' value='Woody brown')#color5.btn-check
+        label(for='color5').btn.btn-icon.btn-sm.btn-outline-secondary.rounded-circle
+          span(style='width: 1.5rem; height: 1.5rem; background-color: #af8352; background-image: url(assets/img/shop/pattern/wood.jpg);').d-block.bg-size-cover.bg-position-center.rounded-circle
+      .mb-2
+        input(type='checkbox' value='Gray marble')#color6.btn-check
+        label(for='color6').btn.btn-icon.btn-sm.btn-outline-secondary.rounded-circle
+          span(style='width: 1.5rem; height: 1.5rem; background-color: #c0c0c0; background-image: url(assets/img/shop/pattern/marble.jpg);').d-block.bg-size-cover.bg-position-center.rounded-circle
+
+    
+    // Brand (checkboxes)
+    h3.h5 Brand
+    .pb-2
+      .form-check
+        input(type='checkbox' value='Pazolinni')#brand1.form-check-input
+        label(for='brand1').form-check-label.d-flex.align-items-center
+          span.text-nav.fw-medium Pazolinni
+          span.fs-xs.text-muted.ms-auto 48
+      .form-check
+        input(type='checkbox' value='Tither Room' checked)#brand2.form-check-input
+        label(for='brand2').form-check-label.d-flex.align-items-center
+          span.text-nav.fw-medium Tither Room
+          span.fs-xs.text-muted.ms-auto 32
+      .form-check
+        input(type='checkbox' value='Moissy Decor')#brand3.form-check-input
+        label(for='brand3').form-check-label.d-flex.align-items-center
+          span.text-nav.fw-medium Moissy Decor
+          span.fs-xs.text-muted.ms-auto 25
+      .form-check
+        input(type='checkbox' value='Victorio Via')#brand4.form-check-input
+        label(for='brand4').form-check-label.d-flex.align-items-center
+          span.text-nav.fw-medium Victorio Via
+          span.fs-xs.text-muted.ms-auto 56

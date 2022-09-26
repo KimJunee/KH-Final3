@@ -1,0 +1,88 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var parentMenu = 'Pages'
+  - var pageTitle = 'Job Board | Contact Us'
+
+//- Navbar
+block navbar
+  include partials/navbar-job-board
+
+//- Page Content
+block content
+
+  // Page content
+  section.py-5
+    .container.pt-5.pb-lg-5
+
+      // Breadcrumbs
+      nav(aria-label='breadcrumb')
+        ol.breadcrumb.py-md-3.py-1
+          li.breadcrumb-item
+            a(href='job-board-home-v1.html') Home
+          li(aria-current='page').breadcrumb-item.active
+            | Contact us
+
+      .row.gy-4
+        .col-lg-4.col-md-5.mb-md-0.mb-2
+          .card.border-0.bg-secondary.p-md-3.p-1
+            .card-body
+              h1.mb-4
+                | Contacts
+              .mb-md-5.mb-4
+                a(href='mailto:example@email.com').nav-link.fw-normal.d-flex.align-items-start.mb-3.p-0
+                  i.fi-mail.mt-1.me-2.pe-1.text-primary
+                  | example@email.com
+                a(href='tel:4065550120').nav-link.fw-normal.d-flex.align-items-start.mb-3.p-0
+                  i.fi-device-mobile.mt-1.me-2.pe-1.text-primary
+                  | (406) 555-0120
+                a(href='#').nav-link.fw-normal.d-flex.align-items-start.mb-3.p-0
+                  i.fi-map-pin.mt-1.me-2.pe-1.text-primary
+                  | 4140 Parker Rd. Allentown, <br> New Mexico 31134
+                span.nav-link.fw-normal.d-flex.align-items-start.mb-3.p-0
+                  i.fi-clock.mt-1.me-2.pe-1.text-primary
+                  | Mon – Fri: 10:00 am – 20:00 pm
+              h3.h6.mb-1
+                | Follow us:
+              a(href='#').btn.btn-icon.btn-light-primary.btn-xs.rounded-circle.shadow-sm.mt-2.me-2
+                i.fi-facebook
+              a(href='#').btn.btn-icon.btn-light-primary.btn-xs.rounded-circle.shadow-sm.mt-2.me-2
+                i.fi-twitter
+              a(href='#').btn.btn-icon.btn-light-primary.btn-xs.rounded-circle.shadow-sm.mt-2.me-2
+                i.fi-instagram
+              a(href='#').btn.btn-icon.btn-light-primary.btn-xs.rounded-circle.shadow-sm.mt-2.me-2
+                i.fi-youtube
+
+        .col-md-7.offset-lg-1
+          h2.h4.mb-4.pb-md-2
+            | Perhaps you can find an answer to your question here:
+          .mb-md-4.mb-3.fs-sm
+            h6.mb-md-3.mb-2.fs-base
+              | Should I apply for a job even if I don't have the specified experience?
+            p
+              | Blandit adipiscing duis sit tellus rhoncus, amet, sit vitae gravida. Tincidunt placerat ultrices eu, senectus vitae accumsan massa in. Ultricies imperdiet duis feugiat lorem. Pretium turpis faucibus sit urna nisi lorem interdum. Diam semper et ac neque ac.
+          .mb-md-4.mb-3.fs-sm
+            h6.mb-md-3.mb-2.fs-base
+              | What are the most important things to include in my resume?
+            p
+              | Amet posuere imperdiet placerat volutpat elit tellus lectus. Et sit massa volutpat id condimentum velit risus quam ut. Fames ut pulvinar ut ac sed elementum sed. Bibendum interdum ut sit ullamcorper arcu. Proin pharetra proin mi ultricies diam sit. Arcu faucibus ut adipiscing odio habitasse at ut amet maecenas. Suscipit eget mi felis eu mi scelerisque. Mattis condimentum ut eget eu, aliquam id blandit urna, mattis.
+          .mb-md-4.mb-3.fs-sm
+            h6.mb-md-3.mb-2.fs-base
+              | How long should I make my cover letter and/or resume?
+            p
+              | Morbi egestas quam ultrices fames dapibus proin amet, placerat cum. Feugiat nibh nulla pellentesque viverra elementum nibh tortor orci. A vitae hac id accumsan. At lacus velit donec vivamus. Auctor pharetra, ipsum aliquam lacus morbi at feugiat nullam. In eu tellus elementum varius tristique. Varius pretium vestibulum feugiat dapibus tempor amet, ultricies. At urna diam viverra sed suspendisse. In at adipiscing nisl at ultrices curabitur tempor.
+          .mb-md-4.mb-3.fs-sm
+            h6.mb-md-3.mb-2.fs-base
+              | Will our data be private and safe?
+            p
+              | Enim at cursus id malesuada pharetra, mollis nam. Amet quam viverra est lacus habitant feugiat arcu. Habitant nunc, nibh leo sem quisque nunc vel. Suspendisse mattis risus iaculis orci. Nisl neque volutpat gravida nec vel. Mauris lacus nisl facilisis aliquet gravida. Et nisi, pretium ultricies augue placerat tempus. Sed felis non penatibus id blandit velit nibh.
+          .pt-md-3.pt-2
+            a(href='job-board-help-center.html').btn.btn-primary.rounded-pill
+              | Go to help center
+              i.fi-chevron-right.ms-2
+
+
+//- Footer
+block footer
+  include partials/footer-job-board

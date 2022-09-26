@@ -1,0 +1,227 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css', 'vendor/prismjs/themes/prism.css', 'vendor/prismjs/plugins/toolbar/prism-toolbar.css', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js', 'vendor/prismjs/components/prism-core.min.js', 'vendor/prismjs/components/prism-markup.min.js', 'vendor/prismjs/components/prism-clike.min.js', 'vendor/prismjs/components/prism-javascript.min.js', 'vendor/prismjs/components/prism-pug.min.js', 'vendor/prismjs/plugins/toolbar/prism-toolbar.min.js', 'vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Collapse'
+  - var pageSubtitle = 'Toggle the visibility of content.'
+  - var pageTitleLink = {'title': 'Bootstrap docs', 'link': 'https://getbootstrap.com/docs/5.2/components/collapse/'}
+  - var anchorNav = [{'title': 'Basic example', 'link': '#collapse-basic'}, {'title': 'Horizontal', 'link': '#collapse-horizontal'}, {'title': 'Multiple targets', 'link': '#collapse-multiple'}]
+    
+//- Page Content
+block content
+
+  // Basic example
+  section#collapse-basic.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Basic example
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview1' data-bs-toggle='tab' role='tab' aria-controls='preview1' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview1.tab-pane.fade.show.active(role='tabpanel')
+          a(href='#collapseExample' data-bs-toggle='collapse' role='button' aria-expanded='false' aria-controls='collapseExample').btn.btn-outline-secondary.me-2.mb-3 Link with href
+          button(type='button' data-bs-toggle='collapse' data-bs-target='#collapseExample' aria-expanded='false' aria-controls='collapseExample').btn.btn-outline-secondary.mb-3 Button with data-bs-target
+          #collapseExample.collapse
+            .card.card-body
+              | At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
+        #html1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Link with href --&gt;
+              &lt;a href=&quot;#collapseExample&quot; class=&quot;btn btn-outline-secondary mb-3&quot; data-bs-toggle=&quot;collapse&quot; role=&quot;button&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;collapseExample&quot;&gt;
+                Link with href
+              &lt;/a&gt;
+
+              &lt;!-- Button with data-bs-target --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-secondary mb-3&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#collapseExample&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;collapseExample&quot;&gt;
+                Button with data-bs-target
+              &lt;/button&gt;
+
+              &lt;!-- Collapse --&gt;
+              &lt;div class=&quot;collapse&quot; id=&quot;collapseExample&quot;&gt;
+                &lt;div class=&quot;card card-body&quot;&gt;
+                  At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Link with href
+              a(href=&quot;#collapseExample&quot;, data-bs-toggle=&quot;collapse&quot;, role=&quot;button&quot;, aria-expanded=&quot;false&quot;, aria-controls=&quot;collapseExample&quot;).btn.btn-outline-secondary.mb-3
+                | Link with href
+
+              // Button with data-bs-target
+              button(type=&quot;button&quot;, data-bs-toggle=&quot;collapse&quot;, data-bs-target=&quot;#collapseExample&quot;, aria-expanded=&quot;false&quot;, aria-controls=&quot;collapseExample&quot;).btn.btn-outline-secondary.mb-3
+                | Button with data-bs-target
+
+              // Collapse
+              #collapseExample.collapse
+                .card.card-body
+                  | At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
+
+  // Horizontal
+  section#collapse-horizontal.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Horizontal
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview2' data-bs-toggle='tab' role='tab' aria-controls='preview2' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview2.tab-pane.fade.show.active(role='tabpanel')
+          button(type='button' data-bs-toggle='collapse' data-bs-target='#collapseHorizontal' aria-expanded='false' aria-controls='collapseHorizontal').btn.btn-outline-secondary.mb-3 Toggle width collapse
+          #collapseHorizontal.collapse.collapse-horizontal
+            .card.card-body(style='width: 30rem;')
+              | At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa officia.
+        #html2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Horizotal (width) collapse --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-secondary mb-3&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#collapseHorizontal&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;collapseHorizontal&quot;&gt;
+                Toggle width collapse
+              &lt;/button&gt;
+              &lt;div class=&quot;collapse collapse-horizontal&quot; id=&quot;collapseHorizontal&quot;&gt;
+                &lt;div class=&quot;card card-body&quot; style=&quot;width: 30rem;&quot;&gt;
+                  At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa officia.
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Horizotal (width) collapse
+              button(type=&quot;button&quot;, data-bs-toggle=&quot;collapse&quot;, data-bs-target=&quot;#collapseHorizontal&quot;, aria-expanded=&quot;false&quot;, aria-controls=&quot;collapseHorizontal&quot;).btn.btn-outline-secondary.mb-3
+                | Toggle width collapse
+              #collapseHorizontal.collapse.collapse-horizontal
+                .card.card-body(style=&quot;width: 30rem;&quot;)
+                  | At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa officia.
+
+  // Multiple targets
+  section#collapse-multiple.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Multiple targets
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview3' data-bs-toggle='tab' role='tab' aria-controls='preview3' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview3.tab-pane.fade.show.active(role='tabpanel')
+          a(href='#multiCollapseExample1' data-bs-toggle='collapse' role='button' aria-expanded='false' aria-controls='multiCollapseExample1').btn.btn-outline-secondary.me-2.mb-3 Toggle first element
+          button(type='button' data-bs-toggle='collapse' data-bs-target='#multiCollapseExample2' aria-expanded='false' aria-controls='multiCollapseExample2').btn.btn-outline-secondary.me-2.mb-3 Toggle second element
+          button(type='button' data-bs-toggle='collapse' data-bs-target='.multi-collapse' aria-expanded='false' aria-controls='multiCollapseExample1 multiCollapseExample2').btn.btn-outline-secondary.mb-3 Toggle both elements
+          .row
+            .col-sm-6
+              #multiCollapseExample1.collapse.multi-collapse
+                .card.card-body.mb-2
+                  | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+            .col-sm-6
+              #multiCollapseExample2.collapse.multi-collapse
+                .card.card-body.mb-2
+                  | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+        #html3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Toggle first element --&gt;
+              &lt;a href=&quot;#multiCollapseExample1&quot; class=&quot;btn btn-outline-secondary me-2 mb-3&quot; data-bs-toggle=&quot;collapse&quot; role=&quot;button&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;multiCollapseExample1&quot;&gt;
+                Toggle first element
+              &lt;/a&gt;
+
+              &lt;!-- Toggle second element --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-secondary me-2 mb-3&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#multiCollapseExample2&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;multiCollapseExample2&quot;&gt;
+                Toggle second element
+              &lt;/button&gt;
+
+              &lt;!-- Toggle both elements --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-secondary mb-3&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;.multi-collapse&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;multiCollapseExample1 multiCollapseExample2&quot;&gt;
+                Toggle both elements
+              &lt;/button&gt;
+              
+              &lt;div class=&quot;row&quot;&gt;
+                &lt;div class=&quot;col-sm-6&quot;&gt;
+
+                  &lt;!-- Collapse 1 --&gt;
+                  &lt;div class=&quot;collapse multi-collapse&quot; id=&quot;multiCollapseExample1&quot;&gt;
+                    &lt;div class=&quot;card card-body mb-2&quot;&gt;
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;col-sm-6&quot;&gt;
+
+                  &lt;!-- Collapse 2 --&gt;
+                  &lt;div class=&quot;collapse multi-collapse&quot; id=&quot;multiCollapseExample2&quot;&gt;
+                    &lt;div class=&quot;card card-body mb-2&quot;&gt;
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Toggle first element
+              a(href=&quot;#multiCollapseExample1&quot;, data-bs-toggle=&quot;collapse&quot;, role=&quot;button&quot;, aria-expanded=&quot;false&quot;, aria-controls=&quot;multiCollapseExample1&quot;).btn.btn-outline-secondary.me-2.mb-3
+                | Toggle first element
+              
+              // Toggle second element
+              button(type=&quot;button&quot;, data-bs-toggle=&quot;collapse&quot;, data-bs-target=&quot;#multiCollapseExample2&quot;, aria-expanded=&quot;false&quot;, aria-controls=&quot;multiCollapseExample2&quot;).btn.btn-outline-secondary.me-2.mb-3
+                | Toggle second element
+
+              // Toggle both elements
+              button(type=&quot;button&quot;, data-bs-toggle=&quot;collapse&quot;, data-bs-target=&quot;.multi-collapse&quot;, aria-expanded=&quot;false&quot;, aria-controls=&quot;multiCollapseExample1 multiCollapseExample2&quot;).btn.btn-outline-secondary.mb-3
+                | Toggle both elements
+
+              .row
+                .col-sm-6
+
+                  // Collapse 1
+                  #multiCollapseExample1.collapse.multi-collapse
+                    .card.card-body.mb-2
+                      | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                .col-sm-6
+
+                  // Collapse 2
+                  #multiCollapseExample2.collapse.multi-collapse
+                    .card.card-body.mb-2
+                      | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.

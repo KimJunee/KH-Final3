@@ -1,0 +1,260 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/aos/dist/aos.css', 'vendor/swiper/swiper-bundle.min.css']
+  - var scripts = ['vendor/aos/dist/aos.js', 'vendor/jarallax/dist/jarallax.min.js', 'vendor/swiper/swiper-bundle.min.js']
+  - var parentMenu = 'Pages'
+  - var pageTitle = 'Single Project v.2'
+  - var buttonShape = 'rounded-0'
+
+
+//- Navbar
+block navbar
+  include partials/navbar.pug
+
+
+//- Page Content
+block content
+
+  // Hero
+  section.position-relative.pt-5.mb-5
+    .bg-secondary.position-absolute.top-0.end-0.w-50.h-100.d-none.d-lg-block
+    .bg-secondary.position-absolute.top-0.end-0.w-100.h-100.d-lg-none
+    .container.position-relative.zindex-2.py-5.pb-lg-0
+
+      // Breadcrumb
+      +breadcrumb([{'link': 'portfolio-grid-v2.html', 'title': 'Portfolio'}, {'title': 'Single project v.2'}]).pt-lg-2.pb-1
+
+      .d-lg-flex.align-items-center.pt-3.pb-xxl-5
+        img(src='assets/img/portfolio/single/v2/01.png' width='480' alt='Image').d-block.order-lg-2.me-auto.me-lg-0.ms-auto
+        .order-lg-1.text-center.text-lg-start.pe-lg-4.py-4.py-md-5
+          h1.display-2.text-uppercase.pb-3.pb-lg-4 Perfect Instagram shots and stories
+          p.fs-lg.mx-auto.mx-lg-0.mb-0(style='max-width: 530px;') Ac facilisis erosers sem in faucibus aliquet venenatis amet mentum nisi mauris consectres sem malesuada viverra a non sapien odio id risus volutpat at massa tellus.
+      ul.nav.justify-content-center.justify-content-lg-start.mx-n2.pt-lg-5.mb-0
+        li.nav-item.me-3
+          a(href='#').nav-link.p-2 instagram
+        li.nav-item.me-3
+          a(href='#').nav-link.p-2 dribbble
+        li.nav-item
+          a(href='#').nav-link.p-2 behance
+
+  
+  // Page content
+  section.container.overflow-hidden.pt-lg-2.pt-xl-4.pt-xxl-5
+    .row.py-sm-3.py-md-4.py-lg-5
+
+      // Sticky sidebar with brief
+      .col-md-3.col-lg-2(style='margin-top: -125px;')
+        .d-flex.d-md-block.flex-wrap.position-sticky.top-0(style='padding-top: 130px;')
+          .pb-3.mb-2.mb-lg-4.me-5.me-md-0
+            h2.fs-base.fw-normal.text-muted.mb-2 Company
+            ul.list-unstyled.fs-lg.fw-semibold.text-dark.mb-0
+              li.d-block.py-1 Vintage
+              li.d-block.py-1 12-18 employees
+              li.d-block.py-1 Dublin, Ireland
+              li.d-block.py-1
+                a(href='#').text-dark Visit website
+          .pb-3.mb-2.mb-lg-4.me-5.me-md-0
+            h2.fs-base.fw-normal.text-muted.mb-2 Indusrty
+            ul.list-unstyled.fs-lg.fw-semibold.text-dark.mb-0
+              li.d-block.py-1 E-commerce
+          .pb-3.mb-2.mb-lg-4.me-5.me-md-0
+            h2.fs-base.fw-normal.text-muted.mb-2 Services
+            ul.list-unstyled.fs-lg.fw-semibold.text-dark.mb-0
+              li.d-block.py-1 Email marketing
+              li.d-block.py-1 Content marketing
+              li.d-block.py-1 Social networks
+          .pb-3.mb-2.mb-lg-4
+            h2.fs-base.fw-normal.text-muted.mb-2 Time spent
+            ul.list-unstyled.fs-lg.fw-semibold.text-dark.mb-0
+              li.d-block.py-1 2021, 3 months
+      
+      // Description
+      .col-md-9.offset-lg-1
+        .ps-md-4.ps-lg-0
+          .border-bottom.pb-3.pb-sm-4.pb-lg-5.mb-4
+            p.text-dark.lead.mb-md-2.mb-lg-3.mb-xl-4 Morbi et massa fames ac scelerisque sit commodo dignissim faucibus quisque proin lectus laoreet sem adipiscing sollicitudin erat massa tellus lorem enim aenean phasellus in hendrerit interdum lorem proin pretium dictum urna suspendisse quis risus et scelerisque sit commodo.
+          h2.h1.pt-2.pt-sm-3.pt-md-4.pt-lg-5.pb-2 About the client
+          p.fs-lg Sit congue tellus urna phasellus sagittis interdum sed laoreet eget curabitur. Vel magna sit aliquet viverra morbi massa mattis urna, feugiat egestas tincidunt ipsum diam quam massa amet odio nisi duis dolor. Morbi et massa fames ac scelerisque sit commodo dignissim faucibus quisque proin lectus laoreet sem adipiscing sollicitudin erat massa tellus lorem enim aenean phasellus in hendrerit interdum lorem proin pretium dictum urna suspendisse quis risus et.
+          h2.h1.pt-3.pt-sm-4.pt-xl-5.pb-2 The challenge
+          p.fs-lg Sit diam nunc, et pellentesque ornare elit, ut. Interdum feugiat id ut egestas tellus congue faucibus habitant semper nunc et etiam ultrices id nisi urna amet, odio mauris risus nam aliquam pharetra amet nunc, enim aliquet egestas purus penatibus ac, elit ultricies proin adipiscing suspendisse sit proin.
+          h2.h1.pt-3.pt-sm-4.pt-xl-5.pb-2 The solution
+          p.fs-lg.mb-0 Est enim mollis morbi vulputate egestas commodo vitae quis sed sit ultrices nulla habitant sit faucibus orci. Eu etiam ipsum porttitor morbi urna eget aliquet aenean tristique amet tempus, vestibulum vel montes, pellentesque sit. Cursus nulla viverra elit accumsan, vitae. Phasellus sed hac at pharetra urna. Imperdiet egestas ac eget porttitor ultrices morbi ornare. Libero, lectus eget adipiscing odio ornare non maecenas non vitae libero, at feugiat urna, risus augue fringilla. Venenatis quam.
+
+    // Images
+    .row.py-5.my-md-2.my-lg-3.my-xl-4.my-xxl-5
+      .col-sm-7.mb-4.mb-sm-0
+        .position-relative.mb-4
+          .position-absolute.top-0.start-0.w-100.h-100(style='background-color: #2663f2;' data-aos='zoom-in' data-aos-duration='700' data-aos-offset='250')
+          img(src='assets/img/portfolio/single/v2/02.png' alt='Image' data-aos='zoom-in' data-aos-duration='400' data-aos-offset='250').position-relative.zindex-2
+        .position-relative
+          .bg-black.position-absolute.top-0.start-0.w-100.h-100(data-aos='zoom-in' data-aos-duration='700' data-aos-offset='250')
+          img(src='assets/img/portfolio/single/v2/04.png' alt='Image' data-aos='zoom-in' data-aos-duration='400' data-aos-offset='250').position-relative.zindex-2
+      .col-sm-5
+        .position-relative
+          .position-absolute.top-0.start-0.w-100.h-100(style='max-height: 588px; background-color: #216d2a;' data-aos='zoom-in' data-aos-duration='700' data-aos-offset='250')
+          img(src='assets/img/portfolio/single/v2/03.png' alt='Image' data-aos='zoom-in' data-aos-duration='400' data-aos-offset='250').position-relative.zindex-2
+
+    // Stats
+    .row.pt-sm-3.pt-md-4.pb-5.mb-sm-2.mb-md-3.mb-lg-4.mb-xl-5
+      .col-md-7.col-xl-6.mb-4.mb-md-0
+        p.text-dark.lead.mb-0 Morbi et massa fames ac scelerisque sit commodo dignissim faucibus quisque proin lectus laoreet sem adipiscing sollicitudin erat massa tellus lorem enim aenean phasellus in hendrerit interdum lorem proin pretium dictum urna suspendisse quis risus et scelerisque sit commodo.
+      .col-md-5.offset-xl-1
+        .row.row-cols-2.gx-3.gx-sm-4
+          .col
+            .h2.display-1.mb-0 30+
+            p.fs-sm.mb-0 Different templates
+          .col
+            .h2.display-1.mb-0 150
+            p.fs-sm.mb-0 Happy clients all over the world
+
+    // Images
+    .position-relative.w-100.mx-auto.pb-1.pb-sm-3.pb-md-4(style='max-width: 1043px;')
+      img(src='assets/img/portfolio/single/v2/05.png' alt='Image' data-aos='fade-down-right' data-aos-duration='500' data-aos-offset='250').d-block.position-relative.zindex-5
+      img(src='assets/img/portfolio/single/v2/06.png' alt='Image' data-aos='zoom-in' data-aos-duration='500' data-aos-offset='250').d-block.position-absolute.top-0.start-0.zindex-2
+      img(src='assets/img/portfolio/single/v2/07.png' alt='Image' data-aos='fade-down' data-aos-duration='500' data-aos-offset='250').d-block.position-absolute.top-0.start-0.zindex-1
+      img(src='assets/img/portfolio/single/v2/08.png' alt='Image' data-aos='fade-left' data-aos-duration='500' data-aos-offset='250').d-block.position-absolute.top-0.start-0
+    
+    // Images
+    .row.py-5.my-lg-3.my-xl-4.my-xxl-5
+      .col-sm-5.mb-4.mb-sm-0
+        .position-relative
+          .bg-secondary.position-absolute.top-0.start-0.w-100.h-100(data-aos='zoom-in' data-aos-duration='700' data-aos-offset='250')
+          img(src='assets/img/portfolio/single/v2/09.png' alt='Image' data-aos='zoom-in' data-aos-duration='400' data-aos-offset='250').position-relative.zindex-2
+      .col-sm-7
+        .position-relative
+          .bg-secondary.position-absolute.top-0.start-0.w-100.h-100(data-aos='zoom-in' data-aos-duration='700' data-aos-offset='250')
+          img(src='assets/img/portfolio/single/v2/10.png' alt='Image' data-aos='zoom-in' data-aos-duration='400' data-aos-offset='250').position-relative.zindex-2
+    
+    // Results
+    .row.pt-1.pt-sm-3.pt-md-4.pb-5.mb-md-2.mb-lg-3.mb-xl-4.mb-xxl-5
+      .col-md-11.col-lg-9.col-xl-8.pb-1.pb-sm-3.pb-md-4
+        h2.h1.pb-sm-2.pb-lg-3 Results
+        p.fs-lg.mb-0 Morbi et massa fames ac scelerisque sit commodo dignissim faucibus quisque proin lectus laoreet sem adipiscing sollicitudin erat massa tellus lorem enim aenean phasellus in hendrerit interdum lorem proin pretium dictum urna suspendisse quis risus et.
+        .row.row-cols-3.pt-2.pt-sm-3.pt-md-4.pt-xl-5.my-3
+          .col
+            .h2.display-1.mb-0 30+
+            p.fs-sm.mb-0 Different templates
+          .col
+            .h2.display-1.mb-0 160%
+            p.fs-sm.mb-0 Revenue increase
+          .col
+            .h2.display-1.mb-0 150
+            p.fs-sm.mb-0 Happy clients all over the world
+
+
+  // Parallax background image
+  section.jarallax(data-jarallax data-speed='0.6')
+    .ratio.ratio-16x9
+    .jarallax-img(style='background-image: url(assets/img/portfolio/single/v2/parallax.jpg);')
+
+
+  // Testimonials (Carousel)
+  section.container.position-relative.zindex-2.py-5.mt-n1.mt-sm-0.mb-1.my-md-3.my-lg-3.my-xl-4.my-xxl-5
+    .row.py-md-4.py-lg-5
+      .col-md-9.col-lg-7.order-md-2
+
+        // Swiper slider
+        .swiper(
+          data-swiper-options=`{
+            "spaceBetween": 40,
+            "loop": true,
+            "bindedContent": true,
+            "autoHeight": true,
+            "pagination": {
+              "el": ".testimonials-count",
+              "type": "fraction"
+            },
+            "navigation": {
+              "prevEl": "#prev-testimonial",
+              "nextEl": "#next-testimonial"
+            }
+          }`
+        )
+          .swiper-wrapper
+
+            // Item
+            .swiper-slide(data-swiper-binded='#testimonial-1')
+              .d-flex.d-md-none.pt-3.mb-3
+                i.ai-quotes.d-md-none.text-primary.display-3.mt-n2
+                .ps-3
+                  h3.h5.mb-0 Lilia Bocouse
+                  p.text-muted.mb-0 Head of Marketing
+              h2.mb-lg-4 Awesome experience with a professional team. Thank you :)
+              p.lead.mb-0 Suspendisse mauris elit, pellentesque nec purus sed, finibus finibus ipsum. Proin posuere, metus sed porttitor pellentesque, ante magna tincidunt mi, nec fermentum dui ligula vel massa. Praesent ultrices iaculis arcu iaculis ultrices. Maecenas vitae nulla odio. In laoreet, lectus in tempus ultricies.  
+
+            // Item
+            .swiper-slide(data-swiper-binded='#testimonial-2')
+              .d-flex.d-md-none.pt-3.mb-3
+                i.ai-quotes.d-md-none.text-primary.display-3.mt-n2
+                .ps-3
+                  h3.h5.mb-0 Robert Fox
+                  p.text-muted.mb-0 Marketing Coordinator
+              h2.mb-lg-4 Thanks to your talented team for the banding we dreamed about
+              p.lead.mb-0 Leo vitae sem eget eget at in vivamus placerat sodales tristique risusiis senectusic quisque faucibus est justo egetert lobortis ultrices eu dignissim etiamier turpis tincidunt eget placerat feugiat senectusic quisque faucibus placerat sodales vitae tempor morbi tellus pulvinar tristique in turpis.  
+
+            // Item
+            .swiper-slide(data-swiper-binded='#testimonial-3')
+              .d-flex.d-md-none.pt-3.mb-3
+                i.ai-quotes.d-md-none.text-primary.display-3.mt-n2
+                .ps-3
+                  h3.h5.mb-0 Jenny Wilson
+                  p.text-muted.mb-0 CEO, Co-Founder
+              h2.mb-lg-4 Thanks to you, we have created a unique branding that is our pride!
+              p.lead.mb-0 Duis sapien velit, rutrum ac rutrum dapibus, auctor ut lacus. Aenean sit amet erat augue. Aenean finibus, nibh sed malesuada maximus, nisi tellus iaculis quam, eget egestas mi felis eu urna. Quisque id nisl commodo, egestas eros ac, cursus odio. Ut nec rutrum magna, vel tempor erat. Vivamus nec tempus purus.  
+
+      .col-md-3.offset-lg-1.order-md-1.mt-n3
+        i.ai-quotes.d-none.d-md-block.text-primary.ms-n2.mb-1(style='font-size: 150px;')
+
+        // Contnetn binded to slider (on screens > 768px)
+        .binded-content.h-auto.d-none.d-md-block
+          #testimonial-1.binded-item.h-auto.active
+            h3.h5.mb-1 Lilia Bocouse
+            p.text-muted.mb-0 Head of Marketing
+          #testimonial-2.binded-item.h-auto
+            h3.h5.mb-1 Robert Fox
+            p.text-muted.mb-0 Marketing Coordinator
+          #testimonial-3.binded-item.h-auto
+            h3.h5.mb-1 Jenny Wilson
+            p.text-muted.mb-0 CEO, Co-Founder
+      
+        // Swiper controls
+        .d-flex.align-items-center.pt-4.mt-3
+          button(type='button')#prev-testimonial.btn.btn-icon.btn-sm.btn-outline-primary.rounded-circle.me-3
+            i.ai-arrow-left
+          .testimonials-count.fw-medium.flex-shrink-0.text-center(style='width: 2.5rem;')
+          button(type='button')#next-testimonial.btn.btn-icon.btn-sm.btn-outline-primary.rounded-circle.ms-3
+            i.ai-arrow-right
+
+
+  // Other projects
+  section.container.pb-5.mb-2.mb-lg-3.mb-xl-4.mb-xxl-5
+    h2.h1.pb-3.pb-lg-4 Next projects
+    .row.row-cols-1.row-cols-sm-2.align-items-end.mb-2.pb-md-4
+      .col
+        .zoom-effect.position-relative.border-bottom.pb-3(style='max-width: 550px;')
+          .zoom-effect-wrapper
+            .zoom-effect-img
+              img(src='assets/img/portfolio/grid/11.jpg' alt='Image')
+          .pt-4.mt-lg-2
+            h2.h4.mb-2
+              a(href='portfolio-single-v2.html').stretched-link Doe design
+            .d-flex.justify-content-between.fs-lg.text-muted
+              span Branding, Stationery
+              span 2021
+      .col
+        .zoom-effect.position-relative.border-bottom.ms-auto.pb-3(style='max-width: 605px;')
+          .zoom-effect-wrapper
+            .zoom-effect-img
+              img(src='assets/img/portfolio/grid/10.jpg' alt='Image')
+          .pt-4.mt-lg-2
+            h2.h4.mb-2
+              a(href='portfolio-single-v2.html').stretched-link D.G.Vent
+            .d-flex.justify-content-between.fs-lg.text-muted
+              span Stationery design
+              span 2021
+
+//- Footer
+block footer
+  include partials/footer-portfolio.pug

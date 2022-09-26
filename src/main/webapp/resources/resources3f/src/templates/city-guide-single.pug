@@ -1,0 +1,275 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['lightgallery/css/lightgallery-bundle.min.css', 'tiny-slider/dist/tiny-slider.css']
+  - var vendorScripts = ['lightgallery/lightgallery.min.js', 'lightgallery/plugins/fullscreen/lg-fullscreen.min.js', 'lightgallery/plugins/zoom/lg-zoom.min.js', 'lightgallery/plugins/thumbnail/lg-thumbnail.min.js', 'flatpickr/dist/flatpickr.min.js', 'tiny-slider/dist/min/tiny-slider.js', 'tiny-slider/dist/min/tiny-slider.js']
+  - var parentMenu = 'Catalog'
+  - var pageTitle = 'City Guide | Single Place - Gallery'
+
+//- Navbar
+block navbar
+  include partials/navbar-city-guide
+
+//- Page Content
+block content
+
+  // Page header
+  section.container.pt-5.mt-5
+
+    // Breadcrumb
+    nav(aria-label='breadcrumb').mb-3.pt-md-3
+      ol.breadcrumb
+        li.breadcrumb-item
+          a(href='city-guide-home-v1.html') Home
+        li.breadcrumb-item
+          a(href='city-guide-catalog.html') Find accommodation
+        li(aria-current='page').breadcrumb-item.active
+          | Berlin Business Hotel
+
+    .d-sm-flex.align-items-center.justify-content-between.mb-4.pb-sm-2
+      h1.h2.me-3.mb-sm-0 Berlin Business Hotel
+      .text-nowrap
+        button(type='button' data-bs-toggle='tooltip' title='Add to Wishlist').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle
+          i.fi-heart
+        .dropdown.d-inline-block(data-bs-toggle='tooltip' title='Share')
+          button(type='button' data-bs-toggle='dropdown').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.ms-2
+            i.fi-share
+          .dropdown-menu.dropdown-menu-end.my-1
+            button(type='button').dropdown-item
+              i.fi-facebook.fs-base.opacity-75.me-2
+              | Facebook
+            button(type='button').dropdown-item
+              i.fi-twitter.fs-base.opacity-75.me-2
+              | Twitter
+            button(type='button').dropdown-item
+              i.fi-instagram.fs-base.opacity-75.me-2
+              | Instagram
+
+    // Nav pills
+    ul.nav.nav-pills.border-bottom.pb-3.mb-4
+      li.nav-item
+        a(href='city-guide-single.html').nav-link.d-flex.align-items-center.active
+          i.fi-image.me-2
+          | Gallery
+      li.nav-item
+        a(href='city-guide-single-info.html').nav-link.d-flex.align-items-center
+          i.fi-info-circle.me-2
+          | Info
+      li.nav-item
+        a(href='city-guide-single-reviews.html').nav-link.d-flex.align-items-center
+          i.fi-edit.me-2
+          | Reviews
+
+
+  // Gallery
+  section.container.overflow-auto.mb-5(data-simplebar)
+    .row.g-2.g-md-3.gallery(data-thumbnails='true' style='min-width: 30rem;')
+      .col-8
+        a(href='img/city-guide/single/01.jpg' data-sub-html='<h6 class="fs-sm text-light">Kids bed</h6>').gallery-item.rounded.rounded-md-3
+          img(src='img/city-guide/single/01.jpg' alt='Gallery thumbnail')
+      .col-4
+        a(href='img/city-guide/single/02.jpg' data-sub-html='<h6 class="fs-sm text-light">Kids bed</h6>').gallery-item.rounded.rounded-md-3.mb-2.mb-md-3
+          img(src='img/city-guide/single/02.jpg' alt='Gallery thumbnail')
+        a(href='img/city-guide/single/03.jpg' data-sub-html='<h6 class="fs-sm text-light">Working desk</h6>').gallery-item.rounded.rounded-md-3
+          img(src='img/city-guide/single/03.jpg' alt='Gallery thumbnail')
+      .col-12
+        .row.g-2.g-md-3
+          .col
+            a(href='img/city-guide/single/04.jpg' data-sub-html='<h6 class="fs-sm text-light">Working desk</h6>').gallery-item.rounded-1.rounded-md-2
+              img(src='img/city-guide/single/th04.jpg' alt='Gallery thumbnail')
+          .col
+            a(href='img/city-guide/single/05.jpg' data-sub-html='<h6 class="fs-sm text-light">King size bed</h6>').gallery-item.rounded-1.rounded-md-2
+              img(src='img/city-guide/single/th05.jpg' alt='Gallery thumbnail')
+          .col
+            a(href='img/city-guide/single/06.jpg' data-sub-html='<h6 class="fs-sm text-light">Towels</h6>').gallery-item.rounded-1.rounded-md-2
+              img(src='img/city-guide/single/th06.jpg' alt='Gallery thumbnail')
+          .col
+            a(href='img/city-guide/single/07.jpg' data-sub-html='<h6 class="fs-sm text-light">Bathroom</h6>').gallery-item.rounded-1.rounded-md-2
+              img(src='img/city-guide/single/th07.jpg' alt='Gallery thumbnail')
+          .col
+            a(href='img/city-guide/single/08.jpg' data-sub-html='<h6 class="fs-sm text-light">Bathroom</h6>').gallery-item.more-item.rounded-1.rounded-md-2
+              img(src='img/city-guide/single/th08.jpg' alt='Gallery thumbnail')
+              span.gallery-item-caption.fs-base +5 <span class='d-none d-md-inline'>photos</span>
+
+
+  // Page content
+  section.container.pb-5.mb-md-4
+    .row
+      .col-md-7.mb-md-0.mb-3
+        .card.py-2.px-sm-4.px-3.shadow-sm
+          .card-body.mx-n2
+
+            // Place info
+            .d-flex.align-items-start.mb-3.pb-3.border-bottom
+              img(src='img/city-guide/brands/hotel.svg' width='60' alt='Thumbnail')
+              .ps-2.ms-1
+                h3.h5.mb-2  Berlin Business Hotel
+                ul.list-unstyled.d-flex.flex-wrap.fs-sm
+                  li.me-2.mb-1.pe-1
+                    i.fi-star-filled.mt-n1.me-1.text-warning.align-middle.opacity-70
+                    b 4.9 
+                    | (48)
+                  li.me-2.mb-1.pe-1
+                    i.fi-wallet.mt-n1.me-1.align-middle.opacity-70
+                    | $$
+                  li.me-2.mb-1.pe-1
+                    i.fi-map-pin.mt-n1.me-1.align-middle.opacity-70
+                    | 1.4 km from center
+
+            // Place contacts
+            .mb-3.pb-3.border-bottom
+              h4.h5.mb-2 Contacts:
+              ul.nav.row.row-cols-sm-2.row-cols-1.gy-1
+                li.col
+                  a(href='#').nav-link.p-0.fw-normal.d-flex.align-items-start
+                    i.fi-map-pin.mt-1.me-2.align-middle.opacity-70
+                    | Ollenhauer Str. 29, 10118, Berlin
+                li.col
+                  a(href='tel:3025550107').nav-link.d-inline-block.p-0.fw-normal.d-inline-flex.align-items-start
+                    i.fi-phone.mt-1.me-2.align-middle.opacity-70
+                    | (302) 555-0107
+                  | , 
+                  a(href='tel:3025550208').nav-link.d-inline-block.p-0.fw-normal
+                    | (302) 555-0208
+                li.col
+                  a(href='#').nav-link.p-0.fw-normal.d-flex.align-items-start
+                    i.fi-globe.mt-1.me-2.align-middle.opacity-60
+                    | bb-hotel.com
+                li.col
+                  a(href='mailto:bb-hotel@example.com').nav-link.p-0.fw-normal.d-flex.align-items-start
+                    i.fi-mail.mt-1.me-2.align-middle.opacity-70
+                    | bb-hotel@example.com
+
+            // Place pricing
+            .mb-3.pb-3.border-bottom
+              .row.row-cols-sm-2.row-cols-1
+                .col.mb-sm-0.mb-3
+                  h4.h5.mb-0
+                    span.fs-4 $50-100&nbsp;
+                    span.fs-base.fw-normal.text-body /night
+                .col
+                  a(href='#').btn.btn-primary.btn-lg.rounded-pill.w-sm-auto.w-100
+                    | Book now
+                    i.fi-chevron-right.fs-sm.ms-2
+
+            // Follow
+            .d-flex.align-items-center
+              h4.h5.mb-0.me-3 Follow:
+              .text-nowrap
+                a(href='#').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.me-2
+                  i.fi-facebook
+                a(href='#').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.me-2
+                  i.fi-instagram
+                a(href='#').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle
+                  i.fi-twitter
+
+      // Location (Map)
+      .col-md-5
+        .position-relative.bg-size-cover.bg-position-center.bg-repeat-0.h-100.rounded-3(style='background-image: url(img/city-guide/single/map.jpg); min-height: 250px;')
+          //- img(src='i' alt='Map').rounded-lg
+          .d-flex.h-100.flex-column.align-items-center.justify-content-center
+            img(src='img/city-guide/brands/hotel.svg' width='40' alt='Place logo').d-block.mx-auto.mb-4.rounded-circle.bg-white.shadow
+            a(href='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2423.924340088787!2d13.428504251724927!3d52.58906113876177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a85284201593ab%3A0x28af69e02ce0e2fc!2sBusinesshotel%20Berlin!5e0!3m2!1sru!2sua!4v1618908622013!5m2!1sru!2sua' data-iframe='true' data-bs-toggle='lightbox').btn.btn-primary.rounded-pill.stretched-link
+              i.fi-route.me-2
+              | Get directions
+
+
+  // Recently viewed
+  section.container.pb-5.mb-lg-4
+    .d-flex.align-items-center.justify-content-between.mb-4.pb-2
+      h2.h3.mb-0 Recently viewed
+      a(href='city-guide-catalog.html').btn.btn-link.fw-normal.ms-sm-3.p-0
+        | View all
+        i.fi-arrow-long-right.ms-2
+    .tns-carousel-wrapper.tns-controls-outside-xxl.tns-nav-outside.mb-xxl-2
+      .tns-carousel-inner(data-carousel-options='{"items": 3, "gutter": 24, "responsive": {"0":{"items":1,"nav":true},"500":{"items":2},"850":{"items":3},"1400":{"items":3,"nav":false}}}')
+
+        // Item
+        div
+          .position-relative
+            .position-relative.mb-3
+              button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light-primary.btn-xs.text-primary.rounded-circle.position-absolute.top-0.end-0.m-3.zindex-5
+                i.fi-heart
+              img(src='img/city-guide/catalog/09.jpg' alt='Article img').rounded-3
+            h3.mb-2.fs-lg
+              a(href='#').nav-link.stretched-link Repose Hotel
+            ul.list-inline.mb-0.fs-xs
+              li.list-inline-item.pe-1
+                i.fi-star-filled.mt-n1.me-1.fs-base.text-warning.align-middle
+                b 5.0
+                span.text-muted &nbsp;(48)
+              li.list-inline-item.pe-1
+                i.fi-credit-card.mt-n1.me-1.fs-base.text-muted.align-middle
+                | $$
+              li.list-inline-item.pe-1
+                i.fi-map-pin.mt-n1.me-1.fs-base.text-muted.align-middle
+                | 1.4 km from center
+
+        // Item
+        div
+          .position-relative
+            .position-relative.mb-3
+              button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light-primary.btn-xs.text-primary.rounded-circle.position-absolute.top-0.end-0.m-3.zindex-5
+                i.fi-heart
+              img(src='img/city-guide/catalog/05.jpg' alt='Article img').rounded-3
+            h3.mb-2.fs-lg
+              a(href='#').nav-link.stretched-link Leisure Inn
+            ul.list-inline.mb-0.fs-xs
+              li.list-inline-item.pe-1
+                i.fi-star-filled.mt-n1.me-1.fs-base.text-warning.align-middle
+                b 4.8
+                span.text-muted &nbsp;(24)
+              li.list-inline-item.pe-1
+                i.fi-credit-card.mt-n1.me-1.fs-base.text-muted.align-middle
+                | $$$
+              li.list-inline-item.pe-1
+                i.fi-map-pin.mt-n1.me-1.fs-base.text-muted.align-middle
+                | 0.5 km from center
+
+        // Item
+        div
+          .position-relative
+            .position-relative.mb-3
+              button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light-primary.btn-xs.text-primary.rounded-circle.position-absolute.top-0.end-0.m-3.zindex-5
+                i.fi-heart
+              img(src='img/city-guide/catalog/11.jpg' alt='Article img').rounded-3
+            h3.mb-2.fs-lg
+              a(href='#').nav-link.stretched-link Soothe &amp; Stay
+            ul.list-inline.mb-0.fs-xs
+              li.list-inline-item.pe-1
+                i.fi-star-filled.mt-n1.me-1.fs-base.text-warning.align-middle
+                b 4.9
+                span.text-muted &nbsp;(43)
+              li.list-inline-item.pe-1
+                i.fi-credit-card.mt-n1.me-1.fs-base.text-muted.align-middle
+                | $$$
+              li.list-inline-item.pe-1
+                i.fi-map-pin.mt-n1.me-1.fs-base.text-muted.align-middle
+                | 1.8 km from center
+
+        // Item
+        div
+          .position-relative
+            .position-relative.mb-3
+              button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light-primary.btn-xs.text-primary.rounded-circle.position-absolute.top-0.end-0.m-3.zindex-5
+                i.fi-heart
+              img(src='img/city-guide/catalog/04.jpg' alt='Article img').rounded-3
+            h3.mb-2.fs-lg
+              a(href='#').nav-link.stretched-link Merry Berry Motel
+            ul.list-inline.mb-0.fs-xs
+              li.list-inline-item.pe-1
+                i.fi-star-filled.mt-n1.me-1.fs-base.text-warning.align-middle
+                b 4.5
+                span.text-muted &nbsp;(13)
+              li.list-inline-item.pe-1
+                i.fi-credit-card.mt-n1.me-1.fs-base.text-muted.align-middle
+                | $$
+              li.list-inline-item.pe-1
+                i.fi-map-pin.mt-n1.me-1.fs-base.text-muted.align-middle
+                | 0.4 km from center
+
+
+//- Footer
+block footer
+  include partials/footer-city-guide

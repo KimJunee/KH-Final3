@@ -1,0 +1,66 @@
+extends ../partials/layout-docs
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js']
+  - var pageTitle = 'Theme mode'
+    
+//- Page Content
+block content
+
+  p Around features Light and Dark theme modes. The user can easily switch between the modes via theme mode toggle (switch). Sometimes there is a situation when:
+  ul
+    li.mb-2 You need only one mode either Light or Dark
+    li.mb-2 You need the Dark mode to be enabled by default
+  p.mb-5 Let's look closer at these cases and find out how to deal with them.
+
+  h2.h3 Only Light mode, remove Dark mode altogether
+  ol.mb-0
+    li.pb-2.mb-4
+      .mb-3 Get rid of the mode switching code in the <code>&lt;head&gt;</code> section of you HTML document (see the screenshot below). Or if you use Pug you can simply set <code>isThemeModeSwitch</code> varibale to <code>false</code>. The variable can be found inside <code>Around/src/templates/helpers/config.pug</code> file.
+      img(src='../assets/img/docs/theme-mode-code.png' alt='Theme mode code').rounded-2
+    li.pb-2.mb-4
+      .mb-3 Remove the mode switch markup from the <code>navbar</code> (see the screenshot below). Again if you use Pug and set <code>isThemeModeSwitch</code> varibale to <code>false</code> it will be removed automatically on the next compilation. 
+      img(src='../assets/img/docs/theme-mode-switch-markup.png' alt='Theme mode switch markup').rounded-2
+    li.pb-2.mb-4
+      div Remove js module responsible for handling mode siwtching:
+      ol.fs-sm.ps-3.pt-2.mb-0
+        li.mb-1 Optionally delete the file <code>Around/src/js/components/theme-mode-switch.js</code>
+        li Remove or comment out the <code>import themeModeSwitch from './components/theme-mode-switch';</code> from <code>Around/src/js/theme.js</code>
+    li Remove dark mode styles by setting <code>$enable-dark-mode</code> variable to <code>false</code> inside <code>Around/src/scss/_variables.scss</code>. Compiled CSS will no longer contains dark mode styles.
+
+  h2.h3.mt-lg-2.pt-5 Only Dark mode, no Light mode option
+  ol.mb-0
+    li.pb-2.mb-4
+      .mb-3 Add <code>dark-mode</code> class to <code>&lt;html&gt;</code> tag so the webpage loads in dark mode by default.
+      img(src='../assets/img/docs/dark-mode-class.png' alt='Dark mode class').rounded-2
+    li.pb-2.mb-4
+      .mb-3 Get rid of the mode switching code in the <code>&lt;head&gt;</code> section of you HTML document (see the screenshot below). Or if you use Pug you can simply set <code>isThemeModeSwitch</code> varibale to <code>false</code>. The variable can be found inside <code>Around/src/templates/helpers/config.pug</code> file.
+      img(src='../assets/img/docs/theme-mode-code.png' alt='Theme mode code').rounded-2
+    li.pb-2.mb-4
+      .mb-3 Remove the mode switch markup from the <code>navbar</code> (see the screenshot below). Again if you use Pug and set <code>isThemeModeSwitch</code> varibale to <code>false</code> it will be removed automatically on the next compilation. 
+      img(src='../assets/img/docs/theme-mode-switch-markup.png' alt='Theme mode switch markup').rounded-2
+    li
+      div Remove js module responsible for handling mode siwtching:
+      ol.fs-sm.ps-3.pt-2.mb-0
+        li.mb-1 Optionally delete the file <code>Around/src/js/components/theme-mode-switch.js</code>
+        li Remove or comment out the <code>import themeModeSwitch from './components/theme-mode-switch';</code> from <code>Around/src/js/theme.js</code>
+
+  h2.h3.mt-lg-2.pt-5 Dark mode by default
+  ol
+    li.pb-2.mb-4
+      .mb-3 Make sure to clear Browser local storage from <code>mode</code> variable. In Chrome browser it can be done via Application panel:
+      img(src='../assets/img/docs/local-storage.png' alt='Browser local storage').rounded-2
+    li.pb-2.mb-4
+      .mb-3 Add <code>dark-mode</code> class to <code>&lt;html&gt;</code> tag so the webpage loads in dark mode by default.
+      img(src='../assets/img/docs/dark-mode-class.png' alt='Dark mode class').rounded-2
+    li.pb-2.mb-4
+      .mb-3 In the <code>&lt;head&gt;</code> section of you HTML document change the Theme mode js code to be identical to the screenshot below. If you use Pug you can find this code inside <code>Around/src/templates/partials/head.pug</code> file.
+      img(src='../assets/img/docs/theme-mode-code.png' alt='Theme mode code').rounded-2
+    li.pb-2.mb-4
+      .mb-3 Change the mode switch state to <code>checked</code> by default. If you use Pug you'll find the switch code inside <code>Around/src/templates/partials/navbar.pug</code> file.
+      img(src='../assets/img/docs/theme-mode-switch-checked.png' alt='Theme mode switch checked').rounded-2
+    li
+      .mb-3 Update the code inside js module responsible for handling mode siwtching <code>Around/src/js/components/theme-mode-switch.js</code> to look like in the screenshot below. Make sure to compile <code>theme.min.js</code> with these changes. If you use Gulp setup comes with the theme it will be compiled automatically once <code>Around/src/js/theme.js</code> is saved. 
+      img(src='../assets/img/docs/theme-mode-switch-js.png' alt='Theme mode switch js module').rounded-2

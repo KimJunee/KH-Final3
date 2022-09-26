@@ -1,0 +1,675 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css', 'vendor/prismjs/themes/prism.css', 'vendor/prismjs/plugins/toolbar/prism-toolbar.css', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js', 'vendor/prismjs/components/prism-core.min.js', 'vendor/prismjs/components/prism-markup.min.js', 'vendor/prismjs/components/prism-clike.min.js', 'vendor/prismjs/components/prism-javascript.min.js', 'vendor/prismjs/components/prism-pug.min.js', 'vendor/prismjs/plugins/toolbar/prism-toolbar.min.js', 'vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Input group'
+  - var pageSubtitle = 'Extend form controls by adding text, buttons, etc. on either side.'
+  - var pageTitleLink = {'title': 'Bootstrap docs', 'link': 'https://getbootstrap.com/docs/5.2/forms/input-group/'}
+  - var anchorNav = [{'title': 'Addon position', 'link': '#ig-addon-position'}, {'title': 'Multiple addons', 'link': '#ig-addon-multiple'}, {'title': 'Different types', 'link': '#ig-addon-types'}, {'title': 'Multiple inputs', 'link': '#ig-multiple-inputs'}, {'title': 'Button addons', 'link': '#ig-addon-button'}, {'title': 'Pill shape', 'link': '#ig-pill'}, {'title': 'Sizing', 'link': '#ig-sizing'}]
+    
+//- Page Content
+block content
+
+  // Addon position
+  section#ig-addon-position.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Addon position
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview1' data-bs-toggle='tab' role='tab' aria-controls='preview1' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview1.tab-pane.fade.show.active(role='tabpanel' style='max-width: 40rem;')
+          .input-group.mb-3
+            span.input-group-text
+              i.ai-lock-closed
+            input(type='password' placeholder='Password').form-control
+          .input-group.mb-3
+            input(type='text' placeholder="Recipient's e-mail").form-control
+            span.input-group-text @example.com
+          .input-group
+            span.input-group-text
+              i.ai-dollar
+            input(type='text' placeholder='Amount').form-control
+            span.input-group-text .00
+        #html1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Addon on the left --&gt;
+              &lt;div class=&quot;input-group&quot;&gt;
+                &lt;span class=&quot;input-group-text&quot;&gt;
+                  &lt;i class=&quot;ai-lock-closed&quot;&gt;&lt;/i&gt;
+                &lt;/span&gt;
+                &lt;input type=&quot;password&quot; class=&quot;form-control&quot; placeholder=&quot;Password&quot;&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Addon on the right --&gt;
+              &lt;div class=&quot;input-group&quot;&gt;
+                &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Recipient's e-mail&quot;&gt;
+                &lt;span class=&quot;input-group-text&quot;&gt;@example.com&lt;/span&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Addons on both sides --&gt;
+              &lt;div class=&quot;input-group&quot;&gt;
+                &lt;span class=&quot;input-group-text&quot;&gt;
+                  &lt;i class=&quot;ai-dollar&quot;&gt;&lt;/i&gt;
+                &lt;/span&gt;
+                &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Amount&quot;&gt;
+                &lt;span class=&quot;input-group-text&quot;&gt;.00&lt;/span&gt;
+              &lt;/div&gt;
+        #pug1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Addon on the left
+              .input-group
+                span.input-group-text
+                  i.ai-lock-closed
+                input(type=&quot;password&quot;, placeholder=&quot;Password&quot;).form-control
+
+              // Addon on the right
+              .input-group
+                input(type=&quot;text&quot;, placeholder=&quot;Recipient's e-mail&quot;).form-control
+                span.input-group-text
+                  | @example.com
+              
+              // Addons on both sides
+              .input-group
+                span.input-group-text
+                  i.ai-dollar
+                input(type=&quot;text&quot;, placeholder=&quot;Amount&quot;).form-control
+                span.input-group-text
+                  | .00
+
+  // Multiple addons
+  section#ig-addon-multiple.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Multiple addons
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview2' data-bs-toggle='tab' role='tab' aria-controls='preview2' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview2.tab-pane.fade.show.active(role='tabpanel' style='max-width: 40rem;')
+          .input-group.mb-3
+            span.input-group-text
+              i.ai-dollar
+            span.input-group-text 0.00
+            input(type='text' placeholder='Amount').form-control
+          .input-group.mb-3
+            input(type='text' placeholder='Amount').form-control
+            span.input-group-text 0.00
+            span.input-group-text
+              i.ai-dollar
+          .input-group
+            span.input-group-text
+              i.ai-user
+            span.input-group-text
+              i.ai-card
+            input(type='text' placeholder='Amount').form-control
+            span.input-group-text 0.00
+            span.input-group-text
+              i.ai-dollar
+        #html2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Multiple addons on left side --&gt;
+              &lt;div class=&quot;input-group&quot;&gt;
+                &lt;span class=&quot;input-group-text&quot;&gt;
+                  &lt;i class=&quot;ai-dollar&quot;&gt;&lt;/i&gt;
+                &lt;/span&gt;
+                &lt;span class=&quot;input-group-text&quot;&gt;0.00&lt;/span&gt;
+                &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Amount&quot;&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Multiple addons on right side --&gt;
+              &lt;div class=&quot;input-group&quot;&gt;
+                &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Amount&quot;&gt;
+                &lt;span class=&quot;input-group-text&quot;&gt;
+                  &lt;i class=&quot;ai-dollar&quot;&gt;&lt;/i&gt;
+                &lt;/span&gt;
+                &lt;span class=&quot;input-group-text&quot;&gt;0.00&lt;/span&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Multiple addons on both sides --&gt;
+              &lt;div class=&quot;input-group&quot;&gt;
+                &lt;span class=&quot;input-group-text&quot;&gt;
+                  &lt;i class=&quot;ai-user&quot;&gt;&lt;/i&gt;
+                &lt;/span&gt;
+                &lt;span class=&quot;input-group-text&quot;&gt;
+                  &lt;i class=&quot;ai-card&quot;&gt;&lt;/i&gt;
+                &lt;/span&gt;
+                &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Amount&quot;&gt;
+                &lt;span class=&quot;input-group-text&quot;&gt;
+                  &lt;i class=&quot;ai-dollar&quot;&gt;&lt;/i&gt;
+                &lt;/span&gt;
+                &lt;span class=&quot;input-group-text&quot;&gt;0.00&lt;/span&gt;
+              &lt;/div&gt;
+        #pug2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Multiple addons on left side
+              .input-group
+                span.input-group-text
+                  i.ai-dollar
+                span.input-group-text 0.00
+                input(type=&quot;text&quot;, placeholder=&quot;Amount&quot;).form-control
+
+              // Multiple addons on right side
+              .input-group
+                input(type=&quot;text&quot;, placeholder=&quot;Amount&quot;).form-control
+                span.input-group-text 0.00
+                span.input-group-text
+                  i.ai-dollar
+              
+              // Multiple addons on both sides
+              .input-group
+                span.input-group-text
+                  i.ai-user
+                span.input-group-text
+                  i.ai-card
+                input(type=&quot;text&quot;, placeholder=&quot;Amount&quot;).form-control
+                span.input-group-text 0.00
+                span.input-group-text
+                  i.ai-dollar
+
+  // Different types
+  section#ig-addon-types.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Different types
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview3' data-bs-toggle='tab' role='tab' aria-controls='preview3' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview3.tab-pane.fade.show.active(role='tabpanel' style='max-width: 40rem;')
+          .input-group.mb-3
+            span.input-group-text.align-self-start.mt-1
+              i.ai-message
+            textarea(placeholder='Type your message here...' rows='6').form-control
+          .input-group.mb-3
+            span.input-group-text.text-dark Options
+            select.form-select
+              option Choose one...
+              option One
+              option Two
+              option Three
+              option Four
+              option Five
+          .input-group.mb-3
+            .input-group-text
+              input(type='checkbox').form-check-input
+            input(type='text' placeholder='Checkbox here').form-control
+          .input-group
+            .input-group-text
+              input(type='radio' name='radio').form-check-input
+            input(type='text' placeholder='Radio button here').form-control
+        #html3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Icon addon + textarea --&gt;
+              &lt;div class=&quot;input-group&quot;&gt;
+                &lt;span class=&quot;input-group-text align-self-start mt-1&quot;&gt;
+                  &lt;i class=&quot;ai-message&quot;&gt;&lt;/i&gt;
+                &lt;/span&gt;
+                &lt;textarea class=&quot;form-control&quot; placeholder=&quot;Type your message here...&quot; rows=&quot;6&quot;&gt;&lt;/textarea&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Textual addon + select --&gt;
+              &lt;div class=&quot;input-group&quot;&gt;
+                &lt;span class=&quot;input-group-text text-dark&quot;&gt;Options&lt;/span&gt;
+                &lt;select class=&quot;form-select&quot;&gt;
+                  &lt;option&gt;Choose one...&lt;/option&gt;
+                  &lt;option&gt;One&lt;/option&gt;
+                  &lt;option&gt;Two&lt;/option&gt;
+                  &lt;option&gt;Three&lt;/option&gt;
+                  &lt;option&gt;Four&lt;/option&gt;
+                  &lt;option&gt;Five&lt;/option&gt;
+                &lt;/select&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Checkbox addon + text input --&gt;
+              &lt;div class=&quot;input-group&quot;&gt;
+                &lt;div class=&quot;input-group-text&quot;&gt;
+                  &lt;input class=&quot;form-check-input&quot; type=&quot;checkbox&quot;&gt;
+                &lt;/div&gt;
+                &lt;input class=&quot;form-control&quot; type=&quot;text&quot; placeholder=&quot;Checkbox here&quot;&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Radio button addon + text input --&gt;
+              &lt;div class=&quot;input-group&quot;&gt;
+                &lt;div class=&quot;input-group-text&quot;&gt;
+                  &lt;input class=&quot;form-check-input&quot; type=&quot;radio&quot; name=&quot;radio&quot;&gt;
+                &lt;/div&gt;
+                &lt;input class=&quot;form-control&quot; type=&quot;text&quot; placeholder=&quot;Radio button here&quot;&gt;
+              &lt;/div&gt;
+        #pug3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Icon addon + textarea
+              .input-group
+                span.input-group-text.align-self-start.mt-1
+                  i.ai-message
+                textarea(placeholder=&quot;Type your message here...&quot;, rows=&quot;6&quot;).form-control
+
+              // Textual addon + select
+              .input-group
+                span.input-group-text.text-dark
+                  | Options
+                select.form-select
+                  option Choose one...
+                  option One
+                  option Two
+                  option Three
+                  option Four
+                  option Five
+
+              // Checkbox addon + text input
+              .input-group
+                .input-group-text
+                  input(type=&quot;checkbox&quot;).form-check-input
+                input(type=&quot;text&quot;, placeholder=&quot;Checkbox here&quot;).form-control
+
+              // Radio button addon + text input
+              .input-group
+                .input-group-text
+                  input(type=&quot;radio&quot;, name=&quot;radio&quot;).form-check-input
+                input(type=&quot;text&quot;, placeholder=&quot;Radio button here&quot;).form-control
+
+  // Multiple inputs
+  section#ig-multiple-inputs.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Multiple inputs
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview4' data-bs-toggle='tab' role='tab' aria-controls='preview4' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview4.tab-pane.fade.show.active(role='tabpanel' style='max-width: 40rem;')
+          .input-group.mb-3
+            span.input-group-text.text-dark First &amp; last name
+            input(type='text' placeholder='First name').form-control
+            span.border-end.border-input
+            input(type='text' placeholder='Last name').form-control
+          .input-group
+            input(type='time' value='07:45').form-control
+            span.border-end.border-input
+            input(type='time' value='09:00').form-control
+            span.input-group-text
+              i.ai-time
+        #html4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Multiple inputs with addon on the left --&gt;
+              &lt;div class=&quot;input-group&quot;&gt;
+                &lt;span class=&quot;input-group-text text-dark&quot;&gt;First &amp;amp; last name&lt;/span&gt;
+                &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;First name&quot;&gt;
+                &lt;span class=&quot;border-end border-input&quot;&gt;&lt;/span&gt;
+                &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Last name&quot;&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Multiple inputs with addon on the right --&gt;
+              &lt;div class=&quot;input-group&quot;&gt;
+                &lt;input type=&quot;text&quot; class=&quot;form-control&quot; value=&quot;07:45&quot;&gt;
+                &lt;span class=&quot;border-end border-input&quot;&gt;&lt;/span&gt;
+                &lt;input type=&quot;text&quot; class=&quot;form-control&quot; value=&quot;09:00&quot;&gt;
+                &lt;span class=&quot;input-group-text&quot;&gt;
+                  &lt;i class=&quot;ai-time&quot;&gt;&lt;/i&gt;
+                &lt;/span&gt;
+              &lt;/div&gt;
+        #pug4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Multiple inputs with addon on the left
+              .input-group
+                span.input-group-text.text-dark First &amp;amp; last name
+                input(type=&quot;text&quot;, placeholder=&quot;First name&quot;).form-control
+                span.border-end.border-input
+                input(type=&quot;text&quot;, placeholder=&quot;Last name&quot;).form-control
+
+              // Multiple inputs with addon on the right
+              .input-group
+                input(type=&quot;time&quot;, value=&quot;07:45&quot;).form-control
+                span.border-end.border-input
+                input(type=&quot;time&quot;, value=&quot;09:00&quot;).form-control
+                span.input-group-text
+                  i.ai-time
+
+  // Button addons
+  section#ig-addon-button.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Button addons
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview5' data-bs-toggle='tab' role='tab' aria-controls='preview5' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html5' data-bs-toggle='tab' role='tab' aria-controls='html5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug5' data-bs-toggle='tab' role='tab' aria-controls='pug5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview5.tab-pane.fade.show.active(role='tabpanel' style='max-width: 40rem;')
+          .input-group.mb-3
+            button(type='button').btn.btn-primary Button
+            input(type='text' placeholder='Button on the left').form-control
+          .input-group.mb-3
+            input(type='text' placeholder='Button on the right').form-control
+            button(type='button').btn.btn-primary Button
+          .input-group.mb-3
+            button(type='button' data-bs-toggle='dropdown').btn.btn-primary.dropdown-toggle Dropdown
+            .dropdown-menu.my-1
+              a(href='#').dropdown-item Action
+              a(href='#').dropdown-item Another action
+              a(href='#').dropdown-item Something else here
+            input(type='text' placeholder='Dropdown on the left').form-control
+          .input-group.mb-3
+            input(type='text' placeholder='Dropdown on the right').form-control
+            button(type='button' data-bs-toggle='dropdown').btn.btn-primary.dropdown-toggle Dropdown
+            .dropdown-menu.dropdown-menu-end.my-1
+              a(href='#').dropdown-item Action
+              a(href='#').dropdown-item Another action
+              a(href='#').dropdown-item Something else here
+          .input-group
+            input(type='text' placeholder='Buttons on the right').form-control
+            button(type='button').btn.btn-outline-primary.btn-icon.me-2
+              i.ai-edit
+            button(type='button').btn.btn-outline-danger.btn-icon
+              i.ai-trash
+        #html5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Button addon on the left --&gt;
+              &lt;div class=&quot;input-group&quot;&gt;
+                &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Button&lt;/button&gt;
+                &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Button on the left&quot;&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Button addon on the right --&gt;
+              &lt;div class=&quot;input-group&quot;&gt;
+                &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Button on the right&quot;&gt;
+                &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Button&lt;/button&gt;
+              &lt;/div&gt;
+              
+              &lt;!-- Dropdown addon on the left --&gt;
+              &lt;div class=&quot;input-group&quot;&gt;
+                &lt;button type=&quot;button&quot; class=&quot;btn btn-primary dropdown-toggle&quot; data-bs-toggle=&quot;dropdown&quot;&gt;Dropdown&lt;/button&gt;
+                &lt;div class=&quot;dropdown-menu my-1&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Action&lt;/a&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Another action&lt;/a&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Something else here&lt;/a&gt;
+                &lt;/div&gt;
+                &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Dropdown on the right&quot;&gt;
+              &lt;/div&gt;
+              
+              &lt;!-- Dropdown addon on the right --&gt;
+              &lt;div class=&quot;input-group&quot;&gt;
+                &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Dropdown on the right&quot;&gt;
+                &lt;button type=&quot;button&quot; class=&quot;btn btn-primary dropdown-toggle&quot; data-bs-toggle=&quot;dropdown&quot;&gt;Dropdown&lt;/button&gt;
+                &lt;div class=&quot;dropdown-menu dropdown-menu-end my-1&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Action&lt;/a&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Another action&lt;/a&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Something else here&lt;/a&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Multiple button addons --&gt;
+              &lt;div class=&quot;input-group&quot;&gt;
+                &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Buttons on the right&quot;&gt;
+                &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-primary btn-icon&quot;&gt;
+                  &lt;i class=&quot;ai-edit&quot;&gt;&lt;/i&gt;
+                &lt;/button&gt;
+                &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-danger btn-icon&quot;&gt;
+                  &lt;i class=&quot;ai-trash&quot;&gt;&lt;/i&gt;
+                &lt;/button&gt;
+              &lt;/div&gt;
+        #pug5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Button addon on the left
+              .input-group
+                button(type=&quot;button&quot;).btn.btn-primary
+                  | Button
+                input(type=&quot;text&quot;, placeholder=&quot;Button on the left&quot;).form-control
+
+              // Button addon on the right
+              .input-group
+                input(type=&quot;text&quot;, placeholder=&quot;Button on the right&quot;).form-control
+                button(type=&quot;button&quot;).btn.btn-primary
+                  | Button
+
+              // Dropdown addon on the left
+              .input-group
+                button(type=&quot;button&quot;, data-bs-toggle=&quot;dropdown&quot;).btn.btn-primary.dropdown-toggle
+                  | Dropdown
+                .dropdown-menu.my-1
+                  a(href=&quot;#&quot;).dropdown-item
+                    | Action
+                  a(href=&quot;#&quot;).dropdown-item
+                    | Another action
+                  a(href=&quot;#&quot;).dropdown-item
+                    | Something else here
+                input(type=&quot;text&quot;, placeholder=&quot;Dropdown on the left&quot;).form-control
+              
+              // Dropdown addon on the right
+              .input-group
+                input(type=&quot;text&quot;, placeholder=&quot;Dropdown on the right&quot;).form-control
+                button(type=&quot;button&quot;, data-bs-toggle=&quot;dropdown&quot;).btn.btn-primary.dropdown-toggle
+                  | Dropdown
+                .dropdown-menu.dropdown-menu-end.my-1
+                  a(href=&quot;#&quot;).dropdown-item
+                    | Action
+                  a(href=&quot;#&quot;).dropdown-item
+                    | Another action
+                  a(href=&quot;#&quot;).dropdown-item
+                    | Something else here
+              
+              // Multiple button addons
+              .input-group
+                input(type=&quot;text&quot;, placeholder=&quot;Buttons on the right&quot;).form-control
+                button(type=&quot;button&quot;).btn.btn-outline-primary.btn-icon
+                  i.ai-edit
+                button(type=&quot;button&quot;).btn.bg-outline-danger.btn-icon
+                  i.ai-trash
+
+  // Pill shape
+  section#ig-pill.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Pill shape
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview6' data-bs-toggle='tab' role='tab' aria-controls='preview6' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html6' data-bs-toggle='tab' role='tab' aria-controls='html6' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug6' data-bs-toggle='tab' role='tab' aria-controls='pug6' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview6.tab-pane.fade.show.active(role='tabpanel' style='max-width: 40rem;')
+          .input-group.rounded-pill
+            span.input-group-text
+              i.ai-search
+            input(type='search' placeholder='Search...').form-control
+            button(type='button').btn.btn-primary.rounded-pill Search
+        #html6.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Pill shape input group --&gt;
+              &lt;div class=&quot;input-group rounded-pill&quot;&gt;
+                &lt;span class=&quot;input-group-text&quot;&gt;
+                  &lt;i class=&quot;ai-search&quot;&gt;&lt;/i&gt;
+                &lt;/span&gt;
+                &lt;input type=&quot;search&quot; class=&quot;form-control&quot; placeholder=&quot;Search...&quot;&gt;
+                &lt;button type=&quot;button&quot; class=&quot;btn btn-primary rounded-pill&quot;&gt;Search&lt;/button&gt;
+              &lt;/div&gt;
+        #pug6.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Pill shape input group
+              .input-group.rounded-pill
+                span.input-group-text
+                  i.ai-search
+                input(type=&quot;search&quot;, placeholder=&quot;Search...&quot;).form-control
+                button(type=&quot;button&quot;).btn.btn-primary.rounded-pill
+                  | Search
+
+  // Sizing
+  section#ig-sizing.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Sizing
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview7' data-bs-toggle='tab' role='tab' aria-controls='preview7' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html7' data-bs-toggle='tab' role='tab' aria-controls='html7' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug7' data-bs-toggle='tab' role='tab' aria-controls='pug7' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview7.tab-pane.fade.show.active(role='tabpanel')
+          .d-md-flex
+            .w-100.me-md-3.mb-md-0.mb-3
+              .input-group.input-group-lg.mb-3
+                span.input-group-text
+                  i.ai-lock-closed
+                input(type='password' placeholder='Password').form-control
+              .input-group.mb-3
+                span.input-group-text
+                  i.ai-lock-closed
+                input(type='password' placeholder='Password').form-control
+              .input-group.input-group-sm
+                span.input-group-text
+                  i.ai-lock-closed
+                input(type='password' placeholder='Password').form-control
+            .w-100
+              .input-group.input-group-lg.mb-3
+                select.form-select
+                  option Choose option
+                  option Option item 1
+                  option Option item 2
+                  option Option item 3
+                button(type='button').btn.btn-primary Submit
+              .input-group.mb-3
+                select.form-select
+                  option Choose option
+                  option Option item 1
+                  option Option item 2
+                  option Option item 3
+                button(type='button').btn.btn-primary Submit
+              .input-group.input-group-sm
+                select.form-select
+                  option Choose option
+                  option Option item 1
+                  option Option item 2
+                  option Option item 3
+                button(type='button').btn.btn-primary Submit
+        #html7.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Large input group --&gt;
+              &lt;div class=&quot;input-group input-group-lg&quot;&gt;
+                ...
+              &lt;/div&gt;
+
+              &lt;!-- Normal input group --&gt;
+              &lt;div class=&quot;input-group&quot;&gt;
+                ...
+              &lt;/div&gt;
+
+              &lt;!-- Small input group --&gt;
+              &lt;div class=&quot;input-group input-group-sm&quot;&gt;
+                ...
+              &lt;/div&gt;
+        #pug7.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Large input group
+              .input-group.input-group-lg
+                | ...
+
+              // Normal input group
+              .input-group
+                | ...
+
+              // Small input group
+              .input-group.input-group-sm
+                | ...

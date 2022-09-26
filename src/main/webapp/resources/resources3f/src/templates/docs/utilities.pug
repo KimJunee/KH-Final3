@@ -1,0 +1,14 @@
+extends ../partials/layout-docs
+
+//- Override default config variables
+append config
+  - var pageTitle = 'Utility classes'
+  
+//- Page Content
+block content
+  .pb-5
+    .alert.alert-info.d-flex.mb-4(role='alert')
+      i.fi-alert-circle.lead.me-2.me-sm-3
+      div Bootstrap includes dozens of utilities - classes with a single purpose to reduce the frequency of highly repetitive declarations.
+    p Along with <a href='https://getbootstrap.com/docs/5.1/utilities/borders/' class='fw-bold' target='_blank' rel='noopener'>default Bootstrap utility classes</a> Finder introduces its own. They all live inside <code>Finder/src/scss/theme/_utilities.scss</code> file.
+    p: a(href='../components/utilities.html' class='fw-bold' target='_blank' rel='noopener') The list of most important Finder utilities as well as their visual reference and code snippets can be found here.

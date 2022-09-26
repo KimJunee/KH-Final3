@@ -1,0 +1,22 @@
+/*
+ * Finder | Directory & Listings Bootstrap Template
+ * Copyright 2022 Createx Studio
+ * Theme styles
+ */
+ 
+ // User variables
+ @import 'user-variables';
+
+// Configuration & utilities
+@import 'variables';
+@import 'utilities';
+
+// Bootstrap
+@import '../../dist/vendor/bootstrap/scss/bootstrap';
+
+// Layout & components
+@import 'reboot';
+@import 'components';
+
+// User custom styles
+@import 'user';

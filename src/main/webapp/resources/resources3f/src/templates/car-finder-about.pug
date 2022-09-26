@@ -1,0 +1,343 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['tiny-slider/dist/tiny-slider.css']
+  - var vendorScripts = ['tiny-slider/dist/min/tiny-slider.js']
+  - var parentMenu = 'Pages'
+  - var pageTitle = 'Car Finder | About'
+  - var bodyClass = 'bg-dark'
+
+//- Navbar
+block navbar
+  include partials/navbar-car-finder
+
+//- Page Content
+block content
+
+  // Breadcrumb
+  .container.mt-5.pt-5
+
+    // Breadcrumb
+    nav(aria-label='Breadcrumb').mb-3.pt-md-3
+      ol.breadcrumb.breadcrumb-light
+        li.breadcrumb-item
+          a(href='car-finder-home.html') Home
+        li(aria-current='page').breadcrumb-item.active
+          | About
+
+
+  // Page header
+  section.container.mb-5.pb-lg-5
+    .row.align-items-center.justify-content-lg-start.justify-content-center.flex-lg-nowrap.gy-4
+      .col-lg-9
+        img(src='img/car-finder/about/hero-img.jpg' alt='Hero image').rounded-3
+      .col-lg-4.ms-lg-n5.col-sm-9.text-lg-start.text-center
+        .ms-lg-n5.pe-xl-5
+          h1.mb-lg-4.text-light
+            | About us
+          p.mb-4.pb-lg-3.fs-lg.text-light.opacity-70
+            | We believe that car buying and selling should be straight-forward and enjoyable, not time-consuming, complicated or stressful.
+          a(href='car-finder-catalog-list.html').btn.btn-lg.btn-primary.w-sm-auto.w-100
+            i.fi-search.me-2
+            | Search car
+
+
+  // Features
+  section.container.mb-5.pb-lg-5
+    h2.mb-4.pb-2.text-light.text-center
+      | We are new and growing fast
+
+    // Features carousel
+    .tns-carousel-wrapper.tns-nav-outside.tns-carousel-light
+      .tns-carousel-inner(data-carousel-options='{"items": 3, "responsive": {"0":{"items":1, "gutter": 16, "controls": false},"500":{"items":2, "gutter": 18},"900":{"items":3, "gutter": 20}, "1100":{"gutter": 24}}}')
+
+        // Feature item
+        div
+          .card.card-light.card-hover.h-100
+            .card-body.icon-box.text-center
+              div(style='width: 4.5rem; height: 4.5rem;').icon-box-media.bg-dark.text-light.mx-auto.mb-3.d-inline-flex.align-items-center.justify-content-center
+                img(src='img/car-finder/icons/car.svg' alt='Car icon')
+              h4.card-title
+                | ~ 1 mln cars
+              p.card-text.fs-sm.opacity-70
+                | Fringilla vivamus arcu faucibus malesuada. Dui aenean suspendisse a aliquet id gravida ut. Lorem lacinia sed mauris erat at nisl.
+
+        // Feature item
+        div
+          .card.card-light.card-hover.h-100
+            .card-body.icon-box.text-center
+              div(style='width: 4.5rem; height: 4.5rem;').icon-box-media.bg-dark.text-light.mx-auto.mb-3.d-inline-flex.align-items-center.justify-content-center
+                img(src='img/car-finder/icons/building.svg' alt='Building icon')
+              h4.card-title
+                | 5 subsidiaries
+              p.card-text.fs-sm.opacity-70
+                | Porttitor bibendum pharetra volutpat est. Vitae tortor magna gravida non lacus. Arcu auctor malesuada dui congue.
+
+        // Feature item
+        div
+          .card.card-light.card-hover.h-100
+            .card-body.icon-box.text-center
+              div(style='width: 4.5rem; height: 4.5rem;').icon-box-media.bg-dark.text-light.mx-auto.mb-3.d-inline-flex.align-items-center.justify-content-center
+                img(src='img/car-finder/icons/flag.svg' alt='Flag icon')
+              h4.card-title
+                | 8 countries
+              p.card-text.fs-sm.opacity-70
+                | Duis tortor, vel nisi, leo vulputate sed quis. Ultrices arcu, amet aliquam id massa egestas ut. Dui, sed risus cursus magna dolor.
+
+
+  // Story steps
+  section.container.mb-5.pb-lg-5.pb-3.pb-sm-4
+    h2.mb-4.pb-2.text-light.text-center
+      | Our story
+    div(style='max-width: 864px;').mx-auto
+      .steps.steps-light.steps-vertical
+        .step
+          .step-progress
+            span.step-progress-end
+            span.step-number.bg-primary.shadow-hover 1
+          .step-label
+            h3.h5.mb-2.pb-1.text-light 2017
+            p.mb-0 Odio velit, massa augue etiam in parturient volutpat orci. Pulvinar amet, at est ac curabitur mauris, semper cursus metus. Imperdiet sed massa amet at turpis. Dis risus, donec in ac ultricies tempor eu, amet.
+        .step
+          .step-progress
+            span.step-progress-end
+            span.step-number.bg-primary.shadow-hover 2
+          .step-label
+            h3.h5.mb-2.pb-1.text-light 2018
+            p.mb-0 Vitae erat ornare facilisi id sollicitudin turpis tempus, semper. Velit integer et volutpat, a. Massa ut amet amet, vitae nunc nulla sed.
+        .step
+          .step-progress
+            span.step-progress-end
+            span.step-number.bg-primary.shadow-hover 3
+          .step-label
+            h3.h5.mb-2.pb-1.text-light 2020
+            p.mb-0 Ut mattis nascetur aliquam neque velit nunc sed. Morbi congue mauris amet ultrices molestie tellus proin odio diam. Feugiat elit, habitasse egestas egestas id nec potenti. Donec convallis donec tristique mattis et viverra.
+        .step
+          .step-progress
+            span.step-progress-end
+            span.step-number.bg-primary.shadow-hover 4
+          .step-label
+            h3.h5.mb-2.pb-1.text-light 2021
+            p.mb-0 Tempor nullam pellentesque suspendisse nec. Arcu sagittis sed ut diam in ultrices. Leo lacinia feugiat interdum pellentesque nulla vitae duis.
+
+
+  // Personalized search
+  section.container.mb-5.pb-lg-5.pb-2.pb-sm-3
+    .row.gy-4.align-items-lg-center
+      .col-md-6
+        img(src='img/car-finder/about/01.jpg' alt='Personalized search').rounded-3
+      .col-lg-5.offset-lg-1.col-md-6.text-md-start.text-center
+        h2.mb-md-4.text-light
+          | Personalized search
+        p.mb-4.pb-md-3.text-light.opacity-70
+          | Ante senectus sed at lacus. Sed pellentesque dapibus nunc, cursus hendrerit at faucibus ornare lectus. Sed vitae congue mauris consectetur. Cursus tristique et porta eget sapien vivamus turpis. Ultrices vitae eget mattis varius ipsum adipiscing id. Neque, sagittis cursus aliquam volutpat tristique viverra amet amet.
+        a(href='car-finder-catalog-grid.html').btn.btn-primary.w-sm-auto.w-100
+          i.fi-search.me-2
+          | Search car
+
+
+  // Attractive selling conditions
+  section.container.mb-5.pb-lg-5.pb-2.pb-sm-3
+    .row.gy-4.align-items-lg-center
+      .col-lg-5.col-md-6.order-md-1.order-2.text-md-start.text-center
+        h2.mb-md-4.text-light
+          | Attractive selling conditions
+        p.mb-4.pb-md-3.text-light.opacity-70
+          | In risus quam diam urna, pretium at. Platea nulla malesuada elit, enim lacus quam. Rhoncus, tincidunt mauris quis fames in. A egestas sem quisque urna et imperdiet. Blandit dolor diam urna amet semper elementum ipsum et. Nulla mi ipsum quis et id tempor amet.
+        a(href='car-finder-sell-car.html').btn.btn-primary.w-sm-auto.w-100
+          i.fi-plus.me-2
+          | Sell car
+      .col-md-6.offset-lg-1.order-md-2.order-1
+        img(src='img/car-finder/about/02.jpg' alt='Attractive selling conditions').rounded-3
+
+
+  // Our partners (carousel)
+  section.container.mb-5.pb-lg-5.pb-2.pb-sm-3
+    h2.mb-4.pb-2.text-center.text-light Our partners
+    .tns-carousel-wrapper.tns-nav-outside.tns-nav-outside-flush
+      .tns-carousel-inner(data-carousel-options='{"items": 6, "controls": false, "responsive": {"0":{"items":2}, "500":{"items":4}, "992":{"items":5, "gutter": 16}, "1200":{"items":6, "gutter": 24}}}')
+        div
+          a(href='#').opacity-40.opacity-transition
+            img(src='img/car-finder/brands/provert.svg' alt='Logo' width='196').swap-to
+        div
+          a(href='#').opacity-40.opacity-transition
+            img(src='img/car-finder/brands/pentel.svg' alt='Logo' width='196').swap-to
+        div
+          a(href='#').opacity-40.opacity-transition
+            img(src='img/car-finder/brands/chase.svg' alt='Logo' width='196').swap-to
+        div
+          a(href='#').opacity-40.opacity-transition
+            img(src='img/car-finder/brands/real-seguros.svg' alt='Logo' width='196').swap-to
+        div
+          a(href='#').opacity-40.opacity-transition
+            img(src='img/car-finder/brands/build.svg' alt='Logo' width='196').swap-to
+        div
+          a(href='#').opacity-40.opacity-transition
+            img(src='img/car-finder/brands/cargil.svg' alt='Logo' width='196').swap-to
+
+
+  // FAQ
+  section.container.mb-5.pb-2.pb-lg-5
+    .row
+      .col-lg-5.col-md-6
+        .d-flex.flex-column.text-md-start.text-center
+          div(style='max-width: 416px;').order-md-1.order-2.mx-md-0.mx-auto.mb-md-5.mb-4
+            h2.mb-md-3.mb-2.text-light
+              | FAQs
+            p.mb-4.pb-md-2.text-light.opacity-70
+              | Have you any questions about an buying or selling car? Check out Help Center for all the details.
+            a(href='car-finder-help-center.html').btn.btn-primary.w-sm-auto.w-100
+              | Help center
+              i.fi-chevron-right.ms-2
+          .order-md-2.order-1
+            img(src='img/car-finder/about/03.png' alt='FAQs')
+
+      // Accordion
+      .col-md-6.offset-lg-1
+        .accordion.accordion-light#accordionFAQ
+
+          // Acordion item
+          .accordion-item
+            h2.accordion-header#heading-1
+              button(type='button' data-bs-toggle='collapse' data-bs-target='#collapse-1' aria-expanded='true' aria-controls='collapse-1').accordion-button
+                | How much does it cost to sell a car on Finder?
+            div(aria-labelledby='heading-1' data-bs-parent='#accordionFAQ').accordion-collapse.collapse.show#collapse-1
+              .accordion-body.text-light.opacity-70
+                | Eum, quaerat. Corporis pariatur cum dolorem ullam at nulla ex doloribus, ratione quos repellendus aliquid aspernatur obcaecati adipisci maxime id, sed cupiditate.
+
+          // Accordion item
+          .accordion-item
+            h2.accordion-header#heading-2
+              button(type='button' data-bs-toggle='collapse' data-bs-target='#collapse-2' aria-expanded='false' aria-controls='collapse-2').accordion-button.collapsed
+                | How do I take the best pictures of my car?
+            div(aria-labelledby='heading-2' data-bs-parent='#accordionFAQ').accordion-collapse.collapse#collapse-2
+              .accordion-body.text-light.opacity-70
+                | Eros aliquam egestas eu sit faucibus facilisi urna, senectus id. Morbi pellentesque at molestie et. Et molestie nunc massa, donec eget viverra. Sodales nisl vitae gravida pretium enim cursus pharetra massa nisl. Auctor porta dolor nulla elementum malesuada ut etiam neque, enim.
+
+          // Accordion item
+          .accordion-item
+            h2.accordion-header#heading-3
+              button(type='button' data-bs-toggle='collapse' data-bs-target='#collapse-3' aria-expanded='false' aria-controls='collapse-3').accordion-button.collapsed
+                | Can I sell a vehicle if I live outside of the United States?
+            div(aria-labelledby='heading-3' data-bs-parent='#accordionFAQ').accordion-collapse.collapse#collapse-3
+              .accordion-body.text-light.opacity-70
+                | Libero ut accusantium ea a ipsa, aliquam nemo aperiam porro deserunt aspernatur sequi amet voluptatibus, fugiat nobis. Atque voluptatibus quibusdam placeat voluptas.
+
+          // Accordion item
+          .accordion-item
+            h2.accordion-header#heading-4
+              button(type='button' data-bs-toggle='collapse' data-bs-target='#collapse-4' aria-expanded='false' aria-controls='collapse-4').accordion-button.collapsed
+                | How does the buyer get in contact with me and make payment?
+            div(aria-labelledby='heading-4' data-bs-parent='#accordionFAQ').accordion-collapse.collapse#collapse-4
+              .accordion-body.text-light.opacity-70
+                | Numquam eaque rerum repellat nisi? Sint, dolorum consequuntur! Provident, voluptate maiores dolorum similique ipsam asperiores quos assumenda hic ad omnis cumque nesciunt.
+
+          // Accordion item
+          .accordion-item
+            h2.accordion-header#heading-5
+              button(type='button' data-bs-toggle='collapse' data-bs-target='#collapse-5' aria-expanded='false' aria-controls='collapse-5').accordion-button.collapsed
+                | Who writes the listing description for my car?
+            div(aria-labelledby='heading-5' data-bs-parent='#accordionFAQ').accordion-collapse.collapse#collapse-5
+              .accordion-body.text-light.opacity-70
+                | Harum temporibus perferendis quam quae, delectus, nulla maiores reiciendis, suscipit obcaecati iure odit illo ea vero. Eveniet minima inventore ratione et voluptatum. Sunt non quod culpa perferendis animi rerum dolorum, perspiciatis aliquam?
+
+          // Accordion item
+          .accordion-item
+            h2.accordion-header#heading-6
+              button(type='button' data-bs-toggle='collapse' data-bs-target='#collapse-6' aria-expanded='false' aria-controls='collapse-6').accordion-button.collapsed
+                | Are there rules to follow in the comments?
+            div(aria-labelledby='heading-6' data-bs-parent='#accordionFAQ').accordion-collapse.collapse#collapse-6
+              .accordion-body.text-light.opacity-70
+                | Fugit facilis tempore consequatur molestiae sapiente. Sit veritatis itaque temporibus illo nisi, in soluta corporis commodi nobis reiciendis laudantium hic facere nostrum provident voluptas perspiciatis, debitis ipsa accusamus aliquid quam iure tempore magni, ratione dignissimos. Minima, a.
+
+          // Accordion item
+          .accordion-item
+            h2.accordion-header#heading-7
+              button(type='button' data-bs-toggle='collapse' data-bs-target='#collapse-7' aria-expanded='false' aria-controls='collapse-7').accordion-button.collapsed
+                | What currency does Finder use?
+            div(aria-labelledby='heading-7' data-bs-parent='#accordionFAQ').accordion-collapse.collapse#collapse-7
+              .accordion-body.text-light.opacity-70
+                | Soluta ea deleniti eaque iusto officiis, at a molestiae ipsum qui pariatur quam, eum consectetur quaerat. Tempora et aut dolorum. Mollitia natus neque veniam consectetur magni asperiores?
+
+          // Accordion item
+          .accordion-item
+            h2.accordion-header#heading-8
+              button(type='button' data-bs-toggle='collapse' data-bs-target='#collapse-8' aria-expanded='false' aria-controls='collapse-8').accordion-button.collapsed
+                | How do I contact a seller privately?
+            div(aria-labelledby='heading-8' data-bs-parent='#accordionFAQ').accordion-collapse.collapse#collapse-8
+              .accordion-body.text-light.opacity-70
+                | Sint labore eaque ad, nostrum quod omnis natus? Consectetur beatae ratione, voluptatem atque iste, fuga ullam nisi soluta dolorem assumenda excepturi! Repellendus, similique atque ratione accusantium fugiat quidem eum quia quam, nulla eaque necessitatibus vitae. Doloremque recusandae aperiam dicta odio modi in fuga iure, itaque quos excepturi.
+
+
+  // Latest news (Blog)
+  section.container.pb-4.pb-sm-5.mb-2.mb-md-4
+    .d-sm-flex.align-items-center.justify-content-between.mb-3.mb-sm-4.pb-sm-2
+      h2.h3.text-light.mb-2.mb-sm-0 Latest news
+      a(href='car-finder-blog.html').btn.btn-link.btn-light.fw-normal.px-0
+        | Go to blog
+        i.fi-arrow-long-right.fs-sm.mt-0.ps-1.ms-2
+    .tns-carousel-wrapper.tns-nav-outside.tns-carousel-light
+      .tns-carousel-inner(data-carousel-options='{"items": 3, "controls": false, "responsive": {"0":{"items":1, "gutter": 16},"500":{"items":2, "gutter": 18},"900":{"items":3, "gutter": 20}, "1100":{"gutter": 24}}}')
+        div
+          article
+            a(href='car-finder-blog-single.html').d-block.rounded-3.overflow-hidden
+              img(src='img/car-finder/blog/04.jpg' alt='Image').d-block
+            .py-3
+              a(href='#').fs-xs.text-uppercase.text-decoration-none Events
+              h3.text-light.fs-base.pt-1
+                a(href='car-finder-blog-single.html').nav-link Top 10 Classic Car Events
+              a(href='#').d-flex.align-items-center.text-decoration-none
+                img(src='img/avatars/08.jpg' width='44' alt='Avatar').rounded-circle
+                .ps-2
+                  h6.fs-sm.text-light.lh-base.mb-1 Jacob Jones
+                  .d-flex.fs-xs.text-light.opacity-60
+                    span.me-2.pe-1
+                      i.fi-calendar-alt.me-1
+                      | May 8
+                    span
+                      i.fi-chat-circle.me-1
+                      | No comments
+        div
+          article
+            a(href='car-finder-blog-single.html').d-block.rounded-3.overflow-hidden
+              img(src='img/car-finder/blog/05.jpg' alt='Image').d-block
+            .py-3
+              a(href='#').fs-xs.text-uppercase.text-decoration-none Inspiration
+              h3.text-light.fs-base.pt-1
+                a(href='car-finder-blog-single.html').nav-link 5 Predictions From the Past About the Future
+              a(href='#').d-flex.align-items-center.text-decoration-none
+                img(src='img/avatars/09.jpg' width='44' alt='Avatar').rounded-circle
+                .ps-2
+                  h6.fs-sm.text-light.lh-base.mb-1 Guy Hawkins
+                  .d-flex.fs-xs.text-light.opacity-60
+                    span.me-2.pe-1
+                      i.fi-calendar-alt.me-1
+                      | Apr 25
+                    span
+                      i.fi-chat-circle.me-1
+                      | 6 comments
+        div
+          article
+            a(href='car-finder-blog-single.html').d-block.rounded-3.overflow-hidden
+              img(src='img/car-finder/blog/06.jpg' alt='Image').d-block
+            .py-3
+              a(href='#').fs-xs.text-uppercase.text-decoration-none Test Drives
+              h3.text-light.fs-base.pt-1
+                a(href='car-finder-blog-single.html').nav-link This Year is All About New Harley Davidson
+              a(href='#').d-flex.align-items-center.text-decoration-none
+                img(src='img/avatars/12.jpg' width='44' alt='Avatar').rounded-circle
+                .ps-2
+                  h6.fs-sm.text-light.lh-base.mb-1 Ralph Edwards
+                  .d-flex.fs-xs.text-light.opacity-60
+                    span.me-2.pe-1
+                      i.fi-calendar-alt.me-1
+                      | Mar 12
+                    span
+                      i.fi-chat-circle.me-1
+                      | 2 comments
+
+
+//- Footer
+block footer
+  include partials/footer-car-finder

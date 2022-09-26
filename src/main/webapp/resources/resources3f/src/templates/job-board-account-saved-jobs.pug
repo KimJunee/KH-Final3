@@ -1,0 +1,180 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var parentMenu = 'Account'
+  - var pageTitle = 'Job Board | Account - Saved Jobs'
+  - var bodyClass = 'bg-secondary'
+
+//- Navbar
+block navbar
+  include partials/navbar-job-board
+
+//- Page Content
+block content
+
+  // Page container
+  .position-absolute.top-0.start-0.w-100.bg-dark(style='height: 398px;')
+  .container.content-overlay.mt-5.mb-md-4.py-5
+    
+    // Breadcrumb
+    nav(aria-label='Breadcrumb').mb-3.mb-md-4.pt-md-3
+      ol.breadcrumb.breadcrumb-light
+        li.breadcrumb-item
+          a(href='job-board-home-v1.html') Home
+        li.breadcrumb-item
+          a(href='job-board-account-profile.html') Account
+        li(aria-current='page').breadcrumb-item.active
+          | Saved jobs
+
+
+    // Page card like wrapper
+    .bg-light.shadow-sm.rounded-3.p-4.p-md-5.mb-2
+
+      // Account header
+      .d-flex.align-items-start.justify-content-between.pb-4.mb-2
+        .d-flex.align-items-start
+          .position-relative.flex-shrink-0
+            img(src='img/avatars/37.png' width='100' alt='Annette Black').rounded-circle
+            button(type='button' data-bs-toggle='tooltip' title='Change image').btn.btn-icon.btn-light.btn-xs.rounded-circle.shadow-sm.position-absolute.end-0.bottom-0
+              i.fi-pencil.fs-xs
+          .ps-3.ps-sm-4
+            h3.h5 Annette Black
+            ul.list-unstyled.fs-sm.mb-0
+              li.d-flex.text-nav.text-break
+                i.fi-mail.opacity-60.mt-1.me-2
+                span annette_black@email.com
+              li.d-flex.text-nav.text-break
+                i.fi-phone.opacity-60.mt-1.me-2
+                span (302) 555-0107
+        a(href='signin-light.html').nav-link.p-0.d-none.d-md-block
+          i.fi-logout.mt-n1.me-2
+          | Sign out
+
+      // Account menu
+      include partials/nav-account-job-board
+      
+
+      // Page title
+      .d-flex.align-items-center.justify-content-between.py-4.mt-3.mb-2
+        h1.h3.mb-0 Saved jobs
+        a(href='#').fw-bold.text-decoration-none
+          i.fi-x.fs-xs.me-2
+          span.align-middle Clear all
+      
+      
+      // Grid
+      .row.g-2.g-md-4
+
+        // Item
+        .col-md-6.col-lg-4
+          .card.bg-secondary.card-hover.h-100
+            .card-body
+              .d-flex.align-items-center.mb-3
+                img(src='img/job-board/company/it-pro.png' width='24' alt='IT Pro TV').me-2
+                span.fs-sm.text-dark.opacity-80.px-1 IT Pro TV
+                span.badge.bg-faded-info.rounded-pill.fs-sm.ms-auto New
+              h3.h6.card-title.mb-2
+                a(href='job-board-single.html').text-nav.stretched-link.text-decoration-none Business Analyst
+              p.fs-sm.mb-0 Blandit a tincidunt arcu nulla. Sem neque, rhoncus non odio nulla maecenas elit praesent. Orci tristique velit mauris cursus nibh...
+            .card-footer.d-flex.align-items-center.justify-content-between.border-0.pt-0
+              .fs-sm
+                span.text-nowrap.me-3
+                  i.fi-map-pin.text-muted.me-1 
+                  | New York
+                span.text-nowrap.me-3
+                  i.fi-cash.fs-base.text-muted.me-1
+                  | $7,500
+              button(type='button' data-bs-toggle='tooltip' title='Remove from saved jobs').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle.shadow-sm.content-overlay
+                i.fi-heart-filled
+
+        // Item
+        .col-md-6.col-lg-4
+          .card.bg-secondary.card-hover.h-100
+            .card-body
+              .d-flex.align-items-center.mb-3
+                img(src='img/job-board/company/xbox.png' width='24' alt='Xbox').me-2
+                span.fs-sm.text-dark.opacity-80.px-1 Xbox Company
+                span.badge.bg-faded-accent.rounded-pill.fs-sm.ms-auto Featured
+              h3.h6.card-title.mb-2
+                a(href='job-board-single.html').text-nav.stretched-link.text-decoration-none Full-Stack Developer
+              p.fs-sm.mb-0 Euismod nec sagittis sit arcu libero, metus. Aliquam nisl rhoncus porttitor volutpat, ante cras tincidunt. Nec sit nunc, ornare tincidunt enim neque...
+            .card-footer.d-flex.align-items-center.justify-content-between.border-0.pt-0
+              .fs-sm
+                span.text-nowrap.me-3
+                  i.fi-map-pin.text-muted.me-1 
+                  | Washington
+                span.text-nowrap.me-3
+                  i.fi-cash.fs-base.text-muted.me-1
+                  | $12,000
+              button(type='button' data-bs-toggle='tooltip' title='Remove from saved jobs').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle.shadow-sm.content-overlay
+                  i.fi-heart-filled
+
+        // Item
+        .col-md-6.col-lg-4
+          .card.bg-secondary.card-hover.h-100
+            .card-body
+              .d-flex.align-items-center.mb-3
+                img(src='img/job-board/company/xampp.png' width='24' alt='Xampp').me-2
+                span.fs-sm.text-dark.opacity-80.px-1 XAMPP Company
+              h3.h6.card-title.mb-2
+                a(href='job-board-single.html').text-nav.stretched-link.text-decoration-none Account Manager
+              p.fs-sm.mb-0 Auctor elit in aenean sodales mattis. Ultricies nec eu augue sit. Ornare pulvinar enim fames orci enim in libero. Eu, lorem leo netus velit egestas risus...
+            .card-footer.d-flex.align-items-center.justify-content-between.border-0.pt-0
+              .fs-sm
+                span.text-nowrap.me-3
+                  i.fi-map-pin.text-muted.me-1 
+                  | Chicago
+                span.text-nowrap.me-3
+                  i.fi-cash.fs-base.text-muted.me-1
+                  | $6,000
+              button(type='button' data-bs-toggle='tooltip' title='Remove from saved jobs').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle.shadow-sm.content-overlay
+                i.fi-heart-filled
+
+        // Item
+        .col-md-6.col-lg-4
+          .card.bg-secondary.card-hover.h-100
+            .card-body
+              .d-flex.align-items-center.mb-3
+                img(src='img/job-board/company/zapier.png' width='24' alt='Zapier').me-2
+                span.fs-sm.text-dark.opacity-80.px-1 Zapier
+                span.badge.bg-faded-danger.rounded-pill.fs-sm.ms-auto Hot
+              h3.h6.card-title.mb-2
+                a(href='job-board-single.html').text-nav.stretched-link.text-decoration-none Onboarding Specialist
+              p.fs-sm.mb-0 Rhoncus magna odio turpis porttitor nulla fringilla quis. Consectetur sociis urna posuere consequat. Ut consectetur amet penatibus sociis feugiat...
+            .card-footer.d-flex.align-items-center.justify-content-between.border-0.pt-0
+              .fs-sm
+                span.text-nowrap.me-3
+                  i.fi-map-pin.text-muted.me-1 
+                  | Houston
+                span.text-nowrap.me-3
+                  i.fi-cash.fs-base.text-muted.me-1
+                  | $4,000
+              button(type='button' data-bs-toggle='tooltip' title='Remove from saved jobs').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle.shadow-sm.content-overlay
+                i.fi-heart-filled
+
+        // Item
+        .col-md-6.col-lg-4
+          .card.bg-secondary.card-hover.h-100
+            .card-body
+              .d-flex.align-items-center.mb-3
+                img(src='img/job-board/company/kibana.png' width='24' alt='Elastic Kibana').me-2
+                span.fs-sm.text-dark.opacity-80.px-1 Elastic Kibana
+              h3.h6.card-title.mb-2
+                a(href='job-board-single.html').text-nav.stretched-link.text-decoration-none Global Product Operations Specialist
+              p.fs-sm.mb-0 A ultrices eu facilisis suspendisse scelerisque fringilla ultrices sit pellentesque. Consequat platea quam faucibus egestas arcu semper adipiscing...
+            .card-footer.d-flex.align-items-center.justify-content-between.border-0.pt-0
+              .fs-sm
+                span.text-nowrap.me-3
+                  i.fi-map-pin.text-muted.me-1 
+                  | New York
+                span.text-nowrap.me-3
+                  i.fi-cash.fs-base.text-muted.me-1
+                  | $8,300
+              button(type='button' data-bs-toggle='tooltip' title='Remove from saved jobs').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle.shadow-sm.content-overlay
+                i.fi-heart-filled
+
+
+//- Footer
+block footer
+  include partials/footer-job-board

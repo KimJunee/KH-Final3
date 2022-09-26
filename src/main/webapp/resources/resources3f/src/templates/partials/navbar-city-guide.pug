@@ -1,0 +1,271 @@
+if parentMenu === 'Home' || parentMenu === 'Catalog' || parentMenu === 'Pages'
+  
+  // Sign In Modal
+  #signin-modal.modal.fade(tabindex='-1' aria-hidden='true')
+    .modal-dialog.modal-lg.modal-dialog-centered.p-2.my-0.mx-auto(style='max-width: 950px;')
+      .modal-content
+        .modal-body.px-0.py-2.py-sm-0
+          button(type='button' data-bs-dismiss='modal').btn-close.position-absolute.top-0.end-0.mt-3.me-3
+          .row.mx-0.align-items-center
+            .col-md-6.border-end-md.p-4.p-sm-5
+              h2.h3.mb-4.mb-sm-5 Hey there!<br>Welcome back.
+              img(src='img/signin-modal/signin.svg' class='d-block mx-auto' width='344' alt='Illustartion')
+              .mt-4.mt-sm-5
+                | Don't have an account? 
+                a(href='#signup-modal' data-bs-toggle='modal' data-bs-dismiss='modal') Sign up here
+            .col-md-6.px-4.pt-2.pb-4.px-sm-5.pb-sm-5.pt-md-5
+              a(href='#').btn.btn-outline-info.rounded-pill.w-100.mb-3
+                i.fi-google.fs-lg.me-1
+                | Sign in with Google
+              a(href='#').btn.btn-outline-info.rounded-pill.w-100.mb-3
+                i.fi-facebook.fs-lg.me-1
+                | Sign in with Facebook
+              .d-flex.align-items-center.py-3.mb-3
+                hr.w-100
+                .px-3 Or
+                hr.w-100
+              form(novalidate).needs-validation
+                .mb-4
+                  label(for='signin-email').form-label.mb-2 Email address
+                  input(type='email' id='signin-email' placeholder='Enter your email' required).form-control
+                .mb-4
+                  .d-flex.align-items-center.justify-content-between.mb-2
+                    label(for='signin-password').form-label.mb-0 Password
+                    a(href='#').fs-sm Forgot password?
+                  .password-toggle
+                    input(type='password' id='signin-password' placeholder='Enter password' required).form-control
+                    label(aria-label='Show/hide password').password-toggle-btn
+                      input(type='checkbox').password-toggle-check
+                      span.password-toggle-indicator
+                button(type='submit').btn.btn-primary.btn-lg.rounded-pill.w-100 Sign in
+
+
+  // Sign Up Modal
+  #signup-modal.modal.fade(tabindex='-1' aria-hidden='true')
+    .modal-dialog.modal-lg.modal-dialog-centered.p-2.my-0.mx-auto(style='max-width: 950px;')
+      .modal-content
+        .modal-body.px-0.py-2.py-sm-0
+          button(type='button' data-bs-dismiss='modal').btn-close.position-absolute.top-0.end-0.mt-3.me-3
+          .row.mx-0.align-items-center
+            .col-md-6.border-end-md.p-4.p-sm-5
+              h2.h3.mb-4.mb-sm-5 Join Finder.<br>Get premium benefits:
+              ul.list-unstyled.mb-4.mb-sm-5
+                li.d-flex.mb-2
+                  i.fi-check-circle.text-primary.mt-1.me-2
+                  span Add and promote your listings
+                li.d-flex.mb-2
+                  i.fi-check-circle.text-primary.mt-1.me-2
+                  span Easily manage your wishlist
+                li.d-flex.mb-0
+                  i.fi-check-circle.text-primary.mt-1.me-2
+                  span Leave reviews
+              img(src='img/signin-modal/signup.svg' class='d-block mx-auto' width='344' alt='Illustartion')
+              .mt-sm-4.pt-md-3
+                | Already have an account? 
+                a(href='#signin-modal' data-bs-toggle='modal' data-bs-dismiss='modal') Sign in
+            .col-md-6.px-4.pt-2.pb-4.px-sm-5.pb-sm-5.pt-md-5
+              a(href='#').btn.btn-outline-info.rounded-pill.w-100.mb-3
+                i.fi-google.fs-lg.me-1
+                | Sign in with Google
+              a(href='#').btn.btn-outline-info.rounded-pill.w-100.mb-3
+                i.fi-facebook.fs-lg.me-1
+                | Sign in with Facebook
+              .d-flex.align-items-center.py-3.mb-3
+                hr.w-100
+                .px-3 Or
+                hr.w-100
+              form(novalidate).needs-validation
+                .mb-4
+                  label(for='signup-name').form-label Full name
+                  input(type='text' id='signup-name' placeholder='Enter your full name' required).form-control
+                .mb-4
+                  label(for='signup-email').form-label Email address
+                  input(type='email' id='signup-email' placeholder='Enter your email' required).form-control
+                .mb-4
+                  label(for='signup-password').form-label Password <span class='fs-sm text-muted'>min. 8 char</span>
+                  .password-toggle
+                    input(type='password' id='signup-password' minlength='8' required).form-control
+                    label(aria-label='Show/hide password').password-toggle-btn
+                      input(type='checkbox').password-toggle-check
+                      span.password-toggle-indicator
+                .mb-4
+                  label(for='signup-password-confirm').form-label Confirm password
+                  .password-toggle
+                    input(type='password' id='signup-password-confirm' minlength='8' required).form-control
+                    label(aria-label='Show/hide password').password-toggle-btn
+                      input(type='checkbox').password-toggle-check
+                      span.password-toggle-indicator
+                .form-check.mb-4
+                  input(type='checkbox' id='agree-to-terms' required).form-check-input
+                  label(for='agree-to-terms').form-check-label
+                    | By joining, I agree to the <a href='#'>Terms of use</a> and <a href='#'>Privacy policy</a>
+                button(type='submit').btn.btn-primary.btn-lg.rounded-pill.w-100 Sign up
+
+
+// Navbar
+header(data-scroll-header)&attributes(pageTitle === 'City Guide | Home v.2' ? {'class': 'navbar navbar-expand-lg navbar-light bg-light fixed-top'} : {'class': 'navbar navbar-expand-lg navbar-light fixed-top'})
+  .container
+    a(href='city-guide-home-v1.html').navbar-brand.me-3.me-xl-4
+      img(src='img/logo/logo-dark.svg' width='116' alt='Finder').d-block
+    button(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation').navbar-toggler.ms-auto
+      span.navbar-toggler-icon
+    if parentMenu === 'Account' || parentMenu === 'Vendor'
+      .dropdown.d-none.d-lg-block.order-lg-3.my-n2.me-3
+        a(href='city-guide-account-info.html').d-block.py-2
+          img(src='img/avatars/36.png' width='40' alt='Annette Black').rounded-circle
+        .dropdown-menu.dropdown-menu-end
+          .d-flex.align-items-start.border-bottom.px-3.py-1.mb-2(style='width: 16rem;')
+            img(src='img/avatars/24.png' width='48' alt='Annette Black').rounded-circle
+            .ps-2
+              h6.fs-base.mb-0 Annette Black
+              +star-rating(5,'sm')
+              .fs-xs.py-2
+                | (302) 555-0107
+                br
+                | annette_black@email.com
+          a(href='city-guide-account-info.html').dropdown-item
+            i.fi-user.opacity-60.me-2
+            | Personal Info
+          a(href='city-guide-account-favorites.html').dropdown-item
+            i.fi-heart.opacity-60.me-2
+            | Favorites
+          a(href='city-guide-vendor-businesses.html').dropdown-item
+            i.fi-home.opacity-60.me-2
+            | My Businesses
+          a(href='city-guide-account-reviews.html').dropdown-item
+            i.fi-star.opacity-60.me-2
+            | Reviews
+          a(href='city-guide-account-notifications.html').dropdown-item
+            i.fi-bell.opacity-60.me-2
+            | Notifications
+          .dropdown-divider
+          a(href='city-guide-help-center.html').dropdown-item Help
+          a(href='signin-light.html').dropdown-item Sign Out
+    else
+      a(href='#signin-modal' data-bs-toggle='modal').btn.btn-sm.text-primary.d-none.d-lg-block.order-lg-3
+        i.fi-user.me-2
+        | Sign in
+    a(href='city-guide-add-business.html').btn.btn-primary.btn-sm.rounded-pill.ms-2.order-lg-3
+      i.fi-plus.me-2
+      | Add<span class='d-none d-sm-inline'> business</span>
+    #navbarNav.collapse.navbar-collapse.order-lg-2
+      ul.navbar-nav.navbar-nav-scroll(style='max-height: 35rem;')
+        // Demos switcher
+        li.nav-item.dropdown.me-lg-2
+          a(href='#' data-bs-toggle='dropdown' role='button' aria-expanded='false').nav-link.dropdown-toggle.align-items-center.pe-lg-4
+            i.fi-layers.me-2
+            | Demos
+            span.d-none.d-lg-block.position-absolute.top-50.end-0.translate-middle-y.border-end(style='width: 1px; height: 30px;')
+          ul.dropdown-menu
+            li
+              a(href='real-estate-home-v1.html').dropdown-item
+                i.fi-building.fs-base.opacity-50.me-2
+                | Real Estate Demo
+            li.dropdown-divider
+            li
+              a(href='car-finder-home.html').dropdown-item
+                i.fi-car.fs-base.opacity-50.me-2
+                | Car Finder Demo
+            li.dropdown-divider
+            li
+              a(href='job-board-home-v1.html').dropdown-item
+                i.fi-briefcase.fs-base.opacity-50.me-2
+                | Job Board Demo
+            li.dropdown-divider
+            li
+              a(href='city-guide-home-v1.html').dropdown-item
+                i.fi-map-pin.fs-base.opacity-50.me-2
+                | City Guide Demo
+            li.dropdown-divider
+            li
+              a(href='index.html').dropdown-item
+                i.fi-home.fs-base.opacity-50.me-2
+                | Main Page
+            li
+              a(href='components/typography.html').dropdown-item
+                i.fi-list.fs-base.opacity-50.me-2
+                | Components
+            li
+              a(href='docs/dev-setup.html').dropdown-item
+                i.fi-file.fs-base.opacity-50.me-2
+                | Documentation
+
+        // Menu items
+        li()&attributes(parentMenu === 'Home' ? {'class': 'nav-item dropdown active'} : {'class': 'nav-item dropdown'})
+          a(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false').nav-link.dropdown-toggle Home
+          ul.dropdown-menu
+            li: a(href='city-guide-home-v1.html').dropdown-item Homepage v.1
+            li: a(href='city-guide-home-v2.html').dropdown-item Homepage v.2
+        li()&attributes(parentMenu === 'Catalog' ? {'class': 'nav-item dropdown active'} : {'class': 'nav-item dropdown'})
+          a(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false').nav-link.dropdown-toggle Catalog
+          ul.dropdown-menu
+            li: a(href='city-guide-catalog.html').dropdown-item Grid with Filters
+            li: a(href='city-guide-single.html').dropdown-item Single Place - Gallery
+            li: a(href='city-guide-single-info.html').dropdown-item Single Place - Info
+            li: a(href='city-guide-single-reviews.html').dropdown-item Single Place - Reviews
+        li()&attributes(parentMenu === 'Account' ? {'class': 'nav-item dropdown active'} : {'class': 'nav-item dropdown'})
+          a(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false').nav-link.dropdown-toggle Account
+          ul.dropdown-menu
+            li: a(href='city-guide-account-info.html').dropdown-item Personal Info
+            li: a(href='city-guide-account-favorites.html').dropdown-item Favorites
+            li: a(href='city-guide-account-reviews.html').dropdown-item Reviews
+            li: a(href='city-guide-account-notifications.html').dropdown-item Notifications
+            li: a(href='signin-light.html').dropdown-item Sign In
+            li: a(href='signup-light.html').dropdown-item Sign Up
+        li()&attributes(parentMenu === 'Vendor' ? {'class': 'nav-item dropdown active'} : {'class': 'nav-item dropdown'})
+          a(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false').nav-link.dropdown-toggle Vendor
+          ul.dropdown-menu
+            li: a(href='city-guide-add-business.html').dropdown-item Add Business
+            li: a(href='city-guide-business-promotion.html').dropdown-item Business Promotion
+            li: a(href='city-guide-vendor-businesses.html').dropdown-item My Businesses
+        li()&attributes(parentMenu === 'Pages' ? {'class': 'nav-item dropdown active'} : {'class': 'nav-item dropdown'})
+          a(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false').nav-link.dropdown-toggle Pages
+          ul.dropdown-menu
+            li: a(href='city-guide-about.html').dropdown-item About
+            li.dropdown
+              a(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false').dropdown-item.dropdown-toggle Blog
+              ul.dropdown-menu
+                li: a(href='city-guide-blog.html').dropdown-item Blog Grid
+                li: a(href='city-guide-blog-single.html').dropdown-item Single Post
+            li: a(href='city-guide-contacts.html').dropdown-item Contacts
+            li.dropdown
+              a(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false').dropdown-item.dropdown-toggle Help Center
+              ul.dropdown-menu
+                li: a(href='city-guide-help-center.html').dropdown-item Help Topics
+                li: a(href='city-guide-help-center-single-topic.html').dropdown-item Single Topic
+            li: a(href='city-guide-404.html').dropdown-item 404 Not Found
+        if parentMenu === 'Account' || parentMenu === 'Vendor'
+          li.nav-item.dropdown.d-lg-none
+            a(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false').nav-link.dropdown-toggle.d-flex.align-items-center
+              img(src='img/avatars/36.png' width='30' alt='Annette Black').rounded-circle.me-2
+              | Annette Black
+            .dropdown-menu
+              .ps-3
+                +star-rating(5,'sm')
+                .fs-xs.py-2
+                  | (302) 555-0107
+                  br
+                  | annette_black@email.com
+              a(href='city-guide-account-info.html').dropdown-item
+                i.fi-user.opacity-60.me-2
+                | Personal Info
+              a(href='city-guide-account-favorites.html').dropdown-item
+                i.fi-heart.opacity-60.me-2
+                | Favorites
+              a(href='city-guide-vendor-businesses.html').dropdown-item
+                i.fi-home.opacity-60.me-2
+                | My Businesses
+              a(href='city-guide-account-reviews.html').dropdown-item
+                i.fi-star.opacity-60.me-2
+                | Reviews
+              a(href='city-guide-account-notifications.html').dropdown-item
+                i.fi-bell.opacity-60.me-2
+                | Notifications
+              .dropdown-divider
+              a(href='city-guide-help-center.html').dropdown-item Help
+              a(href='signin-light.html').dropdown-item Sign Out
+        else
+          li.nav-item.d-lg-none
+            a(href='#signin-modal' data-bs-toggle='modal').nav-link
+              i.fi-user.me-2
+              | Sign in

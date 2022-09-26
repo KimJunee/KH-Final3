@@ -1,0 +1,115 @@
+//- Include config.pug file that holds all variables
+block config
+  include ../helpers/config
+
+//- Mixins - reusable code snippets
+include ../helpers/mixins
+
+//- Override default config variables
+append config
+  - var isPageLoading = false
+  - var isNestedFile = true
+
+doctype html
+html(lang="en")
+
+  //- head.pug template
+  include head 
+  
+  // Body
+  body
+    
+    main.container-fluid.px-xl-4.pb-3.pb-lg-4
+
+      // Main content
+      section.offcanvas-enabled-start.row
+        .col-xxl-9
+
+          // Navbar
+          header(data-scroll-header data-fixed-element).navbar.navbar-expand.justify-content-end.navbar-light.bg-light.fixed-top.shadow-sm.px-3.px-xl-4
+            a(href='dev-setup.html').navbar-brand.d-lg-none
+              img(src='../img/logo/logo-dark.svg' width='116' alt='Finder')
+            button(type='button' data-bs-toggle='offcanvas' data-bs-target='#componentsNav').navbar-toggler.d-block.d-lg-none.me-3.ms-auto.border-0
+              span.navbar-toggler-icon
+            ul.navbar-nav.ms-auto.d-none.d-lg-flex
+              li.nav-item
+                a(href='../index.html').nav-link
+                  i.fi-eye-on.align-middle.fs-base.me-2
+                  | Live preview
+              li.nav-item.mx-2.border-end
+              li.nav-item
+                a(href='../components/typography.html').nav-link
+                  i.fi-list.align-middle.fs-base.me-2
+                  | Components
+              li.nav-item.mx-2.border-end
+            a(href='https://themes.getbootstrap.com/product/finder-directory-listings-template-ui-kit/' target='_blank' rel='noopener').btn.btn-primary.ms-lg-3
+              i.fi-cart.me-2.d-none.d-sm-inline-block.fs-lg
+              | Buy now
+          
+          // Side navigation (Offcanvas)
+          aside#componentsNav.offcanvas.offcanvas-start.offcanvas-expand.bg-dark
+            .offcanvas-header.d-none.d-lg-block.pt-3.pb-4.bg-dark
+              a(href='dev-setup.html').navbar-brand.py-2
+                img(src='../img/logo/logo-light.svg' width='116' alt='Finder')
+              span.badge.bg-info Docs
+            .offcanvas-header.d-flex.d-lg-none.align-items-center
+              .d-flex.align-items-center
+                h5.offcanvas-title.me-3.text-white Menu
+                span.badge.bg-info Docs
+              button(type='button' data-bs-dismiss='offcanvas').btn-close.btn-close-white
+            .d-flex.d-lg-none.align-items-center.py-4.px-3.border-top.border-bottom.border-light
+              a(href='../index.html').btn.btn-light.btn-sm.d-block.w-100.me-2
+                i.fi-eye-on.me-2.fs-base
+                | Preview
+              a(href='../components/typography.html').btn.btn-success.btn-sm.d-block.w-100
+                i.fi-list.me-2.fs-base
+                | Components
+            .offcanvas-body.pt-lg-2.pb-4(data-simplebar data-simplebar-inverse)
+              h6.fs-base.text-light.mb-1.py-2 Contents
+              nav.nav.nav-light.flex-column
+                a(href='dev-setup.html')&attributes(pageTitle === 'Dev environment setup' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Dev environment setup
+                a(href='working-with-gulp.html')&attributes(pageTitle === 'Working with Gulp' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Working with Gulp
+                a(href='project-structure.html')&attributes(pageTitle === 'Project structure' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Project structure
+                a(href='install-vendor-plugin.html')&attributes(pageTitle === 'Installing Vendor plugins with Npm and Gulp' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Installing Vendor plugins with Npm and Gulp
+                a(href='using-preprocessors.html')&attributes(pageTitle === 'Using Pug & Sass' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Using Pug &amp; Sass
+                a(href='autoprefixer.html')&attributes(pageTitle === 'Browser support' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Browser support
+                a(href='global-colors.html')&attributes(pageTitle === 'Global colors' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Global colors
+                a(href='components.html')&attributes(pageTitle === 'Components' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Components
+                a(href='utilities.html')&attributes(pageTitle === 'Utility classes' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Utility classes
+                a(href='ui-icons.html')&attributes(pageTitle === 'UI icons (Icon font)' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | UI icons (Icon font)
+                a(href='mailchimp.html')&attributes(pageTitle === 'Mailchimp subscription form' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Mailchimp subscription form
+                a(href='credits.html')&attributes(pageTitle === 'Sources and credits' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Sources and credits
+                a(href='changelog.html')&attributes(pageTitle === 'Changelog' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Changelog
+
+
+          // Page title
+          .border-bottom.mb-5.pt-5
+            h1.mt-5.pt-4.pb-2 !{pageTitle}
+
+          
+          block content
+
+
+    // Back to top button
+    a(href='#top' data-scroll).btn-scroll-top
+      span.btn-scroll-top-tooltip.text-muted.fs-sm.me-2 Top
+      i.btn-scroll-top-icon.fi-chevron-up    
+    
+    // Vendor scripts: js libraries and plugins
+    +vendor-scripts
+
+    // Main theme script
+    script()&attributes(isNestedFile ? {'src': '../js/theme.min.js'} : {'src': 'js/theme.min.js'})

@@ -1,0 +1,549 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['prismjs/themes/prism.css', 'prismjs/plugins/toolbar/prism-toolbar.css', 'prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var vendorScripts = ['prismjs/components/prism-core.min.js', 'prismjs/components/prism-markup.min.js', 'prismjs/components/prism-clike.min.js', 'prismjs/components/prism-javascript.min.js', 'prismjs/components/prism-pug.min.js', 'prismjs/plugins/toolbar/prism-toolbar.min.js', 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Testimonials / reviews'
+  - var pageSubtitle = 'Component is designed to showcase testimonials from satisfied clients or reviews of the products on your website.'
+  - var isPageTitleBadge = true
+  - var anchorNav = [{'title': 'Blockquote based', 'link': '#testimonial-blockquote'}, {'title': 'Inside card: Basic', 'link': '#testimonial-card-basic'}, {'title': 'Inside card: Compound', 'link': '#testimonial-card-compound'}, {'title': 'Review', 'link': '#testimonial-review'}, {'title': 'Comment', 'link': '#testimonial-comment'}, {'title': 'Light version', 'link': '#testimonial-light'}]
+  
+//- Page Content
+block content
+  
+  // Blockquote based
+  section#testimonial-blockquote.pb-5.mb-md-2
+    h2.h5.mb-3 Blockquote based
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result1' data-bs-toggle='tab' role='tab' aria-controls='result1' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result1.tab-pane.fade.show.active(role='tabpanel')
+            blockquote.blockquote(style='max-width: 48rem;')
+              p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              footer.d-flex.align-items-center
+                img(src='../img/avatars/04.jpg' width='48' alt='Avatar').rounded-circle.me-1
+                .ps-2
+                  h6.fs-base.mb-0 Ralph Edwards
+                  .text-muted.fw-normal.fs-sm Co-founder, CEO
+          #html1.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Simple blockquote based testimonial --&gt;
+                &lt;blockquote class=&quot;blockquote&quot;&gt;
+                  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.&lt;/p&gt;
+                  &lt;footer class=&quot;d-flex align-items-center&quot;&gt;
+                    &lt;img class=&quot;rounded-circle me-1&quot; src=&quot;path-to-avatar-image&quot; width=&quot;48&quot; alt=&quot;Avatar&quot;&gt;
+                    &lt;div class=&quot;ps-2&quot;&gt;
+                      &lt;h6 class=&quot;fs-base mb-0&quot;&gt;Ralph Edwards&lt;/h6&gt;
+                      &lt;div class=&quot;text-muted fw-normal fs-sm&quot;&gt;Co-founder, CEO&lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/footer&gt;
+                &lt;/blockquote&gt;
+          #pug1.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Simple blockquote based testimonial
+                blockquote.blockquote
+                  p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  footer.d-flex.align-items-center
+                    img(src=&quot;path-to-avatar-image&quot;, width=&quot;48&quot;, alt=&quot;Avatar&quot;).rounded-circle.me-1
+                    .ps-2
+                      h6.fs-base.mb-0 Ralph Edwards
+                      .text-muted.fw-normal.fs-sm Co-founder, CEO
+  
+  // Inside card: Basic
+  section#testimonial-card-basic.pb-5.mb-md-2
+    h2.h5.mb-3 Inside card: Basic
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result2' data-bs-toggle='tab' role='tab' aria-controls='result2' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result2.tab-pane.fade.show.active(role='tabpanel')
+            .pt-3(style='max-width: 48rem;')
+              .card.border-0.shadow-sm
+                blockquote.blockquote.card-body
+                  p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  footer.d-flex.align-items-center
+                    img(src='../img/job-board/company/zalo-lg.png' width='56' alt='Logo')
+                    .ps-3
+                      h6.fs-base.mb-0 Zalo Tech Company
+                      .text-muted.fw-normal.fs-sm Floyd Miles, Head of HR Department
+          #html2.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Testimonial inside card: Basic --&gt;
+                &lt;div class=&quot;card border-0 shadow-sm&quot;&gt;
+                  &lt;blockquote class=&quot;blockquote card-body&quot;&gt;
+                    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.&lt;/p&gt;
+                    &lt;footer class=&quot;d-flex align-items-center&quot;&gt;
+                      &lt;img src=&quot;path-to-image&quot; width=&quot;56&quot; alt=&quot;Logo&quot;&gt;
+                      &lt;div class=&quot;ps-3&quot;&gt;
+                        &lt;h6 class=&quot;fs-base mb-0&quot;&gt;Zalo Tech Company&lt;/h6&gt;
+                        &lt;div class=&quot;text-muted fw-normal fs-sm&quot;&gt;Floyd Miles, Head of HR Department&lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/footer&gt;
+                  &lt;/blockquote&gt;
+                &lt;/div&gt;
+          #pug2.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Testimonial inside card: Basic
+                .card.border-0.shadow-sm
+                  blockquote.blockquote.card-body
+                    p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    footer.d-flex.align-items-center
+                      img(src=&quot;path-to-image&quot;, width=&quot;56&quot;, alt=&quot;Logo&quot;)
+                      .ps-3
+                        h6.fs-base.mb-0 Zalo Tech Company
+                        .text-muted.fw-normal.fs-sm Floyd Miles, Head of HR Department
+  
+  // Inside card: Compound
+  section#testimonial-card-compound.pb-5.mb-md-2
+    h2.h5.mb-3 Inside card: Compound
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result3' data-bs-toggle='tab' role='tab' aria-controls='result3' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result3.tab-pane.fade.show.active(role='tabpanel')
+            .pt-3(style='max-width: 33rem;')
+              .card.border-0.shadow-sm
+                blockquote.blockquote.card-body
+                  h4(style='max-width: 20rem;') &quot;I will select the best accommodation for you&quot;
+                  p Amet libero morbi venenatis ut est. Iaculis leo ultricies nunc id ante adipiscing. Vel metus odio at faucibus ac. Neque id placerat et id ut. Scelerisque eu mi ullamcorper sit urna. Est volutpat dignissim elementum nec.
+                  footer.d-flex.justify-content-between
+                    .pe-3
+                      h6.mb-0 Floyd Miles
+                      .text-muted.fw-normal.fs-sm.mb-3 Imperial Property Group Agent
+                      a(href="#").btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.me-2.mb-2
+                        i.fi-facebook
+                      a(href="#").btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.me-2.mb-2
+                        i.fi-twitter
+                      a(href="#").btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.me-2.mb-2
+                        i.fi-linkedin
+                    div
+                      +star-rating(5)
+                      .text-muted.fs-sm.mt-1 45 reviews
+          #html3.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Testimonial inside card: Compound --&gt;
+                &lt;div class=&quot;card border-0 shadow-sm&quot;&gt;
+                  &lt;blockquote class=&quot;blockquote card-body&quot;&gt;
+                    &lt;h4 style=&quot;max-width: 20rem;&quot;&gt;&quot;I will select the best accommodation for you&quot;&lt;/h4&gt;
+                    &lt;p&gt;Amet libero morbi venenatis ut est. Iaculis leo ultricies nunc id ante adipiscing. Vel metus odio at faucibus ac. Neque id placerat et id ut. Scelerisque eu mi ullamcorper sit urna. Est volutpat dignissim elementum nec.&lt;/p&gt;
+                    &lt;footer class=&quot;d-flex justify-content-between&quot;&gt;
+                      &lt;div class=&quot;pe-3&quot;&gt;
+                        &lt;h6 class=&quot;mb-0&quot;&gt;Floyd Miles&lt;/h6&gt;
+                        &lt;div class=&quot;text-muted fw-normal fs-sm mb-3&quot;&gt;Imperial Property Group Agent&lt;/div&gt;
+                        &lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-light-primary btn-xs shadow-sm rounded-circle me-2 mb-2&quot;&gt;
+                          &lt;i class=&quot;fi-facebook&quot;&gt;&lt;/i&gt;
+                        &lt;/a&gt;
+                        &lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-light-primary btn-xs shadow-sm rounded-circle me-2 mb-2&quot;&gt;
+                          &lt;i class=&quot;fi-twitter&quot;&gt;&lt;/i&gt;
+                        &lt;/a&gt;
+                        &lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-light-primary btn-xs shadow-sm rounded-circle me-2 mb-2&quot;&gt;
+                          &lt;i class=&quot;fi-linkedin&quot;&gt;&lt;/i&gt;
+                        &lt;/a&gt;
+                      &lt;/div&gt;
+                      &lt;div&gt;
+                        &lt;div class=&quot;star-rating&quot;&gt;
+                          &lt;i class=&quot;star-rating-icon fi-star-filled active&quot;&gt;&lt;/i&gt;
+                          &lt;i class=&quot;star-rating-icon fi-star-filled active&quot;&gt;&lt;/i&gt;
+                          &lt;i class=&quot;star-rating-icon fi-star-filled active&quot;&gt;&lt;/i&gt;
+                          &lt;i class=&quot;star-rating-icon fi-star-filled active&quot;&gt;&lt;/i&gt;
+                          &lt;i class=&quot;star-rating-icon fi-star-filled active&quot;&gt;&lt;/i&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;text-muted fs-sm mt-1&quot;&gt;45 reviews&lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/footer&gt;
+                  &lt;/blockquote&gt;
+                &lt;/div&gt;
+          #pug3.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Testimonial inside card: Compound
+                .card.border-0.shadow-sm
+                  blockquote.blockquote.card-body
+                    h4(style=&quot;max-width: 20rem;&quot;) 
+                      | &quot;I will select the best accommodation for you&quot;
+                    p Amet libero morbi venenatis ut est. Iaculis leo ultricies nunc id ante adipiscing. Vel metus odio at faucibus ac. Neque id placerat et id ut. Scelerisque eu mi ullamcorper sit urna. Est volutpat dignissim elementum nec.
+                    footer.d-flex.justify-content-between
+                      .pe-3
+                        h6.mb-0 Floyd Miles
+                        .text-muted.fw-normal.fs-sm.mb-3 Imperial Property Group Agent
+                        a(href=&quot;#&quot;).btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.me-2.mb-2
+                          i.fi-facebook
+                        a(href=&quot;#&quot;).btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.me-2.mb-2
+                          i.fi-twitter
+                        a(href=&quot;#&quot;).btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.me-2.mb-2
+                          i.fi-linkedin
+                      div
+                        +star-rating(5)
+                        .text-muted.fs-sm.mt-1 45 reviews
+  
+  // Review
+  section#testimonial-review.pb-5.mb-md-2
+    h2.h5.mb-3 Review
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result4' data-bs-toggle='tab' role='tab' aria-controls='result4' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result4.tab-pane.fade.show.active(role='tabpanel')
+            .py-2(style='max-width: 48rem;')
+              .d-flex.justify-content-between.mb-3
+                .d-flex.align-items-center.pe-2
+                  img(src='../img/avatars/03.jpg' width='48' alt='Avatar').rounded-circle.me-1
+                  .ps-2
+                    h6.fs-base.mb-0 Annette Black
+                    +star-rating(4)
+                span.text-muted.fs-sm Jan 17, 2021
+              p Elementum ut quam tincidunt egestas vitae elit, hendrerit. Ullamcorper nulla amet lobortis elit, nibh condimentum enim. Aliquam felis nisl tellus sodales lectus dictum tristique proin vitae. Odio fermentum viverra tortor quis.
+              .d-flex.align-items-center
+                button(type='button').btn-like
+                  i.fi-like
+                  span (3)
+                .border-end.me-1 &nbsp;
+                button(type='button').btn-dislike
+                  i.fi-dislike
+                  span (0)
+          #html4.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Review --&gt;
+                &lt;div class=&quot;d-flex justify-content-between mb-3&quot;&gt;
+                  &lt;div class=&quot;d-flex align-items-center pe-2&quot;&gt;
+                    &lt;img class=&quot;rounded-circle me-1&quot; src=&quot;path-to-avatar-image&quot; width=&quot;48&quot; alt=&quot;Avatar&quot;&gt;
+                    &lt;div class=&quot;ps-2&quot;&gt;
+                      &lt;h6 class=&quot;fs-base mb-0&quot;&gt;Annette Black&lt;/h6&gt;
+                      &lt;div class=&quot;star-rating&quot;&gt;
+                        &lt;i class=&quot;star-rating-icon fi-star-filled active&quot;&gt;&lt;/i&gt;
+                        &lt;i class=&quot;star-rating-icon fi-star-filled active&quot;&gt;&lt;/i&gt;
+                        &lt;i class=&quot;star-rating-icon fi-star-filled active&quot;&gt;&lt;/i&gt;
+                        &lt;i class=&quot;star-rating-icon fi-star-filled active&quot;&gt;&lt;/i&gt;
+                        &lt;i class=&quot;star-rating-icon fi-star&quot;&gt;&lt;/i&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;span class=&quot;text-muted fs-sm&quot;&gt;Jan 17, 2021&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;p&gt;Elementum ut quam tincidunt egestas vitae elit, hendrerit. Ullamcorper nulla amet lobortis elit, nibh condimentum enim. Aliquam felis nisl tellus sodales lectus dictum tristique proin vitae. Odio fermentum viverra tortor quis.&lt;/p&gt;
+                &lt;div class=&quot;d-flex align-items-center&quot;&gt;
+                  &lt;button type=&quot;button&quot; class=&quot;btn-like&quot;&gt;
+                    &lt;i class=&quot;fi-like&quot;&gt;&lt;/i&gt;
+                    &lt;span&gt;(3)&lt;/span&gt;
+                  &lt;/button&gt;
+                  &lt;div class=&quot;border-end me-1&quot;&gt;&nbsp;&lt;/div&gt;
+                  &lt;button type=&quot;button&quot; class=&quot;btn-dislike&quot;&gt;
+                    &lt;i class=&quot;fi-dislike&quot;&gt;&lt;/i&gt;
+                    &lt;span&gt;(0)&lt;/span&gt;
+                  &lt;/button&gt;
+                &lt;/div&gt;
+          #pug4.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Review
+                .d-flex.justify-content-between.mb-3
+                  .d-flex.align-items-center.pe-2
+                    img(src=&quot;path-to-avatar-image&quot;, width=&quot;48&quot;, alt=&quot;Avatar&quot;).rounded-circle.me-1
+                    .ps-2
+                      h6.fs-base.mb-0 Annette Black
+                      +star-rating(4)
+                  span.text-muted.fs-sm Jan 17, 2021
+                p Elementum ut quam tincidunt egestas vitae elit, hendrerit. Ullamcorper nulla amet lobortis elit, nibh condimentum enim. Aliquam felis nisl tellus sodales lectus dictum tristique proin vitae. Odio fermentum viverra tortor quis.
+                .d-flex.align-items-center
+                  button(type=&quot;button&quot;).btn-like
+                    i.fi-like
+                    span (3)
+                  .border-end.me-1 &nbsp;
+                  button(type=&quot;button&quot;).btn-dislike
+                    i.fi-dislike
+                    span (0)
+  
+  // Comment
+  section#testimonial-comment.pb-5.mb-md-2
+    h2.h5.mb-3 Comment
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result5' data-bs-toggle='tab' role='tab' aria-controls='result5' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html5' data-bs-toggle='tab' role='tab' aria-controls='html5' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug5' data-bs-toggle='tab' role='tab' aria-controls='pug5' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result5.tab-pane.fade.show.active(role='tabpanel')
+            .border-bottom.pt-2.pb-4(style='max-width: 48rem;')
+              p Elementum ut quam tincidunt egestas vitae elit, hendrerit. Ullamcorper nulla amet lobortis elit, nibh condimentum enim. Aliquam felis nisl tellus sodales lectus dictum tristique proin vitae. Odio fermentum viverra tortor quis.
+              .d-flex.justify-content-between.align-items-center
+                .d-flex.align-items-center.pe-2
+                  img(src='../img/avatars/06.jpg' width='48' alt='Avatar').rounded-circle.me-1
+                  .ps-2
+                    h6.fs-base.mb-0 Barbara Palson
+                    span.text-muted.fs-sm 3 days ago
+                button(type='button').btn.btn-link.btn-sm
+                  i.fi-reply.fs-lg.me-2
+                  span.fw-normal Reply
+              .border-start.border-4.ps-4.ms-4.mt-4
+                p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+                .d-flex.align-items-center.pe-2
+                  img(src='../img/avatars/05.jpg' width='48' alt='Avatar').rounded-circle.me-1
+                  .ps-2
+                    h6.fs-base.mb-0 Daniel Adams
+                    span.text-muted.fs-sm 2 days ago
+          #html5.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Comment with reply --&gt;
+                &lt;div class=&quot;border-bottom py-4&quot;&gt;
+                  &lt;p&gt;Elementum ut quam tincidunt egestas vitae elit, hendrerit. Ullamcorper nulla amet lobortis elit, nibh condimentum enim. Aliquam felis nisl tellus sodales lectus dictum tristique proin vitae. Odio fermentum viverra tortor quis.&lt;/p&gt;
+                  &lt;div class=&quot;d-flex justify-content-between align-items-center&quot;&gt;
+                    &lt;div class=&quot;d-flex align-items-center pe-2&quot;&gt;
+                      &lt;img class=&quot;rounded-circle me-1&quot; src=&quot;path-to-avatar-image&quot; width=&quot;48&quot; alt=&quot;Avatar&quot;&gt;
+                      &lt;div class=&quot;ps-2&quot;&gt;
+                        &lt;h6 class=&quot;fs-base mb-0&quot;&gt;Barbara Palson&lt;/h6&gt;
+                        &lt;span class=&quot;text-muted fs-sm&quot;&gt;3 days ago&lt;/span&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;button type=&quot;button&quot; class=&quot;btn btn-link btn-sm&quot;&gt;
+                      &lt;i class=&quot;fi-reply fs-lg me-2&quot;&gt;&lt;/i&gt;
+                      &lt;span class=&quot;fw-normal&quot;&gt;Reply&lt;/span&gt;
+                    &lt;/button&gt;
+                  &lt;/div&gt;
+
+                  &lt;!-- Comment reply --&gt;
+                  &lt;div class=&quot;border-start border-4 ps-4 ms-4 mt-4&quot;&gt;
+                    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.&lt;/p&gt;
+                    &lt;div class=&quot;d-flex align-items-center pe-2&quot;&gt;
+                      &lt;img class=&quot;rounded-circle me-1&quot; src=&quot;path-to-avatar-image&quot; width=&quot;48&quot; alt=&quot;Avatar&quot;&gt;
+                      &lt;div class=&quot;ps-2&quot;&gt;
+                        &lt;h6 class=&quot;fs-base mb-0&quot;&gt;Daniel Adams&lt;/h6&gt;
+                        &lt;span class=&quot;text-muted fs-sm&quot;&gt;2 days ago&lt;/span&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+          #pug5.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Comment with reply
+                .border-bottom.py-4
+                  p Elementum ut quam tincidunt egestas vitae elit, hendrerit. Ullamcorper nulla amet lobortis elit, nibh condimentum enim. Aliquam felis nisl tellus sodales lectus dictum tristique proin vitae. Odio fermentum viverra tortor quis.
+                  .d-flex.justify-content-between.align-items-center
+                    .d-flex.align-items-center.pe-2
+                      img(src=&quot;path-to-avatar-image&quot;, width=&quot;48&quot;, alt=&quot;Avatar&quot;).rounded-circle.me-1
+                      .ps-2
+                        h6.fs-base.mb-0 Barbara Palson
+                        span.text-muted.fs-sm 3 days ago
+                    button(type=&quot;button&quot;).btn.btn-link.btn-sm
+                      i.fi-reply.fs-lg.me-2
+                      span.fw-normal Reply
+
+                  // Comment reply
+                  .border-start.border-4.ps-4.ms-4.mt-4
+                    p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+                    .d-flex.align-items-center.pe-2
+                      img(src=&quot;path-to-avatar-image&quot;, width=&quot;48&quot;, alt=&quot;Avatar&quot;).rounded-circle.me-1
+                      .ps-2
+                        h6.fs-base.mb-0 Daniel Adams
+                        span.text-muted.fs-sm 2 days ago
+  
+  // Light version
+  section#testimonial-light.pb-5.mb-md-2
+    h2.h5.mb-3 Light version
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result6' data-bs-toggle='tab' role='tab' aria-controls='result6' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html6' data-bs-toggle='tab' role='tab' aria-controls='html6' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug6' data-bs-toggle='tab' role='tab' aria-controls='pug6' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result6.tab-pane.m-n3.p-3.bg-dark.fade.show.active(role='tabpanel')
+            .pt-3(style='max-width: 48rem;')
+              .card.card-light.mb-5
+                blockquote.blockquote.card-body.text-light
+                  p.opacity-70 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  footer.d-flex.align-items-center
+                    img(src='../img/job-board/company/kibana-lg.png' width='56' alt='Logo')
+                    .ps-3
+                      h6.fs-base.text-light.mb-0 Elastic Kibana
+                      .text-light.fw-normal.fs-sm.opacity-50 Floyd Miles, Head of HR Department
+              
+              .d-flex.justify-content-between.mb-3
+                .d-flex.align-items-center.pe-2
+                  img(src='../img/avatars/03.jpg' width='48' alt='Avatar').rounded-circle.me-1
+                  .ps-2
+                    h6.fs-base.text-light.mb-0 Annette Black
+                    .text-light
+                      +star-rating(4)
+                span.text-light.opacity-50.fs-sm Jan 17, 2021
+              p.text-light.opacity-70 Elementum ut quam tincidunt egestas vitae elit, hendrerit. Ullamcorper nulla amet lobortis elit, nibh condimentum enim. Aliquam felis nisl tellus sodales lectus dictum tristique proin vitae. Odio fermentum viverra tortor quis.
+              .d-flex.align-items-center
+                button(type='button').btn-like.btn-light
+                  i.fi-like
+                  span (3)
+                .border-end.border-light.me-1 &nbsp;
+                button(type='button').btn-dislike.btn-light
+                  i.fi-dislike
+                  span (0)
+
+              .border-bottom.border-light.pt-5.pb-4.mb-4
+                p.text-light.opacity-70 Elementum ut quam tincidunt egestas vitae elit, hendrerit. Ullamcorper nulla amet lobortis elit, nibh condimentum enim. Aliquam felis nisl tellus sodales lectus dictum tristique proin vitae. Odio fermentum viverra tortor quis.
+                .d-flex.justify-content-between.align-items-center
+                  .d-flex.align-items-center.pe-2
+                    img(src='../img/avatars/06.jpg' width='48' alt='Avatar').rounded-circle.me-1
+                    .ps-2
+                      h6.fs-base.text-light.mb-0 Barbara Palson
+                      span.text-light.opacity-50.fs-sm 3 days ago
+                  button(type='button').btn.btn-link.btn-light.btn-sm
+                    i.fi-reply.fs-lg.me-2
+                    span.fw-normal Reply
+          #html6.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Light testimonial inside card --&gt;
+                &lt;div class=&quot;card card-light&quot;&gt;
+                  &lt;blockquote class=&quot;blockquote card-body text-light&quot;&gt;
+                    &lt;p class=&quot;opacity-70&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.&lt;/p&gt;
+                    &lt;footer class=&quot;d-flex align-items-center&quot;&gt;
+                      &lt;img src=&quot;path-to-image&quot; width=&quot;56&quot; alt=&quot;Logo&quot;&gt;
+                      &lt;div class=&quot;ps-3&quot;&gt;
+                        &lt;h6 class=&quot;fs-base text-light mb-0&quot;&gt;Elastic Kibana&lt;/h6&gt;
+                        &lt;div class=&quot;text-light fw-normal fs-sm opacity-50&quot;&gt;Floyd Miles, Head of HR Department&lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/footer&gt;
+                  &lt;/blockquote&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Light review --&gt;
+                &lt;div class=&quot;d-flex justify-content-between mb-3&quot;&gt;
+                  &lt;div class=&quot;d-flex align-items-center pe-2&quot;&gt;
+                    &lt;img class=&quot;rounded-circle me-1&quot; src=&quot;paath-to-avatar-image&quot; width=&quot;48&quot; alt=&quot;Avatar&quot;&gt;
+                    &lt;div class=&quot;ps-2&quot;&gt;
+                      &lt;h6 class=&quot;fs-base text-light mb-0&quot;&gt;Annette Black&lt;/h6&gt;
+                      &lt;div class=&quot;text-light&quot;&gt;
+                        &lt;div class=&quot;star-rating&quot;&gt;
+                          &lt;i class=&quot;star-rating-icon fi-star-filled active&quot;&gt;&lt;/i&gt;
+                          &lt;i class=&quot;star-rating-icon fi-star-filled active&quot;&gt;&lt;/i&gt;
+                          &lt;i class=&quot;star-rating-icon fi-star-filled active&quot;&gt;&lt;/i&gt;
+                          &lt;i class=&quot;star-rating-icon fi-star-filled active&quot;&gt;&lt;/i&gt;
+                          &lt;i class=&quot;star-rating-icon fi-star&quot;&gt;&lt;/i&gt;
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;span class=&quot;text-light opacity-50 fs-sm&quot;&gt;Jan 17, 2021&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;p class=&quot;text-light opacity-70&quot;&gt;Elementum ut quam tincidunt egestas vitae elit, hendrerit. Ullamcorper nulla amet lobortis elit, nibh condimentum enim. Aliquam felis nisl tellus sodales lectus dictum tristique proin vitae. Odio fermentum viverra tortor quis.&lt;/p&gt;
+                &lt;div class=&quot;d-flex align-items-center&quot;&gt;
+                  &lt;button type=&quot;button&quot; class=&quot;btn-like btn-light&quot;&gt;
+                    &lt;i class=&quot;fi-like&quot;&gt;&lt;/i&gt;
+                    &lt;span&gt;(3)&lt;/span&gt;
+                  &lt;/button&gt;
+                  &lt;div class=&quot;border-end border-light me-1&quot;&gt;&amp;nbsp;&lt;/div&gt;
+                  &lt;button type=&quot;button&quot; class=&quot;btn-dislike btn-light&quot;&gt;
+                    &lt;i class=&quot;fi-dislike&quot;&gt;&lt;/i&gt;
+                    &lt;span&gt;(0)&lt;/span&gt;
+                  &lt;/button&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Light comment --&gt;
+                &lt;div class=&quot;border-bottom border-light py-4&quot;&gt;
+                  &lt;p class=&quot;text-light opacity-70&quot;&gt;Elementum ut quam tincidunt egestas vitae elit, hendrerit. Ullamcorper nulla amet lobortis elit, nibh condimentum enim. Aliquam felis nisl tellus sodales lectus dictum tristique proin vitae. Odio fermentum viverra tortor quis.&lt;/p&gt;
+                  &lt;div class=&quot;d-flex justify-content-between align-items-center&quot;&gt;
+                    &lt;div class=&quot;d-flex align-items-center pe-2&quot;&gt;
+                      &lt;img class=&quot;rounded-circle me-1&quot; src=&quot;path-to-avatar-image&quot; width=&quot;48&quot; alt=&quot;Avatar&quot;&gt;
+                      &lt;div class=&quot;ps-2&quot;&gt;
+                        &lt;h6 class=&quot;fs-base text-light mb-0&quot;&gt;Barbara Palson&lt;/h6&gt;
+                        &lt;span class=&quot;text-light opacity-50 fs-sm&quot;&gt;3 days ago&lt;/span&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;button type=&quot;button&quot; class=&quot;btn btn-link btn-light btn-sm&quot;&gt;
+                      &lt;i class=&quot;fi-reply fs-lg me-2&quot;&gt;&lt;/i&gt;
+                      &lt;span class=&quot;fw-normal&quot;&gt;Reply&lt;/span&gt;
+                    &lt;/button&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+          #pug6.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Light testimonial inside card
+                .card.card-light
+                  blockquote.blockquote.card-body.text-light
+                    p.opacity-70 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    footer.d-flex.align-items-center
+                      img(src=&quot;path-to-image&quot;, width=&quot;56&quot;, alt=&quot;Logo&quot;)
+                      .ps-3
+                        h6.fs-base.text-light.mb-0
+                          | Elastic Kibana
+                        .text-light.fw-normal.fs-sm.opacity-50
+                          | Floyd Miles, Head of HR Department
+
+                // Light review
+                .d-flex.justify-content-between.mb-3
+                  .d-flex.align-items-center.pe-2
+                    img(src=&quot;path-to-avatar-image&quot;, width=&quot;48&quot;, alt=&quot;Avatar&quot;).rounded-circle.me-1
+                    .ps-2
+                      h6.fs-base.text-light.mb-0 Annette Black
+                      .text-light
+                        +star-rating(4)
+                  span.text-light.opacity-50.fs-sm Jan 17, 2021
+                p.text-light.opacity-70 Elementum ut quam tincidunt egestas vitae elit, hendrerit. Ullamcorper nulla amet lobortis elit, nibh condimentum enim. Aliquam felis nisl tellus sodales lectus dictum tristique proin vitae. Odio fermentum viverra tortor quis.
+                .d-flex.align-items-center
+                  button(type=&quot;button&quot;).btn-like.btn-light
+                    i.fi-like
+                    span (3)
+                  .border-end.border-light.me-1 &amp;nbsp;
+                  button(type=&quot;button&quot;).btn-dislike.btn-light
+                    i.fi-dislike
+                    span (0)
+
+                // Light comment
+                .border-bottom.border-light.py-4
+                  p.text-light.opacity-70 Elementum ut quam tincidunt egestas vitae elit, hendrerit. Ullamcorper nulla amet lobortis elit, nibh condimentum enim. Aliquam felis nisl tellus sodales lectus dictum tristique proin vitae. Odio fermentum viverra tortor quis.
+                  .d-flex.justify-content-between.align-items-center
+                    .d-flex.align-items-center.pe-2
+                      img(src=&quot;path-to-avatar-image&quot;, width=&quot;48&quot;, alt=&quot;Avatar&quot;).rounded-circle.me-1
+                      .ps-2
+                        h6.fs-base.text-light.mb-0
+                          | Barbara Palson
+                        span.text-light.opacity-50.fs-sm
+                          | 3 days ago
+                    button(type=&quot;button&quot;).btn.btn-link.btn-light.btn-sm
+                      i.fi-reply.fs-lg.me-2
+                      span.fw-normal Reply

@@ -1,0 +1,51 @@
+//- Styles
+
+mixin styles
+  if styles.length
+    each link in styles
+      link(rel='stylesheet' media='screen')&attributes(isNestedFile ? {'href': '../assets/' + link} : {'href': 'assets/' + link})
+
+
+//- Scripts
+
+mixin scripts
+  if scripts.length
+    each link in scripts
+      script()&attributes(isNestedFile ? {'src': '../assets/' + link} : {'src': 'assets/' + link})
+
+
+//- Breadcrumb
+
+mixin breadcrumb(breadcrumbs)
+  nav(aria-label='breadcrumb')
+    ol(class!=attributes.class)&attributes({'class': 'breadcrumb'})
+      li.breadcrumb-item
+        a()&attributes(isNestedFile ? {'href':'../index.html'} : {'href':'index.html'})
+          | Home
+      each breadcrumb in breadcrumbs
+        if breadcrumb.link
+          li.breadcrumb-item
+            a(href=`${breadcrumb.link}`)= breadcrumb.title
+        else
+          li.breadcrumb-item.active(aria-current='page')= breadcrumb.title
+
+
+//- Components navigation
+
+mixin components-nav(items)
+  ul.nav.flex-column
+    each item in items
+      li(class='nav-item')&attributes(item.id && {'id': item.id})
+        if pageTitle === item.title
+          span.nav-link.px-0.py-2.active
+            i.ai-circle-arrow-down.fs-lg.opacity-90.me-2
+            =item.title
+          if anchorNav.length
+            ul(class='nav flex-column border-start ps-3 ms-2 mb-2')
+              each anchor in anchorNav
+                li.nav-item
+                  a(href=`${anchor.link}` class='nav-link fs-sm fw-normal py-1 ps-1 pe-0 mb-1', 'data-scroll')= anchor.title
+        else
+          a(class='nav-link px-0 py-2')&attributes(item.id ? {'href': item.link + '#' + item.id} : {'href': item.link})
+            i.ai-circle-arrow-right.fs-lg.opacity-90.me-2
+            =item.title

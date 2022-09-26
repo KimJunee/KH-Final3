@@ -1,0 +1,204 @@
+//- Include config.pug file that holds all variables
+block config
+  include ../helpers/config
+
+//- Mixins - reusable code snippets
+include ../helpers/mixins
+
+//- Override default config variables
+append config
+  - var isPageLoading = false
+  - var isNestedFile = true
+
+doctype html
+html(lang="en")
+
+  //- head.pug template
+  include head 
+  
+  // Body
+  body
+    
+    main.container-fluid.px-xl-4.pb-3.pb-lg-4
+
+      // Main content
+      section.offcanvas-enabled-start.row
+        .col-xl-9
+
+          // Navbar
+          header(data-scroll-header data-fixed-element).navbar.navbar-expand.justify-content-end.navbar-light.bg-light.fixed-top.shadow-sm.px-3.px-xl-4
+            a(href='typography.html').navbar-brand.d-lg-none
+              img(src='../img/logo/logo-dark.svg' width='116' alt='Finder')
+            button(type='button' data-bs-toggle='offcanvas' data-bs-target='#componentsNav').navbar-toggler.d-block.d-lg-none.me-3.ms-auto.border-0
+              span.navbar-toggler-icon
+            ul.navbar-nav.ms-auto.d-none.d-lg-flex
+              li.nav-item
+                a(href='../index.html').nav-link
+                  i.fi-eye-on.align-middle.fs-base.me-2
+                  | Live preview
+              li.nav-item.mx-2.border-end
+              li.nav-item
+                a(href='../docs/dev-setup.html').nav-link
+                  i.fi-file.align-middle.fs-base.me-2
+                  | Documentation
+              li.nav-item.mx-2.border-end
+            a(href='https://themes.getbootstrap.com/product/finder-directory-listings-template-ui-kit/' target='_blank' rel='noopener').btn.btn-primary.ms-lg-3
+              i.fi-cart.me-2.d-none.d-sm-inline-block.fs-lg
+              | Buy now
+          
+          // Side navigation (Offcanvas)
+          aside#componentsNav.offcanvas.offcanvas-start.offcanvas-expand.bg-dark
+            .offcanvas-header.d-none.d-lg-block.pt-3.pb-4.bg-dark
+              a(href='typography.html').navbar-brand.py-2
+                img(src='../img/logo/logo-light.svg' width='116' alt='Finder')
+              span.badge.bg-success UI Kit
+            .offcanvas-header.d-flex.d-lg-none.align-items-center
+              .d-flex.align-items-center
+                h5.offcanvas-title.me-3.text-white Menu
+                span.badge.bg-success UI Kit
+              button(type='button' data-bs-dismiss='offcanvas').btn-close.btn-close-white
+            .d-flex.d-lg-none.align-items-center.py-4.px-3.border-top.border-bottom.border-light
+              a(href='../index.html').btn.btn-light.btn-sm.d-block.w-100.me-2
+                i.fi-eye-on.me-2.fs-base
+                | Preview
+              a(href='../docs/dev-setup.html').btn.btn-info.btn-sm.d-block.w-100
+                i.fi-file.me-2.fs-base
+                | Documentation
+            .offcanvas-body.pt-lg-2.pb-4(data-simplebar data-simplebar-inverse)
+              h6.fs-base.text-light.mb-1.py-2 Content
+              nav.nav.nav-light.flex-column
+                a(href='typography.html')&attributes(pageTitle === 'Typography' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Typography
+                a(href='icon-font.html')&attributes(pageTitle === 'Icon font' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Icon font
+                a(href='code.html')&attributes(pageTitle === 'Code' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Code
+                a(href='images.html')&attributes(pageTitle === 'Images & figures' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Images &amp; figures
+                a(href='tables.html')&attributes(pageTitle === 'Tables' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Tables
+              hr.text-light.opacity-15.mx-n4.mt-4
+              h6.fs-base.text-light.mx-n4.mb-1.pt-4.pb-2.px-4 Components
+              nav.nav.nav-light.flex-column
+                a(href='accordion.html')&attributes(pageTitle === 'Accordion' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Accordion
+                a(href='alerts.html')&attributes(pageTitle === 'Alerts' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Alerts
+                a(href='badge.html')&attributes(pageTitle === 'Badges' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Badges
+                a(href='breadcrumb.html')&attributes(pageTitle === 'Breadcrumb' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Breadcrumb
+                a(href='buttons.html')&attributes(pageTitle === 'Buttons' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Buttons
+                a(href='button-group.html')&attributes(pageTitle === 'Button group' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Button group
+                a(href='cards-basic.html')&attributes(pageTitle === 'Cards: Basic' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Cards: Basic
+                a(href='cards-advanced.html')&attributes(pageTitle === 'Cards: Advanced' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Cards: Advanced
+                a(href='carousel.html')&attributes(pageTitle === 'Carousel (Slider)' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Carousel (Slider)
+                a(href='collapse.html')&attributes(pageTitle === 'Collapse' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Collapse
+                a(href='date-picker.html')&attributes(pageTitle === 'Date / time picker' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Date / time picker
+                a(href='dropdowns.html')&attributes(pageTitle === 'Dropdowns' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Dropdowns
+                a(href='file-uploader.html')&attributes(pageTitle === 'File uploader' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | File uploader
+                a(href='forms.html')&attributes(pageTitle === 'Forms' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Forms
+                a(href='form-group.html')&attributes(pageTitle === 'Form group' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Form group
+                a(href='gallery.html')&attributes(pageTitle === 'Gallery' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Gallery
+                a(href='input-group.html')&attributes(pageTitle === 'Input group' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Input group
+                a(href='icon-box.html')&attributes(pageTitle === 'Icon box' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Icon box
+                a(href='maps.html')&attributes(pageTitle === 'Interactive maps' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Interactive maps
+                a(href='list-group.html')&attributes(pageTitle === 'List group' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | List group
+                a(href='modal.html')&attributes(pageTitle === 'Modal' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Modal
+                a(href='navbar.html')&attributes(pageTitle === 'Navbar' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Navbar
+                a(href='offcanvas.html')&attributes(pageTitle === 'Offcanvas' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Offcanvas
+                a(href='pagination.html')&attributes(pageTitle === 'Pagination' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Pagination
+                a(href='parallax.html')&attributes(pageTitle === 'Parallax' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Parallax
+                a(href='pills.html')&attributes(pageTitle === 'Pills' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Pills
+                a(href='placeholders.html')&attributes(pageTitle === 'Placeholders' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Placeholders
+                a(href='popovers.html')&attributes(pageTitle === 'Popovers' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Popovers
+                a(href='pricing.html')&attributes(pageTitle === 'Pricing' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Pricing
+                a(href='progress.html')&attributes(pageTitle === 'Progress' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Progress
+                a(href='social-buttons.html')&attributes(pageTitle === 'Social buttons' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Social buttons
+                a(href='spinners.html')&attributes(pageTitle === 'Spinners' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Spinners
+                a(href='steps.html')&attributes(pageTitle === 'Steps' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Steps
+                a(href='tabs.html')&attributes(pageTitle === 'Tabs' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Tabs
+                a(href='testimonials.html')&attributes(pageTitle === 'Testimonials / reviews' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Testimonials / reviews
+                a(href='toasts.html')&attributes(pageTitle === 'Toasts' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Toasts
+                a(href='tooltips.html')&attributes(pageTitle === 'Tooltips' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Tooltips
+              hr.text-light.opacity-15.mx-n4.mt-4 
+              h6.fs-base.text-light.mx-n4.mb-1.pt-4.pb-2.px-4 Utilities
+              nav.nav.nav-light.flex-column
+                a(href='https://getbootstrap.com/docs/5.1/utilities/background/' target='_blank' rel='noopener').nav-link.fs-sm
+                  | Bootstrap
+                a(href='utilities.html')&attributes(pageTitle === 'Finder utilities' ? {'class': 'nav-link fs-sm active'} : {'class': 'nav-link fs-sm'})
+                  | Finder
+
+
+          // Page title
+          .border-bottom.mb-5.pt-5
+            h1.mt-5.pt-4 !{pageTitle}
+            .d-flex.flex-wrap.flex-md-nowrap.justify-content-between
+              p.text-muted !{pageSubtitle}
+              if Object.keys(pageTitleLink).length
+                p.pt-1.fs-sm.fw-bold.ps-md-4
+                  a()&attributes({'href': pageTitleLink.link, 'class': 'text-decoration-none text-nowrap', 'target': '_blank', 'rel': 'noopener'})= pageTitleLink.title
+                    i.fi-external-link.align-middle.ms-2.mt-n1
+              if isPageTitleBadge
+                .ps-md-4.mb-3
+                  span.badge.bg-success Finder component
+
+          
+          block content
+
+        
+        if anchorNav.length
+          // Quick (anchor) navigation
+          .col-xl-3.d-none.d-xl-block.ps-4.ps-xxl-5
+            aside.sticky-top.pt-5
+              .pt-5.mt-5
+                .ps-4.border-start
+                  h3.h6 Jump to
+                  each item in anchorNav
+                    - var linkatts = {'href': item.link}
+                    a(class='nav-link py-1 px-0 fs-sm fw-normal', 'data-scroll')&attributes(linkatts)= item.title
+
+
+    // Back to top button
+    a(href='#top' data-scroll).btn-scroll-top
+      span.btn-scroll-top-tooltip.text-muted.fs-sm.me-2 Top
+      i.btn-scroll-top-icon.fi-chevron-up    
+    
+    // Vendor scripts: js libraries and plugins
+    +vendor-scripts
+
+    // Main theme script
+    script()&attributes(isNestedFile ? {'src': '../js/theme.min.js'} : {'src': 'js/theme.min.js'})

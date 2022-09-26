@@ -1,0 +1,151 @@
+//- Include config.pug file that holds all variables
+block config
+  include ../helpers/config
+
+//- Mixins - reusable code snippets
+include ../helpers/mixins
+
+//- Override default config variables
+append config
+  - var isNestedFile = true
+  - var isPageLoading = false
+
+doctype html
+html(lang='en')
+
+  //- head.pug template
+  include head
+  
+  // Body
+  body.bg-secondary
+
+    if isPageLoading
+      // Page loading spinner
+      .page-loading.active
+        .page-loading-inner
+          .page-spinner
+          span Loading...
+
+
+    // Navbar
+    header(data-scroll-header).navbar.navbar-expand.justify-content-end.fixed-top
+      .container
+        a(href='typography.html').navbar-brand.pe-xl-2.me-4
+          span.text-primary.flex-shrink-0.me-2
+            svg(version='1.1' width='35' height='32' viewBox='0 0 36 33' xmlns='http://www.w3.org/2000/svg')
+              path(fill='currentColor' d='M35.6,29c-1.1,3.4-5.4,4.4-7.9,1.9c-2.3-2.2-6.1-3.7-9.4-3.7c-3.1,0-7.5,1.8-10,4.1c-2.2,2-5.8,1.5-7.3-1.1c-1-1.8-1.2-4.1,0-6.2l0.6-1.1l0,0c0.6-0.7,4.4-5.2,12.5-5.7c0.5,1.8,2,3.1,3.9,3.1c2.2,0,4.1-1.9,4.1-4.2s-1.8-4.2-4.1-4.2c-2,0-3.6,1.4-4,3.3H7.7c-0.8,0-1.3-0.9-0.9-1.6l5.6-9.8c2.5-4.5,8.8-4.5,11.3,0L35.1,24C36,25.7,36.1,27.5,35.6,29z')
+          | Around
+          span.badge.bg-info.fs-sm.ms-2 Docs
+        ul.navbar-nav.d-none.d-lg-flex.me-auto
+          li.nav-item
+            a(href='../index.html').nav-link
+              i.ai-monitor.fs-lg.opacity-90.me-2
+              | Live demo
+          li.nav-item
+            a(href='../components/typography.html').nav-link
+              i.ai-layer.fs-lg.opacity-90.me-2
+              | UI Kit (Components)
+        if isThemeModeSwitch
+          div(data-bs-toggle='mode').form-check.form-switch.mode-switch.pe-lg-1.ms-auto
+            input(type='checkbox')#theme-mode.form-check-input
+            label(for='theme-mode').form-check-label
+              i.ai-sun.fs-lg
+            label(for='theme-mode').form-check-label
+              i.ai-moon.fs-lg
+        button(type='button' data-bs-toggle='offcanvas' data-bs-target='#docsNav').navbar-toggler.d-block.d-lg-none.ms-3.border-0
+            span.navbar-toggler-icon
+        a(href='https://themes.getbootstrap.com/product/around-multipurpose-template-ui-kit/' target='_blank' rel='noopener').btn.btn-sm.btn-primary.d-none.d-lg-inline-flex.fs-sm.ms-4
+          i.ai-cart.d-sm-inline-block.fs-xl.me-2.ms-n1
+          | Buy now
+      
+
+    // Desktop sidebar navigation (on screens > 991px) (Offcanvas)
+    aside.container.position-fixed.d-none.d-lg-block.start-50.translate-middle-x.h-100.pt-5
+      .row.h-100.pt-5
+        .col-lg-3.d-flex.flex-column.pb-3.pt-4(style='height: calc(100% - 2rem);')
+          .h-100.mt-2(data-simplebar)
+            h3.h5.mb-1.pb-2 Contents
+            +components-nav([
+              {'title': 'Getting started', 'link': 'getting-started.html'},
+              {'title': 'Dev environment setup', 'link': 'dev-setup.html'},
+              {'title': 'Working with Gulp', 'link': 'working-with-gulp.html'},
+              {'title': 'Project structure', 'link': 'project-structure.html'},
+              {'title': 'Installing Vendor plugins with Npm and Gulp', 'link': 'install-vendor-plugin.html'},
+              {'title': 'Using Pug & Sass', 'link': 'using-preprocessors.html'},
+              {'title': 'Browser support', 'link': 'autoprefixer.html'},
+              {'title': 'Theme mode', 'link': 'theme-mode.html'},
+              {'title': 'Global colors', 'link': 'global-colors.html'},
+              {'title': 'Components', 'link': 'components.html'},
+              {'title': 'Utility classes', 'link': 'utilities.html'},
+              {'title': 'UI icons (Icon font)', 'link': 'ui-icons.html'},
+              {'title': 'Mailchimp subscription form', 'link': 'mailchimp.html'},
+              {'title': 'Sources and credits', 'link': 'credits.html'},
+              {'title': 'Changelog', 'link': 'changelog.html'}
+            ])
+
+    
+    // Mobile offcanvas navigation (on screens < 992px)
+    #docsNav.offcanvas.offcanvas-start
+      .offcanvas-header.align-items-center
+        .d-flex.align-items-center
+          h4.offcanvas-title Menu
+        button(type='button' data-bs-dismiss='offcanvas').btn-close
+      ul.nav.flex-column.border-bottom.pb-4
+        li.nav-item
+          a(href='../index.html').nav-link.py-2
+            i.ai-monitor.fs-lg.opacity-90.me-2
+            | Live demo
+        li.nav-item
+          a(href='../components/typography.html').nav-link.py-2
+            i.ai-layer.fs-lg.opacity-90.me-2
+            | UI Kit (Components)
+      .offcanvas-body
+        h3.h5.mb-1.pb-2 Contents
+        +components-nav([
+          {'title': 'Getting started', 'link': 'getting-started.html'},
+          {'title': 'Dev environment setup', 'link': 'dev-setup.html'},
+          {'title': 'Working with Gulp', 'link': 'working-with-gulp.html'},
+          {'title': 'Project structure', 'link': 'project-structure.html'},
+          {'title': 'Installing Vendor plugins with Npm and Gulp', 'link': 'install-vendor-plugin.html'},
+          {'title': 'Using Pug & Sass', 'link': 'using-preprocessors.html'},
+          {'title': 'Browser support', 'link': 'autoprefixer.html'},
+          {'title': 'Theme mode', 'link': 'theme-mode.html'},
+          {'title': 'Global colors', 'link': 'global-colors.html'},
+          {'title': 'Components', 'link': 'components.html'},
+          {'title': 'Utility classes', 'link': 'utilities.html'},
+          {'title': 'UI icons (Icon font)', 'link': 'ui-icons.html'},
+          {'title': 'Mailchimp subscription form', 'link': 'mailchimp.html'},
+          {'title': 'Sources and credits', 'link': 'credits.html'},
+          {'title': 'Changelog', 'link': 'changelog.html'}
+        ])
+      .offcanvas-header.border-top
+        a(href='https://themes.getbootstrap.com/product/around-multipurpose-template-ui-kit/' target='_blank' rel='noopener').btn.btn-primary.w-100
+          i.ai-cart.d-sm-inline-block.fs-xl.me-2.ms-n1
+          | Buy now
+
+
+    // Page content
+    section.container.pt-5.pb-4
+      .row.pt-5.mt-lg-4.pb-2.pb-sm-3
+        .col-lg-9.offset-lg-3.position-relative.zindex-5
+          .card.border-0.mb-4
+            .card-body
+              h1.pt-1.pt-lg-2.pb-2.pb-sm-3.pb-lg-4 !{pageTitle}
+          
+              block content
+
+
+    // Back to top button
+    a(href='#top' data-scroll).btn-scroll-top
+      svg(viewBox='0 0 40 40' fill='currentColor' xmlns='http://www.w3.org/2000/svg')
+        circle(cx='20' cy='20' r='19' fill='none' stroke='currentColor' stroke-width='1.5' stroke-miterlimit='10')
+      i.ai-arrow-up    
+      
+    
+    // Vendor scripts: js libraries and plugins
+    script(src='../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js')
+    script(src='../assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js')
+    +scripts
+
+    // Main theme script
+    script(src='../assets/js/theme.min.js')

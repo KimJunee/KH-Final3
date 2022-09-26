@@ -1,0 +1,523 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/swiper/swiper-bundle.min.css', 'vendor/lightgallery/css/lightgallery-bundle.min.css']
+  - var scripts = ['vendor/jarallax/dist/jarallax.min.js', 'vendor/swiper/swiper-bundle.min.js', 'vendor/lightgallery/lightgallery.min.js', 'vendor/lightgallery/plugins/fullscreen/lg-fullscreen.min.js', 'vendor/lightgallery/plugins/zoom/lg-zoom.min.js']
+  - var parentMenu = 'Pages'
+  - var pageTitle = 'About - Agency'
+
+
+//- Navbar
+block navbar
+  .dark-mode
+    include partials/navbar.pug
+
+
+//- Page Content
+block content
+
+  // Hero
+  section.bg-dark.position-relative.py-5
+    .d-none.d-dark-mode-block.position-absolute.top-0.start-0.w-100.h-100(style='background-color: rgba(255,255,255, .02);')
+    .container.dark-mode.position-relative.zindex-2.py-5.mb-4.mb-sm-5
+      .row.pb-5.mb-2.mb-sm-0.mb-lg-3
+        .col-lg-10.col-xl-9
+          
+          // Breadcrumb
+          +breadcrumb([{'title': 'About us'}]).pt-lg-3.pb-lg-4.pb-2
+
+          h1.display-2.pb-2.pb-sm-3 We believe in the success of every business
+          ul.list-unstyled.d-flex.flex-wrap.mb-0
+            li.d-flex.py-1.me-4
+              i.ai-check-alt.text-primary.lead.me-2
+              | Forecasting and recommendations
+            li.d-flex.py-1.me-4
+              i.ai-check-alt.text-primary.lead.me-2
+              | Identification of patterns, analysis
+            li.d-flex.py-1
+              i.ai-check-alt.text-primary.lead.me-2
+              | Segmentation by various methods
+
+  
+  // About
+  section.container.position-relative.zindex-3(style='margin-top: -135px;')
+    .rounded-5.overflow-hidden 
+      .jarallax.ratio.ratio-16x9(data-jarallax data-speed='0.6')
+        .jarallax-img(style='background-image: url(assets/img/about/agency/parallax-image.jpg);')
+    .row.pt-5.mt-n2.mt-sm-0.mt-md-2.mt-lg-4.mt-xl-5
+      .col-md-6.col-lg-5
+        .fs-sm.text-uppercase.mb-3 What we do
+        h2.display-6 We are a team who create marketing strategies
+      .col-md-6.col-xl-5.offset-lg-1.offset-xl-2.pt-1.pt-sm-2.pt-md-5
+        p.fs-xl Morbi et massa fames ac scelerisque sit commodo dignissim <strong>faucibus quisque proin</strong> lectus laoreet sem adipiscing sollicitudin erat massa tellus lorem enim aenean phasellus in hendrerit interdum lorem proin pretium dictum urna suspendisse quis risus et.
+        p.fs-xl Sit congue tellus urna phasellus sagittis interdum sed laoreet eget curabitur. <strong>Vel magna sit aliquet viverra morbi massa mattis urna,</strong> feugiat egestas tincidunt ipsum diam quam massa amet odio nisi duis dolor.
+        p.fs-xl.mb-0 Ac facilisis eros sem faucibus aliquet venenatis amet fermentum nisi. Mauris consectetur sem malesuada. viverra a non sapien odio id risus volutpat at.
+
+
+  // Approach
+  section.pt-5.mt-md-2.mt-xl-4.mt-xxl-5
+    .container.pt-2.pt-sm-4.pt-lg-5.mt-xxl-2
+      .fs-sm.text-uppercase.mb-3 Our Mission
+      h2.display-6.pb-3.mb-lg-4 Professional approach 
+      .swiper(data-swiper-options=`
+        {
+          "spaceBetween": 24,
+          "pagination": {
+            "el": ".swiper-pagination",
+            "clickable": true
+          },
+          "breakpoints": {
+            "576": { "slidesPerView": 2 },
+            "992": { "slidesPerView": 3 }
+          }
+        }
+      `)
+        .swiper-wrapper
+
+          // Item
+          .swiper-slide.h-auto
+            .card.border-0.bg-secondary.rounded-5.h-100
+              .card-body
+                svg(width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg').d-block.mt-1.mt-sm-0.mb-4
+                  g.text-info: path(d='M20.0004 36.0226L10.982 21.3535C9.42594 23.3156 8.49609 25.7968 8.49609 28.4955C8.49609 34.8492 13.6467 39.9998 20.0004 39.9998C26.3541 39.9998 31.5047 34.8492 31.5047 28.4955C31.5047 25.7969 30.5749 23.3156 29.0188 21.3535L20.0004 36.0226Z' fill='currentColor')
+                  g.text-primary: path(d='M39.3962 0H0.605469L20.0009 31.5477L39.3962 0ZM25.7601 7.62359L20.0009 16.9914L14.2416 7.62359H25.7601Z' fill='currentColor')
+                h3.h4 Individual approach
+                p.mb-0 Find aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur neque congue aliqua dolor.
+
+          // Item
+          .swiper-slide.h-auto
+            .card.border-0.bg-secondary.rounded-5.h-100
+              .card-body
+                svg(width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg').d-block.mt-1.mt-sm-0.mb-4
+                  g.text-info: path(d='M26.307 23.1116C26.307 28.3136 22.09 32.5307 16.888 32.5307C11.6859 32.5307 7.46891 28.3136 7.46891 23.1116C7.46891 17.9096 11.6859 13.6925 16.888 13.6925C17.1467 13.6925 17.4028 13.7038 17.6562 13.7243V6.24121C17.4016 6.22973 17.1455 6.22363 16.888 6.22363C7.56102 6.22363 0 13.7846 0 23.1116C0 32.4386 7.56102 39.9996 16.888 39.9996C26.2149 39.9996 33.7759 32.4386 33.7759 23.1116C33.7759 22.8541 33.7698 22.598 33.7584 22.3433H26.2753C26.2958 22.5968 26.307 22.8529 26.307 23.1116Z' fill='currentColor')
+                  g.text-primary: path(d='M40 20C40 8.9543 31.0457 0 20 0V20H40Z' fill='currentColor')
+                h3.h4 Integrated analytics
+                p.mb-0 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eget molestie massa. Donec egestas nulla pariatur.
+
+          // Item
+          .swiper-slide.h-auto
+            .card.border-0.bg-secondary.rounded-5.h-100
+              .card-body
+                svg(width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg').d-block.mt-1.mt-sm-0.mb-4
+                  g.text-primary: path(d='M25.2791 12.7502C28.1954 9.83389 28.1954 5.10556 25.2791 2.18921C22.3627 -0.727136 17.6344 -0.727137 14.718 2.18921C11.8017 5.10556 11.8017 9.83389 14.718 12.7502C17.6344 15.6666 22.3627 15.6666 25.2791 12.7502Z' fill='currentColor')
+                  g.text-info: path(d='M14.6859 29.3056C15.6559 27.0123 16.9202 24.8838 18.4577 22.9467C13.8666 17.9802 7.29664 14.8701 0 14.8701V40.0004H12.5259C12.5259 36.2925 13.2527 32.6942 14.6859 29.3056Z' fill='currentColor')
+                  g.text-primary: path(d='M40.0014 40.0004V14.8701C26.1223 14.8701 14.8711 26.1214 14.8711 40.0004H40.0014Z' fill='currentColor')
+                h3.h4 Step by step work
+                p.mb-0 More erat leo proin odio est sed sit felis facilisi integer sed congue neque turpis dictumst sit sed volutpat aliquet tortor.
+
+        // Pagination (bullets)
+        .swiper-pagination.position-relative.bottom-0.mt-2.pt-4.d-lg-none
+
+
+  // How we work (Steps)
+  section.container.pt-5.mt-1.mt-sm-2.mt-xl-4.mt-xxl-5
+    .row.align-items-center.pt-2.pt-sm-3.pt-md-4.pt-lg-5.mt-xl-2.mt-xxl-3
+      .col-md-6.col-xl-5.pb-3.pb-md-0.mb-4.mb-md-0
+        .ratio.ratio-1x1.d-flex.align-items-center.position-relative.rounded-circle.overflow-hidden.bg-size-cover.mx-auto(style='max-width: 530px; background-image: url(assets/img/about/agency/steps-image.jpg);')
+          .bg-black.position-absolute.top-0.start-0.w-100.h-100.opacity-50
+          .dark-mode.position-relative.zindex-2.p-4
+            .text-center.mx-auto(style='max-width: 275px;')
+              span.d-block.fs-sm.text-uppercase.mb-3 How we work
+              h2.display-6.mb-0 The key to success
+      .col-md-6.col-xl-5.offset-xl-1
+        .ps-md-4.ps-xl-0
+          .steps.steps-hoverable
+            .step.py-3.py-xl-4
+              .step-number
+                .step-number-inner 01
+              .step-body
+                h3.h5.pb-1.mb-2 Formulation of the problem
+                p.mb-0 Find aute irure dolor in reprehenderi voluptate velit esse cillum dolore eu fugiat nulla pariatur am luctus.
+            .step.py-3.py-xl-4
+              .step-number
+                .step-number-inner 02
+              .step-body
+                h3.h5.pb-1.mb-2 Assessment of the current state
+                p.mb-0 Risus quam quis at euismod vitae dui elementu eu in diam malesuada mattis ut urna integer erat nisi nibh.
+            .step.py-3.py-xl-4
+              .step-number
+                .step-number-inner 03
+              .step-body
+                h3.h5.pb-1.mb-2 Business plan creation
+                p.mb-0 A sagittis morbi massa venenatis, egestas viverra ac elit nibh tellus nisi in nec tellus mauris feugiat gravida.
+            .step.py-3.py-xl-4
+              .step-number
+                .step-number-inner 04
+              .step-body
+                h3.h5.pb-1.mb-2 Strategy implementation
+                p.mb-0 Elementum purus, nisl ipsum sit. Amet sit praesent proin sit cras. Leo sed praesent nunc  vel nec risus.
+      
+
+  // Team
+  section.pt-5.mt-2.mt-xl-4.mt-xxl-5
+    .container.pt-3.pt-sm-4.pt-lg-5.mt-xl-2.mt-xxl-3
+      .fs-sm.text-uppercase.mb-3 Our team
+      h2.display-6.pb-3.mb-lg-4 Team of professionals
+      .row.row-cols-1.row-cols-sm-2.row-cols-md-3.g-4
+
+        // Item
+        .col
+          .card.card-hover.border-0.rounded-5.overflow-hidden
+            img(src='assets/img/landing/corporate/team/03.jpg' alt='Image')
+            .position-absolute.top-0.start-0.w-100.h-100.opacity-0
+              .bg-dark.position-absolute.top-0.start-0.w-100.h-100.opacity-50
+              .card-body.d-flex.flex-column.justify-content-end.dark-mode.h-100.position-relative.zindex-2.text-center
+                h3.h5.mb-1 Jane Cooper
+                p.mb-3 Head of PR department
+                .d-flex.justify-content-center
+                  a(href='#').btn.btn-icon.btn-sm.btn-light.btn-instagram.rounded-circle.mx-2
+                    i.ai-instagram
+                  a(href='#').btn.btn-icon.btn-sm.btn-light.btn-facebook.rounded-circle.mx-2
+                    i.ai-facebook
+                  a(href='#').btn.btn-icon.btn-sm.btn-light.btn-linkedin.rounded-circle.mx-2
+                    i.ai-linkedin
+
+        // Item
+        .col
+          .card.card-hover.border-0.rounded-5.overflow-hidden
+            img(src='assets/img/landing/corporate/team/01.jpg' alt='Image')
+            .position-absolute.top-0.start-0.w-100.h-100.opacity-0
+              .bg-dark.position-absolute.top-0.start-0.w-100.h-100.opacity-50
+              .card-body.d-flex.flex-column.justify-content-end.dark-mode.h-100.position-relative.zindex-2.text-center
+                h3.h5.mb-1 Guy Hawkins
+                p.mb-3 Head of marketing
+                .d-flex.justify-content-center
+                  a(href='#').btn.btn-icon.btn-sm.btn-light.btn-facebook.rounded-circle.mx-2
+                    i.ai-facebook
+                  a(href='#').btn.btn-icon.btn-sm.btn-light.btn-twitter.rounded-circle.mx-2
+                    i.ai-twitter
+                  a(href='#').btn.btn-icon.btn-sm.btn-light.btn-linkedin.rounded-circle.mx-2
+                    i.ai-linkedin
+
+        // Item
+        .col
+          .card.card-hover.border-0.rounded-5.overflow-hidden
+            img(src='assets/img/landing/corporate/team/02.jpg' alt='Image')
+            .position-absolute.top-0.start-0.w-100.h-100.opacity-0
+              .bg-dark.position-absolute.top-0.start-0.w-100.h-100.opacity-50
+              .card-body.d-flex.flex-column.justify-content-end.dark-mode.h-100.position-relative.zindex-2.text-center
+                h3.h5.mb-1 Martha Winter
+                p.mb-3 Data analyst
+                .d-flex.justify-content-center
+                  a(href='#').btn.btn-icon.btn-sm.btn-light.btn-instagram.rounded-circle.mx-2
+                    i.ai-instagram
+                  a(href='#').btn.btn-icon.btn-sm.btn-light.btn-facebook.rounded-circle.mx-2
+                    i.ai-facebook
+                  a(href='#').btn.btn-icon.btn-sm.btn-light.btn-linkedin.rounded-circle.mx-2
+                    i.ai-linkedin
+
+        // Item
+        .col
+          .card.card-hover.border-0.rounded-5.overflow-hidden
+            img(src='assets/img/landing/corporate/team/05.jpg' alt='Image')
+            .position-absolute.top-0.start-0.w-100.h-100.opacity-0
+              .bg-dark.position-absolute.top-0.start-0.w-100.h-100.opacity-50
+              .card-body.d-flex.flex-column.justify-content-end.dark-mode.h-100.position-relative.zindex-2.text-center
+                h3.h5.mb-1 Robert Fox
+                p.mb-3 CTO
+                .d-flex.justify-content-center
+                  a(href='#').btn.btn-icon.btn-sm.btn-light.btn-facebook.rounded-circle.mx-2
+                    i.ai-facebook
+                  a(href='#').btn.btn-icon.btn-sm.btn-light.btn-twitter.rounded-circle.mx-2
+                    i.ai-twitter
+                  a(href='#').btn.btn-icon.btn-sm.btn-light.btn-stack-overflow.rounded-circle.mx-2
+                    i.ai-stack-overflow
+
+        // Item
+        .col
+          .card.card-hover.border-0.rounded-5.overflow-hidden
+            img(src='assets/img/landing/corporate/team/06.jpg' alt='Image')
+            .position-absolute.top-0.start-0.w-100.h-100.opacity-0
+              .bg-dark.position-absolute.top-0.start-0.w-100.h-100.opacity-50
+              .card-body.d-flex.flex-column.justify-content-end.dark-mode.h-100.position-relative.zindex-2.text-center
+                h3.h5.mb-1 Michelle Yang
+                p.mb-3 CEO, Founder
+                .d-flex.justify-content-center
+                  a(href='#').btn.btn-icon.btn-sm.btn-light.btn-instagram.rounded-circle.mx-2
+                    i.ai-instagram
+                  a(href='#').btn.btn-icon.btn-sm.btn-light.btn-facebook.rounded-circle.mx-2
+                    i.ai-facebook
+                  a(href='#').btn.btn-icon.btn-sm.btn-light.btn-linkedin.rounded-circle.mx-2
+                    i.ai-linkedin
+
+        // Item
+        .col
+          .card.card-hover.border-0.rounded-5.overflow-hidden
+            img(src='assets/img/landing/corporate/team/04.jpg' alt='Image')
+            .position-absolute.top-0.start-0.w-100.h-100.opacity-0
+              .bg-dark.position-absolute.top-0.start-0.w-100.h-100.opacity-50
+              .card-body.d-flex.flex-column.justify-content-end.dark-mode.h-100.position-relative.zindex-2.text-center
+                h3.h5.mb-1 Albert Flores
+                p.mb-3 Art director
+                .d-flex.justify-content-center
+                  a(href='#').btn.btn-icon.btn-sm.btn-light.btn-facebook.rounded-circle.mx-2
+                    i.ai-facebook
+                  a(href='#').btn.btn-icon.btn-sm.btn-light.btn-behance.rounded-circle.mx-2
+                    i.ai-behance
+                  a(href='#').btn.btn-icon.btn-sm.btn-light.btn-dribbble.rounded-circle.mx-2
+                    i.ai-dribbble
+
+
+  // Testimonials
+  section.pt-5.mt-1.mt-sm-2.mt-xl-4.mt-xxl-5
+    .container.pt-3.pt-md-4.pt-lg-5.mt-xl-2.mt-xxl-3
+      .fs-sm.text-uppercase.mb-3 Testimonials
+      h2.display-6.pb-3.mb-lg-4 What our clients say
+      .card.border-0.bg-secondary.overflow-hidden
+        .card-body.position-relative.zindex-2.px-lg-0.py-lg-5
+          .row.py-2.py-sm-1.py-md-3.py-lg-4.py-xl-5
+            .col-md-4.col-lg-3.offset-lg-1.mb-3.mb-md-0
+
+              // Binded items
+              .binded-content
+
+                // Item
+                #author1.binded-item.active
+                  img(src='assets/img/avatar/21.jpg' width='86' alt='Lilianna Bocouse').d-block.rounded-circle.mb-3
+                  h4.mb-0 Lilianna Bocouse
+                  p.fs-lg.text-muted.mb-0 Head of Marketing
+
+                // Item
+                #author2.binded-item
+                  img(src='assets/img/avatar/33.jpg' width='86' alt='Darell Steward').d-block.rounded-circle.mb-3
+                  h4.mb-0 Darell Steward
+                  p.fs-lg.text-muted.mb-0 Project Manager
+
+                // Item
+                #author3.binded-item
+                  img(src='assets/img/avatar/34.jpg' width='86' alt='Annette Black').d-block.rounded-circle.mb-3
+                  h4.mb-0 Annette Black
+                  p.fs-lg.text-muted.mb-0 Lead Designer
+
+                // Item
+                #author4.binded-item
+                  img(src='assets/img/avatar/35.jpg' width='86' alt='Ralph Edwards').d-block.rounded-circle.mb-3
+                  h4.mb-0 Ralph Edwards
+                  p.fs-lg.text-muted.mb-0 CEO, Co-Founder
+
+            .col-md-8.col-lg-7
+
+              // Swiper slider
+              .swiper(
+                data-swiper-options=`{
+                  "spaceBetween": 40,
+                  "loop": true,
+                  "autoHeight": true,
+                  "bindedContent": true,
+                  "pagination": {
+                    "el": "#testimonials-bullets",
+                    "clickable": true
+                  }
+                }`
+              )
+                .swiper-wrapper
+                
+                  // Item
+                  .swiper-slide(data-swiper-binded='#author1')
+                    p.text-dark.lead.mb-0 “Around provides us with the detailed and accurate data we need to make strategic decisions. All tools are constantly being improved and contain a lot of useful and interesting information. Thanks to Around, we can constantly analyze our big data quickly and efficiently.”
+                
+                  // Item
+                  .swiper-slide(data-swiper-binded='#author2')
+                    p.text-dark.lead.mb-0 “Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ac pretium dui. Aliquam rutrum justo lorem, in efficitur odio efficitur vel. Integer mattis, neque malesuada sagittis porttitor, enim tortor ullamcorper diam, id eleifend sem mauris at turpis. Curabitur sed nisi nec ligula dictum maximus eu ut ante.”
+                
+                  // Item
+                  .swiper-slide(data-swiper-binded='#author3')
+                    p.text-dark.lead.mb-0 “Quisque rutrum sit amet magna sit amet tristique. Vivamus rhoncus ac purus vitae convallis. Aliquam erat volutpat. Proin egestas, mauris ut semper semper, ipsum felis mattis ligula, et porttitor ante arcu nec ante. Aliquam congue est eu turpis sollicitudin, et ullamcorper tortor aliquam.”
+                
+                  // Item
+                  .swiper-slide(data-swiper-binded='#author4')
+                    p.text-dark.lead.mb-0 “Vestibulum faucibus lectus eget augue pharetra, quis semper lectus gravida. Vestibulum pretium in elit sed iaculis. Curabitur elementum turpis at ipsum molestie, id maximus odio tincidunt. Praesent id lacinia orci. Phasellus at varius arcu. Ut nec lobortis velit. Mauris vel risus quis lacus placerat fringilla.”
+
+      // Swiper pagination (bullets)
+      #testimonials-bullets.swiper-pagination.position-relative.bottom-0.pt-4.mt-2.mt-md-3
+
+  
+  // Gallery (Carousel)
+  section.position-relative.pt-5.mt-2.mt-xl-4.mt-xxl-5
+    .bg-secondary.position-absolute.start-0.bottom-0.w-100(style='height: 252px;')
+    .container.py-3.pt-sm-4.pt-lg-5.mt-xl-2.mt-xxl-3.mb-3.mb-lg-4
+      .fs-sm.text-uppercase.mb-3 Where
+      .d-sm-flex.align-items-center.justify-content-between
+        h2.display-6.mb-0.me-sm-4 We are located in London
+
+        // Swiper controls (Prev/next buttons) visible on screens > 576px
+        .d-none.d-sm-flex
+          button(type='button').prev-gallery.btn.btn-icon.btn-outline-primary.rounded-circle.me-3
+            i.ai-arrow-left
+          button(type='button').next-gallery.btn.btn-icon.btn-outline-primary.rounded-circle
+            i.ai-arrow-right
+
+    // Swiper slider
+    .container-start.position-relative.zindex-2.pe-0
+      .swiper(data-swiper-options=`{
+        "slidesPerView": "auto",
+        "spaceBetween": 24,
+        "loop": true,
+        "navigation": {
+          "prevEl": ".prev-gallery",
+          "nextEl": ".next-gallery"
+        }
+      }`)
+        .swiper-wrapper.gallery.align-items-end
+
+          // Item
+          .swiper-slide.w-auto
+            a(href='assets/img/about/agency/gallery/01.jpg' style='max-width: 416px;').d-block.gallery-item.card-hover.zoom-effect
+              .d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100.rounded-5.overflow-hidden.zindex-2.opacity-0
+                i.ai-zoom-in.fs-2.text-white.position-relative.zindex-2
+                .position-absolute.top-0.start-0.w-100.h-100.bg-black.opacity-40
+              .zoom-effect-wrapper.rounded-5
+                .zoom-effect-img
+                  img(src='assets/img/about/agency/gallery/01.jpg' alt='Gallery image #1')
+
+          // Item
+          .swiper-slide.w-auto
+            a(href='assets/img/about/agency/gallery/02.jpg' style='max-width: 526px;').d-block.gallery-item.card-hover.zoom-effect
+              .d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100.rounded-5.overflow-hidden.zindex-2.opacity-0
+                i.ai-zoom-in.fs-2.text-white.position-relative.zindex-2
+                .position-absolute.top-0.start-0.w-100.h-100.bg-black.opacity-40
+              .zoom-effect-wrapper.rounded-5
+                .zoom-effect-img
+                  img(src='assets/img/about/agency/gallery/02.jpg' alt='Gallery image #2')
+
+          // Item
+          .swiper-slide.w-auto
+            a(href='assets/img/about/agency/gallery/03.jpg' style='max-width: 306px;').d-block.gallery-item.card-hover.zoom-effect
+              .d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100.rounded-5.overflow-hidden.zindex-2.opacity-0
+                i.ai-zoom-in.fs-2.text-white.position-relative.zindex-2
+                .position-absolute.top-0.start-0.w-100.h-100.bg-black.opacity-40
+              .zoom-effect-wrapper.rounded-5
+                .zoom-effect-img
+                  img(src='assets/img/about/agency/gallery/03.jpg' alt='Gallery image #3')
+
+          // Item
+          .swiper-slide.w-auto
+            a(href='assets/img/about/agency/gallery/04.jpg' style='max-width: 367px;').d-block.gallery-item.card-hover.zoom-effect
+              .d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100.rounded-5.overflow-hidden.zindex-2.opacity-0
+                i.ai-zoom-in.fs-2.text-white.position-relative.zindex-2
+                .position-absolute.top-0.start-0.w-100.h-100.bg-black.opacity-40
+              .zoom-effect-wrapper.rounded-5
+                .zoom-effect-img
+                  img(src='assets/img/about/agency/gallery/04.jpg' alt='Gallery image #4')
+
+          // Item
+          .swiper-slide.w-auto
+            a(href='assets/img/about/agency/gallery/05.jpg' style='max-width: 526px;').d-block.gallery-item.card-hover.zoom-effect
+              .d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100.rounded-5.overflow-hidden.zindex-2.opacity-0
+                i.ai-zoom-in.fs-2.text-white.position-relative.zindex-2
+                .position-absolute.top-0.start-0.w-100.h-100.bg-black.opacity-40
+              .zoom-effect-wrapper.rounded-5
+                .zoom-effect-img
+                  img(src='assets/img/about/agency/gallery/05.jpg' alt='Gallery image #5')
+
+          // Item
+          .swiper-slide.w-auto
+            a(href='assets/img/about/agency/gallery/06.jpg' style='max-width: 416px;').d-block.gallery-item.card-hover.zoom-effect
+              .d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100.rounded-5.overflow-hidden.zindex-2.opacity-0
+                i.ai-zoom-in.fs-2.text-white.position-relative.zindex-2
+                .position-absolute.top-0.start-0.w-100.h-100.bg-black.opacity-40
+              .zoom-effect-wrapper.rounded-5
+                .zoom-effect-img
+                  img(src='assets/img/about/agency/gallery/06.jpg' alt='Gallery image #6')
+
+      // Swiper controls (Prev/next buttons) visible on screens < 576px
+      .d-flex.d-sm-none.pt-4
+        button(type='button').prev-gallery.btn.btn-icon.btn-outline-primary.rounded-circle.me-3
+          i.ai-arrow-left
+        button(type='button').next-gallery.btn.btn-icon.btn-outline-primary.rounded-circle
+          i.ai-arrow-right
+
+
+  // Services
+  section.bg-secondary.py-5
+    .container.py-3.py-sm-4.py-lg-5.my-md-2.my-lg-3.my-xl-4.my-xxl-5
+      .fs-sm.text-uppercase.mb-3.mt-xl-2.mt-xxl-3 Work with us
+      h2.h1.pb-3.mb-lg-4 Our services
+      .row.row-cols-1.row-cols-sm-2.row-cols-lg-3.g-4.pb-xl-2.pb-xxl-3
+
+        // Item
+        .col
+          .card.h-100.border-0.rounded-5
+            .card-body.pb-3
+              svg(width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg').d-block.mt-1.mt-sm-0.mb-4
+                g.text-info: path(d='M26.307 23.1116C26.307 28.3136 22.09 32.5307 16.888 32.5307C11.6859 32.5307 7.46891 28.3136 7.46891 23.1116C7.46891 17.9096 11.6859 13.6925 16.888 13.6925C17.1467 13.6925 17.4028 13.7038 17.6562 13.7243V6.24121C17.4016 6.22973 17.1455 6.22363 16.888 6.22363C7.56102 6.22363 0 13.7846 0 23.1116C0 32.4386 7.56102 39.9996 16.888 39.9996C26.2149 39.9996 33.7759 32.4386 33.7759 23.1116C33.7759 22.8541 33.7698 22.598 33.7584 22.3433H26.2753C26.2958 22.5968 26.307 22.8529 26.307 23.1116Z' fill='currentColor')
+                g.text-primary: path(d='M40 20C40 8.9543 31.0457 0 20 0V20H40Z' fill='currentColor')
+              h3.h4 Market shares analysis
+              p.mb-0 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eget molestie massa. Donec egestas ex et velit egestas dignissim. Sed fringilla velit turpis.
+            .card-footer.border-0.pt-3.mb-3
+              a(href='#').btn.btn-icon.btn-lg.btn-outline-primary.rounded-circle.stretched-link
+                i.ai-arrow-right
+
+        // Item
+        .col
+          .card.h-100.border-0.rounded-5
+            .card-body.pb-3
+              svg(width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg').d-block.mt-1.mt-sm-0.mb-4
+                g.text-info: path(d='M25,25h15v15H25V25z' fill='currentColor')
+                g.text-primary: path(d='M10,20c0-5.5,4.5-10,10-10s10,4.5,10,10h10C40,9,31,0,20,0S0,9,0,20s9,20,20,20V30C14.5,30,10,25.5,10,20z' fill='currentColor')
+              h3.h4 Marketing and branding
+              p.mb-0 Find aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur neque congue aliqua dolor do amet sint velit officia.
+            .card-footer.border-0.pt-3.mb-3
+              a(href='#').btn.btn-icon.btn-lg.btn-outline-primary.rounded-circle.stretched-link
+                i.ai-arrow-right
+
+        // Item
+        .col
+          .card.h-100.border-0.rounded-5
+            .card-body.pb-3
+              svg(width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg').d-block.mt-1.mt-sm-0.mb-4
+                g.text-primary: path(d='M25.2791 12.7502C28.1954 9.83389 28.1954 5.10556 25.2791 2.18921C22.3627 -0.727136 17.6344 -0.727137 14.718 2.18921C11.8017 5.10556 11.8017 9.83389 14.718 12.7502C17.6344 15.6666 22.3627 15.6666 25.2791 12.7502Z' fill='currentColor')
+                g.text-info: path(d='M14.6859 29.3056C15.6559 27.0123 16.9202 24.8838 18.4577 22.9467C13.8666 17.9802 7.29664 14.8701 0 14.8701V40.0004H12.5259C12.5259 36.2925 13.2527 32.6942 14.6859 29.3056Z' fill='currentColor')
+                g.text-primary: path(d='M40.0014 40.0004V14.8701C26.1223 14.8701 14.8711 26.1214 14.8711 40.0004H40.0014Z' fill='currentColor')
+              h3.h4 Strategy development
+              p.mb-0 More erat leo proin odio est sed sit felis facilisi integer sed congue neque turpis dictumst sit sed volutpat aliquet tortor non aute irure dolor in reprehenderit in.
+            .card-footer.border-0.pt-3.mb-3
+              a(href='#').btn.btn-icon.btn-lg.btn-outline-primary.rounded-circle.stretched-link
+                i.ai-arrow-right
+
+        // Item
+        .col
+          .card.h-100.border-0.rounded-5
+            .card-body.pb-3
+              svg(width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg').d-block.mt-1.mt-sm-0.mb-4
+                g.text-info: path(d='M34.9811 16.2655C34.3635 26.3194 26.3194 34.3634 16.2656 34.981V40H40V16.2655H34.9811Z' fill='currentColor')
+                g.text-info: path(d='M15.0195 30.0413C23.3152 30.0413 30.0403 23.3163 30.0403 15.0205H15.0195V30.0413Z' fill='currentColor')
+                g.text-primary: path(d='M29.1953 10.0415C27.141 4.19328 21.571 0 15.0208 0C6.725 0 0 6.725 0 15.0208C0 21.571 4.19328 27.141 10.0415 29.1953V10.0415H29.1953Z' fill='currentColor')
+              h3.h4 Email marketing
+              p.mb-0 Adipiscing posuere dui, amet, augue nisl dictum justo enier sed neque congue non quam ultrices interdum vitae vestibulumaute irure dolor in reprehenderit in.
+            .card-footer.border-0.pt-3.mb-3
+              a(href='#').btn.btn-icon.btn-lg.btn-outline-primary.rounded-circle.stretched-link
+                i.ai-arrow-right
+
+        // Item
+        .col
+          .card.h-100.border-0.rounded-5
+            .card-body.pb-3
+              svg(width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg').d-block.mt-1.mt-sm-0.mb-4
+                g.text-primary: path(d='M19.9999 0C11.1313 0 3.61211 5.77313 0.992188 13.7659H39.0077C36.3877 5.77313 28.8686 0 19.9999 0Z' fill='currentColor')
+                g.text-info: path(d='M7.29328 16.1094H0.379453C0.131328 17.368 0 18.6684 0 19.9998C0 26.9291 3.52437 33.0348 8.87797 36.6237L18.3427 27.1589L7.29328 16.1094Z' fill='currentColor')
+                g.text-primary: path(d='M10.9688 37.848C13.6819 39.2238 16.7505 39.9998 20.0007 39.9998C31.0464 39.9998 40.0007 31.0455 40.0007 19.9998C40.0007 18.6684 39.8694 17.3679 39.6213 16.1094H32.7074L10.9688 37.848Z' fill='currentColor')
+              h3.h4 Working on communication
+              p.mb-0 Ut eu amet ac blandit nisl malesuada lectus viverra arcu in rhoncus egestas lorem consequat sollicitudin risus, in pellentesque tellus tincidunt purus viverra dignissim.
+            .card-footer.border-0.pt-3.mb-3
+              a(href='#').btn.btn-icon.btn-lg.btn-outline-primary.rounded-circle.stretched-link
+                i.ai-arrow-right
+
+        // Item
+        .col
+          .card.h-100.border-0.rounded-5
+            .card-body.pb-3
+              svg(width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg').d-block.mt-1.mt-sm-0.mb-4
+                g.text-info: path(d='M20.0004 36.0226L10.982 21.3535C9.42594 23.3156 8.49609 25.7968 8.49609 28.4955C8.49609 34.8492 13.6467 39.9998 20.0004 39.9998C26.3541 39.9998 31.5047 34.8492 31.5047 28.4955C31.5047 25.7969 30.5749 23.3156 29.0188 21.3535L20.0004 36.0226Z' fill='currentColor')
+                g.text-primary: path(d='M39.3962 0H0.605469L20.0009 31.5477L39.3962 0ZM25.7601 7.62359L20.0009 16.9914L14.2416 7.62359H25.7601Z' fill='currentColor')
+              h3.h4 Business copywriting
+              p.mb-0 Massa morbi duis et ornare urna dictum vestibulum pulvinar nunc facilisis ornare id at at ut arcu integer tristique placerat non turpis nibh turpis ullamcorper est porttitor.
+            .card-footer.border-0.pt-3.mb-3
+              a(href='#').btn.btn-icon.btn-lg.btn-outline-primary.rounded-circle.stretched-link
+                i.ai-arrow-right
+
+
+//- Footer
+block footer
+  include partials/footer-portfolio.pug

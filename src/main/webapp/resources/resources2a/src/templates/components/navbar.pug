@@ -1,0 +1,1010 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css', 'vendor/prismjs/themes/prism.css', 'vendor/prismjs/plugins/toolbar/prism-toolbar.css', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js', 'vendor/prismjs/components/prism-core.min.js', 'vendor/prismjs/components/prism-markup.min.js', 'vendor/prismjs/components/prism-clike.min.js', 'vendor/prismjs/components/prism-javascript.min.js', 'vendor/prismjs/components/prism-pug.min.js', 'vendor/prismjs/plugins/toolbar/prism-toolbar.min.js', 'vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Navbar'
+  - var pageSubtitle = 'Responsive navigation header that includes support for branding, navigation, and more.'
+  - var pageTitleLink = {'title': 'Bootstrap docs', 'link': 'https://getbootstrap.com/docs/5.2/components/navbar/'}
+  - var anchorNav = [{'title': 'Supported content', 'link': '#navbar-content'}, {'title': 'Color schemes', 'link': '#navbar-colors'}, {'title': 'Responsive offcanvas menu', 'link': '#navbar-offcanvas'}]
+    
+//- Page Content
+block content
+
+  // Supported content
+  section#navbar-content.pb-lg-2.mb-5
+    h2.h4.mb-3 Supported content
+    ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+      li.nav-item.me-3
+        a(href='#preview1' data-bs-toggle='tab' role='tab' aria-controls='preview1' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+          i.ai-show.fs-lg.opacity-90.me-2
+          | Preview
+      li.vr.opacity-20.my-3.me-3
+      li.nav-item.me-3
+        a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+          i.ai-code.fs-xl.opacity-90.me-2
+          | HTML
+      li.vr.opacity-20.my-3.me-3
+      li.nav-item.me-0
+        a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+          i.ai-code-curly.opacity-90.me-2
+          | Pug
+    .tab-content.pt-4.mt-2
+      #preview1.tab-pane.fade.show.active(role='tabpanel')
+        header.navbar.navbar-expand-lg.bg-light.rounded-3.px-3.mb-4
+          a(href='#').navbar-brand
+            span.text-primary.flex-shrink-0.me-2
+              svg(version='1.1' width='35' height='32' viewBox='0 0 36 33' xmlns='http://www.w3.org/2000/svg')
+                path(fill='currentColor' d='M35.6,29c-1.1,3.4-5.4,4.4-7.9,1.9c-2.3-2.2-6.1-3.7-9.4-3.7c-3.1,0-7.5,1.8-10,4.1c-2.2,2-5.8,1.5-7.3-1.1c-1-1.8-1.2-4.1,0-6.2l0.6-1.1l0,0c0.6-0.7,4.4-5.2,12.5-5.7c0.5,1.8,2,3.1,3.9,3.1c2.2,0,4.1-1.9,4.1-4.2s-1.8-4.2-4.1-4.2c-2,0-3.6,1.4-4,3.3H7.7c-0.8,0-1.3-0.9-0.9-1.6l5.6-9.8c2.5-4.5,8.8-4.5,11.3,0L35.1,24C36,25.7,36.1,27.5,35.6,29z')
+            | Around
+          button(type='button' data-bs-toggle='collapse' data-bs-target='#navbarCollapse1').navbar-toggler
+            span.navbar-toggler-icon
+          nav#navbarCollapse1.collapse.navbar-collapse
+            ul.navbar-nav.me-auto
+              li.nav-item.active
+                a(href='#').nav-link Home
+              li.nav-item
+                a(href='#').nav-link Link
+              li.nav-item.dropdown
+                a(href='#' data-bs-toggle='dropdown' data-bs-auto-close='outside' aria-expanded='false').nav-link.dropdown-toggle Dropdown
+                ul.dropdown-menu
+                  li: a(href='#').dropdown-item Action link
+                  li.dropdown
+                    a(href='#' data-bs-toggle='dropdown' aria-expanded='false').dropdown-item.dropdown-toggle Dropdown
+                    ul.dropdown-menu
+                      li: a(href='#').dropdown-item Action link
+                      li: a(href='#').dropdown-item Another action
+                      li: a(href='#').dropdown-item Something else here
+                      li: a(href='#').dropdown-item Yet another link
+                  li: a(href='#').dropdown-item Another action
+                  li.dropdown-divider 
+                  li: a(href='#').dropdown-item Something else here
+              li.nav-item
+                a(href='#' tabindex='-1' aria-disabled='true').nav-link.disabled Disabled
+            a(href='#').btn.btn-primary.btn-sm.fs-sm.ms-3.mb-4.mb-lg-0
+              i.ai-user.me-2.ms-n1
+              | Sign up
+              
+        header.navbar.navbar-expand-lg.bg-light.rounded-3.px-3.mb-4
+          a(href='#').navbar-brand
+            span.text-primary.flex-shrink-0.me-2
+              svg(version='1.1' width='35' height='32' viewBox='0 0 36 33' xmlns='http://www.w3.org/2000/svg')
+                path(fill='currentColor' d='M35.6,29c-1.1,3.4-5.4,4.4-7.9,1.9c-2.3-2.2-6.1-3.7-9.4-3.7c-3.1,0-7.5,1.8-10,4.1c-2.2,2-5.8,1.5-7.3-1.1c-1-1.8-1.2-4.1,0-6.2l0.6-1.1l0,0c0.6-0.7,4.4-5.2,12.5-5.7c0.5,1.8,2,3.1,3.9,3.1c2.2,0,4.1-1.9,4.1-4.2s-1.8-4.2-4.1-4.2c-2,0-3.6,1.4-4,3.3H7.7c-0.8,0-1.3-0.9-0.9-1.6l5.6-9.8c2.5-4.5,8.8-4.5,11.3,0L35.1,24C36,25.7,36.1,27.5,35.6,29z')
+            | Around
+          .form-check.form-switch.mode-switch.order-lg-2.me-3.me-lg-4.ms-auto
+            input(type='checkbox')#theme-mode1.form-check-input
+            label(for='theme-mode1').form-check-label
+              i.ai-sun.fs-lg
+            label(for='theme-mode1').form-check-label
+              i.ai-moon.fs-lg
+          button(type='button' data-bs-toggle='collapse' data-bs-target='#navbarCollapse2').navbar-toggler
+            span.navbar-toggler-icon
+          a(href='#').btn.btn-outline-primary.btn-sm.fs-sm.order-lg-3.d-none.d-lg-inline-flex
+            i.ai-login.me-2.ms-n1
+            | Sign in
+          nav#navbarCollapse2.collapse.navbar-collapse
+            ul.navbar-nav
+              li.nav-item.active
+                a(href='#').nav-link Home
+              li.nav-item
+                a(href='#').nav-link Services
+              li.nav-item
+                a(href='#').nav-link About
+            a(href='#').btn.btn-outline-primary.btn-sm.fs-sm.d-lg-none.ms-3.mb-4.mb-lg-0
+              i.ai-login.me-2.ms-n1
+              | Sign in
+
+        header.navbar.navbar-expand-lg.bg-light.rounded-3.px-3.mb-4
+          a(href='#').navbar-brand
+            span.text-primary.flex-shrink-0.me-2
+              svg(version='1.1' width='35' height='32' viewBox='0 0 36 33' xmlns='http://www.w3.org/2000/svg')
+                path(fill='currentColor' d='M35.6,29c-1.1,3.4-5.4,4.4-7.9,1.9c-2.3-2.2-6.1-3.7-9.4-3.7c-3.1,0-7.5,1.8-10,4.1c-2.2,2-5.8,1.5-7.3-1.1c-1-1.8-1.2-4.1,0-6.2l0.6-1.1l0,0c0.6-0.7,4.4-5.2,12.5-5.7c0.5,1.8,2,3.1,3.9,3.1c2.2,0,4.1-1.9,4.1-4.2s-1.8-4.2-4.1-4.2c-2,0-3.6,1.4-4,3.3H7.7c-0.8,0-1.3-0.9-0.9-1.6l5.6-9.8c2.5-4.5,8.8-4.5,11.3,0L35.1,24C36,25.7,36.1,27.5,35.6,29z')
+            | Around
+          .nav.align-items-center.order-lg-2.ms-auto
+            a(href='#').nav-link.fs-4.p-2.mx-sm-1
+              i.ai-search
+            a(href='#').nav-link.fs-4.p-2.mx-sm-1
+              i.ai-user
+            a(href='#').nav-link.position-relative.fs-4.p-2
+              i.ai-cart
+              span.badge.bg-primary.fs-xs.position-absolute.end-0.top-0.me-n1(style='padding: .25rem .375rem;') 3
+            button(type='button' data-bs-toggle='collapse' data-bs-target='#navbarCollapse3').navbar-toggler.ms-3
+              span.navbar-toggler-icon
+          nav#navbarCollapse3.collapse.navbar-collapse
+            ul.navbar-nav
+              li.nav-item.active
+                a(href='#').nav-link Home
+              li.nav-item
+                a(href='#').nav-link Services
+              li.nav-item
+                a(href='#').nav-link About
+              li.nav-item
+                a(href='#').nav-link Contacts
+
+        header.navbar.navbar-expand-lg.bg-light.rounded-3.px-3.mb-4
+          a(href='#').navbar-brand
+            span.text-primary.flex-shrink-0.me-2
+              svg(version='1.1' width='35' height='32' viewBox='0 0 36 33' xmlns='http://www.w3.org/2000/svg')
+                path(fill='currentColor' d='M35.6,29c-1.1,3.4-5.4,4.4-7.9,1.9c-2.3-2.2-6.1-3.7-9.4-3.7c-3.1,0-7.5,1.8-10,4.1c-2.2,2-5.8,1.5-7.3-1.1c-1-1.8-1.2-4.1,0-6.2l0.6-1.1l0,0c0.6-0.7,4.4-5.2,12.5-5.7c0.5,1.8,2,3.1,3.9,3.1c2.2,0,4.1-1.9,4.1-4.2s-1.8-4.2-4.1-4.2c-2,0-3.6,1.4-4,3.3H7.7c-0.8,0-1.3-0.9-0.9-1.6l5.6-9.8c2.5-4.5,8.8-4.5,11.3,0L35.1,24C36,25.7,36.1,27.5,35.6,29z')
+            | Around
+          .d-flex.align-items-center.order-lg-2.ms-auto
+            a(href='tel:4055550128').d-flex.align-items-center.text-decoration-none
+              i.ai-phone.fs-3
+              .text-nowrap.ps-2.d-none.d-lg-block
+                h6.fs-sm.lh-1.mb-0 Call us
+                span.text-body.fs-xs (405) 555-0128
+            a(href='mailto:hello@example.com').d-flex.align-items-center.text-decoration-none.ms-4
+              i.ai-messages.fs-3
+              .text-nowrap.ps-2.d-none.d-lg-block
+                h6.fs-sm.lh-1.mb-0 Chat with us
+                span.text-body.fs-xs hello@example.com
+          button(type='button' data-bs-toggle='collapse' data-bs-target='#navbarCollapse4').navbar-toggler.ms-3
+            span.navbar-toggler-icon
+          nav#navbarCollapse4.collapse.navbar-collapse
+            ul.navbar-nav
+              li.nav-item.active
+                a(href='#').nav-link Home
+              li.nav-item
+                a(href='#').nav-link Services
+              li.nav-item
+                a(href='#').nav-link About
+
+        header.navbar.navbar-expand-lg.bg-light.rounded-3.px-3
+          a(href='#').navbar-brand
+            span.text-primary.flex-shrink-0.me-2
+              svg(version='1.1' width='35' height='32' viewBox='0 0 36 33' xmlns='http://www.w3.org/2000/svg')
+                path(fill='currentColor' d='M35.6,29c-1.1,3.4-5.4,4.4-7.9,1.9c-2.3-2.2-6.1-3.7-9.4-3.7c-3.1,0-7.5,1.8-10,4.1c-2.2,2-5.8,1.5-7.3-1.1c-1-1.8-1.2-4.1,0-6.2l0.6-1.1l0,0c0.6-0.7,4.4-5.2,12.5-5.7c0.5,1.8,2,3.1,3.9,3.1c2.2,0,4.1-1.9,4.1-4.2s-1.8-4.2-4.1-4.2c-2,0-3.6,1.4-4,3.3H7.7c-0.8,0-1.3-0.9-0.9-1.6l5.6-9.8c2.5-4.5,8.8-4.5,11.3,0L35.1,24C36,25.7,36.1,27.5,35.6,29z')
+            | Around
+          .dropdown.nav.d-block.order-lg-2.ms-auto
+            a(href='#' data-bs-toggle='dropdown' aria-expanded='false').nav-link.d-flex.align-items-center.p-0
+              img(src='../assets/img/avatar/01.jpg' width='48' alt='Isabella Bocouse').border.rounded-circle
+              .d-none.d-sm-block.ps-2
+                .fs-xs.lh-1.opacity-60 Hello,
+                .fs-sm.dropdown-toggle Isabella
+            .dropdown-menu.dropdown-menu-end.my-1
+              h6.dropdown-header.fs-xs.fw-medium.text-muted.text-uppercase.pb-1 Account
+              a(href='#').dropdown-item
+                i.ai-user-check.fs-lg.opacity-70.me-2
+                | Overview
+              a(href='#').dropdown-item
+                i.ai-settings.fs-lg.opacity-70.me-2
+                | Settings
+              a(href='#').dropdown-item
+                i.ai-wallet.fs-base.opacity-70.me-2.mt-n1
+                | Billing
+              .dropdown-divider
+              h6.dropdown-header.fs-xs.fw-medium.text-muted.text-uppercase.pb-1 Dashboard
+              a(href='#').dropdown-item
+                i.ai-cart.fs-lg.opacity-70.me-2
+                | Orders
+              a(href='#').dropdown-item
+                i.ai-activity.fs-lg.opacity-70.me-2
+                | Earnings
+              a(href='#').dropdown-item.d-flex.align-items-center
+                i.ai-messages.fs-lg.opacity-70.me-2
+                | Chat
+                span.badge.bg-danger.ms-auto 4
+              a(href='#').dropdown-item
+                i.ai-heart.fs-lg.opacity-70.me-2
+                | Favorites
+              .dropdown-divider
+              a(href='#').dropdown-item
+                i.ai-logout.fs-lg.opacity-70.me-2
+                | Sign out
+          button(type='button' data-bs-toggle='collapse' data-bs-target='#navbarCollapse5').navbar-toggler.ms-3
+            span.navbar-toggler-icon
+          nav#navbarCollapse5.collapse.navbar-collapse
+            ul.navbar-nav
+              li.nav-item.active
+                a(href='#').nav-link Home
+              li.nav-item
+                a(href='#').nav-link Services
+              li.nav-item
+                a(href='#').nav-link About
+              li.nav-item
+                a(href='#').nav-link Contacts
+      #html1.tab-pane.fade(role='tabpanel')
+        pre.line-numbers
+          code(class='lang-html').
+            &lt;!-- Change to .container-fluid for full width navbar --&gt;
+
+            &lt;!-- Menu with dropdown + Button --&gt;
+            &lt;header class=&quot;navbar navbar-expand-lg bg-light&quot;&gt;
+              &lt;div class=&quot;container&quot;&gt;
+                &lt;a href=&quot;#&quot; class=&quot;navbar-brand&quot;&gt;
+                  &lt;span class=&quot;text-primary flex-shrink-0 me-2&quot;&gt;
+                    &lt;svg version=&quot;1.1&quot; width=&quot;35&quot; height=&quot;32&quot; viewBox=&quot;0 0 36 33&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
+                      &lt;path fill=&quot;currentColor&quot; d=&quot;M35.6,29c-1.1,3.4-5.4,4.4-7.9,1.9c-2.3-2.2-6.1-3.7-9.4-3.7c-3.1,0-7.5,1.8-10,4.1c-2.2,2-5.8,1.5-7.3-1.1c-1-1.8-1.2-4.1,0-6.2l0.6-1.1l0,0c0.6-0.7,4.4-5.2,12.5-5.7c0.5,1.8,2,3.1,3.9,3.1c2.2,0,4.1-1.9,4.1-4.2s-1.8-4.2-4.1-4.2c-2,0-3.6,1.4-4,3.3H7.7c-0.8,0-1.3-0.9-0.9-1.6l5.6-9.8c2.5-4.5,8.8-4.5,11.3,0L35.1,24C36,25.7,36.1,27.5,35.6,29z&quot;&gt;
+                    &lt;/svg&gt;
+                  &lt;/span&gt;
+                  Around
+                &lt;/a&gt;
+                &lt;button type=&quot;button&quot; class=&quot;navbar-toggler&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbarCollapse1&quot;&gt;
+                  &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+                &lt;/button&gt;
+                &lt;nav class=&quot;collapse navbar-collapse&quot; id=&quot;navbarCollapse1&quot;&gt;
+                  &lt;ul class=&quot;navbar-nav me-auto&quot;&gt;
+                    &lt;li class=&quot;nav-item active&quot;&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;Home&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;nav-item&quot;&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;Link&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;nav-item dropdown&quot;&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;nav-link dropdown-toggle&quot; data-bs-toggle=&quot;dropdown&quot; data-bs-auto-close=&quot;outside&quot; aria-expanded=&quot;false&quot;&gt;Dropdown&lt;/a&gt;
+                      &lt;ul class=&quot;dropdown-menu&quot;&gt;
+                        &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Action link&lt;/a&gt;&lt;/li&gt;
+                        &lt;li class=&quot;dropdown&quot;&gt;
+                          &lt;a href=&quot;#&quot; class=&quot;dropdown-item dropdown-toggle&quot; data-bs-toggle=&quot;dropdown&quot; aria-expanded=&quot;false&quot;&gt;Dropdown&lt;/a&gt;
+                          &lt;ul class=&quot;dropdown-menu&quot;&gt;
+                            &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Action link&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Yet another link&lt;/a&gt;&lt;/li&gt;
+                          &lt;/ul&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+                        &lt;li class=&quot;dropdown-divider&quot;&gt; &lt;/li&gt;
+                        &lt;li href=&quot;#&quot;&gt;&lt;a class=&quot;dropdown-item&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+                      &lt;/ul&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;nav-item&quot;&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;nav-link disabled&quot; tabindex=&quot;-1&quot; aria-disabled=&quot;true&quot;&gt;Disabled&lt;/a&gt;
+                    &lt;/li&gt;
+                  &lt;/ul&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;btn btn-primary btn-sm fs-sm ms-3 mb-4 mb-lg-0&quot;&gt;
+                    &lt;i class=&quot;ai-user me-2 ms-n1&quot;&gt;&lt;/i&gt;
+                    Sign up
+                  &lt;/a&gt;
+                &lt;/nav&gt;
+              &lt;/div&gt;
+            &lt;/header&gt;
+
+            &lt;!-- Menu + Theme mode switch + Button --&gt;
+            &lt;header class=&quot;navbar navbar-expand-lg bg-light&quot;&gt;
+              &lt;div class=&quot;container&quot;&gt;
+                &lt;a href=&quot;#&quot; class=&quot;navbar-brand&quot;&gt;
+                  &lt;span class=&quot;text-primary flex-shrink-0 me-2&quot;&gt;
+                    &lt;svg version=&quot;1.1&quot; width=&quot;35&quot; height=&quot;32&quot; viewBox=&quot;0 0 36 33&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
+                      &lt;path fill=&quot;currentColor&quot; d=&quot;M35.6,29c-1.1,3.4-5.4,4.4-7.9,1.9c-2.3-2.2-6.1-3.7-9.4-3.7c-3.1,0-7.5,1.8-10,4.1c-2.2,2-5.8,1.5-7.3-1.1c-1-1.8-1.2-4.1,0-6.2l0.6-1.1l0,0c0.6-0.7,4.4-5.2,12.5-5.7c0.5,1.8,2,3.1,3.9,3.1c2.2,0,4.1-1.9,4.1-4.2s-1.8-4.2-4.1-4.2c-2,0-3.6,1.4-4,3.3H7.7c-0.8,0-1.3-0.9-0.9-1.6l5.6-9.8c2.5-4.5,8.8-4.5,11.3,0L35.1,24C36,25.7,36.1,27.5,35.6,29z&quot;&gt;
+                    &lt;/svg&gt;
+                  &lt;/span&gt;
+                  Around
+                &lt;/a&gt;
+                &lt;div class=&quot;form-check form-switch mode-switch order-lg-2 me-3 me-lg-4 ms-auto&quot; data-bs-toggle=&quot;mode&quot;&gt;
+                  &lt;input type=&quot;checkbox&quot; class=&quot;form-check-input&quot; id=&quot;theme-mode&quot;&gt;
+                  &lt;label for=&quot;theme-mode&quot; class=&quot;form-check-label&quot;&gt;
+                    &lt;i class=&quot;ai-sun fs-lg&quot;&gt;&lt;/i&gt;
+                  &lt;/label&gt;
+                  &lt;label for=&quot;theme-mode&quot; class=&quot;form-check-label&quot;&gt;
+                    &lt;i class=&quot;ai-moon fs-lg&quot;&gt;&lt;/i&gt;
+                  &lt;/label&gt;
+                &lt;/div&gt;
+                &lt;button type=&quot;button&quot; class=&quot;navbar-toggler&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbarCollapse2&quot;&gt;
+                  &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+                &lt;/button&gt;
+                
+                &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-primary btn-sm fs-sm order-lg-3 d-none d-lg-inline-flex&quot;&gt;
+                  &lt;i class=&quot;ai-login me-2 ms-n1&quot;&gt;&lt;/i&gt;
+                  Sign in
+                &lt;/a&gt;
+                &lt;nav class=&quot;collapse navbar-collapse&quot; id=&quot;navbarCollapse2&quot;&gt;
+                  &lt;ul class=&quot;navbar-nav&quot;&gt;
+                    &lt;li class=&quot;nav-item active&quot;&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;Home&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;nav-item&quot;&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;Services&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;nav-item&quot;&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;About&lt;/a&gt;
+                    &lt;/li&gt;
+                  &lt;/ul&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-primary btn-sm fs-sm d-lg-none ms-3 mb-4 mb-lg-0&quot;&gt;
+                    &lt;i class=&quot;ai-login me-2 ms-n1&quot;&gt;&lt;/i&gt;
+                    Sign in
+                  &lt;/a&gt;
+                &lt;/nav&gt;
+              &lt;/div&gt;
+            &lt;/header&gt;
+
+            &lt;!-- Menu + Search + Account + Shopping cart --&gt;
+            &lt;header class=&quot;navbar navbar-expand-lg bg-light&quot;&gt;
+              &lt;div class=&quot;container&quot;&gt;
+                &lt;a href=&quot;#&quot; class=&quot;navbar-brand&quot;&gt;
+                  &lt;span class=&quot;text-primary flex-shrink-0 me-2&quot;&gt;
+                    &lt;svg version=&quot;1.1&quot; width=&quot;35&quot; height=&quot;32&quot; viewBox=&quot;0 0 36 33&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
+                      &lt;path fill=&quot;currentColor&quot; d=&quot;M35.6,29c-1.1,3.4-5.4,4.4-7.9,1.9c-2.3-2.2-6.1-3.7-9.4-3.7c-3.1,0-7.5,1.8-10,4.1c-2.2,2-5.8,1.5-7.3-1.1c-1-1.8-1.2-4.1,0-6.2l0.6-1.1l0,0c0.6-0.7,4.4-5.2,12.5-5.7c0.5,1.8,2,3.1,3.9,3.1c2.2,0,4.1-1.9,4.1-4.2s-1.8-4.2-4.1-4.2c-2,0-3.6,1.4-4,3.3H7.7c-0.8,0-1.3-0.9-0.9-1.6l5.6-9.8c2.5-4.5,8.8-4.5,11.3,0L35.1,24C36,25.7,36.1,27.5,35.6,29z&quot;&gt;
+                    &lt;/svg&gt;
+                  &lt;/span&gt;
+                  Around
+                &lt;/a&gt;
+                &lt;div class=&quot;nav align-items-center order-lg-2 ms-auto&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link fs-4 p-2 mx-sm-1&quot;&gt;
+                    &lt;i class=&quot;ai-search&quot;&gt;&lt;/i&gt;
+                  &lt;/a&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link fs-4 p-2 mx-sm-1&quot;&gt;
+                    &lt;i class=&quot;ai-user&quot;&gt;&lt;/i&gt;
+                  &lt;/a&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link position-relative fs-4 p-2&quot;&gt;
+                    &lt;i class=&quot;ai-cart&quot;&gt;&lt;/i&gt;
+                    &lt;span class=&quot;badge bg-primary fs-xs position-absolute end-0 top-0 me-n1&quot; style=&quot;padding: .25rem .375rem;&quot;&gt;3&lt;/span&gt;
+                  &lt;/a&gt;
+                  &lt;button type=&quot;button&quot; class=&quot;navbar-toggler ms-3&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbarCollapse3&quot;&gt;
+                    &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+                  &lt;/button&gt;
+                &lt;/div&gt;
+                &lt;nav class=&quot;collapse navbar-collapse&quot; id=&quot;navbarCollapse3&quot;&gt;
+                  &lt;ul class=&quot;navbar-nav&quot;&gt;
+                    &lt;li class=&quot;nav-item active&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+                    &lt;li class=&quot;nav-item&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;Services&lt;/a&gt;&lt;/li&gt;
+                    &lt;li class=&quot;nav-item&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;About&lt;/a&gt;&lt;/li&gt;
+                    &lt;li class=&quot;nav-item&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;Contacts&lt;/a&gt;&lt;/li&gt;
+                  &lt;/ul&gt;
+                &lt;/nav&gt;
+              &lt;/div&gt;
+            &lt;/header&gt;
+
+            &lt;!-- Menu + Contact (Phone / Email) links --&gt;
+            &lt;header class=&quot;navbar navbar-expand-lg bg-light&quot;&gt;
+              &lt;div class=&quot;container&quot;&gt;
+                &lt;a href=&quot;#&quot; class=&quot;navbar-brand&quot;&gt;
+                  &lt;span class=&quot;text-primary flex-shrink-0 me-2&quot;&gt;
+                    &lt;svg version=&quot;1.1&quot; width=&quot;35&quot; height=&quot;32&quot; viewBox=&quot;0 0 36 33&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
+                      &lt;path fill=&quot;currentColor&quot; d=&quot;M35.6,29c-1.1,3.4-5.4,4.4-7.9,1.9c-2.3-2.2-6.1-3.7-9.4-3.7c-3.1,0-7.5,1.8-10,4.1c-2.2,2-5.8,1.5-7.3-1.1c-1-1.8-1.2-4.1,0-6.2l0.6-1.1l0,0c0.6-0.7,4.4-5.2,12.5-5.7c0.5,1.8,2,3.1,3.9,3.1c2.2,0,4.1-1.9,4.1-4.2s-1.8-4.2-4.1-4.2c-2,0-3.6,1.4-4,3.3H7.7c-0.8,0-1.3-0.9-0.9-1.6l5.6-9.8c2.5-4.5,8.8-4.5,11.3,0L35.1,24C36,25.7,36.1,27.5,35.6,29z&quot;&gt;
+                    &lt;/svg&gt;
+                  &lt;/span&gt;
+                  Around
+                &lt;/a&gt;
+                &lt;div class=&quot;d-flex align-items-center order-lg-2 ms-auto&quot;&gt;
+                  &lt;a href=&quot;tel:4055550128&quot; class=&quot;d-flex align-items-center text-decoration-none&quot;&gt;
+                    &lt;i class=&quot;ai-phone fs-3&quot;&gt;&lt;/i&gt;
+                    &lt;div class=&quot;text-nowrap ps-2 d-none d-lg-block&quot;&gt;
+                      &lt;h6 class=&quot;fs-sm lh-1 mb-0&quot;&gt;Call us&lt;/h6&gt;
+                      &lt;span class=&quot;text-body fs-xs&quot;&gt;(405) 555-0128&lt;/span&gt;
+                    &lt;/div&gt;
+                  &lt;/a&gt;
+                  &lt;a href=&quot;mailto:hello@example.com&quot; class=&quot;d-flex align-items-center text-decoration-none ms-4&quot;&gt;
+                    &lt;i class=&quot;ai-messages fs-3&quot;&gt;&lt;/i&gt;
+                    &lt;div class=&quot;text-nowrap ps-2 d-none d-lg-block&quot;&gt;
+                      &lt;h6 class=&quot;fs-sm lh-1 mb-0&quot;&gt;Chat with us&lt;/h6&gt;
+                      &lt;span class=&quot;text-body fs-xs&quot;&gt;hello@example.com&lt;/span&gt;
+                    &lt;/div&gt;
+                  &lt;/a&gt;
+                &lt;/div&gt;
+                &lt;button type=&quot;button&quot; class=&quot;navbar-toggler ms-3&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbarCollapse4&quot;&gt;
+                  &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+                &lt;/button&gt;
+                &lt;nav class=&quot;collapse navbar-collapse&quot; id=&quot;navbarCollapse4&quot;&gt;
+                  &lt;ul class=&quot;navbar-nav&quot;&gt;
+                    &lt;li class=&quot;nav-item active&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+                    &lt;li class=&quot;nav-item&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;Services&lt;/a&gt;&lt;/li&gt;
+                    &lt;li class=&quot;nav-item&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;About&lt;/a&gt;&lt;/li&gt;
+                  &lt;/ul&gt;
+                &lt;/nav&gt;
+              &lt;/div&gt;
+            &lt;/header&gt;
+            
+            &lt;!-- User logged in state. User account dropdown --&gt;
+            &lt;header class=&quot;navbar navbar-expand-lg bg-light&quot;&gt;
+              &lt;div class=&quot;container&quot;&gt;
+                &lt;a href=&quot;#&quot; class=&quot;navbar-brand&quot;&gt;
+                  &lt;span class=&quot;text-primary flex-shrink-0 me-2&quot;&gt;
+                    &lt;svg version=&quot;1.1&quot; width=&quot;35&quot; height=&quot;32&quot; viewBox=&quot;0 0 36 33&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
+                      &lt;path fill=&quot;currentColor&quot; d=&quot;M35.6,29c-1.1,3.4-5.4,4.4-7.9,1.9c-2.3-2.2-6.1-3.7-9.4-3.7c-3.1,0-7.5,1.8-10,4.1c-2.2,2-5.8,1.5-7.3-1.1c-1-1.8-1.2-4.1,0-6.2l0.6-1.1l0,0c0.6-0.7,4.4-5.2,12.5-5.7c0.5,1.8,2,3.1,3.9,3.1c2.2,0,4.1-1.9,4.1-4.2s-1.8-4.2-4.1-4.2c-2,0-3.6,1.4-4,3.3H7.7c-0.8,0-1.3-0.9-0.9-1.6l5.6-9.8c2.5-4.5,8.8-4.5,11.3,0L35.1,24C36,25.7,36.1,27.5,35.6,29z&quot;&gt;
+                    &lt;/svg&gt;
+                  &lt;/span&gt;
+                  Around
+                &lt;/a&gt;
+                &lt;div class=&quot;dropdown nav d-block order-lg-2 ms-auto&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link d-flex align-items-center p-0&quot; data-bs-toggle=&quot;dropdown&quot; aria-expanded=&quot;false&quot;&gt;
+                    &lt;img src=&quot;assets/img/avatar/01.jpg&quot; class=&quot;border rounded-circle&quot; width=&quot;48&quot; alt=&quot;Isabella Bocouse&quot;&gt;
+                    &lt;div class=&quot;d-none d-sm-block ps-2&quot;&gt;
+                      &lt;div class=&quot;fs-xs lh-1 opacity-60&quot;&gt;Hello,&lt;/div&gt;
+                      &lt;div class=&quot;fs-sm dropdown-toggle&quot;&gt;Isabella&lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/a&gt;
+                  &lt;div class=&quot;dropdown-menu dropdown-menu-end my-1&quot;&gt;
+                    &lt;h6 class=&quot;dropdown-header fs-xs fw-medium text-muted text-uppercase pb-1&quot;&gt;Account&lt;/h6&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;
+                      &lt;i class=&quot;ai-user-check fs-lg opacity-70 me-2&quot;&gt;&lt;/i&gt;
+                      Overview
+                    &lt;/a&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;
+                      &lt;i class=&quot;ai-settings fs-lg opacity-70 me-2&quot;&gt;&lt;/i&gt;
+                      Settings
+                    &lt;/a&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;
+                      &lt;i class=&quot;ai-wallet fs-base opacity-70 me-2 mt-n1&quot;&gt;&lt;/i&gt;
+                      Billing
+                    &lt;/a&gt;
+                    &lt;div class=&quot;dropdown-divider&quot;&gt;&lt;/div&gt;
+                    &lt;h6 class=&quot;dropdown-header fs-xs fw-medium text-muted text-uppercase pb-1&quot;&gt;Dashboard&lt;/h6&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;
+                      &lt;i class=&quot;ai-cart fs-lg opacity-70 me-2&quot;&gt;&lt;/i&gt;
+                      Orders
+                    &lt;/a&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;
+                      &lt;i class=&quot;ai-activity fs-lg opacity-70 me-2&quot;&gt;&lt;/i&gt;
+                      Earnings
+                    &lt;/a&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;dropdown-item d-flex align-items-center&quot;&gt;
+                      &lt;i class=&quot;ai-messages fs-lg opacity-70 me-2&quot;&gt;&lt;/i&gt;
+                      Chat
+                      &lt;span class=&quot;badge bg-danger ms-auto&quot;&gt;4&lt;/span&gt;
+                    &lt;/a&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;
+                      &lt;i class=&quot;ai-heart fs-lg opacity-70 me-2&quot;&gt;&lt;/i&gt;
+                      Favorites
+                    &lt;/a&gt;
+                    &lt;div class=&quot;dropdown-divider&quot;&gt;&lt;/div&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;
+                      &lt;i class=&quot;ai-logout fs-lg opacity-70 me-2&quot;&gt;&lt;/i&gt;
+                      Sign out
+                    &lt;/a&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;button type=&quot;button&quot; class=&quot;navbar-toggler ms-3&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbarCollapse5&quot;&gt;
+                  &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+                &lt;/button&gt;
+                &lt;nav class=&quot;collapse navbar-collapse&quot; id=&quot;navbarCollapse5&quot;&gt;
+                  &lt;ul class=&quot;navbar-nav&quot;&gt;
+                    &lt;li class=&quot;nav-item active&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+                    &lt;li class=&quot;nav-item&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;Services&lt;/a&gt;&lt;/li&gt;
+                    &lt;li class=&quot;nav-item&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;About&lt;/a&gt;&lt;/li&gt;
+                    &lt;li class=&quot;nav-item&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;Contacts&lt;/a&gt;&lt;/li&gt;
+                  &lt;/ul&gt;
+                &lt;/nav&gt;
+              &lt;/div&gt;
+            &lt;/header&gt;
+      #pug1.tab-pane.fade(role='tabpanel')
+        pre.line-numbers
+          code(class='lang-pug').
+            // Change to .container-fluid for full width navbar
+
+            // Menu with dropdown + Button
+            header.navbar.navbar-expand-lg.bg-light
+              .container
+                a(href=&quot;#&quot;).navbar-brand
+                  span.text-primary.flex-shrink-0.me-2
+                    svg(version=&quot;1.1&quot;, width=&quot;35&quot;, height=&quot;32&quot;, viewBox=&quot;0 0 36 33&quot;, xmlns=&quot;http://www.w3.org/2000/svg&quot;)
+                      path(fill=&quot;currentColor&quot;, d=&quot;M35.6,29c-1.1,3.4-5.4,4.4-7.9,1.9c-2.3-2.2-6.1-3.7-9.4-3.7c-3.1,0-7.5,1.8-10,4.1c-2.2,2-5.8,1.5-7.3-1.1c-1-1.8-1.2-4.1,0-6.2l0.6-1.1l0,0c0.6-0.7,4.4-5.2,12.5-5.7c0.5,1.8,2,3.1,3.9,3.1c2.2,0,4.1-1.9,4.1-4.2s-1.8-4.2-4.1-4.2c-2,0-3.6,1.4-4,3.3H7.7c-0.8,0-1.3-0.9-0.9-1.6l5.6-9.8c2.5-4.5,8.8-4.5,11.3,0L35.1,24C36,25.7,36.1,27.5,35.6,29z&quot;)
+                  | Around
+                button(type=&quot;button&quot;, data-bs-toggle=&quot;collapse&quot;, data-bs-target=&quot;#navbarCollapse1&quot;).navbar-toggler
+                  span.navbar-toggler-icon
+                nav#navbarCollapse1.collapse.navbar-collapse
+                  ul.navbar-nav.me-auto
+                    li.nav-item.active
+                      a(href=&quot;#&quot;).nav-link
+                        | Home
+                    li.nav-item
+                      a(href=&quot;#&quot;).nav-link
+                        | Link
+                    li.nav-item.dropdown
+                      a(href=&quot;#&quot;, data-bs-toggle=&quot;dropdown&quot;, data-bs-auto-close=&quot;outside&quot;, aria-expanded=&quot;false&quot;).nav-link.dropdown-toggle
+                        | Dropdown
+                      ul.dropdown-menu
+                        li: a(href=&quot;#&quot;).dropdown-item
+                          | Action link
+                        li.dropdown
+                          a(href=&quot;#&quot;, data-bs-toggle=&quot;dropdown&quot;, aria-expanded=&quot;false&quot;).dropdown-item.dropdown-toggle
+                            | Dropdown
+                          ul.dropdown-menu
+                            li: a(href=&quot;#&quot;).dropdown-item
+                              | Action link
+                            li: a(href=&quot;#&quot;).dropdown-item
+                              | Another action
+                            li: a(href=&quot;#&quot;).dropdown-item
+                              | Something else here
+                            li: a(href=&quot;#&quot;).dropdown-item
+                              | Yet another link
+                        li: a(href=&quot;#&quot;).dropdown-item
+                          | Another action
+                        li.dropdown-divider 
+                        li: a(href=&quot;#&quot;).dropdown-item
+                          | Something else here
+                    li.nav-item
+                      a(href=&quot;#&quot;, tabindex=&quot;-1&quot;, aria-disabled=&quot;true&quot;).nav-link.disabled
+                        | Disabled
+                  a(href=&quot;#&quot;).btn.btn-primary.btn-sm.fs-sm.ms-3.mb-4.mb-lg-0
+                    i.ai-user.me-2.ms-n1
+                    | Sign up
+
+            // Menu + Theme mode switch + Button
+            header.navbar.navbar-expand-lg.bg-light
+              .container
+                a(href=&quot;#&quot;).navbar-brand
+                  span.text-primary.flex-shrink-0.me-2
+                    svg(version=&quot;1.1&quot;, width=&quot;35&quot;, height=&quot;32&quot;, viewBox=&quot;0 0 36 33&quot;, xmlns=&quot;http://www.w3.org/2000/svg&quot;)
+                      path(fill=&quot;currentColor&quot;, d=&quot;M35.6,29c-1.1,3.4-5.4,4.4-7.9,1.9c-2.3-2.2-6.1-3.7-9.4-3.7c-3.1,0-7.5,1.8-10,4.1c-2.2,2-5.8,1.5-7.3-1.1c-1-1.8-1.2-4.1,0-6.2l0.6-1.1l0,0c0.6-0.7,4.4-5.2,12.5-5.7c0.5,1.8,2,3.1,3.9,3.1c2.2,0,4.1-1.9,4.1-4.2s-1.8-4.2-4.1-4.2c-2,0-3.6,1.4-4,3.3H7.7c-0.8,0-1.3-0.9-0.9-1.6l5.6-9.8c2.5-4.5,8.8-4.5,11.3,0L35.1,24C36,25.7,36.1,27.5,35.6,29z&quot;)
+                  | Around
+                div(data-bs-toggle='mode').form-check.form-switch.mode-switch.order-lg-2.me-3.me-lg-4.ms-auto
+                  input(type=&quot;checkbox&quot;)#theme-mode.form-check-input
+                  label(for=&quot;theme-mode&quot;).form-check-label
+                    i.ai-sun.fs-lg
+                  label(for=&quot;theme-mode&quot;).form-check-label
+                    i.ai-moon.fs-lg
+                button(type=&quot;button&quot;, data-bs-toggle=&quot;collapse&quot;, data-bs-target=&quot;#navbarCollapse2&quot;).navbar-toggler
+                  span.navbar-toggler-icon
+                a(href=&quot;#&quot;).btn.btn-outline-primary.btn-sm.fs-sm.order-lg-3.d-none.d-lg-inline-flex
+                  i.ai-login.me-2.ms-n1
+                  | Sign in
+                nav#navbarCollapse2.collapse.navbar-collapse
+                  ul.navbar-nav
+                    li.nav-item.active
+                      a(href=&quot;#&quot;).nav-link
+                        | Home
+                    li.nav-item
+                      a(href=&quot;#&quot;).nav-link
+                        | Services
+                    li.nav-item
+                      a(href=&quot;#&quot;).nav-link
+                        | About
+                  a(href=&quot;#&quot;).btn.btn-outline-primary.btn-sm.fs-sm.d-lg-none.ms-3.mb-4.mb-lg-0
+                    i.ai-login.me-2.ms-n1
+                    | Sign in
+
+            // Menu + Search + Account + Shopping cart
+            header.navbar.navbar-expand-lg.bg-light
+              .container
+                a(href=&quot;#&quot;).navbar-brand
+                  span.text-primary.flex-shrink-0.me-2
+                    svg(version=&quot;1.1&quot;, width=&quot;35&quot;, height=&quot;32&quot;, viewBox=&quot;0 0 36 33&quot;, xmlns=&quot;http://www.w3.org/2000/svg&quot;)
+                      path(fill=&quot;currentColor&quot;, d=&quot;M35.6,29c-1.1,3.4-5.4,4.4-7.9,1.9c-2.3-2.2-6.1-3.7-9.4-3.7c-3.1,0-7.5,1.8-10,4.1c-2.2,2-5.8,1.5-7.3-1.1c-1-1.8-1.2-4.1,0-6.2l0.6-1.1l0,0c0.6-0.7,4.4-5.2,12.5-5.7c0.5,1.8,2,3.1,3.9,3.1c2.2,0,4.1-1.9,4.1-4.2s-1.8-4.2-4.1-4.2c-2,0-3.6,1.4-4,3.3H7.7c-0.8,0-1.3-0.9-0.9-1.6l5.6-9.8c2.5-4.5,8.8-4.5,11.3,0L35.1,24C36,25.7,36.1,27.5,35.6,29z&quot;)
+                  | Around
+                .nav.align-items-center.order-lg-2.ms-auto
+                  a(href=&quot;#&quot;).nav-link.fs-4.p-2.mx-sm-1
+                    i.ai-search
+                  a(href=&quot;#&quot;).nav-link.fs-4.p-2.mx-sm-1
+                    i.ai-user
+                  a(href=&quot;#&quot;).nav-link.position-relative.fs-4.p-2
+                    i.ai-cart
+                    span.badge.bg-primary.fs-xs.position-absolute.end-0.top-0.me-n1(style=&quot;padding: .25rem .375rem;&quot;)
+                      | 3
+                button(type=&quot;button&quot;, data-bs-toggle=&quot;collapse&quot;, data-bs-target=&quot;#navbarCollapse3&quot;).navbar-toggler.ms-3
+                  span.navbar-toggler-icon
+                nav#navbarCollapse3.collapse.navbar-collapse
+                  ul.navbar-nav
+                    li.nav-item.active
+                      a(href=&quot;#&quot;).nav-link
+                        | Home
+                    li.nav-item
+                      a(href=&quot;#&quot;).nav-link
+                        | Services
+                    li.nav-item
+                      a(href=&quot;#&quot;).nav-link
+                        | About
+                    li.nav-item
+                      a(href=&quot;#&quot;).nav-link
+                        | Contacts
+
+            // Menu + Contact (Phone / Email) links
+            header.navbar.navbar-expand-lg.bg-light
+              .container
+                a(href=&quot;#&quot;).navbar-brand
+                  span.text-primary.flex-shrink-0.me-2
+                    svg(version=&quot;1.1&quot;, width=&quot;35&quot;, height=&quot;32&quot;, viewBox=&quot;0 0 36 33&quot;, xmlns=&quot;http://www.w3.org/2000/svg&quot;)
+                      path(fill=&quot;currentColor&quot;, d=&quot;M35.6,29c-1.1,3.4-5.4,4.4-7.9,1.9c-2.3-2.2-6.1-3.7-9.4-3.7c-3.1,0-7.5,1.8-10,4.1c-2.2,2-5.8,1.5-7.3-1.1c-1-1.8-1.2-4.1,0-6.2l0.6-1.1l0,0c0.6-0.7,4.4-5.2,12.5-5.7c0.5,1.8,2,3.1,3.9,3.1c2.2,0,4.1-1.9,4.1-4.2s-1.8-4.2-4.1-4.2c-2,0-3.6,1.4-4,3.3H7.7c-0.8,0-1.3-0.9-0.9-1.6l5.6-9.8c2.5-4.5,8.8-4.5,11.3,0L35.1,24C36,25.7,36.1,27.5,35.6,29z&quot;)
+                  | Around
+                .d-flex.align-items-center.order-lg-2.ms-auto
+                  a(href=&quot;tel:4055550128&quot;).d-flex.align-items-center.text-decoration-none
+                    i.ai-phone.fs-3
+                    .text-nowrap.ps-2.d-none.d-lg-block
+                      h6.fs-sm.lh-1.mb-0 Call us
+                      span.text-body.fs-xs (405) 555-0128
+                  a(href=&quot;mailto:hello@example.com&quot;).d-flex.align-items-center.text-decoration-none.ms-4
+                    i.ai-messages.fs-3
+                    .text-nowrap.ps-2.d-none.d-lg-block
+                      h6.fs-sm.lh-1.mb-0 Chat with us
+                      span.text-body.fs-xs hello@example.com
+                button(type=&quot;button&quot;, data-bs-toggle=&quot;collapse&quot;, data-bs-target=&quot;#navbarCollapse4&quot;).navbar-toggler.ms-3
+                  span.navbar-toggler-icon
+                nav#navbarCollapse4.collapse.navbar-collapse
+                  ul.navbar-nav
+                    li.nav-item.active
+                      a(href=&quot;#&quot;).nav-link
+                        | Home
+                    li.nav-item
+                      a(href=&quot;#&quot;).nav-link
+                        | Services
+                    li.nav-item
+                      a(href=&quot;#&quot;).nav-link
+                        | About
+
+            // User logged in state. User account dropdown
+            header.navbar.navbar-expand-lg.bg-light
+              .container
+                a(href=&quot;#&quot;).navbar-brand
+                  span.text-primary.flex-shrink-0.me-2
+                    svg(version=&quot;1.1&quot;, width=&quot;35&quot;, height=&quot;32&quot;, viewBox=&quot;0 0 36 33&quot;, xmlns=&quot;http://www.w3.org/2000/svg&quot;)
+                      path(fill=&quot;currentColor&quot;, d=&quot;M35.6,29c-1.1,3.4-5.4,4.4-7.9,1.9c-2.3-2.2-6.1-3.7-9.4-3.7c-3.1,0-7.5,1.8-10,4.1c-2.2,2-5.8,1.5-7.3-1.1c-1-1.8-1.2-4.1,0-6.2l0.6-1.1l0,0c0.6-0.7,4.4-5.2,12.5-5.7c0.5,1.8,2,3.1,3.9,3.1c2.2,0,4.1-1.9,4.1-4.2s-1.8-4.2-4.1-4.2c-2,0-3.6,1.4-4,3.3H7.7c-0.8,0-1.3-0.9-0.9-1.6l5.6-9.8c2.5-4.5,8.8-4.5,11.3,0L35.1,24C36,25.7,36.1,27.5,35.6,29z&quot;)
+                  | Around
+                .dropdown.nav.d-block.order-lg-2.ms-auto
+                  a(href=&quot;#&quot;, data-bs-toggle=&quot;dropdown&quot;, aria-expanded=&quot;false&quot;).nav-link.d-flex.align-items-center.p-0
+                    img(src=&quot;assets/img/avatar/01.jpg&quot;, width=&quot;48&quot;, alt=&quot;Isabella Bocouse&quot;).border.rounded-circle
+                    .d-none.d-sm-block.ps-2
+                      .fs-xs.lh-1.opacity-60 Hello,
+                      .fs-sm.dropdown-toggle Isabella
+                  .dropdown-menu.dropdown-menu-end.my-1
+                    h6.dropdown-header.fs-xs.fw-medium.text-muted.text-uppercase.pb-1
+                      | Account
+                    a(href=&quot;#&quot;).dropdown-item
+                      i.ai-user-check.fs-lg.opacity-70.me-2
+                      | Overview
+                    a(href=&quot;#&quot;).dropdown-item
+                      i.ai-settings.fs-lg.opacity-70.me-2
+                      | Settings
+                    a(href=&quot;#&quot;).dropdown-item
+                      i.ai-wallet.fs-base.opacity-70.me-2.mt-n1
+                      | Billing
+                    .dropdown-divider
+                    h6.dropdown-header.fs-xs.fw-medium.text-muted.text-uppercase.pb-1
+                      | Dashboard
+                    a(href=&quot;#&quot;).dropdown-item
+                      i.ai-cart.fs-lg.opacity-70.me-2
+                      | Orders
+                    a(href=&quot;#&quot;).dropdown-item
+                      i.ai-activity.fs-lg.opacity-70.me-2
+                      | Earnings
+                    a(href=&quot;#&quot;).dropdown-item.d-flex.align-items-center
+                      i.ai-messages.fs-lg.opacity-70.me-2
+                      | Chat
+                      span.badge.bg-danger.ms-auto 4
+                    a(href=&quot;#&quot;).dropdown-item
+                      i.ai-heart.fs-lg.opacity-70.me-2
+                      | Favorites
+                    .dropdown-divider
+                    a(href=&quot;#&quot;).dropdown-item
+                      i.ai-logout.fs-lg.opacity-70.me-2
+                      | Sign out
+                button(type=&quot;button&quot;, data-bs-toggle=&quot;collapse&quot;, data-bs-target=&quot;#navbarCollapse5&quot;).navbar-toggler.ms-3
+                  span.navbar-toggler-icon
+                nav#navbarCollapse5.collapse.navbar-collapse
+                  ul.navbar-nav
+                    li.nav-item.active
+                      a(href=&quot;#&quot;).nav-link
+                        | Home
+                    li.nav-item
+                      a(href=&quot;#&quot;).nav-link
+                        | Services
+                    li.nav-item
+                      a(href=&quot;#&quot;).nav-link
+                        | About
+                    li.nav-item
+                      a(href=&quot;#&quot;).nav-link
+                        | Contacts
+
+  // Color schemes
+  section#navbar-colors.pb-lg-2.mb-5
+    h2.h4.mb-3 Color schemes
+    ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+      li.nav-item.me-3
+        a(href='#preview2' data-bs-toggle='tab' role='tab' aria-controls='preview2' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+          i.ai-show.fs-lg.opacity-90.me-2
+          | Preview
+      li.vr.opacity-20.my-3.me-3
+      li.nav-item.me-3
+        a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+          i.ai-code.fs-xl.opacity-90.me-2
+          | HTML
+      li.vr.opacity-20.my-3.me-3
+      li.nav-item.me-0
+        a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+          i.ai-code-curly.opacity-90.me-2
+          | Pug
+    .tab-content.pt-4.mt-2
+      #preview2.tab-pane.fade.show.active(role='tabpanel')
+        header.navbar.navbar-expand-lg.navbar-dark.bg-dark.rounded-3.px-3.mb-4
+          a(href='#').navbar-brand
+            span.text-primary.flex-shrink-0.me-2
+              svg(version='1.1' width='35' height='32' viewBox='0 0 36 33' xmlns='http://www.w3.org/2000/svg')
+                path(fill='currentColor' d='M35.6,29c-1.1,3.4-5.4,4.4-7.9,1.9c-2.3-2.2-6.1-3.7-9.4-3.7c-3.1,0-7.5,1.8-10,4.1c-2.2,2-5.8,1.5-7.3-1.1c-1-1.8-1.2-4.1,0-6.2l0.6-1.1l0,0c0.6-0.7,4.4-5.2,12.5-5.7c0.5,1.8,2,3.1,3.9,3.1c2.2,0,4.1-1.9,4.1-4.2s-1.8-4.2-4.1-4.2c-2,0-3.6,1.4-4,3.3H7.7c-0.8,0-1.3-0.9-0.9-1.6l5.6-9.8c2.5-4.5,8.8-4.5,11.3,0L35.1,24C36,25.7,36.1,27.5,35.6,29z')
+            | Around
+          button(type='button' data-bs-toggle='collapse' data-bs-target='#navbarCollapse6').navbar-toggler
+            span.navbar-toggler-icon
+          nav#navbarCollapse6.collapse.navbar-collapse
+            ul.navbar-nav.me-auto
+              li.nav-item.active
+                a(href='#').nav-link Home
+              li.nav-item
+                a(href='#').nav-link Link
+              li.nav-item.dropdown
+                a(href='#' data-bs-toggle='dropdown' data-bs-auto-close='outside' aria-expanded='false').nav-link.dropdown-toggle Dropdown
+                ul.dropdown-menu.dropdown-menu-dark
+                  li: a(href='#').dropdown-item Action link
+                  li.dropdown
+                    a(href='#' data-bs-toggle='dropdown' aria-expanded='false').dropdown-item.dropdown-toggle Dropdown
+                    ul.dropdown-menu.dropdown-menu-dark
+                      li: a(href='#').dropdown-item Action link
+                      li: a(href='#').dropdown-item Another action
+                      li: a(href='#').dropdown-item Something else here
+                      li: a(href='#').dropdown-item Yet another link
+                  li: a(href='#').dropdown-item Another action
+                  li.dropdown-divider 
+                  li: a(href='#').dropdown-item Something else here
+              li.nav-item
+                a(href='#' tabindex='-1' aria-disabled='true').nav-link.disabled Disabled
+            a(href='#').btn.btn-primary.btn-sm.fs-sm.ms-3.mb-4.mb-lg-0
+              i.ai-user.me-2.ms-n1
+              | Sign up
+        header.navbar.navbar-expand-lg.bg-faded-primary.rounded-3.px-3.mb-4
+          a(href='#').navbar-brand
+            span.text-primary.flex-shrink-0.me-2
+              svg(version='1.1' width='35' height='32' viewBox='0 0 36 33' xmlns='http://www.w3.org/2000/svg')
+                path(fill='currentColor' d='M35.6,29c-1.1,3.4-5.4,4.4-7.9,1.9c-2.3-2.2-6.1-3.7-9.4-3.7c-3.1,0-7.5,1.8-10,4.1c-2.2,2-5.8,1.5-7.3-1.1c-1-1.8-1.2-4.1,0-6.2l0.6-1.1l0,0c0.6-0.7,4.4-5.2,12.5-5.7c0.5,1.8,2,3.1,3.9,3.1c2.2,0,4.1-1.9,4.1-4.2s-1.8-4.2-4.1-4.2c-2,0-3.6,1.4-4,3.3H7.7c-0.8,0-1.3-0.9-0.9-1.6l5.6-9.8c2.5-4.5,8.8-4.5,11.3,0L35.1,24C36,25.7,36.1,27.5,35.6,29z')
+            | Around
+          button(type='button' data-bs-toggle='collapse' data-bs-target='#navbarCollapse7').navbar-toggler
+            span.navbar-toggler-icon
+          nav#navbarCollapse7.collapse.navbar-collapse
+            ul.navbar-nav.me-auto
+              li.nav-item.active
+                a(href='#').nav-link Home
+              li.nav-item
+                a(href='#').nav-link Link
+              li.nav-item.dropdown
+                a(href='#' data-bs-toggle='dropdown' data-bs-auto-close='outside' aria-expanded='false').nav-link.dropdown-toggle Dropdown
+                ul.dropdown-menu
+                  li: a(href='#').dropdown-item Action link
+                  li.dropdown
+                    a(href='#' data-bs-toggle='dropdown' aria-expanded='false').dropdown-item.dropdown-toggle Dropdown
+                    ul.dropdown-menu
+                      li: a(href='#').dropdown-item Action link
+                      li: a(href='#').dropdown-item Another action
+                      li: a(href='#').dropdown-item Something else here
+                      li: a(href='#').dropdown-item Yet another link
+                  li: a(href='#').dropdown-item Another action
+                  li.dropdown-divider 
+                  li: a(href='#').dropdown-item Something else here
+              li.nav-item
+                a(href='#' tabindex='-1' aria-disabled='true').nav-link.disabled Disabled
+            a(href='#').btn.btn-primary.btn-sm.fs-sm.ms-3.mb-4.mb-lg-0
+              i.ai-user.me-2.ms-n1
+              | Sign up
+        header.navbar.navbar-expand-lg.bg-faded-warning.rounded-3.px-3.mb-4
+          a(href='#').navbar-brand
+            span.text-primary.flex-shrink-0.me-2
+              svg(version='1.1' width='35' height='32' viewBox='0 0 36 33' xmlns='http://www.w3.org/2000/svg')
+                path(fill='currentColor' d='M35.6,29c-1.1,3.4-5.4,4.4-7.9,1.9c-2.3-2.2-6.1-3.7-9.4-3.7c-3.1,0-7.5,1.8-10,4.1c-2.2,2-5.8,1.5-7.3-1.1c-1-1.8-1.2-4.1,0-6.2l0.6-1.1l0,0c0.6-0.7,4.4-5.2,12.5-5.7c0.5,1.8,2,3.1,3.9,3.1c2.2,0,4.1-1.9,4.1-4.2s-1.8-4.2-4.1-4.2c-2,0-3.6,1.4-4,3.3H7.7c-0.8,0-1.3-0.9-0.9-1.6l5.6-9.8c2.5-4.5,8.8-4.5,11.3,0L35.1,24C36,25.7,36.1,27.5,35.6,29z')
+            | Around
+          button(type='button' data-bs-toggle='collapse' data-bs-target='#navbarCollapse8').navbar-toggler
+            span.navbar-toggler-icon
+          nav#navbarCollapse8.collapse.navbar-collapse
+            ul.navbar-nav.me-auto
+              li.nav-item.active
+                a(href='#').nav-link Home
+              li.nav-item
+                a(href='#').nav-link Link
+              li.nav-item.dropdown
+                a(href='#' data-bs-toggle='dropdown' data-bs-auto-close='outside' aria-expanded='false').nav-link.dropdown-toggle Dropdown
+                ul.dropdown-menu
+                  li: a(href='#').dropdown-item Action link
+                  li.dropdown
+                    a(href='#' data-bs-toggle='dropdown' aria-expanded='false').dropdown-item.dropdown-toggle Dropdown
+                    ul.dropdown-menu
+                      li: a(href='#').dropdown-item Action link
+                      li: a(href='#').dropdown-item Another action
+                      li: a(href='#').dropdown-item Something else here
+                      li: a(href='#').dropdown-item Yet another link
+                  li: a(href='#').dropdown-item Another action
+                  li.dropdown-divider 
+                  li: a(href='#').dropdown-item Something else here
+              li.nav-item
+                a(href='#' tabindex='-1' aria-disabled='true').nav-link.disabled Disabled
+            a(href='#').btn.btn-warning.btn-sm.fs-sm.ms-3.mb-4.mb-lg-0
+              i.ai-user.me-2.ms-n1
+              | Sign up
+        header.navbar.navbar-expand-lg.bg-faded-info.rounded-3.px-3
+          a(href='#').navbar-brand
+            span.text-primary.flex-shrink-0.me-2
+              svg(version='1.1' width='35' height='32' viewBox='0 0 36 33' xmlns='http://www.w3.org/2000/svg')
+                path(fill='currentColor' d='M35.6,29c-1.1,3.4-5.4,4.4-7.9,1.9c-2.3-2.2-6.1-3.7-9.4-3.7c-3.1,0-7.5,1.8-10,4.1c-2.2,2-5.8,1.5-7.3-1.1c-1-1.8-1.2-4.1,0-6.2l0.6-1.1l0,0c0.6-0.7,4.4-5.2,12.5-5.7c0.5,1.8,2,3.1,3.9,3.1c2.2,0,4.1-1.9,4.1-4.2s-1.8-4.2-4.1-4.2c-2,0-3.6,1.4-4,3.3H7.7c-0.8,0-1.3-0.9-0.9-1.6l5.6-9.8c2.5-4.5,8.8-4.5,11.3,0L35.1,24C36,25.7,36.1,27.5,35.6,29z')
+            | Around
+          button(type='button' data-bs-toggle='collapse' data-bs-target='#navbarCollapse9').navbar-toggler
+            span.navbar-toggler-icon
+          nav#navbarCollapse9.collapse.navbar-collapse
+            ul.navbar-nav.me-auto
+              li.nav-item.active
+                a(href='#').nav-link Home
+              li.nav-item
+                a(href='#').nav-link Link
+              li.nav-item.dropdown
+                a(href='#' data-bs-toggle='dropdown' data-bs-auto-close='outside' aria-expanded='false').nav-link.dropdown-toggle Dropdown
+                ul.dropdown-menu
+                  li: a(href='#').dropdown-item Action link
+                  li.dropdown
+                    a(href='#' data-bs-toggle='dropdown' aria-expanded='false').dropdown-item.dropdown-toggle Dropdown
+                    ul.dropdown-menu
+                      li: a(href='#').dropdown-item Action link
+                      li: a(href='#').dropdown-item Another action
+                      li: a(href='#').dropdown-item Something else here
+                      li: a(href='#').dropdown-item Yet another link
+                  li: a(href='#').dropdown-item Another action
+                  li.dropdown-divider 
+                  li: a(href='#').dropdown-item Something else here
+              li.nav-item
+                a(href='#' tabindex='-1' aria-disabled='true').nav-link.disabled Disabled
+            a(href='#').btn.btn-info.btn-sm.fs-sm.ms-3.mb-4.mb-lg-0
+              i.ai-user.me-2.ms-n1
+              | Sign up
+      #html2.tab-pane.fade(role='tabpanel')
+        pre.line-numbers
+          code(class='lang-html').
+            &lt;!-- Dark navbar --&gt;
+            &lt;header class=&quot;navbar navbar-expand-lg navbar-dark bg-dark&quot;&gt;
+              &lt;div class=&quot;container&quot;&gt;
+                ...
+              &lt;/div&gt;
+            &lt;/header&gt;
+
+            &lt;!-- Faded primary navbar --&gt;
+            &lt;header class=&quot;navbar navbar-expand-lg bg-faded-primary&quot;&gt;
+              &lt;div class=&quot;container&quot;&gt;
+                ...
+              &lt;/div&gt;
+            &lt;/header&gt;
+
+            &lt;!-- Faded warning navbar --&gt;
+            &lt;header class=&quot;navbar navbar-expand-lg bg-faded-warning&quot;&gt;
+              &lt;div class=&quot;container&quot;&gt;
+                ...
+              &lt;/div&gt;
+            &lt;/header&gt;
+
+            &lt;!-- Faded info navbar --&gt;
+            &lt;header class=&quot;navbar navbar-expand-lg bg-faded-info&quot;&gt;
+              &lt;div class=&quot;container&quot;&gt;
+                ...
+              &lt;/div&gt;
+            &lt;/header&gt;
+      #pug2.tab-pane.fade(role='tabpanel')
+        pre.line-numbers
+          code(class='lang-pug').
+            // Dark navbar
+            header.navbar.navbar-expand-lg.navbar-dark.bg-dark
+              .container
+                // ...
+
+            // Faded primary navbar
+            header.navbar.navbar-expand-lg.bg-faded-primary
+              .container
+                // ...
+
+            // Faded warning navbar
+            header.navbar.navbar-expand-lg.bg-faded-warning
+              .container
+                // ...
+
+            // Faded info navbar
+            header.navbar.navbar-expand-lg.bg-faded-info
+              .container
+                // ...
+
+  // Responsive offcanvas menu
+  section#navbar-offcanvas.pb-2.mb-4
+    h2.h4.mb-3 Responsive offcanvas menu
+    ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+      li.nav-item.me-3
+        a(href='#preview3' data-bs-toggle='tab' role='tab' aria-controls='preview3' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+          i.ai-show.fs-lg.opacity-90.me-2
+          | Preview
+      li.vr.opacity-20.my-3.me-3
+      li.nav-item.me-3
+        a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+          i.ai-code.fs-xl.opacity-90.me-2
+          | HTML
+      li.vr.opacity-20.my-3.me-3
+      li.nav-item.me-0
+        a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+          i.ai-code-curly.opacity-90.me-2
+          | Pug
+    .tab-content.pt-4.mt-2
+      #preview3.tab-pane.fade.show.active(role='tabpanel')
+        iframe(src='navbar-offcanvas.html' height='512' style='max-width: 375px;').w-100.shadow.rounded-3
+      #html3.tab-pane.fade(role='tabpanel')
+        pre.line-numbers
+          code(class='lang-html').
+            &lt;!-- Navbar with offcanvas menu on mobile --&gt;
+            &lt;header class=&quot;header navbar navbar-expand-lg fixed-top&quot;&gt;
+              &lt;div class=&quot;container&quot;&gt;
+                &lt;a href=&quot;#&quot; class=&quot;navbar-brand pe-xl-2 me-4&quot;&gt;
+                  &lt;span class=&quot;text-primary flex-shrink-0 me-2&quot;&gt;
+                    &lt;svg version=&quot;1.1&quot; width=&quot;35&quot; height=&quot;32&quot; viewBox=&quot;0 0 36 33&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
+                      &lt;path fill=&quot;currentColor&quot; d=&quot;M35.6,29c-1.1,3.4-5.4,4.4-7.9,1.9c-2.3-2.2-6.1-3.7-9.4-3.7c-3.1,0-7.5,1.8-10,4.1c-2.2,2-5.8,1.5-7.3-1.1c-1-1.8-1.2-4.1,0-6.2l0.6-1.1l0,0c0.6-0.7,4.4-5.2,12.5-5.7c0.5,1.8,2,3.1,3.9,3.1c2.2,0,4.1-1.9,4.1-4.2s-1.8-4.2-4.1-4.2c-2,0-3.6,1.4-4,3.3H7.7c-0.8,0-1.3-0.9-0.9-1.6l5.6-9.8c2.5-4.5,8.8-4.5,11.3,0L35.1,24C36,25.7,36.1,27.5,35.6,29z&quot;&gt;
+                    &lt;/svg&gt;
+                  &lt;/span&gt;
+                  Around
+                &lt;/a&gt;
+                &lt;button type=&quot;button&quot; class=&quot;navbar-toggler me-2&quot; data-bs-toggle=&quot;offcanvas&quot; data-bs-target=&quot;#primaryMenu&quot;&gt;
+                  &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+                &lt;/button&gt;
+                &lt;div class=&quot;offcanvas offcanvas-end&quot; id=&quot;primaryMenu&quot;&gt;
+                  &lt;div class=&quot;offcanvas-header&quot;&gt;
+                    &lt;h5 class=&quot;mt-1 mb-0&quot;&gt;Menu&lt;/h5&gt;
+                    &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;offcanvas&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;offcanvas-body pt-0&quot;&gt;
+                    &lt;ul class=&quot;navbar-nav p-0&quot;&gt;
+                      &lt;li class=&quot;nav-item active&quot;&gt;
+                        &lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;Home&lt;/a&gt;
+                      &lt;/li&gt;
+                      &lt;li class=&quot;nav-item&quot;&gt;
+                        &lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;Link&lt;/a&gt;
+                      &lt;/li&gt;
+                      &lt;li class=&quot;nav-item dropdown&quot;&gt;
+                        &lt;a href=&quot;#&quot; class=&quot;nav-link dropdown-toggle&quot; data-bs-toggle=&quot;dropdown&quot; data-bs-auto-close=&quot;outside&quot;&gt;Dropdown&lt;/a&gt;
+                        &lt;ul class=&quot;dropdown-menu&quot;&gt;
+                          &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Action link&lt;/a&gt;&lt;/li&gt;
+                          &lt;li class=&quot;dropdown&quot;&gt;
+                            &lt;a href=&quot;#&quot; class=&quot;dropdown-item dropdown-toggle&quot; data-bs-toggle=&quot;dropdown&quot;&gt;Dropdown&lt;/a&gt;
+                            &lt;ul class=&quot;dropdown-menu&quot;&gt;
+                              &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Action link&lt;/a&gt;&lt;/li&gt;
+                              &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+                              &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+                              &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Yet another link&lt;/a&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                          &lt;/li&gt;
+                          &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+                          &lt;li class=&quot;dropdown-divider&quot;&gt;&lt;/li&gt;
+                          &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+                        &lt;/ul&gt;
+                      &lt;/li&gt;
+                      &lt;li class=&quot;nav-item&quot;&gt;
+                        &lt;a href=&quot;#&quot; class=&quot;nav-link disabled&quot; tabindex=&quot;-1&quot; aria-disabled=&quot;true&quot;&gt;Disabled&lt;/a&gt;
+                      &lt;/li&gt;
+                    &lt;/ul&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/header&gt;
+      #pug3.tab-pane.fade(role='tabpanel')
+        pre.line-numbers
+          code(class='lang-pug').
+            // Navbar with offcanvas menu on mobile
+            header.header.navbar.navbar-expand-lg.fixed-top
+              .container
+                a(href=&quot;#&quot;).navbar-brand.pe-xl-2.me-4
+                  span.text-primary.flex-shrink-0.me-2
+                    svg(version=&quot;1.1&quot;, width=&quot;35&quot;, height=&quot;32&quot;, viewBox=&quot;0 0 36 33&quot;, xmlns=&quot;http://www.w3.org/2000/svg&quot;)
+                      path(fill=&quot;currentColor&quot;, d=&quot;M35.6,29c-1.1,3.4-5.4,4.4-7.9,1.9c-2.3-2.2-6.1-3.7-9.4-3.7c-3.1,0-7.5,1.8-10,4.1c-2.2,2-5.8,1.5-7.3-1.1c-1-1.8-1.2-4.1,0-6.2l0.6-1.1l0,0c0.6-0.7,4.4-5.2,12.5-5.7c0.5,1.8,2,3.1,3.9,3.1c2.2,0,4.1-1.9,4.1-4.2s-1.8-4.2-4.1-4.2c-2,0-3.6,1.4-4,3.3H7.7c-0.8,0-1.3-0.9-0.9-1.6l5.6-9.8c2.5-4.5,8.8-4.5,11.3,0L35.1,24C36,25.7,36.1,27.5,35.6,29z&quot;)
+                  | Around
+                button(type=&quot;button&quot;, data-bs-toggle=&quot;offcanvas&quot;, data-bs-target=&quot;#primaryMenu&quot;).navbar-toggler.me-2
+                  span.navbar-toggler-icon
+                #primaryMenu.offcanvas.offcanvas-end
+                  .offcanvas-header
+                    h5.mt-1.mb-0 Menu
+                    button(type=&quot;button&quot;, data-bs-dismiss=&quot;offcanvas&quot;, aria-label=&quot;Close&quot;).btn-close
+                  .offcanvas-body.pt-0
+                    ul.navbar-nav.p-0
+                      li.nav-item.active
+                        a(href=&quot;#&quot;).nav-link
+                          | Home
+                      li.nav-item
+                        a(href=&quot;#&quot;).nav-link
+                          | Link
+                      li.nav-item.dropdown
+                        a(href=&quot;#&quot;, data-bs-toggle=&quot;dropdown&quot;, data-bs-auto-close=&quot;outside&quot;).nav-link.dropdown-toggle
+                          | Dropdown
+                        ul.dropdown-menu
+                          li: a(href=&quot;#&quot;).dropdown-item
+                            | Action link
+                          li.dropdown
+                            a(href=&quot;#&quot;, data-bs-toggle=&quot;dropdown&quot;).dropdown-item.dropdown-toggle
+                              | Dropdown
+                            ul.dropdown-menu
+                              li: a(href=&quot;#&quot;).dropdown-item
+                                | Action link
+                              li: a(href=&quot;#&quot;).dropdown-item
+                                | Another action
+                              li: a(href=&quot;#&quot;).dropdown-item
+                                | Something else here
+                              li: a(href=&quot;#&quot;).dropdown-item
+                                | Yet another link
+                          li: a(href=&quot;#&quot;).dropdown-item
+                            | Another action
+                          li.dropdown-divider 
+                          li: a(href=&quot;#&quot;).dropdown-item
+                            | Something else here
+                      li.nav-item
+                        a(href=&quot;#&quot;, tabindex=&quot;-1&quot;, aria-disabled=&quot;true&quot;).nav-link.disabled
+                          | Disabled

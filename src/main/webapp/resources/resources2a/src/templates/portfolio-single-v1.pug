@@ -1,0 +1,186 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/swiper/swiper-bundle.min.css']
+  - var scripts = ['vendor/swiper/swiper-bundle.min.js']
+  - var parentMenu = 'Pages'
+  - var pageTitle = 'Single Project v.1'
+  - var navbarExtraClass = 'bg-light'
+
+
+//- Navbar
+block navbar
+  include partials/navbar.pug
+
+
+//- Page Content
+block content
+  .container.py-5.mt-5.mb-2.mb-sm-3.mb-lg-4.mb-xxl-5
+
+    // Breadcrumb
+    +breadcrumb([{'link': 'portfolio-list-v1.html', 'title': 'Portfolio'}, {'title': 'Single project v.1'}]).pt-lg-2.pb-lg-3.pb-1
+
+    // Page title
+    .row
+      .col-lg-11.col-xl-10
+        img(src='assets/img/portfolio/brands/vintage-dark.svg' alt='Vintage').d-block.d-dark-mode-none.mb-2.mb-sm-3
+        img(src='assets/img/portfolio/brands/vintage-light.svg' alt='Vintage').d-none.d-dark-mode-block.mb-2.mb-sm-3
+        h1.display-2.pb-3.pb-md-4.pb-lg-5 Business strategy for a brand of vintage bags
+    
+   
+    // Main image
+    img(src='assets/img/portfolio/single/v1/01.jpg' alt='Image').d-block.rounded-5.mb-3.mb-xl-4.mb-xxl-5
+
+
+    // Project overview
+    .border-bottom.py-4.py-lg-5
+      .row
+        .col-lg-11.col-xl-10
+          p.text-dark.lead.mb-2.mb-lg-3-0.mb-xl-4.mb-xxl-3 Morbi et massa fames ac scelerisque sit commodo dignissim faucibus quisque proin lectus laoreet sem adipiscing sollicitudin erat massa tellus lorem enim aenean phasellus in hendrerit interdum lorem proin pretium dictum urna suspendisse quis risus et.
+          .row.row-cols-1.row-cols-sm-2.row-cols-md-4.g-3.g-sm-4.pt-4.pt-xxl-5.mb-2.mb-sm-3.pb-xxl-4
+            .col
+              h2.fs-base.fw-normal.text-muted.mb-2.mb-sm-3 Company
+              ul.list-unstyled.fs-lg.fw-semibold.text-dark.mb-0
+                li.d-block.py-1 Vintage
+                li.d-block.py-1 12-18 employees
+                li.d-block.py-1 Dublin, Ireland
+            .col
+              h2.fs-base.fw-normal.text-muted.mb-2.mb-sm-3 Indusrty
+              ul.list-unstyled.fs-lg.fw-semibold.text-dark.mb-0
+                li.d-block.py-1 E-commerce
+            .col
+              h2.fs-base.fw-normal.text-muted.mb-2.mb-sm-3 Services
+              ul.list-unstyled.fs-lg.fw-semibold.text-dark.mb-0
+                li.d-block.py-1 Email marketing
+                li.d-block.py-1 Content marketing
+                li.d-block.py-1 Social networks
+            .col
+              h2.fs-base.fw-normal.text-muted.mb-2.mb-sm-3 Time spent
+              ul.list-unstyled.fs-lg.fw-semibold.text-dark.mb-0
+                li.d-block.py-1 2021, 3 months
+    
+    
+    // Project description
+    .border-bottom.py-md-2.py-lg-3.py-xl-4.py-xxl-5
+      .row.my-5
+        .col-md-10.col-lg-8.col-xl-7
+          h2.h1.pb-2 About the client
+          p.fs-lg Sit congue tellus urna phasellus sagittis interdum sed laoreet eget curabitur. Vel magna sit aliquet viverra morbi massa mattis urna, feugiat egestas tincidunt ipsum diam quam massa amet odio nisi duis dolor. Morbi et massa fames ac scelerisque sit commodo dignissim faucibus quisque proin lectus laoreet sem adipiscing sollicitudin erat massa tellus lorem enim aenean phasellus in hendrerit interdum lorem proin pretium dictum urna suspendisse quis risus et.
+          h2.h1.pt-3.pt-sm-4.pt-xl-5.pb-2 The challenge
+          p.fs-lg Sit diam nunc, et pellentesque ornare elit, ut. Interdum feugiat id ut egestas tellus congue faucibus habitant semper nunc et etiam ultrices id nisi urna amet, odio mauris risus nam aliquam pharetra amet nunc, enim aliquet egestas purus penatibus ac, elit ultricies proin adipiscing suspendisse sit proin.
+          h2.h1.pt-3.pt-sm-4.pt-xl-5.pb-2 The solution
+          p.fs-lg.mb-0 Est enim mollis morbi vulputate egestas commodo vitae quis sed sit ultrices nulla habitant sit faucibus orci. Eu etiam ipsum porttitor morbi urna eget aliquet aenean tristique amet tempus, vestibulum vel montes, pellentesque sit. Cursus nulla viverra elit accumsan, vitae. Phasellus sed hac at pharetra urna. Imperdiet egestas ac eget porttitor ultrices morbi ornare. Libero, lectus eget adipiscing odio ornare non maecenas non vitae libero, at feugiat urna, risus augue fringilla. Venenatis quam.
+    
+
+    // Social networks
+    .row.mt-5.pt-sm-2.pt-lg-3.pt-xl-4.pt-xxl-5
+      .col-md-10.col-lg-8.col-xl-7
+        h2.pb-sm-2 Social networks
+        p.fs-lg.mb-2.mb-sm-3.mb-lg-2 Velit non pharetra eget eu varius amet dui pharetra nam velit purus id nec aliquet auctor scelerisque egestas magna nulla. Eget posuere fames id nibh nisi sodales malesuada nisl purus. Libero, velit, in tincidunt non habitasse dui, risus eros, vel laoreet euismod sit vitae, at urna nullam lacus urna ac ut pulvinar arcu lacus porttitor aliquam.
+    .row.row-cols-1.row-cols-sm-2.pt-4.pt-lg-5
+      .col.mb-4.mb-sm-0
+        .d-flex.align-items-center.justify-content-center.bg-secondary.h-100.rounded-5.p-4.p-xl-5
+          img(src='assets/img/portfolio/single/v1/02.jpg' width='367' alt='Image').d-block.rounded-4.my-2
+      .col
+        .d-flex.align-items-end.justify-content-center.bg-secondary.h-100.rounded-5.px-4.px-xl-5
+          img(src='assets/img/portfolio/single/v1/03.jpg' width='524' alt='Image').d-block.rounded-4.rounded-bottom-0.mt-4
+    
+
+    // Content marketing
+    .row.mt-5.pt-sm-2.pt-lg-3.pt-xl-4.pt-xxl-5
+      .col-md-10.col-lg-8.col-xl-7.pt-md-3.pt-lg-4
+        h2.pb-sm-2 Content marketing
+        p.fs-lg.mb-2.mb-sm-3.mb-lg-2 Diam at quam a sagittis non tellus penatibus massa, gravida eu sit nunc, eu, amet mattis massa tincidunt sagittis. Semper imperdiet viverra netus euismod eget sed condimentum netus. Lectus odio eros eu nibh habitant elementum elementum, morbi pharetra, amet neque in donec massa morbi sed vehicula varius ipsum et morbi eu ut.
+    .row.pt-4.pt-lg-5
+      .col-sm-8.mb-4.mb-sm-0
+        img(src='assets/img/portfolio/single/v1/04.jpg' alt='Image').rounded-5
+      .col-sm-4
+        img(src='assets/img/portfolio/single/v1/05.jpg' alt='Image').rounded-5
+    
+
+    // Results
+    .row.mt-5.pt-sm-2.pt-lg-3.pt-xl-4.pt-xxl-5
+      .col-md-10.col-lg-8.col-xl-7.pt-md-3.pt-lg-4
+        h2.pb-sm-2 Results
+        p.fs-lg.mb-2.mb-sm-3.mb-lg-2 Facilisi morbi habitant massa euismod. Vehicula viverra vestibulum at quis orci morbi nullam in. Etiam sit in platea faucibus venenatis. Morbi cursus vehicula nam pellentesque lacus neque aenean non. Feugiat feugiat nullam feugiat cras volutpat.
+    .row.pt-4.pt-lg-5
+      .col-md-9.col-lg-7.col-xl-6
+        .row.row-cols-1.row-cols-sm-3
+          .col.mb-4.mb-sm-0
+            .h1.mb-0 1200+
+            p.fs-sm.mb-0 leads for $ 2.1
+          .col.mb-4.mb-sm-0
+            .h1.mb-0 130%
+            p.fs-sm.mb-0 revenue increase
+          .col.mb-4.mb-sm-0
+            .h1.mb-0 124+
+            p.fs-sm.mb-0 new posts
+
+    
+    // Testimonial
+    .py-5.my-lg-2.my-xl-4.my-xxl-5
+      h2.h1.pb-2.pb-lg-4.pt-sm-4.pt-lg-5.mt-n3.mt-sm-0 Testimonial from Vintage
+      .card.border-0.bg-secondary.mb-2.mb-sm-3.mb-md-4.mb-lg-5
+        .card-body.px-lg-0.py-lg-5
+          .row.py-2.py-sm-1.py-md-3.py-lg-4.py-xl-5
+            .col-md-4.col-lg-3.offset-lg-1.mb-3.mb-md-0
+              img(src='assets/img/avatar/21.jpg' width='86' alt='Lilian Bocouse').d-block.rounded-circle.mb-3
+              h4.mb-0 Lilian Bocouse
+              p.fs-lg.text-muted.mb-0 Head of Marketing
+            .col-md-8.col-lg-7
+              p.text-dark.lead.mb-0 “Around provides us with the detailed and accurate data we need to make strategic decisions. All tools are constantly being improved and contain a lot of useful and interesting information. Thanks to Around, we can constantly analyze our big data quickly and efficiently.”
+
+
+    // More projects carousel
+    .d-flex.align-items-center.pb-3.mb-3.mb-lg-4
+      h2.h1.mb-0 More case studies
+      .d-flex.ms-auto
+        button(type='button')#prev-project.btn.btn-sm.btn-icon.btn-outline-primary.rounded-circle.ms-3
+          i.ai-arrow-left
+        button(type='button')#next-project.btn.btn-sm.btn-icon.btn-outline-primary.rounded-circle.ms-3
+          i.ai-arrow-right
+    .swiper.pb-md-4.pb-xl-5(data-swiper-options=`{
+      "spaceBetween": 24,
+      "loop": true,
+      "navigation": {
+        "prevEl": "#prev-project",
+        "nextEl": "#next-project"
+      },
+      "breakpoints": {
+        "576": { "slidesPerView": 2 }
+      }
+    }`)
+      .swiper-wrapper
+
+        // Item
+        .swiper-slide
+          a(href='#').d-block.position-relative
+            .bg-info.rounded-5.position-absolute.top-0.start-0.w-100.h-100
+            img(src='assets/img/portfolio/list/06.png' width='636' alt='Image').d-block.position-relative.zindex-2.mx-auto
+          .pt-4.mt-sm-2
+            h4: a(href='#') Development of an application for a national bank
+            p.mb-0 Non purus odio venenatis velit sed tellus sed ultrices neque adipiscing sit turpis lacus, aenean sed luctus adipiscing ut orci molestie arcu, sapien sed.
+
+        // Item
+        .swiper-slide
+          a(href='#').d-block.position-relative
+            .bg-danger.rounded-5.position-absolute.top-0.start-0.w-100.h-100
+            img(src='assets/img/portfolio/list/08.png' width='636' alt='Image').d-block.position-relative.zindex-2.mx-auto
+          .pt-4.mt-sm-2
+            h4: a(href='#') Landing page for a marketing agency Boost
+            p.mb-0 Sit congue tellus urna phasellus sagittis interdum sed laoreet eget curabitur vel magna sit aliquet viverra morbi massa mattis urna, feugiat egestas tincidunt.
+
+        // Item
+        .swiper-slide
+          a(href='#').d-block.position-relative
+            .rounded-5.position-absolute.top-0.start-0.w-100.h-100(style='background-color: #d7e4f4')
+            img(src='assets/img/portfolio/list/09.png' width='636' alt='Image').d-block.position-relative.zindex-2.mx-auto
+          .pt-4.mt-sm-2
+            h4: a(href='#') Development of an application for a task tracker
+            p.mb-0 Egestas ultrices condimentum consectetur massa aliquam volutpat pulvinar aliquet nisi quam. Nibh commodo tristique nisi, justo, sed maecenas lectus ut nec.
+
+
+//- Footer
+block footer
+  include partials/footer-portfolio.pug

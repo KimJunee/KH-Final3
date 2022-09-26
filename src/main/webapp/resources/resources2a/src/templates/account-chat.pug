@@ -1,0 +1,291 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js']
+  - var parentMenu = 'Account'
+  - var pageTitle = 'Account - Chat'
+  - var isSignedIn = true
+  - var isFixedButton = true
+  - var bodyAttributes = {'class': 'bg-secondary'}
+
+
+//- Navbar
+block navbar
+  include partials/navbar.pug
+
+
+//- Page Content
+block content
+
+  .container.py-5.mt-4.mt-lg-5.mb-lg-4.my-xl-5
+    .row.pt-sm-2.pt-lg-0
+
+      // Sidebar (offcanvas on sreens < 992px)
+      aside.col-lg-3.pe-lg-4.pe-xl-5.mt-n3
+        .position-lg-sticky.top-0
+          .d-none.d-lg-block(style='padding-top: 105px;')
+          include partials/sidebar-account.pug
+
+
+      // Page content
+      .col-lg-9.pt-4.pb-2.pb-sm-4
+        h1.h2.mb-4 Chats
+        .row.position-relative.overflow-hidden.gx-2.zindex-1
+
+          // Contacts list
+          .col-xl-4
+            #contactsList.offcanvas-xl.offcanvas-start.position-absolute.position-xl-relative.h-100.bg-light.rounded-5.border.border-xl-0(data-bs-scroll='true' data-bs-backdrop='false')
+              .rounded-5.overflow-hidden
+                .card-header.w-100.border-0.px-4.pt-4.pb-3
+                  .d-flex.d-xl-none.justify-content-end.mt-n2.mb-2
+                    button(type='button' data-bs-dismiss='offcanvas' data-bs-target=' #contactsList').btn.btn-outline-secondary.border-0.px-3.me-n2
+                      i.ai-cross.me-2
+                      | Close
+                  .position-relative
+                    input(type='text' placeholder='Search by name or email').form-control.pe-5
+                    i.ai-search.fs-lg.text-nav.position-absolute.top-50.end-0.translate-middle-y.me-3
+                .card-body.px-0.pb-4.pb-xl-0.pt-1(data-simplebar style='max-height: 700px;')
+
+                  // Contact
+                  a(href='#').d-flex.align-items-center.text-decoration-none.px-4.py-3
+                    .position-relative.flex-shrink-0.my-1
+                      img(src='assets/img/avatar/06.jpg' width='48' alt='Avatar').rounded-circle
+                      span(style='width: .625rem; height: .625rem;').position-absolute.bottom-0.end-0.bg-success.border.border-white.rounded-circle.me-1
+                    .d-flex.justify-content-between.w-100.ps-2.ms-1.my-1
+                      .me-3
+                        .h6.mb-1 Mikaela Collins
+                        p.text-body.fs-sm.mb-0 Thank you for ...
+                      .text-end
+                        span.d-block.fs-xs.text-muted 15:01
+                        span.badge.bg-danger.fs-xs.lh-1.py-1.px-2 2
+
+                  // Contact
+                  a(href='#').d-flex.align-items-center.text-decoration-none.px-4.py-3
+                    .position-relative.flex-shrink-0.my-1
+                      img(src='assets/img/avatar/08.jpg' width='48' alt='Avatar').rounded-circle
+                      span(style='width: .625rem; height: .625rem; background-color: #d7dde2;').position-absolute.bottom-0.end-0.border.border-white.rounded-circle.me-1
+                    .d-flex.justify-content-between.w-100.ps-2.ms-1.my-1
+                      .me-3
+                        .h6.mb-1 Robert Fox
+                        p.text-body.fs-sm.mb-0 Documents have ...
+                      .text-end
+                        span.d-block.fs-xs.text-muted 13:10
+                        span.badge.bg-danger.fs-xs.lh-1.py-1.px-2 3
+
+                  // Contact
+                  a(href='#').d-flex.align-items-center.text-decoration-none.px-4.py-3
+                    .d-flex.align-items-center.justify-content-center.position-relative.flex-shrink-0.rounded-circle.text-primary.fs-lg.fw-semibold.my-1(style='width: 48px; height: 48px; background-color: rgba(var(--ar-primary-rgb), .15);')
+                      | FA
+                      span(style='width: .625rem; height: .625rem; background-color: #d7dde2;').position-absolute.bottom-0.end-0.border.border-white.rounded-circle.me-1
+                    .d-flex.justify-content-between.w-100.ps-2.ms-1.my-1
+                      .me-3
+                        .h6.mb-1 Furry Aocklen
+                        p.text-body.fs-sm.mb-0 I got it, thanks 👍
+                      .text-end
+                        span.d-block.fs-xs.text-muted 12:04
+
+                  // Contact (active)
+                  a(href='#').d-flex.align-items-center.text-decoration-none.px-4.py-3.pe-none.bg-gray
+                    .position-relative.flex-shrink-0.my-1
+                      img(src='assets/img/avatar/19.jpg' width='48' alt='Avatar').rounded-circle
+                      span(style='width: .625rem; height: .625rem;').position-absolute.bottom-0.end-0.bg-success.border.border-white.rounded-circle.me-1
+                    .d-flex.justify-content-between.w-100.ps-2.ms-1.my-1
+                      .me-3
+                        .h6.mb-1 Mark Virgows
+                        p.text-body.fs-sm.mb-0 Ac aliquam victoria ...
+                      .text-end
+                        span.d-block.fs-xs.text-muted 11:36
+
+                  // Contact
+                  a(href='#').d-flex.align-items-center.text-decoration-none.px-4.py-3
+                    .d-flex.align-items-center.justify-content-center.position-relative.flex-shrink-0.rounded-circle.text-info.fs-lg.fw-semibold.my-1(style='width: 48px; height: 48px; background-color: rgba(var(--ar-info-rgb), .15);')
+                      | ND
+                      span(style='width: .625rem; height: .625rem; background-color: #d7dde2;').position-absolute.bottom-0.end-0.border.border-white.rounded-circle.me-1
+                    .d-flex.justify-content-between.w-100.ps-2.ms-1.my-1
+                      .me-3
+                        .h6.mb-1 Nadia Davidson
+                        p.text-body.fs-sm.mb-0 Nullam id devices ...
+                      .text-end
+                        span.d-block.fs-xs.text-muted 20 hr
+
+                  // Contact
+                  a(href='#').d-flex.align-items-center.text-decoration-none.px-4.py-3
+                    .position-relative.flex-shrink-0.my-1
+                      img(src='assets/img/avatar/09.jpg' width='48' alt='Avatar').rounded-circle
+                      span(style='width: .625rem; height: .625rem; background-color: #d7dde2;').position-absolute.bottom-0.end-0.border.border-white.rounded-circle.me-1
+                    .d-flex.justify-content-between.w-100.ps-2.ms-1.my-1
+                      .me-3
+                        .h6.mb-1 Alica Hawkins
+                        p.text-body.fs-sm.mb-0 Massa laoreet molit ...
+                      .text-end
+                        span.d-block.fs-xs.text-muted 23 hr
+
+                  // Contact
+                  a(href='#').d-flex.align-items-center.text-decoration-none.px-4.py-3
+                    .position-relative.flex-shrink-0.my-1
+                      img(src='assets/img/avatar/05.jpg' width='48' alt='Avatar').rounded-circle
+                      span(style='width: .625rem; height: .625rem;').position-absolute.bottom-0.end-0.bg-success.border.border-white.rounded-circle.me-1
+                    .d-flex.justify-content-between.w-100.ps-2.ms-1.my-1
+                      .me-3
+                        .h6.mb-1 Natalia Bocous
+                        p.text-body.fs-sm.mb-0 Awesome 🚀
+                      .text-end
+                        span.d-block.fs-xs.text-muted 2 days
+
+                  // Contact
+                  a(href='#').d-flex.align-items-center.text-decoration-none.px-4.py-3
+                    .position-relative.flex-shrink-0.my-1
+                      img(src='assets/img/avatar/20.jpg' width='48' alt='Avatar').rounded-circle
+                      span(style='width: .625rem; height: .625rem; background-color: #d7dde2;').position-absolute.bottom-0.end-0.border.border-white.rounded-circle.me-1
+                    .d-flex.justify-content-between.w-100.ps-2.ms-1.my-1
+                      .me-3
+                        .h6.mb-1 Marry Black
+                        p.text-body.fs-sm.mb-0 I have great news!
+                      .text-end
+                        span.d-block.fs-xs.text-muted 3 days
+
+                  // Contact
+                  a(href='#').d-flex.align-items-center.text-decoration-none.px-4.py-3
+                    .position-relative.flex-shrink-0.my-1
+                      img(src='assets/img/avatar/10.jpg' width='48' alt='Avatar').rounded-circle
+                      span(style='width: .625rem; height: .625rem;').position-absolute.bottom-0.end-0.bg-success.border.border-white.rounded-circle.me-1
+                    .d-flex.justify-content-between.w-100.ps-2.ms-1.my-1
+                      .me-3
+                        .h6.mb-1 Jerome Bell
+                        p.text-body.fs-sm.mb-0 Ok 👌
+                      .text-end
+                        span.d-block.fs-xs.text-muted May 21
+
+                  // Contact
+                  a(href='#').d-flex.align-items-center.text-decoration-none.px-4.py-3
+                    .position-relative.flex-shrink-0.my-1
+                      img(src='assets/img/avatar/11.jpg' width='48' alt='Avatar').rounded-circle
+                      span(style='width: .625rem; height: .625rem; background-color: #d7dde2;').position-absolute.bottom-0.end-0.border.border-white.rounded-circle.me-1
+                    .d-flex.justify-content-between.w-100.ps-2.ms-1.my-1
+                      .me-3
+                        .h6.mb-1 Jerome Bell
+                        p.text-body.fs-sm.mb-0 Do you know how ...
+                      .text-end
+                        span.d-block.fs-xs.text-muted 2 days
+
+          // Chat window
+          .col-xl-8
+            .card.h-100.border-0
+
+              // Hader
+              .navbar.card-header.w-100.mx-0.px-4
+                .d-flex.align-items-center.w-100.px-sm-3
+                  button(type="button" data-bs-toggle="offcanvas" data-bs-target="#contactsList" aria-controls="contactsList" aria-label="Toggle contacts list").navbar-toggler.d-xl-none.me-3.me-sm-4
+                    span.navbar-toggler-icon
+                  .position-relative.flex-shrink-0
+                    img(src='assets/img/avatar/19.jpg' width='48' alt='Avatar').rounded-circle
+                    span(style='width: .625rem; height: .625rem;').position-absolute.bottom-0.end-0.bg-success.border.border-white.rounded-circle.me-1
+                  .h6.ps-2.ms-1.mb-0 Mark Virgows
+                  .dropdown.ms-auto
+                    button(type='button' data-bs-toggle='dropdown').btn.btn-icon.btn-sm.btn-outline-secondary.border-0.rounded-circle.me-n2
+                      i.ai-dots-vertical.fs-4.fw-bold
+                    .dropdown-menu.dropdown-menu-end.my-1
+                      a(href='#').dropdown-item
+                        i.ai-user.fs-base.opacity-80.me-2
+                        | View profile
+                      a(href='#').dropdown-item
+                        i.ai-bell-off.fs-base.opacity-80.me-2
+                        | Disable notifications
+                      a(href='#').dropdown-item
+                        i.ai-edit.fs-base.opacity-80.me-2
+                        | Edit contact
+                      a(href='#').dropdown-item
+                        i.ai-trash.fs-base.opacity-80.me-2
+                        | Delete contact
+                      a(href='#').dropdown-item
+                        i.ai-logout.fs-base.opacity-80.me-2
+                        | Leave chat
+                      a(href='#').dropdown-item
+                        i.ai-circle-slash.fs-base.opacity-80.me-2
+                        | Block user
+              
+              // Body
+              .card-body.pb-0.pt-4(data-simplebar style='max-height: 580px;')
+                .text-muted.text-center.mb-4 May 27, 2022
+
+                // Message
+                .mb-3(style='max-width: 392px;')
+                  .d-flex.align-items-end.mb-2
+                    .flex-shrink-0.pe-2.me-1
+                      img(src='assets/img/avatar/19.jpg' width='48' alt='Avatar').rounded-circle
+                    .message-box-start.text-dark
+                      | Thank you for recommending me as a designer. I have an interview tomorrow!
+                  .fs-xs.text-muted.text-end 11:32 am
+                
+                // Message
+                .ms-auto.mb-3(style='max-width: 392px;')
+                  .d-flex.align-items-end.mb-2
+                    .message-box-end.bg-primary.text-white
+                      | Oh no thanks! I just know that you are a great specialist!
+                    .flex-shrink-0.ps-2.ms-1
+                      img(src='assets/img/avatar/01.jpg' width='48' alt='Avatar').rounded-circle
+                  .fs-xs.text-muted
+                    i.ai-checks.text-primary.fs-xl.mt-n1.me-1
+                    | 2:18 pm
+
+                .text-muted.text-center.my-4 May 29, 2022
+
+                // Message
+                .mb-3(style='max-width: 392px;')
+                  .d-flex.align-items-end.mb-2
+                    .flex-shrink-0.pe-2.me-1
+                      img(src='assets/img/avatar/19.jpg' width='48' alt='Avatar').rounded-circle
+                    .w-100
+                      .message-box-start.text-dark.mb-2
+                        | I have great news, I've been hired! 🚀
+                      .message-box-start.text-dark
+                        | Thanks again!
+                  .fs-xs.text-muted.text-end 4:04 am
+                
+                // Message
+                .ms-auto.mb-3(style='max-width: 392px;')
+                  .d-flex.align-items-end.mb-2
+                    .message-box-end.bg-primary.text-white
+                      | You are welcome!
+                    .flex-shrink-0.ps-2.ms-1
+                      img(src='assets/img/avatar/01.jpg' width='48' alt='Avatar').rounded-circle
+                  .fs-xs.text-muted
+                    i.ai-check.text-primary.fs-xl.mt-n1.me-1
+                    | 2:18 pm
+
+                .text-muted.text-center.my-4 Today
+
+                // Message
+                .mb-3(style='max-width: 392px;')
+                  .d-flex.align-items-end.mb-2
+                    .flex-shrink-0.pe-2.me-1
+                      img(src='assets/img/avatar/19.jpg' width='48' alt='Avatar').rounded-circle
+                    .message-box-start.text-dark
+                      | I'm so happy to be part of the team and work with you on this new exciting project. Can't thank you enough 😊
+                  .fs-xs.text-muted.text-end 10:17 am
+
+              // Footer (Textarea)
+              .card-footer.w-100.border-0.mx-0.px-4
+                .d-flex.align-items-end.border.rounded-3.pb-3.pe-3.mx-sm-3
+                  textarea(rows='3' placeholder='Type a message' style='resize: none;').form-control.border-0
+                  .nav.flex-nowrap.align-items-center
+                    a(href='#').nav-link.text-muted.p-1.me-1: i.ai-paperclip.fs-xl
+                    a(href='#').nav-link.text-muted.p-1: i.ai-emoji-smile.fs-xl
+                    button(type='button').btn.btn-sm.btn-secondary.ms-3 Send
+                  
+
+  // Divider for dark mode only
+  hr.d-none.d-dark-mode-block
+
+
+  // Sidebar toggle button
+  button(data-bs-toggle='offcanvas' data-bs-target='#sidebarAccount').d-lg-none.btn.btn-sm.fs-sm.btn-primary.w-100.rounded-0.fixed-bottom
+    i.ai-menu.me-2
+    | Account menu
+
+
+//- Footer
+block footer
+  include partials/footer-shop.pug

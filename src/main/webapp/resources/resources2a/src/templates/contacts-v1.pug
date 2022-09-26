@@ -1,0 +1,178 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var parentMenu = 'Pages'
+  - var pageTitle = 'Contacts v.1'
+
+
+//- Navbar
+block navbar
+  include partials/navbar.pug
+
+
+//- Page Content
+block content
+
+  // Contact details
+  section.bg-secondary.py-5
+    .container.pt-5.pb-lg-2.pb-xl-4.py-xxl-5
+
+      // Breadcrumb
+      +breadcrumb([{'title': 'Contacts v.1'}]).pt-lg-3.pb-lg-4.pb-2
+
+      // Page title
+      h1.display-2 Contacts
+      p.fs-lg.pb-4.mb-2.mb-sm-3 Get in touch with us by completing the below form or call us now
+
+      // Details cards
+      .row.row-cols-1.row-cols-sm-2.row-cols-xl-4.g-4.pb-2.pb-sm-4.pb-lg-5
+        
+        // Address
+        .col
+          .card.border-0.h-100
+            .card-body
+              h4.card-title.mb-4 Address
+              p.fs-lg.fw-medium.pb-3.mb-3 514 Magnolia St. Orlando, FL 32806
+              a(href='#').btn.btn-sm.btn-outline-primary
+                i.ai-map-pin.me-1
+                | Get directions
+        
+        // Phone
+        .col
+          .card.border-0.h-100
+            .card-body
+              h4.card-title.mb-4 Phone
+              ul.list-unstyled.mb-0
+                li.pb-1.mb-2
+                  span.d-block.fs-sm.text-muted.mb-1 Main office
+                  a(href='tel:+178632256033').nav-link.fs-lg.p-0 +1 (786) 322 560 33
+                li
+                  span.d-block.fs-sm.text-muted.mb-1 Reception room
+                  a(href='tel:+178630056044').nav-link.fs-lg.p-0 +1 (786) 300 560 44
+        
+        // Schedule
+        .col
+          .card.border-0.h-100
+            .card-body
+              h4.card-title.mb-4 Schedule
+              ul.list-unstyled.mb-0
+                li.pb-1.mb-2
+                  span.d-block.fs-sm.text-muted.mb-1 Mon - Thu
+                  .d-flex.align-items-center
+                    span.text-nav.fs-lg.fw-medium 10:00
+                    span(style='width: 36px; height: 1px;').border-top.mx-4
+                    span.text-nav.fs-lg.fw-medium 22:00
+                li
+                  span.d-block.fs-sm.text-muted.mb-1 Fri - Sat
+                  .d-flex.align-items-center
+                    span.text-nav.fs-lg.fw-medium 10:00
+                    span(style='width: 36px; height: 1px;').border-top.mx-4
+                    span.text-nav.fs-lg.fw-medium 20:00
+        
+        // Email
+        .col
+          .card.border-0.h-100
+            .card-body
+              h4.card-title.mb-4 Email
+              ul.list-unstyled.mb-0
+                li.pb-1.mb-2
+                  span.d-block.fs-sm.text-muted.mb-1 Main office
+                  a(href='mailto:office@example.com').nav-link.fs-lg.p-0 office@example.com
+                li
+                  span.d-block.fs-sm.text-muted.mb-1 Reception room
+                  a(href='mailto:reception@example.com').nav-link.fs-lg.p-0 reception@example.com
+    
+    div(style='height: 250px;')
+
+
+  // Contact form
+  section.container.dark-mode(style='margin-top: -260px;')
+    .card.border-0.bg-primary.position-relative.py-lg-4.py-xl-5
+
+      // Decorative shapes
+      svg(class='position-absolute end-0 mt-n2' width='242' height='331' viewBox='0 0 242 331' fill='none' xmlns='http://www.w3.org/2000/svg')
+        path(d='M172.014 250.127C137.236 227.74 112.349 192.144 144.586 153.591C157.686 137.932 176.759 127.973 196.524 122.046C234.647 110.639 277.027 113.361 313.349 129.576C338.19 140.666 361.129 159.183 369.934 184.502C383.476 223.496 359.75 260.161 321.569 273.118C288.832 284.223 247.685 279.513 214.885 269.837C201.003 265.743 185.745 258.966 172.014 250.127Z' fill='#121519' fill-opacity='.07')
+        path(d='M20.3265 69.264C19.7064 43.0736 29.8071 17.1878 62.3851 19.8622C75.6229 20.9505 87.9525 27.2066 98.3563 35.3132C118.426 50.9253 132.424 73.896 136.952 98.6413C140.044 115.562 138.424 134.218 127.978 148C111.901 169.236 83.4531 170.283 62.5246 155.209C44.5807 142.281 32.0983 119.217 25.3391 98.6799C22.4836 89.9885 20.5616 79.6021 20.3265 69.264Z' fill='#121519' fill-opacity='.07')
+      svg(class='position-absolute start-0 bottom-0 ms-3' width='169' height='217' viewBox='0 0 169 217' fill='none' xmlns='http://www.w3.org/2000/svg')
+        path(d='M34.2574 90.0177C29.666 97.6253 26.6254 106.591 24.9502 114.96C19.9522 140.043 26.4112 168.792 49.6162 181.885C66.0705 191.17 91.0017 189.904 108.062 183.692C125.725 177.266 135.045 168.04 142.29 150.389C151.409 128.174 150.912 99.6904 125.93 91.6429C115.423 88.254 104.723 86.5065 94.2249 82.5889C84.6622 79.0248 74.8545 72.1766 64.4411 71.6149C50.8011 70.8777 40.9122 79.0146 34.2574 90.0177Z' fill='#121519' fill-opacity='0.07')
+        path(d='M147.005 75.6331C152.135 70.7783 156.106 64.2374 159.153 57.9073C166.014 43.6372 174.127 22.1368 160.207 9.68505C152.924 3.17188 139.243 3.86644 130.324 5.29774C118.428 7.20428 107.295 8.85077 96.5031 14.783C85.8056 20.6599 79.0155 33.6997 77.0014 45.6686C75.4978 54.5776 79.63 63.6672 84.7391 70.7453C91.8208 80.5571 103.503 84.2003 114.817 84.3975C121.101 84.5081 127.716 84.0527 133.89 82.8121C138.932 81.7962 143.273 79.1597 147.005 75.6331Z' fill='#121519' fill-opacity='0.07')
+
+      .card-body.position-relative.zindex-2.py-5
+        form(style='max-width: 800px;').mx-auto
+          h2.h1.card-title.text-center.pb-4 Get a free consultation
+          .row.g-4
+            .col-sm-6
+              label(for='name').form-label.fs-base Name
+              input(type='text' placeholder='Your name' required)#name.form-control.form-control-lg
+            .col-sm-6
+              label(for='company').form-label.fs-base Company
+              input(type='text' placeholder='Your company name')#company.form-control.form-control-lg
+            .col-sm-6
+              label(for='email').form-label.fs-base Email
+              input(type='email' placeholder='Email address' required)#email.form-control.form-control-lg
+            .col-sm-6
+              label(for='phone').form-label.fs-base Phone
+              input(type='text' placeholder='Phone number')#phone.form-control.form-control-lg
+            .col-sm-12
+              label(for='message').form-label.fs-base How can we help?
+              textarea(rows='6' placeholder='Enter your message here...' required)#message.form-control.form-control-lg
+            .col-sm-12
+              .form-check.form-check-inline
+                input(type='checkbox' id='seo').form-check-input
+                label(for='seo').form-check-label.fs-base SEO Website Audit
+              .form-check.form-check-inline
+                input(type='checkbox' id='email-marketing' checked).form-check-input
+                label(for='email-marketing').form-check-label.fs-base Email Marketing
+              .form-check.form-check-inline
+                input(type='checkbox' id='social').form-check-input
+                label(for='social').form-check-label.fs-base Social Networks
+              .form-check.form-check-inline
+                input(type='checkbox' id='content-marketing').form-check-input
+                label(for='content-marketing').form-check-label.fs-base Content Marketing
+            .col-sm-12.text-center.pt-4
+              button(type='submit').btn.btn-lg.btn-light Send a request
+
+
+//- Footer
+block footer
+
+  // Footer
+  footer.footer.py-5
+    .container.pt-md-2.pt-lg-3.pt-xl-4
+      .row.pb-5.pt-sm-2.mb-lg-2
+        .col-md-12.col-lg-3.pb-2.pb-lg-0.mb-4.mb-lg-0
+          a(href='index.html').navbar-brand.py-0.mb-3.mb-lg-4
+            span.text-primary.flex-shrink-0.me-2
+              svg(version='1.1' width='35' height='32' viewBox='0 0 36 33' xmlns='http://www.w3.org/2000/svg')
+                path(fill='currentColor' d='M35.6,29c-1.1,3.4-5.4,4.4-7.9,1.9c-2.3-2.2-6.1-3.7-9.4-3.7c-3.1,0-7.5,1.8-10,4.1c-2.2,2-5.8,1.5-7.3-1.1c-1-1.8-1.2-4.1,0-6.2l0.6-1.1l0,0c0.6-0.7,4.4-5.2,12.5-5.7c0.5,1.8,2,3.1,3.9,3.1c2.2,0,4.1-1.9,4.1-4.2s-1.8-4.2-4.1-4.2c-2,0-3.6,1.4-4,3.3H7.7c-0.8,0-1.3-0.9-0.9-1.6l5.6-9.8c2.5-4.5,8.8-4.5,11.3,0L35.1,24C36,25.7,36.1,27.5,35.6,29z')
+            span.text-nav Around
+          p.fs-sm.pb-2.pb-lg-3.mb-3 Tellus non diam morbi quam vel venenatis proin sed. Dolor elementum nunc dictum
+          .d-flex
+            a(href='#').btn.btn-icon.btn-sm.btn-secondary.btn-facebook.rounded-circle.me-3
+              i.ai-facebook
+            a(href='#').btn.btn-icon.btn-sm.btn-secondary.btn-instagram.rounded-circle.me-3
+              i.ai-instagram
+            a(href='#').btn.btn-icon.btn-sm.btn-secondary.btn-linkedin.rounded-circle
+              i.ai-linkedin
+        .col-sm-3.col-lg-2.offset-xl-1.mb-4.mb-sm-0
+          ul.nav.flex-column
+            li: a(href='#').nav-link.py-1.px-0 Services
+            li: a(href='#').nav-link.py-1.px-0 Reviews
+            li: a(href='#').nav-link.py-1.px-0 Case studies
+            li: a(href='#').nav-link.py-1.px-0 Privacy policy
+        .col-sm-4.col-lg-2.mb-4.mb-sm-0
+          ul.nav.flex-column
+            li: a(href='mailto:contact@example.com').nav-link.py-1.px-0 contact@example.com
+            li: a(href='tel:+15262200459').nav-link.py-1.px-0 +1 526 220 0459
+            li: a(href='tel:+15262200444').nav-link.py-1.px-0 +1 526 220 0444
+        .col-sm-5.col-lg-4.col-xl-3.offset-lg-1
+          h3.h6.mb-2 Stay up to date
+          p.fs-sm Subscribe to our news and case studies
+          .input-group.input-group-sm
+            input(type='text' placeholder='Your email').form-control
+            button(type='button').btn.btn-primary Subscribe
+
+      p.fs-sm.mb-0
+        span.opacity-70 &copy; All rights reserved. Made by 
+        a(href='https://createx.studio/' target='_blank' rel='noopener').nav-link.d-inline.fw-normal.p-0 Createx Studio

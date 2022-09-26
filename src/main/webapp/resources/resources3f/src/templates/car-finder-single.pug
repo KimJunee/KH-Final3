@@ -1,0 +1,500 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['tiny-slider/dist/tiny-slider.css', 'lightgallery/css/lightgallery-bundle.min.css']
+  - var vendorScripts = ['tiny-slider/dist/min/tiny-slider.js', 'lightgallery/lightgallery.min.js', 'lightgallery/plugins/video/lg-video.min.js']
+  - var parentMenu = 'Catalog'
+  - var pageTitle = 'Car Finder | Car Single Page'
+  - var bodyClass = 'bg-dark'
+
+//- Navbar
+block navbar
+  include partials/navbar-car-finder
+
+//- Page Content
+block content
+
+  // Page content
+  .container.mt-5.mb-md-4.py-5
+
+    // Breadcrumb
+    nav(aria-label='Breadcrumb').mb-3.pt-md-3
+      ol.breadcrumb.breadcrumb-light
+        li.breadcrumb-item
+          a(href='car-finder-home.html') Home
+        li.breadcrumb-item
+          a(href='car-finder-catalog-grid.html') Used cars
+        li(aria-current='page').breadcrumb-item.active
+          | Mercedes-Benz E 400 Cabriolet
+    
+    // Title + Sharing
+    .d-sm-flex.align-items-end.align-items-md-center.justify-content-between.position-relative.mb-4(style='z-index: 1025;')
+      .me-3
+        h1.h2.text-light.mb-md-0  Mercedes-Benz E 400 Cabriolet
+        .d-md-none
+          .d-flex.align-items-center.mb-3
+            .h3.mb-0.text-light $31,900
+            .text-nowrap.ps-3
+              span.badge.bg-info.fs-base.me-2 Used
+              span(data-bs-toggle='popover' data-bs-placement='bottom' data-bs-trigger='hover' data-bs-html='true' data-bs-content='<div class="d-flex"><i class="fi-award mt-1 me-2"></i><div>This car is checked and<br>certified by Finder.</div></div>').badge.bg-success.fs-base.me-2 Certified
+          .d-flex.flex-wrap.align-items-center.text-light.mb-2
+            .text-nowrap.border-end.border-light.pe-3.me-3
+              i.fi-dashboard.fs-lg.opacity-70.me-2
+              span.align-middle 25K miles
+            .text-nowrap
+              i.fi-map-pin.fs-lg.opacity-70.me-2
+              span.align-middle Chicago, IL 60603
+      .text-nowrap.pt-3.pt-sm-0
+        button(type='button' data-bs-toggle='tooltip' title='Add to Wishlist').btn.btn-icon.btn-translucent-light.btn-xs.rounded-circle.mb-sm-2
+          i.fi-heart
+        .dropdown.d-inline-block(data-bs-toggle='tooltip' title='Share')
+          button(type='button' data-bs-toggle='dropdown').btn.btn-icon.btn-translucent-light.btn-xs.rounded-circle.ms-2.mb-sm-2
+            i.fi-share
+          .dropdown-menu.dropdown-menu-dark.dropdown-menu-end.my-1
+            button(type='button').dropdown-item
+              i.fi-facebook.fs-base.opacity-75.me-2
+              | Facebook
+            button(type='button').dropdown-item
+              i.fi-twitter.fs-base.opacity-75.me-2
+              | Twitter
+            button(type='button').dropdown-item
+              i.fi-instagram.fs-base.opacity-75.me-2
+              | Instagram
+    
+    .row
+      .col-md-7
+      
+        // Gallery
+        .tns-carousel-wrapper
+          .tns-slides-count.text-light
+            i.fi-image.fs-lg.me-2
+            .ps-1
+              span.tns-current-slide.fs-5.fw-bold
+              span.fs-5.fw-bold /
+              span.tns-total-slides.fs-5.fw-bold
+          .tns-carousel-inner(data-carousel-options='{"navAsThumbnails": true, "navContainer": "#thumbnails", "gutter": 12, "responsive": {"0":{"controls": false},"500":{"controls": true}}}')
+            div
+              img(src='img/car-finder/single/gallery/01.jpg' alt='Image').rounded-3
+            div
+              img(src='img/car-finder/single/gallery/02.jpg' alt='Image').rounded-3
+            div
+              img(src='img/car-finder/single/gallery/03.jpg' alt='Image').rounded-3
+            div
+              img(src='img/car-finder/single/gallery/04.jpg' alt='Image').rounded-3
+            div
+              img(src='img/car-finder/single/gallery/05.jpg' alt='Image').rounded-3
+            div
+              img(src='img/car-finder/single/gallery/06.jpg' alt='Image').rounded-3
+            div
+              img(src='img/car-finder/single/gallery/07.jpg' alt='Image').rounded-3
+            div
+              img(src='img/car-finder/single/gallery/08.jpg' alt='Image').rounded-3
+        ul(id='thumbnails').tns-thumbnails
+          li.tns-thumbnail
+            img(src='img/car-finder/single/gallery/th01.jpg' alt='Thumbnail')
+          li.tns-thumbnail
+            img(src='img/car-finder/single/gallery/th02.jpg' alt='Thumbnail')
+          li.tns-thumbnail
+            img(src='img/car-finder/single/gallery/th03.jpg' alt='Thumbnail')
+          li.tns-thumbnail
+            img(src='img/car-finder/single/gallery/th04.jpg' alt='Thumbnail')
+          li.tns-thumbnail
+            img(src='img/car-finder/single/gallery/th05.jpg' alt='Thumbnail')
+          li.tns-thumbnail
+            img(src='img/car-finder/single/gallery/th06.jpg' alt='Thumbnail')
+          li.tns-thumbnail
+            img(src='img/car-finder/single/gallery/th07.jpg' alt='Thumbnail')
+          li.tns-thumbnail
+            img(src='img/car-finder/single/gallery/th08.jpg' alt='Thumbnail')
+          li.tns-thumbnail
+            a(href='https://www.youtube.com/watch?v=0ffN2hgKzOE' data-bs-toggle='lightbox' data-video='true').d-flex.flex-column.align-items-center.justify-content-center.w-100.h-100.bg-faded-light.rounded.text-light.text-decoration-none
+              i.fi-play-circle.fs-5
+              span.opacity-70.mt-1 Play video
+        
+
+        // Specs
+        .py-3.mb-3
+          h2.h4.text-light.mb-4 Specifications
+          .row.text-light
+            .col-sm-6.col-md-12.col-lg-6
+              ul.list-unstyled
+                li.mb-2
+                  strong Manufacturing Year:
+                  span.opacity-70.ms-1 2018
+                li.mb-2
+                  strong Mileage:
+                  span.opacity-70.ms-1 25K miles
+                li.mb-2
+                  strong Body Type:
+                  span.opacity-70.ms-1 Convertible
+                li.mb-2
+                  strong Drivetrain:
+                  span.opacity-70.ms-1 Front Wheel Drive
+                li.mb-2
+                  strong Engine:
+                  span.opacity-70.ms-1 2.5L Turbo 6 Cylinder
+                li.mb-2
+                  strong Transmission:
+                  span.opacity-70.ms-1 7-Speed Shiftable Automatic
+            .col-sm-6.col-md-12.col-lg-6
+              ul.list-unstyled
+                li.mb-2
+                  strong Fuel Type:
+                  span.opacity-70.ms-1 Gasoline
+                li.mb-2
+                  strong City MPG:
+                  span.opacity-70.ms-1 20
+                  <i class='fi-alert-circle fs-sm text-primary ms-2' data-bs-toggle='tooltip' title='Verified by seller'></i>
+                li.mb-2
+                  strong Highway MPG:
+                  span.opacity-70.ms-1 29
+                  <i class='fi-alert-circle fs-sm text-primary ms-2' data-bs-toggle='tooltip' title='Verified by seller'></i>
+                li.mb-2
+                  strong Exterior Color:
+                  span.opacity-70.ms-1 Aspen White
+                li.mb-2
+                  strong Interior Color:
+                  span.opacity-70.ms-1 Charcoal
+                li.mb-2
+                  strong VIN:
+                  span.opacity-70.ms-1 2VW821AU9JM754284
+          
+
+        // Card with icon boxes
+        .card.card-body.p-4.card-light.mb-4
+          .row.row-cols-2.row-cols-sm-4.gx-3.gx-xl-4.gy-4
+            .col.text-light.text-center
+              .d-table.bg-dark.rounded-3.mx-auto.p-3
+                img(src='img/car-finder/icons/check.svg' width='48' alt='Icon')
+              .fs-sm.pt-2.mt-1 Checked and Certified by Finder
+            .col.text-light.text-center
+              .d-table.bg-dark.rounded-3.mx-auto.p-3
+                img(src='img/car-finder/icons/steering-wheel.svg' width='48' alt='Icon')
+              .fs-sm.pt-2.mt-1 Single Owner
+            .col.text-light.text-center
+              .d-table.bg-dark.rounded-3.mx-auto.p-3
+                img(src='img/car-finder/icons/driving-test.svg' width='48' alt='Icon')
+              .fs-sm.pt-2.mt-1 Well-Equipped
+            .col.text-light.text-center
+              .d-table.bg-dark.rounded-3.mx-auto.p-3
+                img(src='img/car-finder/icons/accident.svg' width='48' alt='Icon')
+              .fs-sm.pt-2.mt-1 No Accident / Damage Reported
+
+        
+        // Features
+        h2.h4.text-light.pt-3.mb-4 Features
+        #features.accordion.accordion-light
+          .accordion-item
+            h2.accordion-header#headingExterior
+              button(type='button' data-bs-toggle='collapse' data-bs-target='#exterior' aria-expanded='false' aria-controls='exterior').accordion-button.collapsed Exterior
+            #exterior.accordion-collapse.collapse(aria-labelledby='headingExterior' data-bs-parent='#features')
+              .accordion-body.fs-sm.text-light.opacity-70
+                ul
+                  li Alloy Wheels
+                  li Sunroof / Moonroof
+                  li Tinged glass
+                  li LED Headlights
+                  li Foldable Roof
+                  li Tow Hitch
+          .accordion-item
+            h2.accordion-header#headingInterior
+              button(type='button' data-bs-toggle='collapse' data-bs-target='#interior' aria-expanded='true' aria-controls='interior').accordion-button Interior
+            #interior.accordion-collapse.collapse.show(aria-labelledby='headingInterior' data-bs-parent='#features')
+              .accordion-body.fs-sm.text-light.opacity-70
+                .row
+                  .col-sm-6
+                    ul
+                      li Adjustable Steering Wheel
+                      li Auto-Dimming Rearview Mirror
+                      li Driver Adjustable Lumbar
+                      li Driver Illuminated Vanity Mirror
+                      li Universal Garage Door Opener
+                      li Steering Wheel Audio Controls
+                  .col-sm-6
+                    ul
+                      li Heated Front Seats
+                      li Leather Seats
+                      li Leather Steering Wheel
+                      li Pass-Through Rear Seat
+                      li Passenger Adjustable Lumbar
+                      li Passenger Illuminated Visor Mirror
+          .accordion-item
+            h2.accordion-header#headingSafety
+              button(type='button' data-bs-toggle='collapse' data-bs-target='#safety' aria-expanded='false' aria-controls='safety').accordion-button.collapsed Safety
+            #safety.accordion-collapse.collapse(aria-labelledby='headingSafety' data-bs-parent='#features')
+              .accordion-body.fs-sm.text-light.opacity-70
+                .row
+                  .col-sm-6
+                    ul
+                      li Airbag: Driver
+                      li Airbag: Passenger
+                      li Adaptive Cruise Control
+                      li Blind Spot Monitor
+                      li Alarm
+                      li Antilock Brakes
+                  .col-sm-6
+                    ul
+                      li Brake Assist
+                      li Lane Departure Warning
+                      li Stability Control
+                      li Fog Lights
+                      li Power Door Locks
+
+          .accordion-item
+            h2.accordion-header#headingTechnology
+              button(type='button' data-bs-toggle='collapse' data-bs-target='#technology' aria-expanded='false' aria-controls='technology').accordion-button.collapsed Technology
+            #technology.accordion-collapse.collapse(aria-labelledby='headingTechnology' data-bs-parent='#features')
+              .accordion-body.fs-sm.text-light.opacity-70
+                .row
+                  .col-sm-6
+                    ul
+                      li Multi-Zone A/C
+                      li Climate Control
+                      li Navigation System
+                      li Remote Start
+                      li Bluetooth
+                      li Remote Start
+                  .col-sm-6
+                    ul
+                      li Apple CarPlay
+                      li Android Auto
+                      li Backup Camera
+                      li HomeLink
+                      li Keyless Start
+                      li Premium Sound System
+
+
+        // Description
+        .pb-4.mb-3
+          h2.h4.text-light.pt-4.mt-3 Seller's Description
+          p.text-light.opacity-70.mb-1 Lorem tincidunt lectus vitae id vulputate diam quam. Imperdiet non scelerisque turpis sed etiam ultrices. Blandit mollis dignissim egestas consectetur porttitor. Vulputate dolor pretium, dignissim eu augue sit ut convallis. Lectus est, magna urna feugiat sed ultricies sed in lacinia. Fusce potenti sit id pharetra vel ornare. Vestibulum sed tellus ullamcorper arcu.
+          #seeMoreDescription.collapse
+            p.text-light.opacity-70.mb-1 Asperiores eos molestias, aspernatur assumenda vel corporis ex, magni excepturi totam exercitationem quia inventore quod amet labore impedit quae distinctio? Officiis blanditiis consequatur alias, atque, sed est incidunt accusamus repudiandae tempora repellendus obcaecati delectus ducimus inventore tempore harum numquam autem eligendi culpa.
+          a(href='#seeMoreDescription' data-bs-toggle='collapse' data-bs-label-collapsed='Show more' data-bs-label-expanded='Show less' role='button' aria-expanded='false' aria-controls='seeMoreDescription').collapse-label.collapsed
+
+        
+        // Post meta
+        .d-flex.flex-wrap.border-top.border-light.fs-sm.text-light.pt-4.pb-5.pb-md-2
+          .border-end.border-light.pe-3.me-3
+            span.opacity-70 Published: <strong>May 9, 2021</strong>
+          .border-end.border-light.pe-3.me-3
+            span.opacity-70 Ad number: <strong>681013232</strong>
+          .opacity-70 Views: <strong>57</strong>
+
+
+      // Sidebar
+      .col-md-5.pt-5.pt-md-0(style='margin-top: -6rem;')
+        .sticky-top.pt-5
+          .d-none.d-md-block.pt-5
+            .d-flex.mb-4
+              span.badge.bg-info.fs-base.me-2 Used
+              span(data-bs-toggle='popover' data-bs-placement='top' data-bs-trigger='hover' data-bs-html='true' data-bs-content='<div class="d-flex"><i class="fi-award mt-1 me-2"></i><div>This car is checked and<br>certified by Finder.</div></div>').badge.bg-success.fs-base.me-2 Certified
+            .h3.text-light $31,900
+            .d-flex.align-items-center.text-light.pb-4.mb-2
+              .text-nowrap.border-end.border-light.pe-3.me-3
+                i.fi-dashboard.fs-lg.opacity-70.me-2
+                span.align-middle 25K miles
+              .text-nowrap
+                i.fi-map-pin.fs-lg.opacity-70.me-2
+                span.align-middle Chicago, IL 60603
+          .card.card-light.card-body.mb-4
+            .text-light.mb-2 Private Seller
+            a(href='car-finder-vendor.html').d-flex.align-items-center.text-decoration-none.mb-3
+              img(src='img/avatars/33.jpg' class='rounded-circle' width='48' alt='Devon Lane')
+              .ps-2
+                h5.text-light.mb-0 Devon Lane
+                +star-rating(5)
+                span.fs-sm.text-light.opacity-70.align-middle.ms-1 (5 reviews)
+            a(href='car-finder-vendor.html').text-light Other ads by this seller
+            .pt-4.mt-2
+              button(type='button').btn.btn-outline-light.btn-lg.px-4.mb-3
+                i.fi-phone.me-2
+                | (316) *** **** – reveal
+              br
+              a(href='#send-mail' data-bs-toggle='collapse').btn.btn-primary.btn-lg
+                i.fi-chat-left.me-2
+                | Send message
+              #send-mail.collapse
+                form(novalidate).needs-validation.pt-4
+                  .mb-3
+                    textarea(rows='5' placeholder='Write your message' required).form-control.form-control-light
+                    .invalid-feedback Please enter you message.
+                  button(type='submit').btn.btn-outline-primary Submit
+          .card.card-body.bg-transparent.border-light
+            h5.text-light Email me price drops and new listings for these search results:
+            form.form-group.form-group-light.mb-3
+              .input-group
+                span.input-group-text 
+                  i.fi-mail
+                input(type='email' placeholder='Your email' required).form-control
+              button(type='submit').btn.btn-primary
+                | Subscribe
+            .form-check.form-check-light
+              input(type='checkbox' id='subscription-agree').form-check-input
+              label(for='subscription-agree').form-check-label.fs-sm.opacity-70
+                | I agree to receive price drop alerts on this vehicle and helpful shopping information.
+
+
+    // Related posts (Carousel)
+    h2.h3.text-light.pt-5.pb-3.mt-md-4 You may be interested in
+    .tns-carousel-wrapper.tns-controls-outside-xxl.tns-nav-outside.tns-carousel-light
+      .tns-carousel-inner(data-carousel-options='{"items": 3, "responsive": {"0":{"items":1, "gutter": 16},"500":{"items":2, "gutter": 18},"900":{"items":3, "gutter": 20}, "1100":{"gutter": 24}}}')
+        div
+          .card.card-light.card-hover.h-100
+            .card-img-top.card-img-hover
+              a(href='#').img-overlay
+              .position-absolute.start-0.top-0.pt-3.ps-3
+                span.d-table.badge.bg-danger New
+              .content-overlay.end-0.top-0.pt-3.pe-3
+                button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                  i.fi-heart
+              img(src='img/car-finder/catalog/03.jpg' alt='Image')
+            .card-body
+              .d-flex.align-items-center.justify-content-between.pb-1
+                span.fs-sm.text-light.me-3 2020
+                .form-check.form-check-light
+                  input(type='checkbox' id='compare1').form-check-input
+                  label(for='compare1').form-check-label.fs-sm
+                    | Compare
+              h3.h6.mb-1
+                a(href='#').nav-link-light Mazda MX-5 Miata Convertible
+              .text-primary.fw-bold.mb-1 $29,700
+              .fs-sm.text-light.opacity-70
+                i.fi-map-pin.me-1
+                | Los Angeles
+            .card-footer.border-0.pt-0
+              .border-top.border-light.pt-3
+                .row.g-2
+                  .col.me-sm-1
+                    .bg-dark.rounded.text-center.w-100.h-100.p-2
+                      i.fi-dashboard.d-block.h4.text-light.mb-0.mx-center
+                      span.fs-xs.text-light 18K mi
+                  .col.me-sm-1
+                    .bg-dark.rounded.text-center.w-100.h-100.p-2
+                      i.fi-gearbox.d-block.h4.text-light.mb-0.mx-center
+                      span.fs-xs.text-light Manual
+                  .col
+                    .bg-dark.rounded.text-center.w-100.h-100.p-2
+                      i.fi-petrol.d-block.h4.text-light.mb-0.mx-center
+                      span.fs-xs.text-light Gasoline
+        div
+          .card.card-light.card-hover.h-100
+            .card-img-top.card-img-hover
+              a(href='#').img-overlay
+              .position-absolute.start-0.top-0.pt-3.ps-3
+                span.d-table.badge.bg-info.mb-1 Used
+                span(data-bs-toggle='popover' data-bs-placement='bottom' data-bs-trigger='hover' data-bs-html='true' data-bs-content='<div class="d-flex"><i class="fi-award mt-1 me-2"></i><div>This car is checked and<br>certified by Finder.</div></div>').d-table.badge.bg-success Certified
+              .content-overlay.end-0.top-0.pt-3.pe-3
+                button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                  i.fi-heart
+              img(src='img/car-finder/catalog/05.jpg' alt='Image')
+            .card-body
+              .d-flex.align-items-center.justify-content-between.pb-1
+                span.fs-sm.text-light.me-3 2018
+                .form-check.form-check-light
+                  input(type='checkbox' id='compare2').form-check-input
+                  label(for='compare2').form-check-label.fs-sm
+                    | Compare
+              h3.h6.mb-1
+                a(href='#').nav-link-light BMW 640 XI Gran Turismo
+              .text-primary.fw-bold.mb-1 $43,500
+              .fs-sm.text-light.opacity-70
+                i.fi-map-pin.me-1
+                | San Francisco
+            .card-footer.border-0.pt-0
+              .border-top.border-light.pt-3
+                .row.g-2
+                  .col.me-sm-1
+                    .bg-dark.rounded.text-center.w-100.h-100.p-2
+                      i.fi-dashboard.d-block.h4.text-light.mb-0.mx-center
+                      span.fs-xs.text-light 10K mi
+                  .col.me-sm-1
+                    .bg-dark.rounded.text-center.w-100.h-100.p-2
+                      i.fi-gearbox.d-block.h4.text-light.mb-0.mx-center
+                      span.fs-xs.text-light Automatic
+                  .col
+                    .bg-dark.rounded.text-center.w-100.h-100.p-2
+                      i.fi-petrol.d-block.h4.text-light.mb-0.mx-center
+                      span.fs-xs.text-light Gasoline
+        div
+          .card.card-light.card-hover.h-100
+            .card-img-top.card-img-hover
+              a(href='#').img-overlay
+              .position-absolute.start-0.top-0.pt-3.ps-3
+                span.d-table.badge.bg-info Used
+              .content-overlay.end-0.top-0.pt-3.pe-3
+                button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                  i.fi-heart
+              img(src='img/car-finder/catalog/04.jpg' alt='Image')
+            .card-body
+              .d-flex.align-items-center.justify-content-between.pb-1
+                span.fs-sm.text-light.me-3 2019
+                .form-check.form-check-light
+                  input(type='checkbox' id='compare3').form-check-input
+                  label(for='compare3').form-check-label.fs-sm
+                    | Compare
+              h3.h6.mb-1
+                a(href='#').nav-link-light Nissan 370Z Nismo
+              .text-primary.fw-bold.mb-1 $37,900
+              .fs-sm.text-light.opacity-70
+                i.fi-map-pin.me-1
+                | New York
+            .card-footer.border-0.pt-0
+              .border-top.border-light.pt-3
+                .row.g-2
+                  .col.me-sm-1
+                    .bg-dark.rounded.text-center.w-100.h-100.p-2
+                      i.fi-dashboard.d-block.h4.text-light.mb-0.mx-center
+                      span.fs-xs.text-light 16K mi
+                  .col.me-sm-1
+                    .bg-dark.rounded.text-center.w-100.h-100.p-2
+                      i.fi-gearbox.d-block.h4.text-light.mb-0.mx-center
+                      span.fs-xs.text-light Automatic
+                  .col
+                    .bg-dark.rounded.text-center.w-100.h-100.p-2
+                      i.fi-petrol.d-block.h4.text-light.mb-0.mx-center
+                      span.fs-xs.text-light Gasoline
+        div
+          .card.card-light.card-hover.h-100
+            .card-img-top.card-img-hover
+              a(href='#').img-overlay
+              .position-absolute.start-0.top-0.pt-3.ps-3
+                span.d-table.badge.bg-info Used
+              .content-overlay.end-0.top-0.pt-3.pe-3
+                button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                  i.fi-heart
+              img(src='img/car-finder/catalog/08.jpg' alt='Image')
+            .card-body
+              .d-flex.align-items-center.justify-content-between.pb-1
+                span.fs-sm.text-light.me-3 2017
+                .form-check.form-check-light
+                  input(type='checkbox' id='compare4').form-check-input
+                  label(for='compare4').form-check-label.fs-sm
+                    | Compare
+              h3.h6.mb-1
+                a(href='#').nav-link-light Ford Explorer XLT
+              .text-primary.fw-bold.mb-1 $26,950
+              .fs-sm.text-light.opacity-70
+                i.fi-map-pin.me-1
+                | Kansas
+            .card-footer.border-0.pt-0
+              .border-top.border-light.pt-3
+                .row.g-2
+                  .col.me-sm-1
+                    .bg-dark.rounded.text-center.w-100.h-100.p-2
+                      i.fi-dashboard.d-block.h4.text-light.mb-0.mx-center
+                      span.fs-xs.text-light 34K mi
+                  .col.me-sm-1
+                    .bg-dark.rounded.text-center.w-100.h-100.p-2
+                      i.fi-gearbox.d-block.h4.text-light.mb-0.mx-center
+                      span.fs-xs.text-light Manual
+                  .col
+                    .bg-dark.rounded.text-center.w-100.h-100.p-2
+                      i.fi-petrol.d-block.h4.text-light.mb-0.mx-center
+                      span.fs-xs.text-light Diesel
+
+
+//- Footer
+block footer
+  include partials/footer-car-finder

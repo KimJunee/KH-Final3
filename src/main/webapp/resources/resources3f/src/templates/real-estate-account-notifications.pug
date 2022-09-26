@@ -1,0 +1,120 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var parentMenu = 'Account'
+  - var pageTitle = 'Real Estate | Account Notifications'
+
+//- Navbar
+block navbar
+  include partials/navbar-real-estate
+
+//- Page Content
+block content
+  .container.pt-5.pb-lg-4.mt-5.mb-sm-2
+
+    // Breadcrumb
+    nav(aria-label='Breadcrumb').mb-4.pt-md-3
+      ol.breadcrumb
+        li.breadcrumb-item
+          a(href='real-estate-home-v1.html') Home
+        li.breadcrumb-item
+          a(href='real-estate-account-info.html') Account
+        li(aria-current='page').breadcrumb-item.active
+          | Notifications
+    
+
+    // Page content
+    .row
+
+      // Sidebar
+      aside.col-lg-4.col-md-5.pe-xl-4.mb-5
+        include partials/sidebar-account-real-estate
+
+      // Content
+      .col-lg-8.col-md-7.mb-5
+        h1.h2 Notifications
+        p.pt-1.mb-4 Get real-time updates on your favorite homes, neighborhoods, and more.
+
+        // Nav tabs
+        ul(role='tablist').nav.nav-tabs.flex-column.flex-sm-row.align-items-stretch.align-items-sm-start.border-bottom.mb-4
+          li.nav-item.me-sm-3.mb-3
+            a(href='#notifications-rent' data-bs-toggle='tab' role='tab' aria-controls='notifications-rent' aria-selected='true').nav-link.text-center.active Rent notifications
+          li.nav-item.mb-3
+            a(href='#notifications-sale' data-bs-toggle='tab' role='tab' aria-controls='notifications-sale' aria-selected='false').nav-link.text-center Sale notifications
+        
+        // Tabs content
+        #notification-settings.tab-content.py-2
+
+          // Rent notifications tab
+          #notifications-rent.tab-pane.fade.show.active(role='tabpanel')
+            .d-flex.justify-content-between.mb-4
+              .me-2
+                h6.mb-1 New rental alerts
+                p.fs-sm.mb-0 New rentals that match your <a href='real-estate-account-wishlist.html'>Wishlist</a>
+              .form-check.form-switch
+                input(type='checkbox' id='new-rental' checked).form-check-input
+                label(for='new-rental').form-check-label
+            .d-flex.justify-content-between.mb-4
+              .me-2
+                h6.mb-1 Rental status updates
+                p.fs-sm.mb-0 Updates like price changes and off-market status on your <a href='real-estate-account-wishlist.html'>Wishlist</a>
+              .form-check.form-switch
+                input(type='checkbox' id='rental-update' checked).form-check-input
+                label(for='rental-update').form-check-label
+            .d-flex.justify-content-between.mb-4
+              .me-2
+                h6.mb-1 Finder recommendations
+                p.fs-sm.mb-0 Rentals we think you'll like. These recommendations may be slightly outside your search criteria
+              .form-check.form-switch
+                input(type='checkbox' id='rental-recomendation').form-check-input
+                label(for='rental-recomendation').form-check-label
+          
+          // Sale notifications tab
+          #notifications-sale.tab-pane.fade(role='tabpanel')
+            .d-flex.justify-content-between.mb-4
+              .me-2
+                h6.mb-1 New sale alerts
+                p.fs-sm.mb-0 New sales that match your <a href='real-estate-account-wishlist.html'>Wishlist</a>
+              .form-check.form-switch
+                input(type='checkbox' id='new-sale' checked).form-check-input
+                label(for='new-sale').form-check-label
+            .d-flex.justify-content-between.mb-4
+              .me-2
+                h6.mb-1 Sale status updates
+                p.fs-sm.mb-0 Updates like price changes and off-market status on your <a href='real-estate-account-wishlist.html'>Wishlist</a>
+              .form-check.form-switch
+                input(type='checkbox' id='sale-update').form-check-input
+                label(for='sale-update').form-check-label
+            .d-flex.justify-content-between.mb-4
+              .me-2
+                h6.mb-1 Finder recommendations
+                p.fs-sm.mb-0 Sales we think you'll like. These recommendations may be slightly outside your search criteria
+              .form-check.form-switch
+                input(type='checkbox' id='sale-recomendation').form-check-input
+                label(for='sale-recomendation').form-check-label
+          
+          .d-flex.justify-content-between.mb-4
+            .me-2
+              h6.mb-1 Featured news
+              p.fs-sm.mb-0 News and tips you may be interested in
+            .form-check.form-switch
+              input(type='checkbox' id='featured-news' checked).form-check-input
+              label(for='featured-news').form-check-label
+          .d-flex.justify-content-between.mb-4
+            .me-2
+              h6.mb-1 Finder extras
+              p.fs-sm.mb-0 Occasional notifications about new features to make finding the perfect rental easy
+            .form-check.form-switch
+              input(type='checkbox' id='extras').form-check-input
+              label(for='extras').form-check-label
+          
+        .border-top.pt-4
+          .form-check.form-switch
+            input(type='checkbox' id='all-notifications' data-master-checkbox-for='#notification-settings' checked).form-check-input
+            label(for='all-notifications').form-check-label Enable / disable all notifications
+                
+
+//- Footer
+block footer
+  include partials/footer-real-estate

@@ -1,0 +1,922 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css', 'vendor/nouislider/dist/nouislider.min.css', 'vendor/swiper/swiper-bundle.min.css', 'vendor/prismjs/themes/prism.css', 'vendor/prismjs/plugins/toolbar/prism-toolbar.css', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js', 'vendor/nouislider/dist/nouislider.min.js', 'vendor/swiper/swiper-bundle.min.js', 'vendor/prismjs/components/prism-core.min.js', 'vendor/prismjs/components/prism-markup.min.js', 'vendor/prismjs/components/prism-clike.min.js', 'vendor/prismjs/components/prism-javascript.min.js', 'vendor/prismjs/components/prism-pug.min.js', 'vendor/prismjs/plugins/toolbar/prism-toolbar.min.js', 'vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Shop components'
+  - var pageSubtitle = 'Components that are related to the e-commerce section of the website.'
+  - var isPageTitleBadge = true
+  - var anchorNav = [{'title': 'Product card', 'link': '#shop-product-card'}, {'title': 'Tiny horizontal card', 'link': '#shop-horizontal-card'}, {'title': 'Category card', 'link': '#shop-category-card'}, {'title': 'Shopping cart item', 'link': '#shop-cart-item'}, {'title': 'Categories filter', 'link': '#shop-categories-filter'}, {'title': 'Price range slider', 'link': '#shop-price-range'}, {'title': 'Color filter (custom checkboxes)', 'link': '#shop-color-filter'}]
+    
+//- Page Content
+block content
+
+  // Info alert
+  .alert.alert-info.d-flex.mb-4(role='alert')
+    i.ai-circle-info.lead.me-2.me-sm-3
+    .text-break
+      p.mb-1 <span class='fw-semibold'>Price range slider</span> depends on <span class='fw-semibold'>noUISlider plugin</span>. Make sure to link to <span class='fw-semibold'>noUISlider css and js</span> files in your document: <span class='fw-semibold'>assets/vendor/nouislider/dist/nouislider.min.css</span> and <span class='fw-semibold'>assets/vendor/nouislider/dist/nouislider.min.js</span>.
+
+  // Product card
+  section#shop-product-card.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Product card
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview1' data-bs-toggle='tab' role='tab' aria-controls='preview1' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview1.tab-pane.fade.show.active(role='tabpanel')
+          div(style='max-width: 306px;')
+            .card-hover.position-relative.bg-secondary.rounded-1.p-3.mb-4
+              span.badge.bg-faded-danger.text-danger.position-absolute.top-0.start-0.mt-3.ms-3 Sale
+              button(type='button').btn.btn-icon.btn-sm.btn-light.bg-light.border-0.rounded-circle.position-absolute.top-0.end-0.mt-3.me-3.zindex-5.opacity-0
+                i.ai-heart.fs-xl.d-dark-mode-none
+                i.ai-heart.text-nav.fs-xl.d-none.d-dark-mode-block
+              .swiper.swiper-nav-onhover(data-swiper-options='{"loop": true, "navigation": {"prevEl": ".btn-prev", "nextEl": ".btn-next"}}')
+                a(href='#').swiper-wrapper
+                  .swiper-slide.p-2.p-xl-4
+                    img(src='../assets/img/shop/products/08.png' width='226' alt='Product').d-block.mx-auto
+                button(type='button').btn.btn-prev.btn-icon.btn-sm.btn-light.bg-light.border-0.rounded-circle.start-0
+                  i.ai-chevron-left.fs-xl.d-dark-mode-none
+                  i.ai-chevron-left.text-nav.fs-xl.d-none.d-dark-mode-block
+                button(type='button').btn.btn-next.btn-icon.btn-sm.btn-light.bg-light.border-0.rounded-circle.end-0
+                  i.ai-chevron-right.fs-xl.d-dark-mode-none
+                  i.ai-chevron-right.text-nav.fs-xl.d-none.d-dark-mode-block
+            .d-flex.mb-1
+              h3.h6.mb-0: a(href='#') Analogue wall clock
+              .d-flex.ps-2.mt-n1.ms-auto
+                .ms-1
+                  input(type='radio' name='color' value='Turquoise' checked)#color1.btn-check
+                  label(for='color1').btn.btn-icon.btn-xs.btn-outline-secondary.rounded-circle
+                    span(style='width: .625rem; height: .625rem; background-color: #a8c2c0;').d-block.rounded-circle
+                .ms-1
+                  input(type='radio' name='color' value='Lilac')#color2.btn-check
+                  label(for='color2').btn.btn-icon.btn-xs.btn-outline-secondary.rounded-circle
+                    span(style='width: .625rem; height: .625rem; background-color: #b4a9c3;').d-block.rounded-circle
+                .ms-1
+                  input(type='radio' name='color' value='Blue')#color3.btn-check
+                  label(for='color3').btn.btn-icon.btn-xs.btn-outline-secondary.rounded-circle
+                    span(style='width: .625rem; height: .625rem; background-color: #a1b7d9;').d-block.rounded-circle
+            .d-flex.align-items-center
+              span.me-2 $25.00
+              del.fs-sm.text-muted $37.00
+              .nav.ms-auto(data-bs-toggle='tooltip' data-bs-template='<div class="tooltip fs-xs" role="tooltip"><div class="tooltip-inner bg-light text-muted p-0"></div></div>' data-bs-placement='left' title='Add to cart')
+                a(href='#').nav-link.fs-lg.py-2.px-1: i.ai-cart
+        #html1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Product card with image slider and color options --&gt;
+              &lt;div style=&quot;max-width: 306px;&quot;&gt;
+                &lt;div class=&quot;card-hover position-relative bg-secondary rounded-1 p-3 mb-4&quot;&gt;
+                  &lt;span class=&quot;badge bg-faded-danger text-danger position-absolute top-0 start-0 mt-3 ms-3&quot;&gt;Sale&lt;/span&gt;
+                  &lt;button type=&quot;button&quot; class=&quot;btn btn-icon btn-sm btn-light bg-light border-0 rounded-circle position-absolute top-0 end-0 mt-3 me-3 zindex-5 opacity-0&quot;&gt;
+                    &lt;i class=&quot;ai-heart fs-xl d-dark-mode-none&quot;&gt;&lt;/i&gt;
+                    &lt;i class=&quot;ai-heart text-nav fs-xl d-none d-dark-mode-block&quot;&gt;&lt;/i&gt;
+                  &lt;/button&gt;
+                  &lt;div class=&quot;swiper swiper-nav-onhover&quot; data-swiper-options='{&quot;loop&quot;: true, &quot;navigation&quot;: {&quot;prevEl&quot;: &quot;.btn-prev&quot;, &quot;nextEl&quot;: &quot;.btn-next&quot;}}'&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;swiper-wrapper&quot;&gt;
+                      &lt;div class=&quot;swiper-slide p-2 p-xl-4&quot;&gt;
+                        &lt;img class=&quot;d-block mx-auto&quot; src=&quot;assets/img/shop/products/08.png&quot; width=&quot;226&quot; alt=&quot;Product&quot;&gt;
+                      &lt;/div&gt;
+                      &lt;div class=&quot;swiper-slide p-2 p-xl-4&quot;&gt;
+                        &lt;img class=&quot;d-block mx-auto&quot; src=&quot;assets/img/shop/products/08.png&quot; width=&quot;226&quot; alt=&quot;Product&quot;&gt;
+                      &lt;/div&gt;
+                    &lt;/a&gt;
+                    &lt;button type=&quot;button&quot; class=&quot;btn btn-prev btn-icon btn-sm btn-light bg-light border-0 rounded-circle start-0&quot;&gt;
+                      &lt;i class=&quot;ai-chevron-left fs-xl d-dark-mode-none&quot;&gt;&lt;/i&gt;
+                      &lt;i class=&quot;ai-chevron-left text-nav fs-xl d-none d-dark-mode-block&quot;&gt;&lt;/i&gt;
+                    &lt;/button&gt;
+                    &lt;button type=&quot;button&quot; class=&quot;btn btn-next btn-icon btn-sm btn-light bg-light border-0 rounded-circle end-0&quot;&gt;
+                      &lt;i class=&quot;ai-chevron-right fs-xl d-dark-mode-none&quot;&gt;&lt;/i&gt;
+                      &lt;i class=&quot;ai-chevron-right text-nav fs-xl d-none d-dark-mode-block&quot;&gt;&lt;/i&gt;
+                    &lt;/button&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;d-flex mb-1&quot;&gt;
+                  &lt;h3 class=&quot;h6 mb-0&quot;&gt;&lt;a href=&quot;#&quot;&gt;Analogue wall clock&lt;/a&gt;&lt;/h3&gt;
+                  &lt;div class=&quot;d-flex ps-2 mt-n1 ms-auto&quot;&gt;
+                    &lt;div class=&quot;ms-1&quot;&gt;
+                      &lt;input type=&quot;radio&quot; class=&quot;btn-check&quot; id=&quot;color1&quot; name=&quot;color&quot; value=&quot;Turquoise&quot; checked&gt;
+                      &lt;label for=&quot;color1&quot; class=&quot;btn btn-icon btn-xs btn-outline-secondary rounded-circle&quot;&gt;
+                        &lt;span class=&quot;d-block rounded-circle&quot; style=&quot;width: .625rem; height: .625rem; background-color: #a8c2c0;&quot;&gt;&lt;/span&gt;
+                      &lt;/label&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;ms-1&quot;&gt;
+                      &lt;input type=&quot;radio&quot; class=&quot;btn-check&quot; id=&quot;color2&quot; name=&quot;color&quot; value=&quot;Lilac&quot;&gt;
+                      &lt;label for=&quot;color2&quot; class=&quot;btn btn-icon btn-xs btn-outline-secondary rounded-circle&quot;&gt;
+                        &lt;span class=&quot;d-block rounded-circle&quot; style=&quot;width: .625rem; height: .625rem; background-color: #b4a9c3;&quot;&gt;&lt;/span&gt;
+                      &lt;/label&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;ms-1&quot;&gt;
+                      &lt;input type=&quot;radio&quot; class=&quot;btn-check&quot; id=&quot;color3&quot; name=&quot;color&quot; value=&quot;Blue&quot;&gt;
+                      &lt;label for=&quot;color3&quot; class=&quot;btn btn-icon btn-xs btn-outline-secondary rounded-circle&quot;&gt;
+                        &lt;span class=&quot;d-block rounded-circle&quot; style=&quot;width: .625rem; height: .625rem; background-color: #a1b7d9;&quot;&gt;&lt;/span&gt;
+                      &lt;/label&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;d-flex align-items-center&quot;&gt;
+                  &lt;span class=&quot;me-2&quot;&gt;$25.00&lt;/span&gt;
+                  &lt;del class=&quot;fs-sm text-muted&quot;&gt;$37.00&lt;/del&gt;
+                  &lt;div class=&quot;nav ms-auto&quot; data-bs-toggle=&quot;tooltip&quot; data-bs-template='&lt;div class=&quot;tooltip fs-xs&quot; role=&quot;tooltip&quot;&gt;&lt;div class=&quot;tooltip-inner bg-light text-muted p-0&quot;&gt;&lt;/div&gt;&lt;/div&gt;' data-bs-placement=&quot;left&quot; title=&quot;Add to cart&quot;&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;nav-link fs-lg py-2 px-1&quot;&gt;
+                      &lt;i class=&quot;ai-cart&quot;&gt;&lt;/i&gt;
+                    &lt;/a&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Product card with image slider and color options
+              div(style=&quot;max-width: 306px;&quot;)
+                .card-hover.position-relative.bg-secondary.rounded-1.p-3.mb-4
+                  span.badge.bg-faded-danger.text-danger.position-absolute.top-0.start-0.mt-3.ms-3 Sale
+                  button(type=&quot;button&quot;).btn.btn-icon.btn-sm.btn-light.bg-light.border-0.rounded-circle.position-absolute.top-0.end-0.mt-3.me-3.zindex-5.opacity-0
+                    i.ai-heart.fs-xl.d-dark-mode-none
+                    i.ai-heart.text-nav.fs-xl.d-none.d-dark-mode-block
+                  .swiper.swiper-nav-onhover(data-swiper-options='{&quot;loop&quot;: true, &quot;navigation&quot;: {&quot;prevEl&quot;: &quot;.btn-prev&quot;, &quot;nextEl&quot;: &quot;.btn-next&quot;}}')
+                    a(href=&quot;#&quot;).swiper-wrapper
+                      .swiper-slide.p-2.p-xl-4
+                        img(src=&quot;assets/img/shop/products/08.png&quot;, width=&quot;226&quot;, alt=&quot;Product&quot;).d-block.mx-auto
+                      .swiper-slide.p-2.p-xl-4
+                        img(src=&quot;assets/img/shop/products/08.png&quot;, width=&quot;226&quot;, alt=&quot;Product&quot;).d-block.mx-auto
+                    button(type=&quot;button&quot;).btn.btn-prev.btn-icon.btn-sm.btn-light.bg-light.border-0.rounded-circle.start-0
+                      i.ai-chevron-left.fs-xl.d-dark-mode-none
+                      i.ai-chevron-left.text-nav.fs-xl.d-none.d-dark-mode-block
+                    button(type=&quot;button&quot;).btn.btn-next.btn-icon.btn-sm.btn-light.bg-light.border-0.rounded-circle.end-0
+                      i.ai-chevron-right.fs-xl.d-dark-mode-none
+                      i.ai-chevron-right.text-nav.fs-xl.d-none.d-dark-mode-block
+                .d-flex.mb-1
+                  h3.h6.mb-0
+                    a(href=&quot;#&quot;) Analogue wall clock
+                  .d-flex.ps-2.mt-n1.ms-auto
+                    .ms-1
+                      input(type=&quot;radio&quot; name=&quot;color&quot; value=&quot;Turquoise&quot; checked)#color1.btn-check
+                      label(for=&quot;color1&quot;).btn.btn-icon.btn-xs.btn-outline-secondary.rounded-circle
+                        span(style=&quot;width: .625rem; height: .625rem; background-color: #a8c2c0;&quot;).d-block.rounded-circle
+                    .ms-1
+                      input(type=&quot;radio&quot; name=&quot;color&quot; value=&quot;Lilac&quot;)#color2.btn-check
+                      label(for=&quot;color2&quot;).btn.btn-icon.btn-xs.btn-outline-secondary.rounded-circle
+                        span(style=&quot;width: .625rem; height: .625rem; background-color: #b4a9c3;&quot;).d-block.rounded-circle
+                    .ms-1
+                      input(type=&quot;radio&quot; name=&quot;color&quot; value=&quot;Blue&quot;)#color3.btn-check
+                      label(for=&quot;color3&quot;).btn.btn-icon.btn-xs.btn-outline-secondary.rounded-circle
+                        span(style=&quot;width: .625rem; height: .625rem; background-color: #a1b7d9;&quot;).d-block.rounded-circle
+                .d-flex.align-items-center
+                  span.me-2 $25.00
+                  del.fs-sm.text-muted $37.00
+                  .nav.ms-auto(data-bs-toggle=&quot;tooltip&quot;, data-bs-template='&lt;div class=&quot;tooltip fs-xs&quot; role=&quot;tooltip&quot;&gt;&lt;div class=&quot;tooltip-inner bg-light text-muted p-0&quot;&gt;&lt;/div&gt;&lt;/div&gt;', data-bs-placement=&quot;left&quot;, title=&quot;Add to cart&quot;)
+                    a(href=&quot;#&quot;).nav-link.fs-lg.py-2.px-1
+                      i.ai-cart
+
+  // Tiny horizontal card
+  section#shop-horizontal-card.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Tiny horizontal card
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview2' data-bs-toggle='tab' role='tab' aria-controls='preview2' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview2.tab-pane.fade.show.active(role='tabpanel')
+          a(href='#' style='max-width: 306px;').card.h-100.rounded-1.text-decoration-none.px-xxl-1
+            .card-body.p-4.px-sm-3.px-md-4
+              .d-flex.align-items-center
+                img(src='../assets/img/landing/shop/hero/01.png' width='97' alt='Product')
+                .ps-3.ps-md-4
+                  h3.fs-sm.mb-2 Exquisite glass vase
+                  p.fs-sm.mb-0
+                    | $15.00
+                    del.text-muted.fs-xs.ms-1 $19.00
+        #html2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Tiny horizontal product card --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;card h-100 rounded-1 text-decoration-none px-xxl-1&quot; style=&quot;max-width: 306px;&quot;&gt;
+                &lt;div class=&quot;card-body p-4 px-sm-3 px-md-4&quot;&gt;
+                  &lt;div class=&quot;d-flex align-items-center&quot;&gt;
+                    &lt;img src=&quot;assets/img/landing/shop/hero/01.png&quot; width=&quot;97&quot; alt=&quot;Product&quot;&gt;
+                    &lt;div class=&quot;ps-3 ps-md-4&quot;&gt;
+                      &lt;h3 class=&quot;fs-sm mb-2&quot;&gt;Exquisite glass vase&lt;/h3&gt;
+                      &lt;p class=&quot;fs-sm mb-0&quot;&gt;
+                        $15.00
+                        &lt;del class=&quot;text-muted fs-xs ms-1&quot;&gt;$19.00&lt;/del&gt;
+                      &lt;/p&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/a&gt;
+        #pug2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Tiny horizontal product card
+              a(href=&quot;#&quot;, style=&quot;max-width: 306px;&quot;).card.h-100.rounded-1.text-decoration-none.px-xxl-1
+                .card-body.p-4.px-sm-3.px-md-4
+                  .d-flex.align-items-center
+                    img(src=&quot;assets/img/landing/shop/hero/01.png&quot;, width=&quot;97&quot;, alt=&quot;Product&quot;)
+                    .ps-3.ps-md-4
+                      h3.fs-sm.mb-2 Exquisite glass vase
+                      p.fs-sm.mb-0
+                        | $15.00 
+                        del.text-muted.fs-xs.ms-1 $19.00
+
+  // Category card
+  section#shop-category-card.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Category card
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview3' data-bs-toggle='tab' role='tab' aria-controls='preview3' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview3.tab-pane.fade.show.active(role='tabpanel')
+          .card.zoom-effect.border-0.rounded-1.overflow-hidden(style='max-width: 416px;')
+            span.position-absolute.top-0.start-0.w-100.h-100.bg-dark.opacity-10.zindex-2
+            .zoom-effect-wrapper.rounded-1
+              img(src='../assets/img/shop/categories/04.jpg' alt='Category image').zoom-effect-img
+            a(href='#').card-body.d-flex.flex-column.justify-content-end.align-items-start.position-absolute.top-0.start-0.w-100.h-100.text-decoration-none.zindex-3
+              span.bg-light.text-dark.rounded-pill.fs-sm.fw-semibold.lh-1.py-3.px-4 For the bedroom
+        #html3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Category card --&gt;
+              &lt;div class=&quot;card zoom-effect border-0 rounded-1 overflow-hidden&quot; style=&quot;max-width: 416px;&quot;&gt;
+                &lt;span class=&quot;position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-10 zindex-2&quot;&gt;&lt;/span&gt;
+                &lt;div class=&quot;zoom-effect-wrapper rounded-1&quot;&gt;
+                  &lt;img src=&quot;assets/img/shop/categories/04.jpg&quot; class=&quot;zoom-effect-img&quot; alt=&quot;Category image&quot;&gt;
+                &lt;/div&gt;
+                &lt;a href=&quot;#&quot; class=&quot;card-body d-flex flex-column justify-content-end align-items-start position-absolute top-0 start-0 w-100 h-100 text-decoration-none zindex-3&quot;&gt;
+                  &lt;span class=&quot;bg-light text-dark rounded-pill fs-sm fw-semibold lh-1 py-3 px-4&quot;&gt;
+                    For the bedroom
+                  &lt;/span&gt;
+                &lt;/a&gt;
+              &lt;/div&gt;
+        #pug3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Category card
+              .card.zoom-effect.border-0.rounded-1.overflow-hidden(style=&quot;max-width: 416px;&quot;)
+                span.position-absolute.top-0.start-0.w-100.h-100.bg-dark.opacity-10.zindex-2
+                .zoom-effect-wrapper.rounded-1
+                  img(src=&quot;assets/img/shop/categories/04.jpg&quot;, alt=&quot;Category image&quot;).zoom-effect-img
+                a(href=&quot;#&quot;).card-body.d-flex.flex-column.justify-content-end.align-items-start.position-absolute.top-0.start-0.w-100.h-100.text-decoration-none.zindex-3
+                  span.bg-light.text-dark.rounded-pill.fs-sm.fw-semibold.lh-1.py-3.px-4
+                    | For the bedroom
+
+  // Shopping cart item
+  section#shop-cart-item.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Shopping cart item
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview4' data-bs-toggle='tab' role='tab' aria-controls='preview4' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview4.tab-pane.fade.show.active(role='tabpanel')
+          .d-sm-flex.align-items-center(style='max-width: 540px;')
+            a(href='#').d-inline-block.flex-shrink-0.bg-secondary.rounded-1.p-sm-2.p-md-3.mb-2.mb-sm-0
+              img(src='../assets/img/shop/cart/01.png' width='110' alt='Product')
+            .w-100.pt-1.ps-sm-4
+              .d-flex
+                .me-3
+                  h3.h5.mb-2: a(href='#') Candle in concrete bowl
+                  .d-flex.flex-wrap
+                    .text-muted.fs-sm.me-3
+                      | Color:
+                      span.text-dark.fw-medium.ms-1 Gray night
+                    .text-muted.fs-sm.me-3
+                      | Weight:
+                      span.text-dark.fw-medium.ms-1 140g
+                .text-end.ms-auto
+                  .fs-5.mb-2 $11.00
+                  del.text-muted.ms-auto $15.00
+              .count-input.ms-n3
+                button(type='button' data-decrement).btn.btn-icon.fs-xl -
+                input(type='number' value='1' readonly).form-control
+                button(type='button' data-increment).btn.btn-icon.fs-xl +
+              .nav.justify-content-end.mt-n5.mt-sm-n3
+                a(href='#' data-bs-toggle='tooltip' title='Remove').nav-link.fs-xl.p-2
+                  i.ai-trash
+        #html4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Shopping cart item --&gt;
+              &lt;div class=&quot;d-sm-flex align-items-center&quot; style=&quot;max-width: 540px;&quot;&gt;
+                &lt;a href=&quot;#&quot; class=&quot;d-inline-block flex-shrink-0 bg-secondary rounded-1 p-sm-2 p-md-3 mb-2 mb-sm-0&quot;&gt;
+                  &lt;img src=&quot;assets/img/shop/cart/01.png&quot; width=&quot;110&quot; alt=&quot;Product&quot;&gt;
+                &lt;/a&gt;
+                &lt;div class=&quot;w-100 pt-1 ps-sm-4&quot;&gt;
+                  &lt;div class=&quot;d-flex&quot;&gt;
+                    &lt;div class=&quot;me-3&quot;&gt;
+                      &lt;h3 class=&quot;h5 mb-2&quot;&gt;
+                        &lt;a href=&quot;#&quot;&gt;Candle in concrete bowl&lt;/a&gt;
+                      &lt;/h3&gt;
+                      &lt;div class=&quot;d-flex flex-wrap&quot;&gt;
+                        &lt;div class=&quot;text-muted fs-sm me-3&quot;&gt;
+                          Color:
+                          &lt;span class=&quot;text-dark fw-medium ms-1&quot;&gt;Gray night&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;text-muted fs-sm me-3&quot;&gt;
+                          Weight:
+                          &lt;span class=&quot;text-dark fw-medium ms-1&quot;&gt;140g&lt;/span&gt;
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;text-end ms-auto&quot;&gt;
+                      &lt;div class=&quot;fs-5 mb-2&quot;&gt;$11.00&lt;/div&gt;
+                      &lt;del class=&quot;text-muted ms-auto&quot;&gt;$15.00&lt;/del&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;count-input ms-n3&quot;&gt;
+                    &lt;button type=&quot;button&quot; class=&quot;btn btn-icon fs-xl&quot; data-decrement&gt;-&lt;/button&gt;
+                    &lt;input type=&quot;number&quot; class=&quot;form-control&quot; value=&quot;1&quot; readonly&gt;
+                    &lt;button type=&quot;button&quot; class=&quot;btn btn-icon fs-xl&quot; data-increment&gt;+&lt;/button&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;nav justify-content-end mt-n5 mt-sm-n3&quot;&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;nav-link fs-xl p-2&quot; data-bs-toggle=&quot;tooltip&quot; title=&quot;Remove&quot;&gt;
+                      &lt;i class=&quot;ai-trash&quot;&gt;&lt;/i&gt;
+                    &lt;/a&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Shopping cart item
+              .d-sm-flex.align-items-center(style=&quot;max-width: 540px;&quot;)
+                a(href=&quot;#&quot;).d-inline-block.flex-shrink-0.bg-secondary.rounded-1.p-sm-2.p-md-3.mb-2.mb-sm-0
+                  img(src=&quot;assets/img/shop/cart/01.png&quot;, width=&quot;110&quot;, alt=&quot;Product&quot;)
+                .w-100.pt-1.ps-sm-4
+                  .d-flex
+                    .me-3
+                      h3.h5.mb-2
+                        a(href=&quot;#&quot;) Candle in concrete bowl
+                      .d-flex.flex-wrap
+                        .text-muted.fs-sm.me-3
+                          | Color: 
+                          span.text-dark.fw-medium.ms-1 Gray night
+                        .text-muted.fs-sm.me-3
+                          | Weight:
+                          span.text-dark.fw-medium.ms-1 140g
+                    .text-end.ms-auto
+                      .fs-5.mb-2 $11.00
+                      del.text-muted.ms-auto $15.00
+                  .count-input.ms-n3
+                    button(type=&quot;button&quot;, data-decrement).btn.btn-icon.fs-xl -
+                    input(type=&quot;number&quot;, value=&quot;1&quot;, readonly).form-control
+                    button(type=&quot;button&quot;, data-increment).btn.btn-icon.fs-xl +
+                  .nav.justify-content-end.mt-n5.mt-sm-n3
+                    a(href=&quot;#&quot;, data-bs-toggle=&quot;tooltip&quot;, title=&quot;Remove&quot;).nav-link.fs-xl.p-2
+                      i.ai-trash
+
+  // Categories filter
+  section#shop-categories-filter.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Categories filter
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview5' data-bs-toggle='tab' role='tab' aria-controls='preview5' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html5' data-bs-toggle='tab' role='tab' aria-controls='html5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug5' data-bs-toggle='tab' role='tab' aria-controls='pug5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview5.tab-pane.fade.show.active(role='tabpanel')
+          h3.h5 Categories
+          #shopCategories.accordion.accordion-alt(style='max-width: 280px;')
+            .accordion-item.mb-0
+              h4.accordion-header
+                button(type='button' data-bs-toggle='collapse' data-bs-target='#livingRoom' aria-expanded='true' aria-controls='livingRoom').accordion-button.fs-xl.fw-medium.py-2
+                  span.fs-base Living room
+              #livingRoom.accordion-collapse.collapse.show(data-bs-parent="#shopCategories")
+                .accordion-body.py-1.mb-1
+                  .form-check
+                    input(type='checkbox')#lr-all.form-check-input
+                    label(for='lr-all').form-check-label.d-flex.align-items-center
+                      span.text-nav.fw-medium View all
+                      span.fs-xs.text-muted.ms-auto 573
+                  .form-check
+                    input(type='checkbox' checked)#lr-vases.form-check-input
+                    label(for='lr-vases').form-check-label.d-flex.align-items-center
+                      span.text-nav.fw-medium Vases
+                      span.fs-xs.text-muted.ms-auto 234
+                  .form-check
+                    input(type='checkbox')#lr-mirrors.form-check-input
+                    label(for='lr-mirrors').form-check-label.d-flex.align-items-center
+                      span.text-nav.fw-medium Mirrors
+                      span.fs-xs.text-muted.ms-auto 182
+                  .form-check
+                    input(type='checkbox')#lr-paintings.form-check-input
+                    label(for='lr-paintings').form-check-label.d-flex.align-items-center
+                      span.text-nav.fw-medium Paintings
+                      span.fs-xs.text-muted.ms-auto 133
+                  .form-check
+                    input(type='checkbox')#lr-furniture.form-check-input
+                    label(for='lr-furniture').form-check-label.d-flex.align-items-center
+                      span.text-nav.fw-medium Furniture
+                      span.fs-xs.text-muted.ms-auto 24
+            .accordion-item.mb-0
+              h4.accordion-header
+                button(type='button' data-bs-toggle='collapse' data-bs-target='#kitchen' aria-expanded='false' aria-controls='kitchen').accordion-button.collapsed.fs-xl.fw-medium.py-2
+                  span.fs-base Kitchen
+              #kitchen.accordion-collapse.collapse(data-bs-parent="#shopCategories")
+                .accordion-body.py-1.mb-1
+                  .form-check
+                    input(type='checkbox')#kitchen-all.form-check-input
+                    label(for='kitchen-all').form-check-label.d-flex.align-items-center
+                      span.text-nav.fw-medium View all
+                      span.fs-xs.text-muted.ms-auto 586
+                  .form-check
+                    input(type='checkbox')#kitchen-cutlery.form-check-input
+                    label(for='kitchen-cutlery').form-check-label.d-flex.align-items-center
+                      span.text-nav.fw-medium Cutlery
+                      span.fs-xs.text-muted.ms-auto 387
+                  .form-check
+                    input(type='checkbox')#kitchen-storage.form-check-input
+                    label(for='kitchen-storage').form-check-label.d-flex.align-items-center
+                      span.text-nav.fw-medium Storage
+                      span.fs-xs.text-muted.ms-auto 124
+                  .form-check
+                    input(type='checkbox')#kitchen-bins.form-check-input
+                    label(for='kitchen-bins').form-check-label.d-flex.align-items-center
+                      span.text-nav.fw-medium Waste bins
+                      span.fs-xs.text-muted.ms-auto 59
+                  .form-check
+                    input(type='checkbox')#kitchen-sinks.form-check-input
+                    label(for='kitchen-sinks').form-check-label.d-flex.align-items-center
+                      span.text-nav.fw-medium Sinks
+                      span.fs-xs.text-muted.ms-auto 16
+            .accordion-item.mb-0
+              h4.accordion-header
+                button(type='button' data-bs-toggle='collapse' data-bs-target='#bathroom' aria-expanded='false' aria-controls='bathroom').accordion-button.collapsed.fs-xl.fw-medium.py-2
+                  span.fs-base Bathroom
+              #bathroom.accordion-collapse.collapse(data-bs-parent="#shopCategories")
+                .accordion-body.py-1.mb-1
+                  .form-check
+                    input(type='checkbox')#bathroom-all.form-check-input
+                    label(for='bathroom-all').form-check-label.d-flex.align-items-center
+                      span.text-nav.fw-medium View all
+                      span.fs-xs.text-muted.ms-auto 1416
+                  .form-check
+                    input(type='checkbox')#bathroom-showers.form-check-input
+                    label(for='bathroom-showers').form-check-label.d-flex.align-items-center
+                      span.text-nav.fw-medium Showers
+                      span.fs-xs.text-muted.ms-auto 113
+                  .form-check
+                    input(type='checkbox')#bathroom-basins.form-check-input
+                    label(for='bathroom-basins').form-check-label.d-flex.align-items-center
+                      span.text-nav.fw-medium Basins
+                      span.fs-xs.text-muted.ms-auto 98
+                  .form-check
+                    input(type='checkbox')#bathroom-dispensers.form-check-input
+                    label(for='bathroom-dispensers').form-check-label.d-flex.align-items-center
+                      span.text-nav.fw-medium Dispensers
+                      span.fs-xs.text-muted.ms-auto 205
+                  .form-check
+                    input(type='checkbox')#bathroom-cleaning.form-check-input
+                    label(for='bathroom-cleaning').form-check-label.d-flex.align-items-center
+                      span.text-nav.fw-medium Cleaning
+                      span.fs-xs.text-muted.ms-auto 747
+                  .form-check
+                    input(type='checkbox')#bathroom-holders.form-check-input
+                    label(for='bathroom-holders').form-check-label.d-flex.align-items-center
+                      span.text-nav.fw-medium Holders
+                      span.fs-xs.text-muted.ms-auto 253
+            .accordion-item.mb-0
+              h4.accordion-header
+                button(type='button' data-bs-toggle='collapse' data-bs-target='#bedroom' aria-expanded='false' aria-controls='bedroom').accordion-button.collapsed.fs-xl.fw-medium.py-2
+                  span.fs-base Bedroom
+              #bedroom.accordion-collapse.collapse(data-bs-parent="#shopCategories")
+                .accordion-body.py-1.mb-1
+                  .form-check
+                    input(type='checkbox')#bedroom-all.form-check-input
+                    label(for='bedroom-all').form-check-label.d-flex.align-items-center
+                      span.text-nav.fw-medium View all
+                      span.fs-xs.text-muted.ms-auto 1219
+                  .form-check
+                    input(type='checkbox')#bedroom-furniture.form-check-input
+                    label(for='bedroom-furniture').form-check-label.d-flex.align-items-center
+                      span.text-nav.fw-medium Furniture
+                      span.fs-xs.text-muted.ms-auto 43
+                  .form-check
+                    input(type='checkbox')#bedroom-linen.form-check-input
+                    label(for='bedroom-linen').form-check-label.d-flex.align-items-center
+                      span.text-nav.fw-medium Bed linen
+                      span.fs-xs.text-muted.ms-auto 528
+                  .form-check
+                    input(type='checkbox')#bedroom-lighting.form-check-input
+                    label(for='bedroom-lighting').form-check-label.d-flex.align-items-center
+                      span.text-nav.fw-medium Lighting
+                      span.fs-xs.text-muted.ms-auto 391
+                  .form-check
+                    input(type='checkbox')#bedroom-storage.form-check-input
+                    label(for='bedroom-storage').form-check-label.d-flex.align-items-center
+                      span.text-nav.fw-medium Storage
+                      span.fs-xs.text-muted.ms-auto 75
+                  .form-check
+                    input(type='checkbox')#bedroom-mirrors.form-check-input
+                    label(for='bedroom-mirrors').form-check-label.d-flex.align-items-center
+                      span.text-nav.fw-medium Mirrors
+                      span.fs-xs.text-muted.ms-auto 182
+        #html5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Categories filter (accordion width checkboxes) --&gt;
+              &lt;h3 class=&quot;h5&quot;&gt;Categories&lt;/h3&gt;
+              &lt;div class=&quot;accordion accordion-alt&quot; id=&quot;shopCategories&quot;&gt;
+
+                &lt;!-- Category collapse --&gt;
+                &lt;div class=&quot;accordion-item mb-0&quot;&gt;
+                  &lt;h4 class=&quot;accordion-header&quot;&gt;
+                    &lt;button type=&quot;button&quot; class=&quot;accordion-button fs-xl fw-medium py-2&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#livingRoom&quot; aria-expanded=&quot;true&quot; aria-controls=&quot;livingRoom&quot;&gt;
+                      &lt;span class=&quot;fs-base&quot;&gt;Living room&lt;/span&gt;
+                    &lt;/button&gt;
+                  &lt;/h4&gt;
+                  &lt;div class=&quot;accordion-collapse collapse show&quot; id=&quot;livingRoom&quot; data-bs-parent=&quot;#shopCategories&quot;&gt;
+                    &lt;div class=&quot;accordion-body py-1 mb-1&quot;&gt;
+                      &lt;div class=&quot;form-check&quot;&gt;
+                        &lt;input type=&quot;checkbox&quot; class=&quot;form-check-input&quot; id=&quot;lr-all&quot;&gt;
+                        &lt;label for=&quot;lr-all&quot; class=&quot;form-check-label d-flex align-items-center&quot;&gt;
+                          &lt;span class=&quot;text-nav fw-medium&quot;&gt;View all&lt;/span&gt;
+                          &lt;span class=&quot;fs-xs text-muted ms-auto&quot;&gt;573&lt;/span&gt;
+                        &lt;/label&gt;
+                      &lt;/div&gt;
+                      &lt;div class=&quot;form-check&quot;&gt;
+                        &lt;input type=&quot;checkbox&quot; class=&quot;form-check-input&quot; id=&quot;lr-vases&quot; checked&gt;
+                        &lt;label for=&quot;lr-vases&quot; class=&quot;form-check-label d-flex align-items-center&quot;&gt;
+                          &lt;span class=&quot;text-nav fw-medium&quot;&gt;Vases&lt;/span&gt;
+                          &lt;span class=&quot;fs-xs text-muted ms-auto&quot;&gt;234&lt;/span&gt;
+                        &lt;/label&gt;
+                      &lt;/div&gt;
+                      &lt;div class=&quot;form-check&quot;&gt;
+                        &lt;input type=&quot;checkbox&quot; class=&quot;form-check-input&quot; id=&quot;lr-mirrors&quot;&gt;
+                        &lt;label for=&quot;lr-mirrors&quot; class=&quot;form-check-label d-flex align-items-center&quot;&gt;
+                          &lt;span class=&quot;text-nav fw-medium&quot;&gt;Mirrors&lt;/span&gt;&lt;span class=&quot;fs-xs text-muted ms-auto&quot;&gt;182&lt;/span&gt;
+                        &lt;/label&gt;
+                      &lt;/div&gt;
+                      &lt;div class=&quot;form-check&quot;&gt;
+                        &lt;input type=&quot;checkbox&quot; class=&quot;form-check-input&quot; id=&quot;lr-paintings&quot;&gt;
+                        &lt;label for=&quot;lr-paintings&quot; class=&quot;form-check-label d-flex align-items-center&quot;&gt;
+                          &lt;span class=&quot;text-nav fw-medium&quot;&gt;Paintings&lt;/span&gt;
+                          &lt;span class=&quot;fs-xs text-muted ms-auto&quot;&gt;133&lt;/span&gt;
+                        &lt;/label&gt;
+                      &lt;/div&gt;
+                      &lt;div class=&quot;form-check&quot;&gt;
+                        &lt;input type=&quot;checkbox&quot; class=&quot;form-check-input&quot; id=&quot;lr-furniture&quot;&gt;
+                        &lt;label for=&quot;lr-furniture&quot; class=&quot;form-check-label d-flex align-items-center&quot;&gt;
+                          &lt;span class=&quot;text-nav fw-medium&quot;&gt;Furniture&lt;/span&gt;
+                          &lt;span class=&quot;fs-xs text-muted ms-auto&quot;&gt;24&lt;/span&gt;
+                        &lt;/label&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Category collapse --&gt;
+                &lt;div class=&quot;accordion-item mb-0&quot;&gt;
+                  &lt;h4 class=&quot;accordion-header&quot;&gt;
+                    &lt;button type=&quot;button&quot; class=&quot;accordion-button collapsed fs-xl fw-medium py-2&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#kitchen&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;kitchen&quot;&gt;
+                      &lt;span class=&quot;fs-base&quot;&gt;Kitchen&lt;/span&gt;
+                    &lt;/button&gt;
+                  &lt;/h4&gt;
+                  &lt;div class=&quot;accordion-collapse collapse&quot; id=&quot;kitchen&quot; data-bs-parent=&quot;#shopCategories&quot;&gt;
+                    &lt;div class=&quot;accordion-body py-1 mb-1&quot;&gt;
+                      &lt;div class=&quot;form-check&quot;&gt;
+                        &lt;input type=&quot;checkbox&quot; class=&quot;form-check-input&quot; id=&quot;kitchen-all&quot;&gt;
+                        &lt;label for=&quot;kitchen-all&quot; class=&quot;form-check-label d-flex align-items-center&quot;&gt;
+                          &lt;span class=&quot;text-nav fw-medium&quot;&gt;View all&lt;/span&gt;
+                          &lt;span class=&quot;fs-xs text-muted ms-auto&quot;&gt;586&lt;/span&gt;
+                        &lt;/label&gt;
+                      &lt;/div&gt;
+                      &lt;div class=&quot;form-check&quot;&gt;
+                        &lt;input type=&quot;checkbox&quot; class=&quot;form-check-input&quot; id=&quot;kitchen-cutlery&quot;&gt;
+                        &lt;label for=&quot;kitchen-cutlery&quot; class=&quot;form-check-label d-flex align-items-center&quot;&gt;
+                          &lt;span class=&quot;text-nav fw-medium&quot;&gt;Cutlery&lt;/span&gt;
+                          &lt;span class=&quot;fs-xs text-muted ms-auto&quot;&gt;387&lt;/span&gt;
+                        &lt;/label&gt;
+                      &lt;/div&gt;
+                      &lt;div class=&quot;form-check&quot;&gt;
+                        &lt;input type=&quot;checkbox&quot; class=&quot;form-check-input&quot; id=&quot;kitchen-storage&quot;&gt;
+                        &lt;label for=&quot;kitchen-storage&quot; class=&quot;form-check-label d-flex align-items-center&quot;&gt;
+                          &lt;span class=&quot;text-nav fw-medium&quot;&gt;Storage&lt;/span&gt;
+                          &lt;span class=&quot;fs-xs text-muted ms-auto&quot;&gt;124&lt;/span&gt;
+                        &lt;/label&gt;
+                      &lt;/div&gt;
+                      &lt;div class=&quot;form-check&quot;&gt;
+                        &lt;input type=&quot;checkbox&quot; class=&quot;form-check-input&quot; id=&quot;kitchen-bins&quot;&gt;
+                        &lt;label for=&quot;kitchen-bins&quot; class=&quot;form-check-label d-flex align-items-center&quot;&gt;
+                          &lt;span class=&quot;text-nav fw-medium&quot;&gt;Waste bins&lt;/span&gt;
+                          &lt;span class=&quot;fs-xs text-muted ms-auto&quot;&gt;59&lt;/span&gt;
+                        &lt;/label&gt;
+                      &lt;/div&gt;
+                      &lt;div class=&quot;form-check&quot;&gt;
+                        &lt;input type=&quot;checkbox&quot; class=&quot;form-check-input&quot; id=&quot;kitchen-sinks&quot;&gt;
+                        &lt;label for=&quot;kitchen-sinks&quot; class=&quot;form-check-label d-flex align-items-center&quot;&gt;
+                          &lt;span class=&quot;text-nav fw-medium&quot;&gt;Sinks&lt;/span&gt;
+                          &lt;span class=&quot;fs-xs text-muted ms-auto&quot;&gt;16&lt;/span&gt;
+                        &lt;/label&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Add as many categories as you need --&gt;
+              &lt;/div&gt;
+        #pug5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Categories filter (accordion width checkboxes)
+              h3.h5 Categories
+              #shopCategories.accordion.accordion-alt
+
+                // Category collapse
+                .accordion-item.mb-0
+                  h4.accordion-header
+                    button(type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#livingRoom&quot; aria-expanded=&quot;true&quot; aria-controls=&quot;livingRoom&quot;).accordion-button.fs-xl.fw-medium.py-2
+                      span.fs-base Living room
+                  #livingRoom.accordion-collapse.collapse.show(data-bs-parent="#shopCategories")
+                    .accordion-body.py-1.mb-1
+                      .form-check
+                        input(type=&quot;checkbox&quot;)#lr-all.form-check-input
+                        label(for=&quot;lr-all&quot;).form-check-label.d-flex.align-items-center
+                          span.text-nav.fw-medium View all
+                          span.fs-xs.text-muted.ms-auto 573
+                      .form-check
+                        input(type=&quot;checkbox&quot; checked)#lr-vases.form-check-input
+                        label(for=&quot;lr-vases&quot;).form-check-label.d-flex.align-items-center
+                          span.text-nav.fw-medium Vases
+                          span.fs-xs.text-muted.ms-auto 234
+                      .form-check
+                        input(type=&quot;checkbox&quot;)#lr-mirrors.form-check-input
+                        label(for=&quot;lr-mirrors&quot;).form-check-label.d-flex.align-items-center
+                          span.text-nav.fw-medium Mirrors
+                          span.fs-xs.text-muted.ms-auto 182
+                      .form-check
+                        input(type=&quot;checkbox&quot;)#lr-paintings.form-check-input
+                        label(for=&quot;lr-paintings&quot;).form-check-label.d-flex.align-items-center
+                          span.text-nav.fw-medium Paintings
+                          span.fs-xs.text-muted.ms-auto 133
+                      .form-check
+                        input(type=&quot;checkbox&quot;)#lr-furniture.form-check-input
+                        label(for=&quot;lr-furniture&quot;).form-check-label.d-flex.align-items-center
+                          span.text-nav.fw-medium Furniture
+                          span.fs-xs.text-muted.ms-auto 24
+                
+                // Category collapse
+                .accordion-item.mb-0
+                  h4.accordion-header
+                    button(type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#kitchen&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;kitchen&quot;).accordion-button.collapsed.fs-xl.fw-medium.py-2
+                      span.fs-base Kitchen
+                  #kitchen.accordion-collapse.collapse(data-bs-parent="#shopCategories")
+                    .accordion-body.py-1.mb-1
+                      .form-check
+                        input(type=&quot;checkbox&quot;)#kitchen-all.form-check-input
+                        label(for=&quot;kitchen-all&quot;).form-check-label.d-flex.align-items-center
+                          span.text-nav.fw-medium View all
+                          span.fs-xs.text-muted.ms-auto 586
+                      .form-check
+                        input(type=&quot;checkbox&quot;)#kitchen-cutlery.form-check-input
+                        label(for=&quot;kitchen-cutlery&quot;).form-check-label.d-flex.align-items-center
+                          span.text-nav.fw-medium Cutlery
+                          span.fs-xs.text-muted.ms-auto 387
+                      .form-check
+                        input(type=&quot;checkbox&quot;)#kitchen-storage.form-check-input
+                        label(for=&quot;kitchen-storage&quot;).form-check-label.d-flex.align-items-center
+                          span.text-nav.fw-medium Storage
+                          span.fs-xs.text-muted.ms-auto 124
+                      .form-check
+                        input(type=&quot;checkbox&quot;)#kitchen-bins.form-check-input
+                        label(for=&quot;kitchen-bins&quot;).form-check-label.d-flex.align-items-center
+                          span.text-nav.fw-medium Waste bins
+                          span.fs-xs.text-muted.ms-auto 59
+                      .form-check
+                        input(type=&quot;checkbox&quot;)#kitchen-sinks.form-check-input
+                        label(for=&quot;kitchen-sinks&quot;).form-check-label.d-flex.align-items-center
+                          span.text-nav.fw-medium Sinks
+                          span.fs-xs.text-muted.ms-auto 16
+
+                // Add as many categories as you need 
+
+  // Price range slider
+  section#shop-price-range.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Price range slider
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview6' data-bs-toggle='tab' role='tab' aria-controls='preview6' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html6' data-bs-toggle='tab' role='tab' aria-controls='html6' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug6' data-bs-toggle='tab' role='tab' aria-controls='pug6' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview6.tab-pane.fade.show.active(role='tabpanel')
+          h3.h5 Price
+          .range-slider(data-start-min='280' data-start-max='720' data-min='0' data-max='1000' data-step='1' style='max-width: 280px;')
+            .range-slider-ui
+            .d-flex
+              .d-flex.align-items-center.w-50
+                label(for='price-min').form-label.fs-xs.me-2.mb-0 From
+                input(type='number' style='max-width: 6rem;')#price-min.form-control.form-control-sm.range-slider-value-min
+              .d-flex.align-items-center.justify-content-end.w-50
+                label(for='price-max').form-label.fs-xs.me-2.mb-0 To
+                input(type='number' style='max-width: 6rem;')#price-max.form-control.form-control-sm.range-slider-value-max
+        #html6.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Price range slider (based on noUISlider) --&gt;
+              &lt;h3 class=&quot;h5&quot;&gt;Price&lt;/h3&gt;
+              &lt;div class=&quot;range-slider&quot; data-start-min=&quot;280&quot; data-start-max=&quot;720&quot; data-min=&quot;0&quot; data-max=&quot;1000&quot; data-step=&quot;1&quot;&gt;
+                &lt;div class=&quot;range-slider-ui&quot;&gt;&lt;/div&gt;
+                &lt;div class=&quot;d-flex&quot;&gt;
+                  &lt;div class=&quot;d-flex align-items-center w-50&quot;&gt;
+                    &lt;label for=&quot;price-min&quot; class=&quot;form-label fs-xs me-2 mb-0&quot;&gt;From&lt;/label&gt;
+                    &lt;input type=&quot;number&quot; id=&quot;price-min&quot; class=&quot;form-control form-control-sm range-slider-value-min&quot; style=&quot;max-width: 6rem;&quot;&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;d-flex align-items-center w-50&quot;&gt;
+                    &lt;label for=&quot;price-max&quot; class=&quot;form-label fs-xs me-2 mb-0&quot;&gt;To&lt;/label&gt;
+                    &lt;input type=&quot;number&quot; id=&quot;price-max&quot; class=&quot;form-control form-control-sm range-slider-value-max&quot; style=&quot;max-width: 6rem;&quot;&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug6.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Price range slider (based on noUISlider)
+              h3.h5 Price
+              .range-slider(data-start-min=&quot;280&quot;, data-start-max=&quot;720&quot;, data-min=&quot;0&quot;, data-max=&quot;1000&quot;, data-step=&quot;1&quot;)
+                .range-slider-ui
+                .d-flex
+                  .d-flex.align-items-center.w-50
+                    label(for=&quot;price-min&quot;).form-label.fs-xs.me-2.mb-0
+                      | From
+                    input(type=&quot;number&quot;, style=&quot;max-width: 6rem;&quot;)#price-min.form-control.form-control-sm.range-slider-value-min
+                  .d-flex.align-items-center.justify-content-end.w-50
+                    label(for=&quot;price-max&quot;).form-label.fs-xs.me-2.mb-0
+                      | To
+                    input(type=&quot;number&quot;, style=&quot;max-width: 6rem;&quot;)#price-max.form-control.form-control-sm.range-slider-value-max
+
+  // Color filter (custom checkboxes)
+  section#shop-color-filter.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Color filter (custom checkboxes)
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview7' data-bs-toggle='tab' role='tab' aria-controls='preview7' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html7' data-bs-toggle='tab' role='tab' aria-controls='html7' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug7' data-bs-toggle='tab' role='tab' aria-controls='pug7' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview7.tab-pane.fade.show.active(role='tabpanel')
+          h3.h5 Color
+          .d-flex
+            .me-2.mb-2
+              input(type='checkbox' value='Soft beige' checked)#beige.btn-check
+              label(for='beige').btn.btn-icon.btn-sm.btn-outline-secondary.rounded-circle
+                span(style='width: 1.5rem; height: 1.5rem; background-color: #d9c9a1;').d-block.rounded-circle
+            .me-2.mb-2
+              input(type='checkbox' value='Bluish sky')#blue.btn-check
+              label(for='blue').btn.btn-icon.btn-sm.btn-outline-secondary.rounded-circle
+                span(style='width: 1.5rem; height: 1.5rem; background-color: #a1b7d9;').d-block.rounded-circle
+            .me-2.mb-2
+              input(type='checkbox' value='Green grass')#green.btn-check
+              label(for='green').btn.btn-icon.btn-sm.btn-outline-secondary.rounded-circle
+                span(style='width: 1.5rem; height: 1.5rem; background-color: #74947d;').d-block.rounded-circle
+            .me-2.mb-2
+              input(type='checkbox' value='Woody brown')#wood.btn-check
+              label(for='wood').btn.btn-icon.btn-sm.btn-outline-secondary.rounded-circle
+                span(style='width: 1.5rem; height: 1.5rem; background-color: #af8352; background-image: url(../assets/img/shop/pattern/wood.jpg);').d-block.bg-size-cover.bg-position-center.rounded-circle
+            .mb-2
+              input(type='checkbox' value='Gray marble')#marble.btn-check
+              label(for='marble').btn.btn-icon.btn-sm.btn-outline-secondary.rounded-circle
+                span(style='width: 1.5rem; height: 1.5rem; background-color: #c0c0c0; background-image: url(../assets/img/shop/pattern/marble.jpg);').d-block.bg-size-cover.bg-position-center.rounded-circle
+        #html7.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Color filter (custom checkboxes) --&gt;
+              &lt;h3 class=&quot;h5&quot;&gt;Color&lt;/h3&gt;
+              &lt;div class=&quot;d-flex&quot;&gt;
+
+                &lt;!-- Solid color (checked) --&gt;
+                &lt;div class=&quot;me-2 mb-2&quot;&gt;
+                  &lt;input type=&quot;checkbox&quot; class=&quot;btn-check&quot; id=&quot;blue&quot; value=&quot;Bluish sky&quot;&gt;
+                  &lt;label for=&quot;blue&quot; class=&quot;btn btn-icon btn-sm btn-outline-secondary rounded-circle&quot;&gt;
+                    &lt;span class=&quot;d-block rounded-circle&quot; style=&quot;width: 1.5rem; height: 1.5rem; background-color: #a1b7d9;&quot;&gt;&lt;/span&gt;
+                  &lt;/label&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Image pattern --&gt;
+                &lt;div class=&quot;me-2 mb-2&quot;&gt;
+                  &lt;input type=&quot;checkbox&quot; class=&quot;btn-check&quot; id=&quot;wood&quot; value=&quot;Woody brown&quot;&gt;
+                  &lt;label for=&quot;wood&quot; class=&quot;btn btn-icon btn-sm btn-outline-secondary rounded-circle&quot;&gt;
+                    &lt;span class=&quot;d-block bg-size-cover bg-position-center rounded-circle&quot; style=&quot;width: 1.5rem; height: 1.5rem; background-color: #af8352; background-image: url(assets/img/shop/pattern/wood.jpg);&quot;&gt;&lt;/span&gt;
+                  &lt;/label&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Add as many color checkboxes as you need --&gt;
+              &lt;/div&gt;
+        #pug7.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Color filter (custom checkboxes)
+              h3.h5 Color
+              .d-flex
+
+                // Solid color (checked)
+                .me-2.mb-2
+                  input(type=&quot;checkbox&quot; value=&quot;Bluish sky&quot; checked)#blue.btn-check
+                  label(for=&quot;blue&quot;).btn.btn-icon.btn-sm.btn-outline-secondary.rounded-circle
+                    span(style=&quot;width: 1.5rem; height: 1.5rem; background-color: #a1b7d9;&quot;).d-block.rounded-circle
+                
+                // Image pattern
+                .me-2.mb-2
+                  input(type=&quot;checkbox&quot; value=&quot;Woody brown&quot;)#wood.btn-check
+                  label(for=&quot;wood&quot;).btn.btn-icon.btn-sm.btn-outline-secondary.rounded-circle
+                    span(style=&quot;width: 1.5rem; height: 1.5rem; background-color: #af8352; background-image: url(assets/img/shop/pattern/wood.jpg);&quot;).d-block.bg-size-cover.bg-position-center.rounded-circle
+                
+                // Add as many color checkboxes as you need

@@ -1,0 +1,154 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['prismjs/themes/prism.css', 'prismjs/plugins/toolbar/prism-toolbar.css', 'prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var vendorScripts = ['prismjs/components/prism-core.min.js', 'prismjs/components/prism-markup.min.js', 'prismjs/components/prism-clike.min.js', 'prismjs/components/prism-javascript.min.js', 'prismjs/components/prism-pug.min.js', 'prismjs/plugins/toolbar/prism-toolbar.min.js', 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Popovers'
+  - var pageSubtitle = 'A pop-up box that appears when the user clicks/hovers on an element.'
+  - var pageTitleLink = {'title': 'Bootstrap docs', 'link': 'https://getbootstrap.com/docs/5.1/components/popovers/'}
+  - var anchorNav = [{'title': 'Static popovers', 'link': '#popovers-static'}, {'title': 'Live demo', 'link': '#popovers-demo'}, {'title': 'Toggle on click / hover', 'link': '#popovers-toggle'}]
+  
+//- Page Content
+block content
+
+  // Static popovers
+  section#popovers-static.pb-5.mb-md-2
+    h2.h5.mb-3 Static popovers
+    .card.border-0.shadow-sm
+      .card-body
+        //-- Styles For Demo purpose only
+        style.
+          .example-popover .popover {
+            display: block;
+            position: relative;
+            width: 16.25rem;
+            margin: 1rem;
+            float: left;
+          }
+          .bs-tooltip-bottom-demo .popover-arrow,
+          .bs-tooltip-top-demo .popover-arrow {
+            left: 50% !important;
+            margin-left: -.126rem !important;
+          }
+          .bs-tooltip-start-demo .popover-arrow,
+          .bs-tooltip-end-demo .popover-arrow {
+            top: 50%;
+            margin-top: -.375rem;
+          }
+          .bs-popover-bottom-demo .popover-arrow,
+          .bs-popover-top-demo .popover-arrow {
+            left: 50%;
+            margin-left: -.6875rem;
+          }
+          .bs-popover-start-demo .popover-arrow,
+          .bs-popover-end-demo .popover-arrow {
+            top: 50%;
+            margin-top: -.5rem;
+          }
+        //-- End of styles
+        .example-popover.clearfix
+          .popover.bs-popover-top.bs-popover-top-demo(role='tooltip')
+            .popover-arrow
+            h3.popover-header Popover top
+            .popover-body Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem.
+          .popover.bs-popover-end.bs-popover-end-demo(role='tooltip')
+            .popover-arrow
+            h3.popover-header Popover right
+            .popover-body Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem.
+          .popover.bs-popover-bottom.bs-popover-bottom-demo(role='tooltip')
+            .popover-arrow
+            h3.popover-header Popover bottom
+            .popover-body Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem.
+          .popover.bs-popover-start.bs-popover-start-demo.mt-2(role='tooltip')
+            .popover-arrow
+            h3.popover-header Popover left
+            .popover-body Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem.
+
+  // Live demo
+  section#popovers-demo.pb-5.mb-md-2
+    h2.h5.mb-3 Live demo
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result1' data-bs-toggle='tab' role='tab' aria-controls='result1' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result1.tab-pane.fade.show.active(role='tabpanel')
+            button(type='button' class='btn btn-accent me-2 mb-3' data-bs-container='body' data-bs-toggle='popover' data-bs-placement='top' data-bs-trigger='hover' title='Popover on top' data-bs-content='Vivamus sagittis lacus vel augue laoreet rutrum faucibus ornare sem.') Popover on top
+            button(type='button' class='btn btn-accent me-2 mb-3' data-bs-container='body' data-bs-toggle='popover' data-bs-placement='right' data-bs-trigger='hover' title='Popover on right' data-bs-content='Vivamus sagittis lacus vel augue laoreet rutrum faucibus ornare sem.') Popover on right
+            button(type='button' class='btn btn-accent me-2 mb-3' data-bs-container='body' data-bs-toggle='popover' data-bs-placement='bottom' data-bs-trigger='hover' title='Popover on bottom' data-bs-content='Vivamus sagittis lacus vel augue laoreet rutrum faucibus ornare sem.') Popover on bottom
+            button(type='button' class='btn btn-accent mb-3' data-bs-container='body' data-bs-toggle='popover' data-bs-placement='left' data-bs-trigger='hover' title='Popover on left' data-bs-content='Vivamus sagittis lacus vel augue laoreet rutrum faucibus ornare sem.') Popover on left
+          #html1.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Popover on top --&gt;
+                &lt;button type=&quot;button&quot; class=&quot;btn btn-accent&quot; data-bs-container=&quot;body&quot; data-bs-toggle=&quot;popover&quot; data-bs-placement=&quot;top&quot; data-bs-trigger=&quot;hover&quot; title=&quot;Popover on top&quot; data-bs-content=&quot;Vivamus sagittis lacus vel augue laoreet rutrum faucibus ornare sem.&quot;&gt;Popover on top&lt;/button&gt;
+
+                &lt;!-- Popover on right --&gt;
+                &lt;button type=&quot;button&quot; class=&quot;btn btn-accent&quot; data-bs-container=&quot;body&quot; data-bs-toggle=&quot;popover&quot; data-bs-placement=&quot;right&quot; data-bs-trigger=&quot;hover&quot; title=&quot;Popover on right&quot; data-bs-content=&quot;Vivamus sagittis lacus vel augue laoreet rutrum faucibus ornare sem.&quot;&gt;Popover on right&lt;/button&gt;
+
+                &lt;!-- Popover on bottom --&gt;
+                &lt;button type=&quot;button&quot; class=&quot;btn btn-accent&quot; data-bs-container=&quot;body&quot; data-bs-toggle=&quot;popover&quot; data-bs-placement=&quot;bottom&quot; data-bs-trigger=&quot;hover&quot; title=&quot;Popover on bottom&quot; data-bs-content=&quot;Vivamus sagittis lacus vel augue laoreet rutrum faucibus ornare sem.&quot;&gt;Popover on right&lt;/button&gt;
+
+                &lt;!-- Popover on left --&gt;
+                &lt;button type=&quot;button&quot; class=&quot;btn btn-accent&quot; data-bs-container=&quot;body&quot; data-bs-toggle=&quot;popover&quot; data-bs-placement=&quot;left&quot; data-bs-trigger=&quot;hover&quot; title=&quot;Popover on left&quot; data-bs-content=&quot;Vivamus sagittis lacus vel augue laoreet rutrum faucibus ornare sem.&quot;&gt;Popover on right&lt;/button&gt;
+          #pug1.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Popover on top
+                button(type=&quot;button&quot;, class=&quot;btn btn-accent&quot;, data-bs-container=&quot;body&quot;, data-bs-toggle=&quot;popover&quot;, data-bs-placement=&quot;top&quot;, data-bs-trigger=&quot;hover&quot;, title=&quot;Popover on top&quot;, data-bs-content=&quot;Vivamus sagittis lacus vel augue laoreet rutrum faucibus ornare sem.&quot;)
+                  | Popover on top
+
+                // Popover on right
+                button(type=&quot;button&quot;, class=&quot;btn btn-accent&quot;, data-bs-container=&quot;body&quot;, data-bs-toggle=&quot;popover&quot;, data-bs-placement=&quot;right&quot;, data-bs-trigger=&quot;hover&quot;, title=&quot;Popover on right&quot;, data-bs-content=&quot;Vivamus sagittis lacus vel augue laoreet rutrum faucibus ornare sem.&quot;)
+                  | Popover on right
+                
+                // Popover on bottom
+                button(type=&quot;button&quot;, class=&quot;btn btn-accent&quot;, data-bs-container=&quot;body&quot;, data-bs-toggle=&quot;popover&quot;, data-bs-placement=&quot;bottom&quot;, data-bs-trigger=&quot;hover&quot;, title=&quot;Popover on bottom&quot;, data-bs-content=&quot;Vivamus sagittis lacus vel augue laoreet rutrum faucibus ornare sem.&quot;)
+                  | Popover on bottom
+                
+                // Popover on left
+                button(type=&quot;button&quot;, class=&quot;btn btn-accent&quot;, data-bs-container=&quot;body&quot;, data-bs-toggle=&quot;popover&quot;, data-bs-placement=&quot;left&quot;, data-bs-trigger=&quot;hover&quot;, title=&quot;Popover on left&quot;, data-bs-content=&quot;Vivamus sagittis lacus vel augue laoreet rutrum faucibus ornare sem.&quot;)
+                  | Popover on left
+
+  // Toggle on click / hover
+  section#popovers-toggle.pb-5.mb-md-2
+    h2.h5.mb-3 Toggle on click / hover
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result2' data-bs-toggle='tab' role='tab' aria-controls='result2' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result2.tab-pane.fade.show.active(role='tabpanel')
+            button(type='button' class='btn btn-primary me-2 mb-3' data-bs-container='body' data-bs-toggle='popover' data-bs-placement='top' title='Popover on click' data-bs-content='Vivamus sagittis lacus vel augue laoreet rutrum faucibus ornare sem.') Toggle popover on click
+            button(type='button' class='btn btn-outline-primary me-2 mb-3' data-bs-container='body' data-bs-toggle='popover' data-bs-placement='top' data-bs-trigger='hover' title='Popover on hover' data-bs-content='Vivamus sagittis lacus vel augue laoreet rutrum faucibus ornare sem.') Toggle popover on hover
+          #html2.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Toggle popover on click (click is default trigger) --&gt;
+                &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; data-bs-container=&quot;body&quot; data-bs-toggle=&quot;popover&quot; data-bs-placement=&quot;top&quot; title=&quot;Popover on click&quot; data-bs-content=&quot;Vivamus sagittis lacus vel augue laoreet rutrum faucibus ornare sem.&quot;&gt;Toggle popover on click&lt;/button&gt;
+
+                &lt;!-- Toggle popover on hover --&gt;
+                &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-primary&quot; data-bs-container=&quot;body&quot; data-bs-toggle=&quot;popover&quot; data-bs-placement=&quot;top&quot; data-bs-trigger=&quot;hover&quot; title=&quot;Popover on hover&quot; data-bs-content=&quot;Vivamus sagittis lacus vel augue laoreet rutrum faucibus ornare sem.&quot;&gt;Toggle popover on hover&lt;/button&gt;
+          #pug2.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Toggle popover on click (click is default trigger)
+                button(type=&quot;button&quot;, class=&quot;btn btn-primary&quot;, data-bs-container=&quot;body&quot;, data-bs-toggle=&quot;popover&quot;, data-bs-placement=&quot;top&quot;, title=&quot;Popover on click&quot;, data-bs-content=&quot;Vivamus sagittis lacus vel augue laoreet rutrum faucibus ornare sem.&quot;)
+                  | Toggle popover on click
+
+                // Toggle popover on hover
+                button(type=&quot;button&quot;, class=&quot;btn btn-outline-primary&quot;, data-bs-container=&quot;body&quot;, data-bs-toggle=&quot;popover&quot;, data-bs-placement=&quot;right&quot;, data-bs-trigger=&quot;hover&quot;, title=&quot;Popover on hover&quot;, data-bs-content=&quot;Vivamus sagittis lacus vel augue laoreet rutrum faucibus ornare sem.&quot;)
+                  | Toggle popover on hover

@@ -1,0 +1,25 @@
+extends ../partials/layout-docs
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js']
+  - var pageTitle = 'Global colors'
+    
+//- Page Content
+block content
+
+  p.fw-semibold.text-dark: u There are 2 ways of customizing Around global colors:
+  ol.mb-0
+    li.mb-2 Customize global colors via Sass variables
+    li Customize global colors via CSS Custom properties (variables)
+
+  h2.h3.mt-lg-2.pt-5 Customize global colors via Sass variables
+  p In case you want to create your own color scheme - the fastest and painless way to do that is via Sass variables.
+  p Simply copy necessary variable from <code>Around/src/scss/_variables.scss</code> file and paste to <code>Around/src/scss/_user-variables.scss</code>, then compile new <code>theme.min.css</code> file either using <span class='fs-semibold'>Visual Studio Code Sass Compiler</span>, <span class='fs-semibold'>Prepros app</span> or <span class='fs-semibold'>Gulp</span>. Check <a href='using-preprocessors.html' class='fw-semibold'>Using Pug &amp; Sass</a> and / or <a href='working-with-gulp.html' class='fw-semibold'>Working with Gulp</a> sections for instructions.
+  u.d-block.text-nav.mb-4 Blelow is the screenshot of the part of Sass variables file responsible for global colors:
+  img(src='../assets/img/docs/sass-variables.png' alt='Sass variables').rounded-3
+
+  h2.h3.mt-lg-2.pt-5 Customize global colors via CSS custom properties (variables)
+  p Since <span class='fw-semibold'>v3.0.0</span> Around offers <span class='fw-semibold'>CSS Custom Properties (variables)</span> for every component as well as global variables which you can customize. These varibles cover almost every style from sizes, spacing to colors. The easiest way to learn what variables are available for certain component is to highlight the target component with browser inspector. You can also open the component <code>.scss</code> file (inside <code>Around/src/scss/components</code> folder) with your editor to learn about available CSS variables. Most of the time they are listed at the top level (parent wrapper). Refer to the screenshot from browser inspector below:
+  img(src='../assets/img/docs/css-variables.png' alt='Sass variables').rounded-3

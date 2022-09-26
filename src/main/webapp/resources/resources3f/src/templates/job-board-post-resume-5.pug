@@ -1,0 +1,206 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css', 'filepond/dist/filepond.min.css']
+  - var vendorScripts = ['filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.min.js', 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.js', 'filepond-plugin-image-crop/dist/filepond-plugin-image-crop.min.js', 'filepond-plugin-image-resize/dist/filepond-plugin-image-resize.min.js', 'filepond-plugin-image-transform/dist/filepond-plugin-image-transform.min.js', 'filepond/dist/filepond.min.js']
+  - var parentMenu = 'Account'
+  - var pageTitle = 'Job Board | Post Resume - Review'
+  - var bodyClass = 'bg-secondary'
+
+//- Navbar
+block navbar
+  include partials/navbar-job-board
+
+//- Page Content
+block content
+
+  // Page container
+  .container.mt-5.mb-md-4.py-5
+    
+    // Breadcrumb
+    nav(aria-label='Breadcrumb').mb-3.mb-md-4.pt-md-3
+      ol.breadcrumb
+        li.breadcrumb-item
+          a(href='job-board-home-v1.html') Home
+        li(aria-current='page').breadcrumb-item.active
+          | Post resume
+
+
+    // Page content
+    .row.justify-content-center.pb-sm-2
+      .col-lg-11.col-xl-10
+
+        // Page title
+        h1.h2.text-center.pb-4.mb-3 Create online resume
+        
+        // Steps
+        .bg-light.rounded-3.py-4.px-md-4.mb-3
+          .steps.pt-4.pb-1
+            .step.active
+              .step-progress
+                span.step-progress-start
+                span.step-progress-end
+                span.step-number 1
+              .step-label Basic info
+            .step.active
+              .step-progress
+                span.step-progress-start
+                span.step-progress-end
+                span.step-number 2
+              .step-label Education
+            .step.active
+              .step-progress
+                span.step-progress-start
+                span.step-progress-end
+                span.step-number 3
+              .step-label Experience
+            .step.active
+              .step-progress
+                span.step-progress-start
+                span.step-progress-end
+                span.step-number 4
+              .step-label Skills
+            .step.active
+              .step-progress
+                span.step-progress-start
+                span.step-progress-end
+                span.step-number 5
+              .step-label Review
+
+
+        // Step 5: Review
+        .bg-light.rounded-3.pt-4.pb-0.px-4.p-md-5.mb-3
+
+          // Title + Action buttons
+          .d-md-flex.align-items-center.mb-4.pb-md-2
+            h2.h4.mb-md-0
+              i.fi-eye-on.text-primary.fs-5.mt-n1.me-2.pe-1
+              | Review your resume and save
+            .ms-md-auto
+              .dropdown.d-lg-none
+                button(type='button' data-bs-toggle='dropdown').btn.btn-outline-secondary.btn-sm.dropdown-toggle
+                  i.fi-align-justify.me-1
+                  | Actions
+                .dropdown-menu.dropdown-menu-end.my-1
+                  a(href='#').dropdown-item
+                    i.fi-trash.me-2
+                    | Delete
+                  a(href='#').dropdown-item
+                    i.fi-archive.me-2
+                    | Archive
+                  a(href='#').dropdown-item
+                    i.fi-download-file.me-2
+                    | Download as PDF
+              ul.list-unstyled.d-none.d-lg-flex.flex-wrap.fs-sm.mb-0
+                li.border-end.mb-0
+                  a(href='#').nav-link.text-nowrap
+                    i.fi-trash.me-1
+                    span.align-middle Delete
+                li.border-end.mb-0
+                  a(href='#').nav-link.text-nowrap
+                    i.fi-archive.me-1
+                    span.align-middle Archive
+                li.mb-0
+                  a(href='#').nav-link.text-nowrap.pe-0
+                    i.fi-download-file.me-1
+                    span.align-middle Download as PDF
+
+          // Resume preview
+          .card.shadow-sm.p-md-2.mx-n4.mx-md-0
+            .card-body.p-4
+              .d-sm-flex.justify-content-between.align-items-start.pb-4
+                .flex-shrink-0.order-sm-2.mb-4(style='width: 10rem; height: 10rem;')
+                  input(type='file' accept='image/png, image/jpeg' data-label-idle='<i class="d-inline-block fi-camera-plus fs-2 text-muted mb-2"></i><br><span class="fw-bold">Change picture</span>' data-style-panel-layout='compact' data-image-preview-height='160' data-image-crop-aspect-ratio='1:1' data-image-resize-target-width='200' data-image-resize-target-height='200').file-uploader.bg-secondary                
+                .order-sm-1
+                  h3.h4.mb-sm-4 Annette Black
+                  h4.h5 Basic info
+                  ul.list-unstyled.text-nav
+                    li <span class='text-muted'>Position:</span> UX Designer
+                    li <span class='text-muted'>Job type:</span> Part-time
+                    li <span class='text-muted'>Location:</span> New York, USA
+                    li <span class='text-muted'>Salary:</span> $2000 – $3000
+                    li <span class='text-muted'>Categories:</span> Design, Internet Technology
+                  a(href='job-board-post-resume-1.html').d-inline-block.fw-bold.text-decoration-none.py-1
+                    i.fi-edit.mt-n1.me-2
+                    | Edit
+              .border-top.py-4
+                h4.h5 Personal info
+                ul.list-unstyled.text-nav
+                  li <span class='text-muted'>Full name:</span> Annete Black
+                  li <span class='text-muted'>Date of birth:</span> May 18, 1989
+                  li <span class='text-muted'>Address:</span> 2464 Royal Ln. Mesa, New Jersey 45463
+                  li <span class='text-muted'>Phone:</span> (302) 555-0107
+                  li <span class='text-muted'>Email:</span> annette_black@email.com
+                  li
+                    span.text-muted Socials: 
+                    .d-inline-flex.ms-1
+                      a(href='#').btn.btn-icon.btn-light-primary.btn-xs.rounded-circle.shadow-sm.me-2.my-1
+                        i.fi-facebook
+                      a(href='#').btn.btn-icon.btn-light-primary.btn-xs.rounded-circle.shadow-sm.me-2.my-1
+                        i.fi-twitter
+                      a(href='#').btn.btn-icon.btn-light-primary.btn-xs.rounded-circle.shadow-sm.my-1
+                        i.fi-linkedin
+                a(href='job-board-post-resume-1.html').d-inline-block.fw-bold.text-decoration-none.py-1
+                  i.fi-edit.mt-n1.me-2
+                  | Edit
+              .border-top.py-4
+                h4.h5 Work experience
+                .mt-3
+                  h5.h6.mb-2 Product Designer
+                  ul.list-unstyled.fs-sm.mb-2
+                    li XAMPP Company (IT, Consulting)
+                    li 2015 – 2020
+                  p Praesent sed pulvinar posuere nisl tincidunt. Iaculis sit quam magna congue. Amet vel non aliquet habitasse. Egestas erat odio et, eleifend turpis etiam blandit interdum. Nec augue ut senectus quisque diam quis. At augue accumsan, bibendum. A eget et, eget quisque egestas netus vel.
+                  .d-flex
+                    a(href='job-board-post-resume-3.html').d-inline-block.fw-bold.text-decoration-none.py-1.pe-3.border-end
+                      i.fi-edit.mt-n1.me-2
+                      | Edit
+                    a(href='#').d-inline-block.fw-bold.text-decoration-none.py-1.ps-3
+                      i.fi-trash.mt-n1.me-2
+                      | Delete
+                .pt-2.mt-3
+                  h5.h6.mb-2 Product Designer
+                  ul.list-unstyled.fs-sm
+                    li XAMPP Company (IT, Consulting)
+                    li 2015 – 2020
+                  .d-flex
+                    a(href='job-board-post-resume-3.html').d-inline-block.fw-bold.text-decoration-none.py-1.pe-3.border-end
+                      i.fi-edit.mt-n1.me-2
+                      | Edit
+                    a(href='#').d-inline-block.fw-bold.text-decoration-none.py-1.ps-3
+                      i.fi-trash.mt-n1.me-2
+                      | Delete
+              .border-top.py-4
+                h4.h5 Education
+                .mt-3
+                  h5.h6.mb-2 Bachelor's degree
+                  ul.list-unstyled.fs-sm
+                    li Syracuse University
+                    li 900 South Crouse Ave. Syracuse, NY 13244
+                    li 2008 – 2012
+                  .d-flex
+                    a(href='job-board-post-resume-2.html').d-inline-block.fw-bold.text-decoration-none.py-1.pe-3.border-end
+                      i.fi-edit.mt-n1.me-2
+                      | Edit
+                    a(href='#').d-inline-block.fw-bold.text-decoration-none.py-1.ps-3
+                      i.fi-trash.mt-n1.me-2
+                      | Delete
+              .border-top.pt-4
+                h4.h5 Skills
+                a(href='job-board-post-resume-4.html').d-inline-block.fw-bold.text-decoration-none.py-1
+                  i.fi-plus.fs-sm.me-2
+                  | Add skills
+
+        // Navigation
+        .d-flex.flex-column.flex-sm-row.bg-light.rounded-3.p-4.px-md-5
+          a(href='job-board-post-resume-4.html').btn.btn-outline-primary.btn-lg.rounded-pill.mb-3.mb-sm-0
+            i.fi-chevron-left.fs-sm.me-2
+            | Previous step
+          button(type='button').btn.btn-primary.btn-lg.rounded-pill.ms-sm-auto
+            | Save resume
+
+
+//- Footer
+block footer
+  include partials/footer-job-board

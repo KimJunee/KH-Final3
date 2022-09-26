@@ -1,0 +1,763 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['prismjs/themes/prism.css', 'prismjs/plugins/toolbar/prism-toolbar.css', 'prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var vendorScripts = ['prismjs/components/prism-core.min.js', 'prismjs/components/prism-markup.min.js', 'prismjs/components/prism-clike.min.js', 'prismjs/components/prism-javascript.min.js', 'prismjs/components/prism-pug.min.js', 'prismjs/plugins/toolbar/prism-toolbar.min.js', 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Steps'
+  - var pageSubtitle = 'Series of steps or conditions that the user needs to complete in order to accomplish a goal.'
+  - var isPageTitleBadge = true
+  - var anchorNav = [{'title': 'Inline steps: Default', 'link': '#steps-inline'}, {'title': 'Inline steps: Links', 'link': '#steps-inline-links'}, {'title': 'Inline steps: Vertical', 'link': '#steps-inline-vertical'}, {'title': 'Inline steps: Light version', 'link': '#steps-inline-light'}, {'title': 'Card based: Default', 'link': '#steps-card'}, {'title': 'Card based: Links', 'link': '#steps-card-link'}, {'title': 'Card based: Alignment', 'link': '#steps-card-alignment'}, {'title': 'Card based: Light version', 'link': '#steps-card-light'}]
+  
+//- Page Content
+block content
+  
+  // Inline steps: Default
+  section#steps-inline.pb-5.mb-md-2
+    h2.h5.mb-3 Inline steps: Default
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result1' data-bs-toggle='tab' role='tab' aria-controls='result1' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result1.tab-pane.fade.show.active(role='tabpanel')
+            .steps.pt-4.pb-3
+              .step.active
+                .step-progress
+                  span.step-progress-start
+                  span.step-progress-end
+                  span.step-number 1
+                .step-label Basic info
+              .step.active
+                .step-progress
+                  span.step-progress-start
+                  span.step-progress-end
+                  span.step-number 2
+                .step-label Company details
+              .step
+                .step-progress
+                  span.step-progress-start
+                  span.step-progress-end
+                  span.step-number 3
+                .step-label Job details
+              .step
+                .step-progress
+                  span.step-progress-start
+                  span.step-progress-end
+                  span.step-number 4
+                .step-label Post a job
+          #html1.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Inline steps: Default --&gt;
+                &lt;div class=&quot;steps&quot;&gt;
+                  &lt;div class=&quot;step active&quot;&gt;
+                    &lt;div class=&quot;step-progress&quot;&gt;
+                      &lt;span class=&quot;step-progress-start&quot;&gt;&lt;/span&gt;
+                      &lt;span class=&quot;step-progress-end&quot;&gt;&lt;/span&gt;
+                      &lt;span class=&quot;step-number&quot;&gt;1&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;step-label&quot;&gt;Basic info&lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;step active&quot;&gt;
+                    &lt;div class=&quot;step-progress&quot;&gt;
+                      &lt;span class=&quot;step-progress-start&quot;&gt;&lt;/span&gt;
+                      &lt;span class=&quot;step-progress-end&quot;&gt;&lt;/span&gt;
+                      &lt;span class=&quot;step-number&quot;&gt;2&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;step-label&quot;&gt;Company details&lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;step&quot;&gt;
+                    &lt;div class=&quot;step-progress&quot;&gt;
+                      &lt;span class=&quot;step-progress-start&quot;&gt;&lt;/span&gt;
+                      &lt;span class=&quot;step-progress-end&quot;&gt;&lt;/span&gt;
+                      &lt;span class=&quot;step-number&quot;&gt;3&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;step-label&quot;&gt;Job details&lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;step&quot;&gt;
+                    &lt;div class=&quot;step-progress&quot;&gt;
+                      &lt;span class=&quot;step-progress-start&quot;&gt;&lt;/span&gt;
+                      &lt;span class=&quot;step-progress-end&quot;&gt;&lt;/span&gt;
+                      &lt;span class=&quot;step-number&quot;&gt;4&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;step-label&quot;&gt;Post a job&lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+          #pug1.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Inline steps: Default
+                .steps
+                  .step.active
+                    .step-progress
+                      span.step-progress-start
+                      span.step-progress-end
+                      span.step-number 1
+                    .step-label Basic info
+                  .step.active
+                    .step-progress
+                      span.step-progress-start
+                      span.step-progress-end
+                      span.step-number 2
+                    .step-label Company details
+                  .step
+                    .step-progress
+                      span.step-progress-start
+                      span.step-progress-end
+                      span.step-number 3
+                    .step-label Job details
+                  .step
+                    .step-progress
+                      span.step-progress-start
+                      span.step-progress-end
+                      span.step-number 4
+                    .step-label Post a job
+  
+  // Inline steps: Links
+  section#steps-inline-links.pb-5.mb-md-2
+    h2.h5.mb-3 Inline steps: Links
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result2' data-bs-toggle='tab' role='tab' aria-controls='result2' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result2.tab-pane.fade.show.active(role='tabpanel')
+            .steps.pt-4.pb-3
+              a(href='#').step.active
+                .step-progress
+                  span.step-progress-start
+                  span.step-progress-end
+                  span.step-number 1
+                .step-label Basic info
+              a(href='#').step.active
+                .step-progress
+                  span.step-progress-start
+                  span.step-progress-end
+                  span.step-number 2
+                .step-label Company details
+              a(href='#').step
+                .step-progress
+                  span.step-progress-start
+                  span.step-progress-end
+                  span.step-number 3
+                .step-label Job details
+              a(href='#').step
+                .step-progress
+                  span.step-progress-start
+                  span.step-progress-end
+                  span.step-number 4
+                .step-label Post a job
+          #html2.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Inline steps: Default --&gt;
+                &lt;div class=&quot;steps&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;step active&quot;&gt;
+                    &lt;div class=&quot;step-progress&quot;&gt;
+                      &lt;span class=&quot;step-progress-start&quot;&gt;&lt;/span&gt;
+                      &lt;span class=&quot;step-progress-end&quot;&gt;&lt;/span&gt;
+                      &lt;span class=&quot;step-number&quot;&gt;1&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;step-label&quot;&gt;Basic info&lt;/div&gt;
+                  &lt;/a&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;step active&quot;&gt;
+                    &lt;div class=&quot;step-progress&quot;&gt;
+                      &lt;span class=&quot;step-progress-start&quot;&gt;&lt;/span&gt;
+                      &lt;span class=&quot;step-progress-end&quot;&gt;&lt;/span&gt;
+                      &lt;span class=&quot;step-number&quot;&gt;2&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;step-label&quot;&gt;Company details&lt;/div&gt;
+                  &lt;/a&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;step&quot;&gt;
+                    &lt;div class=&quot;step-progress&quot;&gt;
+                      &lt;span class=&quot;step-progress-start&quot;&gt;&lt;/span&gt;
+                      &lt;span class=&quot;step-progress-end&quot;&gt;&lt;/span&gt;
+                      &lt;span class=&quot;step-number&quot;&gt;3&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;step-label&quot;&gt;Job details&lt;/div&gt;
+                  &lt;/a&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;step&quot;&gt;
+                    &lt;div class=&quot;step-progress&quot;&gt;
+                      &lt;span class=&quot;step-progress-start&quot;&gt;&lt;/span&gt;
+                      &lt;span class=&quot;step-progress-end&quot;&gt;&lt;/span&gt;
+                      &lt;span class=&quot;step-number&quot;&gt;4&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;step-label&quot;&gt;Post a job&lt;/div&gt;
+                  &lt;/a&gt;
+                &lt;/div&gt;
+          #pug2.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Inline steps: Default
+                .steps
+                  a(href=&quot;#&quot;).step.active
+                    .step-progress
+                      span.step-progress-start
+                      span.step-progress-end
+                      span.step-number 1
+                    .step-label Basic info
+                  a(href=&quot;#&quot;).step.active
+                    .step-progress
+                      span.step-progress-start
+                      span.step-progress-end
+                      span.step-number 2
+                    .step-label Company details
+                  a(href=&quot;#&quot;).step
+                    .step-progress
+                      span.step-progress-start
+                      span.step-progress-end
+                      span.step-number 3
+                    .step-label Job details
+                  a(href=&quot;#&quot;).step
+                    .step-progress
+                      span.step-progress-start
+                      span.step-progress-end
+                      span.step-number 4
+                    .step-label Post a job
+
+  // Inline steps: Vertical
+  section#steps-inline-vertical.pb-5.mb-md-2
+    h2.h5.mb-3 Inline steps: Vertical
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result6' data-bs-toggle='tab' role='tab' aria-controls='result6' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html6' data-bs-toggle='tab' role='tab' aria-controls='html6' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug6' data-bs-toggle='tab' role='tab' aria-controls='pug6' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result6.tab-pane.fade.show.active(role='tabpanel')
+            div(style='max-width: 678px;').steps.steps-vertical.pt-4.pb-3
+              .step.active
+                .step-progress
+                  span.step-progress-end
+                  span.step-number 1
+                .step-label
+                  h5.mb-2.pb-1 2017
+                  p.mb-0 Odio velit, massa augue etiam in parturient volutpat orci. Pulvinar amet, at est ac curabitur mauris, semper cursus metus. Imperdiet sed massa amet at turpis. Dis risus, donec in ac ultricies tempor eu, amet.
+              .step.active
+                .step-progress
+                  span.step-progress-end
+                  span.step-number 2
+                .step-label
+                  h5.mb-2.pb-1 2018
+                  p.mb-0 Vitae erat ornare facilisi id sollicitudin turpis tempus, semper. Velit integer et volutpat, a. Massa ut amet amet, vitae nunc nulla sed.
+              .step
+                .step-progress
+                  span.step-progress-end
+                  span.step-number 3
+                .step-label
+                  h5.mb-2.pb-1 2020
+                  p.mb-0 Ut mattis nascetur aliquam neque velit nunc sed. Morbi congue mauris amet ultrices molestie tellus proin odio diam. Feugiat elit, habitasse egestas egestas id nec potenti. Donec convallis donec tristique mattis et viverra.
+              .step
+                .step-progress
+                  span.step-progress-end
+                  span.step-number 4
+                .step-label
+                  h5.mb-2.pb-1 2021
+                  p.mb-0 Tempor nullam pellentesque suspendisse nec. Arcu sagittis sed ut diam in ultrices. Leo lacinia feugiat interdum pellentesque nulla vitae duis.
+          #html6.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Inline steps: Vertical --&gt;
+                &lt;div class=&quot;steps steps-vertical&quot;&gt;
+                  &lt;div class=&quot;step active&quot;&gt;
+                    &lt;div class=&quot;step-progress&quot;&gt;
+                      &lt;span class=&quot;step-progress-end&quot;&gt;&lt;/span&gt;
+                      &lt;span class=&quot;step-number&quot;&gt;1&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;step-label&quot;&gt;
+                      &lt;h5 class=&quot;mb-2 pb-1&quot;&gt;2017&lt;/h5&gt;
+                      &lt;p class=&quot;mb-0&quot;&gt;Odio velit, massa augue etiam in parturient volutpat orci. Pulvinar amet, at est ac curabitur mauris, semper cursus metus. Imperdiet sed massa amet at turpis. Dis risus, donec in ac ultricies tempor eu, amet.&lt;/p&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;step active&quot;&gt;
+                    &lt;div class=&quot;step-progress&quot;&gt;
+                      &lt;span class=&quot;step-progress-end&quot;&gt;&lt;/span&gt;
+                      &lt;span class=&quot;step-number&quot;&gt;2&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;step-label&quot;&gt;
+                      &lt;h5 class=&quot;mb-2 pb-1&quot;&gt;2018&lt;/h5&gt;
+                      &lt;p class=&quot;mb-0&quot;&gt;Vitae erat ornare facilisi id sollicitudin turpis tempus, semper. Velit integer et volutpat, a. Massa ut amet amet, vitae nunc nulla sed.&lt;/p&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;step&quot;&gt;
+                    &lt;div class=&quot;step-progress&quot;&gt;
+                      &lt;span class=&quot;step-progress-end&quot;&gt;&lt;/span&gt;
+                      &lt;span class=&quot;step-number&quot;&gt;3&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;step-label&quot;&gt;
+                      &lt;h5 class=&quot;mb-2 pb-1&quot;&gt;2020&lt;/h5&gt;
+                      &lt;p class=&quot;mb-0&quot;&gt;Ut mattis nascetur aliquam neque velit nunc sed. Morbi congue mauris amet ultrices molestie tellus proin odio diam. Feugiat elit, habitasse egestas egestas id nec potenti. Donec convallis donec tristique mattis et viverra.&lt;/p&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;step&quot;&gt;
+                    &lt;div class=&quot;step-progress&quot;&gt;
+                      &lt;span class=&quot;step-progress-end&quot;&gt;&lt;/span&gt;
+                      &lt;span class=&quot;step-number&quot;&gt;4&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;step-label&quot;&gt;
+                      &lt;h5 class=&quot;mb-2 pb-1&quot;&gt;2021&lt;/h5&gt;
+                      &lt;p class=&quot;mb-0&quot;&gt;Tempor nullam pellentesque suspendisse nec. Arcu sagittis sed ut diam in ultrices. Leo lacinia feugiat interdum pellentesque nulla vitae duis.&lt;/p&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+          #pug6.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Inline steps: Vertical
+                .steps.steps-vertical
+                  .step.active
+                    .step-progress
+                      span.step-progress-end
+                      span.step-number 1
+                    .step-label
+                      h5.mb-2.pb-1
+                        | 2017
+                      p.mb-0
+                        | Odio velit, massa augue etiam in parturient volutpat orci. Pulvinar amet, at est ac curabitur mauris, semper cursus metus. Imperdiet sed massa amet at turpis. Dis risus, donec in ac ultricies tempor eu, amet.
+                  .step.active
+                    .step-progress
+                      span.step-progress-end
+                      span.step-number 2
+                    .step-label
+                      h5.mb-2.pb-1
+                        | 2018
+                      p.mb-0
+                        | Vitae erat ornare facilisi id sollicitudin turpis tempus, semper. Velit integer et volutpat, a. Massa ut amet amet, vitae nunc nulla sed.
+                  .step
+                    .step-progress
+                      span.step-progress-end
+                      span.step-number 3
+                    .step-label
+                      h5.mb-2.pb-1
+                        | 2020
+                      p.mb-0
+                        | Ut mattis nascetur aliquam neque velit nunc sed. Morbi congue mauris amet ultrices molestie tellus proin odio diam. Feugiat elit, habitasse egestas egestas id nec potenti. Donec convallis donec tristique mattis et viverra.
+                  .step
+                    .step-progress
+                      span.step-progress-end
+                      span.step-number 4
+                    .step-label
+                      h5.mb-2.pb-1
+                        | 2021
+                      p.mb-0
+                        | Tempor nullam pellentesque suspendisse nec. Arcu sagittis sed ut diam in ultrices. Leo lacinia feugiat interdum pellentesque nulla vitae duis.
+
+  // Inline steps: Light version
+  section#steps-inline-light.pb-5.mb-md-2
+    h2.h5.mb-3 Inline steps: Light version
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result3' data-bs-toggle='tab' role='tab' aria-controls='result3' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result3.tab-pane.m-n3.p-3.bg-dark.fade.show.active(role='tabpanel')
+            .steps.steps-light.pt-4.pb-3
+              .step.active
+                .step-progress
+                  span.step-progress-start
+                  span.step-progress-end
+                  span.step-number 1
+                .step-label Basic info
+              .step.active
+                .step-progress
+                  span.step-progress-start
+                  span.step-progress-end
+                  span.step-number 2
+                .step-label Company details
+              .step
+                .step-progress
+                  span.step-progress-start
+                  span.step-progress-end
+                  span.step-number 3
+                .step-label Job details
+              .step
+                .step-progress
+                  span.step-progress-start
+                  span.step-progress-end
+                  span.step-number 4
+                .step-label Post a job
+          #html3.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Inline steps: Light version --&gt;
+                &lt;div class=&quot;steps steps-light&quot;&gt;
+                  &lt;div class=&quot;step active&quot;&gt;
+                    &lt;div class=&quot;step-progress&quot;&gt;
+                      &lt;span class=&quot;step-progress-start&quot;&gt;&lt;/span&gt;
+                      &lt;span class=&quot;step-progress-end&quot;&gt;&lt;/span&gt;
+                      &lt;span class=&quot;step-number&quot;&gt;1&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;step-label&quot;&gt;Basic info&lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;step active&quot;&gt;
+                    &lt;div class=&quot;step-progress&quot;&gt;
+                      &lt;span class=&quot;step-progress-start&quot;&gt;&lt;/span&gt;
+                      &lt;span class=&quot;step-progress-end&quot;&gt;&lt;/span&gt;
+                      &lt;span class=&quot;step-number&quot;&gt;2&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;step-label&quot;&gt;Company details&lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;step&quot;&gt;
+                    &lt;div class=&quot;step-progress&quot;&gt;
+                      &lt;span class=&quot;step-progress-start&quot;&gt;&lt;/span&gt;
+                      &lt;span class=&quot;step-progress-end&quot;&gt;&lt;/span&gt;
+                      &lt;span class=&quot;step-number&quot;&gt;3&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;step-label&quot;&gt;Job details&lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;step&quot;&gt;
+                    &lt;div class=&quot;step-progress&quot;&gt;
+                      &lt;span class=&quot;step-progress-start&quot;&gt;&lt;/span&gt;
+                      &lt;span class=&quot;step-progress-end&quot;&gt;&lt;/span&gt;
+                      &lt;span class=&quot;step-number&quot;&gt;4&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;step-label&quot;&gt;Post a job&lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+          #pug3.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Inline steps: Light version
+                .steps.steps-light
+                  .step.active
+                    .step-progress
+                      span.step-progress-start
+                      span.step-progress-end
+                      span.step-number 1
+                    .step-label Basic info
+                  .step.active
+                    .step-progress
+                      span.step-progress-start
+                      span.step-progress-end
+                      span.step-number 2
+                    .step-label Company details
+                  .step
+                    .step-progress
+                      span.step-progress-start
+                      span.step-progress-end
+                      span.step-number 3
+                    .step-label Job details
+                  .step
+                    .step-progress
+                      span.step-progress-start
+                      span.step-progress-end
+                      span.step-number 4
+                    .step-label Post a job
+  
+  // Card based: Default
+  section#steps-card.pb-5.mb-md-2
+    h2.h5.mb-3 Card based: Default
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result4' data-bs-toggle='tab' role='tab' aria-controls='result4' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result4.tab-pane.fade.show.active(role='tabpanel')
+            .row.py-2
+              .col-md-4
+                .card.card-hover.card-body.border-0.bg-transparent
+                  .h2.text-primary.mb-2.pb-1 01
+                  h3.h5.card-title Create a Job Ad
+                  p.card-text.fs-sm In volutpat lacus orci volutpat nulla tristique eu. Ullamcorper in est lectus cras.
+              .col-md-4
+                .card.card-hover.card-body.border-0.bg-transparent
+                  .h2.text-primary.mb-2.pb-1 02
+                  h3.h5.card-title Select a Pricing Plan
+                  p.card-text.fs-sm Cursus duis ridiculus purus eget velit mattis id vel. Semper aliquet auctor cras dui.
+              .col-md-4
+                .card.card-hover.card-body.border-0.bg-transparent
+                  .h2.text-primary.mb-2.pb-1 03
+                  h3.h5.card-title Post Your Job
+                  p.card-text.fs-sm Sit auctor aliquam leo duis. Praesent ut penatibus faucibus nibh arcu tempor.
+          #html4.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Card based steps --&gt;
+                &lt;div class=&quot;row&quot;&gt;
+                  &lt;div class=&quot;col-md-4&quot;&gt;
+                    &lt;div class=&quot;card card-hover card-body border-0 bg-transparent&quot;&gt;
+                      &lt;div class=&quot;h2 text-primary mb-2 pb-1&quot;&gt;01&lt;/div&gt;
+                      &lt;h3 class=&quot;h5 card-title&quot;&gt;Create a Job Ad&lt;/h3&gt;
+                      &lt;p class=&quot;card-text fs-sm&quot;&gt;In volutpat lacus orci volutpat nulla tristique eu. Ullamcorper in est lectus cras.&lt;/p&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;col-md-4&quot;&gt;
+                    &lt;div class=&quot;card card-hover card-body border-0 bg-transparent&quot;&gt;
+                      &lt;div class=&quot;h2 text-primary mb-2 pb-1&quot;&gt;02&lt;/div&gt;
+                      &lt;h3 class=&quot;h5 card-title&quot;&gt;Select a Pricing Plan&lt;/h3&gt;
+                      &lt;p class=&quot;card-text fs-sm&quot;&gt;Cursus duis ridiculus purus eget velit mattis id vel. Semper aliquet auctor cras dui.&lt;/p&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;col-md-4&quot;&gt;
+                    &lt;div class=&quot;card card-hover card-body border-0 bg-transparent&quot;&gt;
+                      &lt;div class=&quot;h2 text-primary mb-2 pb-1&quot;&gt;03&lt;/div&gt;
+                      &lt;h3 class=&quot;h5 card-title&quot;&gt;Post Your Job&lt;/h3&gt;
+                      &lt;p class=&quot;card-text fs-sm&quot;&gt;Sit auctor aliquam leo duis. Praesent ut penatibus faucibus nibh arcu tempor.&lt;/p&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+          #pug4.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Card based steps
+                .row
+                  .col-md-4
+                    .card.card-hover.card-body.border-0.bg-transparent
+                      .h2.text-primary.mb-2.pb-1 01
+                      h3.h5.card-title Create a Job Ad
+                      p.card-text.fs-sm In volutpat lacus orci volutpat nulla tristique eu. Ullamcorper in est lectus cras.
+                  .col-md-4
+                    .card.card-hover.card-body.border-0.bg-transparent
+                      .h2.text-primary.mb-2.pb-1 02
+                      h3.h5.card-title Select a Pricing Plan
+                      p.card-text.fs-sm Cursus duis ridiculus purus eget velit mattis id vel. Semper aliquet auctor cras dui.
+                  .col-md-4
+                    .card.card-hover.card-body.border-0.bg-transparent
+                      .h2.text-primary.mb-2.pb-1 03
+                      h3.h5.card-title Post Your Job
+                      p.card-text.fs-sm Sit auctor aliquam leo duis. Praesent ut penatibus faucibus nibh arcu tempor.
+  
+  // Card based: Links
+  section#steps-card-link.pb-5.mb-md-2
+    h2.h5.mb-3 Card based: Links
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result5' data-bs-toggle='tab' role='tab' aria-controls='result5' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html5' data-bs-toggle='tab' role='tab' aria-controls='html5' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug5' data-bs-toggle='tab' role='tab' aria-controls='pug5' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result5.tab-pane.fade.show.active(role='tabpanel')
+            .row.py-2
+              .col-md-4
+                a(href='#').card.card-hover.card-body.border-0.bg-transparent
+                  .h2.text-primary.mb-2.pb-1 01
+                  h3.h5.card-title Create a Job Ad
+                  p.card-text.fs-sm.text-body In volutpat lacus orci volutpat nulla tristique eu. Ullamcorper in est lectus cras.
+              .col-md-4
+                a(href='#').card.card-hover.card-body.border-0.bg-transparent
+                  .h2.text-primary.mb-2.pb-1 02
+                  h3.h5.card-title Select a Pricing Plan
+                  p.card-text.fs-sm.text-body Cursus duis ridiculus purus eget velit mattis id vel. Semper aliquet auctor cras dui.
+              .col-md-4
+                a(href='#').card.card-hover.card-body.border-0.bg-transparent
+                  .h2.text-primary.mb-2.pb-1 03
+                  h3.h5.card-title Post Your Job
+                  p.card-text.fs-sm.text-body Sit auctor aliquam leo duis. Praesent ut penatibus faucibus nibh arcu tempor.
+          #html5.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Clickable card based steps (links) --&gt;
+                &lt;div class=&quot;row&quot;&gt;
+                  &lt;div class=&quot;col-md-4&quot;&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;card card-hover card-body border-0 bg-transparent&quot;&gt;
+                      &lt;div class=&quot;h2 text-primary mb-2 pb-1&quot;&gt;01&lt;/div&gt;
+                      &lt;h3 class=&quot;h5 card-title&quot;&gt;Create a Job Ad&lt;/h3&gt;
+                      &lt;p class=&quot;card-text fs-sm text-body&quot;&gt;In volutpat lacus orci volutpat nulla tristique eu. Ullamcorper in est lectus cras.&lt;/p&gt;
+                    &lt;/a&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;col-md-4&quot;&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;card card-hover card-body border-0 bg-transparent&quot;&gt;
+                      &lt;div class=&quot;h2 text-primary mb-2 pb-1&quot;&gt;02&lt;/div&gt;
+                      &lt;h3 class=&quot;h5 card-title&quot;&gt;Select a Pricing Plan&lt;/h3&gt;
+                      &lt;p class=&quot;card-text fs-sm text-body&quot;&gt;Cursus duis ridiculus purus eget velit mattis id vel. Semper aliquet auctor cras dui.&lt;/p&gt;
+                    &lt;/a&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;col-md-4&quot;&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;card card-hover card-body border-0 bg-transparent&quot;&gt;
+                      &lt;div class=&quot;h2 text-primary mb-2 pb-1&quot;&gt;03&lt;/div&gt;
+                      &lt;h3 class=&quot;h5 card-title&quot;&gt;Post Your Job&lt;/h3&gt;
+                      &lt;p class=&quot;card-text fs-sm text-body&quot;&gt;Sit auctor aliquam leo duis. Praesent ut penatibus faucibus nibh arcu tempor.&lt;/p&gt;
+                    &lt;/a&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+          #pug5.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Clickable card based steps (links)
+                .row
+                  .col-md-4
+                    a(href=&quot;#&quot;).card.card-hover.card-body.border-0.bg-transparent
+                      .h2.text-primary.mb-2.pb-1 01
+                      h3.h5.card-title Create a Job Ad
+                      p.card-text.fs-sm.text-body In volutpat lacus orci volutpat nulla tristique eu. Ullamcorper in est lectus cras.
+                  .col-md-4
+                    a(href=&quot;#&quot;).card.card-hover.card-body.border-0.bg-transparent
+                      .h2.text-primary.mb-2.pb-1 02
+                      h3.h5.card-title Select a Pricing Plan
+                      p.card-text.fs-sm.text-body Cursus duis ridiculus purus eget velit mattis id vel. Semper aliquet auctor cras dui.
+                  .col-md-4
+                    a(href=&quot;#&quot;).card.card-hover.card-body.border-0.bg-transparent
+                      .h2.text-primary.mb-2.pb-1 03
+                      h3.h5.card-title Post Your Job
+                      p.card-text.fs-sm.text-body Sit auctor aliquam leo duis. Praesent ut penatibus faucibus nibh arcu tempor.
+  
+  // Card based: Alignment
+  section#steps-card-alignment.pb-5.mb-md-2
+    h2.h5.mb-3 Card based: Alignment
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result8' data-bs-toggle='tab' role='tab' aria-controls='result8' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html8' data-bs-toggle='tab' role='tab' aria-controls='html8' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug8' data-bs-toggle='tab' role='tab' aria-controls='pug8' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result8.tab-pane.fade.show.active(role='tabpanel')
+            .row.py-2
+              .col-md-4
+                .card.card-hover.card-body.border-0.bg-transparent.text-center
+                  .h2.text-primary.mb-2.pb-1 01
+                  h3.h5.card-title Create a Job Ad
+                  p.card-text.fs-sm In volutpat lacus orci volutpat nulla tristique eu. Ullamcorper in est lectus cras.
+              .col-md-4
+                .card.card-hover.card-body.border-0.bg-transparent.text-end
+                  .h2.text-primary.mb-2.pb-1 02
+                  h3.h5.card-title Select a Pricing Plan
+                  p.card-text.fs-sm Cursus duis ridiculus purus eget velit mattis id vel. Semper aliquet auctor cras dui.
+          #html8.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Center aligned step --&gt;
+                &lt;div class=&quot;card card-hover card-body border-0 bg-transparent text-center&quot;&gt;
+                  &lt;div class=&quot;h2 text-primary mb-2 pb-1&quot;&gt;01&lt;/div&gt;
+                  &lt;h3 class=&quot;h5 card-title&quot;&gt;Create a Job Ad&lt;/h3&gt;
+                  &lt;p class=&quot;card-text fs-sm&quot;&gt;In volutpat lacus orci volutpat nulla tristique eu. Ullamcorper in est lectus cras.&lt;/p&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Right aligned step --&gt;
+                &lt;div class=&quot;card card-hover card-body border-0 bg-transparent text-end&quot;&gt;
+                  &lt;div class=&quot;h2 text-primary mb-2 pb-1&quot;&gt;02&lt;/div&gt;
+                  &lt;h3 class=&quot;h5 card-title&quot;&gt;Select a Pricing Plan&lt;/h3&gt;
+                  &lt;p class=&quot;card-text fs-sm&quot;&gt;Cursus duis ridiculus purus eget velit mattis id vel. Semper aliquet auctor cras dui.&lt;/p&gt;
+                &lt;/div&gt;
+          #pug8.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Center aligned step
+                .card.card-hover.card-body.border-0.bg-transparent.text-center
+                  .h2.text-primary.mb-2.pb-1 01
+                  h3.h5.card-title Create a Job Ad
+                  p.card-text.fs-sm In volutpat lacus orci volutpat nulla tristique eu. Ullamcorper in est lectus cras.
+
+                // Right aligned step
+                .card.card-hover.card-body.border-0.bg-transparent.text-end
+                  .h2.text-primary.mb-2.pb-1 02
+                  h3.h5.card-title Select a Pricing Plan
+                  p.card-text.fs-sm Cursus duis ridiculus purus eget velit mattis id vel. Semper aliquet auctor cras dui.
+  
+  // Card based: Light version
+  section#steps-card-light.pb-5.mb-md-2
+    h2.h5.mb-3 Card based: Light version
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result7' data-bs-toggle='tab' role='tab' aria-controls='result7' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html7' data-bs-toggle='tab' role='tab' aria-controls='html7' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug7' data-bs-toggle='tab' role='tab' aria-controls='pug7' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result7.tab-pane.m-n3.p-3.bg-dark.fade.show.active(role='tabpanel')
+            .row
+              .col-md-4
+                .card.card-light.card-hover.card-body.bg-transparent
+                  .h2.text-primary.mb-2.pb-1 01
+                  h3.h5.card-title Create a Job Ad
+                  p.card-text.fs-sm.opacity-60 In volutpat lacus orci volutpat nulla tristique eu. Ullamcorper in est lectus cras.
+              .col-md-4
+                .card.card-light.card-hover.card-body.bg-transparent
+                  .h2.text-primary.mb-2.pb-1 02
+                  h3.h5.card-title Select a Pricing Plan
+                  p.card-text.fs-sm.opacity-60 Cursus duis ridiculus purus eget velit mattis id vel. Semper aliquet auctor cras dui.
+              .col-md-4
+                .card.card-light.card-hover.card-body.bg-transparent
+                  .h2.text-primary.mb-2.pb-1 03
+                  h3.h5.card-title Post Your Job
+                  p.card-text.fs-sm.opacity-60 Sit auctor aliquam leo duis. Praesent ut penatibus faucibus nibh arcu tempor.
+          #html7.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Card based steps: Light version --&gt;
+                &lt;div class=&quot;row&quot;&gt;
+                  &lt;div class=&quot;col-md-4&quot;&gt;
+                    &lt;div class=&quot;card card-light card-hover card-body bg-transparent&quot;&gt;
+                      &lt;div class=&quot;h2 text-primary mb-2 pb-1&quot;&gt;01&lt;/div&gt;
+                      &lt;h3 class=&quot;h5 card-title&quot;&gt;Create a Job Ad&lt;/h3&gt;
+                      &lt;p class=&quot;card-text fs-sm opacity-60&quot;&gt;In volutpat lacus orci volutpat nulla tristique eu. Ullamcorper in est lectus cras.&lt;/p&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;col-md-4&quot;&gt;
+                    &lt;div class=&quot;card card-light card-hover card-body bg-transparent&quot;&gt;
+                      &lt;div class=&quot;h2 text-primary mb-2 pb-1&quot;&gt;02&lt;/div&gt;
+                      &lt;h3 class=&quot;h5 card-title&quot;&gt;Select a Pricing Plan&lt;/h3&gt;
+                      &lt;p class=&quot;card-text fs-sm opacity-60&quot;&gt;Cursus duis ridiculus purus eget velit mattis id vel. Semper aliquet auctor cras dui.&lt;/p&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;col-md-4&quot;&gt;
+                    &lt;div class=&quot;card card-light card-hover card-body bg-transparent&quot;&gt;
+                      &lt;div class=&quot;h2 text-primary mb-2 pb-1&quot;&gt;03&lt;/div&gt;
+                      &lt;h3 class=&quot;h5 card-title&quot;&gt;Post Your Job&lt;/h3&gt;
+                      &lt;p class=&quot;card-text fs-sm opacity-60&quot;&gt;Sit auctor aliquam leo duis. Praesent ut penatibus faucibus nibh arcu tempor.&lt;/p&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+          #pug7.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Card based steps: Light version
+                .row
+                  .col-md-4
+                    .card.card-light.card-hover.card-body.bg-transparent
+                      .h2.text-primary.mb-2.pb-1 01
+                      h3.h5.card-title Create a Job Ad
+                      p.card-text.fs-sm.opacity-60 In volutpat lacus orci volutpat nulla tristique eu. Ullamcorper in est lectus cras.
+                  .col-md-4
+                    .card.card-light.card-hover.card-body.bg-transparent
+                      .h2.text-primary.mb-2.pb-1 02
+                      h3.h5.card-title Select a Pricing Plan
+                      p.card-text.fs-sm.opacity-60 Cursus duis ridiculus purus eget velit mattis id vel. Semper aliquet auctor cras dui.
+                  .col-md-4
+                    .card.card-light.card-hover.card-body.bg-transparent
+                      .h2.text-primary.mb-2.pb-1 03
+                      h3.h5.card-title Post Your Job
+                      p.card-text.fs-sm.opacity-60 Sit auctor aliquam leo duis. Praesent ut penatibus faucibus nibh arcu tempor.

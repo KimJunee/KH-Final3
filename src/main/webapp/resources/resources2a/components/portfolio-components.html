@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Around | Portfolio components</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="Around - Multipurpose Bootstrap HTML Template">
+    <meta name="keywords" content="bootstrap, business, corporate, coworking space, services, creative agency, dashboard, e-commerce, mobile app showcase, saas, multipurpose, product landing, shop, software, ui kit, web studio, landing, dark mode, html5, css3, javascript, gallery, slider, touch, creative">
+    <meta name="author" content="Createx Studio">
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../assets/favicon/site.webmanifest">
+    <link rel="mask-icon" color="#6366f1" href="../assets/favicon/safari-pinned-tab.svg">
+    <meta name="msapplication-TileColor" content="#080032">
+    <meta name="msapplication-config" content="../assets/favicon/browserconfig.xml">
+    <meta name="theme-color" content="white">
+    <!-- Theme mode-->
+    <script>
+      let mode = window.localStorage.getItem('mode'),
+          root = document.getElementsByTagName('html')[0];
+      if (mode !== undefined && mode === 'dark') {
+        root.classList.add('dark-mode');
+      } else {
+        root.classList.remove('dark-mode');
+      }
+      
+      
+    </script>
+    <!-- Import Google Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" id="google-font">
+    <!-- Vendor styles-->
+    <link rel="stylesheet" media="screen" href="../assets/vendor/simplebar/dist/simplebar.min.css"/>
+    <link rel="stylesheet" media="screen" href="../assets/vendor/aos/dist/aos.css"/>
+    <link rel="stylesheet" media="screen" href="../assets/vendor/prismjs/themes/prism.css"/>
+    <link rel="stylesheet" media="screen" href="../assets/vendor/prismjs/plugins/toolbar/prism-toolbar.css"/>
+    <link rel="stylesheet" media="screen" href="../assets/vendor/prismjs/plugins/line-numbers/prism-line-numbers.css"/>
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="../assets/css/theme.min.css">
+  </head>
+  <!-- Body-->
+  <body class="bg-secondary">
+    <!-- Navbar-->
+    <header class="navbar navbar-expand justify-content-end fixed-top" data-scroll-header>
+      <div class="container"><a class="navbar-brand pe-xl-2 me-4" href="typography.html"><span class="text-primary flex-shrink-0 me-2">
+            <svg version="1.1" width="35" height="32" viewBox="0 0 36 33" xmlns="http://www.w3.org/2000/svg">
+              <path fill="currentColor" d="M35.6,29c-1.1,3.4-5.4,4.4-7.9,1.9c-2.3-2.2-6.1-3.7-9.4-3.7c-3.1,0-7.5,1.8-10,4.1c-2.2,2-5.8,1.5-7.3-1.1c-1-1.8-1.2-4.1,0-6.2l0.6-1.1l0,0c0.6-0.7,4.4-5.2,12.5-5.7c0.5,1.8,2,3.1,3.9,3.1c2.2,0,4.1-1.9,4.1-4.2s-1.8-4.2-4.1-4.2c-2,0-3.6,1.4-4,3.3H7.7c-0.8,0-1.3-0.9-0.9-1.6l5.6-9.8c2.5-4.5,8.8-4.5,11.3,0L35.1,24C36,25.7,36.1,27.5,35.6,29z"></path>
+            </svg></span>Around<span class="badge bg-warning fs-sm ms-2">UI Kit</span></a>
+        <ul class="navbar-nav d-none d-lg-flex me-auto">
+          <li class="nav-item"><a class="nav-link" href="../index.html"><i class="ai-monitor fs-lg opacity-90 me-2"></i>Live demo</a></li>
+          <li class="nav-item"><a class="nav-link" href="../docs/getting-started.html"><i class="ai-file-text fs-lg opacity-90 me-2"></i>Documentation</a></li>
+        </ul>
+        <div class="form-check form-switch mode-switch pe-lg-1 ms-auto" data-bs-toggle="mode">
+          <input class="form-check-input" type="checkbox" id="theme-mode">
+          <label class="form-check-label" for="theme-mode"><i class="ai-sun fs-lg"></i></label>
+          <label class="form-check-label" for="theme-mode"><i class="ai-moon fs-lg"></i></label>
+        </div>
+        <button class="navbar-toggler d-block d-lg-none ms-3 border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#componentsNav"><span class="navbar-toggler-icon"></span></button><a class="btn btn-sm btn-primary d-none d-lg-inline-flex fs-sm ms-4" href="https://themes.getbootstrap.com/product/around-multipurpose-template-ui-kit/" target="_blank" rel="noopener"><i class="ai-cart d-sm-inline-block fs-xl me-2 ms-n1"></i>Buy now</a>
+      </div>
+    </header>
+    <!-- Desktop sidebar navigation (on screens > 991px) (Offcanvas)-->
+    <aside class="container position-fixed d-none d-lg-block start-50 translate-middle-x h-100 pt-5">
+      <div class="row h-100 pt-5">
+        <div class="col-lg-3 d-flex flex-column pb-3 pt-4" style="height: calc(100% - 2rem);">
+          <div class="h-100 mt-2" data-simplebar>
+            <h3 class="h5 mb-1 pb-2">Content</h3>
+            <ul class="nav flex-column">
+              <li class="nav-item"><a class="nav-link px-0 py-2" href="typography.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Typography</a>
+              </li>
+              <li class="nav-item" id="icons"><a class="nav-link px-0 py-2" href="icon-font.html#icons"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Icon font</a>
+              </li>
+              <li class="nav-item" id="code"><a class="nav-link px-0 py-2" href="code.html#code"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Code</a>
+              </li>
+              <li class="nav-item" id="imgs"><a class="nav-link px-0 py-2" href="images.html#imgs"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Images &amp; figures</a>
+              </li>
+              <li class="nav-item" id="tables"><a class="nav-link px-0 py-2" href="tables.html#tables"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Tables</a>
+              </li>
+            </ul>
+            <h3 class="h5 mb-1 pt-4 pb-2">Components</h3>
+            <ul class="nav flex-column">
+              <li class="nav-item" id="accordion"><a class="nav-link px-0 py-2" href="accordion.html#accordion"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Accordion</a>
+              </li>
+              <li class="nav-item" id="alerts"><a class="nav-link px-0 py-2" href="alerts.html#alerts"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Alerts</a>
+              </li>
+              <li class="nav-item" id="badges"><a class="nav-link px-0 py-2" href="badges.html#badges"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Badges</a>
+              </li>
+              <li class="nav-item" id="blog"><a class="nav-link px-0 py-2" href="blog-components.html#blog"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Blog components</a>
+              </li>
+              <li class="nav-item" id="breadcrumb"><a class="nav-link px-0 py-2" href="breadcrumb.html#breadcrumb"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Breadcrumb</a>
+              </li>
+              <li class="nav-item" id="btns"><a class="nav-link px-0 py-2" href="buttons.html#btns"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Buttons</a>
+              </li>
+              <li class="nav-item" id="btn-group"><a class="nav-link px-0 py-2" href="button-group.html#btn-group"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Button group</a>
+              </li>
+              <li class="nav-item" id="cards-basic"><a class="nav-link px-0 py-2" href="cards-basic.html#cards-basic"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Cards: Basic</a>
+              </li>
+              <li class="nav-item" id="cards-hover"><a class="nav-link px-0 py-2" href="cards-hover.html#cards-hover"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Cards: Hover effects</a>
+              </li>
+              <li class="nav-item" id="carousel"><a class="nav-link px-0 py-2" href="carousel.html#carousel"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Carousel (Slider)</a>
+              </li>
+              <li class="nav-item" id="charts"><a class="nav-link px-0 py-2" href="charts.html#charts"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Charts</a>
+              </li>
+              <li class="nav-item" id="collapse"><a class="nav-link px-0 py-2" href="collapse.html#collapse"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Collapse</a>
+              </li>
+              <li class="nav-item" id="countdown"><a class="nav-link px-0 py-2" href="countdown.html#countdown"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Countdown</a>
+              </li>
+              <li class="nav-item" id="picker"><a class="nav-link px-0 py-2" href="date-picker.html#picker"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Date / time picker</a>
+              </li>
+              <li class="nav-item" id="dropdowns"><a class="nav-link px-0 py-2" href="dropdowns.html#dropdowns"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Dropdowns</a>
+              </li>
+              <li class="nav-item" id="calendar"><a class="nav-link px-0 py-2" href="calendar.html#calendar"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Event calendar</a>
+              </li>
+              <li class="nav-item" id="forms"><a class="nav-link px-0 py-2" href="forms.html#forms"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Forms</a>
+              </li>
+              <li class="nav-item" id="gallery"><a class="nav-link px-0 py-2" href="gallery.html#gallery"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Gallery (Lightbox)</a>
+              </li>
+              <li class="nav-item" id="hotspots"><a class="nav-link px-0 py-2" href="hotspots.html#hotspots"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Hotspots</a>
+              </li>
+              <li class="nav-item" id="ics"><a class="nav-link px-0 py-2" href="image-comparison-slider.html#ics"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Image comparison slider</a>
+              </li>
+              <li class="nav-item" id="ig"><a class="nav-link px-0 py-2" href="input-group.html#ig"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Input group</a>
+              </li>
+              <li class="nav-item" id="lg"><a class="nav-link px-0 py-2" href="list-group.html#lg"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>List group</a>
+              </li>
+              <li class="nav-item" id="maps"><a class="nav-link px-0 py-2" href="maps.html#maps"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Maps</a>
+              </li>
+              <li class="nav-item" id="modal"><a class="nav-link px-0 py-2" href="modal.html#modal"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Modal</a>
+              </li>
+              <li class="nav-item" id="navbar"><a class="nav-link px-0 py-2" href="navbar.html#navbar"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Navbar</a>
+              </li>
+              <li class="nav-item" id="offcanvas"><a class="nav-link px-0 py-2" href="offcanvas.html#offcanvas"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Offcanvas</a>
+              </li>
+              <li class="nav-item" id="pagination"><a class="nav-link px-0 py-2" href="pagination.html#pagination"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Pagination</a>
+              </li>
+              <li class="nav-item" id="parallax"><a class="nav-link px-0 py-2" href="parallax.html#parallax"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Parallax</a>
+              </li>
+              <li class="nav-item" id="pills"><a class="nav-link px-0 py-2" href="pills.html#pills"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Pills</a>
+              </li>
+              <li class="nav-item" id="placeholders"><a class="nav-link px-0 py-2" href="placeholders.html#placeholders"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Placeholders</a>
+              </li>
+              <li class="nav-item" id="popovers"><a class="nav-link px-0 py-2" href="popovers.html#popovers"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Popovers</a>
+              </li>
+              <li class="nav-item" id="portfolio"><span class="nav-link px-0 py-2 active"><i class="ai-circle-arrow-down fs-lg opacity-90 me-2"></i>Portfolio components</span>
+                <ul class="nav flex-column border-start ps-3 ms-2 mb-2">
+                  <li class="nav-item"><a class="nav-link fs-sm fw-normal py-1 ps-1 pe-0 mb-1" href="#portfolio-grid-1" data-scroll="data-scroll">Grid view style 1</a></li>
+                  <li class="nav-item"><a class="nav-link fs-sm fw-normal py-1 ps-1 pe-0 mb-1" href="#portfolio-grid-2" data-scroll="data-scroll">Grid view style 2</a></li>
+                  <li class="nav-item"><a class="nav-link fs-sm fw-normal py-1 ps-1 pe-0 mb-1" href="#portfolio-grid-3" data-scroll="data-scroll">Grid view style 3</a></li>
+                  <li class="nav-item"><a class="nav-link fs-sm fw-normal py-1 ps-1 pe-0 mb-1" href="#portfolio-list-1" data-scroll="data-scroll">List view style 1</a></li>
+                  <li class="nav-item"><a class="nav-link fs-sm fw-normal py-1 ps-1 pe-0 mb-1" href="#portfolio-list-2" data-scroll="data-scroll">List view style 2</a></li>
+                </ul>
+              </li>
+              <li class="nav-item" id="pricing"><a class="nav-link px-0 py-2" href="pricing.html#pricing"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Pricing</a>
+              </li>
+              <li class="nav-item" id="progress"><a class="nav-link px-0 py-2" href="progress.html#progress"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Progress</a>
+              </li>
+              <li class="nav-item" id="shop"><a class="nav-link px-0 py-2" href="shop-components.html#shop"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Shop components</a>
+              </li>
+              <li class="nav-item" id="social-btns"><a class="nav-link px-0 py-2" href="social-buttons.html#social-btns"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Social buttons</a>
+              </li>
+              <li class="nav-item" id="spinners"><a class="nav-link px-0 py-2" href="spinners.html#spinners"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Spinners</a>
+              </li>
+              <li class="nav-item" id="steps"><a class="nav-link px-0 py-2" href="steps.html#steps"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Steps</a>
+              </li>
+              <li class="nav-item" id="tabs"><a class="nav-link px-0 py-2" href="tabs.html#tabs"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Tabs</a>
+              </li>
+              <li class="nav-item" id="team"><a class="nav-link px-0 py-2" href="team.html#team"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Team</a>
+              </li>
+              <li class="nav-item" id="testimonials"><a class="nav-link px-0 py-2" href="testimonials.html#testimonials"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Testimonials / reviews</a>
+              </li>
+              <li class="nav-item" id="toasts"><a class="nav-link px-0 py-2" href="toasts.html#toasts"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Toasts</a>
+              </li>
+              <li class="nav-item" id="tooltips"><a class="nav-link px-0 py-2" href="tooltips.html#tooltips"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Tooltips</a>
+              </li>
+              <li class="nav-item" id="video"><a class="nav-link px-0 py-2" href="video-popup.html#video"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Video popup</a>
+              </li>
+            </ul>
+            <h3 class="h5 mb-1 pt-4 pb-2">Utilities</h3>
+            <ul class="nav flex-column mb-0">
+              <li class="nav-item"><a class="nav-link px-0 py-2" href="https://getbootstrap.com/docs/5.2/utilities/background/" target="_blank" rel="noopener"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Bootstrap</a></li>
+            </ul>
+            <ul class="nav flex-column">
+              <li class="nav-item" id="utils"><a class="nav-link px-0 py-2" href="utilities.html#utils"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Around utilities</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <!-- Mobile offcanvas navigation (on screens < 992px)-->
+    <div class="offcanvas offcanvas-start" id="componentsNav">
+      <div class="offcanvas-header align-items-center">
+        <div class="d-flex align-items-center">
+          <h4 class="offcanvas-title">Menu</h4>
+        </div>
+        <button class="btn-close" type="button" data-bs-dismiss="offcanvas"></button>
+      </div>
+      <ul class="nav flex-column border-bottom pb-4">
+        <li class="nav-item"><a class="nav-link py-2" href="../index.html"><i class="ai-monitor fs-lg opacity-90 me-2"></i>Live demo</a></li>
+        <li class="nav-item"><a class="nav-link py-2" href="../docs/getting-started.html"><i class="ai-file-text fs-lg opacity-90 me-2"></i>Documentation</a></li>
+      </ul>
+      <div class="offcanvas-body">
+        <h3 class="h5 mb-1 pb-2">Content</h3>
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link px-0 py-2" href="typography.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Typography</a>
+          </li>
+          <li class="nav-item" id="icons=m"><a class="nav-link px-0 py-2" href="icon-font.html#icons=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Icon font</a>
+          </li>
+          <li class="nav-item" id="code=m"><a class="nav-link px-0 py-2" href="code.html#code=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Code</a>
+          </li>
+          <li class="nav-item" id="imgs=m"><a class="nav-link px-0 py-2" href="images.html#imgs=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Images &amp; figures</a>
+          </li>
+          <li class="nav-item" id="tables=m"><a class="nav-link px-0 py-2" href="tables.html#tables=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Tables</a>
+          </li>
+        </ul>
+        <h3 class="h5 mb-1 pt-4 pb-2">Components</h3>
+        <ul class="nav flex-column">
+          <li class="nav-item" id="accordion=m"><a class="nav-link px-0 py-2" href="accordion.html#accordion=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Accordion</a>
+          </li>
+          <li class="nav-item" id="alerts=m"><a class="nav-link px-0 py-2" href="alerts.html#alerts=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Alerts</a>
+          </li>
+          <li class="nav-item" id="badges=m"><a class="nav-link px-0 py-2" href="badges.html#badges=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Badges</a>
+          </li>
+          <li class="nav-item" id="blog=m"><a class="nav-link px-0 py-2" href="blog-components.html#blog=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Blog components</a>
+          </li>
+          <li class="nav-item" id="breadcrumb=m"><a class="nav-link px-0 py-2" href="breadcrumb.html#breadcrumb=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Breadcrumb</a>
+          </li>
+          <li class="nav-item" id="btns=m"><a class="nav-link px-0 py-2" href="buttons.html#btns=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Buttons</a>
+          </li>
+          <li class="nav-item" id="btn-group=m"><a class="nav-link px-0 py-2" href="button-group.html#btn-group=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Button group</a>
+          </li>
+          <li class="nav-item" id="cards-basic=m"><a class="nav-link px-0 py-2" href="cards-basic.html#cards-basic=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Cards: Basic</a>
+          </li>
+          <li class="nav-item" id="cards-hover=m"><a class="nav-link px-0 py-2" href="cards-hover.html#cards-hover=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Cards: Hover effects</a>
+          </li>
+          <li class="nav-item" id="carousel=m"><a class="nav-link px-0 py-2" href="carousel.html#carousel=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Carousel (Slider)</a>
+          </li>
+          <li class="nav-item" id="charts=m"><a class="nav-link px-0 py-2" href="charts.html#charts=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Charts</a>
+          </li>
+          <li class="nav-item" id="collapse=m"><a class="nav-link px-0 py-2" href="collapse.html#collapse=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Collapse</a>
+          </li>
+          <li class="nav-item" id="countdown=m"><a class="nav-link px-0 py-2" href="countdown.html#countdown=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Countdown</a>
+          </li>
+          <li class="nav-item" id="picker=m"><a class="nav-link px-0 py-2" href="date-picker.html#picker=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Date / time picker</a>
+          </li>
+          <li class="nav-item" id="dropdowns=m"><a class="nav-link px-0 py-2" href="dropdowns.html#dropdowns=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Dropdowns</a>
+          </li>
+          <li class="nav-item" id="calendar=m"><a class="nav-link px-0 py-2" href="calendar.html#calendar=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Event calendar</a>
+          </li>
+          <li class="nav-item" id="forms=m"><a class="nav-link px-0 py-2" href="forms.html#forms=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Forms</a>
+          </li>
+          <li class="nav-item" id="gallery=m"><a class="nav-link px-0 py-2" href="gallery.html#gallery=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Gallery (Lightbox)</a>
+          </li>
+          <li class="nav-item" id="hotspots=m"><a class="nav-link px-0 py-2" href="hotspots.html#hotspots=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Hotspots</a>
+          </li>
+          <li class="nav-item" id="ics=m"><a class="nav-link px-0 py-2" href="image-comparison-slider.html#ics=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Image comparison slider</a>
+          </li>
+          <li class="nav-item" id="ig=m"><a class="nav-link px-0 py-2" href="input-group.html#ig=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Input group</a>
+          </li>
+          <li class="nav-item" id="lg=m"><a class="nav-link px-0 py-2" href="list-group.html#lg=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>List group</a>
+          </li>
+          <li class="nav-item" id="maps=m"><a class="nav-link px-0 py-2" href="maps.html#maps=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Maps</a>
+          </li>
+          <li class="nav-item" id="modal=m"><a class="nav-link px-0 py-2" href="modal.html#modal=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Modal</a>
+          </li>
+          <li class="nav-item" id="navbar=m"><a class="nav-link px-0 py-2" href="navbar.html#navbar=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Navbar</a>
+          </li>
+          <li class="nav-item" id="offcanvas=m"><a class="nav-link px-0 py-2" href="offcanvas.html#offcanvas=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Offcanvas</a>
+          </li>
+          <li class="nav-item" id="pagination=m"><a class="nav-link px-0 py-2" href="pagination.html#pagination=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Pagination</a>
+          </li>
+          <li class="nav-item" id="parallax=m"><a class="nav-link px-0 py-2" href="parallax.html#parallax=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Parallax</a>
+          </li>
+          <li class="nav-item" id="pills=m"><a class="nav-link px-0 py-2" href="pills.html#pills=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Pills</a>
+          </li>
+          <li class="nav-item" id="placeholders=m"><a class="nav-link px-0 py-2" href="placeholders.html#placeholders=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Placeholders</a>
+          </li>
+          <li class="nav-item" id="popovers=m"><a class="nav-link px-0 py-2" href="popovers.html#popovers=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Popovers</a>
+          </li>
+          <li class="nav-item" id="portfolio=m"><span class="nav-link px-0 py-2 active"><i class="ai-circle-arrow-down fs-lg opacity-90 me-2"></i>Portfolio components</span>
+            <ul class="nav flex-column border-start ps-3 ms-2 mb-2">
+              <li class="nav-item"><a class="nav-link fs-sm fw-normal py-1 ps-1 pe-0 mb-1" href="#portfolio-grid-1" data-scroll="data-scroll">Grid view style 1</a></li>
+              <li class="nav-item"><a class="nav-link fs-sm fw-normal py-1 ps-1 pe-0 mb-1" href="#portfolio-grid-2" data-scroll="data-scroll">Grid view style 2</a></li>
+              <li class="nav-item"><a class="nav-link fs-sm fw-normal py-1 ps-1 pe-0 mb-1" href="#portfolio-grid-3" data-scroll="data-scroll">Grid view style 3</a></li>
+              <li class="nav-item"><a class="nav-link fs-sm fw-normal py-1 ps-1 pe-0 mb-1" href="#portfolio-list-1" data-scroll="data-scroll">List view style 1</a></li>
+              <li class="nav-item"><a class="nav-link fs-sm fw-normal py-1 ps-1 pe-0 mb-1" href="#portfolio-list-2" data-scroll="data-scroll">List view style 2</a></li>
+            </ul>
+          </li>
+          <li class="nav-item" id="pricing=m"><a class="nav-link px-0 py-2" href="pricing.html#pricing=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Pricing</a>
+          </li>
+          <li class="nav-item" id="progress=m"><a class="nav-link px-0 py-2" href="progress.html#progress=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Progress</a>
+          </li>
+          <li class="nav-item" id="shop=m"><a class="nav-link px-0 py-2" href="shop-components.html#shop=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Shop components</a>
+          </li>
+          <li class="nav-item" id="social-btns=m"><a class="nav-link px-0 py-2" href="social-buttons.html#social-btns=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Social buttons</a>
+          </li>
+          <li class="nav-item" id="spinners=m"><a class="nav-link px-0 py-2" href="spinners.html#spinners=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Spinners</a>
+          </li>
+          <li class="nav-item" id="steps=m"><a class="nav-link px-0 py-2" href="steps.html#steps=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Steps</a>
+          </li>
+          <li class="nav-item" id="tabs=m"><a class="nav-link px-0 py-2" href="tabs.html#tabs=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Tabs</a>
+          </li>
+          <li class="nav-item" id="team=m"><a class="nav-link px-0 py-2" href="team.html#team=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Team</a>
+          </li>
+          <li class="nav-item" id="testimonials=m"><a class="nav-link px-0 py-2" href="testimonials.html#testimonials=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Testimonials / reviews</a>
+          </li>
+          <li class="nav-item" id="toasts=m"><a class="nav-link px-0 py-2" href="toasts.html#toasts=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Toasts</a>
+          </li>
+          <li class="nav-item" id="tooltips=m"><a class="nav-link px-0 py-2" href="tooltips.html#tooltips=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Tooltips</a>
+          </li>
+          <li class="nav-item" id="video=m"><a class="nav-link px-0 py-2" href="video-popup.html#video=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Video popup</a>
+          </li>
+        </ul>
+        <h3 class="h5 mb-1 pt-4 pb-2">Utilities</h3>
+        <ul class="nav flex-column mb-0">
+          <li class="nav-item"><a class="nav-link px-0 py-2" href="https://getbootstrap.com/docs/5.2/utilities/background/" target="_blank" rel="noopener"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Bootstrap</a></li>
+        </ul>
+        <ul class="nav flex-column">
+          <li class="nav-item" id="utils=m"><a class="nav-link px-0 py-2" href="utilities.html#utils=m"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Around utilities</a>
+          </li>
+        </ul>
+      </div>
+      <div class="offcanvas-header border-top"><a class="btn btn-primary w-100" href="https://themes.getbootstrap.com/product/around-multipurpose-template-ui-kit/" target="_blank" rel="noopener"><i class="ai-cart d-sm-inline-block fs-xl me-2 ms-n1"></i>Buy now</a></div>
+    </div>
+    <!-- Page content-->
+    <section class="container pt-5 pb-4">
+      <div class="row pt-5 pb-2 pb-sm-3">
+        <div class="col-lg-9 offset-lg-3 position-relative zindex-5">
+          <h1 class="pt-lg-4">Portfolio components</h1>
+          <div class="d-flex flex-wrap flex-md-nowrap justify-content-between pb-3">
+            <p class="text-muted">Components that are related to the portfolio section of the website.</p>
+            <div class="ps-md-4 mb-3"><span class="badge bg-warning fs-sm">Around component</span></div>
+          </div>
+          <!-- Info alert-->
+          <div class="alert alert-info d-flex mb-4" role="alert"><i class="ai-circle-info lead me-2 me-sm-3"></i>
+            <div class="text-break">
+              <p class="mb-1"><span class='fw-semibold'>Scroll animations</span> are powered by <span class='fw-semibold'>AOS (Animate on Scroll) plugin</span>. Make sure to link to <span class='fw-semibold'>AOS css and js</span> files in your document: <span class='fw-semibold'>assets/vendor/aos/dist/aos.css</span> and <span class='fw-semibold'>assets/vendor/aos/dist/aos.js</span>.</p>
+            </div>
+          </div>
+          <!-- Grid view style 1-->
+          <section class="card border-0 mb-4" id="portfolio-grid-1">
+            <div class="card-body pb-0">
+              <h2 class="h4 mb-n2">Grid view style 1</h2>
+            </div>
+            <div class="card-header">
+              <ul class="nav nav-tabs card-header-tabs flex-nowrap align-items-center mb-n1" role="tablist">
+                <li class="nav-item me-3"><a class="nav-link px-0 py-2 border-0 rounded-1 active" href="#preview1" data-bs-toggle="tab" role="tab" aria-controls="preview1" aria-selected="true"><i class="ai-show fs-lg opacity-90 me-2"></i>Preview</a></li>
+                <li class="vr opacity-20 my-3 me-3"></li>
+                <li class="nav-item me-3"><a class="nav-link px-0 py-2 border-0 rounded-1" href="#html1" data-bs-toggle="tab" role="tab" aria-controls="html1" aria-selected="false"><i class="ai-code fs-xl opacity-90 me-2"></i>HTML</a></li>
+                <li class="vr opacity-20 my-3 me-3"></li>
+                <li class="nav-item me-0"><a class="nav-link px-0 py-2 border-0 rounded-1" href="#pug1" data-bs-toggle="tab" role="tab" aria-controls="pug1" aria-selected="false"><i class="ai-code-curly opacity-90 me-2"></i>Pug</a></li>
+              </ul>
+            </div>
+            <div class="card-body">
+              <div class="tab-content">
+                <div class="tab-pane fade show active" id="preview1" role="tabpanel">
+                  <article class="card-hover zoom-effect" style="max-width: 480px;">
+                    <div class="zoom-effect-wrapper rounded-5">
+                      <div class="zoom-effect-img"><img src="../assets/img/portfolio/grid/02.jpg" alt="Image"></div>
+                    </div>
+                    <div class="pt-4 mt-lg-2">
+                      <h2 class="h5 mb-2"><a class="stretched-link text-nav" href="#">Design for eco bags and merch</a></h2><span class="fs-sm text-muted opacity-0 d-none d-sm-block">Product design</span><span class="fs-sm text-muted d-sm-none">Product design</span>
+                    </div>
+                  </article>
+                </div>
+                <div class="tab-pane fade" id="html1" role="tabpanel">
+                  <pre class="line-numbers"><code class="lang-html">&lt;!-- Portfolio card vertical layout style 1 (Grid view) --&gt;
+&lt;article class=&quot;card-hover zoom-effect&quot; style=&quot;max-width: 480px;&quot;&gt;
+  &lt;div class=&quot;zoom-effect-wrapper rounded-5&quot;&gt;
+    &lt;div class=&quot;zoom-effect-img&quot;&gt;
+      &lt;img src=&quot;assets/img/portfolio/grid/02.jpg&quot; alt=&quot;Image&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;pt-4 mt-lg-2&quot;&gt;
+    &lt;h2 class=&quot;h5 mb-2&quot;&gt;
+      &lt;a href=&quot;#&quot; class=&quot;stretched-link text-nav&quot;&gt;Design for eco bags and merch&lt;/a&gt;
+    &lt;/h2&gt;
+    &lt;span class=&quot;fs-sm text-muted opacity-0 d-none d-sm-block&quot;&gt;Product design&lt;/span&gt;
+    &lt;span class=&quot;fs-sm text-muted d-sm-none&quot;&gt;Product design&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</code></pre>
+                </div>
+                <div class="tab-pane fade" id="pug1" role="tabpanel">
+                  <pre class="line-numbers"><code class="lang-pug">// Portfolio card vertical layout style 1 (Grid view)
+article(style=&quot;max-width: 480px;&quot;).card-hover.zoom-effect
+  .zoom-effect-wrapper.rounded-5
+    .zoom-effect-img
+      img(src=&quot;assets/img/portfolio/grid/02.jpg&quot;, alt=&quot;Image&quot;)
+  .pt-4.mt-lg-2
+    h2.h5.mb-2
+      a(href=&quot;#&quot;).stretched-link.text-nav
+        | Design for eco bags and merch
+    span.fs-sm.text-muted.opacity-0.d-none.d-sm-block Product design
+    span.fs-sm.text-muted.d-sm-none Product design
+</code></pre>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Grid view style 2-->
+          <section class="card border-0 mb-4" id="portfolio-grid-2">
+            <div class="card-body pb-0">
+              <h2 class="h4 mb-n2">Grid view style 2</h2>
+            </div>
+            <div class="card-header">
+              <ul class="nav nav-tabs card-header-tabs flex-nowrap align-items-center mb-n1" role="tablist">
+                <li class="nav-item me-3"><a class="nav-link px-0 py-2 border-0 rounded-1 active" href="#preview2" data-bs-toggle="tab" role="tab" aria-controls="preview2" aria-selected="true"><i class="ai-show fs-lg opacity-90 me-2"></i>Preview</a></li>
+                <li class="vr opacity-20 my-3 me-3"></li>
+                <li class="nav-item me-3"><a class="nav-link px-0 py-2 border-0 rounded-1" href="#html2" data-bs-toggle="tab" role="tab" aria-controls="html2" aria-selected="false"><i class="ai-code fs-xl opacity-90 me-2"></i>HTML</a></li>
+                <li class="vr opacity-20 my-3 me-3"></li>
+                <li class="nav-item me-0"><a class="nav-link px-0 py-2 border-0 rounded-1" href="#pug2" data-bs-toggle="tab" role="tab" aria-controls="pug2" aria-selected="false"><i class="ai-code-curly opacity-90 me-2"></i>Pug</a></li>
+              </ul>
+            </div>
+            <div class="card-body">
+              <div class="tab-content">
+                <div class="tab-pane fade show active" id="preview2" role="tabpanel">
+                  <article class="zoom-effect position-relative border-bottom pb-3" style="max-width: 480px;">
+                    <div class="zoom-effect-wrapper">
+                      <div class="zoom-effect-img"><img src="../assets/img/portfolio/grid/12.jpg" alt="Image"></div>
+                    </div>
+                    <div class="pt-4 mt-lg-2">
+                      <h2 class="h4 mb-2"><a class="stretched-link" href="#">The Studio</a></h2>
+                      <div class="d-flex justify-content-between fs-lg text-muted"><span>Web design</span><span>2021</span></div>
+                    </div>
+                  </article>
+                </div>
+                <div class="tab-pane fade" id="html2" role="tabpanel">
+                  <pre class="line-numbers"><code class="lang-html">&lt;!-- Portfolio card vertical layout style 2 (Grid view) --&gt;
+&lt;article class=&quot;zoom-effect position-relative border-bottom pb-3&quot; style=&quot;max-width: 480px;&quot;&gt;
+  &lt;div class=&quot;zoom-effect-wrapper&quot;&gt;
+    &lt;div class=&quot;zoom-effect-img&quot;&gt;
+      &lt;img src=&quot;assets/img/portfolio/grid/12.jpg&quot; alt=&quot;Image&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;pt-4 mt-lg-2&quot;&gt;
+    &lt;h2 class=&quot;h4 mb-2&quot;&gt;
+      &lt;a href=&quot;#&quot; class=&quot;stretched-link&quot;&gt;The Studio&lt;/a&gt;
+    &lt;/h2&gt;
+    &lt;div class=&quot;d-flex justify-content-between fs-lg text-muted&quot;&gt;
+      &lt;span&gt;Web design&lt;/span&gt;
+      &lt;span&gt;2021&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</code></pre>
+                </div>
+                <div class="tab-pane fade" id="pug2" role="tabpanel">
+                  <pre class="line-numbers"><code class="lang-pug">// Portfolio card vertical layout style 2 (Grid view)
+article(style=&quot;max-width: 480px;&quot;).zoom-effect.position-relative.border-bottom.pb-3
+  .zoom-effect-wrapper
+    .zoom-effect-img
+      img(src=&quot;assets/img/portfolio/grid/12.jpg&quot;, alt=&quot;Image&quot;)
+  .pt-4.mt-lg-2
+    h2.h4.mb-2
+      a(href=&quot;#&quot;).stretched-link
+        | The Studio
+    .d-flex.justify-content-between
+      span.fs-lg.text-muted Web design
+      span.fs-lg.text-muted 2021
+</code></pre>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Grid view style 3-->
+          <section class="card border-0 mb-4" id="portfolio-grid-3">
+            <div class="card-body pb-0">
+              <h2 class="h4 mb-n2">Grid view style 3</h2>
+            </div>
+            <div class="card-header">
+              <ul class="nav nav-tabs card-header-tabs flex-nowrap align-items-center mb-n1" role="tablist">
+                <li class="nav-item me-3"><a class="nav-link px-0 py-2 border-0 rounded-1 active" href="#preview3" data-bs-toggle="tab" role="tab" aria-controls="preview3" aria-selected="true"><i class="ai-show fs-lg opacity-90 me-2"></i>Preview</a></li>
+                <li class="vr opacity-20 my-3 me-3"></li>
+                <li class="nav-item me-3"><a class="nav-link px-0 py-2 border-0 rounded-1" href="#html3" data-bs-toggle="tab" role="tab" aria-controls="html3" aria-selected="false"><i class="ai-code fs-xl opacity-90 me-2"></i>HTML</a></li>
+                <li class="vr opacity-20 my-3 me-3"></li>
+                <li class="nav-item me-0"><a class="nav-link px-0 py-2 border-0 rounded-1" href="#pug3" data-bs-toggle="tab" role="tab" aria-controls="pug3" aria-selected="false"><i class="ai-code-curly opacity-90 me-2"></i>Pug</a></li>
+              </ul>
+            </div>
+            <div class="card-body">
+              <div class="tab-content">
+                <div class="tab-pane fade show active" id="preview3" role="tabpanel"><a class="card-flip" href="#" style="max-width: 316px;">
+                    <div class="card-flip-inner">
+                      <div class="card-flip-front" style="background-image: url(../assets/img/landing/creative-agency/services/03.jpg);">
+                        <div class="d-flex flex-column h-100 ignore-dark-mode">
+                          <h2 class="fs-lg fw-normal mb-0 mt-auto">Branding</h2>
+                        </div>
+                      </div>
+                      <div class="card-flip-back bg-secondary">
+                        <div class="d-flex flex-column h-100 px-sm-2 pt-sm-2 px-lg-0 pt-lg-0 px-xl-3 pt-xl-3">
+                          <h3 class="h4">Branding</h3>
+                          <ul class="text-body ps-4 mb-3">
+                            <li class="mb-2">Identity design</li>
+                            <li class="mb-2">Brand book creation</li>
+                            <li class="mb-2">Colors and fonts</li>
+                            <li class="mb-2">Banners and covers</li>
+                            <li class="mb-1">Visual style</li>
+                          </ul>
+                          <div class="text-end pt-3 pt-sm-2 pt-xl-4 mt-auto me-sm-n2 me-lg-0 me-xl-n3">
+                            <div class="btn btn-sm btn-icon btn-outline-primary rounded-circle"><i class="ai-arrow-right"></i></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div></a></div>
+                <div class="tab-pane fade" id="html3" role="tabpanel">
+                  <pre class="line-numbers"><code class="lang-html">&lt;!-- Portfolio card with flipping effect (Grid view) --&gt;
+&lt;a href=&quot;#&quot; class=&quot;card-flip&quot; style=&quot;max-width: 316px;&quot;&gt;
+  &lt;div class=&quot;card-flip-inner&quot;&gt;
+    &lt;div class=&quot;card-flip-front&quot; style=&quot;background-image: url(assets/img/landing/creative-agency/services/03.jpg);&quot;&gt;
+      &lt;div class=&quot;d-flex flex-column h-100 ignore-dark-mode&quot;&gt;
+        &lt;h2 class=&quot;fs-lg fw-normal mb-0 mt-auto&quot;&gt;Branding&lt;/h2&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;card-flip-back bg-secondary&quot;&gt;
+      &lt;div class=&quot;d-flex flex-column h-100 px-sm-2 pt-sm-2 px-lg-0 pt-lg-0 px-xl-3 pt-xl-3&quot;&gt;
+        &lt;h3 class=&quot;h4&quot;&gt;Branding&lt;/h3&gt;
+        &lt;ul class=&quot;text-body ps-4 mb-3&quot;&gt;
+          &lt;li class=&quot;mb-2&quot;&gt;Identity design&lt;/li&gt;
+          &lt;li class=&quot;mb-2&quot;&gt;Brand book creation&lt;/li&gt;
+          &lt;li class=&quot;mb-2&quot;&gt;Colors and fonts&lt;/li&gt;
+          &lt;li class=&quot;mb-2&quot;&gt;Banners and covers&lt;/li&gt;
+          &lt;li class=&quot;mb-1&quot;&gt;Visual style&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;div class=&quot;text-end pt-3 pt-sm-2 pt-xl-4 mt-auto me-sm-n2 me-lg-0 me-xl-n3&quot;&gt;
+          &lt;div class=&quot;btn btn-sm btn-icon btn-outline-primary rounded-circle&quot;&gt;
+            &lt;i class=&quot;ai-arrow-right&quot;&gt;&lt;/i&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/a&gt;</code></pre>
+                </div>
+                <div class="tab-pane fade" id="pug3" role="tabpanel">
+                  <pre class="line-numbers"><code class="lang-pug">// Portfolio card with flipping effect (Grid view)
+a(href=&quot;#&quot;, style=&quot;max-width: 316px;&quot;).card-flip
+  .card-flip-inner
+    .card-flip-front(style=&quot;background-image: url(assets/img/landing/creative-agency/services/03.jpg);&quot;)
+      .d-flex.flex-column.h-100.ignore-dark-mode
+        h2.fs-lg.fw-normal.mb-0.mt-auto Branding
+    .card-flip-back.bg-secondary
+      .d-flex.flex-column.h-100.px-sm-2.pt-sm-2.px-lg-0.pt-lg-0.px-xl-3.pt-xl-3
+        h3.h4 Branding
+        ul.text-body.ps-4.mb-3
+          li.mb-2 Identity design
+          li.mb-2 Brand book creation
+          li.mb-2 Colors and fonts
+          li.mb-2 Banners and covers
+          li.mb-1 Visual style
+        .text-end.pt-3.pt-sm-2.pt-xl-4.mt-auto.me-sm-n2.me-lg-0.me-xl-n3
+          .btn.btn-sm.btn-icon.btn-outline-primary.rounded-circle
+            i.ai-arrow-right
+</code></pre>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- List view style 1-->
+          <section class="card border-0 mb-4" id="portfolio-list-1">
+            <div class="card-body pb-0">
+              <h2 class="h4 mb-n2">List view style 1</h2>
+            </div>
+            <div class="card-header">
+              <ul class="nav nav-tabs card-header-tabs flex-nowrap align-items-center mb-n1" role="tablist">
+                <li class="nav-item me-3"><a class="nav-link px-0 py-2 border-0 rounded-1 active" href="#preview4" data-bs-toggle="tab" role="tab" aria-controls="preview4" aria-selected="true"><i class="ai-show fs-lg opacity-90 me-2"></i>Preview</a></li>
+                <li class="vr opacity-20 my-3 me-3"></li>
+                <li class="nav-item me-3"><a class="nav-link px-0 py-2 border-0 rounded-1" href="#html4" data-bs-toggle="tab" role="tab" aria-controls="html4" aria-selected="false"><i class="ai-code fs-xl opacity-90 me-2"></i>HTML</a></li>
+                <li class="vr opacity-20 my-3 me-3"></li>
+                <li class="nav-item me-0"><a class="nav-link px-0 py-2 border-0 rounded-1" href="#pug4" data-bs-toggle="tab" role="tab" aria-controls="pug4" aria-selected="false"><i class="ai-code-curly opacity-90 me-2"></i>Pug</a></li>
+              </ul>
+            </div>
+            <div class="card-body">
+              <div class="tab-content">
+                <div class="tab-pane fade show active" id="preview4" role="tabpanel">
+                  <article class="row align-items-center card-hover pb-5 mb-md-2 mb-lg-3 mb-xl-4" data-aos="fade-up" data-aos-duration="600" data-aos-offset="280">
+                    <div class="col-md-7 mb-4 mb-md-0"><a href="#"><img class="rounded-5" src="../assets/img/portfolio/list/03.jpg" width="700" alt="Image"></a></div>
+                    <div class="col-md-5" data-aos="fade-up" data-aos-duration="850" data-aos-offset="180" data-disable-parallax-down="md">
+                      <div class="ms-md-2 ms-xl-4" style="max-width: 330px;">
+                        <div class="text-muted mb-2">Identity, Packaging</div>
+                        <h2 class="mb-lg-4"><a href="#">Bottle for French perfume brand</a></h2>
+                        <p class="mb-0 mb-md-1 mb-lg-3">Egestas ultrices condimentum consectetur massa aliquam volutpat pulvinar aliquet nisi quam. Nibh commodo tristique nisi, justo, sed maecenas lectus ut nec eu.</p><a class="btn btn-lg btn-link px-0 opacity-0 d-none d-md-inline-flex" href="#">Read more<i class="ai-arrow-right ms-2"></i></a>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="row align-items-center card-hover pb-4" data-aos="fade-up" data-aos-duration="600" data-aos-offset="280">
+                    <div class="col-md-7 order-md-2 mb-4 mb-md-0"><a href="#"><img class="rounded-5" src="../assets/img/portfolio/list/04.jpg" width="700" alt="Image"></a></div>
+                    <div class="col-md-5 order-md-1" data-aos="fade-up" data-aos-duration="850" data-aos-offset="180" data-disable-parallax-down="md">
+                      <div class="me-md-2 me-xl-4" style="max-width: 330px;">
+                        <div class="text-muted mb-2">E-book, Branding</div>
+                        <h2 class="mb-lg-4"><a href="#">Book cover design Twin Fish</a></h2>
+                        <p class="mb-0 mb-md-1 mb-lg-3">Sed feugiat tristique enim aenean netus cum adipiscing est sem eget nulla leo vestibulum. Cras urna, proin ut ut dictum risus porttitor nulla consequat et iaculis.</p><a class="btn btn-lg btn-link px-0 opacity-0 d-none d-md-inline-flex" href="#">Read more<i class="ai-arrow-right ms-2"></i></a>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+                <div class="tab-pane fade" id="html4" role="tabpanel">
+                  <pre class="line-numbers"><code class="lang-html">&lt;!-- Portfolio card horizontal layout style 1 (List view). Ideally should be placed inside .container --&gt;
+
+&lt;!-- Image on the left --&gt;
+&lt;article class=&quot;row align-items-center card-hover pb-5 mb-md-2 mb-lg-3 mb-xl-4&quot; data-aos=&quot;fade-up&quot; data-aos-duration=&quot;600&quot; data-aos-offset=&quot;280&quot;&gt;
+  &lt;div class=&quot;col-md-7 offset-xxl-1 mb-4 mb-md-0&quot;&gt;
+    &lt;a href=&quot;#&quot;&gt;
+      &lt;img src=&quot;assets/img/portfolio/list/03.jpg&quot; class=&quot;rounded-5&quot; width=&quot;700&quot; alt=&quot;Image&quot;&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-md-5 col-xl-4&quot; data-aos=&quot;fade-up&quot; data-aos-duration=&quot;850&quot; data-aos-offset=&quot;180&quot; data-disable-parallax-down=&quot;md&quot;&gt;
+    &lt;div class=&quot;ms-md-4 ms-lg-5 ms-xxl-0&quot; style=&quot;max-width: 330px;&quot;&gt;
+      &lt;div class=&quot;text-muted mb-2&quot;&gt;Identity, Packaging&lt;/div&gt;
+      &lt;h2 class=&quot;mb-lg-4&quot;&gt;
+        &lt;a href=&quot;#&quot;&gt;Bottle for French perfume brand&lt;/a&gt;
+      &lt;/h2&gt;
+      &lt;p class=&quot;mb-0 mb-md-1 mb-lg-3&quot;&gt;Egestas ultrices condimentum consectetur massa aliquam volutpat pulvinar aliquet nisi quam. Nibh commodo tristique nisi, justo, sed maecenas lectus ut nec eu.&lt;/p&gt;
+      &lt;a href=&quot;#&quot; class=&quot;btn btn-lg btn-link px-0 opacity-0 d-none d-md-inline-flex&quot;&gt;
+        Read more
+        &lt;i class=&quot;ai-arrow-right ms-2&quot;&gt;&lt;/i&gt;
+      &lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/article&gt;
+
+&lt;!-- Image on the right --&gt;
+&lt;article class=&quot;row align-items-center card-hover pb-5 mb-md-2 mb-lg-3 mb-xl-4&quot; data-aos=&quot;fade-up&quot; data-aos-duration=&quot;600&quot; data-aos-offset=&quot;280&quot;&gt;
+  &lt;div class=&quot;col-md-7 order-md-2 mb-4 mb-md-0&quot;&gt;
+    &lt;a href=&quot;#&quot;&gt;
+      &lt;img src=&quot;assets/img/portfolio/list/04.jpg&quot; class=&quot;rounded-5&quot; width=&quot;700&quot; alt=&quot;Image&quot;&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-md-5 col-xl-4 offset-xxl-1 order-md-1&quot; data-aos=&quot;fade-up&quot; data-aos-duration=&quot;850&quot; data-aos-offset=&quot;180&quot; data-disable-parallax-down=&quot;md&quot;&gt;
+    &lt;div class=&quot;me-md-4 me-lg-5 me-xxl-0&quot; style=&quot;max-width: 330px;&quot;&gt;
+      &lt;div class=&quot;text-muted mb-2&quot;&gt;E-book, Branding&lt;/div&gt;
+      &lt;h2 class=&quot;mb-lg-4&quot;&gt;
+        &lt;a href=&quot;#&quot;&gt;Book cover design Twin Fish&lt;/a&gt;
+      &lt;/h2&gt;
+      &lt;p class=&quot;mb-0 mb-md-1 mb-lg-3&quot;&gt;Sed feugiat tristique enim aenean netus cum adipiscing est sem eget nulla leo vestibulum. Cras urna, proin ut ut dictum risus porttitor nulla consequat et iaculis.&lt;/p&gt;
+      &lt;a href=&quot;#&quot; class=&quot;btn btn-lg btn-link px-0 opacity-0 d-none d-md-inline-flex&quot;&gt;
+        Read more
+        &lt;i class=&quot;ai-arrow-right ms-2&quot;&gt;&lt;/i&gt;
+      &lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</code></pre>
+                </div>
+                <div class="tab-pane fade" id="pug4" role="tabpanel">
+                  <pre class="line-numbers"><code class="lang-pug">// Portfolio card horizontal layout style 1 (List view). Ideally should be placed inside .container
+
+// Image on the left
+article(data-aos=&quot;fade-up&quot;, data-aos-duration=&quot;600&quot;, data-aos-offset=&quot;280&quot;).row.align-items-center.card-hover.pb-5.mb-md-2.mb-lg-3.mb-xl-4
+  .col-md-7.offset-xxl-1.mb-4.mb-md-0
+    a(href=&quot;#&quot;)
+      img(src=&quot;assets/img/portfolio/list/03.jpg&quot;, width=&quot;700&quot;, alt=&quot;Image&quot;).rounded-5
+  .col-md-5.col-xl-4(data-aos=&quot;fade-up&quot;, data-aos-duration=&quot;850&quot;, data-aos-offset=&quot;180&quot;, data-disable-parallax-down=&quot;md&quot;)
+    .ms-md-4.ms-lg-5.ms-xxl-0(style=&quot;max-width: 330px;&quot;)
+      .text-muted.mb-2 Identity, Packaging
+      h2.mb-lg-4
+        a(href=&quot;#&quot;) Bottle for French perfume brand
+      p.mb-0.mb-md-1.mb-lg-3
+        | Egestas ultrices condimentum consectetur massa aliquam volutpat pulvinar aliquet nisi quam. Nibh commodo tristique nisi, justo, sed maecenas lectus ut nec eu.
+      a(href=&quot;#&quot;).btn.btn-lg.btn-link.px-0.opacity-0.d-none.d-md-inline-flex
+        | Read more
+        i.ai-arrow-right.ms-2
+
+// Image on the right
+article(data-aos=&quot;fade-up&quot;, data-aos-duration=&quot;600&quot;, data-aos-offset=&quot;280&quot;).row.align-items-center.card-hover.pb-5.mb-md-2.mb-lg-3.mb-xl-4
+  .col-md-7.order-md-2.mb-4.mb-md-0
+    a(href=&quot;#&quot;)
+      img(src=&quot;assets/img/portfolio/list/04.jpg&quot;, width=&quot;700&quot;, alt=&quot;Image&quot;).rounded-5
+  .col-md-5.col-xl-4.offset-xxl-1.order-md-1(data-aos=&quot;fade-up&quot;, data-aos-duration=&quot;850&quot;, data-aos-offset=&quot;180&quot;, data-disable-parallax-down=&quot;md&quot;)
+    .me-md-4.me-lg-5.me-xxl-0(style=&quot;max-width: 330px;&quot;)
+      .text-muted.mb-2 E-book, Branding
+      h2.mb-lg-4
+        a(href=&quot;#&quot;) Book cover design Twin Fish
+      p.mb-0.mb-md-1.mb-lg-3
+        | Sed feugiat tristique enim aenean netus cum adipiscing est sem eget nulla leo vestibulum. Cras urna, proin ut ut dictum risus porttitor nulla consequat et iaculis.
+      a(href=&quot;#&quot;).btn.btn-lg.btn-link.px-0.opacity-0.d-none.d-md-inline-flex
+        | Read more
+        i.ai-arrow-right.ms-2
+</code></pre>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- List view style 2-->
+          <section class="card border-0 mb-4" id="portfolio-list-2">
+            <div class="card-body pb-0">
+              <h2 class="h4 mb-n2">List view style 2</h2>
+            </div>
+            <div class="card-header">
+              <ul class="nav nav-tabs card-header-tabs flex-nowrap align-items-center mb-n1" role="tablist">
+                <li class="nav-item me-3"><a class="nav-link px-0 py-2 border-0 rounded-1 active" href="#preview5" data-bs-toggle="tab" role="tab" aria-controls="preview5" aria-selected="true"><i class="ai-show fs-lg opacity-90 me-2"></i>Preview</a></li>
+                <li class="vr opacity-20 my-3 me-3"></li>
+                <li class="nav-item me-3"><a class="nav-link px-0 py-2 border-0 rounded-1" href="#html5" data-bs-toggle="tab" role="tab" aria-controls="html5" aria-selected="false"><i class="ai-code fs-xl opacity-90 me-2"></i>HTML</a></li>
+                <li class="vr opacity-20 my-3 me-3"></li>
+                <li class="nav-item me-0"><a class="nav-link px-0 py-2 border-0 rounded-1" href="#pug5" data-bs-toggle="tab" role="tab" aria-controls="pug5" aria-selected="false"><i class="ai-code-curly opacity-90 me-2"></i>Pug</a></li>
+              </ul>
+            </div>
+            <div class="card-body">
+              <div class="tab-content">
+                <div class="tab-pane fade show active" id="preview5" role="tabpanel">
+                  <div class="row align-items-center pt-xl-2 pb-4">
+                    <div class="col-md-7 mb-4 mb-md-0"><a class="d-block position-relative" href="#">
+                        <div class="bg-info rounded-5 position-absolute top-0 start-0 w-100 h-100" data-aos="zoom-in" data-aos-duration="600" data-aos-offset="250"></div><img class="d-block position-relative zindex-2 mx-auto" src="../assets/img/portfolio/list/06.png" width="636" alt="Image" data-aos="fade-in" data-aos-duration="400" data-aos-offset="250"></a></div>
+                    <div class="col-md-5" data-aos="fade-up" data-aos-duration="400" data-aos-offset="170">
+                      <div class="ps-md-3 ps-lg-4"><img class="d-block d-dark-mode-none mb-2 mb-lg-3" src="../assets/img/portfolio/brands/champion-blue-dark.svg" alt="Champion"><img class="d-none d-dark-mode-block mb-2 mb-lg-3" src="../assets/img/portfolio/brands/champion-blue-light.svg" alt="Champion">
+                        <h2 class="h4">Development of a fintech application</h2>
+                        <p class="fs-sm pb-3 pb-lg-4 mb-3">Morbi et massa fames ac scelerisque sit commodo dignissim faucibus vel quisque proin lectus. Morbi et massa fames ac scelerisque.</p><a class="btn btn-sm btn-outline-dark rounded-pill" href="#">Read the full story</a>
+                        <div class="d-flex align-items-center pt-2 pt-lg-3 mt-3">
+                          <h6 class="text-body mb-0 me-3">Awards:</h6><img class="d-block d-dark-mode-none me-4" src="../assets/img/portfolio/brands/vuejs-dark.svg" width="90" alt="Vue.js"><img class="d-none d-dark-mode-block me-4" src="../assets/img/portfolio/brands/vuejs-light.svg" width="90" alt="Vue.js"><img class="d-block d-dark-mode-none" src="../assets/img/portfolio/brands/deloitte-dark.svg" width="95" alt="Deloitte"><img class="d-none d-dark-mode-block" src="../assets/img/portfolio/brands/deloitte-light.svg" width="95" alt="Deloitte">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="html5" role="tabpanel">
+                  <pre class="line-numbers"><code class="lang-html">&lt;!-- Portfolio card horizontal layout style 2 (List view). Ideally should be placed inside .container --&gt;
+&lt;div class=&quot;row align-items-center pt-xl-2 pb-5 mb-lg-2 mb-xl-3 mb-xxl-4&quot;&gt;
+  &lt;div class=&quot;col-md-7 col-lg-6 mb-4 mb-md-0&quot;&gt;
+    &lt;a href=&quot;#&quot; class=&quot;d-block position-relative&quot;&gt;
+      &lt;div class=&quot;bg-info rounded-5 position-absolute top-0 start-0 w-100 h-100&quot; data-aos=&quot;zoom-in&quot; data-aos-duration=&quot;600&quot; data-aos-offset=&quot;250&quot;&gt;&lt;/div&gt;
+      &lt;img src=&quot;assets/img/portfolio/list/06.png&quot; class=&quot;d-block position-relative zindex-2 mx-auto&quot; width=&quot;636&quot; alt=&quot;Image&quot; data-aos=&quot;fade-in&quot; data-aos-duration=&quot;400&quot; data-aos-offset=&quot;250&quot;&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-md-5 col-xl-4 offset-lg-1&quot; data-aos=&quot;fade-up&quot; data-aos-duration=&quot;400&quot; data-aos-offset=&quot;170&quot;&gt;
+    &lt;div class=&quot;ps-md-3 ps-lg-0&quot;&gt;
+      &lt;img src=&quot;assets/img/portfolio/brands/champion-blue-dark.svg&quot; class=&quot;d-block d-dark-mode-none mb-2 mb-lg-3&quot; alt=&quot;Champion&quot;&gt;
+      &lt;img src=&quot;assets/img/portfolio/brands/champion-blue-light.svg&quot; class=&quot;d-none d-dark-mode-block mb-2 mb-lg-3&quot; alt=&quot;Champion&quot;&gt;
+      &lt;h2 class=&quot;h4&quot;&gt;Development of a fintech application&lt;/h2&gt;
+      &lt;p class=&quot;fs-sm pb-3 pb-lg-4 mb-3&quot;&gt;Morbi et massa fames ac scelerisque sit commodo dignissim faucibus vel quisque proin lectus. Morbi et massa fames ac scelerisque sit commodo dignissim.&lt;/p&gt;
+      &lt;a href=&quot;#&quot; class=&quot;btn btn-sm btn-outline-dark rounded-pill&quot;&gt;Read the full story&lt;/a&gt;
+      &lt;div class=&quot;d-flex align-items-center pt-2 pt-lg-3 mt-3&quot;&gt;
+        &lt;h6 class=&quot;text-body mb-0 me-3&quot;&gt;Awards:&lt;/h6&gt;
+        &lt;img src=&quot;assets/img/portfolio/brands/vuejs-dark.svg&quot; class=&quot;d-block d-dark-mode-none me-4&quot; width=&quot;90&quot; alt=&quot;Vue.js&quot;&gt;
+        &lt;img src=&quot;assets/img/portfolio/brands/vuejs-light.svg&quot; class=&quot;d-none d-dark-mode-block me-4&quot; width=&quot;90&quot; alt=&quot;Vue.js&quot;&gt;
+        &lt;img src=&quot;assets/img/portfolio/brands/deloitte-dark.svg&quot; class=&quot;d-block d-dark-mode-none&quot; width=&quot;95&quot; alt=&quot;Deloitte&quot;&gt;
+        &lt;img src=&quot;assets/img/portfolio/brands/deloitte-light.svg&quot; class=&quot;d-none d-dark-mode-block&quot; width=&quot;95&quot; alt=&quot;Deloitte&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+                <div class="tab-pane fade" id="pug5" role="tabpanel">
+                  <pre class="line-numbers"><code class="lang-pug">// Portfolio card horizontal layout style 2 (List view). Ideally should be placed inside .container
+.row.align-items-center.pt-xl-2.pb-5.mb-lg-2.mb-xl-3.mb-xxl-4
+  .col-md-7.col-lg-6.mb-4.mb-md-0
+    a(href=&quot;#&quot;).d-block.position-relative
+      .bg-info.rounded-5.position-absolute.top-0.start-0.w-100.h-100(data-aos=&quot;zoom-in&quot;, data-aos-duration=&quot;600&quot;, data-aos-offset=&quot;250&quot;)
+      img(src=&quot;assets/img/portfolio/list/06.png&quot;, width=&quot;636&quot;, alt=&quot;Image&quot;, data-aos=&quot;fade-in&quot;, data-aos-duration=&quot;400&quot;, data-aos-offset=&quot;250&quot;).d-block.position-relative.zindex-2.mx-auto
+  .col-md-5.col-xl-4.offset-lg-1(data-aos=&quot;fade-up&quot;, data-aos-duration=&quot;400&quot;, data-aos-offset=&quot;170&quot;)
+    .ps-md-3.ps-lg-0
+      img(src=&quot;assets/img/portfolio/brands/champion-blue-dark.svg&quot;, alt=&quot;Champion&quot;).d-block.d-dark-mode-none.mb-2.mb-lg-3
+      img(src=&quot;assets/img/portfolio/brands/champion-blue-light.svg&quot;, alt=&quot;Champion&quot;).d-none.d-dark-mode-block.mb-2.mb-lg-3
+      h2.h4 Development of a fintech application
+      p.fs-sm.pb-3.pb-lg-4.mb-3
+        | Morbi et massa fames ac scelerisque sit commodo dignissim faucibus vel quisque proin lectus. Morbi et massa fames ac scelerisque sit commodo dignissim.
+      a(href=&quot;#&quot;).btn.btn-sm.btn-outline-dark.rounded-pill
+        | Read the full story
+      .d-flex.align-items-center.pt-2.pt-lg-3.mt-3
+        h6.text-body.mb-0.me-3 Awards:
+        img(src=&quot;assets/img/portfolio/brands/vuejs-dark.svg&quot;, width=&quot;90&quot;, alt=&quot;Vue.js&quot;).d-block.d-dark-mode-none.me-4
+        img(src=&quot;assets/img/portfolio/brands/vuejs-light.svg&quot;, width=&quot;90&quot;, alt=&quot;Vue.js&quot;).d-none.d-dark-mode-block.me-4
+        img(src=&quot;assets/img/portfolio/brands/deloitte-dark.svg&quot;, width=&quot;95&quot;, alt=&quot;Deloitte&quot;).d-block.d-dark-mode-none
+        img(src=&quot;assets/img/portfolio/brands/deloitte-light.svg&quot;, width=&quot;95&quot;, alt=&quot;Deloitte&quot;).d-none.d-dark-mode-block</code></pre>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+    <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll>
+      <svg viewBox="0 0 40 40" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="19" fill="none" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"></circle>
+      </svg><i class="ai-arrow-up">   </i></a>
+    <!-- Vendor scripts: js libraries and plugins-->
+    <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="../assets/vendor/simplebar/dist/simplebar.min.js"></script>
+    <script src="../assets/vendor/aos/dist/aos.js"></script>
+    <script src="../assets/vendor/prismjs/components/prism-core.min.js"></script>
+    <script src="../assets/vendor/prismjs/components/prism-markup.min.js"></script>
+    <script src="../assets/vendor/prismjs/components/prism-clike.min.js"></script>
+    <script src="../assets/vendor/prismjs/components/prism-javascript.min.js"></script>
+    <script src="../assets/vendor/prismjs/components/prism-pug.min.js"></script>
+    <script src="../assets/vendor/prismjs/plugins/toolbar/prism-toolbar.min.js"></script>
+    <script src="../assets/vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+    <script src="../assets/vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <!-- Main theme script-->
+    <script src="../assets/js/theme.min.js"></script>
+  </body>
+</html>

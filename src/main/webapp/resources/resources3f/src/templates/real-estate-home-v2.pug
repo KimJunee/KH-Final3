@@ -1,0 +1,647 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['nouislider/dist/nouislider.min.css', 'tiny-slider/dist/tiny-slider.css']
+  - var vendorScripts = ['nouislider/dist/nouislider.min.js', 'tiny-slider/dist/min/tiny-slider.js', 'jarallax/dist/jarallax.min.js']
+  - var parentMenu = 'Home'
+  - var pageTitle = 'Real Estate | Home v.2'
+
+//- Navbar
+block navbar
+  include partials/navbar-real-estate
+
+//- Page Content
+block content
+
+  // Property cost calculator modal
+  #cost-calculator.modal.fade(tabindex='-1')
+    .modal-dialog.modal-dialog-centered(role='document')
+      .modal-content
+        .modal-header.d-block.position-relative.border-0.px-sm-5.px-4
+          h3.h4.modal-title.mt-4.text-center Explore your property’s value
+          button(type='button' data-bs-dismiss='modal' aria-label='Close').btn-close.position-absolute.top-0.end-0.mt-3.me-3
+        .modal-body.px-sm-5.px-4
+          form(novalidate).needs-validation
+            .mb-3
+              label(for='property-city').form-label.fw-bold.mb-2 Property location
+              select(id='property-city' required).form-control.form-select
+                option(value='' selected disabled hidden) Choose city
+                option(value='Chicago') Chicago
+                option(value='Dallas') Dallas
+                option(value='Los Angeles') Los Angeles
+                option(value='New York') New York
+                option(value='San Diego') San Diego
+              .invalid-feedback Please choose the city.
+            .mb-3
+              select(id='property-district' required).form-control.form-select
+                option(value='' selected disabled hidden) Choose district
+                option(value='Brooklyn') Brooklyn
+                option(value='Manhattan') Manhattan
+                option(value='Staten Island') Staten Island
+                option(value='The Bronx') The Bronx
+                option(value='Queens') Queens
+              .invalid-feedback Please choose the district.
+            .pt-2.mb-3
+              label(for='property-address').form-label.fw-bold.mb-2 Address
+              input(type='text' id='property-address' placeholder='Enter your address' required).form-control
+              .invalid-feedback Please enter your property's address.
+            .pt-2.mb-3
+              label.form-label.fw-bold.mb-2 Number of rooms
+              .btn-group(role='group' aria-label='Choose number of rooms')
+                input(type='radio' id='rooms-1' name='rooms').btn-check
+                label(for='rooms-1').btn.btn-outline-secondary 1
+                input(type='radio' id='rooms-2' name='rooms').btn-check
+                label(for='rooms-2').btn.btn-outline-secondary 2
+                input(type='radio' id='rooms-3' name='rooms').btn-check
+                label(for='rooms-3').btn.btn-outline-secondary 3
+                input(type='radio' id='rooms-4' name='rooms').btn-check
+                label(for='rooms-4').btn.btn-outline-secondary 4
+                input(type='radio' id='rooms-5' name='rooms').btn-check
+                label(for='rooms-5').btn.btn-outline-secondary 5+
+            .pt-2.mb-4
+              label(for='property-area').form-label.fw-bold.mb-2 Total area, sq.m.
+              input(type='text' id='property-area' placeholder='Enter your area' required).form-control
+              .invalid-feedback Please enter your property's area.
+            button(type='submit').btn.btn-primary.d-block.w-100.mb-4
+              i.fi-calculator.me-2
+              | Calculate
+
+
+  // Hero
+  section.container-fluid.my-5.pt-5.pb-lg-4.px-xxl-4
+    div(style='min-height: 65vh; background-image: url(img/real-estate/hero-image-v2.jpg);' data-jarallax data-speed='0.5').jarallax.card.align-items-center.justify-content-center.border-0.p-md-5.p-4.bg-secondary.overflow-hidden.mt-n3
+      span.img-overlay.opacity-40
+      div(style='max-width: 856px;').content-overlay
+        h1.display-5.mb-5.pb-md-3.px-md-3.text-white.text-center
+          | Easy way to find a perfect property
+        form.form-group.d-block
+          .row.g-0
+            .col-md-10.d-sm-flex.align-items-center
+              .dropdown.w-sm-50.border-end-sm(data-bs-toggle='select')
+                button(type='button' data-bs-toggle='dropdown').btn.btn-lg.btn-link.dropdown-toggle.ps-2.ps-sm-3
+                  i.fi-home.me-2
+                  span.dropdown-toggle-label For rent
+                input(type='hidden')
+                ul.dropdown-menu
+                  li
+                    a(href='#').dropdown-item
+                      span.dropdown-item-label For rent
+                  li
+                    a(href='#').dropdown-item
+                      span.dropdown-item-label For sale
+              hr.d-sm-none.my-2
+              .dropdown.w-sm-50.border-end-sm(data-bs-toggle='select')
+                button(type='button' data-bs-toggle='dropdown').btn.btn-lg.btn-link.dropdown-toggle.ps-2.ps-sm-3
+                  i.fi-map-pin.me-2
+                  span.dropdown-toggle-label Location
+                input(type='hidden')
+                ul.dropdown-menu
+                  li
+                    a(href='#').dropdown-item
+                      span.dropdown-item-label New York
+                  li
+                    a(href='#').dropdown-item
+                      span.dropdown-item-label Chicago
+                  li
+                    a(href='#').dropdown-item
+                      span.dropdown-item-label Los Angeles
+                  li
+                    a(href='#').dropdown-item
+                      span.dropdown-item-label San Diego
+              hr.d-sm-none.my-2
+              .dropdown.w-sm-50(data-bs-toggle='select')
+                button(type='button' data-bs-toggle='dropdown').btn.btn-lg.btn-link.dropdown-toggle.ps-2.ps-sm-3
+                  i.fi-list.me-2
+                  span.dropdown-toggle-label Property type
+                input(type='hidden')
+                ul.dropdown-menu
+                  li
+                    a(href='#').dropdown-item
+                      span.dropdown-item-label Houses
+                  li
+                    a(href='#').dropdown-item
+                      span.dropdown-item-label Apartments
+                  li
+                    a(href='#').dropdown-item
+                      span.dropdown-item-label Commercial
+                  li
+                    a(href='#').dropdown-item
+                      span.dropdown-item-label Daily rental
+                  li
+                    a(href='#').dropdown-item
+                      span.dropdown-item-label New buildings
+            hr.d-md-none.mt-2
+            .col-md-2.d-sm-flex.align-items-center.pt-3.pt-md-0
+              button(type='button').btn.btn-lg.btn-icon.btn-primary.px-3.w-100
+                | Search
+
+
+  // Features
+  section.container.mb-5.pb-lg-4
+    .row
+      .col-lg-6.col-md-7
+        .row.gy-4
+          .col-md-5.col-sm-6
+            h2.h3.mb-0
+              | We are the best in the housing market
+          .col-sm-6.offset-md-1
+            p.mb-0
+              | Viverra a, mauris elit, pretium senectus ut sagittis malesuada lacus. Egestas risus lorem lectus nunc. Aliquet ultrices risus lobortis cursus vel blandit magna. Eu donec hendrerit morbi tortor.
+        .py-3: hr.my-4
+        .row.row-cols-md-3.row-cols-1.gy-4.gx-lg-5.gx-3.text-center.px-lg-4
+          .col
+            img(src='img/real-estate/brands/trustpilot.svg' alt='Trustpilot').d-block.mx-auto.mb-3
+            h5.mb-1 Excellent
+            span.fs-sm 4.8 out of 5
+          .col
+            h5.h2.mb-2 1.2M+
+            span.fs-sm Property listings worldwide
+          .col
+            h5.h2.mb-2 $3.8K
+            span.fs-sm Average annual earnings per landlord
+      .col-md-5.offset-lg-1
+        img(src='img/real-estate/illustrations/find-alt.svg' alt='Illustration').d-block.mx-auto
+
+
+  // Newly listed properties
+  section.container.mt-n3.mt-md-0.mb-5.pb-3.pb-lg-4
+    .d-flex.align-items-end.justify-content-between.mb-4.pb-md-2
+      h2.h3.mb-0 Newly listed properties
+      a(href='real-estate-catalog-sale.html').btn.btn-link.fw-normal.ms-2.p-0
+        | View all
+        i.fi-arrow-long-right.ms-2
+
+    // Carousel
+    .tns-carousel-wrapper
+      .tns-carousel-inner(data-carousel-options = '{"mode": "gallery", "speed": 800, "nav": false, "controlsContainer": "#carousel-controls-lp"}')
+
+        // Item
+        div
+          .row
+            .col-lg-8.col-md-7.mb-md-0.mb-3
+              .position-relative.pe-lg-5
+                .position-absolute.top-0.start-0.zindex-1.m-3.p-1
+                  span.badge.bg-info.fs-sm.me-2 New
+                  span.badge.bg-success.fs-sm.me-2 Verified
+                img(src='img/real-estate/recent/04.jpg' alt='Article image').rounded-3.zindex-5
+            .col-lg-4.col-md-5
+              span.d-inline-block.fs-sm.text-uppercase.text-primary.mb-2.from-top
+                | For sale
+              .from-start.delay-2
+                h3.h4.mb-2 Duplex with Garage
+                p.mb-md-4.mb-3.fs-sm 28 Jackson Ave Long Island City, NY 67234
+                ul.d-flex.mb-md-4.mb-3.list-unstyled
+                  li.me-3.pe-3.border-end
+                    b.me-1 4
+                    i.fi-bed.mt-n1.lead.align-middle.text-muted
+                  li.me-3.pe-3.border-end
+                    b.me-1 2
+                    i.fi-bath.mt-n1.lead.align-middle.text-muted
+                  li.me-3.pe-3.border-end
+                    b.me-1 2
+                    i.fi-car.mt-n1.lead.align-middle.text-muted
+                  li
+                    b 126 
+                    | sq.m
+                p.mb-4.pb-md-2
+                  | Blandit lorem dictum in velit. Et nisi at faucibus mauris pretium enim. Risus sapien nisi aliquam egestas leo dignissim ut quis ac. Amet, cras orci justo, tortor nisl aliquet.
+              .btn-group.btn-group-lg(role='group' aria-label='Buy now or add to wishlist').scale-up.delay-3
+                a(href='real-estate-single-v2.html').btn.btn-primary Sale for $16,850
+                button(data-bs-toggle='tooltip' data-bs-placement='top' title='Add to Wishlist').btn.btn-primary.px-3.border-start.border-light
+                  i.fi-heart.fs-5
+
+        // Item
+        div
+          .row
+            .col-lg-8.col-md-7.mb-md-0.mb-3
+              .position-relative.pe-lg-5
+                .position-absolute.top-0.start-0.zindex-1.m-3.p-1
+                  span.badge.bg-info.fs-sm.me-2 New
+                  span.badge.bg-success.fs-sm.me-2 Verified
+                img(src='img/real-estate/recent/05.jpg' alt='Article image').rounded-3.zindex-5
+            .col-lg-4.col-md-5
+              span.d-inline-block.fs-sm.text-uppercase.text-primary.mb-2.from-top
+                | For rent
+              .from-start.delay-2
+                h3.h4.mb-2 Luxury Rental Villa
+                p.mb-md-4.mb-3.fs-sm 1510 Castle Hill Ave Bronx, NY 10462
+                ul.d-flex.mb-md-4.mb-3.list-unstyled
+                  li.me-3.pe-3.border-end
+                    b.me-1 5
+                    i.fi-bed.mt-n1.lead.align-middle.text-muted
+                  li.me-3.pe-3.border-end
+                    b.me-1 3
+                    i.fi-bath.mt-n1.lead.align-middle.text-muted
+                  li.me-3.pe-3.border-end
+                    b.me-1 1
+                    i.fi-car.mt-n1.lead.align-middle.text-muted
+                  li
+                    b 14 
+                    | sq.m
+                p.mb-4.pb-md-2
+                  | Sagittis faucibus feugiat integer quam vel ornare. Tellus, vel consequat, sagittis ut penatibus urna, ante. Mattis fermentum lectus sed nisl ac viverra lacus. A at iaculis etiam nunc, diam urna in.
+              .btn-group.btn-group-lg(role='group' aria-label='Buy now or add to wishlist').scale-up.delay-3
+                a(href='#').btn.btn-primary Rent from $2,150
+                button(data-bs-toggle='tooltip' data-bs-placement='top' title='Add to Wishlist').btn.btn-primary.px-3.border-start.border-light
+                  i.fi-heart.fs-5
+
+    // Carousel custom controls
+    #carousel-controls-lp.tns-carousel-controls.pt-2.mt-4
+      button(type='button').me-3
+        i.fi-chevron-left.fs-xs
+      button(type='button')
+        i.fi-chevron-right.fs-xs
+
+
+  // Discover locations
+  section.container.mb-5.pb-lg-5.pb-4
+    .d-flex.align-items-start.justify-content-between.mb-3.mb-md-4.pb-md-2
+      .d-flex.flex-md-row.flex-column.align-items-center
+        h2.h3.mb-4.mb-md-0 Discover locations
+        ul(class='nav nav-tabs mb-0 ms-md-4 ms-n3 ps-lg-2' role='tablist')
+          li.nav-item
+            a(href='#' class='nav-link').active For rent
+          li.nav-item
+            a(href='#' class='nav-link') For sale
+      a(href='real-estate-catalog-rent.html').btn.btn-link.fw-normal.ms-2.p-0
+        | View all
+        i.fi-arrow-long-right.ms-2
+
+    // Carousel
+    .tns-carousel-wrapper.tns-nav-outside.tns-nav-outside-flush.mx-n2
+      .tns-carousel-inner.row.gx-4.mx-0.py-3(data-carousel-options='{"items": 3, "controls": false, "responsive": {"0":{"items":1},"500":{"items":2},"768":{"items":3}}}')
+        .col
+          .card.card-hover.border-0.shadow-sm.h-100.p-2
+            .card-body.icon-box.p-4
+              div(style='width: 5rem; height: 5rem; background-image: url(img/real-estate/locations/usa.svg);').icon-box-media.mb-3
+              h4.h5.icon-box-title.lh-1
+                | Popular locations
+              span.fs-sm.text-muted
+                | Tempor id sed suspendisse nulla.
+              hr.my-4
+              ul.nav.flex-column.mb-0
+                li.nav-item.mb-2.pb-1
+                  a(href='#').nav-link.p-0.fw-normal New York
+                li.nav-item.mb-2.pb-1
+                  a(href='#').nav-link.p-0.fw-normal Los Angeles
+                li.nav-item.mb-2.pb-1
+                  a(href='#').nav-link.p-0.fw-normal Houston
+                li.nav-item.mb-2.pb-1
+                  a(href='#').nav-link.p-0.fw-normal Phoenix
+                li.nav-item.mb-2.pb-1
+                  a(href='#').nav-link.p-0.fw-normal Philadelphia
+                li.nav-item
+                  a(href='#').nav-link.p-0.fw-normal Chicago
+
+        .col
+          .card.card-hover.border-0.shadow-sm.h-100.p-2
+            .card-body.icon-box.p-4
+              div(style='width: 5rem; height: 5rem; background-image: url(img/real-estate/locations/city.svg);').icon-box-media.mb-3
+              h4.h5.icon-box-title.lh-1
+                | In the city
+              span.fs-sm.text-muted
+                | Aenean in vitae lectus nunc. Dictum nunc enim.
+              hr.my-4
+              ul.nav.flex-column.mb-0
+                li.nav-item.mb-2.pb-1
+                  a(href='#').nav-link.p-0.fw-normal San Antonio
+                li.nav-item.mb-2.pb-1
+                  a(href='#').nav-link.p-0.fw-normal San Diego
+                li.nav-item.mb-2.pb-1
+                  a(href='#').nav-link.p-0.fw-normal Austin
+                li.nav-item.mb-2.pb-1
+                  a(href='#').nav-link.p-0.fw-normal San Jose
+                li.nav-item.mb-2.pb-1
+                  a(href='#').nav-link.p-0.fw-normal Columbus
+                li.nav-item
+                  a(href='#').nav-link.p-0.fw-normal Dallas
+
+        .col
+          .card.card-hover.border-0.shadow-sm.h-100.p-2
+            .card-body.icon-box.p-4
+              div(style='width: 5rem; height: 5rem; background-image: url(img/real-estate/locations/field.svg);').icon-box-media.mb-3
+              h4.h5.icon-box-title.lh-1
+                | Rural and countryside
+              span.fs-sm.text-muted
+                | Leo vel sit velit, nam volutpat tincidunt orci.
+              hr.my-4
+              ul.nav.flex-column.mb-0
+                li.nav-item.mb-2.pb-1
+                  a(href='#').nav-link.p-0.fw-normal Bar Harbor
+                li.nav-item.mb-2.pb-1
+                  a(href='#').nav-link.p-0.fw-normal Gatlinburg
+                li.nav-item.mb-2.pb-1
+                  a(href='#').nav-link.p-0.fw-normal Sedona
+                li.nav-item.mb-2.pb-1
+                  a(href='#').nav-link.p-0.fw-normal Monterey
+                li.nav-item.mb-2.pb-1
+                  a(href='#').nav-link.p-0.fw-normal Telluride
+                li.nav-item
+                  a(href='#').nav-link.p-0.fw-normal Sonoma
+
+
+  // Top properties
+  section.container-fluid.px-xxl-4.mb-5.pb-lg-4
+    h2.h3.mb-4.pb-2.text-center
+      | Top properties on Finder
+
+    // Carousel
+    .tns-carousel-wrapper.tns-nav-outside.tns-nav-outside-flush.mx-n2
+      .tns-carousel-inner.row.gx-4.mx-0(data-carousel-options='{"nav": false, "autoHeight": true, "controlsContainer": "#carousel-controls-tp", "responsive": {"0":{"items":1},"1320":{"items":2}}}')
+
+        // Carousel item
+        .col
+          .row.gy-md-0.gy-sm-4.gy-3.gx-sm-4.gx-0
+            .col-md-7
+              a(href='real-estate-single-v1.html' style='background-image: url(img/real-estate/top-properties/01.jpg); min-height: 18.75rem;').text-decoration-none.text-light.card.bg-size-cover.bg-position-center.border-0.overflow-hidden.h-100
+                span.img-gradient-overlay
+                .card-body.content-overlay.pb-0
+                .card-footer.content-overlay.border-0.pt-0.pb-4
+                  .d-sm-flex.justify-content-between.align-items-end.pt-5.mt-2.mt-sm-5
+                    .pe-2
+                      .fs-sm.text-uppercase.pt-2.mb-1 For sale
+                      h3.h5.text-light.mb-1 Duplex with Garage
+                      .fs-sm.opacity-70
+                        i.fi-map-pin.me-1
+                        | 21 Pulaski Road Kings Park, NY 11754
+
+            .col-md-5
+              a(href='real-estate-single-v2.html').card.border-0.overflow-hidden.mb-sm-4.mb-3.text-decoration-none.text-light
+                .card-body.p-0.position-relative
+                  img(src='img/real-estate/top-properties/02.jpg' alt='Article image')
+                  span.img-gradient-overlay.zindex-1
+                  .position-absolute.start-0.bottom-0.m-n1.p-4.zindex-5
+                    .fs-sm.text-uppercase.pt-2.mb-1 For rent
+                    h3.h5.text-light.mb-1 Villa with Pool
+                    .fs-sm.opacity-70
+                      i.fi-map-pin.me-1
+                      | 118-11 Sutphin Blvd Jamaica, NY 11434
+
+              a(href='real-estate-single-v2.html').card.border-0.overflow-hidden.text-decoration-none.text-light
+                .card-body.p-0.position-relative
+                  img(src='img/real-estate/top-properties/03.jpg' alt='Article image')
+                  span.img-gradient-overlay.zindex-1
+                  .position-absolute.start-0.bottom-0.m-n1.p-4.zindex-5
+                    .fs-sm.text-uppercase.pt-2.mb-1 For sale
+                    h3.h5.text-light.mb-1 Luxury Rental Villa
+                    .fs-sm.opacity-70
+                      i.fi-map-pin.me-1
+                      | 6954 Grand AveMaspeth, NY 11378
+
+        // Carousel item
+        .col
+          .row.gy-md-0.gy-sm-4.gy-3.gx-sm-4.gx-0
+            .col-md-7
+              a(href='real-estate-single-v1.html' style='background-image: url(img/real-estate/top-properties/04.jpg); min-height: 18.75rem;').text-decoration-none.text-light.card.bg-size-cover.bg-position-center.border-0.overflow-hidden.h-100
+                span.img-gradient-overlay
+                .card-body.content-overlay.pb-0
+                .card-footer.content-overlay.border-0.pt-0.pb-4
+                  .d-sm-flex.justify-content-between.align-items-end.pt-5.mt-2.mt-sm-5
+                    .pe-2
+                      .fs-sm.text-uppercase.pt-2.mb-1 For rent
+                      h3.h5.text-light.mb-1 White Cottage
+                      .fs-sm.opacity-70
+                        i.fi-map-pin.me-1
+                        | 118-11 Sutphin Blvd Jamaica, NY 11434
+
+            .col-md-5
+              a(href='real-estate-single-v2.html').card.border-0.overflow-hidden.mb-sm-4.mb-3.text-decoration-none.text-light
+                .card-body.p-0.position-relative
+                  img(src='img/real-estate/top-properties/05.jpg' alt='Article image')
+                  span.img-gradient-overlay.zindex-1
+                  .position-absolute.start-0.bottom-0.m-n1.p-4.zindex-5
+                    .fs-sm.text-uppercase.pt-2.mb-1 For sale
+                    h3.h5.text-light.mb-1 Country House
+                    .fs-sm.opacity-70
+                      i.fi-map-pin.me-1
+                      | 6954 Grand AveMaspeth, NY 11378
+
+              a(href='real-estate-single-v2.html').card.border-0.overflow-hidden.text-decoration-none.text-light
+                .card-body.p-0.position-relative
+                  img(src='img/real-estate/top-properties/06.jpg' alt='Article image')
+                  span.img-gradient-overlay.zindex-1
+                  .position-absolute.start-0.bottom-0.m-n1.p-4.zindex-5
+                    .fs-sm.text-uppercase.pt-2.mb-1 For sale
+                    h3.h5.text-light.mb-1 Modern House | 90 sq.m
+                    .fs-sm.opacity-70
+                      i.fi-map-pin.me-1
+                      | 21 Pulaski Road Kings Park, NY 11754
+
+        // Carousel item
+        .col
+          .row.gy-md-0.gy-sm-4.gy-3.gx-sm-4.gx-0
+            .col-md-7
+              a(href='real-estate-single-v1.html' style='background-image: url(img/real-estate/top-properties/07.jpg); min-height: 18.75rem;').text-decoration-none.text-light.card.bg-size-cover.bg-position-center.border-0.overflow-hidden.h-100
+                span.img-gradient-overlay
+                .card-body.content-overlay.pb-0
+                .card-footer.content-overlay.border-0.pt-0.pb-4
+                  .d-sm-flex.justify-content-between.align-items-end.pt-5.mt-2.mt-sm-5
+                    .pe-2
+                      .fs-sm.text-uppercase.pt-2.mb-1 For rent
+                      h3.h5.text-light.mb-1 Luxury Rental Villa
+                      .fs-sm.opacity-70
+                        i.fi-map-pin.me-1
+                        | 6954 Grand AveMaspeth, NY 11378
+
+            .col-md-5
+              a(href='real-estate-single-v2.html').card.border-0.overflow-hidden.mb-sm-4.mb-3.text-decoration-none.text-light
+                .card-body.p-0.position-relative
+                  img(src='img/real-estate/top-properties/08.jpg' alt='Article image')
+                  span.img-gradient-overlay.zindex-1
+                  .position-absolute.start-0.bottom-0.m-n1.p-4.zindex-5
+                    .fs-sm.text-uppercase.pt-2.mb-1 For sale
+                    h3.h5.text-light.mb-1 Condominium
+                    .fs-sm.opacity-70
+                      i.fi-map-pin.me-1
+                      | 21 Pulaski Road Kings Park, NY 11754
+
+              a(href='real-estate-single-v2.html').card.border-0.overflow-hidden.text-decoration-none.text-light
+                .card-body.p-0.position-relative
+                  img(src='img/real-estate/top-properties/09.jpg' alt='Article image')
+                  span.img-gradient-overlay.zindex-1
+                  .position-absolute.start-0.bottom-0.m-n1.p-4.zindex-5
+                    .fs-sm.text-uppercase.pt-2.mb-1 For rent
+                    h3.h5.text-light.mb-1 Family Home
+                    .fs-sm.opacity-70
+                      i.fi-map-pin.me-1
+                      | 118-11 Sutphin Blvd Jamaica, NY 11434
+
+    // Carousel custom controls
+    #carousel-controls-tp.tns-carousel-controls.justify-content-center.pt-md-2.mt-4
+      button(type='button').me-3
+        i.fi-chevron-left.fs-xs
+      button(type='button')
+        i.fi-chevron-right.fs-xs
+
+
+  // Find your agent
+  section.container.mb-5.pb-lg-5.pb-md-4
+    .card.py-lg-5.py-4.border-0.bg-secondary
+      .card-body.p-4.text-center
+        h2
+          | Find your agent
+        p(style='max-width: 53.125rem;').mx-auto.mb-md-5.mb-4.pb-lg-3
+          | We have the most comprehensive directory of estate agents to help you with all your property needs. Whether buying, selling or renting start your search to find the right local expertise.
+
+        // Agent ava's
+        .d-flex.align-items-center.justify-content-center.flex-wrap.mb-md-5.mb-4.pb-lg-3.ps-3.pt-4
+          .border.border-5.border-white.rounded-circle.bg-white.ms-n3.mt-n4
+            img(src='img/avatars/39.png' width='110' alt='Avatar').rounded-circle
+          .border.border-5.border-white.rounded-circle.bg-white.ms-n3.mt-n4
+            img(src='img/avatars/40.png' width='110' alt='Avatar').rounded-circle
+          .border.border-5.border-white.rounded-circle.bg-white.ms-n3.mt-n4
+            img(src='img/avatars/41.png' width='110' alt='Avatar').rounded-circle
+          .border.border-5.border-white.rounded-circle.bg-white.ms-n3.mt-n4
+            img(src='img/avatars/42.png' width='110' alt='Avatar').rounded-circle
+          .border.border-5.border-white.rounded-circle.bg-white.ms-n3.mt-n4
+            img(src='img/avatars/43.png' width='110' alt='Avatar').rounded-circle
+          .border.border-5.border-white.rounded-circle.bg-white.ms-n3.mt-n4
+            img(src='img/avatars/44.png' width='110' alt='Avatar').rounded-circle
+          .border.border-5.border-white.rounded-circle.bg-white.ms-n3.mt-n4
+            img(src='img/avatars/45.png' width='110' alt='Avatar').rounded-circle
+          .border.border-5.border-white.rounded-circle.bg-white.ms-n3.mt-n4
+            img(src='img/avatars/46.png' width='110' alt='Avatar').rounded-circle
+          .border.border-5.border-white.rounded-circle.bg-white.ms-n3.mt-n4
+            img(src='img/avatars/47.png' width='110' alt='Avatar').rounded-circle
+          .border.border-5.border-white.rounded-circle.bg-white.ms-n3.mt-n4
+            img(src='img/avatars/48.png' width='110' alt='Avatar').rounded-circle
+          .border.border-5.border-white.rounded-circle.bg-white.ms-n3.mt-n4
+            img(src='img/avatars/49.png' width='110' alt='Avatar').rounded-circle
+
+        a(href='#').btn.btn-lg.btn-primary.w-sm-auto.w-100
+          | Find agent
+          i.fi-chevron-right.ms-2
+
+
+  // Blog recent
+  section.container.mb-5.pb-lg-5.pb-4
+    h2.h3.mb-4.pb-2.text-md-start.text-center
+      | Latest property news
+    .row.gy-5
+      .col-lg-7
+
+        // Blog item
+        article.card.border-0.shadow-sm.card-hover.card-horizontal.mb-4
+          a(href='#' style='background-image: url(img/real-estate/blog/05.jpg);').card-img-top
+          .card-body
+            a(href='real-estate-blog-single.html').fs-xs.text-uppercase.text-decoration-none Inspiration
+            h3.fs-base.pt-1.mb-2
+              a(href='real-estate-blog-single.html').nav-link
+                | How Real Estate Drone Photography Can Elevate
+            p.fs-sm.text-muted Augue diam malesuada vitae id nisl. Fringilla egestas id proin quis consequat nibh quam sed. Ac vitae lectus...
+            a(href='#').d-flex.align-items-center.text-decoration-none
+              img(src='img/avatars/10.jpg' width='44' alt='Avatar').rounded-circle
+              .ps-2
+                h6.fs-sm.text-nav.lh-base.mb-1 Annette Black
+                .d-flex.text-body.fs-xs
+                  span.me-2.pe-1
+                    i.fi-calendar-alt.opacity-70.me-1
+                    | Dec 3
+                  span
+                    i.fi-chat-circle.opacity-70.me-1
+                    | 1 comment
+
+        // Blog item
+        article.card.border-0.shadow-sm.card-hover.card-horizontal.mb-4
+          a(href='real-estate-blog-single.html' style='background-image: url(img/real-estate/blog/06.jpg);').card-img-top
+          .card-body
+            a(href='#').fs-xs.text-uppercase.text-decoration-none Industry Views
+            h3.fs-base.pt-1.mb-2
+              a(href='real-estate-blog-single.html').nav-link
+                | 7 Tips for Achieving Maximum Coziness
+            p.fs-sm.text-muted Eget eu nunc aenean at imperdiet. Pellentesque in massa tincidunt congue. Nulla congue egestas mi volutpat varius...
+            a(href='#').d-flex.align-items-center.text-decoration-none
+              img(src='img/avatars/08.jpg' width='44' alt='Avatar').rounded-circle
+              .ps-2
+                h6.fs-sm.text-nav.lh-base.mb-1 Darrell Steward
+                .d-flex.text-body.fs-xs
+                  span.me-2.pe-1
+                    i.fi-calendar-alt.opacity-70.me-1
+                    | Dec 27
+                  span
+                    i.fi-chat-circle.opacity-70.me-1
+                    | 3 comment
+
+        .pt-2: a(href='real-estate-blog.html').btn.btn-lg.btn-outline-primary.w-sm-auto.w-100 More blog posts
+
+      .col-1.d-lg-block.d-none: hr.hr-vertical.mx-auto
+
+      .col-lg-4
+        .row.row-cols-lg-1.row-cols-md-2.row-cols-1.gy-5.text-md-start.text-center
+
+          // Mail subscription
+          .col.pb-lg-2
+            h3.h5
+              | Sign up for our newsletter
+            p.mb-4
+              | Enter your email to receive the latest news and updates from Finder.
+            form(style='max-width: 26rem;').form-group.mx-auto
+              .input-group
+                span.input-group-text.text-muted
+                  i.fi-mail
+                input(type='email' placeholder='Your Email').form-control
+              button(type='button').btn.btn-primary
+                | Subscribe
+
+          // Following
+          .col
+            h3.h5
+              | Follow us
+            p.mb-4
+              | Get the latest news and inspiration about the housing market.
+            .ms-n2.mt-n2
+              a(href='#').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.ms-2.mt-2
+                i.fi-instagram
+              a(href='#').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.ms-2.mt-2
+                i.fi-twitter
+              a(href='#').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.ms-2.mt-2
+                i.fi-whatsapp
+              a(href='#').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.ms-2.mt-2
+                i.fi-telegram
+
+
+  // Pager
+  section.container.mb-5.pb-lg-5
+    .row.row-cols-md-3.row-cols-1.gy-3
+
+      // Pager item
+      .col
+        .card.card-hover.h-100.border-0.bg-faded-warning.position-relative
+          .card-body.pb-2
+            h5.mb-2.pb-1
+              | Сalculate the cost of your property
+            p.mb-0
+              | We can calculate your approximate rent.
+          .card-footer.py-1.border-0
+            a(href='#cost-calculator' data-bs-toggle='modal').stretched-link.btn.btn-link.mb-3.px-0.text-warning
+              | Calculate
+
+      // Pager item
+      .col
+        .card.card-hover.h-100.border-0.bg-faded-accent.position-relative
+          .card-body.pb-2
+            h5.mb-2.pb-1
+              | Visit our Help Center
+            p.mb-0
+              | Here you can find frequently asked questions.
+          .card-footer.py-1.border-0
+            a(href='real-estate-help-center.html').stretched-link.btn.btn-link.mb-3.px-0.text-accent
+              | Go to FAQs
+
+      // Pager item
+      .col
+        .card.card-hover.h-100.border-0.bg-faded-success.position-relative
+          .card-body.pb-2
+            h5.mb-2.pb-1
+              | How it works
+            p.mb-0
+              | Here is a step-by-step guide for renters.
+          .card-footer.py-1.border-0
+            a(href='real-estate-about.html').stretched-link.btn.btn-link.mb-3.px-0.text-success
+              | Get started
+
+
+//- Footer
+block footer
+  include partials/footer-real-estate

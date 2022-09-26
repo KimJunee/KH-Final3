@@ -1,0 +1,391 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['prismjs/themes/prism.css', 'prismjs/plugins/toolbar/prism-toolbar.css', 'prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var vendorScripts = ['prismjs/components/prism-core.min.js', 'prismjs/components/prism-markup.min.js', 'prismjs/components/prism-clike.min.js', 'prismjs/components/prism-javascript.min.js', 'prismjs/components/prism-pug.min.js', 'prismjs/plugins/toolbar/prism-toolbar.min.js', 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Pricing'
+  - var pageSubtitle = 'Quickly build pricing plans for subscription based pricing model.'
+  - var isPageTitleBadge = true
+  - var anchorNav = [{'title': 'Basic example', 'link': '#pricing-basic'}, {'title': 'Light version', 'link': '#pricing-light'}]
+  
+//- Page Content
+block content
+  
+  // Basic example
+  section#pricing-basic.pb-5.mb-md-2
+    h2.h5.mb-3 Basic example
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result1' data-bs-toggle='tab' role='tab' aria-controls='result1' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result1.tab-pane.fade.show.active(role='tabpanel')
+            .d-sm-flex
+              .card.w-100.mb-4.me-4(style='max-width: 25rem;')
+                .card-body
+                  img(src='../img/pricing/icon-1.svg' width='72' alt='Icon').d-block.mx-auto.mt-2.mb-4
+                  h2.h5.fw-normal.text-center.py-1.mb-0 Easy Start
+                  .d-flex.align-items-end.justify-content-center.mb-4
+                    .h1.mb-0 $5
+                    .pb-2.ps-2 /month
+                  ul.list-unstyled.d-block.mb-0.mx-auto(style='max-width: 16rem;')
+                    li.d-flex
+                      i.fi-check.text-primary.fs-sm.mt-1.me-2
+                      span 3x more views
+                    li.d-flex
+                      i.fi-check.text-primary.fs-sm.mt-1.me-2
+                      span Top ads for 3 days
+                    li.d-flex.text-muted
+                      i.fi-x.fs-xs.mt-2.me-2
+                      span Moving up the list
+                    li.d-flex.text-muted
+                      i.fi-x.fs-xs.mt-2.me-2
+                      span Featured badge in the results
+                .card-footer.py-2.border-0
+                  .border-top.text-center.pt-4.pb-3
+                    a(href='#').btn.btn-outline-primary.rounded-pill Choose plan
+              .card.shadow.w-100.mb-4(style='max-width: 25rem;')
+                .card-body
+                  img(src='../img/pricing/icon-2.svg' width='72' alt='Icon').d-block.mx-auto.mt-2.mb-4
+                  h2.h5.fw-normal.text-center.py-1.mb-0 Fast Sale
+                  .d-flex.align-items-end.justify-content-center.mb-4
+                    .h1.mb-0 $15
+                    .pb-2.ps-2 /month
+                  ul.list-unstyled.d-block.mb-0.mx-auto(style='max-width: 16rem;')
+                    li.d-flex
+                      i.fi-check.text-primary.fs-sm.mt-1.me-2
+                      span 10x more views
+                    li.d-flex
+                      i.fi-check.text-primary.fs-sm.mt-1.me-2
+                      span Top ads for 5 days
+                    li.d-flex
+                      i.fi-check.text-primary.fs-sm.mt-1.me-2
+                      span Moving up the list
+                    li.d-flex.text-muted
+                      i.fi-x.fs-xs.mt-2.me-2
+                      span Featured badge in the results
+                .card-footer.py-2.border-0
+                  .border-top.text-center.pt-4.pb-3
+                    a(href='#').btn.btn-primary.rounded-pill Choose plan
+          #html1.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Default pricing plan --&gt;
+                &lt;div class=&quot;card&quot;&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;img src=&quot;path-to-image&quot; class=&quot;d-block mx-auto mt-2 mb-4&quot; width=&quot;72&quot; alt=&quot;Icon&quot;&gt;
+                    &lt;h2 class=&quot;h5 fw-normal text-center py-1 mb-0&quot;&gt;Easy Start&lt;/h2&gt;
+                    &lt;div class=&quot;d-flex align-items-end justify-content-center mb-4&quot;&gt;
+                      &lt;div class=&quot;h1 mb-0&quot;&gt;$5&lt;/div&gt;
+                      &lt;div class=&quot;pb-2 ps-2&quot;&gt;/month&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;ul class=&quot;list-unstyled d-block mb-0 mx-auto&quot; style=&quot;max-width: 16rem;&quot;&gt;
+                      &lt;li class=&quot;d-flex&quot;&gt;
+                        &lt;i class=&quot;fi-check text-primary fs-sm mt-1 me-2&quot;&gt;&lt;/i&gt;
+                        &lt;span&gt;3x more views&lt;/span&gt;
+                      &lt;/li&gt;
+                      &lt;li class=&quot;d-flex&quot;&gt;
+                        &lt;i class=&quot;fi-check text-primary fs-sm mt-1 me-2&quot;&gt;&lt;/i&gt;
+                        &lt;span&gt;Top ads for 3 days&lt;/span&gt;
+                      &lt;/li&gt;
+                      &lt;li class=&quot;d-flex text-muted&quot;&gt;
+                        &lt;i class=&quot;fi-x fs-xs mt-2 me-2&quot;&gt;&lt;/i&gt;
+                        &lt;span&gt;Moving up the list&lt;/span&gt;
+                      &lt;/li&gt;
+                      &lt;li class=&quot;d-flex text-muted&quot;&gt;
+                        &lt;i class=&quot;fi-x fs-xs mt-2 me-2&quot;&gt;&lt;/i&gt;
+                        &lt;span&gt;Featured badge in the results&lt;/span&gt;
+                      &lt;/li&gt;
+                    &lt;/ul&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;card-footer py-2 border-0&quot;&gt;
+                    &lt;div class=&quot;border-top text-center pt-4 pb-3&quot;&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-primary rounded-pill&quot;&gt;Choose plan&lt;/a&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Popular pricing plan --&gt;
+                &lt;div class=&quot;card shadow&quot;&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;img src=&quot;path-to-image&quot; class=&quot;d-block mx-auto mt-2 mb-4&quot; width=&quot;72&quot; alt=&quot;Icon&quot;&gt;
+                    &lt;h2 class=&quot;h5 fw-normal text-center py-1 mb-0&quot;&gt;Fast Sale&lt;/h2&gt;
+                    &lt;div class=&quot;d-flex align-items-end justify-content-center mb-4&quot;&gt;
+                      &lt;div class=&quot;h1 mb-0&quot;&gt;$15&lt;/div&gt;
+                      &lt;div class=&quot;pb-2 ps-2&quot;&gt;/month&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;ul class=&quot;list-unstyled d-block mb-0 mx-auto&quot; style=&quot;max-width: 16rem;&quot;&gt;
+                      &lt;li class=&quot;d-flex&quot;&gt;
+                        &lt;i class=&quot;fi-check text-primary fs-sm mt-1 me-2&quot;&gt;&lt;/i&gt;
+                        &lt;span&gt;10x more views&lt;/span&gt;
+                      &lt;/li&gt;
+                      &lt;li class=&quot;d-flex&quot;&gt;
+                        &lt;i class=&quot;fi-check text-primary fs-sm mt-1 me-2&quot;&gt;&lt;/i&gt;
+                        &lt;span&gt;Top ads for 5 days&lt;/span&gt;
+                      &lt;/li&gt;
+                      &lt;li class=&quot;d-flex&quot;&gt;
+                        &lt;i class=&quot;fi-check text-primary fs-sm mt-1 me-2&quot;&gt;&lt;/i&gt;
+                        &lt;span&gt;Moving up the list&lt;/span&gt;
+                      &lt;/li&gt;
+                      &lt;li class=&quot;d-flex text-muted&quot;&gt;
+                        &lt;i class=&quot;fi-x fs-xs mt-2 me-2&quot;&gt;&lt;/i&gt;
+                        &lt;span&gt;Featured badge in the results&lt;/span&gt;
+                      &lt;/li&gt;
+                    &lt;/ul&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;card-footer py-2 border-0&quot;&gt;
+                    &lt;div class=&quot;border-top text-center pt-4 pb-3&quot;&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;btn btn-primary rounded-pill&quot;&gt;Choose plan&lt;/a&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+          #pug1.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Default pricing plan
+                .card
+                  .card-body
+                    img(src=&quot;path-to-image&quot;, width=&quot;72&quot;, alt=&quot;Icon&quot;).d-block.mx-auto.mt-2.mb-4
+                    h2.h5.fw-normal.text-center.py-1.mb-0 Easy Start
+                    .d-flex.align-items-end.justify-content-center.mb-4
+                      .h1.mb-0 $5
+                      .pb-2.ps-2 /month
+                    ul.list-unstyled.d-block.mb-0.mx-auto(style=&quot;max-width: 16rem;&quot;)
+                      li.d-flex
+                        i.fi-check.text-primary.fs-sm.mt-1.me-2
+                        span 3x more views
+                      li.d-flex
+                        i.fi-check.text-primary.fs-sm.mt-1.me-2
+                        span Top ads for 3 days
+                      li.d-flex.text-muted
+                        i.fi-x.fs-xs.mt-2.me-2
+                        span Moving up the list
+                      li.d-flex.text-muted
+                        i.fi-x.fs-xs.mt-2.me-2
+                        span Featured badge in the results
+                  .card-footer.py-2.border-0
+                    .border-top.text-center.pt-4.pb-3
+                      a(href=&quot;#&quot;).btn.btn-outline-primary.rounded-pill
+                        | Choose plan
+
+                // Popular pricing plan
+                .card.shadow
+                  .card-body
+                    img(src=&quot;path-to-image&quot;, width=&quot;72&quot;, alt=&quot;Icon&quot;).d-block.mx-auto.mt-2.mb-4
+                    h2.h5.fw-normal.text-center.py-1.mb-0 Fast Sale
+                    .d-flex.align-items-end.justify-content-center.mb-4
+                      .h1.mb-0 $15
+                      .pb-2.ps-2 /month
+                    ul.list-unstyled.d-block.mb-0.mx-auto(style=&quot;max-width: 16rem;&quot;)
+                      li.d-flex
+                        i.fi-check.text-primary.fs-sm.mt-1.me-2
+                        span 10x more views
+                      li.d-flex
+                        i.fi-check.text-primary.fs-sm.mt-1.me-2
+                        span Top ads for 5 days
+                      li.d-flex
+                        i.fi-check.text-primary.fs-sm.mt-1.me-2
+                        span Moving up the list
+                      li.d-flex.text-muted
+                        i.fi-x.fs-xs.mt-2.me-2
+                        span Featured badge in the results
+                  .card-footer.py-2.border-0
+                    .border-top.text-center.pt-4.pb-3
+                      a(href=&quot;#&quot;).btn.btn-primary.rounded-pill
+                        | Choose plan
+  
+  // Light version
+  section#pricing-light.pb-5.mb-md-2
+    h2.h5.mb-3 Light version
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result2' data-bs-toggle='tab' role='tab' aria-controls='result2' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result2.tab-pane.m-n3.p-3.bg-dark.fade.show.active(role='tabpanel')
+            .d-sm-flex
+              .card.card-light.border-light.w-100.mb-4.me-4(style='max-width: 25rem;')
+                .card-body
+                  img(src='../img/pricing/icon-1.svg' width='72' alt='Icon').d-block.mx-auto.mt-2.mb-4
+                  h2.h5.fw-normal.text-light.text-center.py-1.mb-0 Easy Start
+                  .d-flex.align-items-end.justify-content-center.mb-4
+                    .h1.text-light.mb-0 $5
+                    .text-light.opacity-70.pb-2.ps-2 /month
+                  ul.list-unstyled.d-block.mb-0.mx-auto(style='max-width: 16rem;')
+                    li.d-flex
+                      i.fi-check.text-primary.fs-sm.mt-1.me-2
+                      span 3x more views
+                    li.d-flex
+                      i.fi-check.text-primary.fs-sm.mt-1.me-2
+                      span Top ads for 3 days
+                    li.d-flex.text-light.opacity-50
+                      i.fi-x.fs-xs.mt-2.me-2
+                      span Moving up the list
+                    li.d-flex.text-light.opacity-50
+                      i.fi-x.fs-xs.mt-2.me-2
+                      span Featured badge in the results
+                .card-footer.py-2.border-0
+                  .border-top.border-light.text-center.pt-4.pb-3
+                    a(href='#').btn.btn-outline-light.rounded-pill Choose plan
+              .card.card-light.border-light.card-active.w-100.mb-4(style='max-width: 25rem;')
+                .card-body
+                  img(src='../img/pricing/icon-2.svg' width='72' alt='Icon').d-block.mx-auto.mt-2.mb-4
+                  h2.h5.fw-normal.text-light.text-center.py-1.mb-0 Fast Sale
+                  .d-flex.align-items-end.justify-content-center.mb-4
+                    .h1.text-light.mb-0 $15
+                    .text-light.opacity-70.pb-2.ps-2 /month
+                  ul.list-unstyled.d-block.mb-0.mx-auto(style='max-width: 16rem;')
+                    li.d-flex
+                      i.fi-check.text-primary.fs-sm.mt-1.me-2
+                      span 10x more views
+                    li.d-flex
+                      i.fi-check.text-primary.fs-sm.mt-1.me-2
+                      span Top ads for 5 days
+                    li.d-flex
+                      i.fi-check.text-primary.fs-sm.mt-1.me-2
+                      span Moving up the list
+                    li.d-flex.text-light.opacity-50
+                      i.fi-x.fs-xs.mt-2.me-2
+                      span Featured badge in the results
+                .card-footer.py-2.border-0
+                  .border-top.border-light.text-center.pt-4.pb-3
+                    a(href='#').btn.btn-primary.rounded-pill Choose plan
+          #html2.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Light default pricing plan --&gt;
+                &lt;div class=&quot;card card-light border-light&quot;&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;img src=&quot;path-to-image&quot; class=&quot;d-block mx-auto mt-2 mb-4&quot; width=&quot;72&quot; alt=&quot;Icon&quot;&gt;
+                    &lt;h2 class=&quot;h5 fw-normal text-light text-center py-1 mb-0&quot;&gt;Easy Start&lt;/h2&gt;
+                    &lt;div class=&quot;d-flex align-items-end justify-content-center mb-4&quot;&gt;
+                      &lt;div class=&quot;h1 text-light mb-0&quot;&gt;$5&lt;/div&gt;
+                      &lt;div class=&quot;text-light opacity-70 pb-2 ps-2&quot;&gt;/month&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;ul class=&quot;list-unstyled d-block mb-0 mx-auto&quot; style=&quot;max-width: 16rem;&quot;&gt;
+                      &lt;li class=&quot;d-flex&quot;&gt;
+                        &lt;i class=&quot;fi-check text-primary fs-sm mt-1 me-2&quot;&gt;&lt;/i&gt;
+                        &lt;span class=&quot;text-light&quot;&gt;3x more views&lt;/span&gt;
+                      &lt;/li&gt;
+                      &lt;li class=&quot;d-flex&quot;&gt;
+                        &lt;i class=&quot;fi-check text-primary fs-sm mt-1 me-2&quot;&gt;&lt;/i&gt;
+                        &lt;span class=&quot;text-light&quot;&gt;Top ads for 3 days&lt;/span&gt;
+                      &lt;/li&gt;
+                      &lt;li class=&quot;d-flex text-light opacity-50&quot;&gt;
+                        &lt;i class=&quot;fi-x fs-xs mt-2 me-2&quot;&gt;&lt;/i&gt;
+                        &lt;span&gt;Moving up the list&lt;/span&gt;
+                      &lt;/li&gt;
+                      &lt;li class=&quot;d-flex text-light opacity-50&quot;&gt;
+                        &lt;i class=&quot;fi-x fs-xs mt-2 me-2&quot;&gt;&lt;/i&gt;
+                        &lt;span&gt;Featured badge in the results&lt;/span&gt;
+                      &lt;/li&gt;
+                    &lt;/ul&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;card-footer py-2 border-0&quot;&gt;
+                    &lt;div class=&quot;border-top border-light text-center pt-4 pb-3&quot;&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-light rounded-pill&quot;&gt;Choose plan&lt;/a&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Light popular pricing plan --&gt;
+                &lt;div class=&quot;card card-light border-light card-active&quot;&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;img src=&quot;path-to-image&quot; class=&quot;d-block mx-auto mt-2 mb-4&quot; width=&quot;72&quot; alt=&quot;Icon&quot;&gt;
+                    &lt;h2 class=&quot;h5 fw-normal text-light text-center py-1 mb-0&quot;&gt;Fast Sale&lt;/h2&gt;
+                    &lt;div class=&quot;d-flex align-items-end justify-content-center mb-4&quot;&gt;
+                      &lt;div class=&quot;h1 text-light mb-0&quot;&gt;$15&lt;/div&gt;
+                      &lt;div class=&quot;text-light opacity-70 pb-2 ps-2&quot;&gt;/month&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;ul class=&quot;list-unstyled d-block mb-0 mx-auto&quot; style=&quot;max-width: 16rem;&quot;&gt;
+                      &lt;li class=&quot;d-flex&quot;&gt;
+                        &lt;i class=&quot;fi-check text-primary fs-sm mt-1 me-2&quot;&gt;&lt;/i&gt;
+                        &lt;span class=&quot;text-light&quot;&gt;10x more views&lt;/span&gt;
+                      &lt;/li&gt;
+                      &lt;li class=&quot;d-flex&quot;&gt;
+                        &lt;i class=&quot;fi-check text-primary fs-sm mt-1 me-2&quot;&gt;&lt;/i&gt;
+                        &lt;span class=&quot;text-light&quot;&gt;Top ads for 5 days&lt;/span&gt;
+                      &lt;/li&gt;
+                      &lt;li class=&quot;d-flex&quot;&gt;
+                        &lt;i class=&quot;fi-check text-primary fs-sm mt-1 me-2&quot;&gt;&lt;/i&gt;
+                        &lt;span class=&quot;text-light&quot;&gt;Moving up the list&lt;/span&gt;
+                      &lt;/li&gt;
+                      &lt;li class=&quot;d-flex text-light opacity-50&quot;&gt;
+                        &lt;i class=&quot;fi-x fs-xs mt-2 me-2&quot;&gt;&lt;/i&gt;
+                        &lt;span&gt;Featured badge in the results&lt;/span&gt;
+                      &lt;/li&gt;
+                    &lt;/ul&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;card-footer py-2 border-0&quot;&gt;
+                    &lt;div class=&quot;border-top border-light text-center pt-4 pb-3&quot;&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;btn btn-primary rounded-pill&quot;&gt;Choose plan&lt;/a&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+          #pug2.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Light default pricing plan
+                .card.card-light.border-light
+                  .card-body
+                    img(src=&quot;path-to-image&quot;, width=&quot;72&quot;, alt=&quot;Icon&quot;).d-block.mx-auto.mt-2.mb-4
+                    h2.h5.fw-normal.text-light.text-center.py-1.mb-0 Easy Start
+                    .d-flex.align-items-end.justify-content-center.mb-4
+                      .h1.text-light.mb-0 $5
+                      .text-light.opacity-70.pb-2.ps-2 /month
+                    ul.list-unstyled.d-block.mb-0.mx-auto(style=&quot;max-width: 16rem;&quot;)
+                      li.d-flex
+                        i.fi-check.text-primary.fs-sm.mt-1.me-2
+                        span.text-light 3x more views
+                      li.d-flex
+                        i.fi-check.text-primary.fs-sm.mt-1.me-2
+                        span.text-light Top ads for 3 days
+                      li.d-flex.text-light.opacity-50
+                        i.fi-x.fs-xs.mt-2.me-2
+                        span Moving up the list
+                      li.d-flex.text-light.opacity-50
+                        i.fi-x.fs-xs.mt-2.me-2
+                        span Featured badge in the results
+                  .card-footer.py-2.border-0
+                    .border-top.border-light.text-center.pt-4.pb-3
+                      a(href=&quot;#&quot;).btn.btn-outline-light.rounded-pill
+                        | Choose plan
+
+                // Light popular pricing plan
+                .card.card-light.border-light.card-active
+                  .card-body
+                    img(src=&quot;path-to-image&quot;, width=&quot;72&quot;, alt=&quot;Icon&quot;).d-block.mx-auto.mt-2.mb-4
+                    h2.h5.fw-normal.text-light.text-center.py-1.mb-0 Fast Sale
+                    .d-flex.align-items-end.justify-content-center.mb-4
+                      .h1.text-light.mb-0 $15
+                      .text-light.opacity-70.pb-2.ps-2 /month
+                    ul.list-unstyled.d-block.mb-0.mx-auto(style=&quot;max-width: 16rem;&quot;)
+                      li.d-flex
+                        i.fi-check.text-primary.fs-sm.mt-1.me-2
+                        span.text-light 10x more views
+                      li.d-flex
+                        i.fi-check.text-primary.fs-sm.mt-1.me-2
+                        span.text-light Top ads for 5 days
+                      li.d-flex
+                        i.fi-check.text-primary.fs-sm.mt-1.me-2
+                        span.text-light Moving up the list
+                      li.d-flex.text-light.opacity-50
+                        i.fi-x.fs-xs.mt-2.me-2
+                        span Featured badge in the results
+                  .card-footer.py-2.border-0
+                    .border-top.border-light.text-center.pt-4.pb-3
+                      a(href=&quot;#&quot;).btn.btn-primary.rounded-pill
+                        | Choose plan

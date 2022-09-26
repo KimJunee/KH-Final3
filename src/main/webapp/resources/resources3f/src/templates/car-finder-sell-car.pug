@@ -1,0 +1,758 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['leaflet/dist/leaflet.css', 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css', 'filepond/dist/filepond.min.css', 'tiny-slider/dist/tiny-slider.css',]
+  - var vendorScripts = ['leaflet/dist/leaflet.js', 'filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.min.js', 'filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.min.js', 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.js', 'filepond-plugin-image-crop/dist/filepond-plugin-image-crop.min.js', 'filepond-plugin-image-resize/dist/filepond-plugin-image-resize.min.js', 'filepond-plugin-image-transform/dist/filepond-plugin-image-transform.min.js', 'filepond/dist/filepond.min.js', 'cleave.js/dist/cleave.min.js', 'tiny-slider/dist/min/tiny-slider.js']
+  - var parentMenu = 'Vendor'
+  - var pageTitle = 'Car Finder | Sell Car'
+  - var bodyClass = 'bg-dark'
+
+//- Navbar
+block navbar
+  include partials/navbar-car-finder
+
+//- Page Content
+block content
+
+  // Preview modal
+  #preview-modal.modal.fade(tabindex='-1')
+    .modal-dialog.modal-fullscreen(role='document')
+      .modal-content.bg-dark.border-light
+        .modal-header.d-block.d-sm-flex.border-light
+          h3.h5.text-light.opacity-60.fw-normal.modal-title.d-none.d-sm-block Ad preview
+          .d-flex.align-items-center
+            a(href='car-finder-promotion.html').btn.btn-primary.btn-sm.me-4 Save and continue
+            span.fs-xs.text-light.opacity-60.ms-auto.me-2 [ESC]
+            button(type='button' data-bs-dismiss='modal').btn-close.btn-close-white.ms-0
+        .modal-body.p-0
+          .container.mt-2.mt-sm-0.py-4.py-sm-5
+
+            // Title
+            h1.h2.text-light.mb-3.mb-md-4  Mercedes-Benz E 400 Cabriolet
+            .d-md-none
+              .d-flex.align-items-center.mb-3
+                .h3.mb-0.text-light $31,900
+                .text-nowrap.ps-3
+                  span.badge.bg-info.fs-base.me-2 Used
+                  span(data-bs-toggle='popover' data-bs-placement='bottom' data-bs-trigger='hover' data-bs-html='true' data-bs-content='<div class="d-flex"><i class="fi-award mt-1 me-2"></i><div>This car is checked and<br>certified by Finder.</div></div>').badge.bg-success.fs-base.me-2 Certified
+              .d-flex.flex-wrap.align-items-center.text-light.mb-2
+                .text-nowrap.border-end.border-light.pe-3.me-3
+                  i.fi-dashboard.fs-lg.opacity-70.me-2
+                  span.align-middle 25K miles
+                .text-nowrap
+                  i.fi-map-pin.fs-lg.opacity-70.me-2
+                  span.align-middle Chicago, IL 60603
+
+            .row
+              .col-md-7
+              
+                // Gallery
+                .tns-carousel-wrapper
+                  .tns-slides-count.text-light
+                    i.fi-image.fs-lg.me-2
+                    .ps-1
+                      span.tns-current-slide.fs-5.fw-bold
+                      span.fs-5.fw-bold /
+                      span.tns-total-slides.fs-5.fw-bold
+                  .tns-carousel-inner(data-carousel-options='{"navAsThumbnails": true, "navContainer": "#thumbnails", "gutter": 12, "responsive": {"0":{"controls": false},"500":{"controls": true}}}')
+                    div
+                      img(src='img/car-finder/single/gallery/01.jpg' alt='Image').rounded-3
+                    div
+                      img(src='img/car-finder/single/gallery/02.jpg' alt='Image').rounded-3
+                    div
+                      img(src='img/car-finder/single/gallery/03.jpg' alt='Image').rounded-3
+                    div
+                      img(src='img/car-finder/single/gallery/04.jpg' alt='Image').rounded-3
+                    div
+                      img(src='img/car-finder/single/gallery/05.jpg' alt='Image').rounded-3
+                ul(id='thumbnails').tns-thumbnails
+                  li.tns-thumbnail
+                    img(src='img/car-finder/single/gallery/th01.jpg' alt='Thumbnail')
+                  li.tns-thumbnail
+                    img(src='img/car-finder/single/gallery/th02.jpg' alt='Thumbnail')
+                  li.tns-thumbnail
+                    img(src='img/car-finder/single/gallery/th03.jpg' alt='Thumbnail')
+                  li.tns-thumbnail
+                    img(src='img/car-finder/single/gallery/th04.jpg' alt='Thumbnail')
+                  li.tns-thumbnail
+                    img(src='img/car-finder/single/gallery/th05.jpg' alt='Thumbnail')
+
+                // Specs
+                .pt-3.pb-1
+                  h2.h4.text-light.mb-4 Specifications
+                  .row.text-light
+                    .col-sm-6.col-md-12.col-lg-6
+                      ul.list-unstyled
+                        li.mb-2
+                          strong Manufacturing Year:
+                          span.opacity-70.ms-1 2018
+                        li.mb-2
+                          strong Mileage:
+                          span.opacity-70.ms-1 25K miles
+                        li.mb-2
+                          strong Body Type:
+                          span.opacity-70.ms-1 Convertible
+                        li.mb-2
+                          strong Drivetrain:
+                          span.opacity-70.ms-1 Front Wheel Drive
+                        li.mb-2
+                          strong Engine:
+                          span.opacity-70.ms-1 2.5L Turbo 6 Cylinder
+                        li.mb-2
+                          strong Transmission:
+                          span.opacity-70.ms-1 7-Speed Shiftable Automatic
+                    .col-sm-6.col-md-12.col-lg-6
+                      ul.list-unstyled
+                        li.mb-2
+                          strong Fuel Type:
+                          span.opacity-70.ms-1 Gasoline
+                        li.mb-2
+                          strong City MPG:
+                          span.opacity-70.ms-1 20
+                          <i class='fi-alert-circle fs-sm text-primary ms-2' data-bs-toggle='tooltip' title='Vrified by seller'></i>
+                        li.mb-2
+                          strong Highway MPG:
+                          span.opacity-70.ms-1 29
+                          <i class='fi-alert-circle fs-sm text-primary ms-2' data-bs-toggle='tooltip' title='Vrified by seller'></i>
+                        li.mb-2
+                          strong Exterior Color:
+                          span.opacity-70.ms-1 Aspen White
+                        li.mb-2
+                          strong Interior Color:
+                          span.opacity-70.ms-1 Charcoal
+                        li.mb-2
+                          strong VIN:
+                          span.opacity-70.ms-1 2VW821AU9JM754284
+                
+                // Features
+                h2.h4.text-light.pt-3.mb-4 Features
+                #features-accordion.accordion.accordion-light
+                  .accordion-item
+                    h2.accordion-header#headingExterior
+                      button(type='button' data-bs-toggle='collapse' data-bs-target='#exterior' aria-expanded='false' aria-controls='exterior').accordion-button.collapsed Exterior
+                    #exterior.accordion-collapse.collapse(aria-labelledby='headingExterior' data-bs-parent='#features-accordion')
+                      .accordion-body.fs-sm.text-light.opacity-70
+                        ul
+                          li Alloy Wheels
+                          li Sunroof / Moonroof
+                          li Tinged glass
+                          li LED Headlights
+                          li Foldable Roof
+                          li Tow Hitch
+                  .accordion-item
+                    h2.accordion-header#headingInterior
+                      button(type='button' data-bs-toggle='collapse' data-bs-target='#interior' aria-expanded='true' aria-controls='interior').accordion-button Interior
+                    #interior.accordion-collapse.collapse.show(aria-labelledby='headingInterior' data-bs-parent='#features-accordion')
+                      .accordion-body.fs-sm.text-light.opacity-70
+                        .row
+                          .col-sm-6
+                            ul
+                              li Adjustable Steering Wheel
+                              li Auto-Dimming Rearview Mirror
+                              li Driver Adjustable Lumbar
+                              li Driver Illuminated Vanity Mirror
+                              li Universal Garage Door Opener
+                              li Steering Wheel Audio Controls
+                          .col-sm-6
+                            ul
+                              li Heated Front Seats
+                              li Leather Seats
+                              li Leather Steering Wheel
+                              li Pass-Through Rear Seat
+                              li Passenger Adjustable Lumbar
+                              li Passenger Illuminated Visor Mirror
+                  .accordion-item
+                    h2.accordion-header#headingSafety
+                      button(type='button' data-bs-toggle='collapse' data-bs-target='#safety' aria-expanded='false' aria-controls='safety').accordion-button.collapsed Safety
+                    #safety.accordion-collapse.collapse(aria-labelledby='headingSafety' data-bs-parent='#features-accordion')
+                      .accordion-body.fs-sm.text-light.opacity-70
+                        .row
+                          .col-sm-6
+                            ul
+                              li Airbag: Driver
+                              li Airbag: Passenger
+                              li Adaptive Cruise Control
+                              li Blind Spot Monitor
+                              li Alarm
+                              li Antilock Brakes
+                          .col-sm-6
+                            ul
+                              li Brake Assist
+                              li Lane Departure Warning
+                              li Stability Control
+                              li Fog Lights
+                              li Power Door Locks
+
+                  .accordion-item
+                    h2.accordion-header#headingTechnology
+                      button(type='button' data-bs-toggle='collapse' data-bs-target='#technology' aria-expanded='false' aria-controls='technology').accordion-button.collapsed Technology
+                    #technology.accordion-collapse.collapse(aria-labelledby='headingTechnology' data-bs-parent='#features-accordion')
+                      .accordion-body.fs-sm.text-light.opacity-70
+                        .row
+                          .col-sm-6
+                            ul
+                              li Multi-Zone A/C
+                              li Climate Control
+                              li Navigation System
+                              li Remote Start
+                              li Bluetooth
+                              li Remote Start
+                          .col-sm-6
+                            ul
+                              li Apple CarPlay
+                              li Android Auto
+                              li Backup Camera
+                              li HomeLink
+                              li Keyless Start
+                              li Premium Sound System
+
+
+                // Description
+                .pb-4.mb-3
+                  h2.h4.text-light.pt-4.mt-3 Seller's Description
+                  p.text-light.opacity-70.mb-1 Lorem tincidunt lectus vitae id vulputate diam quam. Imperdiet non scelerisque turpis sed etiam ultrices. Blandit mollis dignissim egestas consectetur porttitor. Vulputate dolor pretium, dignissim eu augue sit ut convallis. Lectus est, magna urna feugiat sed ultricies sed in lacinia. Fusce potenti sit id pharetra vel ornare. Vestibulum sed tellus ullamcorper arcu.
+                  #seeMoreDescription.collapse
+                    p.text-light.opacity-70.mb-1 Asperiores eos molestias, aspernatur assumenda vel corporis ex, magni excepturi totam exercitationem quia inventore quod amet labore impedit quae distinctio? Officiis blanditiis consequatur alias, atque, sed est incidunt accusamus repudiandae tempora repellendus obcaecati delectus ducimus inventore tempore harum numquam autem eligendi culpa.
+                  a(href='#seeMoreDescription' data-bs-toggle='collapse' data-bs-label-collapsed='Show more' data-bs-label-expanded='Show less' role='button' aria-expanded='false' aria-controls='seeMoreDescription').collapse-label.collapsed
+
+                
+                // Post meta
+                .d-flex.flex-wrap.border-top.border-light.fs-sm.text-light.pt-4.pb-2
+                  .border-end.border-light.pe-3.me-3
+                    span.opacity-70 Published: <strong>May 9, 2021</strong>
+                  .border-end.border-light.pe-3.me-3
+                    span.opacity-70 Ad number: <strong>681013232</strong>
+                  .opacity-70 Views: <strong>57</strong>
+
+              // Sidebar
+              .col-md-5.pt-5.pt-md-0.mt-n5
+                .sticky-top.pt-5
+                  .d-none.d-md-block
+                    .d-flex.mb-4
+                      span.badge.bg-info.fs-base.me-2 Used
+                      span(data-bs-toggle='popover' data-bs-placement='top' data-bs-trigger='hover' data-bs-html='true' data-bs-content='<div class="d-flex"><i class="fi-award mt-1 me-2"></i><div>This car is checked and<br>certified by Finder.</div></div>').badge.bg-success.fs-base.me-2 Certified
+                    .h3.text-light $31,900
+                    .d-flex.align-items-center.text-light.pb-4.mb-2
+                      .text-nowrap.border-end.border-light.pe-3.me-3
+                        i.fi-dashboard.fs-lg.opacity-70.me-2
+                        span.align-middle 25K miles
+                      .text-nowrap
+                        i.fi-map-pin.fs-lg.opacity-70.me-2
+                        span.align-middle Chicago, IL 60603
+                  .card.card-light.card-body
+                    .text-light.mb-2 Private Seller
+                    .d-flex.align-items-center.mb-3
+                      img(src='img/avatars/33.jpg' class='rounded-circle' width='48' alt='Devon Lane')
+                      .ps-2
+                        h5.text-light.mb-0 Devon Lane
+                        +star-rating(5)
+                        span.fs-sm.text-light.opacity-70.align-middle.ms-1 (5 reviews)
+                    a(href='#').text-light Other ads by this seller
+                    .pt-4.mt-2
+                      button(type='button').btn.btn-outline-light.btn-lg.px-4.mb-3
+                        i.fi-phone.me-2
+                        | (316) *** **** – reveal
+                      br
+                      button(type='button').btn.btn-primary.btn-lg
+                        i.fi-chat-left.me-2
+                        | Send message
+
+
+
+  // Page container
+  .container.mt-5.mb-md-4.py-5
+    .row
+          
+      // Page content
+      .col-lg-8
+
+        // Breadcrumb
+        nav(aria-label='Breadcrumb').mb-3.pt-md-3
+          ol.breadcrumb.breadcrumb-light
+            li.breadcrumb-item
+              a(href='car-finder-home.html') Home
+            li(aria-current='page').breadcrumb-item.active
+              | Sell car
+        
+        // Title
+        .mb-4
+          h1.h2.text-light.mb-0 Sell car
+          .d-lg-none.text-light.pt-3.mb-2 80% content filled
+          .progress.progress-light.d-lg-none.mb-4(style='height: .25rem;')
+            .progress-bar.bg-success(role='progressbar' style='width: 80%' aria-valuenow='80' aria-valuemin='0' aria-valuemax='100')
+
+        // Basic info
+        section#basic-info.card.card-light.card-body.border-0.shadow-sm.p-4.mb-4
+          h2.h4.text-light.mb-4
+            i.fi-info-circle.text-primary.fs-5.mt-n1.me-2
+            | Basic info
+          .mb-3
+            label(for='sc-title').form-label.text-light
+              | Title 
+              span.text-danger *
+            input(type='text' id='sc-title' placeholder='Title for your property' value='Mercedes-Benz E 400 Cabriolet' required).form-control.form-control-light
+            span.form-text.text-light.opacity-50 48 characters left
+          .row
+            .col-sm-6.mb-3
+              label(for='sc-condition').form-label.text-light
+                | Vehicle condition 
+                span.text-danger *
+              select(id='sc-condition' required).form-select.form-select-light
+                option(value='' disabled hidden) Choose condition
+                option(value='Used') Used
+                option(value='New') New
+          .form-label.text-light.fw-bold.pt-3.pb-2 Are you listing on Finder as part of a company?
+          .form-check.form-check-light
+            input(type='radio' id='sc-dealer' name='sc-seller-type').form-check-input
+            label(for='sc-dealer').form-check-label
+              | I am a registered dealer
+          .form-check.form-check-light
+            input(type='radio' id='sc-individual' name='sc-seller-type' checked).form-check-input
+            label(for='sc-individual').form-check-label
+              | I am a private seller
+
+
+        // Price
+        section#price.card.card-light.card-body.border-0.shadow-sm.p-4.mb-4
+          h2.h4.text-light.mb-4
+            i.fi-cash.text-primary.fs-5.mt-n1.me-2
+            | Price
+          label(for='sc-price').form-label.text-light
+            | Price 
+            span.text-danger *
+          .d-sm-flex.mb-2
+            select.form-select.form-select-light.w-25.me-2.mb-2
+              option(value='usd') &#36;
+              option(value='eur') &#8364;
+              option(value='gbp') &#163;
+              option(value='jpy') &#165;
+            input(type='number' id='sc-price' min='200' step='50' value='31900' required).form-control.form-control-light.w-100.me-2.mb-2
+          .form-check.form-switch.form-switch-light
+            input(type='checkbox' id='negotiated-price').form-check-input
+            label(for='negotiated-price').form-check-label
+              | Negotiated price
+
+
+        // Vehicle information
+        section#vehicle-info.card.card-light.card-body.border-0.shadow-sm.p-4.mb-4
+          h2.h4.text-light.mb-4
+            i.fi-car.text-primary.fs-5.mt-n1.me-2
+            | Vehicle information
+          .row.pb-2
+            .col-sm-6.mb-3
+              label(for='sc-make').form-label.text-light
+                | Make 
+                span.text-danger *
+              select(id='sc-make').form-select.form-select-light
+                option(value='' disabled) Select make
+                option(value='Acura') Acura
+                option(value='BMW') BMW
+                option(value='Citroen') Citroen
+                option(value='Lexus') Lexus
+                option(value='Mercedes-Benz' selected) Mercedes-Benz
+                option(value='Nissan') Nissan
+                option(value='Toyota') Toyota
+            .col-sm-6.mb-3
+              label(for='sc-model').form-label.text-light
+                | Model 
+                span.text-danger *
+              select(id='sc-model').form-select.form-select-light
+                option(value='' disabled) Select model
+                option(value='A-Class') A-Class
+                option(value='B-Class') B-Class
+                option(value='C-Class') C-Class
+                option(value='E 220') E 220
+                option(value='E 400' selected) E 400
+                option(value='GLS 550') GLS 550
+                option(value='GLE-Class') GLE-Class
+                option(value='ML 350') ML 350
+                option(value='Viano') Viano
+            .col-md-3.col-sm-6.mb-3
+              label(for='sc-year').form-label.text-light
+                | Year 
+                span.text-danger *
+              select(id='sc-year').form-select.form-select-light
+                option(value='' disabled) Select year
+                option(value='2021') 2021
+                option(value='2020') 2020
+                option(value='2019') 2019
+                option(value='2018' selected) 2018
+                option(value='2017') 2017
+                option(value='2016') 2016
+                option(value='2015') 2015
+                option(value='2014') 2014
+                option(value='2013') 2013
+            .col-md-3.col-sm-6.mb-3
+              label(for='sc-mileage').form-label.text-light
+                | Mileage 
+                span.text-danger *
+              input(type='number' id='sc-mileage' min='200' step='100' value='25000' placeholder='Enter mileage').form-control.form-control-light
+            .col-md-6.mb-3
+              label(for='sc-vin').form-label.text-light VIN
+              input(type='text' id='sc-vin' value='2VW821AU9JM754284' placeholder='Enter VIN code').form-control.form-control-light
+          .border-top.border-light.mt-2.pt-4
+            .row.pb-2
+              .col-md-6
+                label(for='sc-body').form-label.text-light
+                  | Body type 
+                  span.text-danger *
+                select(id='sc-body').form-select.form-select-light.mb-3
+                  option(value='' disabled) Select body type
+                  option(value='Compact') Compact
+                  option(value='Convertible' selected) Convertible
+                  option(value='Crossover') Crossover
+                  option(value='Coupe') Coupe
+                  option(value='Family MPV') Family MPV
+                  option(value='Pickup') Pickup
+                  option(value='Sedan') Sedan
+                  option(value='SUV') SUV
+                  option(value='Wagon') Wagon
+
+                label(for='sc-fuel').form-label.text-light
+                  | Fuel type 
+                  span.text-danger *
+                select(id='sc-fuel').form-select.form-select-light.mb-3
+                  option(value='' disabled) Select fuel type
+                  option(value='Gasoline' selected) Gasoline
+                  option(value='Diesel') Diesel
+                  option(value='Hybrid') Hybrid
+                  option(value='Electric') Electric
+
+                label(for='sc-engine').form-label.text-light
+                  | Engine 
+                  span.text-danger *
+                select(id='sc-engine').form-select.form-select-light.mb-3
+                  option(value='' disabled) Select engine
+                  option(value='1.5 Turbo 3 Cylinder Engine') 1.5 Turbo 3 Cylinder Engine
+                  option(value='2.4L 4 Cylinder Engine') 2.4L 4 Cylinder Engine
+                  option(value='3.5L 4 Cylinder Engine') 3.5L 4 Cylinder Engine
+                  option(value='2.5L Turbo 6 Cylinder' selected) 2.5L Turbo 6 Cylinder
+
+                label(for='sc-transmission').form-label.text-light
+                  | Transmission 
+                  span.text-danger *
+                select(id='sc-transmission').form-select.form-select-light.mb-3
+                  option(value='' disabled) Select transmission
+                  option(value='Manual') Manual
+                  option(value='Automatic' selected) Automatic
+
+                label(for='sc-drivetrain').form-label.text-light
+                  | Drivetrain 
+                  span.text-danger *
+                select(id='sc-drivetrain').form-select.form-select-light.mb-3
+                  option(value='' disabled) Select drivetrain
+                  option(value='Front Wheel Drive' selected) Front Wheel Drive
+                  option(value='Rear Wheel Drive') Rear Wheel Drive
+                  option(value='All Wheel Drive') All Wheel Drive
+
+                label(for='sc-color').form-label.text-light Color 
+                input(type='text' id='sc-color' value='Aspen White' placeholder='Enter color').form-control.form-control-light.mb-3
+
+          .border-top.border-light.mt-2.pt-4
+            label(for='sc-description').form-label.text-light Description 
+            textarea(id='sc-description' rows='5' placeholder='Describe your vehicle').form-control.form-control-light
+            span.form-text.text-light.opacity-50 3000 characters left
+
+        
+        // Features
+        section#features.card.card-light.card-body.border-0.shadow-sm.p-4.mb-4
+          h2.h4.text-light.mb-4
+            i.fi-check-circle.text-primary.fs-5.mt-n1.me-2
+            | Features
+          .mb-4
+            label.form-label.d-block.text-light.fw-bold.mb-2.pb-1 Exterior
+            .row
+              .col-sm-4
+                .form-check.form-check-light
+                  input(type='checkbox' id='alloy-wheels').form-check-input
+                  label(for='alloy-wheels').form-check-label
+                    | Alloy wheels
+                .form-check.form-check-light
+                  input(type='checkbox' id='sunroof').form-check-input
+                  label(for='sunroof').form-check-label
+                    | Sunroof / moonroof
+              .col-sm-4
+                .form-check.form-check-light
+                  input(type='checkbox' id='panoramic-roof').form-check-input
+                  label(for='panoramic-roof').form-check-label
+                    | Panoramic roof
+                .form-check.form-check-light
+                  input(type='checkbox' id='tinted-glass').form-check-input
+                  label(for='tinted-glass').form-check-label
+                    | Tinted glass
+          .mb-4
+            label.form-label.d-block.text-light.fw-bold.mb-2.pb-1 Interior
+            .row
+              .col-sm-4
+                .form-check.form-check-light
+                  input(type='checkbox' id='ac').form-check-input
+                  label(for='ac').form-check-label
+                    | Multi-zone A/C
+                .form-check.form-check-light
+                  input(type='checkbox' id='heated-seats').form-check-input
+                  label(for='heated-seats').form-check-label
+                    | Heated front seats
+              .col-sm-4
+                .form-check.form-check-light
+                  input(type='checkbox' id='navi').form-check-input
+                  label(for='navi').form-check-label
+                    | Navigation system
+                .form-check.form-check-light
+                  input(type='checkbox' id='leather-seats').form-check-input
+                  label(for='leather-seats').form-check-label
+                    | Leather seats
+              .col-sm-4
+                .form-check.form-check-light
+                  input(type='checkbox' id='wipers').form-check-input
+                  label(for='wipers').form-check-label
+                    | Intermittent wipers
+                .form-check.form-check-light
+                  input(type='checkbox' id='memory-seat').form-check-input
+                  label(for='memory-seat').form-check-label
+                    | Memory seat
+            #moreInterior.collapse
+              .row
+                .col-sm-4
+                  .form-check.form-check-light
+                    input(type='checkbox' id='premium-sound').form-check-input
+                    label(for='premium-sound').form-check-label
+                      | Premium sound system
+                  .form-check.form-check-light
+                    input(type='checkbox' id='bluetooth').form-check-input
+                    label(for='bluetooth').form-check-label
+                      | Bluetooth
+                .col-sm-4
+                  .form-check.form-check-light
+                    input(type='checkbox' id='usb').form-check-input
+                    label(for='usb').form-check-label
+                      | USB port
+                  .form-check.form-check-light
+                    input(type='checkbox' id='leather-wheel').form-check-input
+                    label(for='leather-wheel').form-check-label
+                      | Leather steering wheel
+                .col-sm-4
+                  .form-check.form-check-light
+                    input(type='checkbox' id='apple-play').form-check-input
+                    label(for='apple-play').form-check-label
+                      | Apple CarPlay
+                  .form-check.form-check-light
+                    input(type='checkbox' id='android-auto').form-check-input
+                    label(for='android-auto').form-check-label
+                      | Android Auto
+            a(href='#moreInterior' data-bs-toggle='collapse' data-bs-label-collapsed='Show more' data-bs-label-expanded='Show less' role='button' aria-expanded='false' aria-controls='moreInterior').collapse-label.collapsed.fs-sm
+          .mb-4
+            label.form-label.d-block.text-light.fw-bold.mb-2.pb-1 Safety
+            .row
+              .col-sm-4
+                .form-check.form-check-light
+                  input(type='checkbox' id='airbag-driver').form-check-input
+                  label(for='airbag-driver').form-check-label
+                    | Airbag: driver
+                .form-check.form-check-light
+                  input(type='checkbox' id='airbag-pasenger').form-check-input
+                  label(for='airbag-pasenger').form-check-label
+                    | Airbag: passenger
+              .col-sm-4
+                .form-check.form-check-light
+                  input(type='checkbox' id='alarm').form-check-input
+                  label(for='alarm').form-check-label
+                    | Alarm
+                .form-check.form-check-light
+                  input(type='checkbox' id='antilock').form-check-input
+                  label(for='antilock').form-check-label
+                    | Antilock brakes
+              .col-sm-4
+                .form-check.form-check-light
+                  input(type='checkbox' id='stability-control').form-check-input
+                  label(for='stability-control').form-check-label
+                    | Stability control
+                .form-check.form-check-light
+                  input(type='checkbox' id='fog-lights').form-check-input
+                  label(for='fog-lights').form-check-label
+                    | Fog lights
+            #moreSafety.collapse
+              .row
+                .col-sm-4
+                  .form-check.form-check-light
+                    input(type='checkbox' id='adaptive-cruise').form-check-input
+                    label(for='adaptive-cruise').form-check-label
+                      | Adaptive cruise control
+                  .form-check.form-check-light
+                    input(type='checkbox' id='blind-monitor').form-check-input
+                    label(for='blind-monitor').form-check-label
+                      | Blind spot monitor
+                .col-sm-4
+                  .form-check.form-check-light
+                    input(type='checkbox' id='brake-assist').form-check-input
+                    label(for='brake-assist').form-check-label
+                      | Brake assist
+                  .form-check.form-check-light
+                    input(type='checkbox' id='lane-warning').form-check-input
+                    label(for='lane-warning').form-check-label
+                      | Lane departure warning
+            a(href='#moreSafety' data-bs-toggle='collapse' data-bs-label-collapsed='Show more' data-bs-label-expanded='Show less' role='button' aria-expanded='false' aria-controls='moreSafety').collapse-label.collapsed.fs-sm
+
+
+        // Photos / video
+        section#photos.card.card-light.card-body.shadow-sm.p-4.mb-4
+          h2.h4.text-light.mb-4
+            i.fi-image.text-primary.fs-5.mt-n1.me-2
+            | Photos / video
+          .alert.alert-warning.bg-faded-warning.border-warning.mb-4(role='alert')
+            .d-flex
+              i.fi-alert-circle.me-2.me-sm-3
+              p.fs-sm.mb-1 The maximum photo size is 8 MB. Formats: jpeg, jpg, png. Put the main picture first.<br>The maximum video size is 10 MB. Formats: mp4, mov.
+          input(type='file' multiple data-max-file-size='10MB' accept='image/png, image/jpeg, video/mp4, video/mov' data-label-idle='<div class="btn btn-primary mb-3"><i class="fi-cloud-upload me-1"></i>Upload photos / video</div><div class="text-light opacity-70">or drag them in</div>').file-uploader.file-uploader-grid.bg-faded-light.border-light
+
+
+        // Location
+        section#location.card.card-light.card-body.border-0.shadow-sm.p-4.mb-4
+          h2.h4.text-light.mb-4
+            i.fi-map-pin.text-primary.fs-5.mt-n1.me-2
+            | Location
+          .row
+            .col-sm-6.mb-3
+              label(for='sc-country').form-label.text-light
+                | Country / region 
+                span.text-danger *
+              select(id='sc-country' required).form-select.form-select-light
+                option(value='' disabled) Choose country
+                option(value='Australia') Australia
+                option(value='Belgium') Belgium
+                option(value='Canada') Canada
+                option(value='Germany') Germany
+                option(value='United States' selected) United States
+            .col-sm-6.mb-3
+              label(for='sc-state').form-label.text-light
+                | State 
+                span.text-danger *
+              select(id='sc-state' required).form-select.form-select-light
+                option(value='' disabled) Choose state
+                option(value='Alabama') Alabama
+                option(value='California') California
+                option(value='Florida') Florida
+                option(value='Georgia') Georgia
+                option(value='Illinois' selected) Illinois
+                option(value='Indiana') Indiana
+                option(value='Kansas') Kansas
+          .row
+            .col-sm-8.mb-3
+              label(for='sc-city').form-label.text-light
+                | City 
+                span.text-danger *
+              select(id='sc-city' required).form-select.form-select-light
+                option(value='' disabled) Choose city
+                option(value='Chicago' selected) Chicago
+                option(value='Dallas') Dallas
+                option(value='Los Angeles') Los Angeles
+                option(value='New York') New York
+                option(value='San Diego') San Diego
+            .col-sm-4.mb-3
+              label(for='sc-zip').form-label.text-light
+                | Zip code  
+                span.text-danger *
+              input(type='text' id='sc-zip' placeholder='Enter Zip code' value='60603' required).form-control.form-control-light
+          .mb-3
+            label(for='ap-address').form-label.text-light
+              | Street address 
+              span.text-danger *
+            input(type='text' id='ap-address' value='1904 S Michigan Avenue' required).form-control.form-control-light
+          .form-label.text-light.fw-bold.pt-3.pb-2 Display on the map
+          .interactive-map.rounded-3(data-map-options='{"mapLayer": "https://api.maptiler.com/maps/pastel/{z}/{x}/{y}.png?key=5vRQzd34MMsINEyeKPIs", "coordinates": [41.75, -87.7], "zoom": 9, "scrollWheelZoom": false, "markers": [{"coordinates": [41.75, -87.7], "className": "custom-marker-dot", "popup": "<div class=\'p-3\'><h6 class=\'fs-base\'>Mercedes-Benz E 400</h6><p class=\'fs-xs text-muted pt-1 mt-n3 mb-0\'>1904 S Michigan Avenue, Chicago, IL</p></div>"}]}' style='height: 250px;')
+
+
+        // Contacts
+        section#contacts.card.card-light.card-body.border-0.shadow-sm.p-4.mb-4
+          h2.h4.text-light.mb-4
+            i.fi-phone.text-primary.fs-5.mt-n1.me-2
+            | Contacts
+          .row
+            .col-sm-6.mb-3
+              label(for='sc-fn').form-label.text-light
+                | First name 
+                span.text-danger *
+              input(type='text' id='sc-fn' value='Devon' placeholder='Enter your first name' required).form-control.form-control-light
+            .col-sm-6.mb-3
+              label(for='sc-sn').form-label.text-light
+                | Second name 
+                span.text-danger *
+              input(type='text' id='sc-sn' value='Lane' placeholder='Enter your second name' required).form-control.form-control-light
+          .row
+            .col-sm-6.mb-3
+              label(for='sc-email').form-label.text-light
+                | Email
+                span.text-danger *
+              input(type='text' id='sc-email' value='devone_lane@email.com' placeholder='Enter your email').form-control.form-control-light
+            .col-sm-6.mb-3
+              label(for='sc-phone').form-label.text-light
+                | Phone number 
+                span.text-danger *
+              input(type='tel' id='sc-phone' data-format='custom' data-delimiter='-' data-blocks='3 3 4' value='316-442-0597' placeholder='000-000-0000').form-control.form-control-light
+          label(for='sc-website').form-label.text-light Website
+          input(type='text' id='sc-website' placeholder='Enter company name').form-control.form-control-light.mb-3
+          .text-light.py-3 Social accounts
+          .d-flex.align-items-center.mb-3
+            .btn.btn-icon.btn-translucent-light.btn-xs.rounded-circle.pe-none.flex-shrink-0.me-3
+              i.fi-facebook
+            input(type='text' placeholder='Your Facebook account').form-control.form-control-light
+          .d-flex.align-items-center.mb-3
+            .btn.btn-icon.btn-translucent-light.btn-xs.rounded-circle.pe-none.flex-shrink-0.me-3
+              i.fi-linkedin
+            input(type='text' placeholder='Your LinkedIn account').form-control.form-control-light
+          .d-flex.align-items-center.mb-3
+            .btn.btn-icon.btn-translucent-light.btn-xs.rounded-circle.pe-none.flex-shrink-0.me-3
+              i.fi-twitter
+            input(type='text' placeholder='Your Twitter account').form-control.form-control-light
+          #showMoreSocials.collapse
+            .d-flex.align-items-center.mb-3
+              .btn.btn-icon.btn-translucent-light.btn-xs.rounded-circle.pe-none.flex-shrink-0.me-3
+                i.fi-instagram
+              input(type='text' placeholder='Your Instagram account').form-control.form-control-light
+            .d-flex.align-items-center.mb-3
+              .btn.btn-icon.btn-translucent-light.btn-xs.rounded-circle.pe-none.flex-shrink-0.me-3
+                i.fi-pinterest
+              input(type='text' placeholder='Your Pinterest account').form-control.form-control-light
+          a(href='#showMoreSocials' data-bs-toggle='collapse' data-bs-label-collapsed='Show more' data-bs-label-expanded='Show less' role='button' aria-expanded='false' aria-controls='showMoreSocials').nav-link-light.collapse-label.collapsed.d-inline-block.fs-sm.fw-bold.pt-2.pb-3
+            i.fi-arrow-down.me-2
+
+        .d-sm-flex.justify-content-between.pt-2
+          a(href='#preview-modal' data-bs-toggle='modal').btn.btn-outline-light.btn-lg.d-block.mb-3.mb-sm-2
+            i.fi-eye-on.ms-n1.me-2
+            | Preview
+          a(href='car-finder-promotion.html').btn.btn-primary.btn-lg.d-block.mb-2 Save and continue
+          
+
+      // Progress of completion
+      aside.col-lg-3.offset-lg-1.d-none.d-lg-block
+        .sticky-top.pt-5
+          h6.text-light.pt-5.mt-3.mb-2 80% content filled
+          .progress.progress-light.mb-4(style='height: .25rem;')
+            .progress-bar.bg-success(role='progressbar' style='width: 80%' aria-valuenow='80' aria-valuemin='0' aria-valuemax='100')
+          ul.list-unstyled
+            li.d-flex.align-items-center
+              i.fi-check.text-primary.me-2
+              a(href='#basic-info' data-scroll data-scroll-offset='20').nav-link-light.ps-1 Basic info
+            li.d-flex.align-items-center
+              i.fi-check.text-primary.me-2
+              a(href='#price' data-scroll data-scroll-offset='20').nav-link-light.ps-1 Price
+            li.d-flex.align-items-center
+              i.fi-check.text-primary.me-2
+              a(href='#vehicle-info' data-scroll data-scroll-offset='20').nav-link-light.ps-1 Vehicle information
+            li.d-flex.align-items-center
+              i.fi-check.text-light.opacity-60.me-2
+              a(href='#features' data-scroll data-scroll-offset='20').nav-link-light.ps-1 Features
+            li.d-flex.align-items-center
+              i.fi-check.text-light.opacity-60.me-2
+              a(href='#photos' data-scroll data-scroll-offset='20').nav-link-light.ps-1 Photos / video
+            li.d-flex.align-items-center
+              i.fi-check.text-primary.me-2
+              a(href='#location' data-scroll data-scroll-offset='20').nav-link-light.ps-1 Location
+            li.d-flex.align-items-center
+              i.fi-check.text-primary.me-2
+              a(href='#contacts' data-scroll data-scroll-offset='20').nav-link-light.ps-1 Contacts
+
+
+//- Footer
+block footer
+  include partials/footer-car-finder

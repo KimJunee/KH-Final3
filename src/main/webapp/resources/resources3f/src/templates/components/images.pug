@@ -1,0 +1,207 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['prismjs/themes/prism.css', 'prismjs/plugins/toolbar/prism-toolbar.css', 'prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var vendorScripts = ['prismjs/components/prism-core.min.js', 'prismjs/components/prism-markup.min.js', 'prismjs/components/prism-clike.min.js', 'prismjs/components/prism-javascript.min.js', 'prismjs/components/prism-pug.min.js', 'prismjs/plugins/toolbar/prism-toolbar.min.js', 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Images & figures'
+  - var pageSubtitle = 'Image styles and figure component for displaying images and text.'
+  - var pageTitleLink = {'title': 'Bootstrap docs', 'link': 'https://getbootstrap.com/docs/5.1/content/images/'}
+  - var anchorNav = [{'title': 'Image shapes', 'link': '#image-shapes'}, {'title': 'Thumbnails', 'link': '#image-thumbnails'}, {'title': 'Figures with caption', 'link': '#image-figures'}, {'title': 'Image swap on hover', 'link': '#image-swap'}]
+  
+//- Page Content
+block content
+
+  // Image shapes
+  section#image-shapes.pb-5.mb-md-2
+    h2.h5.mb-3 Image shapes
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result1' data-bs-toggle='tab' role='tab' aria-controls='result1' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result1.tab-pane.fade.show.active(role='tabpanel')
+            .row
+              .col-xxl-3.col-md-3.col-sm-4.mb-3
+                img(src='../img/components/03.jpg' alt='Square image' style='max-width: 16rem;').d-block.w-100.mx-auto
+              .col-xxl-3.col-md-3.col-sm-4.mb-3
+                img(src='../img/components/02.jpg' alt='Rounded image' style='max-width: 16rem;').d-block.rounded-3.w-100.mx-auto
+              .col-xxl-3.col-md-3.col-sm-4.mb-3
+                img(src='../img/components/01.jpg' alt='Circle image' style='max-width: 16rem;').d-block.rounded-circle.w-100.mx-auto
+          #html1.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Square image (default) --&gt;
+                &lt;img src=&quot;path-to-image&quot; alt=&quot;Square image&quot;&gt;
+
+                &lt;!-- Rounded image --&gt;
+                &lt;img src=&quot;path-to-image&quot; class=&quot;rounded-3&quot; alt=&quot;Rounded image&quot;&gt;
+
+                &lt;!-- Circle image --&gt;
+                &lt;img src=&quot;path-to-image&quot; class=&quot;rounded-circle&quot; alt=&quot;Circle image&quot;&gt;
+          #pug1.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Square image (default)
+                img(src=&quot;path-to-image&quot;, alt=&quot;Square image&quot;)
+
+                // Rounded image
+                img(src=&quot;path-to-image&quot;, alt=&quot;Rounded image&quot;).rounded-3
+
+                // Circle image
+                img(src=&quot;path-to-image&quot;, alt=&quot;Circle image&quot;).rounded-circle
+
+  // Thumbnails
+  section#image-thumbnails.pb-5.mb-md-2
+    h2.h5.mb-3 Thumbnails
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result2' data-bs-toggle='tab' role='tab' aria-controls='result2' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result2.tab-pane.fade.show.active(role='tabpanel')
+            .row
+              .col-xxl-3.col-md-3.col-sm-4.mb-3
+                img(src='../img/components/03.jpg' alt='Square thumbnail' style='max-width: 16rem;').d-block.img-thumbnail.rounded-0.w-100.mx-auto
+              .col-xxl-3.col-md-3.col-sm-4.mb-3
+                img(src='../img/components/02.jpg' alt='Rounded thumbnail' style='max-width: 16rem;').d-block.img-thumbnail.w-100.mx-auto
+              .col-xxl-3.col-md-3.col-sm-4.mb-3
+                img(src='../img/components/01.jpg' alt='Circle thumbnail' style='max-width: 16rem;').d-block.img-thumbnail.rounded-circle.w-100.mx-auto
+          #html2.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Square thumbnail --&gt;
+                &lt;img src=&quot;path-to-image&quot; class=&quot;img-thumbnail rounded-0&quot; alt=&quot;Square image&quot;&gt;
+
+                &lt;!-- Rounded thumbnail --&gt;
+                &lt;img src=&quot;path-to-image&quot; class=&quot;img-thumbnail&quot; alt=&quot;Rounded image&quot;&gt;
+
+                &lt;!-- Circle thumbnail --&gt;
+                &lt;img src=&quot;path-to-image&quot; class=&quot;img-thumbnail rounded-circle&quot; alt=&quot;Circle image&quot;&gt;
+          #pug2.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Square tumbnail
+                img(src=&quot;path-to-image&quot;, alt=&quot;Square image&quot;).img-thumbnail.rounded-0
+
+                // Rounded tumbnail
+                img(src=&quot;path-to-image&quot;, alt=&quot;Rounded image&quot;).img-thumbnail
+
+                // Circle tumbnail
+                img(src=&quot;path-to-image&quot;, alt=&quot;Circle image&quot;).img-thumbnail.rounded-circle
+
+  // Figures with caption
+  section#image-figures.pb-5.mb-md-2
+    h2.h5.mb-3 Figures with caption
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result3' data-bs-toggle='tab' role='tab' aria-controls='result3' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result3.tab-pane.fade.show.active(role='tabpanel')
+            .row
+              .col-xxl-3.col-md-3.col-sm-4.text-center.mb-2
+                figure.figure(style='max-width: 16rem;')
+                  img(src='../img/components/01.jpg' alt='Figure with caption').figure-img.rounded
+                  figcaption.figure-caption.text-start Caption on the left
+              .col-xxl-3.col-md-3.col-sm-4.text-center.mb-2
+                figure.figure(style='max-width: 16rem;')
+                  img(src='../img/components/02.jpg' alt='Figure with caption').figure-img.rounded
+                  figcaption.figure-caption.text-center Caption in the center
+              .col-xxl-3.col-md-3.col-sm-4.text-center.mb-2
+                figure.figure(style='max-width: 16rem;')
+                  img(src='../img/components/03.jpg' alt='Figure with caption').figure-img.rounded
+                  figcaption.figure-caption.text-end Caption on the right
+          #html3.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Caption on the left --&gt;
+                &lt;figure class=&quot;figure&quot;&gt;
+                  &lt;img src=&quot;path-to-image&quot; class=&quot;figure-img&quot; alt=&quot;...&quot;&gt;
+                  &lt;figcaption class=&quot;figure-caption&quot;&gt;Caption on the left&lt;/figcaption&gt;
+                &lt;/figure&gt;
+
+                &lt;!-- Caption in the center --&gt;
+                &lt;figure class=&quot;figure&quot;&gt;
+                  &lt;img src=&quot;path-to-image&quot; class=&quot;figure-img&quot; alt=&quot;...&quot;&gt;
+                  &lt;figcaption class=&quot;figure-caption text-center&quot;&gt;Caption in the center&lt;/figcaption&gt;
+                &lt;/figure&gt;
+
+                &lt;!-- Caption on the right --&gt;
+                &lt;figure class=&quot;figure&quot;&gt;
+                  &lt;img src=&quot;path-to-image&quot; class=&quot;figure-img&quot; alt=&quot;...&quot;&gt;
+                  &lt;figcaption class=&quot;figure-caption text-end&quot;&gt;Caption on the right&lt;/figcaption&gt;
+                &lt;/figure&gt;
+          #pug3.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Caption on the left
+                figure.figure
+                  img(src=&quot;path-to-image&quot;, alt=&quot;...&quot;).figure-img
+                  figcaption.figure-caption Caption on the left
+
+                // Caption in the center
+                figure.figure
+                  img(src=&quot;path-to-image&quot;, alt=&quot;...&quot;).figure-img
+                  figcaption.figure-caption.text-center Caption in the center
+
+                // Caption on the right
+                figure.figure
+                  img(src=&quot;path-to-image&quot;, alt=&quot;...&quot;).figure-img
+                  figcaption.figure-caption.text-end Caption on the right
+
+  // Image swap on hover
+  section#image-swap.pb-5.mb-md-2
+    h2.h5.mb-3 Image swap on hover
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result4' data-bs-toggle='tab' role='tab' aria-controls='result4' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result4.tab-pane.fade.show.active(role='tabpanel')
+            .d-sm-flex.align-items-center.pt-3
+              a(href='#').swap-image.mb-2.me-sm-2
+                img(src='../img/real-estate/brands/02_color.svg' alt='Logo' width='196').swap-to
+                img(src='../img/real-estate/brands/02_gray.svg' alt='Logo' width='196').swap-from
+              a(href='#').swap-image.mb-2
+                img(src='../img/real-estate/brands/04_color.svg' alt='Logo' width='196').swap-to
+                img(src='../img/real-estate/brands/04_gray.svg' alt='Logo' width='196').swap-from
+          #html4.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Image swap on hover --&gt;
+                &lt;a href=&quot;#&quot; class=&quot;swap-image&quot;&gt;
+                  &lt;img src=&quot;path-to-image&quot; class=&quot;swap-to&quot; width=&quot;196&quot; alt=&quot;Alt text&quot;&gt;
+                  &lt;img src=&quot;path-to-image&quot; class=&quot;swap-from&quot; width=&quot;196&quot; alt=&quot;Alt text&quot;&gt;
+                &lt;/a&gt;
+          #pug4.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Image swap on hover
+                a(href=&quot;#&quot;).swap-image
+                  img(src=&quot;path-to-image&quot;, alt=&quot;Alt text&quot;, width=&quot;196&quot;).swap-to
+                  img(src=&quot;path-to-image&quot;, alt=&quot;Alt text&quot;, width=&quot;196&quot;).swap-from

@@ -1,0 +1,21 @@
+extends ../partials/layout-docs
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js']
+  - var pageTitle = 'Components'
+    
+//- Page Content
+block content
+
+  .alert.alert-info.d-flex.mb-4(role='alert')
+    i.ai-circle-info.lead.me-2.me-sm-3
+    p.mb-1 <span class='fw-semibold'>Component</span> is a snippet of HTML code with assosiated CSS classes and sometimes attached JavaScript functionality that is rendered by the browser as a standalone website element. They can be mixed together to produce more complex components.
+  
+  p Along with all Bootstrap components Around introduces new elements you can use across website. More than 50 components in total.
+  p: a(href='../components/buttons.html' target='_blank' rel='noopener').fw-semibold List of all Components as well as their visual reference and code snippets can be found here.
+  p.pb-3: a(href='https://getbootstrap.com/docs/5.2/components/accordion/' target='_blank' rel='noopener').fw-semibold Bootstrap Components and documentation.
+  p.text-dark.fw-semibold.pb-1 Below is the image showing how to see code snippet for each component:
+  img(src='../assets/img/docs/component-light.png' alt='Browserlist').d-dark-mode-none.border.rounded-3
+  img(src='../assets/img/docs/component-dark.png' alt='Browserlist').d-none.d-dark-mode-block.border.rounded-3

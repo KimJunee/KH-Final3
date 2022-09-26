@@ -1,0 +1,376 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['prismjs/themes/prism.css', 'prismjs/plugins/toolbar/prism-toolbar.css', 'prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var vendorScripts = ['prismjs/components/prism-core.min.js', 'prismjs/components/prism-markup.min.js', 'prismjs/components/prism-clike.min.js', 'prismjs/components/prism-javascript.min.js', 'prismjs/components/prism-pug.min.js', 'prismjs/plugins/toolbar/prism-toolbar.min.js', 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Button group'
+  - var pageSubtitle = 'Groups a series of buttons together on a single line.'
+  - var pageTitleLink = {'title': 'Bootstrap docs', 'link': 'https://getbootstrap.com/docs/5.1/components/button-group/'}
+  - var anchorNav = [{'title': 'Basic example', 'link': '#btn-group-basic'}, {'title': 'Button toolbar', 'link': '#btn-group-toolbar'}, {'title': 'Sizing', 'link': '#btn-group-sizing'}, {'title': 'Nested dropdown', 'link': '#btn-group-dropdown'}]
+  
+//- Page Content
+block content
+
+  // Basic example
+  section#btn-group-basic.pb-5.mb-md-2
+    h2.h5.mb-3 Basic example
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result1' data-bs-toggle='tab' role='tab' aria-controls='result1' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result1.tab-pane.fade.show.active(role='tabpanel')
+            .btn-group.mb-4.me-2(role='group' aria-label='Solid button group')
+              button(type='button').btn.btn-primary Left
+              button(type='button').btn.btn-primary Middle
+              button(type='button').btn.btn-primary Right
+            .btn-group.mb-4.me-2(role='group' aria-label='Outline button group')
+              button(type='button').btn.btn-outline-primary Left
+              button(type='button').btn.btn-outline-primary Middle
+              button(type='button').btn.btn-outline-primary Right
+            br
+            .btn-group.mb-4.me-2(role='group' aria-label='Pill solid button group')
+              button(type='button').btn.btn-secondary.rounded-pill.rounded-end-0 Left
+              button(type='button').btn.btn-secondary Middle
+              button(type='button').btn.btn-secondary.rounded-pill.rounded-start-0 Right
+            .btn-group.mb-4.me-2(role='group' aria-label='Pill outline button group')
+              button(type='button').btn.btn-outline-secondary.rounded-pill.rounded-end-0 Left
+              button(type='button').btn.btn-outline-secondary Middle
+              button(type='button').btn.btn-outline-secondary.rounded-pill.rounded-start-0 Right
+          #html1.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Solid button group --&gt;
+                &lt;div class=&quot;btn-group&quot; role=&quot;group&quot; aria-label=&quot;Solid button group&quot;&gt;
+                  &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Left&lt;/button&gt;
+                  &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Middle&lt;/button&gt;
+                  &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Right&lt;/button&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Outline button group --&gt;
+                &lt;div class=&quot;btn-group&quot; role=&quot;group&quot; aria-label=&quot;Outline button group&quot;&gt;
+                  &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-primary&quot;&gt;Left&lt;/button&gt;
+                  &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-primary&quot;&gt;Middle&lt;/button&gt;
+                  &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-primary&quot;&gt;Right&lt;/button&gt;
+                &lt;/div&gt;
+          #pug1.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Solid button group
+                .btn-group(role=&quot;group&quot;, aria-label=&quot;Solid button group&quot;)
+                  button(type=&quot;button&quot;).btn.btn-primary
+                    | Left
+                  button(type=&quot;button&quot;).btn.btn-primary
+                    | Middle
+                  button(type=&quot;button&quot;).btn.btn-primary
+                    | Right
+
+                // Outline button group
+                .btn-group(role=&quot;group&quot;, aria-label=&quot;Outline button group&quot;)
+                  button(type=&quot;button&quot;).btn.btn-outline-primary
+                    | Left
+                  button(type=&quot;button&quot;).btn.btn-outline-primary
+                    | Middle
+                  button(type=&quot;button&quot;).btn.btn-outline-primary
+                    | Right
+
+  // Button toolbar
+  section#btn-group-toolbar.pb-5.mb-md-2
+    h2.h5.mb-3 Button toolbar
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result2' data-bs-toggle='tab' role='tab' aria-controls='result2' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result2.tab-pane.fade.show.active(role='tabpanel')
+            .btn-toolbar.mb-3(role='toolbar' aria-label='Settings toolbar')
+              .btn-group.me-2.mb-2(role='group' aria-label='Settings group')
+                button(type='button').btn.btn-dark.btn-icon
+                  i.fi-settings
+                button(type='button').btn.btn-secondary.btn-icon A
+                button(type='button').btn.btn-secondary.btn-icon
+                  i.fi-align-right
+                button(type='button').btn.btn-secondary.btn-icon
+                  i.fi-rotate-right
+              .btn-group.me-2.mb-2(role='group' aria-label='Apply settings')
+                button(type='button').btn.btn-success
+                  i.fi-check.me-2
+                  | Apply
+              .btn-group.mb-2(role='group' aria-label='Delete settings')
+                button(type='button').btn.btn-translucent-danger.btn-icon
+                  i.fi-trash
+            .btn-toolbar(role='toolbar' aria-label='Toolbar with button groups')
+              .btn-group.me-2.mb-2(role='group' aria-label='First group')
+                button(type='button').btn.btn-outline-secondary 1
+                button(type='button').btn.btn-outline-secondary 2
+                button(type='button').btn.btn-outline-secondary 3
+              .btn-group.me-2.mb-2(role='group' aria-label='Second group')
+                button(type='button').btn.btn-outline-secondary 4
+                button(type='button').btn.btn-outline-secondary 5
+              .btn-group.mb-2(role='group' aria-label='Third group')
+                button(type='button').btn.btn-outline-secondary 6
+          #html2.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Toolbar example --&gt;
+                &lt;div class=&quot;btn-toolbar&quot; role=&quot;toolbar&quot; aria-label=&quot;Settings toolbar&quot;&gt;
+                  &lt;div class=&quot;btn-group me-2 mb-2&quot; role=&quot;group&quot; aria-label=&quot;Settings group&quot;&gt;
+                    &lt;button type=&quot;button&quot; class=&quot;btn btn-dark btn-icon&quot;&gt;
+                      &lt;i class=&quot;fi-settings&quot;&gt;&lt;/i&gt;
+                    &lt;/button&gt;
+                    &lt;button type=&quot;button&quot; class=&quot;btn btn-secondary btn-icon&quot;&gt;A&lt;/button&gt;
+                    &lt;button type=&quot;button&quot; class=&quot;btn btn-secondary btn-icon&quot;&gt;
+                      &lt;i class=&quot;fi-align-right&quot;&gt;&lt;/i&gt;
+                    &lt;/button&gt;
+                    &lt;button type=&quot;button&quot; class=&quot;btn btn-secondary btn-icon&quot;&gt;
+                      &lt;i class=&quot;fi-rotate-right&quot;&gt;&lt;/i&gt;
+                    &lt;/button&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;btn-group me-2 mb-2&quot; role=&quot;group&quot; aria-label=&quot;Apply settings&quot;&gt;
+                    &lt;button type=&quot;button&quot; class=&quot;btn btn-success&quot;&gt;
+                      &lt;i class=&quot;fi-check me-2&quot;&gt;&lt;/i&gt;
+                      Apply
+                    &lt;/button&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;btn-group mb-2&quot; role=&quot;group&quot; aria-label=&quot;Delete settings&quot;&gt;
+                    &lt;button type=&quot;button&quot; class=&quot;btn btn-translucent-danger btn-icon&quot;&gt;
+                      &lt;i class=&quot;fi-trash&quot;&gt;&lt;/i&gt;
+                    &lt;/button&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Pagination example --&gt;
+                &lt;div class=&quot;btn-toolbar&quot; role=&quot;toolbar&quot; aria-label=&quot;Pagination&quot;&gt;
+                  &lt;div class=&quot;btn-group me-2 mb-2&quot; role=&quot;group&quot; aria-label=&quot;First group&quot;&gt;
+                    &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-secondary&quot;&gt;1&lt;/button&gt;
+                    &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-secondary&quot;&gt;2&lt;/button&gt;
+                    &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-secondary&quot;&gt;3&lt;/button&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;btn-group me-2 mb-2&quot; role=&quot;group&quot; aria-label=&quot;Second group&quot;&gt;
+                    &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-secondary&quot;&gt;4&lt;/button&gt;
+                    &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-secondary&quot;&gt;5&lt;/button&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;btn-group mb-2&quot; role=&quot;group&quot; aria-label=&quot;Third group&quot;&gt;
+                    &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-secondary&quot;&gt;6&lt;/button&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+          #pug2.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Toolbar example
+                .btn-toolbar(role=&quot;toolbar&quot;, aria-label=&quot;Settings toolbar&quot;)
+                  .btn-group.me-2.mb-2(role=&quot;group&quot;, aria-label=&quot;Settings group&quot;)
+                    button(type=&quot;button&quot;).btn.btn-dark.btn-icon
+                      i.fi-settings
+                    button(type=&quot;button&quot;).btn.btn-secondary.btn-icon
+                      | A
+                    button(type=&quot;button&quot;).btn.btn-secondary.btn-icon
+                      i.fi-align-right
+                    button(type=&quot;button&quot;).btn.btn-secondary.btn-icon
+                      i.fi-rotate-right
+                  .btn-group.me-2.mb-2(role=&quot;group&quot;, aria-label=&quot;Apply settings&quot;)
+                    button(type=&quot;button&quot;).btn.btn-success
+                      i.fi-check.me-2
+                      | Apply
+                  .btn-group.mb-2(role=&quot;group&quot;, aria-label=&quot;Delete settings&quot;)
+                    button(type=&quot;button&quot;).btn.button-translucent-danger.btn-icon
+                      i.fi-trash
+
+                // Pagination example
+                .btn-toolbar(role=&quot;toolbar&quot;, aria-label=&quot;Pagination&quot;)
+                  .btn-group.me-2.mb-2(role=&quot;group&quot;, aria-label=&quot;First group&quot;)
+                    button(type=&quot;button&quot;).btn.btn-pill.btn-outline-secondary
+                      | 1
+                    button(type=&quot;button&quot;).btn.btn-pill.btn-outline-secondary
+                      | 2
+                    button(type=&quot;button&quot;).btn.btn-pill.btn-outline-secondary
+                      | 3
+                  .btn-group.me-2.mb-2(role=&quot;group&quot;, aria-label=&quot;Second group&quot;)
+                    button(type=&quot;button&quot;).btn.btn-pill.btn-outline-secondary
+                      | 4
+                    button(type=&quot;button&quot;).btn.btn-pill.btn-outline-secondary
+                      | 5
+                  .btn-group.mb-2(role=&quot;group&quot;, aria-label=&quot;Third group&quot;)
+                    button(type=&quot;button&quot;).btn.btn-pill.btn-outline-secondary
+                      | 6
+
+  // Sizing
+  section#btn-group-sizing.pb-5.mb-md-2
+    h2.h5.mb-3 Sizing
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result3' data-bs-toggle='tab' role='tab' aria-controls='result3' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result3.tab-pane.fade.show.active(role='tabpanel')
+            .row
+              .col-md-6
+                .btn-group.btn-group-lg.mb-3(role='group' aria-label='Large group')
+                  button(type='button').btn.btn-primary Left
+                  button(type='button').btn.btn-primary Middle
+                  button(type='button').btn.btn-primary Right
+                br
+                .btn-group.mb-3(role='group' aria-label='Normal group')
+                  button(type='button').btn.btn-primary Left
+                  button(type='button').btn.btn-primary Middle
+                  button(type='button').btn.btn-primary Right
+                br
+                .btn-group.btn-group-sm.mb-3(role='group' aria-label='Small group')
+                  button(type='button').btn.btn-primary Left
+                  button(type='button').btn.btn-primary Middle
+                  button(type='button').btn.btn-primary Right
+              .col-md-6
+                .btn-group.btn-group-lg.mb-3(role='group' aria-label='Large group')
+                  button(type='button').btn.btn-outline-secondary Left
+                  button(type='button').btn.btn-outline-secondary Middle
+                  button(type='button').btn.btn-outline-secondary Right
+                br
+                .btn-group.mb-3(role='group' aria-label='Normal group')
+                  button(type='button').btn.btn-outline-secondary Left
+                  button(type='button').btn.btn-outline-secondary Middle
+                  button(type='button').btn.btn-outline-secondary Right
+                br
+                .btn-group.btn-group-sm.mb-3(role='group' aria-label='Small group')
+                  button(type='button').btn.btn-outline-secondary Left
+                  button(type='button').btn.btn-outline-secondary Middle
+                  button(type='button').btn.btn-outline-secondary Right
+          #html3.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;div class=&quot;btn-group btn-group-lg&quot; role=&quot;group&quot; aria-label=&quot;...&quot;&gt;...&lt;/div&gt;
+                &lt;div class=&quot;btn-group&quot; role=&quot;group&quot; aria-label=&quot;...&quot;&gt;...&lt;/div&gt;
+                &lt;div class=&quot;btn-group btn-group-sm&quot; role=&quot;group&quot; aria-label=&quot;...&quot;&gt;...&lt;/div&gt;
+          #pug3.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                .btn-group.btn-group-lg(role=&quot;group&quot; aria-label=&quot;...&quot;)
+                  | ...
+                .btn-group(role=&quot;group&quot; aria-label=&quot;...&quot;)
+                  | ...
+                .btn-group.btn-group-sm(role=&quot;group&quot; aria-label=&quot;...&quot;)
+                  | ...
+
+  // Nested dropdown
+  section#btn-group-dropdown.pb-5.mb-md-2
+    h2.h5.mb-3 Nested dropdown
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result4' data-bs-toggle='tab' role='tab' aria-controls='result4' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result4.tab-pane.fade.show.active(role='tabpanel')
+            .row
+              .col-sm-6.mb-3
+                .btn-group(role='group' aria-label='Button group with nested dropdown')
+                  button(type='button').btn.btn-primary 1
+                  button(type='button').btn.btn-primary 2
+                  .btn-group(role='group')
+                    button(type='button' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false').btn.btn-primary.dropdown-toggle Dropdown
+                    .dropdown-menu.my-1
+                      a(href='#').dropdown-item Dropdown link
+                      a(href='#').dropdown-item Dropdown link
+                      a(href='#').dropdown-item Dropdown link
+              .col-sm-6.mb-3
+                .btn-group(role='group' aria-label='Button group with nested dropdown')
+                  button(type='button').btn.btn-outline-secondary 1
+                  button(type='button').btn.btn-outline-secondary 2
+                  .btn-group(role='group')
+                    button(type='button' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false').btn.btn-outline-secondary.dropdown-toggle Dropdown
+                    .dropdown-menu.my-1
+                      a(href='#').dropdown-item Dropdown link
+                      a(href='#').dropdown-item Dropdown link
+                      a(href='#').dropdown-item Dropdown link
+          #html4.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Button group with nested dropdown --&gt;
+                &lt;div class=&quot;btn-group&quot; role=&quot;group&quot; aria-label=&quot;Button group with nested dropdown&quot;&gt;
+                  &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;1&lt;/button&gt;
+                  &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;2&lt;/button&gt;
+                  &lt;div class=&quot;btn-group&quot; role=&quot;group&quot;&gt;
+                    &lt;button type=&quot;button&quot; class=&quot;btn btn-primary dropdown-toggle&quot; data-bs-toggle=&quot;dropdown&quot; aria-haspopup=&quot;true&quot; aria-expanded=&quot;false&quot;&gt;
+                      Dropdown
+                    &lt;/button&gt;
+                    &lt;div class=&quot;dropdown-menu my-1&quot;&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Dropdown link&lt;/a&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Dropdown link&lt;/a&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Dropdown link&lt;/a&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Button group with nested dropdown --&gt;
+                &lt;div class=&quot;btn-group&quot; role=&quot;group&quot; aria-label=&quot;Button group with nested dropdown&quot;&gt;
+                  &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-secondary&quot;&gt;1&lt;/button&gt;
+                  &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-secondary&quot;&gt;2&lt;/button&gt;
+                  &lt;div class=&quot;btn-group&quot; role=&quot;group&quot;&gt;
+                    &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-secondary dropdown-toggle&quot; data-bs-toggle=&quot;dropdown&quot; aria-haspopup=&quot;true&quot; aria-expanded=&quot;false&quot;&gt;
+                      Dropdown
+                    &lt;/button&gt;
+                    &lt;div class=&quot;dropdown-menu my-1&quot;&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Dropdown link&lt;/a&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Dropdown link&lt;/a&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;dropdown-item&quot;&gt;Dropdown link&lt;/a&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+          #pug4.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Button group with nested dropdown
+                .btn-group(role=&quot;group&quot;, aria-label=&quot;Button group with nested dropdown&quot;)
+                  button(type=&quot;button&quot;).btn.btn-primary
+                    | 1
+                  button(type=&quot;button&quot;).btn.btn-primary
+                    | 2
+                  .btn-group(role='group')
+                    button(type=&quot;button&quot;, data-bs-toggle=&quot;dropdown&quot;, aria-haspopup=&quot;true&quot;, aria-expanded=&quot;false&quot;).btn.btn-primary.dropdown-toggle Dropdown
+                    .dropdown-menu.my-1
+                      a(href=&quot;#&quot;).dropdown-item
+                        | Dropdown link
+                      a(href=&quot;#&quot;).dropdown-item
+                        | Dropdown link
+                      a(href=&quot;#&quot;).dropdown-item
+                        | Dropdown link
+
+                // Button group with nested dropdown
+                .btn-group(role=&quot;group&quot;, aria-label=&quot;Button group with nested dropdown&quot;)
+                  button(type=&quot;button&quot;).btn.btn-outline-secondary
+                    | 1
+                  button(type=&quot;button&quot;).btn.btn-outline-secondary
+                    | 2
+                  .btn-group(role='group')
+                    button(type=&quot;button&quot;, data-bs-toggle=&quot;dropdown&quot;, aria-haspopup=&quot;true&quot;, aria-expanded=&quot;false&quot;).btn.btn-outline-secondary.dropdown-toggle
+                      | Dropdown
+                    .dropdown-menu.my-1
+                      a(href=&quot;#&quot;).dropdown-item
+                        | Dropdown link
+                      a(href=&quot;#&quot;).dropdown-item
+                        | Dropdown link
+                      a(href=&quot;#&quot;).dropdown-item
+                        | Dropdown link

@@ -1,0 +1,1337 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css', 'vendor/prismjs/themes/prism.css', 'vendor/prismjs/plugins/toolbar/prism-toolbar.css', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js', 'vendor/prismjs/components/prism-core.min.js', 'vendor/prismjs/components/prism-markup.min.js', 'vendor/prismjs/components/prism-clike.min.js', 'vendor/prismjs/components/prism-javascript.min.js', 'vendor/prismjs/components/prism-pug.min.js', 'vendor/prismjs/plugins/toolbar/prism-toolbar.min.js', 'vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Social buttons'
+  - var pageSubtitle = 'Display links to your social network accounts with social icon buttons.'
+  - var isPageTitleBadge = true
+  - var anchorNav = [{'title': 'Solid buttons', 'link': '#sb-solid'}, {'title': 'Outline buttons', 'link': '#sb-outline'}, {'title': 'Shape', 'link': '#sb-shape'}, {'title': 'Size', 'link': '#sb-size'}]
+    
+//- Page Content
+block content
+
+  // Solid buttons
+  section#sb-solid.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Solid buttons
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview1' data-bs-toggle='tab' role='tab' aria-controls='preview1' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview1.tab-pane.fade.show.active(role='tabpanel')
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-airbnb.my-1.me-2
+            i.ai-airbnb
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-behance.my-1.me-2
+            i.ai-behance
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-blogger.my-1.me-2
+            i.ai-blogger
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-codepen.my-1.me-2
+            i.ai-codepen
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-discord.my-1.me-2
+            i.ai-discord
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-disqus.my-1.me-2
+            i.ai-disqus
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-dribbble.my-1.me-2
+            i.ai-dribbble
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-dropbox.my-1.me-2
+            i.ai-dropbox
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-evernote.my-1.me-2
+            i.ai-evernote
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-facebook.my-1.me-2
+            i.ai-facebook
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-flickr.my-1.me-2
+            i.ai-flickr
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-foursquare.my-1.me-2
+            i.ai-foursquare
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-github.my-1.me-2
+            i.ai-github
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-google.my-1.me-2
+            i.ai-google
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-hangouts.my-1.me-2
+            i.ai-hangouts
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-instagram.my-1.me-2
+            i.ai-instagram
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-kickstarter.my-1.me-2
+            i.ai-kickstarter
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-linkedin.my-1.me-2
+            i.ai-linkedin
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-medium.my-1.me-2
+            i.ai-medium
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-messenger.my-1.me-2
+            i.ai-messenger
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-odnoklassniki.my-1.me-2
+            i.ai-odnoklassniki
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-patreon.my-1.me-2
+            i.ai-patreon
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-pinterest.my-1.me-2
+            i.ai-pinterest
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-quora.my-1.me-2
+            i.ai-quora
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-reddit.my-1.me-2
+            i.ai-reddit
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-skype.my-1.me-2
+            i.ai-skype
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-slack.my-1.me-2
+            i.ai-slack
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-snapchat.my-1.me-2
+            i.ai-snapchat
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-soundcloud.my-1.me-2
+            i.ai-soundcloud
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-spotify.my-1.me-2
+            i.ai-spotify
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-stack-overflow.my-1.me-2
+            i.ai-stack-overflow
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-steam.my-1.me-2
+            i.ai-steam
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-telegram.my-1.me-2
+            i.ai-telegram
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-tiktok.my-1.me-2
+            i.ai-tiktok
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-tinder.my-1.me-2
+            i.ai-tinder
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-trello.my-1.me-2
+            i.ai-trello
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-tumblr.my-1.me-2
+            i.ai-tumblr
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-twitch.my-1.me-2
+            i.ai-twitch
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-twitter.my-1.me-2
+            i.ai-twitter
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-viber.my-1.me-2
+            i.ai-viber
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-vimeo.my-1.me-2
+            i.ai-vimeo
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-vk.my-1.me-2
+            i.ai-vk
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-wechat.my-1.me-2
+            i.ai-wechat
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-whatsapp.my-1.me-2
+            i.ai-whatsapp
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-wordpress.my-1.me-2
+            i.ai-wordpress
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-xing.my-1.me-2
+            i.ai-xing
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-yelp.my-1.me-2
+            i.ai-yelp
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-youtube.my-1.me-2
+            i.ai-youtube
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-zoom.my-1
+            i.ai-zoom
+        #html1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Airbnb --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-airbnb&quot;&gt;
+                &lt;i class=&quot;ai-airbnb&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Behance --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-behance&quot;&gt;
+                &lt;i class=&quot;ai-behance&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+              
+              &lt;!-- Blogger --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-blogger&quot;&gt;
+                &lt;i class=&quot;ai-blogger&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- CodePen --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-codepen&quot;&gt;
+                &lt;i class=&quot;ai-codepen&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+              
+              &lt;!-- Discord --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-discord&quot;&gt;
+                &lt;i class=&quot;ai-discord&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Disqus --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-disqus&quot;&gt;
+                &lt;i class=&quot;ai-disqus&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Dribbble --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-dribbble&quot;&gt;
+                &lt;i class=&quot;ai-dribbble&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Dropbox --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-dropbox&quot;&gt;
+                &lt;i class=&quot;ai-dropbox&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Evernote --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-evernote&quot;&gt;
+                &lt;i class=&quot;ai-evernote&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Facebook --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-facebook&quot;&gt;
+                &lt;i class=&quot;ai-facebook&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Flickr --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-flickr&quot;&gt;
+                &lt;i class=&quot;ai-flickr&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Foursquare --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-foursquare&quot;&gt;
+                &lt;i class=&quot;ai-foursquare&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+              
+              &lt;!-- GitHub --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-github&quot;&gt;
+                &lt;i class=&quot;ai-github&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Google --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-google&quot;&gt;
+                &lt;i class=&quot;ai-google&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+              
+              &lt;!-- Hangouts --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-hangouts&quot;&gt;
+                &lt;i class=&quot;ai-hangouts&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+              
+              &lt;!-- Instagram --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-instagram&quot;&gt;
+                &lt;i class=&quot;ai-instagram&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Kickstarter --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-kickstarter&quot;&gt;
+                &lt;i class=&quot;ai-kickstarter&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- LinkedIn --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-linkedin&quot;&gt;
+                &lt;i class=&quot;ai-linkedin&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Medium --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-medium&quot;&gt;
+                &lt;i class=&quot;ai-medium&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Messenger --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-messenger&quot;&gt;
+                &lt;i class=&quot;ai-messenger&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Odnoklassniki --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-odnoklassniki&quot;&gt;
+                &lt;i class=&quot;ai-odnoklassniki&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Patreon --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-patreon&quot;&gt;
+                &lt;i class=&quot;ai-patreon&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Pinterest --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-pinterest&quot;&gt;
+                &lt;i class=&quot;ai-pinterest&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Quora --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-quora&quot;&gt;
+                &lt;i class=&quot;ai-quora&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+              
+              &lt;!-- Reddit --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-reddit&quot;&gt;
+                &lt;i class=&quot;ai-reddit&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Skype --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-skype&quot;&gt;
+                &lt;i class=&quot;ai-skype&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Slack --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-slack&quot;&gt;
+                &lt;i class=&quot;ai-slack&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+              
+              &lt;!-- Snapchat --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-snapchat&quot;&gt;
+                &lt;i class=&quot;ai-snapchat&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+              
+              &lt;!-- SoundCloud --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-soundcloud&quot;&gt;
+                &lt;i class=&quot;ai-soundcloud&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Spotify --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-spotify&quot;&gt;
+                &lt;i class=&quot;ai-spotify&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Stack Overflow --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-stack-overflow&quot;&gt;
+                &lt;i class=&quot;ai-stack-overflow&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Steam --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-steam&quot;&gt;
+                &lt;i class=&quot;ai-steam&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Telegram --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-telegram&quot;&gt;
+                &lt;i class=&quot;ai-telegram&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- TikTok --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-tiktok&quot;&gt;
+                &lt;i class=&quot;ai-tiktok&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Tinder --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-tinder&quot;&gt;
+                &lt;i class=&quot;ai-tinder&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Trello --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-trello&quot;&gt;
+                &lt;i class=&quot;ai-trello&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Tumblr --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-tumblr&quot;&gt;
+                &lt;i class=&quot;ai-tumblr&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Twitch --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-twitch&quot;&gt;
+                &lt;i class=&quot;ai-twitch&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Twitter --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-twitter&quot;&gt;
+                &lt;i class=&quot;ai-twitter&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+              
+              &lt;!-- Viber --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-viber&quot;&gt;
+                &lt;i class=&quot;ai-viber&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Vimeo --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-vimeo&quot;&gt;
+                &lt;i class=&quot;ai-vimeo&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- VKontakte --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-vk&quot;&gt;
+                &lt;i class=&quot;ai-vk&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- WeChat --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-wechat&quot;&gt;
+                &lt;i class=&quot;ai-wechat&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+              
+              &lt;!-- WhatsApp --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-whatsapp&quot;&gt;
+                &lt;i class=&quot;ai-whatsapp&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- WordPress
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-wordpress&quot;&gt;
+                &lt;i class=&quot;ai-wordpress&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Xing --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-xing&quot;&gt;
+                &lt;i class=&quot;ai-xing&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Yelp --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-yelp&quot;&gt;
+                &lt;i class=&quot;ai-yelp&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- YouTube --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-youtube&quot;&gt;
+                &lt;i class=&quot;ai-youtube&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+              
+              &lt;!-- Zoom --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-zoom&quot;&gt;
+                &lt;i class=&quot;ai-zoom&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+        #pug1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Airbnb
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-airbnb
+                i.ai-airbnb
+
+              // Behance
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-behance
+                i.ai-behance
+              
+              // Blogger
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-blogger
+                i.ai-blogger
+
+              // CodePen
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-codepen
+                i.ai-codepen
+              
+              // Discord
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-discord
+                i.ai-discord
+
+              // Disqus
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-disqus
+                i.ai-disqus
+
+              // Dribbble
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-dribbble
+                i.ai-dribbble
+
+              // Dropbox
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-dropbox
+                i.ai-dropbox
+
+              // Evernote
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-evernote
+                i.ai-evernote
+
+              // Facebook
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-facebook
+                i.ai-facebook
+
+              // Flickr
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-flickr
+                i.ai-flickr
+
+              // Foursquare
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-foursquare
+                i.ai-foursquare
+              
+              // GitHub
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-github
+                i.ai-github
+
+              // Google
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-google
+                i.ai-google
+              
+              // Hangouts
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-hangouts
+                i.ai-hangouts
+              
+              // Instagram
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-instagram
+                i.ai-instagram
+
+              // Kickstarter
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-kickstarter
+                i.ai-kickstarter
+
+              // LinkedIn
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-linkedin
+                i.ai-linkedin
+
+              // Medium
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-medium
+                i.ai-medium
+
+              // Messenger
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-messenger
+                i.ai-messenger
+
+              // Odnoklassniki
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-odnoklassniki
+                i.ai-odnoklassniki
+
+              // Patreon
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-patreon
+                i.ai-patreon
+
+              // Pinterest
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-pinterest
+                i.ai-pinterest
+
+              // Quora
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-quora
+                i.ai-quora
+              
+              // Reddit
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-reddit
+                i.ai-reddit
+
+              // Skype
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-skype
+                i.ai-skype
+
+              // Slack
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-slack
+                i.ai-slack
+              
+              // Snapchat
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-snapchat
+                i.ai-snapchat
+              
+              // SoundCloud
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-soundcloud
+                i.ai-soundcloud
+
+              // Spotify
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-spotify
+                i.ai-spotify
+
+              // Stack Overflow
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-stack-overflow
+                i.ai-stack-overflow
+
+              // Steam
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-steam
+                i.ai-steam
+
+              // Telegram
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-telegram
+                i.ai-telegram
+
+              // TikTok
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-tiktok
+                i.ai-tiktok
+
+              // Tinder
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-tinder
+                i.ai-tinder
+
+              // Trello
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-trello
+                i.ai-trello
+
+              // Tumblr
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-tumblr
+                i.ai-tumblr
+
+              // Twitch
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-twitch
+                i.ai-twitch
+
+              // Twitter
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-twitter
+                i.ai-twitter
+              
+              // Viber
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-viber
+                i.ai-viber
+
+              // Vimeo
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-vimeo
+                i.ai-vimeo
+
+              // VKontakte
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-vk
+                i.ai-vk
+
+              // WeChat
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-wechat
+                i.ai-wechat
+              
+              // WhatsApp
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-whatsapp
+                i.ai-whatsapp
+
+              // WordPress
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-wordpress
+                i.ai-wordpress
+
+              // Xing
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-xing
+                i.ai-xing
+
+              // Yelp
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-yelp
+                i.ai-yelp
+
+              // YouTube
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-youtube
+                i.ai-youtube
+              
+              // Zoom
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-zoom
+                i.ai-zoom
+
+  // Outline buttons
+  section#sb-outline.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Outline buttons
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview2' data-bs-toggle='tab' role='tab' aria-controls='preview2' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview2.tab-pane.fade.show.active(role='tabpanel')
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-airbnb.my-1.me-2
+            i.ai-airbnb
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-behance.my-1.me-2
+            i.ai-behance
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-blogger.my-1.me-2
+            i.ai-blogger
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-codepen.my-1.me-2
+            i.ai-codepen
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-discord.my-1.me-2
+            i.ai-discord
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-disqus.my-1.me-2
+            i.ai-disqus
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-dribbble.my-1.me-2
+            i.ai-dribbble
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-dropbox.my-1.me-2
+            i.ai-dropbox
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-evernote.my-1.me-2
+            i.ai-evernote
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-facebook.my-1.me-2
+            i.ai-facebook
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-flickr.my-1.me-2
+            i.ai-flickr
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-foursquare.my-1.me-2
+            i.ai-foursquare
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-github.my-1.me-2
+            i.ai-github
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-google.my-1.me-2
+            i.ai-google
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-hangouts.my-1.me-2
+            i.ai-hangouts
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-instagram.my-1.me-2
+            i.ai-instagram
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-kickstarter.my-1.me-2
+            i.ai-kickstarter
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-linkedin.my-1.me-2
+            i.ai-linkedin
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-medium.my-1.me-2
+            i.ai-medium
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-messenger.my-1.me-2
+            i.ai-messenger
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-odnoklassniki.my-1.me-2
+            i.ai-odnoklassniki
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-patreon.my-1.me-2
+            i.ai-patreon
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-pinterest.my-1.me-2
+            i.ai-pinterest
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-quora.my-1.me-2
+            i.ai-quora
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-reddit.my-1.me-2
+            i.ai-reddit
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-skype.my-1.me-2
+            i.ai-skype
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-slack.my-1.me-2
+            i.ai-slack
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-snapchat.my-1.me-2
+            i.ai-snapchat
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-soundcloud.my-1.me-2
+            i.ai-soundcloud
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-spotify.my-1.me-2
+            i.ai-spotify
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-stack-overflow.my-1.me-2
+            i.ai-stack-overflow
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-steam.my-1.me-2
+            i.ai-steam
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-telegram.my-1.me-2
+            i.ai-telegram
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-tiktok.my-1.me-2
+            i.ai-tiktok
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-tinder.my-1.me-2
+            i.ai-tinder
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-trello.my-1.me-2
+            i.ai-trello
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-tumblr.my-1.me-2
+            i.ai-tumblr
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-twitch.my-1.me-2
+            i.ai-twitch
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-twitter.my-1.me-2
+            i.ai-twitter
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-viber.my-1.me-2
+            i.ai-viber
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-vimeo.my-1.me-2
+            i.ai-vimeo
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-vk.my-1.me-2
+            i.ai-vk
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-wechat.my-1.me-2
+            i.ai-wechat
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-whatsapp.my-1.me-2
+            i.ai-whatsapp
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-wordpress.my-1.me-2
+            i.ai-wordpress
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-xing.my-1.me-2
+            i.ai-xing
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-yelp.my-1.me-2
+            i.ai-yelp
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-youtube.my-1.me-2
+            i.ai-youtube
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-zoom.my-1
+            i.ai-zoom
+        #html2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Airbnb --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-airbnb&quot;&gt;
+                &lt;i class=&quot;ai-airbnb&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Behance --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-behance&quot;&gt;
+                &lt;i class=&quot;ai-behance&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+              
+              &lt;!-- Blogger --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-blogger&quot;&gt;
+                &lt;i class=&quot;ai-blogger&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- CodePen --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-codepen&quot;&gt;
+                &lt;i class=&quot;ai-codepen&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+              
+              &lt;!-- Discord --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-discord&quot;&gt;
+                &lt;i class=&quot;ai-discord&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Disqus --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-disqus&quot;&gt;
+                &lt;i class=&quot;ai-disqus&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Dribbble --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-dribbble&quot;&gt;
+                &lt;i class=&quot;ai-dribbble&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Dropbox --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-dropbox&quot;&gt;
+                &lt;i class=&quot;ai-dropbox&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Evernote --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-evernote&quot;&gt;
+                &lt;i class=&quot;ai-evernote&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Facebook --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-facebook&quot;&gt;
+                &lt;i class=&quot;ai-facebook&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Flickr --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-flickr&quot;&gt;
+                &lt;i class=&quot;ai-flickr&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Foursquare --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-foursquare&quot;&gt;
+                &lt;i class=&quot;ai-foursquare&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+              
+              &lt;!-- GitHub --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-github&quot;&gt;
+                &lt;i class=&quot;ai-github&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Google --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-google&quot;&gt;
+                &lt;i class=&quot;ai-google&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+              
+              &lt;!-- Hangouts --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-hangouts&quot;&gt;
+                &lt;i class=&quot;ai-hangouts&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+              
+              &lt;!-- Instagram --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-instagram&quot;&gt;
+                &lt;i class=&quot;ai-instagram&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Kickstarter --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-kickstarter&quot;&gt;
+                &lt;i class=&quot;ai-kickstarter&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- LinkedIn --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-linkedin&quot;&gt;
+                &lt;i class=&quot;ai-linkedin&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Medium --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-medium&quot;&gt;
+                &lt;i class=&quot;ai-medium&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Messenger --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-messenger&quot;&gt;
+                &lt;i class=&quot;ai-messenger&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Odnoklassniki --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-odnoklassniki&quot;&gt;
+                &lt;i class=&quot;ai-odnoklassniki&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Patreon --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-patreon&quot;&gt;
+                &lt;i class=&quot;ai-patreon&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Pinterest --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-pinterest&quot;&gt;
+                &lt;i class=&quot;ai-pinterest&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Quora --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-quora&quot;&gt;
+                &lt;i class=&quot;ai-quora&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+              
+              &lt;!-- Reddit --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-reddit&quot;&gt;
+                &lt;i class=&quot;ai-reddit&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Skype --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-skype&quot;&gt;
+                &lt;i class=&quot;ai-skype&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Slack --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-slack&quot;&gt;
+                &lt;i class=&quot;ai-slack&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+              
+              &lt;!-- Snapchat --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-snapchat&quot;&gt;
+                &lt;i class=&quot;ai-snapchat&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+              
+              &lt;!-- SoundCloud --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-soundcloud&quot;&gt;
+                &lt;i class=&quot;ai-soundcloud&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Spotify --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-spotify&quot;&gt;
+                &lt;i class=&quot;ai-spotify&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Stack Overflow --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-stack-overflow&quot;&gt;
+                &lt;i class=&quot;ai-stack-overflow&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Steam --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-steam&quot;&gt;
+                &lt;i class=&quot;ai-steam&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Telegram --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-telegram&quot;&gt;
+                &lt;i class=&quot;ai-telegram&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- TikTok --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-tiktok&quot;&gt;
+                &lt;i class=&quot;ai-tiktok&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Tinder --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-tinder&quot;&gt;
+                &lt;i class=&quot;ai-tinder&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Trello --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-trello&quot;&gt;
+                &lt;i class=&quot;ai-trello&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Tumblr --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-tumblr&quot;&gt;
+                &lt;i class=&quot;ai-tumblr&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Twitch --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-twitch&quot;&gt;
+                &lt;i class=&quot;ai-twitch&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Twitter --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-twitter&quot;&gt;
+                &lt;i class=&quot;ai-twitter&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+              
+              &lt;!-- Viber --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-viber&quot;&gt;
+                &lt;i class=&quot;ai-viber&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Vimeo --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-vimeo&quot;&gt;
+                &lt;i class=&quot;ai-vimeo&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- VKontakte --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-vk&quot;&gt;
+                &lt;i class=&quot;ai-vk&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- WeChat --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-wechat&quot;&gt;
+                &lt;i class=&quot;ai-wechat&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+              
+              &lt;!-- WhatsApp --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-whatsapp&quot;&gt;
+                &lt;i class=&quot;ai-whatsapp&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- WordPress
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-wordpress&quot;&gt;
+                &lt;i class=&quot;ai-wordpress&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Xing --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-xing&quot;&gt;
+                &lt;i class=&quot;ai-xing&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Yelp --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-yelp&quot;&gt;
+                &lt;i class=&quot;ai-yelp&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- YouTube --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-youtube&quot;&gt;
+                &lt;i class=&quot;ai-youtube&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+              
+              &lt;!-- Zoom --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-zoom&quot;&gt;
+                &lt;i class=&quot;ai-zoom&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+        #pug2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Airbnb
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-airbnb
+                i.ai-airbnb
+
+              // Behance
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-behance
+                i.ai-behance
+              
+              // Blogger
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-blogger
+                i.ai-blogger
+
+              // CodePen
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-codepen
+                i.ai-codepen
+              
+              // Discord
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-discord
+                i.ai-discord
+
+              // Disqus
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-disqus
+                i.ai-disqus
+
+              // Dribbble
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-dribbble
+                i.ai-dribbble
+
+              // Dropbox
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-dropbox
+                i.ai-dropbox
+
+              // Evernote
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-evernote
+                i.ai-evernote
+
+              // Facebook
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-facebook
+                i.ai-facebook
+
+              // Flickr
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-flickr
+                i.ai-flickr
+
+              // Foursquare
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-foursquare
+                i.ai-foursquare
+              
+              // GitHub
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-github
+                i.ai-github
+
+              // Google
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-google
+                i.ai-google
+              
+              // Hangouts
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-hangouts
+                i.ai-hangouts
+              
+              // Instagram
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-instagram
+                i.ai-instagram
+
+              // Kickstarter
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-kickstarter
+                i.ai-kickstarter
+
+              // LinkedIn
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-linkedin
+                i.ai-linkedin
+
+              // Medium
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-medium
+                i.ai-medium
+
+              // Messenger
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-messenger
+                i.ai-messenger
+
+              // Odnoklassniki
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-odnoklassniki
+                i.ai-odnoklassniki
+
+              // Patreon
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-patreon
+                i.ai-patreon
+
+              // Pinterest
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-pinterest
+                i.ai-pinterest
+
+              // Quora
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-quora
+                i.ai-quora
+              
+              // Reddit
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-reddit
+                i.ai-reddit
+
+              // Skype
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-skype
+                i.ai-skype
+
+              // Slack
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-slack
+                i.ai-slack
+              
+              // Snapchat
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-snapchat
+                i.ai-snapchat
+              
+              // SoundCloud
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-soundcloud
+                i.ai-soundcloud
+
+              // Spotify
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-spotify
+                i.ai-spotify
+
+              // Stack Overflow
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-stack-overflow
+                i.ai-stack-overflow
+
+              // Steam
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-steam
+                i.ai-steam
+
+              // Telegram
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-telegram
+                i.ai-telegram
+
+              // TikTok
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-tiktok
+                i.ai-tiktok
+
+              // Tinder
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-tinder
+                i.ai-tinder
+
+              // Trello
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-trello
+                i.ai-trello
+
+              // Tumblr
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-tumblr
+                i.ai-tumblr
+
+              // Twitch
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-twitch
+                i.ai-twitch
+
+              // Twitter
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-twitter
+                i.ai-twitter
+              
+              // Viber
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-viber
+                i.ai-viber
+
+              // Vimeo
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-vimeo
+                i.ai-vimeo
+
+              // VKontakte
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-vk
+                i.ai-vk
+
+              // WeChat
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-wechat
+                i.ai-wechat
+              
+              // WhatsApp
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-whatsapp
+                i.ai-whatsapp
+
+              // WordPress
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-wordpress
+                i.ai-wordpress
+
+              // Xing
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-xing
+                i.ai-xing
+
+              // Yelp
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-yelp
+                i.ai-yelp
+
+              // YouTube
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-youtube
+                i.ai-youtube
+              
+              // Zoom
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-zoom
+                i.ai-zoom
+
+  // Shape
+  section#sb-shape.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Shape
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview3' data-bs-toggle='tab' role='tab' aria-controls='preview3' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview3.tab-pane.fade.show.active(role='tabpanel')
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-dribbble.rounded-0.my-1.me-2
+            i.ai-dribbble
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-dribbble.my-1.me-2
+            i.ai-dribbble
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-dribbble.rounded-circle.my-1
+            i.ai-dribbble
+          .pt-2
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-skype.rounded-0.my-1.me-2
+            i.ai-skype
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-skype.my-1.me-2
+            i.ai-skype
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-skype.rounded-circle.my-1
+            i.ai-skype
+        #html3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Solid square button --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-dribbble rounded-0&quot;&gt;
+                &lt;i class=&quot;ai-dribbble&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Solid rounded button --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-dribbble&quot;&gt;
+                &lt;i class=&quot;ai-dribbble&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Solid circle button --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-dribbble rounded-circle&quot;&gt;
+                &lt;i class=&quot;ai-dribbble&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Outline square button --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-skype rounded-0&quot;&gt;
+                &lt;i class=&quot;ai-skype&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Outline rounded button --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-skype&quot;&gt;
+                &lt;i class=&quot;ai-skype&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Outline circle button --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-skype rounded-circle&quot;&gt;
+                &lt;i class=&quot;ai-skype&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+        #pug3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Solid square button
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-dribbble.rounded-0
+                i.ai-dribbble
+
+              // Solid rounded button
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-dribbble
+                i.ai-dribbble
+
+              // Solid circle button
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-dribbble.rounded-circle
+                i.ai-dribbble
+
+              // Outline square button
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-skype.rounded-0
+                i.ai-skype
+
+              // Outline rounded button
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-skype
+                i.ai-skype
+
+              // Outline circle button
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-skype.rounded-circle
+                i.ai-skype
+
+  // Size
+  section#sb-size.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Size
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview4' data-bs-toggle='tab' role='tab' aria-controls='preview4' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview4.tab-pane.fade.show.active(role='tabpanel')
+          a(href='#').btn.btn-secondary.btn-icon.btn-lg.btn-linkedin.my-1.me-2
+            i.ai-linkedin
+          a(href='#').btn.btn-secondary.btn-icon.btn-linkedin.my-1.me-2
+            i.ai-linkedin
+          a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-linkedin.my-1
+            i.ai-linkedin
+          .pt-2
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-lg.btn-twitch.my-1.me-2
+            i.ai-twitch
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-twitch.my-1.me-2
+            i.ai-twitch
+          a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-twitch.my-1
+            i.ai-twitch
+        #html4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Large solid button --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-lg btn-linkedin&quot;&gt;
+                &lt;i class=&quot;ai-linkedin&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Regular solid button --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-linkedin&quot;&gt;
+                &lt;i class=&quot;ai-linkedin&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Small solid button --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-secondary btn-icon btn-sm btn-linkedin&quot;&gt;
+                &lt;i class=&quot;ai-linkedin&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Large outline button --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-lg btn-twitch&quot;&gt;
+                &lt;i class=&quot;ai-twitch&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Regular outline button --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-twitch&quot;&gt;
+                &lt;i class=&quot;ai-twitch&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+
+              &lt;!-- Small outline button --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-secondary btn-icon btn-sm btn-twitch&quot;&gt;
+                &lt;i class=&quot;ai-twitch&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+        #pug4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Large solid button
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-lg.btn-linkedin
+                i.ai-linkedin
+
+              // Regular solid button
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-linkedin
+                i.ai-linkedin
+
+              // Small solid button
+              a(href=&quot;#&quot;).btn.btn-secondary.btn-icon.btn-sm.btn-linkedin
+                i.ai-linkedin
+
+              // Large outline button
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-lg.btn-twitch
+                i.ai-twitch
+
+              // Regular outline button
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-twitch
+                i.ai-twitch
+
+              // Small outline button
+              a(href=&quot;#&quot;).btn.btn-outline-secondary.btn-icon.btn-sm.btn-twitch
+                i.ai-twitch

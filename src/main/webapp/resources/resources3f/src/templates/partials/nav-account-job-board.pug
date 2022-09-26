@@ -1,0 +1,26 @@
+//- Account menu
+a(href='#account-nav' data-bs-toggle='collapse').btn.btn-outline-primary.btn-lg.rounded-pill.w-100.d-md-none
+  i.fi-align-justify.me-2
+  | Account Menu
+#account-nav.collapse.d-md-block
+  ul.nav.nav-pills.flex-column.flex-md-row.pt-3.pt-md-0.pb-md-4.border-bottom-md
+    li.nav-item.mb-md-0.me-md-2.pe-md-1
+      a(href='job-board-account-profile.html')&attributes(pageTitle === 'Job Board | Account - Profile Settings' ? {'class': 'nav-link active', 'aria-current': 'page'} : {'class': 'nav-link'})
+        i.fi-settings.mt-n1.me-2.fs-base
+        | Profile Settings
+    li.nav-item.mb-md-0.me-md-2.pe-md-1
+      a(href='job-board-account-my-resumes.html')&attributes(pageTitle === 'Job Board | Account - My Resumes' ? {'class': 'nav-link active', 'aria-current': 'page'} : {'class': 'nav-link'})
+        i.fi-file.mt-n1.me-2.fs-base
+        | My Resumes
+    li.nav-item.mb-md-0.me-md-2.pe-md-1
+      a(href='job-board-account-saved-jobs.html')&attributes(pageTitle === 'Job Board | Account - Saved Jobs' ? {'class': 'nav-link active', 'aria-current': 'page'} : {'class': 'nav-link'})
+        i.fi-heart.mt-n1.me-2.fs-base
+        | Saved Jobs
+    li.nav-item.mb-md-0
+      a(href='job-board-account-notifications.html')&attributes(pageTitle === 'Job Board | Account - Notifications' ? {'class': 'nav-link active', 'aria-current': 'page'} : {'class': 'nav-link'})
+        i.fi-bell.mt-n1.me-2.fs-base
+        | Notifications
+    li.nav-item.d-md-none
+      a(href='signin-light.html').nav-link
+        i.fi-logout.mt-n1.me-2.fs-base
+        | Sign Out

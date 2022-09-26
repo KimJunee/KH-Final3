@@ -1,0 +1,177 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var parentMenu = 'Pages'
+  - var pageTitle = 'Blog List with Sidebar'
+  - var navbarExtraClass = 'bg-light'
+  - var isFixedButton = true
+
+
+//- Navbar
+block navbar
+  include partials/navbar.pug
+
+
+//- Page Content
+block content
+  .container.pt-5.pb-lg-5.pb-md-4.pb-2.my-5
+
+    // Breadcrumb
+    +breadcrumb([{'title': 'Blog list with sidebar'}]).pt-lg-3.pb-lg-4.pb-2
+
+    .row.mb-md-2.mb-xl-4
+
+      // Blog posts
+      .col-lg-9.pe-lg-4.pe-xl-5
+        h1.pb-3.pb-lg-4 Blog list with sidebar
+
+        // Post
+        article.row.g-0.border-0.mb-4
+          a(href='blog-single-v1.html' style='background-image: url(assets/img/blog/list/01.jpg); min-height: 14rem').col-sm-5.bg-repeat-0.bg-size-cover.bg-position-center.rounded-5
+          .col-sm-7
+            .pt-4.pb-sm-4.ps-sm-4.pe-lg-4
+              h3: a(href='blog-single-v1.html') Business strategy for a brand of vintage bags
+              p.d-sm-none.d-md-block Morbi et massa fames ac scelerisque sit commodo dignissim faucibus vel quisque proin lectus et massa fames ac scelerisque fames velit diam sit...
+              .d-flex.flex-wrap.align-items-center.mt-n2
+                a(href='#').nav-link.text-muted.fs-sm.fw-normal.p-0.mt-2.me-3
+                  | 6
+                  i.ai-share.fs-lg.ms-1
+                a(href='#').nav-link.text-muted.fs-sm.fw-normal.d-flex.align-items-end.p-0.mt-2
+                  | 12
+                  i.ai-message.fs-lg.ms-1
+                span.fs-xs.opacity-20.mt-2.mx-3 |
+                span.fs-sm.text-muted.mt-2 8 hours ago
+                span.fs-xs.opacity-20.mt-2.mx-3 |
+                a(href='#').badge.text-nav.fs-xs.border.mt-2
+                  | Business
+
+        // Post
+        article.row.g-0.border-0.pt-3.pt-sm-0.mb-4
+          a(href='blog-single-v2.html' style='background-image: url(assets/img/blog/list/02.jpg); min-height: 14rem').col-sm-5.bg-repeat-0.bg-size-cover.bg-position-center.rounded-5
+          .col-sm-7
+            .pt-4.pb-sm-4.ps-sm-4.pe-lg-4
+              h3: a(href='blog-single-v2.html') Top books for inspiration
+              p.d-sm-none.d-md-block Sapien ultrices egestas at faucibus eu diam velit diam id amet nibh quam rutrum fermentum diam natoque scelerisque viverra viverra molestie fames...
+              .d-flex.flex-wrap.align-items-center.mt-n2
+                a(href='#').nav-link.text-muted.fs-sm.fw-normal.p-0.mt-2.me-3
+                  | 10
+                  i.ai-share.fs-lg.ms-1
+                a(href='#').nav-link.text-muted.fs-sm.fw-normal.d-flex.align-items-end.p-0.mt-2
+                  | 4
+                  i.ai-message.fs-lg.ms-1
+                span.fs-xs.opacity-20.mt-2.mx-3 |
+                span.fs-sm.text-muted.mt-2 12 hours ago
+                span.fs-xs.opacity-20.mt-2.mx-3 |
+                a(href='#').badge.text-nav.fs-xs.border.mt-2
+                  | Books
+
+        // Post
+        article.row.g-0.border-0.pt-3.pt-sm-0.mb-4
+          a(href='blog-single-v3.html' style='background-image: url(assets/img/blog/list/03.jpg); min-height: 14rem').col-sm-5.bg-repeat-0.bg-size-cover.bg-position-center.rounded-5
+          .col-sm-7
+            .pt-4.pb-sm-4.ps-sm-4.pe-lg-4
+              h3: a(href='blog-single-v3.html') Destinations to inspire and restore resources
+              p.d-sm-none.d-md-block Sapien ultrices egestas at faucibus eu diam velit diam id amet nibh quam rutrum diam fermentum diam natoque scelerisque viverra molestie fames...
+              .d-flex.flex-wrap.align-items-center.mt-n2
+                a(href='#').nav-link.text-muted.fs-sm.fw-normal.p-0.mt-2.me-3
+                  | 8
+                  i.ai-share.fs-lg.ms-1
+                a(href='#').nav-link.text-muted.fs-sm.fw-normal.d-flex.align-items-end.p-0.mt-2
+                  | 5
+                  i.ai-message.fs-lg.ms-1
+                span.fs-xs.opacity-20.mt-2.mx-3 |
+                span.fs-sm.text-muted.mt-2 April 25, 2022
+                span.fs-xs.opacity-20.mt-2.mx-3 |
+                a(href='#').badge.text-nav.fs-xs.border.mt-2
+                  | Travel
+
+        // Post
+        article.row.g-0.border-0.pt-3.pt-sm-0.mb-4
+          a(href='blog-single-v1.html' style='background-image: url(assets/img/blog/list/04.jpg); min-height: 14rem').col-sm-5.bg-repeat-0.bg-size-cover.bg-position-center.rounded-5
+          .col-sm-7
+            .pt-4.pb-sm-4.ps-sm-4.pe-lg-4
+              h3: a(href='blog-single-v1.html') Promotion of an online store from scratch, first sales
+              p.d-sm-none.d-md-block Pharetra in morbi quis is massa maecenas arcu vulputate pulvinar elit non nullage a, duis tortor mi massa ipsum in eu eu eget libero pulvinar elit...
+              .d-flex.flex-wrap.align-items-center.mt-n2
+                a(href='#').nav-link.text-muted.fs-sm.fw-normal.p-0.mt-2.me-3
+                  | 11
+                  i.ai-share.fs-lg.ms-1
+                a(href='#').nav-link.text-muted.fs-sm.fw-normal.d-flex.align-items-end.p-0.mt-2
+                  | 3
+                  i.ai-message.fs-lg.ms-1
+                span.fs-xs.opacity-20.mt-2.mx-3 |
+                span.fs-sm.text-muted.mt-2 May 12, 2022
+                span.fs-xs.opacity-20.mt-2.mx-3 |
+                a(href='#').badge.text-nav.fs-xs.border.mt-2
+                  | Marketing
+
+        // Post
+        article.row.g-0.border-0.pt-3.pt-sm-0.mb-4
+          a(href='blog-single-v2.html' style='background-image: url(assets/img/blog/list/05.jpg); min-height: 14rem').col-sm-5.bg-repeat-0.bg-size-cover.bg-position-center.rounded-5
+          .col-sm-7
+            .pt-4.pb-sm-4.ps-sm-4.pe-lg-4
+              h3: a(href='blog-single-v2.html') New series from Netflix
+              p.d-sm-none.d-md-block Egestas in neque scelerisque semper sit at eu cursus faucibus velit cras at aliquam sed dictum at at orci curabitur dictumst viverra non pharetra etiam non, vitae tristique eu in morbi felis morbi nulla fermentum diam natoque...
+              .d-flex.flex-wrap.align-items-center.mt-n2
+                a(href='#').nav-link.text-muted.fs-sm.fw-normal.p-0.mt-2.me-3
+                  | 19
+                  i.ai-share.fs-lg.ms-1
+                a(href='#').nav-link.text-muted.fs-sm.fw-normal.d-flex.align-items-end.p-0.mt-2
+                  | 7
+                  i.ai-message.fs-lg.ms-1
+                span.fs-xs.opacity-20.mt-2.mx-3 |
+                span.fs-sm.text-muted.mt-2 December 15, 2022
+                span.fs-xs.opacity-20.mt-2.mx-3 |
+                a(href='#').badge.text-nav.fs-xs.border.mt-2
+                  | TV shows
+
+        
+        // Pagination
+        .row.gy-3.align-items-center.mt-lg-5.pt-2.pt-md-4.pt-lg-0
+          .col.col-md-4.col-6.order-md-1.order-1
+            .d-flex.align-items-center
+              span.text-muted.fs-sm Show
+              select.form-select.form-select-flush.w-auto
+                option(value='5') 5
+                option(value='10') 10
+                option(value='15') 15
+                option(value='25') 25
+          .col.col-md-4.col-12.order-md-2.order-3.text-center
+            button(type='button').btn.btn-primary.w-md-auto.w-100
+              | Load more posts
+          .col.col-md-4.col-6.order-md-3.order-2
+            nav(aria-label='Page navigation')
+              ul.pagination.pagination-sm.justify-content-end
+                li.page-item.active(aria-current='page')
+                  span.page-link
+                    | 1
+                    span.visually-hidden (current)
+                li.page-item
+                  a(href='#').page-link
+                    | 2
+                li.page-item
+                  a(href='#').page-link
+                    | 3
+                li.page-item
+                  a(href='#').page-link
+                    | 4
+                li.page-item
+                  a(href='#').page-link
+                    | 5
+
+      
+      // Sidebar (offcanvas on sreens < 992px)
+      aside.col-lg-3
+        include partials/sidebar-blog.pug
+
+
+  // Sidebar toggle button
+  button(data-bs-toggle='offcanvas' data-bs-target='#sidebarBlog').d-lg-none.btn.btn-sm.fs-sm.btn-primary.w-100.rounded-0.fixed-bottom
+    i.ai-layout-column.me-2
+    | Sidebar
+
+
+//- Footer
+block footer
+  include partials/footer-blog.pug

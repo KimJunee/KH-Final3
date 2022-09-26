@@ -1,0 +1,261 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/fullcalendar/main.min.css', 'vendor/simplebar/dist/simplebar.min.css', 'vendor/prismjs/themes/prism.css', 'vendor/prismjs/plugins/toolbar/prism-toolbar.css', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var scripts = ['vendor/fullcalendar/main.min.js', 'vendor/simplebar/dist/simplebar.min.js', 'vendor/prismjs/components/prism-core.min.js', 'vendor/prismjs/components/prism-markup.min.js', 'vendor/prismjs/components/prism-clike.min.js', 'vendor/prismjs/components/prism-javascript.min.js', 'vendor/prismjs/components/prism-pug.min.js', 'vendor/prismjs/plugins/toolbar/prism-toolbar.min.js', 'vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Event calendar'
+  - var pageSubtitle = 'JavaScript plugin to display a calendar of events.'
+  - var isPageTitleBadge = true
+    
+//- Page Content
+block content
+
+  // Info alert
+  .alert.alert-info.d-flex.mb-4(role='alert')
+    i.ai-circle-info.lead.me-2.me-sm-3
+    .text-break
+      p.mb-2 <span class='fw-semibold'>Event calendar component</span> depends on <span class='fw-semibold'>FullCalendar plugin</span>. Make sure to link to <span class='fw-semibold'>FullCalendar css and js</span> files in your document:
+      ul.list-unstyled.mb-2
+        li <span class='fw-semibold'>assets/vendor/fullcalendar/main.min.css</span>
+        li <span class='fw-semibold'>assets/vendor/fullcalendar/main.min.js</span>
+      p.mb-3 Use this page as a reference.
+      p.mb-3 You can pass almost any calendar option to <code>data-calendar-options='{}'</code>
+      p.fw-semibold.mb-2 Usefull links
+      ul.list-unstyled
+        li.mb-1
+          a(href='https://fullcalendar.io/demos' target='_blank' rel='noopener').d-flex.align-items-center.alert-link.text-decoration-none
+            i.ai-external-link.me-2
+            | FullCalendar demo
+        li.mb-1
+          a(href='https://fullcalendar.io/docs' target='_blank' rel='noopener').d-flex.align-items-center.alert-link.text-decoration-none
+            i.ai-external-link.me-2
+            | FullCalendar API: options, plugins, methods and events
+      p.fw-semibold.mb-2 Premium version
+      p.mb-0 We used open source free version of the plugin for demo purpose. However, you can purchase a premium license to level-up the plugin functionality with premium plugins and support. <a href='https://fullcalendar.io/pricing' class='alert-link' target='_blank' rel='noopener'>Check the prices.</a>
+
+
+  // Example
+  section.card.border-0.mb-4
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview1' data-bs-toggle='tab' role='tab' aria-controls='preview1' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview1.tab-pane.fade.show.active(role='tabpanel')
+          .calendar(data-calendar-options=`{
+            "initialDate": "2022-08-01",
+            "headerToolbar": {
+              "left": "prev,next today",
+              "center": "title",
+              "right": "dayGridMonth,timeGridWeek,listWeek"
+            },
+            "eventTimeFormat": {
+              "hour": "2-digit",
+              "minute": "2-digit",
+              "hour12": false
+            },
+            "events": [
+              {
+                "title": "Stretching",
+                "start": "2022-08-01T16:30",
+                "end": "2022-08-01T18:00",
+                "classNames": ["event-custom-style", "bg-light", "text-nav", "border-0", "rounded-1", "p-2", "ps-3", "border-start", "border-5", "border-purple"]
+              },
+              {
+                "title": "For pregnant",
+                "start": "2022-08-02T07:30",
+                "end": "2022-08-02T09:40",
+                "classNames": ["event-custom-style", "bg-light", "text-nav", "border-0", "rounded-1", "p-2", "ps-3", "border-start", "border-5", "border-warning"]
+              },
+              {
+                "title": "Healthy back",
+                "start": "2022-08-02T12:00",
+                "end": "2022-08-02T13:30",
+                "classNames": ["event-custom-style", "bg-light", "text-nav", "border-0", "rounded-1", "p-2", "ps-3", "border-start", "border-5", "border-info"]
+              },
+              {
+                "title": "Relax yoga",
+                "start": "2022-08-02T18:45",
+                "end": "2022-08-02T20:00",
+                "classNames": ["event-custom-style", "bg-light", "text-nav", "border-0", "rounded-1", "p-2", "ps-3", "border-start", "border-5", "border-danger"]
+              },
+              {
+                "title": "Beginners",
+                "start": "2022-08-03T11:00",
+                "end": "2022-08-03T13:00",
+                "classNames": ["event-custom-style", "bg-light", "text-nav", "border-0", "rounded-1", "p-2", "ps-3", "border-start", "border-5", "border-success"]
+              },
+              {
+                "title": "Relax yoga",
+                "start": "2022-08-03T12:35",
+                "end": "2022-08-03T14:00",
+                "classNames": ["event-custom-style", "bg-light", "text-nav", "border-0", "rounded-1", "p-2", "ps-3", "border-start", "border-5", "border-danger"]
+              },
+              {
+                "title": "Fly yoga",
+                "start": "2022-08-04T09:00",
+                "end": "2022-08-04T11:00",
+                "classNames": ["event-custom-style", "bg-light", "text-nav", "border-0", "rounded-1", "p-2", "ps-3", "border-start", "border-5", "border-primary"]
+              },
+              {
+                "title": "For pregnant",
+                "start": "2022-08-05T07:30",
+                "end": "2022-08-05T09:40",
+                "classNames": ["event-custom-style", "bg-light", "text-nav", "border-0", "rounded-1", "p-2", "ps-3", "border-start", "border-5", "border-warning"]
+              },
+              {
+                "title": "Beginners",
+                "start": "2022-08-08T11:00",
+                "end": "2022-08-03T13:00",
+                "classNames": ["event-custom-style", "bg-light", "text-nav", "border-0", "rounded-1", "p-2", "ps-3", "border-start", "border-5", "border-success"]
+              },
+              {
+                "title": "Relax yoga",
+                "start": "2022-08-08T12:35",
+                "end": "2022-08-03T14:00",
+                "classNames": ["event-custom-style", "bg-light", "text-nav", "border-0", "rounded-1", "p-2", "ps-3", "border-start", "border-5", "border-danger"]
+              },
+              {
+                "title": "For pregnant",
+                "start": "2022-08-09T07:30",
+                "end": "2022-08-09T09:40",
+                "classNames": ["event-custom-style", "bg-light", "text-nav", "border-0", "rounded-1", "p-2", "ps-3", "border-start", "border-5", "border-warning"]
+              },
+              {
+                "title": "Fly yoga",
+                "start": "2022-08-10T09:00",
+                "end": "2022-08-10T11:00",
+                "classNames": ["event-custom-style", "bg-light", "text-nav", "border-0", "rounded-1", "p-2", "ps-3", "border-start", "border-5", "border-primary"]
+              },
+              {
+                "title": "Stretching",
+                "start": "2022-08-11T16:30",
+                "end": "2022-08-11T18:00",
+                "classNames": ["event-custom-style", "bg-light", "text-nav", "border-0", "rounded-1", "p-2", "ps-3", "border-start", "border-5", "border-purple"]
+              },
+              {
+                "title": "Healthy back",
+                "start": "2022-08-11T12:00",
+                "end": "2022-08-11T13:30",
+                "classNames": ["event-custom-style", "bg-light", "text-nav", "border-0", "rounded-1", "p-2", "ps-3", "border-start", "border-5", "border-info"]
+              },
+              {
+                "title": "Relax yoga",
+                "start": "2022-08-12T12:35",
+                "end": "2022-08-12T14:00",
+                "classNames": ["event-custom-style", "bg-light", "text-nav", "border-0", "rounded-1", "p-2", "ps-3", "border-start", "border-5", "border-danger"]
+              }
+            ]
+          }`)
+        #html1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Event calendar example --&gt;
+              &lt;div class=&quot;calendar&quot; data-calendar-options='{
+                &quot;initialDate&quot;: &quot;2022-08-01&quot;,
+                &quot;headerToolbar&quot;: {
+                  &quot;left&quot;: &quot;prev,next today&quot;,
+                  &quot;center&quot;: &quot;title&quot;,
+                  &quot;right&quot;: &quot;dayGridMonth,timeGridWeek,listWeek&quot;
+                },
+                &quot;eventTimeFormat&quot;: {
+                  &quot;hour&quot;: &quot;2-digit&quot;,
+                  &quot;minute&quot;: &quot;2-digit&quot;,
+                  &quot;hour12&quot;: false
+                },
+                &quot;events&quot;: [
+                  {
+                    &quot;title&quot;: &quot;Stretching&quot;,
+                    &quot;start&quot;: &quot;2022-08-01T16:30&quot;,
+                    &quot;end&quot;: &quot;2022-08-01T18:00&quot;,
+                    &quot;classNames&quot;: [&quot;event-custom-style&quot;, &quot;bg-light&quot;, &quot;text-nav&quot;, &quot;border-0&quot;, &quot;rounded-1&quot;, &quot;p-2&quot;, &quot;ps-3&quot;, &quot;border-start&quot;, &quot;border-5&quot;, &quot;border-purple&quot;]
+                  },
+                  {
+                    &quot;title&quot;: &quot;For pregnant&quot;,
+                    &quot;start&quot;: &quot;2022-08-02T07:30&quot;,
+                    &quot;end&quot;: &quot;2022-08-02T09:40&quot;,
+                    &quot;classNames&quot;: [&quot;event-custom-style&quot;, &quot;bg-light&quot;, &quot;text-nav&quot;, &quot;border-0&quot;, &quot;rounded-1&quot;, &quot;p-2&quot;, &quot;ps-3&quot;, &quot;border-start&quot;, &quot;border-5&quot;, &quot;border-warning&quot;]
+                  },
+                  {
+                    &quot;title&quot;: &quot;Healthy back&quot;,
+                    &quot;start&quot;: &quot;2022-08-02T12:00&quot;,
+                    &quot;end&quot;: &quot;2022-08-02T13:30&quot;,
+                    &quot;classNames&quot;: [&quot;event-custom-style&quot;, &quot;bg-light&quot;, &quot;text-nav&quot;, &quot;border-0&quot;, &quot;rounded-1&quot;, &quot;p-2&quot;, &quot;ps-3&quot;, &quot;border-start&quot;, &quot;border-5&quot;, &quot;border-info&quot;]
+                  },
+                  {
+                    &quot;title&quot;: &quot;Relax yoga&quot;,
+                    &quot;start&quot;: &quot;2022-08-02T18:45&quot;,
+                    &quot;end&quot;: &quot;2022-08-02T20:00&quot;,
+                    &quot;classNames&quot;: [&quot;event-custom-style&quot;, &quot;bg-light&quot;, &quot;text-nav&quot;, &quot;border-0&quot;, &quot;rounded-1&quot;, &quot;p-2&quot;, &quot;ps-3&quot;, &quot;border-start&quot;, &quot;border-5&quot;, &quot;border-danger&quot;]
+                  },
+                  {
+                    &quot;title&quot;: &quot;Beginners&quot;,
+                    &quot;start&quot;: &quot;2022-08-03T11:00&quot;,
+                    &quot;end&quot;: &quot;2022-08-03T13:00&quot;,
+                    &quot;classNames&quot;: [&quot;event-custom-style&quot;, &quot;bg-light&quot;, &quot;text-nav&quot;, &quot;border-0&quot;, &quot;rounded-1&quot;, &quot;p-2&quot;, &quot;ps-3&quot;, &quot;border-start&quot;, &quot;border-5&quot;, &quot;border-success&quot;]
+                  }
+                ]
+              }'&gt;&lt;/div&gt;
+        #pug1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Event calendar example
+              .calendar(data-calendar-options=`{
+                &quot;initialDate&quot;: &quot;2022-08-01&quot;,
+                &quot;headerToolbar&quot;: {
+                  &quot;left&quot;: &quot;prev,next today&quot;,
+                  &quot;center&quot;: &quot;title&quot;,
+                  &quot;right&quot;: &quot;dayGridMonth,timeGridWeek,listWeek&quot;
+                },
+                &quot;eventTimeFormat&quot;: {
+                  &quot;hour&quot;: &quot;2-digit&quot;,
+                  &quot;minute&quot;: &quot;2-digit&quot;,
+                  &quot;hour12&quot;: false
+                },
+                &quot;events&quot;: [
+                  {
+                    &quot;title&quot;: &quot;Stretching&quot;,
+                    &quot;start&quot;: &quot;2022-08-01T16:30&quot;,
+                    &quot;end&quot;: &quot;2022-08-01T18:00&quot;,
+                    &quot;classNames&quot;: [&quot;event-custom-style&quot;, &quot;bg-light&quot;, &quot;text-nav&quot;, &quot;border-0&quot;, &quot;rounded-1&quot;, &quot;p-2&quot;, &quot;ps-3&quot;, &quot;border-start&quot;, &quot;border-5&quot;, &quot;border-purple&quot;]
+                  },
+                  {
+                    &quot;title&quot;: &quot;For pregnant&quot;,
+                    &quot;start&quot;: &quot;2022-08-02T07:30&quot;,
+                    &quot;end&quot;: &quot;2022-08-02T09:40&quot;,
+                    &quot;classNames&quot;: [&quot;event-custom-style&quot;, &quot;bg-light&quot;, &quot;text-nav&quot;, &quot;border-0&quot;, &quot;rounded-1&quot;, &quot;p-2&quot;, &quot;ps-3&quot;, &quot;border-start&quot;, &quot;border-5&quot;, &quot;border-warning&quot;]
+                  },
+                  {
+                    &quot;title&quot;: &quot;Healthy back&quot;,
+                    &quot;start&quot;: &quot;2022-08-02T12:00&quot;,
+                    &quot;end&quot;: &quot;2022-08-02T13:30&quot;,
+                    &quot;classNames&quot;: [&quot;event-custom-style&quot;, &quot;bg-light&quot;, &quot;text-nav&quot;, &quot;border-0&quot;, &quot;rounded-1&quot;, &quot;p-2&quot;, &quot;ps-3&quot;, &quot;border-start&quot;, &quot;border-5&quot;, &quot;border-info&quot;]
+                  },
+                  {
+                    &quot;title&quot;: &quot;Relax yoga&quot;,
+                    &quot;start&quot;: &quot;2022-08-02T18:45&quot;,
+                    &quot;end&quot;: &quot;2022-08-02T20:00&quot;,
+                    &quot;classNames&quot;: [&quot;event-custom-style&quot;, &quot;bg-light&quot;, &quot;text-nav&quot;, &quot;border-0&quot;, &quot;rounded-1&quot;, &quot;p-2&quot;, &quot;ps-3&quot;, &quot;border-start&quot;, &quot;border-5&quot;, &quot;border-danger&quot;]
+                  },
+                  {
+                    &quot;title&quot;: &quot;Beginners&quot;,
+                    &quot;start&quot;: &quot;2022-08-03T11:00&quot;,
+                    &quot;end&quot;: &quot;2022-08-03T13:00&quot;,
+                    &quot;classNames&quot;: [&quot;event-custom-style&quot;, &quot;bg-light&quot;, &quot;text-nav&quot;, &quot;border-0&quot;, &quot;rounded-1&quot;, &quot;p-2&quot;, &quot;ps-3&quot;, &quot;border-start&quot;, &quot;border-5&quot;, &quot;border-success&quot;]
+                  }
+                ]
+              }`)

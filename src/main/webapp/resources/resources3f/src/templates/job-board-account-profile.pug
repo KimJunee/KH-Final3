@@ -1,0 +1,278 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['flatpickr/dist/flatpickr.min.css']
+  - var vendorScripts = ['flatpickr/dist/flatpickr.min.js']
+  - var parentMenu = 'Account'
+  - var pageTitle = 'Job Board | Account - Profile Settings'
+  - var bodyClass = 'bg-secondary'
+
+//- Navbar
+block navbar
+  include partials/navbar-job-board
+
+//- Page Content
+block content
+
+  // Page container
+  .position-absolute.top-0.start-0.w-100.bg-dark(style='height: 398px;')
+  .container.content-overlay.mt-5.mb-md-4.py-5
+    
+    // Breadcrumb
+    nav(aria-label='Breadcrumb').mb-3.mb-md-4.pt-md-3
+      ol.breadcrumb.breadcrumb-light
+        li.breadcrumb-item
+          a(href='job-board-home-v1.html') Home
+        li.breadcrumb-item
+          a(href='job-board-account-profile.html') Account
+        li(aria-current='page').breadcrumb-item.active
+          | Profile settings
+
+
+    // Page card like wrapper
+    .bg-light.shadow-sm.rounded-3.p-4.p-md-5.mb-2
+
+      // Account header
+      .d-flex.align-items-start.justify-content-between.pb-4.mb-2
+        .d-flex.align-items-start
+          .position-relative.flex-shrink-0
+            img(src='img/avatars/37.png' width='100' alt='Annette Black').rounded-circle
+            button(type='button' data-bs-toggle='tooltip' title='Change image').btn.btn-icon.btn-light.btn-xs.rounded-circle.shadow-sm.position-absolute.end-0.bottom-0
+              i.fi-pencil.fs-xs
+          .ps-3.ps-sm-4
+            h3.h5 Annette Black
+            ul.list-unstyled.fs-sm.mb-0
+              li.d-flex.text-nav.text-break
+                i.fi-mail.opacity-60.mt-1.me-2
+                span annette_black@email.com
+              li.d-flex.text-nav.text-break
+                i.fi-phone.opacity-60.mt-1.me-2
+                span (302) 555-0107
+        a(href='signin-light.html').nav-link.p-0.d-none.d-md-block
+          i.fi-logout.mt-n1.me-2
+          | Sign out
+
+      // Account menu
+      include partials/nav-account-job-board
+      
+
+      // Authorization info
+      .row.pt-4.mt-3
+        .col-lg-3
+          h2.h4 Authorization info
+        .col-lg-9
+          #auth-info.border.rounded-3.p-3
+
+            // Email
+            .border-bottom.pb-3.mb-3
+              .d-flex.align-items-center.justify-content-between
+                .pe-2
+                  label.form-label.fw-bold Email
+                  #email-value annette_black@email.com
+                div(data-bs-toggle='tooltip' title='Edit').me-n3
+                  a(href='#email-collapse' data-bs-toggle='collapse').nav-link.py-0
+                    i.fi-edit
+              #email-collapse.collapse(data-bs-parent='#auth-info')
+                input(type='email' data-bs-binded-element='#email-value' data-bs-unset-value='Not specified' value='annette_black@email.com').form-control.mt-3
+            
+            // Password
+            div
+              .d-flex.align-items-center.justify-content-between
+                .pe-2
+                  label.form-label.fw-bold Password
+                  div ********
+                div(data-bs-toggle='tooltip' title='Edit').me-n3
+                  a(href='#password-collapse' data-bs-toggle='collapse').nav-link.py-0
+                    i.fi-edit
+              #password-collapse.collapse(data-bs-parent='#auth-info')
+                .row.gx-3.align-items-center.my-3
+                  label(for='account-password-current').col-sm-4.col-md-3.col-form-label Current password:
+                  .col-sm-8.col-md-9
+                    .password-toggle
+                      input(type='password' id='account-password-current' placeholder='Enter current password').form-control
+                      label(aria-label='Show/hide password').password-toggle-btn
+                        input(type='checkbox').password-toggle-check
+                        span.password-toggle-indicator
+                .row.gx-3.align-items-center.my-3
+                  label(for='account-password-new').col-sm-4.col-md-3.col-form-label New password:
+                  .col-sm-8.col-md-9
+                    .password-toggle
+                      input(type='password' id='account-password-new' placeholder='Enter new password').form-control
+                      label(aria-label='Show/hide password').password-toggle-btn
+                        input(type='checkbox').password-toggle-check
+                        span.password-toggle-indicator
+                .row.gx-3.align-items-center
+                  label(for='account-password-confirm').col-sm-4.col-md-3.col-form-label Confirm new password:
+                  .col-sm-8.col-md-9
+                    .password-toggle
+                      input(type='password' id='account-password-confirm' placeholder='Confirm new password').form-control
+                      label(aria-label='Show/hide password').password-toggle-btn
+                        input(type='checkbox').password-toggle-check
+                        span.password-toggle-indicator
+      
+
+      // Personal details
+      .row.pt-4.mt-2
+        .col-lg-3
+          h2.h4 Personal details
+        .col-lg-9
+          #personal-details.border.rounded-3.p-3
+
+            // Full name
+            .border-bottom.pb-3.mb-3
+              .d-flex.align-items-center.justify-content-between
+                .pe-2
+                  label.form-label.fw-bold Full name
+                  #fn-value Annette Black
+                div(data-bs-toggle='tooltip' title='Edit').me-n3
+                  a(href='#fn-collapse' data-bs-toggle='collapse').nav-link.py-0
+                    i.fi-edit
+              #fn-collapse.collapse(data-bs-parent='#personal-details')
+                input(type='email' data-bs-binded-element='#fn-value' data-bs-unset-value='Not specified' value='Annette Black').form-control.mt-3
+            
+            // Gender
+            .border-bottom.pb-3.mb-3
+              .d-flex.align-items-center.justify-content-between
+                .pe-2
+                  label.form-label.fw-bold Gender
+                  #gender-value Female
+                div(data-bs-toggle='tooltip' title='Edit').me-n3
+                  a(href='#gender-collapse' data-bs-toggle='collapse').nav-link.py-0
+                    i.fi-edit
+              #gender-collapse.collapse(data-bs-parent='#personal-details')
+                select(data-bs-binded-element='#gender-value').form-select.mt-3
+                  option(value='' disabled) Select your gender
+                  option(value='Male') Male
+                  option(value='Female' selected) Female
+
+            // Date of birth
+            .border-bottom.pb-3.mb-3
+              .d-flex.align-items-center.justify-content-between
+                .pe-2
+                  label.form-label.fw-bold Date of birth
+                  #birth-value Not specified
+                div(data-bs-toggle='tooltip' title='Edit').me-n3
+                  a(href='#birth-collapse' data-bs-toggle='collapse').nav-link.py-0
+                    i.fi-edit
+              #birth-collapse.collapse(data-bs-parent='#personal-details')
+                .mt-3.pt-3.border-top
+                  .input-group
+                    input(type='text' data-bs-binded-element='#birth-value' data-datepicker-options='{"altInput": true, "altFormat": "F j, Y", "dateFormat": "F j, Y"}' placeholder='Choose date').form-control.date-picker.rounded.pe-5
+                    i.fi-calendar.text-muted.position-absolute.top-50.end-0.translate-middle-y.me-3
+            
+            // Phone number
+            .border-bottom.pb-3.mb-3
+              .d-flex.align-items-center.justify-content-between
+                .pe-2
+                  label.form-label.fw-bold Phone number
+                  #phone-value (302) 555-0107
+                div(data-bs-toggle='tooltip' title='Edit').me-n3
+                  a(href='#phone-collapse' data-bs-toggle='collapse').nav-link.py-0
+                    i.fi-edit
+              #phone-collapse.collapse(data-bs-parent='#personal-details')
+                input(type='text' data-bs-binded-element='#phone-value' data-bs-unset-value='Not specified' value='(302) 555-0107').form-control.mt-3
+            
+            // Address
+            .border-bottom.pb-3.mb-3
+              .d-flex.align-items-center.justify-content-between
+                .pe-2
+                  label.form-label.fw-bold Address
+                  #address-value Not specified
+                div(data-bs-toggle='tooltip' title='Edit').me-n3
+                  a(href='#address-collapse' data-bs-toggle='collapse').nav-link.py-0
+                    i.fi-edit
+              #address-collapse.collapse(data-bs-parent='#personal-details')
+                input(type='text' data-bs-binded-element='#address-value' data-bs-unset-value='Not specified' placeholder='Enter address').form-control.mt-3
+            
+            // Socials
+            div
+              .d-flex.align-items-center.justify-content-between
+                .pe-2
+                  label.form-label.fw-bold Socials
+                  ul.list-unstyled.mb-0
+                    li#facebook-value Not specified
+                    li#linkedin-value
+                    li#twitter-value
+                    li#instagram-value
+                    li#behance-value
+                div(data-bs-toggle='tooltip' title='Edit').me-n3
+                  a(href='#socials-collapse' data-bs-toggle='collapse').nav-link.py-0
+                    i.fi-edit
+              #socials-collapse.collapse.mt-3(data-bs-parent='#personal-details')
+                .d-flex.align-items-center.mb-3
+                  .btn.btn-icon.btn-light.btn-xs.shadow-sm.rounded-circle.pe-none.flex-shrink-0.me-3
+                    i.fi-facebook.text-body
+                  input(type='text' data-bs-binded-element='#facebook-value' placeholder='Your Facebook account').form-control
+                .d-flex.align-items-center.mb-3
+                  .btn.btn-icon.btn-light.btn-xs.shadow-sm.rounded-circle.pe-none.flex-shrink-0.me-3
+                    i.fi-linkedin.text-body
+                  input(type='text' data-bs-binded-element='#linkedin-value' placeholder='Your LinkedIn account').form-control
+                .d-flex.align-items-center.mb-3
+                  .btn.btn-icon.btn-light.btn-xs.shadow-sm.rounded-circle.pe-none.flex-shrink-0.me-3
+                    i.fi-twitter.text-body
+                  input(type='text' data-bs-binded-element='#twitter-value' placeholder='Your Twitter account').form-control
+                #showMoreSocials.collapse
+                  .d-flex.align-items-center.mb-3
+                    .btn.btn-icon.btn-light.btn-xs.shadow-sm.rounded-circle.pe-none.flex-shrink-0.me-3
+                      i.fi-instagram.text-body
+                    input(type='text' data-bs-binded-element='#instagram-value' placeholder='Your Instagram account').form-control
+                  .d-flex.align-items-center.mb-3
+                    .btn.btn-icon.btn-light.btn-xs.shadow-sm.rounded-circle.pe-none.flex-shrink-0.me-3
+                      i.fi-behance.text-body
+                    input(type='text' data-bs-binded-element='#behance-value' placeholder='Your Behance account').form-control
+                a(href='#showMoreSocials' data-bs-toggle='collapse' data-bs-label-collapsed='Show more' data-bs-label-expanded='Show less' role='button' aria-expanded='false' aria-controls='showMoreSocials').collapse-label.collapsed.d-inline-block.fs-sm.fw-bold.text-decoration-none.pt-2.pb-3
+                  i.fi-arrow-down.me-2
+      
+
+      // Account settings
+      .row.pt-4.mt-2
+        .col-lg-3
+          h2.h4 Account settings
+        .col-lg-9
+          #account-settings.border.rounded-3.p-3
+
+            // Account type
+            .border-bottom.pb-3.mb-3
+              .d-flex.align-items-center.justify-content-between
+                .pe-2
+                  label.form-label.fw-bold Account type
+                  #type-value Job seeker (looking for a job)
+                div(data-bs-toggle='tooltip' title='Edit').me-n3
+                  a(href='#type-collapse' data-bs-toggle='collapse').nav-link.py-0
+                    i.fi-edit
+              #type-collapse.collapse(data-bs-parent='#account-settings')
+                select(data-bs-binded-element='#type-value').form-select.mt-3
+                  option(value='' disabled) Select account type
+                  option(value='Employer (looking for an employee)') Employer (looking for an employee)
+                  option(value='Job seeker (looking for a job)' selected) Job seeker (looking for a job)
+            
+            // Two-factor authentication
+            div
+              .d-flex.align-items-center.justify-content-between
+                .pe-2
+                  label.form-label.fw-bold Two-factor authentication
+                  #auth-value Inactive
+                div(data-bs-toggle='tooltip' title='Edit').me-n3
+                  a(href='#auth-collapse' data-bs-toggle='collapse').nav-link.py-0
+                    i.fi-edit
+              #auth-collapse.collapse(data-bs-parent='#account-settings')
+                select(data-bs-binded-element='#auth-value').form-select.mt-3
+                  option(value='' disabled) Enable / disbale two-factor authentication
+                  option(value='Active') Enable
+                  option(value='Inactive' selected) Disable
+
+      
+      // Action buttons
+      .row.pt-4.mt-2
+        .col-lg-9.offset-lg-3
+          .d-flex.align-items-center.justify-content-between
+            button(type='button').btn.btn-primary.rounded-pill.px-3.px-sm-4 Save changes
+            button(type='button').btn.btn-link.btn-sm.px-0
+              i.fi-trash.me-2
+              | Delete account
+
+
+//- Footer
+block footer
+  include partials/footer-job-board

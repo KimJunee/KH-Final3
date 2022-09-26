@@ -1,0 +1,144 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var parentMenu = 'Account'
+  - var pageTitle = 'Real Estate | Account Wishlist'
+
+//- Navbar
+block navbar
+  include partials/navbar-real-estate
+
+//- Page Content
+block content
+  .container.pt-5.pb-lg-4.mt-5.mb-sm-2
+
+    // Breadcrumb
+    nav(aria-label='Breadcrumb').mb-4.pt-md-3
+      ol.breadcrumb
+        li.breadcrumb-item
+          a(href='real-estate-home-v1.html') Home
+        li.breadcrumb-item
+          a(href='real-estate-account-info.html') Account
+        li(aria-current='page').breadcrumb-item.active
+          | Wishlist
+    
+
+    // Page content
+    .row
+
+      // Sidebar
+      aside.col-lg-4.col-md-5.pe-xl-4.mb-5
+        include partials/sidebar-account-real-estate
+
+      // Content
+      .col-lg-8.col-md-7.mb-5
+        .d-flex.align-items-center.justify-content-between.mb-4.pb-2
+          h1.h2.mb-0 Wishlist
+          a(href='#').fw-bold.text-decoration-none
+            i.fi-x.fs-xs.mt-n1.me-2
+            | Clear all
+        
+        // Item
+        .card.card-hover.card-horizontal.border-0.shadow-sm.mb-4
+          .card-img-top.position-relative(style='background-image: url(img/real-estate/catalog/16.jpg);')
+            a(href='real-estate-single-v1.html').stretched-link
+            .position-absolute.start-0.top-0.pt-3.ps-3
+              span.d-table.badge.bg-success.mb-1 Verified
+              span.d-table.badge.bg-info New
+            .position-absolute.end-0.top-0.pt-3.pe-3.zindex-5
+              button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Remove from Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle.shadow-sm
+                i.fi-heart-filled
+          .card-body.position-relative.pb-3
+            h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For sale
+            h3.h6.mb-2.fs-base
+              a(href='real-estate-single-v1.html').nav-link.stretched-link 3-bed Apartment | 67 sq.m
+            p.mb-2.fs-sm.text-muted 3811 Ditmars Blvd Astoria, NY 11105
+            .fw-bold
+              i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+              | $94,000
+            .d-flex.align-items-center.justify-content-center.justify-content-sm-start.border-top.pt-3.pb-2.mt-3.text-nowrap
+              span.d-inline-block.me-4.fs-sm 3
+                i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+              span.d-inline-block.me-4.fs-sm 2
+                i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+              span.d-inline-block.fs-sm 2
+                i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+        
+        // Item
+        .card.card-hover.card-horizontal.border-0.shadow-sm.mb-4
+          .card-img-top.position-relative(style='background-image: url(img/real-estate/catalog/09.jpg);')
+            a(href='real-estate-single-v1.html').stretched-link
+            .position-absolute.start-0.top-0.pt-3.ps-3
+              span.d-table.badge.bg-success.mb-1 Verified
+            .position-absolute.end-0.top-0.pt-3.pe-3.zindex-5
+              button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Remove from Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle.shadow-sm
+                i.fi-heart-filled
+          .card-body.position-relative.pb-3
+            h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For rent
+            h3.h6.mb-2.fs-base
+              a(href='real-estate-single-v1.html').nav-link.stretched-link Terra Nova Apartments | 85 sq.m
+            p.mb-2.fs-sm.text-muted 21 India St Brooklyn, NY 11222
+            .fw-bold
+              i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+              | $2,400
+            .d-flex.align-items-center.justify-content-center.justify-content-sm-start.border-top.pt-3.pb-2.mt-3.text-nowrap
+              span.d-inline-block.me-4.fs-sm 5
+                i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+              span.d-inline-block.me-4.fs-sm 2
+                i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+              span.d-inline-block.fs-sm 2
+                i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+        
+        // Item
+        .card.card-hover.card-horizontal.border-0.shadow-sm.mb-4
+          .card-img-top.position-relative(style='background-image: url(img/real-estate/catalog/19.jpg);')
+            a(href='real-estate-single-v1.html').stretched-link
+            .position-absolute.end-0.top-0.pt-3.pe-3.zindex-5
+              button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Remove from Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle.shadow-sm
+                i.fi-heart-filled
+          .card-body.position-relative.pb-3
+            h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For sale
+            h3.h6.mb-2.fs-base
+              a(href='real-estate-single-v1.html').nav-link.stretched-link Country House | 120 sq.m
+            p.mb-2.fs-sm.text-muted 6954 Grand AveMaspeth, NY 11378
+            .fw-bold
+              i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+              | $162,000
+            .d-flex.align-items-center.justify-content-center.justify-content-sm-start.border-top.pt-3.pb-2.mt-3.text-nowrap
+              span.d-inline-block.me-4.fs-sm 5
+                i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+              span.d-inline-block.me-4.fs-sm 3
+                i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+              span.d-inline-block.fs-sm 2
+                i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+        
+        // Item
+        .card.card-hover.card-horizontal.border-0.shadow-sm
+          .card-img-top.position-relative(style='background-image: url(img/real-estate/catalog/17.jpg);')
+            a(href='real-estate-single-v1.html').stretched-link
+            .position-absolute.start-0.top-0.pt-3.ps-3
+              span.d-table.badge.bg-info.mb-1 New
+            .position-absolute.end-0.top-0.pt-3.pe-3.zindex-5
+              button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Remove from Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle.shadow-sm
+                i.fi-heart-filled
+          .card-body.position-relative.pb-3
+            h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For rent
+            h3.h6.mb-2.fs-base
+              a(href='real-estate-single-v1.html').nav-link.stretched-link Crystal Apartment| 60 sq.m
+            p.mb-2.fs-sm.text-muted 495 Henry St Brooklyn, NY 11231
+            .fw-bold
+              i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+              | $1,500
+            .d-flex.align-items-center.justify-content-center.justify-content-sm-start.border-top.pt-3.pb-2.mt-3.text-nowrap
+              span.d-inline-block.me-4.fs-sm 4
+                i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+              span.d-inline-block.me-4.fs-sm 1
+                i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+              span.d-inline-block.fs-sm 2
+                i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+
+
+//- Footer
+block footer
+  include partials/footer-real-estate

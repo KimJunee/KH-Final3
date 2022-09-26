@@ -1,0 +1,126 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css', 'vendor/prismjs/themes/prism.css', 'vendor/prismjs/plugins/toolbar/prism-toolbar.css', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js', 'vendor/prismjs/components/prism-core.min.js', 'vendor/prismjs/components/prism-markup.min.js', 'vendor/prismjs/components/prism-clike.min.js', 'vendor/prismjs/components/prism-javascript.min.js', 'vendor/prismjs/components/prism-pug.min.js', 'vendor/prismjs/plugins/toolbar/prism-toolbar.min.js', 'vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Breadcrumb'
+  - var pageSubtitle = 'Indicate the current page’s location within a navigational hierarchy.'
+  - var pageTitleLink = {'title': 'Bootstrap docs', 'link': 'https://getbootstrap.com/docs/5.2/components/breadcrumb/'}
+    
+//- Page Content
+block content
+
+  // Example
+  section.card.border-0.mb-4
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview1' data-bs-toggle='tab' role='tab' aria-controls='preview1' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview1.tab-pane.fade.show.active(role='tabpanel')
+          nav(aria-label='breadcrumb')
+            ol.breadcrumb
+              li.breadcrumb-item: a(href='#') Home
+              li.breadcrumb-item: a(href='#') Products list
+              li(aria-current='page').breadcrumb-item.active
+                | Single product
+          nav(aria-label='breadcrumb')
+            ol.breadcrumb
+              li.breadcrumb-item
+                a(href='#'): i.ai-home.fs-base
+              li.breadcrumb-item: a(href='#') Products list
+              li(aria-current='page').breadcrumb-item.active
+                | Single product
+          nav(aria-label='breadcrumb')
+            ol.breadcrumb
+              li.breadcrumb-item
+                a(href='#')
+                  i.ai-home.fs-base.me-2
+                  | Home
+              li.breadcrumb-item: a(href='#') Products list
+              li(aria-current='page').breadcrumb-item.active
+                | Single product
+        #html1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Basic example --&gt;
+              &lt;nav aria-label=&quot;breadcrumb&quot;&gt;
+                &lt;ol class=&quot;breadcrumb&quot;&gt;
+                  &lt;li class=&quot;breadcrumb-item&quot;&gt;&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+                  &lt;li class=&quot;breadcrumb-item&quot;&gt;&lt;a href=&quot;#&quot;&gt;Products list&lt;/a&gt;&lt;/li&gt;
+                  &lt;li class=&quot;breadcrumb-item active&quot; aria-current=&quot;page&quot;&gt;Single product&lt;/li&gt;
+                &lt;/ol&gt;
+              &lt;/nav&gt;
+
+              &lt;!-- Home icon --&gt;
+              &lt;nav aria-label=&quot;breadcrumb&quot;&gt;
+                &lt;ol class=&quot;breadcrumb&quot;&gt;
+                  &lt;li class=&quot;breadcrumb-item&quot;&gt;
+                    &lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;ai-home fs-base&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+                  &lt;/li&gt;
+                  &lt;li class=&quot;breadcrumb-item&quot;&gt;&lt;a href=&quot;#&quot;&gt;Products list&lt;/a&gt;&lt;/li&gt;
+                  &lt;li class=&quot;breadcrumb-item active&quot; aria-current=&quot;page&quot;&gt;Single product&lt;/li&gt;
+                &lt;/ol&gt;
+              &lt;/nav&gt;
+
+              &lt;!-- Home icon + text --&gt;
+              &lt;nav aria-label=&quot;breadcrumb&quot;&gt;
+                &lt;ol class=&quot;breadcrumb&quot;&gt;
+                  &lt;li class=&quot;breadcrumb-item&quot;&gt;
+                    &lt;a href=&quot;#&quot;&gt;
+                      &lt;i class=&quot;ai-home fs-base me-2&quot;&gt;&lt;/i&gt;
+                      Home
+                    &lt;/a&gt;
+                  &lt;/li&gt;
+                  &lt;li class=&quot;breadcrumb-item&quot;&gt;&lt;a href=&quot;#&quot;&gt;Products list&lt;/a&gt;&lt;/li&gt;
+                  &lt;li class=&quot;breadcrumb-item active&quot; aria-current=&quot;page&quot;&gt;Single product&lt;/li&gt;
+                &lt;/ol&gt;
+              &lt;/nav&gt;
+        #pug1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Basic example
+              nav(aria-label=&quot;breadcrumb&quot;)
+                ol.breadcrumb
+                  li.breadcrumb-item: a(href=&quot;#&quot;)
+                    | Home
+                  li.breadcrumb-item: a(href=&quot;#&quot;)
+                    | Products list
+                  li(aria-current=&quot;page&quot;).breadcrumb-item.active
+                    | Single product
+
+              // Home icon
+              nav(aria-label=&quot;breadcrumb&quot;)
+                ol.breadcrumb
+                  li.breadcrumb-item
+                    a(href=&quot;#&quot;): i.ai-home.fs-base
+                  li.breadcrumb-item: a(href=&quot;#&quot;)
+                    | Products list
+                  li(aria-current=&quot;page&quot;).breadcrumb-item.active
+                    | Single product
+
+              // Home icon + text
+              nav(aria-label=&quot;breadcrumb&quot;)
+                ol.breadcrumb
+                  li.breadcrumb-item
+                    a(href=&quot;#&quot;)
+                      i.ai-home.fs-base.me-2
+                      | Home
+                  li.breadcrumb-item: a(href=&quot;#&quot;)
+                    | Products list
+                  li(aria-current=&quot;page&quot;).breadcrumb-item.active
+                    | Single product

@@ -1,0 +1,27 @@
+//- Account menu
+.mt-md-n3.mb-4
+  a(href='#account-nav' data-bs-toggle='collapse').btn.btn-outline-primary.btn-lg.rounded-pill.w-100.d-md-none
+    i.fi-align-justify.me-2
+    | Account Menu
+  #account-nav.collapse.d-md-block
+    ul.nav.nav-pills.flex-column.flex-md-row.pt-3.pt-md-0.pb-md-4.border-bottom-md
+      li.nav-item.mb-md-0.me-md-2.pe-md-1
+        a(href='city-guide-account-info.html')&attributes(pageTitle === 'City Guide | Account - Personal Info' ? {'class': 'nav-link active', 'aria-current': 'page'} : {'class': 'nav-link'})
+          i.fi-user.mt-n1.me-2.fs-base
+          | Personal Info
+      li.nav-item.mb-md-0.me-md-2.pe-md-1
+        a(href='city-guide-account-favorites.html')&attributes(pageTitle === 'City Guide | Account - Favorites' ? {'class': 'nav-link active', 'aria-current': 'page'} : {'class': 'nav-link'})
+          i.fi-heart.mt-n1.me-2.fs-base
+          | Favorites
+      li.nav-item.mb-md-0.me-md-2.pe-md-1
+        a(href='city-guide-account-reviews.html')&attributes(pageTitle === 'City Guide | Account - Reviews' ? {'class': 'nav-link active', 'aria-current': 'page'} : {'class': 'nav-link'})
+          i.fi-star.mt-n1.me-2.fs-base
+          | Reviews
+      li.nav-item.mb-md-0
+        a(href='city-guide-account-notifications.html')&attributes(pageTitle === 'City Guide | Account - Notifications' ? {'class': 'nav-link active', 'aria-current': 'page'} : {'class': 'nav-link'})
+          i.fi-bell.mt-n1.me-2.fs-base
+          | Notifications
+      li.nav-item.d-md-none
+        a(href='signin-light.html').nav-link
+          i.fi-logout.mt-n1.me-2.fs-base
+          | Sign Out

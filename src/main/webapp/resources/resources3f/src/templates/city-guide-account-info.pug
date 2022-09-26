@@ -1,0 +1,160 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['flatpickr/dist/flatpickr.min.css']
+  - var vendorScripts = ['flatpickr/dist/flatpickr.min.js']
+  - var parentMenu = 'Account'
+  - var pageTitle = 'City Guide | Account - Personal Info'
+  - var bodyClass = 'bg-secondary'
+
+//- Navbar
+block navbar
+  include partials/navbar-city-guide
+
+//- Page Content
+block content
+
+  // Page container
+  .container.mt-5.mb-md-4.py-5
+
+    // Breadcrumbs
+    nav(aria-label='breadcrumb').mb-4.pt-2.pt-lg-3
+      ol.breadcrumb
+        li.breadcrumb-item
+          a(href='city-guide-home-v1.html') Home
+        li.breadcrumb-item
+          a(href='city-guide-account-info.html') Account
+        li(aria-current='page').breadcrumb-item.active
+          | Personal info
+
+
+    // Account header
+    .d-flex.align-items-center.justify-content-between.pb-4.mb-2
+      .d-flex.align-items-center
+        .position-relative.flex-shrink-0
+          img(src='img/avatars/29.png' width='100' alt='Annette Black').rounded-circle.border.border-white
+          button(type='button' data-bs-toggle='tooltip' title='Change image').btn.btn-icon.btn-light.btn-xs.rounded-circle.shadow-sm.position-absolute.end-0.bottom-0
+            i.fi-pencil.fs-xs
+        .ps-3.ps-sm-4
+          h3.h4.mb-2 Annette Black
+          +star-rating(5)
+      a(href='signin-light.html').nav-link.p-0.d-none.d-md-block
+        i.fi-logout.mt-n1.me-2
+        | Sign out
+
+
+    // Page content
+    .card.card-body.p-4.p-md-5.shadow-sm
+
+      // Account nav
+      include partials/nav-account-city-guide
+
+      .d-flex.flex-md-row.flex-column.align-items-md-center.justify-content-md-between.mb-4.pt-2
+        h1.h3.mb-0 Personal Info
+
+      #personal-info.border.rounded-3.p-3.mb-2
+
+        // Name
+        .border-bottom.pb-3.mb-3
+          .d-flex.align-items-center.justify-content-between
+            .pe-2
+              label.form-label.fw-bold Full name
+              #name-value Annette Black
+            div(data-bs-toggle='tooltip' title='Edit').me-n3
+              a(href='#name-collapse' data-bs-toggle='collapse').nav-link.py-0
+                i.fi-edit
+          #name-collapse.collapse(data-bs-parent='#personal-info')
+            input(type='text' data-bs-binded-element='#name-value' data-bs-unset-value='Not specified' value='Annette Black').form-control.mt-3
+
+        // Gender
+        .border-bottom.pb-3.mb-3
+          .d-flex.align-items-center.justify-content-between
+            .pe-2
+              label.form-label.fw-bold Gender
+              #gender-value Not specified
+            div(data-bs-toggle='tooltip' title='Edit').me-n3
+              a(href='#gender-collapse' data-bs-toggle='collapse').nav-link.py-0
+                i.fi-edit
+          #gender-collapse.collapse(data-bs-parent='#personal-info')
+            select(data-bs-binded-element='#gender-value' data-bs-unset-value='Not specified').form-select.mt-3
+              option(value='Not specified' disabled selected) Choose gender
+              option(value='Male') Male
+              option(value='Female') Female
+
+        // Date of birth
+        .border-bottom.pb-3.mb-3
+          .d-flex.align-items-center.justify-content-between
+            .pe-2
+              label.form-label.fw-bold Date of birth
+              #birth-value Not specified
+            div(data-bs-toggle='tooltip' title='Edit').me-n3
+              a(href='#birth-collapse' data-bs-toggle='collapse').nav-link.py-0
+                i.fi-edit
+          #birth-collapse.collapse(data-bs-parent='#personal-info')
+            .input-group.mt-3
+              input(type='text' data-bs-binded-element='#birth-value' data-datepicker-options='{"altInput": true, "altFormat": "F j, Y", "dateFormat": "F j, Y"}' placeholder='Choose date').form-control.date-picker.rounded.pe-5
+              i.fi-calendar.text-muted.position-absolute.top-50.end-0.translate-middle-y.me-3
+
+        // Email
+        .border-bottom.pb-3.mb-3
+          .d-flex.align-items-center.justify-content-between
+            .pe-2
+              label.form-label.fw-bold Email
+              #email-value annette_black@email.com
+            div(data-bs-toggle='tooltip' title='Edit').me-n3
+              a(href='#email-collapse' data-bs-toggle='collapse').nav-link.py-0
+                i.fi-edit
+          #email-collapse.collapse(data-bs-parent='#personal-info')
+            input(type='email' data-bs-binded-element='#email-value' data-bs-unset-value='Not specified' value='annette_black@email.com').form-control.mt-3
+
+        // Phone number
+        .border-bottom.pb-3.mb-3
+          .d-flex.align-items-center.justify-content-between
+            .pe-2
+              label.form-label.fw-bold Phone number
+              #phone-value (302) 555-0107
+            div(data-bs-toggle='tooltip' title='Edit').me-n3
+              a(href='#phone-collapse' data-bs-toggle='collapse').nav-link.py-0
+                i.fi-edit
+          #phone-collapse.collapse(data-bs-parent='#personal-info')
+            input(type='text' data-bs-binded-element='#phone-value' data-bs-unset-value='Not specified' value='(302) 555-0107').form-control.mt-3
+
+        // Address
+        .border-bottom.pb-3.mb-3
+          .d-flex.align-items-center.justify-content-between
+            .pe-2
+              label.form-label.fw-bold Address
+              #address-value Not specified
+            div(data-bs-toggle='tooltip' title='Edit').me-n3
+              a(href='#address-collapse' data-bs-toggle='collapse').nav-link.py-0
+                i.fi-edit
+          #address-collapse.collapse(data-bs-parent='#personal-info')
+            input(type='text' data-bs-binded-element='#address-value' data-bs-unset-value='Not specified' placeholder='Enter address').form-control.mt-3
+
+        // Password
+        div
+          .d-flex.align-items-center.justify-content-between
+            .pe-2
+              label.form-label.fw-bold Password
+              div ********
+            div(data-bs-toggle='tooltip' title='Edit').me-n3
+              a(href='#company-collapse' data-bs-toggle='collapse').nav-link.py-0
+                i.fi-edit
+          #company-collapse.collapse(data-bs-parent='#personal-info')
+            .password-toggle.mt-3
+              input(type='password' id='pass-visibility' value='hidden@password').form-control
+              label(aria-label='Show/hide password').password-toggle-btn
+                input(type='checkbox').password-toggle-check
+                span.password-toggle-indicator
+
+      .d-flex.align-items-center.justify-content-between.mt-4
+        button(type='button').btn.btn-primary.rounded-pill.px-3.px-sm-4 Save changes
+        button(type='button').btn.btn-link.btn-sm.px-0
+          i.fi-trash.me-2
+          | Delete account
+
+
+//- Footer
+block footer
+  include partials/footer-city-guide

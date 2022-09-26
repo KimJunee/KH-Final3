@@ -1,0 +1,1205 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css', 'vendor/swiper/swiper-bundle.min.css', 'vendor/prismjs/themes/prism.css', 'vendor/prismjs/plugins/toolbar/prism-toolbar.css', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js', 'vendor/swiper/swiper-bundle.min.js', 'vendor/prismjs/components/prism-core.min.js', 'vendor/prismjs/components/prism-markup.min.js', 'vendor/prismjs/components/prism-clike.min.js', 'vendor/prismjs/components/prism-javascript.min.js', 'vendor/prismjs/components/prism-pug.min.js', 'vendor/prismjs/plugins/toolbar/prism-toolbar.min.js', 'vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Carousel (Slider)'
+  - var pageSubtitle = 'A slideshow component for cycling through elements (images or slides with any content) like a carousel.'
+  - var isPageTitleBadge = true
+  - var anchorNav = [{'title': 'Navigation (Prev / next buttons)', 'link': '#carousel-navigation'}, {'title': 'Pagination', 'link': '#carousel-pagination'},  {'title': 'Multiple slides (Responsive) + Controls and pagination outside', 'link': '#carousel-multiple-slides'}, {'title': 'Fade transition', 'link': '#carousel-fade'}, {'title': 'Link slides to outside content', 'link': '#carousel-link-to-content'}]
+    
+//- Page Content
+block content
+
+  // Info alert
+  .alert.alert-info.d-flex.mb-4(role='alert')
+    i.ai-circle-info.lead.me-2.me-sm-3
+    .text-break
+      p.mb-2 <span class='fw-semibold'>Carousel component</span> depends on <span class='fw-semibold'>Swiper plugin</span>. Make sure to link to <span class='fw-semibold'>Swiper css and js</span> files in your document:
+      ul.list-unstyled.mb-2
+        li <span class='fw-semibold'>assets/vendor/swiper/swiper-bundle.min.css</span>
+        li <span class='fw-semibold'>assets/vendor/swiper/swiper-bundle.min.js</span>
+      p.mb-3 Use this page as a reference.
+      p.mb-3 You can pass almost any slider option to <code>data-swiper-options='{}'</code>
+      p.fw-semibold.mb-2 Usefull links
+      ul.list-unstyled.mb-0
+        li.mb-1
+          a(href='https://swiperjs.com/demos' target='_blank' rel='noopener').d-flex.align-items-center.alert-link.text-decoration-none
+            i.ai-external-link.me-2
+            | Swiper slider demos with code examples
+        li.mb-1
+          a(href='https://swiperjs.com/swiper-api' target='_blank' rel='noopener').d-flex.align-items-center.alert-link.text-decoration-none
+            i.ai-external-link.me-2
+            | Swiper slider API: options, methods and events
+
+
+  // Navigation (Prev / next buttons)
+  section#carousel-navigation.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Navigation (Prev / next buttons)
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview1' data-bs-toggle='tab' role='tab' aria-controls='preview1' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview1.tab-pane.fade.show.active(role='tabpanel')
+          .d-flex.flex-wrap.align-items-center
+            .d-flex.my-2.me-4
+              button(type='button').btn.btn-prev.btn-icon.btn-xl.btn-outline-primary.rounded-circle.me-2
+                i.ai-arrow-left
+              button(type='button').btn.btn-prev.btn-icon.btn-xl.btn-outline-primary.rounded-circle.ms-2
+                i.ai-arrow-right
+            .d-flex.my-2.me-4
+              button(type='button').btn.btn-prev.btn-icon.btn-lg.btn-outline-primary.rounded-circle.me-2
+                i.ai-arrow-left
+              button(type='button').btn.btn-prev.btn-icon.btn-lg.btn-outline-primary.rounded-circle.ms-2
+                i.ai-arrow-right
+            .d-flex.my-2.me-4
+              button(type='button').btn.btn-prev.btn-icon.btn-outline-primary.rounded-circle.me-2
+                i.ai-arrow-left
+              button(type='button').btn.btn-prev.btn-icon.btn-outline-primary.rounded-circle.ms-2
+                i.ai-arrow-right
+            .d-flex.my-2
+              button(type='button').btn.btn-prev.btn-icon.btn-sm.btn-outline-primary.rounded-circle.me-2
+                i.ai-arrow-left
+              button(type='button').btn.btn-prev.btn-icon.btn-sm.btn-outline-primary.rounded-circle.ms-2
+                i.ai-arrow-right
+        #html1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Extra large prev/next buttons --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-prev btn-icon btn-xl btn-outline-primary rounded-circle me-2&quot;&gt;
+                &lt;i class=&quot;ai-arrow-left&quot;&gt;&lt;/i&gt;
+              &lt;/button&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-next btn-icon btn-xl btn-outline-primary rounded-circle ms-2&quot;&gt;
+                &lt;i class=&quot;ai-arrow-right&quot;&gt;&lt;/i&gt;
+              &lt;/button&gt;
+
+              &lt;!-- Large prev/next buttons --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-prev btn-icon btn-lg btn-outline-primary rounded-circle me-2&quot;&gt;
+                &lt;i class=&quot;ai-arrow-left&quot;&gt;&lt;/i&gt;
+              &lt;/button&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-next btn-icon btn-lg btn-outline-primary rounded-circle ms-2&quot;&gt;
+                &lt;i class=&quot;ai-arrow-right&quot;&gt;&lt;/i&gt;
+              &lt;/button&gt;
+
+              &lt;!-- Normal prev/next buttons --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-prev btn-icon btn-outline-primary rounded-circle me-2&quot;&gt;
+                &lt;i class=&quot;ai-arrow-left&quot;&gt;&lt;/i&gt;
+              &lt;/button&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-next btn-icon btn-outline-primary rounded-circle ms-2&quot;&gt;
+                &lt;i class=&quot;ai-arrow-right&quot;&gt;&lt;/i&gt;
+              &lt;/button&gt;
+
+              &lt;!-- Small prev/next buttons --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-prev btn-icon btn-sm btn-outline-primary rounded-circle me-2&quot;&gt;
+                &lt;i class=&quot;ai-arrow-left&quot;&gt;&lt;/i&gt;
+              &lt;/button&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-next btn-icon btn-sm btn-outline-primary rounded-circle ms-2&quot;&gt;
+                &lt;i class=&quot;ai-arrow-right&quot;&gt;&lt;/i&gt;
+              &lt;/button&gt;
+        #pug1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Extra large prev/next buttons
+              button(type=&quot;button&quot;).btn.btn-prev.btn-icon.btn-xl.btn-outline-primary.rounded-circle.me-2
+                i.ai-arrow-left
+              button(type=&quot;button&quot;).btn.btn-prev.btn-icon.btn-xl.btn-outline-primary.rounded-circle.ms-2
+                i.ai-arrow-right
+
+              // Large prev/next buttons
+              button(type=&quot;button&quot;).btn.btn-prev.btn-icon.btn-lg.btn-outline-primary.rounded-circle.me-2
+                i.ai-arrow-left
+              button(type=&quot;button&quot;).btn.btn-prev.btn-icon.btn-lg.btn-outline-primary.rounded-circle.ms-2
+                i.ai-arrow-right
+
+              // Normal prev/next buttons
+              button(type=&quot;button&quot;).btn.btn-prev.btn-icon.btn-outline-primary.rounded-circle.me-2
+                i.ai-arrow-left
+              button(type=&quot;button&quot;).btn.btn-prev.btn-icon.btn-outline-primary.rounded-circle.ms-2
+                i.ai-arrow-right
+
+              // Small prev/next buttons
+              button(type=&quot;button&quot;).btn.btn-prev.btn-icon.btn-sm.btn-outline-primary.rounded-circle.me-2
+                i.ai-arrow-left
+              button(type=&quot;button&quot;).btn.btn-prev.btn-icon.btn-sm.btn-outline-primary.rounded-circle.ms-2
+                i.ai-arrow-right
+
+  // Pagination
+  section#carousel-pagination.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Pagination
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview2' data-bs-toggle='tab' role='tab' aria-controls='preview2' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview2.tab-pane.fade.show.active(role='tabpanel')
+          .row.row-cols-md-2.row-cols-xl-2.g-4
+            .col
+              .swiper.swiper-nav-onhover(
+                data-swiper-options=`{
+                  "spaceBetween": 20,
+                  "loop": true,
+                  "pagination": {
+                    "el": ".swiper-pagination",
+                    "clickable": true
+                  },
+                  "navigation": {
+                    "prevEl": ".btn-prev",
+                    "nextEl": ".btn-next"
+                  }
+                }`
+              )
+                .swiper-wrapper
+                  .swiper-slide
+                    .ratio.ratio-16x9.bg-secondary
+                      .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-4 1
+                  .swiper-slide
+                    .ratio.ratio-16x9.bg-secondary
+                      .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-4 2
+                  .swiper-slide
+                    .ratio.ratio-16x9.bg-secondary
+                      .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-4 3
+                button(type='button').btn.btn-prev.btn-icon.btn-sm.btn-outline-primary.rounded-circle
+                  i.ai-arrow-left
+                button(type='button').btn.btn-next.btn-icon.btn-sm.btn-outline-primary.rounded-circle
+                  i.ai-arrow-right
+                .swiper-pagination
+            .col
+              .swiper.swiper-nav-onhover(
+                data-swiper-options=`{
+                  "spaceBetween": 20,
+                  "pagination": {
+                    "el": ".swiper-pagination",
+                    "type": "progressbar"
+                  },
+                  "navigation": {
+                    "prevEl": ".btn-prev",
+                    "nextEl": ".btn-next"
+                  }
+                }`
+              )
+                .swiper-wrapper
+                  .swiper-slide
+                    .ratio.ratio-16x9.bg-secondary
+                      .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-4 1
+                  .swiper-slide
+                    .ratio.ratio-16x9.bg-secondary
+                      .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-4 2
+                  .swiper-slide
+                    .ratio.ratio-16x9.bg-secondary
+                      .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-4 3
+                button(type='button').btn.btn-prev.btn-icon.btn-sm.btn-outline-primary.rounded-circle
+                  i.ai-arrow-left
+                button(type='button').btn.btn-next.btn-icon.btn-sm.btn-outline-primary.rounded-circle
+                  i.ai-arrow-right
+                .swiper-pagination
+            .col
+              .swiper.swiper-nav-onhover(
+                data-swiper-options=`{
+                  "spaceBetween": 20,
+                  "pagination": {
+                    "el": ".swiper-pagination",
+                    "type": "fraction"
+                  },
+                  "navigation": {
+                    "prevEl": ".btn-prev",
+                    "nextEl": ".btn-next"
+                  }
+                }`
+              )
+                .swiper-wrapper
+                  .swiper-slide
+                    .ratio.ratio-16x9.bg-secondary
+                      .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-4 1
+                  .swiper-slide
+                    .ratio.ratio-16x9.bg-secondary
+                      .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-4 2
+                  .swiper-slide
+                    .ratio.ratio-16x9.bg-secondary
+                      .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-4 3
+                button(type='button').btn.btn-prev.btn-icon.btn-sm.btn-outline-primary.rounded-circle
+                  i.ai-arrow-left
+                button(type='button').btn.btn-next.btn-icon.btn-sm.btn-outline-primary.rounded-circle
+                  i.ai-arrow-right
+                .swiper-pagination.text-muted.fs-5.lh-1.opacity-50.fw-semibold
+            .col
+              .ratio.ratio-16x9
+                .swiper(
+                  data-swiper-options=`{
+                    "direction": "vertical",
+                    "mousewheel": true,
+                    "spaceBetween": 20,
+                    "scrollbar": {
+                      "el": ".swiper-scrollbar"
+                    }
+                  }`
+                )
+                  .swiper-wrapper
+                    .swiper-slide
+                      .ratio.ratio-16x9.bg-secondary
+                        .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-4 1
+                    .swiper-slide
+                      .ratio.ratio-16x9.bg-secondary
+                        .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-4 2
+                    .swiper-slide
+                      .ratio.ratio-16x9.bg-secondary
+                        .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-4 3
+                  .swiper-scrollbar
+        #html2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Pagination: Bullets --&gt;
+              &lt;div class=&quot;swiper swiper-nav-onhover&quot; data-swiper-options='{
+                &quot;spaceBetween&quot;: 20,
+                &quot;loop&quot;: true,
+                &quot;pagination&quot;: {
+                  &quot;el&quot;: &quot;.swiper-pagination&quot;,
+                  &quot;clickable&quot;: true
+                },
+                &quot;navigation&quot;: {
+                  &quot;prevEl&quot;: &quot;.btn-prev&quot;,
+                  &quot;nextEl&quot;: &quot;.btn-next&quot;
+                }
+              }'&gt;
+                &lt;div class=&quot;swiper-wrapper&quot;&gt;
+
+                  &lt;!-- Item --&gt;
+                  &lt;div class=&quot;swiper-slide&quot;&gt;
+                    &lt;div class=&quot;ratio ratio-16x9 bg-secondary&quot;&gt;
+                      &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4&quot;&gt;1&lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+
+                  &lt;!-- Item --&gt;
+                  &lt;div class=&quot;swiper-slide&quot;&gt;
+                    &lt;div class=&quot;ratio ratio-16x9 bg-secondary&quot;&gt;
+                      &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4&quot;&gt;2&lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+
+                  &lt;!-- Item --&gt;
+                  &lt;div class=&quot;swiper-slide&quot;&gt;
+                    &lt;div class=&quot;ratio ratio-16x9 bg-secondary&quot;&gt;
+                      &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4&quot;&gt;3&lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Prev button --&gt;
+                &lt;button type=&quot;button&quot; class=&quot;btn btn-prev btn-icon btn-sm btn-outline-primary rounded-circle&quot;&gt;
+                  &lt;i class=&quot;ai-arrow-left&quot;&gt;&lt;/i&gt;
+                &lt;/button&gt;
+
+                &lt;!-- Next button --&gt;
+                &lt;button type=&quot;button&quot; class=&quot;btn btn-prev btn-icon btn-sm btn-outline-primary rounded-circle&quot;&gt;
+                  &lt;i class=&quot;ai-arrow-right&quot;&gt;&lt;/i&gt;
+                &lt;/button&gt;
+
+                &lt;!-- Bullets --&gt;
+                &lt;div class=&quot;swiper-pagination&quot;&gt;&lt;/div&gt;
+              &lt;/div&gt;
+
+
+              &lt;!-- Pagination: Progress bar --&gt;
+              &lt;div class=&quot;swiper swiper-nav-onhover&quot; data-swiper-options='{
+                &quot;spaceBetween&quot;: 20,
+                &quot;pagination&quot;: {
+                  &quot;el&quot;: &quot;.swiper-pagination&quot;,
+                  &quot;type&quot;:  &quot;progressbar&quot;
+                },
+                &quot;navigation&quot;: {
+                  &quot;prevEl&quot;: &quot;.btn-prev&quot;,
+                  &quot;nextEl&quot;: &quot;.btn-next&quot;
+                }
+              }'&gt;
+                &lt;div class=&quot;swiper-wrapper&quot;&gt;
+
+                  &lt;!-- Item --&gt;
+                  &lt;div class=&quot;swiper-slide&quot;&gt;
+                    &lt;div class=&quot;ratio ratio-16x9 bg-secondary&quot;&gt;
+                      &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4&quot;&gt;1&lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+
+                  &lt;!-- Item --&gt;
+                  &lt;div class=&quot;swiper-slide&quot;&gt;
+                    &lt;div class=&quot;ratio ratio-16x9 bg-secondary&quot;&gt;
+                      &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4&quot;&gt;2&lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+
+                  &lt;!-- Item --&gt;
+                  &lt;div class=&quot;swiper-slide&quot;&gt;
+                    &lt;div class=&quot;ratio ratio-16x9 bg-secondary&quot;&gt;
+                      &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4&quot;&gt;3&lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Prev button --&gt;
+                &lt;button type=&quot;button&quot; class=&quot;btn btn-prev btn-icon btn-sm btn-outline-primary rounded-circle&quot;&gt;
+                  &lt;i class=&quot;ai-arrow-left&quot;&gt;&lt;/i&gt;
+                &lt;/button&gt;
+
+                &lt;!-- Next button --&gt;
+                &lt;button type=&quot;button&quot; class=&quot;btn btn-prev btn-icon btn-sm btn-outline-primary rounded-circle&quot;&gt;
+                  &lt;i class=&quot;ai-arrow-right&quot;&gt;&lt;/i&gt;
+                &lt;/button&gt;
+
+                &lt;!-- Progress bar --&gt;
+                &lt;div class=&quot;swiper-pagination&quot;&gt;&lt;/div&gt;
+              &lt;/div&gt;
+
+
+              &lt;!-- Pagination: Fraction --&gt;
+              &lt;div class=&quot;swiper swiper-nav-onhover&quot; data-swiper-options='{
+                &quot;spaceBetween&quot;: 20,
+                &quot;pagination&quot;: {
+                  &quot;el&quot;: &quot;.swiper-pagination&quot;,
+                  &quot;type&quot;: &quot;fraction&quot;
+                },
+                &quot;navigation&quot;: {
+                  &quot;prevEl&quot;: &quot;.btn-prev&quot;,
+                  &quot;nextEl&quot;: &quot;.btn-next&quot;
+                }
+              }'&gt;
+                &lt;div class=&quot;swiper-wrapper&quot;&gt;
+
+                  &lt;!-- Item --&gt;
+                  &lt;div class=&quot;swiper-slide&quot;&gt;
+                    &lt;div class=&quot;ratio ratio-16x9 bg-secondary&quot;&gt;
+                      &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4&quot;&gt;1&lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+
+                  &lt;!-- Item --&gt;
+                  &lt;div class=&quot;swiper-slide&quot;&gt;
+                    &lt;div class=&quot;ratio ratio-16x9 bg-secondary&quot;&gt;
+                      &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4&quot;&gt;2&lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+
+                  &lt;!-- Item --&gt;
+                  &lt;div class=&quot;swiper-slide&quot;&gt;
+                    &lt;div class=&quot;ratio ratio-16x9 bg-secondary&quot;&gt;
+                      &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4&quot;&gt;3&lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Prev button --&gt;
+                &lt;button type=&quot;button&quot; class=&quot;btn btn-prev btn-icon btn-sm btn-outline-primary rounded-circle&quot;&gt;
+                  &lt;i class=&quot;ai-arrow-left&quot;&gt;&lt;/i&gt;
+                &lt;/button&gt;
+
+                &lt;!-- Next button --&gt;
+                &lt;button type=&quot;button&quot; class=&quot;btn btn-prev btn-icon btn-sm btn-outline-primary rounded-circle&quot;&gt;
+                  &lt;i class=&quot;ai-arrow-rigsht&quot;&gt;&lt;/i&gt;
+                &lt;/button&gt;
+
+                &lt;!-- Fraction --&gt;
+                &lt;div class=&quot;swiper-pagination text-muted fs-5 lh-1 opacity-50 fw-semibold&quot;&gt;&lt;/div&gt;
+              &lt;/div&gt;
+
+
+              &lt;!-- Pagination: Scrollbar --&gt;
+              &lt;div class=&quot;ratio ratio-16x9&quot;&gt;
+                &lt;div class=&quot;swiper&quot; data-swiper-options='{
+                  &quot;direction&quot;: &quot;vertical&quot;,
+                  &quot;mousewheel&quot;: true,
+                  &quot;spaceBetween&quot;: 20,
+                  &quot;scrollbar&quot;: {
+                    &quot;el&quot;: &quot;.swiper-scrollbar&quot;
+                  }
+                }'&gt;
+                  &lt;div class=&quot;swiper-wrapper&quot;&gt;
+
+                    &lt;!-- Item --&gt;
+                    &lt;div class=&quot;swiper-slide&quot;&gt;
+                      &lt;div class=&quot;ratio ratio-16x9 bg-secondary&quot;&gt;
+                        &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4&quot;&gt;1&lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+
+                    &lt;!-- Item --&gt;
+                    &lt;div class=&quot;swiper-slide&quot;&gt;
+                      &lt;div class=&quot;ratio ratio-16x9 bg-secondary&quot;&gt;
+                        &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4&quot;&gt;2&lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+
+                    &lt;!-- Item --&gt;
+                    &lt;div class=&quot;swiper-slide&quot;&gt;
+                      &lt;div class=&quot;ratio ratio-16x9 bg-secondary&quot;&gt;
+                        &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4&quot;&gt;3&lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+
+                  &lt;!-- Scrollbar --&gt;
+                  &lt;div class=&quot;swiper-scrollbar&quot;&gt;&lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Pagination: Bullets
+              .swiper.swiper-nav-onhover(
+                data-swiper-options=`{
+                  &quot;spaceBetween&quot;: 20,
+                  &quot;loop&quot;: true,
+                  &quot;pagination&quot;: {
+                    &quot;el&quot;: &quot;.swiper-pagination&quot;,
+                    &quot;clickable&quot;: true
+                  },
+                  &quot;navigation&quot;: {
+                    &quot;prevEl&quot;: &quot;.btn-prev&quot;,
+                    &quot;nextEl&quot;: &quot;.btn-next&quot;
+                  }
+                }`
+              )
+                .swiper-wrapper
+
+                  // Item
+                  .swiper-slide
+                    .ratio.ratio-16x9.bg-secondary
+                      .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-4
+                        | 1
+                  
+                  // Item
+                  .swiper-slide
+                    .ratio.ratio-16x9.bg-secondary
+                      .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-4
+                        | 2
+                  
+                  // Item
+                  .swiper-slide
+                    .ratio.ratio-16x9.bg-secondary
+                      .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-4
+                        | 3
+                
+                // Prev button
+                button(type=&quot;button&quot;).btn.btn-prev.btn-icon.btn-sm.btn-outline-primary.rounded-circle
+                  i.ai-arrow-left
+                
+                // Next button
+                button(type=&quot;button&quot;).btn.btn-next.btn-icon.btn-sm.btn-outline-primary.rounded-circle
+                  i.ai-arrow-right
+
+                // Bullets
+                .swiper-pagination
+
+
+              // Pagination: Progress bar
+              .swiper.swiper-nav-onhover(
+                data-swiper-options=`{
+                  &quot;spaceBetween&quot;: 20,
+                  &quot;pagination&quot;: {
+                    &quot;el&quot;: &quot;.swiper-pagination&quot;,
+                    &quot;type&quot;: &quot;progressbar&quot;
+                  },
+                  &quot;navigation&quot;: {
+                    &quot;prevEl&quot;: &quot;.btn-prev&quot;,
+                    &quot;nextEl&quot;: &quot;.btn-next&quot;
+                  }
+                }`
+              )
+                .swiper-wrapper
+
+                  // Item
+                  .swiper-slide
+                    .ratio.ratio-16x9.bg-secondary
+                      .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-4
+                        | 1
+                  
+                  // Item
+                  .swiper-slide
+                    .ratio.ratio-16x9.bg-secondary
+                      .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-4
+                        | 2
+                  
+                  // Item
+                  .swiper-slide
+                    .ratio.ratio-16x9.bg-secondary
+                      .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-4
+                        | 3
+                
+                // Prev button
+                button(type=&quot;button&quot;).btn.btn-prev.btn-icon.btn-sm.btn-outline-primary.rounded-circle
+                  i.ai-arrow-left
+                
+                // Next button
+                button(type=&quot;button&quot;).btn.btn-next.btn-icon.btn-sm.btn-outline-primary.rounded-circle
+                  i.ai-arrow-right
+
+                // Progress bar
+                .swiper-pagination
+
+
+              // Pagination: Fraction
+              .swiper.swiper-nav-onhover(
+                data-swiper-options=`{
+                  &quot;spaceBetween&quot;: 20,
+                  &quot;pagination&quot;: {
+                    &quot;el&quot;: &quot;.swiper-pagination&quot;,
+                    &quot;type&quot;: &quot;fraction&quot;
+                  },
+                  &quot;navigation&quot;: {
+                    &quot;prevEl&quot;: &quot;.btn-prev&quot;,
+                    &quot;nextEl&quot;: &quot;.btn-next&quot;
+                  }
+                }`
+              )
+                .swiper-wrapper
+
+                  // Item
+                  .swiper-slide
+                    .ratio.ratio-16x9.bg-secondary
+                      .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-4
+                        | 1
+                  
+                  // Item
+                  .swiper-slide
+                    .ratio.ratio-16x9.bg-secondary
+                      .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-4
+                        | 2
+                  
+                  // Item
+                  .swiper-slide
+                    .ratio.ratio-16x9.bg-secondary
+                      .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-4
+                        | 3
+                
+                // Prev button
+                button(type=&quot;button&quot;).btn.btn-prev.btn-icon.btn-sm.btn-outline-primary.rounded-circle
+                  i.ai-arrow-left
+                
+                // Next button
+                button(type=&quot;button&quot;).btn.btn-next.btn-icon.btn-sm.btn-outline-primary.rounded-circle
+                  i.ai-arrow-right
+
+                // Fraction
+                .swiper-pagination.text-muted.fs-5.lh-1.opacity-50.fw-semibold
+
+
+              // Pagination: Scrollbar
+              .ratio.ratio-16x9
+                .swiper(
+                  data-swiper-options=`{
+                    &quot;direction&quot;: &quot;vertical&quot;,
+                    &quot;mousewheel&quot;: true,
+                    &quot;spaceBetween&quot;: 20,
+                    &quot;scrollbar&quot;: {
+                      &quot;el&quot;: &quot;.swiper-scrollbar&quot;
+                    }
+                  }`
+                )
+                  .swiper-wrapper
+
+                    // Item
+                    .swiper-slide
+                      .ratio.ratio-16x9.bg-secondary
+                        .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-4
+                          | 1
+                    
+                    // Item
+                    .swiper-slide
+                      .ratio.ratio-16x9.bg-secondary
+                        .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-4
+                          | 2
+                    
+                    // Item
+                    .swiper-slide
+                      .ratio.ratio-16x9.bg-secondary
+                        .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-4
+                          | 3
+
+                  // Scrollbar
+                  .swiper-scrollbar
+
+  // Multiple slides (Responsive) + Controls and pagination outside
+  section#carousel-multiple-slides.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Multiple slides (Responsive) + Controls and pagination outside
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview3' data-bs-toggle='tab' role='tab' aria-controls='preview3' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview3.tab-pane.fade.show.active(role='tabpanel')
+          .position-relative.px-5
+            button(type='button')#prev.btn.btn-prev.btn-icon.btn-sm.btn-outline-primary.rounded-circle.position-absolute.top-50.start-0.translate-middle-y.mt-n3
+              i.ai-arrow-left
+            button(type='button')#next.btn.btn-next.btn-icon.btn-sm.btn-outline-primary.rounded-circle.position-absolute.top-50.end-0.translate-middle-y.mt-n3
+              i.ai-arrow-right
+            .swiper(
+              data-swiper-options=`{
+                "slidesPerView": 1,
+                "spaceBetween": 16,
+                "loop": true,
+                "pagination": {
+                  "el": ".swiper-pagination",
+                  "clickable": true
+                },
+                "navigation": {
+                  "prevEl": "#prev",
+                  "nextEl": "#next"
+                },
+                "breakpoints": {
+                  "600": {
+                    "slidesPerView": 2
+                  },
+                  "1000": {
+                    "slidesPerView": 3
+                  }
+                }
+              }`
+            )
+              .swiper-wrapper
+                .swiper-slide
+                  .ratio.ratio-4x3.bg-faded-info
+                    .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-5
+                      | 1
+                .swiper-slide
+                  .ratio.ratio-4x3.bg-faded-success
+                    .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-5
+                      | 2
+                .swiper-slide
+                  .ratio.ratio-4x3.bg-faded-danger
+                    .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-5
+                      | 3
+                .swiper-slide
+                  .ratio.ratio-4x3.bg-faded-warning
+                    .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-5
+                      | 4
+              .swiper-pagination.position-relative.bottom-0.mt-4
+        #html3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Multiple slides responsive slider with external Prev / Next buttons and bullets outside --&gt;
+              &lt;div class=&quot;position-relative px-5&quot;&gt;
+
+                &lt;!-- External slider prev/next buttons --&gt;
+                &lt;button type=&quot;button&quot; id=&quot;prev&quot; class=&quot;btn btn-prev btn-icon btn-sm btn-outline-primary rounded-circle position-absolute top-50 start-0 translate-middle-y mt-n3&quot;&gt;
+                  &lt;i class=&quot;ai-arrow-left&quot;&gt;&lt;/i&gt;
+                &lt;/button&gt;
+                &lt;button type=&quot;button&quot; id=&quot;next&quot; class=&quot;btn btn-prev btn-icon btn-sm btn-outline-primary rounded-circle position-absolute top-50 end-0 translate-middle-y mt-n3&quot;&gt;
+                  &lt;i class=&quot;ai-arrow-right&quot;&gt;&lt;/i&gt;
+                &lt;/button&gt;
+
+                &lt;!-- Slider --&gt;
+                &lt;div class=&quot;swiper&quot; data-swiper-options='{
+                  &quot;slidesPerView&quot;: 1,
+                  &quot;spaceBetween&quot;: 16,
+                  &quot;loop&quot;: true,
+                  &quot;pagination&quot;: {
+                    &quot;el&quot;: &quot;.swiper-pagination&quot;,
+                    &quot;clickable&quot;: true
+                  },
+                  &quot;navigation&quot;: {
+                    &quot;prevEl&quot;: &quot;#prev&quot;,
+                    &quot;nextEl&quot;: &quot;#next&quot;
+                  },
+                  &quot;breakpoints&quot;: {
+                    &quot;600&quot;: {
+                      &quot;slidesPerView&quot;: 2
+                    },
+                    &quot;1000&quot;: {
+                      &quot;slidesPerView&quot;: 3
+                    }
+                  }
+                }'&gt;
+                  &lt;div class=&quot;swiper-wrapper&quot;&gt;
+
+                    &lt;!-- Item --&gt;
+                    &lt;div class=&quot;swiper-slide&quot;&gt;
+                      &lt;div class=&quot;ratio ratio-4x3 bg-faded-info&quot;&gt;
+                        &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4&quot;&gt;1&lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+
+                    &lt;!-- Item --&gt;
+                    &lt;div class=&quot;swiper-slide&quot;&gt;
+                      &lt;div class=&quot;ratio ratio-4x3 bg-faded-success&quot;&gt;
+                        &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4&quot;&gt;2&lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+
+                    &lt;!-- Item --&gt;
+                    &lt;div class=&quot;swiper-slide&quot;&gt;
+                      &lt;div class=&quot;ratio ratio-4x3 bg-faded-danger&quot;&gt;
+                        &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4&quot;&gt;2&lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+
+                    &lt;!-- Item --&gt;
+                    &lt;div class=&quot;swiper-slide&quot;&gt;
+                      &lt;div class=&quot;ratio ratio-4x3 bg-faded-warning&quot;&gt;
+                        &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-4&quot;&gt;2&lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+
+                  &lt;!-- Pagination (Bullets) --&gt;
+                  &lt;div class=&quot;swiper-pagination position-relative bottom-0 mt-4&quot;&gt;&lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Multiple slides responsive slider with external Prev / Next buttons and bullets outside
+              .position-relative.px-5
+
+                // External slider prev/next buttons
+                button(type=&quot;button&quot;)#prev.btn.btn-prev.btn-icon.btn-sm.btn-outline-primary.rounded-circle.position-absolute.top-50.start-0.translate-middle-y.mt-n3
+                  i.ai-arrow-left
+                button(type=&quot;button&quot;)#next.btn.btn-next.btn-icon.btn-sm.btn-outline-primary.rounded-circle.position-absolute.top-50.end-0.translate-middle-y.mt-n3
+                  i.ai-arrow-right
+
+                // Slider
+                .swiper(
+                  data-swiper-options=`{
+                    &quot;slidesPerView&quot;: 1,
+                    &quot;spaceBetween&quot;: 16,
+                    &quot;loop&quot;: true,
+                    &quot;pagination&quot;: {
+                      &quot;el&quot;: &quot;.swiper-pagination&quot;,
+                      &quot;clickable&quot;: true
+                    },
+                    &quot;navigation&quot;: {
+                      &quot;prevEl&quot;: &quot;#prev&quot;,
+                      &quot;nextEl&quot;: &quot;#next&quot;
+                    },
+                    &quot;breakpoints&quot;: {
+                      &quot;600&quot;: {
+                        &quot;slidesPerView&quot;: 2
+                      },
+                      &quot;1000&quot;: {
+                        &quot;slidesPerView&quot;: 3
+                      }
+                    }
+                  }`
+                )
+                  .swiper-wrapper
+
+                    // Item
+                    .swiper-slide
+                      .ratio.ratio-4x3.bg-faded-info
+                        .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-5
+                          | 1
+                    
+                    // Item
+                    .swiper-slide
+                      .ratio.ratio-4x3.bg-faded-success
+                        .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-5
+                          | 2
+                    
+                    // Item
+                    .swiper-slide
+                      .ratio.ratio-4x3.bg-faded-danger
+                        .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-5
+                          | 3
+                    
+                    // Item
+                    .swiper-slide
+                      .ratio.ratio-4x3.bg-faded-warning
+                        .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-5
+                          | 4
+                  
+                  // Pagination (Bullets)
+                  .swiper-pagination.position-relative.bottom-0.mt-4
+
+  // Fade transition
+  section#carousel-fade.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Fade transition
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview4' data-bs-toggle='tab' role='tab' aria-controls='preview4' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview4.tab-pane.fade.show.active(role='tabpanel')
+          .swiper.swiper-nav-onhover(
+            data-swiper-options=`{
+              "effect": "fade",
+              "loop": true,
+              "navigation": {
+                "prevEl": ".btn-prev",
+                "nextEl": ".btn-next"
+              }
+            }`
+          )
+            .swiper-wrapper
+              .swiper-slide.bg-light
+                .ratio.ratio-16x9.bg-faded-info
+                  .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-5
+                    | First
+              .swiper-slide.bg-light
+                .ratio.ratio-16x9.bg-faded-danger
+                  .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-5
+                    | Second
+              .swiper-slide.bg-light
+                .ratio.ratio-16x9.bg-faded-warning
+                  .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-5
+                    | Third
+            button(type='button').btn.btn-prev.btn-icon.btn-sm.btn-outline-primary.rounded-circle
+              i.ai-arrow-left
+            button(type='button').btn.btn-next.btn-icon.btn-sm.btn-outline-primary.rounded-circle
+              i.ai-arrow-right
+        #html4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Slider with fade transition between slides --&gt;
+              &lt;div class=&quot;swiper&quot; data-swiper-options='{
+                &quot;effect&quot;: &quot;fade&quot;,
+                &quot;loop&quot;: true,
+                &quot;navigation&quot;: {
+                  &quot;prevEl&quot;: &quot;.btn-prev&quot;,
+                  &quot;nextEl&quot;: &quot;.btn-next&quot;
+                }
+              }'&gt;
+                &lt;div class=&quot;swiper-wrapper&quot;&gt;
+
+                  &lt;!-- Item --&gt;
+                  &lt;div class=&quot;swiper-slide bg-light&quot;&gt;
+                    &lt;div class=&quot;ratio ratio-16x9 bg-faded-info&quot;&gt;
+                      &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-5&quot;&gt;First&lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+
+                  &lt;!-- Item --&gt;
+                  &lt;div class=&quot;swiper-slide bg-light&quot;&gt;
+                    &lt;div class=&quot;ratio ratio-16x9 bg-faded-danger&quot;&gt;
+                      &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-5&quot;&gt;Second&lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+
+                  &lt;!-- Item --&gt;
+                  &lt;div class=&quot;swiper-slide bg-light&quot;&gt;
+                    &lt;div class=&quot;ratio ratio-16x9 bg-faded-warning&quot;&gt;
+                      &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-5&quot;&gt;Third&lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Prev button --&gt;
+                &lt;button type=&quot;button&quot; class=&quot;btn btn-prev btn-icon btn-sm btn-outline-primary rounded-circle&quot;&gt;
+                  &lt;i class=&quot;ai-arrow-left&quot;&gt;&lt;/i&gt;
+                &lt;/button&gt;
+
+                &lt;!-- Next button --&gt;
+                &lt;button type=&quot;button&quot; class=&quot;btn btn-prev btn-icon btn-sm btn-outline-primary rounded-circle&quot;&gt;
+                  &lt;i class=&quot;ai-arrow-rigsht&quot;&gt;&lt;/i&gt;
+                &lt;/button&gt;
+              &lt;/div&gt;
+        #pug4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Slider with fade transition between slides
+              .swiper.swiper-nav-onhover(
+                data-swiper-options=`{
+                  &quot;effect&quot;: &quot;fade&quot;,
+                  &quot;loop&quot;: true,
+                  &quot;navigation&quot;: {
+                    &quot;prevEl&quot;: &quot;.btn-prev&quot;,
+                    &quot;nextEl&quot;: &quot;.btn-next&quot;
+                  }
+                }`
+              )
+                .swiper-wrapper
+
+                  // Item
+                  .swiper-slide.bg-light
+                    .ratio.ratio-16x9.bg-faded-info
+                      .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-5
+                        | First
+                  
+                  // Item
+                  .swiper-slide.bg-light
+                    .ratio.ratio-16x9.bg-faded-danger
+                      .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-5
+                        | Second
+                  
+                  // Item
+                  .swiper-slide.bg-light
+                    .ratio.ratio-16x9.bg-faded-warning
+                      .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-5
+                        | Third
+                
+                // Prev button
+                button(type=&quot;button&quot;).btn.btn-prev.btn-icon.btn-sm.btn-outline-primary.rounded-circle
+                  i.ai-arrow-left
+                
+                // Next button
+                button(type=&quot;button&quot;).btn.btn-next.btn-icon.btn-sm.btn-outline-primary.rounded-circle
+                  i.ai-arrow-right
+
+  // Link slides to outside content
+  section#carousel-link-to-content.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Link slides to outside content
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview5' data-bs-toggle='tab' role='tab' aria-controls='preview5' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html5' data-bs-toggle='tab' role='tab' aria-controls='html5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug5' data-bs-toggle='tab' role='tab' aria-controls='pug5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview5.tab-pane.fade.show.active(role='tabpanel')
+          .row.align-items-center
+            .col-md-5.mb-4.mb-md-0.pb-1.pb-md-0
+              .binded-content
+                #item1.binded-item.active
+                  .ratio.ratio-4x3.bg-faded-danger
+                    .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-5
+                      i.ai-image.text-danger.opacity-80
+                #item2.binded-item
+                  .ratio.ratio-4x3.bg-faded-success
+                    .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-5
+                      i.ai-image.text-success.opacity-80
+                #item3.binded-item
+                  .ratio.ratio-4x3.bg-faded-warning
+                    .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-5
+                      i.ai-image.text-warning.opacity-80
+            .col-md-7.ps-xl-5
+              .swiper(
+                data-swiper-options=`{
+                  "spaceBetween": 30,
+                  "loop": true,
+                  "bindedContent": true,
+                  "navigation": {
+                    "prevEl": "#prev-btn",
+                    "nextEl": "#next-btn"
+                  }
+                }`
+              )
+                .swiper-wrapper.text-center.text-md-start
+                  .swiper-slide(data-swiper-binded='#item1')
+                    h3 First slide
+                    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque varius pulvinar dui eu ullamcorper. Donec a nisl sed felis pretium posuere ut vitae arcu.
+                  .swiper-slide(data-swiper-binded='#item2')
+                    h3 Second slide
+                    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque varius pulvinar dui eu ullamcorper. Donec a nisl sed felis pretium posuere ut vitae arcu.
+                  .swiper-slide(data-swiper-binded='#item3')
+                    h3 Third slide
+                    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque varius pulvinar dui eu ullamcorper. Donec a nisl sed felis pretium posuere ut vitae arcu.
+              .d-flex.justify-content-center.justify-content-md-start.pt-2
+                button(type='button')#prev-btn.btn.btn-prev.btn-icon.btn-sm.btn-outline-primary.rounded-circle.me-2
+                  i.ai-arrow-left
+                button(type='button')#next-btn.btn.btn-next.btn-icon.btn-sm.btn-outline-primary.rounded-circle.ms-2
+                  i.ai-arrow-right
+        #html5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Link swiper slides to any content via binded-content --&gt;
+              &lt;div class=&quot;row align-items-center&quot;&gt;
+                &lt;div class=&quot;col-md-5 mb-4 mb-md-0 pb-1 pb-md-0&quot;&gt;
+
+                  &lt;!-- Binded items --&gt;
+                  &lt;div class=&quot;binded-content&quot;&gt;
+
+                    &lt;!-- Item --&gt;
+                    &lt;div id=&quot;item1&quot; class=&quot;binded-item active&quot;&gt;
+                      &lt;div class=&quot;ratio ratio-4x3 bg-faded-danger&quot;&gt;
+                        &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-5&quot;&gt;
+                          &lt;i class=&quot;ai-image text-danger opacity-80&quot;&gt;&lt;/i&gt;
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+
+                    &lt;!-- Item --&gt;
+                    &lt;div id=&quot;item2&quot; class=&quot;binded-item&quot;&gt;
+                      &lt;div class=&quot;ratio ratio-4x3 bg-faded-success&quot;&gt;
+                        &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-5&quot;&gt;
+                          &lt;i class=&quot;ai-image text-success opacity-80&quot;&gt;&lt;/i&gt;
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+
+                    &lt;!-- Item --&gt;
+                    &lt;div id=&quot;item3&quot; class=&quot;binded-item&quot;&gt;
+                      &lt;div class=&quot;ratio ratio-4x3 bg-faded-warning&quot;&gt;
+                        &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center display-5&quot;&gt;
+                          &lt;i class=&quot;ai-image text-warning opacity-80&quot;&gt;&lt;/i&gt;
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                
+                &lt;div class=&quot;col-md-7 ps-xl-5&quot;&gt;
+
+                  &lt;!-- Swiper slider --&gt;
+                  &lt;div class=&quot;swiper&quot; data-swiper-options='{
+                    &quot;spaceBetween&quot;: 30,
+                    &quot;loop&quot;: true,
+                    &quot;bindedContent&quot;: true,
+                    &quot;navigation&quot;: {
+                      &quot;prevEl&quot;: &quot;#prev-btn&quot;,
+                      &quot;nextEl&quot;: &quot;#next-btn&quot;
+                    }
+                  }'&gt;
+                    &lt;div class=&quot;swiper-wrapper text-center text-md-start&quot;&gt;
+
+                      &lt;!-- Item --&gt;
+                      &lt;div class=&quot;swiper-slide&quot; data-swiper-binded=&quot;#item1&quot;&gt;
+                        &lt;h3&gt; First slide&lt;/h3&gt;
+                        &lt;p&gt; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque varius pulvinar dui eu ullamcorper. Donec a nisl sed felis pretium posuere ut vitae arcu.&lt;/p&gt;
+                      &lt;/div&gt;
+
+                      &lt;!-- Item --&gt;
+                      &lt;div class=&quot;swiper-slide&quot; data-swiper-binded=&quot;#item2&quot;&gt;
+                        &lt;h3&gt; Second slide&lt;/h3&gt;
+                        &lt;p&gt; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque varius pulvinar dui eu ullamcorper. Donec a nisl sed felis pretium posuere ut vitae arcu.&lt;/p&gt;
+                      &lt;/div&gt;
+
+                      &lt;!-- Item --&gt;
+                      &lt;div class=&quot;swiper-slide&quot; data-swiper-binded=&quot;#item3&quot;&gt;
+                        &lt;h3&gt; Third slide&lt;/h3&gt;
+                        &lt;p&gt; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque varius pulvinar dui eu ullamcorper. Donec a nisl sed felis pretium posuere ut vitae arcu.&lt;/p&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+
+                    &lt;!-- Slider controls (Prev / next) --&gt;
+                    &lt;div class=&quot;d-flex justify-content-center justify-content-md-start pt-2&quot;&gt;
+                      &lt;button type=&quot;button&quot; id=&quot;prev-btn&quot; class=&quot;btn btn-prev btn-icon btn-sm btn-outline-primary rounded-circle me-2&quot;&gt;
+                        &lt;i class=&quot;ai-arrow-left&quot;&gt;&lt;/i&gt;
+                      &lt;/button&gt;
+                      &lt;button type=&quot;button&quot; id=&quot;next-btn&quot; class=&quot;btn btn-prev btn-icon btn-sm btn-outline-primary rounded-circle ms-2&quot;&gt;
+                        &lt;i class=&quot;ai-arrow-rigsht&quot;&gt;&lt;/i&gt;
+                      &lt;/button&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Link swiper slides to any content via binded-content
+              .row.align-items-center
+                .col-md-5.mb-4.mb-md-0.pb-1.pb-md-0
+
+                  // Binded items
+                  .binded-content
+
+                    // Item
+                    #item1.binded-item.active
+                      .ratio.ratio-4x3.bg-faded-danger
+                        .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-5
+                          i.ai-image.text-danger.opacity-80
+                    
+                    // Item
+                    #item2.binded-item
+                      .ratio.ratio-4x3.bg-faded-success
+                        .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-5
+                          i.ai-image.text-success.opacity-80
+                    
+                    // Item
+                    #item3.binded-item
+                      .ratio.ratio-4x3.bg-faded-warning
+                        .position-absolute.top-0.start-0.w-100.h-100.d-flex.align-items-center.justify-content-center.display-5
+                          i.ai-image.text-warning.opacity-80
+                
+                .col-md-7.ps-xl-5
+
+                  // Swiper slider
+                  .swiper(
+                    data-swiper-options=`{
+                      &quot;spaceBetween&quot;: 30,
+                      &quot;loop&quot;: true,
+                      &quot;bindedContent&quot;: true,
+                      &quot;navigation&quot;: {
+                        &quot;prevEl&quot;: &quot;#prev-btn&quot;,
+                        &quot;nextEl&quot;: &quot;#next-btn&quot;
+                      }
+                    }`
+                  )
+                    .swiper-wrapper.text-center.text-md-start
+
+                      // Item
+                      .swiper-slide(data-swiper-binded=&quot;#item1&quot;)
+                        h3 First slide
+                        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque varius pulvinar dui eu ullamcorper. Donec a nisl sed felis pretium posuere ut vitae arcu.
+                      
+                      // Item
+                      .swiper-slide(data-swiper-binded=&quot;#item2&quot;)
+                        h3 Second slide
+                        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque varius pulvinar dui eu ullamcorper. Donec a nisl sed felis pretium posuere ut vitae arcu.
+
+                      // Item
+                      .swiper-slide(data-swiper-binded=&quot;#item3&quot;)
+                        h3 Third slide
+                        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque varius pulvinar dui eu ullamcorper. Donec a nisl sed felis pretium posuere ut vitae arcu.
+
+                  // Slider controls (Prev / next)
+                  .d-flex.justify-content-center.justify-content-md-start.pt-2
+                    button(type=&quot;button&quot;)#prev-btn.btn.btn-prev.btn-icon.btn-sm.btn-outline-primary.rounded-circle.me-2
+                      i.ai-arrow-left
+                    button(type=&quot;button&quot;)#next-btn.btn.btn-next.btn-icon.btn-sm.btn-outline-primary.rounded-circle.ms-2
+                      i.ai-arrow-right

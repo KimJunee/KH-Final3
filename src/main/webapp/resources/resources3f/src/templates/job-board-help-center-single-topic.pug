@@ -1,0 +1,342 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var parentMenu = 'Pages'
+  - var pageTitle = 'Job Board | Help Center - Single Topic'
+
+//- Navbar
+block navbar
+  include partials/navbar-job-board
+
+//- Page Content
+block content
+
+  // Page header
+  section.bg-dark.py-5
+    .container.pt-5.pb-5
+
+      // Breadcrumbs + page title
+      nav(aria-label='breadcrumb').mb-4.pb-lg-3
+        ol.breadcrumb.breadcrumb-light
+          li.breadcrumb-item
+            a(href='job-board-home-v1.html') Home
+          li.breadcrumb-item
+            a(href='job-board-help-center.html') Help center
+          li(aria-current='page').breadcrumb-item.active
+            | For job seekers
+
+      // Page title
+      div(style='max-width: 856px;').mb-lg-5.mx-auto.text-center
+        h1.text-light.mb-4.pb-3
+          | For job seekers
+
+        // Search form
+        form.form-group.form-group-lg.form-group-light.rounded-pill
+          input(type='text' placeholder='What are you looking for?').form-control
+          button(type='submit').btn.btn-lg.btn-primary.rounded-pill.px-sm-4.px-3
+            i.fi-search.me-sm-2
+            span.d-sm-inline.d-none Search
+
+
+  // Page content
+  section.position-relative.bg-white.rounded-xxl-4.mb-5.pt-md-3.pb-lg-5.zindex-5(style='margin-top: -30px;')
+    .container.pt-5
+      .row
+
+        // Sidebar
+        aside.col-lg-3.col-md-4.d-md-block.d-none.position-relative
+          nav(style='top: 116px;').border-start.sticky-top
+            ul.nav.flex-column
+              li.nav-item: a(href='#popular-questions' data-scroll).nav-link.py-1.px-4.fw-normal Popular questions
+              li.nav-item: a(href='#job-search' data-scroll).nav-link.py-1.px-4.fw-normal Job search
+              li.nav-item: a(href='#resume-creation' data-scroll).nav-link.py-1.px-4.fw-normal Resume creation and editing
+              li.nav-item: a(href='#job-application' data-scroll).nav-link.py-1.px-4.fw-normal Job application
+              li.nav-item: a(href='#registration-and-login' data-scroll).nav-link.py-1.px-4.fw-normal Registration and login
+              li.nav-item: a(href='#technical-information' data-scroll).nav-link.py-1.px-4.fw-normal Technical information
+              li.nav-item: a(href='#newsletter-of-new-vacancies' data-scroll).nav-link.py-1.px-4.fw-normal Newsletter of new vacancies
+
+        .col-md-8.offset-lg-1
+
+          #popular-questions.mb-md-5.mb-4.pb-lg-2
+            h2.h4.mb-md-4 Popular questions
+
+            // Popular questions accordion
+            .accordion#accordionPQ
+              .accordion-item
+                h2.accordion-header#pq-heading-1
+                  button(type='button' data-bs-toggle='collapse' data-bs-target='#pq-collapse-1' aria-expanded='true' aria-controls='pq-collapse-1').accordion-button.fw-normal
+                    | Getting started: the basics
+                div(aria-labelledby='pq-heading-1' data-bs-parent='#accordionPQ').accordion-collapse.collapse.show#pq-collapse-1
+                  .accordion-body.fs-sm
+                    | Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, quaerat. Corporis pariatur cum dolorem ullam at nulla ex doloribus, ratione quos repellendus aliquid aspernatur obcaecati adipisci maxime id, sed cupiditate.
+              .accordion-item
+                h2.accordion-header#pq-heading-2
+                  button(type='button' data-bs-toggle='collapse' data-bs-target='#pq-collapse-2' aria-expanded='false' aria-controls='pq-collapse-2').accordion-button.fw-normal.collapsed
+                    | Will our data be private and safe?
+                div(aria-labelledby='pq-heading-2' data-bs-parent='#accordionPQ').accordion-collapse.collapse#pq-collapse-2
+                  .accordion-body.fs-sm
+                    | Eros aliquam egestas eu sit faucibus facilisi urna, senectus id. Morbi pellentesque at molestie et. Et molestie nunc massa, donec eget viverra. Sodales nisl vitae gravida pretium enim cursus pharetra massa nisl. Auctor porta dolor nulla elementum malesuada ut etiam neque, enim. Nisi, eget viverra platea fringilla aliquet eros varius tellus nibh.
+              .accordion-item
+                h2.accordion-header#pq-heading-3
+                  button(type='button' data-bs-toggle='collapse' data-bs-target='#pq-collapse-3' aria-expanded='false' aria-controls='pq-collapse-3').accordion-button.fw-normal.collapsed
+                    | Should I apply for a job even if I don't have the specified experience?
+                div(aria-labelledby='pq-heading-3' data-bs-parent='#accordionPQ').accordion-collapse.collapse#pq-collapse-3
+                  .accordion-body.fs-sm
+                    | Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero ut accusantium ea a ipsa, aliquam nemo aperiam porro deserunt aspernatur sequi amet voluptatibus, fugiat nobis. Atque voluptatibus quibusdam placeat voluptas?
+              .accordion-item
+                h2.accordion-header#pq-heading-4
+                  button(type='button' data-bs-toggle='collapse' data-bs-target='#pq-collapse-4' aria-expanded='false' aria-controls='pq-collapse-4').accordion-button.fw-normal.collapsed
+                    | What exactly is a personal brand and why do I need one?
+                div(aria-labelledby='pq-heading-4' data-bs-parent='#accordionPQ').accordion-collapse.collapse#pq-collapse-4
+                  .accordion-body.fs-sm
+                    | Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores qui nulla unde saepe, similique non rem est adipisci accusamus minima mollitia repellat, illum eius quidem molestias nam illo expedita iste.
+              .accordion-item
+                h2.accordion-header#pq-heading-5
+                  button(type='button' data-bs-toggle='collapse' data-bs-target='#pq-collapse-5' aria-expanded='false' aria-controls='pq-collapse-5').accordion-button.fw-normal.collapsed
+                    | What are the most important things to include in my resume?
+                div(aria-labelledby='pq-heading-5' data-bs-parent='#accordionPQ').accordion-collapse.collapse#pq-collapse-5
+                  .accordion-body.fs-sm
+                    | Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed itaque ab dicta sint, quam fugiat culpa aliquid, labore est vero explicabo, non voluptas at perspiciatis omnis impedit libero possimus! Alias!
+              .accordion-item
+                h2.accordion-header#pq-heading-6
+                  button(type='button' data-bs-toggle='collapse' data-bs-target='#pq-collapse-6' aria-expanded='false' aria-controls='pq-collapse-6').accordion-button.fw-normal.collapsed
+                    | How long should I make my cover letter and/or resume?
+                div(aria-labelledby='pq-heading-6' data-bs-parent='#accordionPQ').accordion-collapse.collapse#pq-collapse-6
+                  .accordion-body.fs-sm
+                    | Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius iste voluptas ducimus! Sequi, expedita est. Accusamus, quaerat nulla! Ex exercitationem iure voluptatum mollitia amet, corporis sit ab temporibus et consectetur.
+
+          #job-search.mb-md-5.mb-4.pb-lg-2
+            h2.h4.mb-md-4 Job search
+
+            // Job search accordion
+            .accordion#accordionJS
+              .accordion-item
+                h2.accordion-header#js-heading-1
+                  button(type='button' data-bs-toggle='collapse' data-bs-target='#js-collapse-1' aria-expanded='false' aria-controls='js-collapse-1').accordion-button.fw-normal.collapsed
+                    | Getting started: the basics
+                div(aria-labelledby='js-heading-1' data-bs-parent='#accordionJS').accordion-collapse.collapse#js-collapse-1
+                  .accordion-body.fs-sm
+                    | Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, quaerat. Corporis pariatur cum dolorem ullam at nulla ex doloribus, ratione quos repellendus aliquid aspernatur obcaecati adipisci maxime id, sed cupiditate.
+              .accordion-item
+                h2.accordion-header#js-heading-2
+                  button(type='button' data-bs-toggle='collapse' data-bs-target='#js-collapse-2' aria-expanded='false' aria-controls='js-collapse-2').accordion-button.fw-normal.collapsed
+                    | Will our data be private and safe?
+                div(aria-labelledby='js-heading-2' data-bs-parent='#accordionJS').accordion-collapse.collapse#js-collapse-2
+                  .accordion-body.fs-sm
+                    | Eros aliquam egestas eu sit faucibus facilisi urna, senectus id. Morbi pellentesque at molestie et. Et molestie nunc massa, donec eget viverra. Sodales nisl vitae gravida pretium enim cursus pharetra massa nisl. Auctor porta dolor nulla elementum malesuada ut etiam neque, enim. Nisi, eget viverra platea fringilla aliquet eros varius tellus nibh.
+              .accordion-item
+                h2.accordion-header#js-heading-3
+                  button(type='button' data-bs-toggle='collapse' data-bs-target='#js-collapse-3' aria-expanded='false' aria-controls='js-collapse-3').accordion-button.fw-normal.collapsed
+                    | Should I apply for a job even if I don't have the specified experience?
+                div(aria-labelledby='js-heading-3' data-bs-parent='#accordionJS').accordion-collapse.collapse#js-collapse-3
+                  .accordion-body.fs-sm
+                    | Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero ut accusantium ea a ipsa, aliquam nemo aperiam porro deserunt aspernatur sequi amet voluptatibus, fugiat nobis. Atque voluptatibus quibusdam placeat voluptas?
+              .accordion-item
+                h2.accordion-header#js-heading-4
+                  button(type='button' data-bs-toggle='collapse' data-bs-target='#js-collapse-4' aria-expanded='false' aria-controls='js-collapse-4').accordion-button.fw-normal.collapsed
+                    | What exactly is a personal brand and why do I need one?
+                div(aria-labelledby='js-heading-4' data-bs-parent='#accordionJS').accordion-collapse.collapse#js-collapse-4
+                  .accordion-body.fs-sm
+                    | Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores qui nulla unde saepe, similique non rem est adipisci accusamus minima mollitia repellat, illum eius quidem molestias nam illo expedita iste.
+
+          #resume-creation.mb-md-5.mb-4.pb-lg-2
+            h2.h4.mb-md-4 Resume creation and editing
+
+            // Resume creation and editing accordion
+            .accordion#accordionRC
+              .accordion-item
+                h2.accordion-header#rc-heading-1
+                  button(type='button' data-bs-toggle='collapse' data-bs-target='#rc-collapse-1' aria-expanded='false' aria-controls='rc-collapse-1').accordion-button.fw-normal.collapsed
+                    | Getting started: the basics
+                div(aria-labelledby='rc-heading-1' data-bs-parent='#accordionRC').accordion-collapse.collapse#rc-collapse-1
+                  .accordion-body.fs-sm
+                    | Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, quaerat. Corporis pariatur cum dolorem ullam at nulla ex doloribus, ratione quos repellendus aliquid aspernatur obcaecati adipisci maxime id, sed cupiditate.
+              .accordion-item
+                h2.accordion-header#rc-heading-2
+                  button(type='button' data-bs-toggle='collapse' data-bs-target='#rc-collapse-2' aria-expanded='false' aria-controls='rc-collapse-2').accordion-button.fw-normal.collapsed
+                    | Will our data be private and safe?
+                div(aria-labelledby='rc-heading-2' data-bs-parent='#accordionRC').accordion-collapse.collapse#rc-collapse-2
+                  .accordion-body.fs-sm
+                    | Eros aliquam egestas eu sit faucibus facilisi urna, senectus id. Morbi pellentesque at molestie et. Et molestie nunc massa, donec eget viverra. Sodales nisl vitae gravida pretium enim cursus pharetra massa nisl. Auctor porta dolor nulla elementum malesuada ut etiam neque, enim. Nisi, eget viverra platea fringilla aliquet eros varius tellus nibh.
+              .accordion-item
+                h2.accordion-header#rc-heading-3
+                  button(type='button' data-bs-toggle='collapse' data-bs-target='#rc-collapse-3' aria-expanded='false' aria-controls='rc-collapse-3').accordion-button.fw-normal.collapsed
+                    | Should I apply for a job even if I don't have the specified experience?
+                div(aria-labelledby='rc-heading-3' data-bs-parent='#accordionRC').accordion-collapse.collapse#rc-collapse-3
+                  .accordion-body.fs-sm
+                    | Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero ut accusantium ea a ipsa, aliquam nemo aperiam porro deserunt aspernatur sequi amet voluptatibus, fugiat nobis. Atque voluptatibus quibusdam placeat voluptas?
+              .accordion-item
+                h2.accordion-header#rc-heading-4
+                  button(type='button' data-bs-toggle='collapse' data-bs-target='#rc-collapse-4' aria-expanded='false' aria-controls='rc-collapse-4').accordion-button.fw-normal.collapsed
+                    | What exactly is a personal brand and why do I need one?
+                div(aria-labelledby='rc-heading-4' data-bs-parent='#accordionRC').accordion-collapse.collapse#rc-collapse-4
+                  .accordion-body.fs-sm
+                    | Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores qui nulla unde saepe, similique non rem est adipisci accusamus minima mollitia repellat, illum eius quidem molestias nam illo expedita iste.
+              .accordion-item
+                h2.accordion-header#rc-heading-5
+                  button(type='button' data-bs-toggle='collapse' data-bs-target='#rc-collapse-5' aria-expanded='false' aria-controls='rc-collapse-5').accordion-button.fw-normal.collapsed
+                    | What are the most important things to include in my resume?
+                div(aria-labelledby='rc-heading-5' data-bs-parent='#accordionRC').accordion-collapse.collapse#rc-collapse-5
+                  .accordion-body.fs-sm
+                    | Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed itaque ab dicta sint, quam fugiat culpa aliquid, labore est vero explicabo, non voluptas at perspiciatis omnis impedit libero possimus! Alias!
+              .accordion-item
+                h2.accordion-header#rc-heading-6
+                  button(type='button' data-bs-toggle='collapse' data-bs-target='#rc-collapse-6' aria-expanded='false' aria-controls='rc-collapse-6').accordion-button.fw-normal.collapsed
+                    | How long should I make my cover letter and/or resume?
+                div(aria-labelledby='rc-heading-6' data-bs-parent='#accordionRC').accordion-collapse.collapse#rc-collapse-6
+                  .accordion-body.fs-sm
+                    | Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius iste voluptas ducimus! Sequi, expedita est. Accusamus, quaerat nulla! Ex exercitationem iure voluptatum mollitia amet, corporis sit ab temporibus et consectetur.
+
+          #job-application.mb-md-5.mb-4.pb-lg-2
+            h2.h4.mb-md-4 Job application
+
+            // Job application accordion
+            .accordion#accordionJA
+              .accordion-item
+                h2.accordion-header#ja-heading-1
+                  button(type='button' data-bs-toggle='collapse' data-bs-target='#ja-collapse-1' aria-expanded='false' aria-controls='ja-collapse-1').accordion-button.fw-normal.collapsed
+                    | Getting started: the basics
+                div(aria-labelledby='ja-heading-1' data-bs-parent='#accordionJA').accordion-collapse.collapse#ja-collapse-1
+                  .accordion-body.fs-sm
+                    | Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, quaerat. Corporis pariatur cum dolorem ullam at nulla ex doloribus, ratione quos repellendus aliquid aspernatur obcaecati adipisci maxime id, sed cupiditate.
+              .accordion-item
+                h2.accordion-header#ja-heading-2
+                  button(type='button' data-bs-toggle='collapse' data-bs-target='#ja-collapse-2' aria-expanded='false' aria-controls='ja-collapse-2').accordion-button.fw-normal.collapsed
+                    | Will our data be private and safe?
+                div(aria-labelledby='ja-heading-2' data-bs-parent='#accordionJA').accordion-collapse.collapse#ja-collapse-2
+                  .accordion-body.fs-sm
+                    | Eros aliquam egestas eu sit faucibus facilisi urna, senectus id. Morbi pellentesque at molestie et. Et molestie nunc massa, donec eget viverra. Sodales nisl vitae gravida pretium enim cursus pharetra massa nisl. Auctor porta dolor nulla elementum malesuada ut etiam neque, enim. Nisi, eget viverra platea fringilla aliquet eros varius tellus nibh.
+              .accordion-item
+                h2.accordion-header#ja-heading-3
+                  button(type='button' data-bs-toggle='collapse' data-bs-target='#ja-collapse-3' aria-expanded='false' aria-controls='ja-collapse-3').accordion-button.fw-normal.collapsed
+                    | Should I apply for a job even if I don't have the specified experience?
+                div(aria-labelledby='ja-heading-3' data-bs-parent='#accordionJA').accordion-collapse.collapse#ja-collapse-3
+                  .accordion-body.fs-sm
+                    | Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero ut accusantium ea a ipsa, aliquam nemo aperiam porro deserunt aspernatur sequi amet voluptatibus, fugiat nobis. Atque voluptatibus quibusdam placeat voluptas?
+              .accordion-item
+                h2.accordion-header#ja-heading-4
+                  button(type='button' data-bs-toggle='collapse' data-bs-target='#ja-collapse-4' aria-expanded='false' aria-controls='ja-collapse-4').accordion-button.fw-normal.collapsed
+                    | What exactly is a personal brand and why do I need one?
+                div(aria-labelledby='ja-heading-4' data-bs-parent='#accordionJA').accordion-collapse.collapse#ja-collapse-4
+                  .accordion-body.fs-sm
+                    | Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores qui nulla unde saepe, similique non rem est adipisci accusamus minima mollitia repellat, illum eius quidem molestias nam illo expedita iste.
+
+          #registration-and-login.mb-md-5.mb-4.pb-lg-2
+            h2.h4.mb-md-4 Registration and login
+
+            // Registration and login accordion
+            .accordion#accordionRL
+              .accordion-item
+                h2.accordion-header#rl-heading-1
+                  button(type='button' data-bs-toggle='collapse' data-bs-target='#rl-collapse-1' aria-expanded='false' aria-controls='rl-collapse-1').accordion-button.fw-normal.collapsed
+                    | Getting started: the basics
+                div(aria-labelledby='rl-heading-1' data-bs-parent='#accordionRL').accordion-collapse.collapse#rl-collapse-1
+                  .accordion-body.fs-sm
+                    | Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, quaerat. Corporis pariatur cum dolorem ullam at nulla ex doloribus, ratione quos repellendus aliquid aspernatur obcaecati adipisci maxime id, sed cupiditate.
+              .accordion-item
+                h2.accordion-header#rl-heading-2
+                  button(type='button' data-bs-toggle='collapse' data-bs-target='#rl-collapse-2' aria-expanded='false' aria-controls='rl-collapse-2').accordion-button.fw-normal.collapsed
+                    | Will our data be private and safe?
+                div(aria-labelledby='rl-heading-2' data-bs-parent='#accordionRL').accordion-collapse.collapse#rl-collapse-2
+                  .accordion-body.fs-sm
+                    | Eros aliquam egestas eu sit faucibus facilisi urna, senectus id. Morbi pellentesque at molestie et. Et molestie nunc massa, donec eget viverra. Sodales nisl vitae gravida pretium enim cursus pharetra massa nisl. Auctor porta dolor nulla elementum malesuada ut etiam neque, enim. Nisi, eget viverra platea fringilla aliquet eros varius tellus nibh.
+              .accordion-item
+                h2.accordion-header#rl-heading-3
+                  button(type='button' data-bs-toggle='collapse' data-bs-target='#rl-collapse-3' aria-expanded='false' aria-controls='rl-collapse-3').accordion-button.fw-normal.collapsed
+                    | Should I apply for a job even if I don't have the specified experience?
+                div(aria-labelledby='rl-heading-3' data-bs-parent='#accordionRL').accordion-collapse.collapse#rl-collapse-3
+                  .accordion-body.fs-sm
+                    | Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero ut accusantium ea a ipsa, aliquam nemo aperiam porro deserunt aspernatur sequi amet voluptatibus, fugiat nobis. Atque voluptatibus quibusdam placeat voluptas?
+              .accordion-item
+                h2.accordion-header#rl-heading-4
+                  button(type='button' data-bs-toggle='collapse' data-bs-target='#rl-collapse-4' aria-expanded='false' aria-controls='rl-collapse-4').accordion-button.fw-normal.collapsed
+                    | What exactly is a personal brand and why do I need one?
+                div(aria-labelledby='rl-heading-4' data-bs-parent='#accordionRL').accordion-collapse.collapse#rl-collapse-4
+                  .accordion-body.fs-sm
+                    | Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores qui nulla unde saepe, similique non rem est adipisci accusamus minima mollitia repellat, illum eius quidem molestias nam illo expedita iste.
+
+          #technical-information.mb-md-5.mb-4.pb-lg-2
+            h2.h4.mb-md-4 Technical information
+
+            // Technical information accordion
+            .accordion#accordionTI
+              .accordion-item
+                h2.accordion-header#ti-heading-1
+                  button(type='button' data-bs-toggle='collapse' data-bs-target='#ti-collapse-1' aria-expanded='false' aria-controls='ti-collapse-1').accordion-button.fw-normal.collapsed
+                    | Getting started: the basics
+                div(aria-labelledby='ti-heading-1' data-bs-parent='#accordionTI').accordion-collapse.collapse#ti-collapse-1
+                  .accordion-body.fs-sm
+                    | Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, quaerat. Corporis pariatur cum dolorem ullam at nulla ex doloribus, ratione quos repellendus aliquid aspernatur obcaecati adipisci maxime id, sed cupiditate.
+              .accordion-item
+                h2.accordion-header#ti-heading-2
+                  button(type='button' data-bs-toggle='collapse' data-bs-target='#ti-collapse-2' aria-expanded='false' aria-controls='ti-collapse-2').accordion-button.fw-normal.collapsed
+                    | Will our data be private and safe?
+                div(aria-labelledby='ti-heading-2' data-bs-parent='#accordionTI').accordion-collapse.collapse#ti-collapse-2
+                  .accordion-body.fs-sm
+                    | Eros aliquam egestas eu sit faucibus facilisi urna, senectus id. Morbi pellentesque at molestie et. Et molestie nunc massa, donec eget viverra. Sodales nisl vitae gravida pretium enim cursus pharetra massa nisl. Auctor porta dolor nulla elementum malesuada ut etiam neque, enim. Nisi, eget viverra platea fringilla aliquet eros varius tellus nibh.
+              .accordion-item
+                h2.accordion-header#ti-heading-3
+                  button(type='button' data-bs-toggle='collapse' data-bs-target='#ti-collapse-3' aria-expanded='false' aria-controls='ti-collapse-3').accordion-button.fw-normal.collapsed
+                    | Should I apply for a job even if I don't have the specified experience?
+                div(aria-labelledby='ti-heading-3' data-bs-parent='#accordionTI').accordion-collapse.collapse#ti-collapse-3
+                  .accordion-body.fs-sm
+                    | Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero ut accusantium ea a ipsa, aliquam nemo aperiam porro deserunt aspernatur sequi amet voluptatibus, fugiat nobis. Atque voluptatibus quibusdam placeat voluptas?
+              .accordion-item
+                h2.accordion-header#ti-heading-4
+                  button(type='button' data-bs-toggle='collapse' data-bs-target='#ti-collapse-4' aria-expanded='false' aria-controls='ti-collapse-4').accordion-button.fw-normal.collapsed
+                    | What exactly is a personal brand and why do I need one?
+                div(aria-labelledby='ti-heading-4' data-bs-parent='#accordionTI').accordion-collapse.collapse#ti-collapse-4
+                  .accordion-body.fs-sm
+                    | Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores qui nulla unde saepe, similique non rem est adipisci accusamus minima mollitia repellat, illum eius quidem molestias nam illo expedita iste.
+              .accordion-item
+                h2.accordion-header#ti-heading-5
+                  button(type='button' data-bs-toggle='collapse' data-bs-target='#ti-collapse-5' aria-expanded='false' aria-controls='ti-collapse-5').accordion-button.fw-normal.collapsed
+                    | What are the most important things to include in my resume?
+                div(aria-labelledby='ti-heading-5' data-bs-parent='#accordionTI').accordion-collapse.collapse#ti-collapse-5
+                  .accordion-body.fs-sm
+                    | Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed itaque ab dicta sint, quam fugiat culpa aliquid, labore est vero explicabo, non voluptas at perspiciatis omnis impedit libero possimus! Alias!
+
+          #newsletter-of-new-vacancies
+            h2.h4.mb-md-4 Newsletter of new vacancies
+
+            // Newsletter of new vacancies accordion
+            .accordion#accordionNV
+              .accordion-item
+                h2.accordion-header#nv-heading-1
+                  button(type='button' data-bs-toggle='collapse' data-bs-target='#nv-collapse-1' aria-expanded='false' aria-controls='nv-collapse-1').accordion-button.fw-normal.collapsed
+                    | Getting started: the basics
+                div(aria-labelledby='nv-heading-1' data-bs-parent='#accordionNV').accordion-collapse.collapse#nv-collapse-1
+                  .accordion-body.fs-sm
+                    | Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, quaerat. Corporis pariatur cum dolorem ullam at nulla ex doloribus, ratione quos repellendus aliquid aspernatur obcaecati adipisci maxime id, sed cupiditate.
+              .accordion-item
+                h2.accordion-header#nv-heading-2
+                  button(type='button' data-bs-toggle='collapse' data-bs-target='#nv-collapse-2' aria-expanded='false' aria-controls='nv-collapse-2').accordion-button.fw-normal.collapsed
+                    | Will our data be private and safe?
+                div(aria-labelledby='nv-heading-2' data-bs-parent='#accordionNV').accordion-collapse.collapse#nv-collapse-2
+                  .accordion-body.fs-sm
+                    | Eros aliquam egestas eu sit faucibus facilisi urna, senectus id. Morbi pellentesque at molestie et. Et molestie nunc massa, donec eget viverra. Sodales nisl vitae gravida pretium enim cursus pharetra massa nisl. Auctor porta dolor nulla elementum malesuada ut etiam neque, enim. Nisi, eget viverra platea fringilla aliquet eros varius tellus nibh.
+              .accordion-item
+                h2.accordion-header#nv-heading-3
+                  button(type='button' data-bs-toggle='collapse' data-bs-target='#nv-collapse-3' aria-expanded='false' aria-controls='nv-collapse-3').accordion-button.fw-normal.collapsed
+                    | Should I apply for a job even if I don't have the specified experience?
+                div(aria-labelledby='nv-heading-3' data-bs-parent='#accordionNV').accordion-collapse.collapse#nv-collapse-3
+                  .accordion-body.fs-sm
+                    | Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero ut accusantium ea a ipsa, aliquam nemo aperiam porro deserunt aspernatur sequi amet voluptatibus, fugiat nobis. Atque voluptatibus quibusdam placeat voluptas?
+
+
+  // Contact Us CTA
+  section.container.mb-5.pb-lg-5
+    .py-md-4.py-5.bg-secondary.rounded-3
+      .col-sm-10.col-11.d-flex.flex-md-row.flex-column.align-items-center.justify-content-between.mx-auto.px-0
+        div(style='max-width: 524px;').order-md-1.order-2.text-md-start.text-center
+          h2.mb-4.pb-md-3
+            | You can contact us and ask your questions directly
+          a(href='job-board-contacts.html').btn.btn-lg.btn-primary.rounded-pill.w-sm-auto.w-100
+            | Contact us
+        img(src='img/job-board/illustrations/mail.svg' alt='Illustration').order-md-2.order-1.ms-md-4
+
+
+//- Footer
+block footer
+  include partials/footer-job-board

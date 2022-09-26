@@ -1,0 +1,331 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css', 'vendor/prismjs/themes/prism.css', 'vendor/prismjs/plugins/toolbar/prism-toolbar.css', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js', 'vendor/prismjs/components/prism-core.min.js', 'vendor/prismjs/components/prism-markup.min.js', 'vendor/prismjs/components/prism-clike.min.js', 'vendor/prismjs/components/prism-javascript.min.js', 'vendor/prismjs/components/prism-pug.min.js', 'vendor/prismjs/plugins/toolbar/prism-toolbar.min.js', 'vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Team'
+  - var pageSubtitle = 'Component designed to showcase team members. Comes in different styles.'
+  - var isPageTitleBadge = true
+  - var anchorNav = [{'title': 'Style 1', 'link': '#team-1'}, {'title': 'Style 2', 'link': '#team-2'}, {'title': 'Style 3', 'link': '#team-3'}, {'title': 'Style 4', 'link': '#team-4'}]
+    
+//- Page Content
+block content
+
+  // Style 1
+  section#team-1.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Style 1
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview1' data-bs-toggle='tab' role='tab' aria-controls='preview1' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview1.tab-pane.fade.show.active(role='tabpanel')
+          .card-hover.text-center(style='max-width: 306px;')
+            img(src='../assets/img/landing/creative-agency/team/02.jpg' alt='Image').d-block.rounded-5.mb-4
+            h3.h5.mb-1 Alisa Black
+            p.text-muted.mb-2 Head of marketing
+            .d-none.d-lg-flex.nav.justify-content-center.opacity-0
+              a(href='#').nav-link.btn.btn-icon.btn-sm.fs-sm.fw-normal.me-1
+                i.ai-instagram
+              a(href='#').nav-link.btn.btn-icon.btn-sm.fs-sm.fw-normal.me-1
+                i.ai-facebook
+              a(href='#').nav-link.btn.btn-icon.btn-sm.fs-sm.fw-normal
+                i.ai-linkedin
+            .d-lg-none.nav.justify-content-center
+              a(href='#').nav-link.btn.btn-icon.btn-sm.fs-sm.fw-normal.me-1
+                i.ai-instagram
+              a(href='#').nav-link.btn.btn-icon.btn-sm.fs-sm.fw-normal.me-1
+                i.ai-facebook
+              a(href='#').nav-link.btn.btn-icon.btn-sm.fs-sm.fw-normal
+                i.ai-linkedin
+        #html1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Team Style 1 --&gt;
+              &lt;div class=&quot;card-hover text-center&quot; style=&quot;max-width: 306px;&quot;&gt;
+                &lt;img src=&quot;assets/img/landing/creative-agency/team/02.jpg&quot; class=&quot;d-block rounded-5 mb-4&quot; alt=&quot;Image&quot;&gt;
+                &lt;h3 class=&quot;h5 mb-1&quot;&gt;Alisa Black&lt;/h3&gt;
+                &lt;p class=&quot;text-muted mb-2&quot;&gt;Head of marketing&lt;/p&gt;
+                
+                &lt;!-- Visible on hover on screens &gt; 991px --&gt;
+                &lt;div class=&quot;d-none d-lg-flex nav justify-content-center opacity-0&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link btn btn-icon btn-sm fs-sm fw-normal me-1&quot;&gt;
+                    &lt;i class=&quot;ai-instagram&quot;&gt;&lt;/i&gt;
+                  &lt;/a&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link btn btn-icon btn-sm fs-sm fw-normal me-1&quot;&gt;
+                    &lt;i class=&quot;ai-facebook&quot;&gt;&lt;/i&gt;
+                  &lt;/a&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link btn btn-icon btn-sm fs-sm fw-normal&quot;&gt;
+                    &lt;i class=&quot;ai-linkedin&quot;&gt;&lt;/i&gt;
+                  &lt;/a&gt;
+                &lt;/div&gt;
+                
+                &lt;!-- Always visible on screens &lt; 992px --&gt;
+                &lt;div class=&quot;d-lg-none nav justify-content-center&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link btn btn-icon btn-sm fs-sm fw-normal me-1&quot;&gt;
+                    &lt;i class=&quot;ai-instagram&quot;&gt;&lt;/i&gt;
+                  &lt;/a&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link btn btn-icon btn-sm fs-sm fw-normal me-1&quot;&gt;
+                    &lt;i class=&quot;ai-facebook&quot;&gt;&lt;/i&gt;
+                  &lt;/a&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link btn btn-icon btn-sm fs-sm fw-normal&quot;&gt;
+                    &lt;i class=&quot;ai-linkedin&quot;&gt;&lt;/i&gt;
+                  &lt;/a&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Team Style 1
+              .card-hover.text-center(style=&quot;max-width: 306px;&quot;)
+                img(src=&quot;assets/img/landing/creative-agency/team/02.jpg&quot;, alt=&quot;Image&quot;).d-block.rounded-5.mb-4
+                h3.h5.mb-1 Alisa Black
+                p.text-muted.mb-2 Head of marketing
+
+                // Visible on hover on screens &gt; 991px
+                .d-none.d-lg-flex.nav.justify-content-center.opacity-0
+                  a(href=&quot;#&quot;).nav-link.btn.btn-icon.btn-sm.fs-sm.fw-normal.me-1
+                    i.ai-instagram
+                  a(href=&quot;#&quot;).nav-link.btn.btn-icon.btn-sm.fs-sm.fw-normal.me-1
+                    i.ai-facebook
+                  a(href=&quot;#&quot;).nav-link.btn.btn-icon.btn-sm.fs-sm.fw-normal
+                    i.ai-linkedin
+                
+                // Always visible on screens &lt; 992px
+                .d-lg-none.nav.justify-content-center
+                  a(href=&quot;#&quot;).nav-link.btn.btn-icon.btn-sm.fs-sm.fw-normal.me-1
+                    i.ai-instagram
+                  a(href=&quot;#&quot;).nav-link.btn.btn-icon.btn-sm.fs-sm.fw-normal.me-1
+                    i.ai-facebook
+                  a(href=&quot;#&quot;).nav-link.btn.btn-icon.btn-sm.fs-sm.fw-normal
+                    i.ai-linkedin
+
+  // Style 2
+  section#team-2.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Style 2
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview2' data-bs-toggle='tab' role='tab' aria-controls='preview2' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview2.tab-pane.fade.show.active(role='tabpanel')
+          .card.card-hover.border-0.rounded-5.overflow-hidden(style='max-width: 416px;')
+            img(src='../assets/img/landing/corporate/team/01.jpg' alt='Image')
+            .position-absolute.top-0.start-0.w-100.h-100.opacity-0
+              .bg-dark.position-absolute.top-0.start-0.w-100.h-100.opacity-50
+              .card-body.d-flex.flex-column.justify-content-end.dark-mode.h-100.position-relative.zindex-2.text-center
+                h3.h5.mb-1 Guy Hawkins
+                p.mb-3 Head of marketing
+                .d-flex.justify-content-center
+                  a(href='#').btn.btn-icon.btn-sm.btn-light.btn-facebook.rounded-circle.mx-2
+                    i.ai-facebook
+                  a(href='#').btn.btn-icon.btn-sm.btn-light.btn-twitter.rounded-circle.mx-2
+                    i.ai-twitter
+                  a(href='#').btn.btn-icon.btn-sm.btn-light.btn-linkedin.rounded-circle.mx-2
+                    i.ai-linkedin
+        #html2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Team Style 2 --&gt;
+              &lt;div class=&quot;card card-hover border-0 rounded-5 overflow-hidden&quot; style=&quot;max-width: 416px;&quot;&gt;
+                &lt;img src=&quot;assets/img/landing/corporate/team/01.jpg&quot; alt=&quot;Image&quot;&gt;
+                &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 opacity-0&quot;&gt;
+                  &lt;div class=&quot;bg-dark position-absolute top-0 start-0 w-100 h-100 opacity-50&quot;&gt;&lt;/div&gt;
+                  &lt;div class=&quot;card-body d-flex flex-column justify-content-end dark-mode h-100 position-relative zindex-2 text-center&quot;&gt;
+                    &lt;h3 class=&quot;h5 mb-1&quot;&gt;Guy Hawkins&lt;/h3&gt;
+                    &lt;p class=&quot;mb-3&quot;&gt;Head of marketing&lt;/p&gt;
+                    &lt;div class=&quot;d-flex justify-content-center&quot;&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-sm btn-light btn-facebook rounded-circle mx-2&quot;&gt;
+                        &lt;i class=&quot;ai-facebook&quot;&gt;&lt;/i&gt;
+                      &lt;/a&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-sm btn-light btn-twitter rounded-circle mx-2&quot;&gt;
+                        &lt;i class=&quot;ai-twitter&quot;&gt;&lt;/i&gt;
+                      &lt;/a&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-sm btn-light btn-linkedin rounded-circle mx-2&quot;&gt;
+                        &lt;i class=&quot;ai-linkedin&quot;&gt;&lt;/i&gt;
+                      &lt;/a&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Team Style 2
+              .card.card-hover.border-0.rounded-5.overflow-hidden(style=&quot;max-width: 416px;&quot;)
+                img(src=&quot;assets/img/landing/corporate/team/01.jpg&quot;, alt=&quot;Image&quot;)
+                .position-absolute.top-0.start-0.w-100.h-100.opacity-0
+                  .bg-dark.position-absolute.top-0.start-0.w-100.h-100.opacity-50
+                  .card-body.d-flex.flex-column.justify-content-end.dark-mode.h-100.position-relative.zindex-2.text-center
+                    h3.h5.mb-1 Guy Hawkins
+                    p.mb-3 Head of marketing
+                    .d-flex.justify-content-center
+                      a(href=&quot;#&quot;).btn.btn-icon.btn-sm.btn-light.btn-facebook.rounded-circle.mx-2
+                        i.ai-facebook
+                      a(href=&quot;#&quot;).btn.btn-icon.btn-sm.btn-light.btn-twitter.rounded-circle.mx-2
+                        i.ai-twitter
+                      a(href=&quot;#&quot;).btn.btn-icon.btn-sm.btn-light.btn-linkedin.rounded-circle.mx-2
+                        i.ai-linkedin
+
+  // Style 3
+  section#team-3.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Style 3
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview3' data-bs-toggle='tab' role='tab' aria-controls='preview3' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview3.tab-pane.fade.show.active(role='tabpanel')
+          .card-hover.pb-3(style='max-width: 396px;')
+            .position-relative
+              img(src='../assets/img/landing/creative-agency/team/06.jpg' alt='Image')
+              .d-flex.justify-content-center.position-absolute.start-0.bottom-0.w-100.px-3.mb-4.opacity-0
+                a(href='#').btn.btn-light.btn-icon.btn-sm.btn-facebook.rounded-circle.mx-2
+                  i.ai-facebook
+                a(href='#').btn.btn-light.btn-icon.btn-sm.btn-twitter.rounded-circle.mx-2
+                  i.ai-twitter
+                a(href='#').btn.btn-light.btn-icon.btn-sm.btn-behance.rounded-circle.mx-2
+                  i.ai-behance
+            .border-bottom.pt-4.pb-3
+              h3.h4.mb-2 Edward Jones
+              span.fs-lg.text-muted Branding Designer
+        #html3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Team Style 3 --&gt;
+              &lt;div class=&quot;card-hover pb-3&quot; style=&quot;max-width: 396px;&quot;&gt;
+                &lt;div class=&quot;position-relative&quot;&gt;
+                  &lt;img src=&quot;assets/img/landing/creative-agency/team/06.jpg&quot; alt=&quot;Image&quot;&gt;
+                  &lt;div class=&quot;d-flex justify-content-center position-absolute start-0 bottom-0 w-100 px-3 mb-4 opacity-0&quot;&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-sm btn-light btn-facebook rounded-circle mx-2&quot;&gt;
+                      &lt;i class=&quot;ai-facebook&quot;&gt;&lt;/i&gt;
+                    &lt;/a&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-sm btn-light btn-twitter rounded-circle mx-2&quot;&gt;
+                      &lt;i class=&quot;ai-twitter&quot;&gt;&lt;/i&gt;
+                    &lt;/a&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-sm btn-light btn-behance rounded-circle mx-2&quot;&gt;
+                      &lt;i class=&quot;ai-behance&quot;&gt;&lt;/i&gt;
+                    &lt;/a&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;border-bottom pt-4 pb-3&quot;&gt;
+                  &lt;h3 class=&quot;h4 mb-2&quot;&gt;Edward Jones&lt;/h3&gt;
+                  &lt;span class=&quot;fs-lg text-muted&quot;&gt;Branding Designer&lt;/span&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Team Style 3
+              .card-hover.pb-3(style=&quot;max-width: 396px;&quot;)
+                .position-relative
+                  img(src=&quot;assets/img/landing/creative-agency/team/06.jpg&quot;, alt=&quot;Image&quot;)
+                  .d-flex.justify-content-center.position-absolute.start-0.bottom-0.w-100.px-3.mb-4.opacity-0
+                    a(href=&quot;#&quot;).btn.btn-light.btn-icon.btn-sm.btn-facebook.rounded-circle.mx-2
+                      i.ai-facebook
+                    a(href=&quot;#&quot;).btn.btn-light.btn-icon.btn-sm.btn-twitter.rounded-circle.mx-2
+                      i.ai-twitter
+                    a(href=&quot;#&quot;).btn.btn-light.btn-icon.btn-sm.btn-behance.rounded-circle.mx-2
+                      i.ai-behance
+                .border-bottom.pt-4.pb-3
+                  h3.h4.mb-2 Edward Jones
+                  span.fs-lg.text-muted Branding Designer
+
+  // Style 4
+  section#team-4.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Style 4
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview4' data-bs-toggle='tab' role='tab' aria-controls='preview4' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview4.tab-pane.fade.show.active(role='tabpanel')
+          a(href='#' style='max-width: 416px;').d-block.card-hover.text-decoration-none
+            .bg-secondary.rounded-5.position-relative.overflow-hidden
+              .position-absolute.top-0.start-0.w-100.h-100.bg-size-cover.bg-position-center.opacity-0(style='background-image: url(../assets/img/landing/blog/authors/hover.svg);')
+              img(src='../assets/img/landing/blog/authors/01.png' alt='Author picture').position-relative.zindex-2
+            .border-bottom.pt-4.pb-3
+              h3.h4.mb-1 Jane Cooper
+              p.text-muted.mb-0 Chief editor
+        #html4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Team Style 4 --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;d-block card-hover text-decoration-none&quot; style=&quot;max-width: 416px;&quot;&gt;
+                &lt;div class=&quot;bg-secondary rounded-5 position-relative overflow-hidden&quot;&gt;
+                  &lt;div class=&quot;position-absolute top-0 start-0 w-100 h-100 bg-size-cover bg-position-center opacity-0&quot; style=&quot;background-image: url(assets/img/landing/blog/authors/hover.svg);&quot;&gt;&lt;/div&gt;
+                  &lt;img src=&quot;assets/img/landing/blog/authors/01.png&quot; class=&quot;position-relative zindex-2&quot; alt=&quot;Author picture&quot;&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;border-bottom pt-4 pb-3&quot;&gt;
+                  &lt;h3 class=&quot;h4 mb-1&quot;&gt;Jane Cooper&lt;/h3&gt;
+                  &lt;p class=&quot;text-muted mb-0&quot;&gt;Chief editor&lt;/p&gt;
+                &lt;/div&gt;
+              &lt;/a&gt;
+        #pug4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Team Style 4
+              a(href=&quot;#&quot;, style=&quot;max-width: 416px;&quot;).d-block.card-hover.text-decoration-none
+                .bg-secondary.rounded-5.position-relative.overflow-hidden
+                  .position-absolute.top-0.start-0.w-100.h-100.bg-size-cover.bg-position-center.opacity-0(style=&quot;background-image: url(assets/img/landing/blog/authors/hover.svg);&quot;)
+                  img(src=&quot;assets/img/landing/blog/authors/01.png&quot;, alt=&quot;Author picture&quot;).position-relative.zindex-2
+                .border-bottom.pt-4.pb-3
+                  h3.h4.mb-1 Jane Cooper
+                  p.text-muted.mb-0 Chief editor

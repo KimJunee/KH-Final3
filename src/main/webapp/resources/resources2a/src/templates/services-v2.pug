@@ -1,0 +1,271 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/swiper/swiper-bundle.min.css']
+  - var scripts = ['vendor/swiper/swiper-bundle.min.js']
+  - var parentMenu = 'Pages'
+  - var pageTitle = 'Services v.2'
+  - var navbarExtraClass = 'bg-light'
+
+
+//- Navbar
+block navbar
+  include partials/navbar.pug
+
+
+//- Page Content
+block content  
+
+  // Services
+  section.container.pt-5.pb-xxl-3.mt-5
+
+    // Breadcrumb
+    +breadcrumb([{'title': 'Services v.2'}]).pt-lg-3.pb-lg-4.pb-2
+
+    .row
+      .col-lg-4.pb-3.mb-3
+        h2.h1 Our services
+        p.pe-5.mb-0 With the support of our result driven team you can solve many challenges.
+      .col-lg-8
+        .row.row-cols-1.row-cols-sm-2.g-4
+          .col
+
+            // Item
+            .card.border-0.bg-secondary.rounded-5.mb-4
+              .card-body.pb-3
+                svg(width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg').d-block.mt-1.mt-sm-0.mb-4
+                  g.text-info: path(d='M34.9811 16.2655C34.3635 26.3194 26.3194 34.3634 16.2656 34.981V40H40V16.2655H34.9811Z' fill='currentColor')
+                  g.text-info: path(d='M15.0195 30.0413C23.3152 30.0413 30.0403 23.3163 30.0403 15.0205H15.0195V30.0413Z' fill='currentColor')
+                  g.text-primary: path(d='M29.1953 10.0415C27.141 4.19328 21.571 0 15.0208 0C6.725 0 0 6.725 0 15.0208C0 21.571 4.19328 27.141 10.0415 29.1953V10.0415H29.1953Z' fill='currentColor')
+                h3.h4 Development
+                p.mb-0 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eget molestie massa. Donec egestas nulla pariatur.
+              .card-footer.border-0.pt-3.mb-3
+                a(href='#').btn.btn-icon.btn-lg.btn-outline-primary.rounded-circle.stretched-link
+                  i.ai-arrow-right
+
+            // Item
+            .card.border-0.bg-secondary.rounded-5
+              .card-body.pb-3
+                svg(width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg').d-block.mt-1.mt-sm-0.mb-4
+                  g.text-info: path(d='M20.0004 36.0226L10.982 21.3535C9.42594 23.3156 8.49609 25.7968 8.49609 28.4955C8.49609 34.8492 13.6467 39.9998 20.0004 39.9998C26.3541 39.9998 31.5047 34.8492 31.5047 28.4955C31.5047 25.7969 30.5749 23.3156 29.0188 21.3535L20.0004 36.0226Z' fill='currentColor')
+                  g.text-primary: path(d='M39.3962 0H0.605469L20.0009 31.5477L39.3962 0ZM25.7601 7.62359L20.0009 16.9914L14.2416 7.62359H25.7601Z' fill='currentColor')
+                h3.h4 Business copywriting
+                p.mb-0 Find aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur neque congue aliqua dolor.
+              .card-footer.border-0.pt-3.mb-3
+                a(href='#').btn.btn-icon.btn-lg.btn-outline-primary.rounded-circle.stretched-link
+                  i.ai-arrow-right
+
+          .col
+
+            // Item
+            .card.border-0.bg-secondary.rounded-5.mb-4
+              .card-body.pb-3
+                svg(width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg').d-block.mt-1.mt-sm-0.mb-4
+                  g.text-primary: path(d='M25.2791 12.7502C28.1954 9.83389 28.1954 5.10556 25.2791 2.18921C22.3627 -0.727136 17.6344 -0.727137 14.718 2.18921C11.8017 5.10556 11.8017 9.83389 14.718 12.7502C17.6344 15.6666 22.3627 15.6666 25.2791 12.7502Z' fill='currentColor')
+                  g.text-info: path(d='M14.6859 29.3056C15.6559 27.0123 16.9202 24.8838 18.4577 22.9467C13.8666 17.9802 7.29664 14.8701 0 14.8701V40.0004H12.5259C12.5259 36.2925 13.2527 32.6942 14.6859 29.3056Z' fill='currentColor')
+                  g.text-primary: path(d='M40.0014 40.0004V14.8701C26.1223 14.8701 14.8711 26.1214 14.8711 40.0004H40.0014Z' fill='currentColor')
+                h3.h4 Design and branding
+                p.mb-0 More erat leo proin odio est sed sit felis facilisi integer sed congue neque turpis dictumst sit sed volutpat aliquet tortor non aute irure dolor in reprehenderit in posuere dui amet augue nisl dictum.
+              .card-footer.border-0.pt-3.mb-3
+                a(href='#').btn.btn-icon.btn-lg.btn-outline-primary.rounded-circle.stretched-link
+                  i.ai-arrow-right
+
+            // Item
+            .card.border-0.bg-secondary.rounded-5
+              .card-body.pb-3
+                svg(width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg').d-block.mt-1.mt-sm-0.mb-4
+                  g.text-primary: path(d='M19.9999 0C11.1313 0 3.61211 5.77313 0.992188 13.7659H39.0077C36.3877 5.77313 28.8686 0 19.9999 0Z' fill='currentColor')
+                  g.text-info: path(d='M7.29328 16.1094H0.379453C0.131328 17.368 0 18.6684 0 19.9998C0 26.9291 3.52437 33.0348 8.87797 36.6237L18.3427 27.1589L7.29328 16.1094Z' fill='currentColor')
+                  g.text-primary: path(d='M10.9688 37.848C13.6819 39.2238 16.7505 39.9998 20.0007 39.9998C31.0464 39.9998 40.0007 31.0455 40.0007 19.9998C40.0007 18.6684 39.8694 17.3679 39.6213 16.1094H32.7074L10.9688 37.848Z' fill='currentColor')
+                h3.h4 Consulting
+                p.mb-0 Ut eu amet ac blandit nisl malesuada lectus viverra arcu in rhoncus egestas lorem consequat sollicitudin risus, in pellentesque tellus tincidunt purus viverra dignissim.
+              .card-footer.border-0.pt-3.mb-3
+                a(href='#').btn.btn-icon.btn-lg.btn-outline-primary.rounded-circle.stretched-link
+                  i.ai-arrow-right
+
+  
+  // Features
+  section.container.py-4.pt-sm-5.pb-md-5.my-2.my-lg-3.my-xxl-4
+
+    // Item
+    .row.align-items-center.py-3.py-sm-4.py-lg-5.mb-3.my-sm-2.my-md-3.my-lg-0.my-xl-2.my-xxl-4
+      .col-md-6.col-lg-7.col-xl-6.offset-xl-1.order-md-2.pb-1.pb-sm-2.pb-md-0.mb-4.mb-md-0
+        img(src='assets/img/landing/corporate/features/01.jpg' alt='Image').d-block.rounded-5
+      .col-md-6.col-lg-5.order-md-1
+        .pe-md-4.pe-lg-0
+          h2.h1.pb-sm-2.pb-lg-3 Let's do business together
+          p.fs-xl We partner with more than 60 brands. Clients who have become our friends for many years.
+          .border-dashed.mb-4.mt-5
+          .row.row-cols-3.pt-2.g-4
+            .col
+              img(src='assets/img/brands/starcraft-dark.svg' width='160' alt='Starcraft').d-block.d-dark-mode-none.mx-auto
+              img(src='assets/img/brands/starcraft-light.svg' width='160' alt='Starcraft').d-none.d-dark-mode-block.mx-auto
+            .col
+              img(src='assets/img/brands/klinos.svg' width='160' alt='Klinos').d-block.mx-auto
+            .col
+              img(src='assets/img/brands/auchan.svg' width='160' alt='Auchan').d-block.mx-auto
+            .col
+              img(src='assets/img/brands/champion-dark.svg' width='160' alt='Champion').d-block.d-dark-mode-none.mx-auto
+              img(src='assets/img/brands/champion-light.svg' width='160' alt='Champion').d-none.d-dark-mode-block.mx-auto
+            .col
+              img(src='assets/img/brands/suzuki.svg' width='160' alt='Suzuki').d-block.mx-auto
+            .col
+              img(src='assets/img/brands/philips.svg' width='160' alt='Philips').d-block.mx-auto
+
+
+    // Item
+    .row.align-items-center.py-3.py-sm-4.py-lg-5.mb-3.my-sm-2.my-md-3.my-lg-0.my-xl-2.my-xxl-4
+      .col-md-6.col-lg-7.col-xl-6.offset-xl-1.order-md-2.pb-1.pb-sm-2.pb-md-0.mb-4.mb-md-0
+        img(src='assets/img/landing/corporate/features/02.jpg' alt='Image').d-block.rounded-5
+      .col-md-6.col-lg-5.order-md-1
+        .pe-md-4.pe-lg-0
+          h2.h1.pb-3.mb-2.mb-lg-3.mb-xl-4 Our professional approach to your business
+          .row.row-cols-1.row-cols-sm-2.g-4
+            .col
+              .text-muted.mb-2 01
+              h3.h5 Individual approach
+              p.mb-1 Hac erat leo proin odio est sed sit in felis facilisi integer sed congue neque turpis dictumst.
+            .col
+              .text-muted.mb-2 02
+              h3.h5 Integrated analytics
+              p.mb-1 Find aute irure dolor in enderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur neque.
+            .col
+              .text-muted.mb-2 03
+              h3.h5 Step by step work
+              p.mb-1 More erat leo proin odio est sed sit felis facilisi integer sed sit congue neque turpis dictumst.
+            .col
+              .text-muted.mb-2 04
+              h3.h5 Full range of services
+              p.mb-1 Adipiscing posuere dui, amet, augue nisl dictum justo, enim sed neque congue non quam.
+
+    // Item
+    .row.align-items-center.py-3.py-sm-4.py-lg-5.my-sm-2.my-md-3.my-lg-0.my-xl-2.my-xxl-4
+      .col-md-6.col-lg-7.col-xl-6.offset-xl-1.order-md-2.pb-1.pb-sm-2.pb-md-0.mb-4.mb-md-0
+        img(src='assets/img/landing/corporate/features/03.jpg' alt='Image').d-block.rounded-5
+      .col-md-6.col-lg-5.order-md-1
+        .pe-md-4.pe-lg-0
+          h2.h1.pb-sm-2.pb-lg-3 Full range of business and consulting services
+          p.fs-xl.mb-lg-4 Find aute irure dolor in reprehenderit in voluptate velit esse cillum dolore euvert fugiat neque congue.
+          ul.list-unstyled.pb-3.mb-3.mb-lg-4
+            li.d-flex.pt-1.mt-2.mx-2.mx-md-0
+              i.ai-check-alt.text-primary.fs-4.mt-n1.me-2
+              | Forecasting and recommendations
+            li.d-flex.pt-1.mt-2.mx-2.mx-md-0
+              i.ai-check-alt.text-primary.fs-4.mt-n1.me-2
+              | Identification of patterns, analysis
+            li.d-flex.pt-1.mt-2.mx-2.mx-md-0
+              i.ai-check-alt.text-primary.fs-4.mt-n1.me-2
+              | Segmentation by various methods
+          a(href='#').btn.btn-primary Book a free consultation
+  
+
+  // Testimonials
+  section.container.pt-xxl-2.pb-5.mb-lg-4.mb-xxl-5
+    .row.pb-2.pb-sm-3.pb-md-4.pb-xl-5.mb-md-2
+      .col-md-9.col-lg-7.order-md-2
+
+        // Swiper slider
+        .swiper(
+          data-swiper-options=`{
+            "spaceBetween": 40,
+            "loop": true,
+            "bindedContent": true,
+            "autoHeight": true,
+            "pagination": {
+              "el": ".testimonials-count",
+              "type": "fraction"
+            },
+            "navigation": {
+              "prevEl": "#prev-testimonial",
+              "nextEl": "#next-testimonial"
+            }
+          }`
+        )
+          .swiper-wrapper
+
+            // Item
+            .swiper-slide(data-swiper-binded='#testimonial-1')
+              .d-flex.d-md-none.pt-3.mb-3
+                i.ai-quotes.d-md-none.text-primary.display-3.mt-n2
+                .ps-3
+                  h3.h5.mb-0 Lilia Bocouse
+                  p.text-muted.mb-0 Head of Marketing
+              h2.mb-lg-4 Thanks to your talented team for the strategy we dreamed about!
+              p.lead.mb-0 Suspendisse mauris elit, pellentesque nec purus sed, finibus finibus ipsum. Proin posuere, metus sed porttitor pellentesque, ante magna tincidunt mi, nec fermentum dui ligula vel massa. Praesent ultrices iaculis arcu iaculis ultrices. Maecenas vitae nulla odio. In laoreet, lectus in tempus ultricies.  
+
+            // Item
+            .swiper-slide(data-swiper-binded='#testimonial-2')
+              .d-flex.d-md-none.pt-3.mb-3
+                i.ai-quotes.d-md-none.text-primary.display-3.mt-n2
+                .ps-3
+                  h3.h5.mb-0 Robert Fox
+                  p.text-muted.mb-0 Marketing Coordinator
+              h2.mb-lg-4 Exceptional work, delivery and flexibility. An excellent result.
+              p.lead.mb-0 Leo vitae sem eget eget at in vivamus placerat sodales tristique risusiis senectusic quisque faucibus est justo egetert lobortis ultrices eu dignissim etiamier turpis tincidunt eget placerat feugiat senectusic quisque faucibus placerat sodales vitae tempor morbi tellus pulvinar tristique in turpis.  
+
+            // Item
+            .swiper-slide(data-swiper-binded='#testimonial-3')
+              .d-flex.d-md-none.pt-3.mb-3
+                i.ai-quotes.d-md-none.text-primary.display-3.mt-n2
+                .ps-3
+                  h3.h5.mb-0 Jenny Wilson
+                  p.text-muted.mb-0 CEO, Co-Founder
+              h2.mb-lg-4 Thanks to you, we have created a unique branding that is our pride!
+              p.lead.mb-0 Duis sapien velit, rutrum ac rutrum dapibus, auctor ut lacus. Aenean sit amet erat augue. Aenean finibus, nibh sed malesuada maximus, nisi tellus iaculis quam, eget egestas mi felis eu urna. Quisque id nisl commodo, egestas eros ac, cursus odio. Ut nec rutrum magna, vel tempor erat. Vivamus nec tempus purus.  
+
+      .col-md-3.offset-lg-1.order-md-1.mt-n3
+        i.ai-quotes.d-none.d-md-block.text-primary.ms-n2.mb-1(style='font-size: 150px;')
+
+        // Contnetn binded to slider (on screens > 768px)
+        .binded-content.h-auto.d-none.d-md-block
+          #testimonial-1.binded-item.h-auto.active
+            h3.h5.mb-1 Lilia Bocouse
+            p.text-muted.mb-0 Head of Marketing
+          #testimonial-2.binded-item.h-auto
+            h3.h5.mb-1 Robert Fox
+            p.text-muted.mb-0 Marketing Coordinator
+          #testimonial-3.binded-item.h-auto
+            h3.h5.mb-1 Jenny Wilson
+            p.text-muted.mb-0 CEO, Co-Founder
+      
+        // Swiper controls
+        .d-flex.align-items-center.pb-2.pb-md-0.pt-4.mt-3
+          button(type='button')#prev-testimonial.btn.btn-icon.btn-sm.btn-outline-primary.rounded-circle.me-3
+            i.ai-arrow-left
+          .testimonials-count.fw-medium.flex-shrink-0.text-center(style='width: 2.5rem;')
+          button(type='button')#next-testimonial.btn.btn-icon.btn-sm.btn-outline-primary.rounded-circle.ms-3
+            i.ai-arrow-right
+
+
+  // Contact CTA
+  section.position-relative.mt-n5.mt-lg-0
+    .bg-secondary.position-absolute.bottom-0.start-0.w-100(style='height: calc(100% - 3rem);')
+    .container.position-relative.zindex-2
+      .row
+        .col-lg-6.py-5.mb-sm-2.mb-md-3.mb-lg-5.mt-3.mt-sm-4.mt-md-5
+          h2.h1.text-center.text-lg-start.pt-3.mt-3.mb-4 Become part <br class='d-none d-lg-inline'>of our team
+          .d-flex.justify-content-between.mx-auto.mx-lg-0(style='max-width: 370px;')
+            ul.ps-4.me-3
+              li.mt-2 Financial analyst
+              li.mt-2 Business analyst
+              li.mt-2 Software tester
+            ul.ps-4
+              li.mt-2 Head of marketing
+              li.mt-2 Strategy advisor
+              li.mt-2 Lead UX designer
+          .text-center.text-lg-start.pt-4
+            a(href='#').btn.btn-outline-dark Apply for a job
+        .col-lg-6
+          .bg-primary.d-flex.flex-column.align-items-center.justify-content-center.position-relative.h-100.rounded-5.rounded-bottom-0.p-5
+            .dark-mode.position-relative.zindex-2.py-sm-3.py-md-4(style='max-width: 360px;')
+              h2.h1 Ready to discuss your project?
+              p.mb-0 We are a team that creates business strategies for B2B and B2C companies.
+              .d-flex.flex-column.flex-sm-row.align-items-center.pt-3.mt-3.mt-lg-4
+                a(href='contacts-v1.html').btn.btn-light.w-100.w-sm-auto.me-sm-4.mb-2.mb-sm-0 Contact us
+                a(href='mailto:email@example.com').d-inline-block.text-white.fw-medium.p-2 email@example.com
+
+
+//- Footer
+block footer
+  include partials/footer.pug

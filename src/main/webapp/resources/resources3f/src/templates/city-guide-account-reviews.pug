@@ -1,0 +1,156 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var parentMenu = 'Account'
+  - var pageTitle = 'City Guide | Account - Reviews'
+  - var bodyClass = 'bg-secondary'
+
+//- Navbar
+block navbar
+  include partials/navbar-city-guide
+
+//- Page Content
+block content
+
+  // Page container
+  .container.mt-5.mb-md-4.py-5
+
+    // Breadcrumbs
+    nav(aria-label='breadcrumb').mb-4.pt-2.pt-lg-3
+      ol.breadcrumb
+        li.breadcrumb-item
+          a(href='city-guide-home-v1.html') Home
+        li.breadcrumb-item
+          a(href='city-guide-account-info.html') Account
+        li(aria-current='page').breadcrumb-item.active
+          | Reviews
+
+
+    // Account header
+    .d-flex.align-items-center.justify-content-between.pb-4.mb-2
+      .d-flex.align-items-center
+        .position-relative.flex-shrink-0
+          img(src='img/avatars/29.png' width='100' alt='Annette Black').rounded-circle.border.border-white
+          button(type='button' data-bs-toggle='tooltip' title='Change image').btn.btn-icon.btn-light.btn-xs.rounded-circle.shadow-sm.position-absolute.end-0.bottom-0
+            i.fi-pencil.fs-xs
+        .ps-3.ps-sm-4
+          h3.h4.mb-2 Annette Black
+          +star-rating(5)
+      a(href='signin-light.html').nav-link.p-0.d-none.d-md-block
+        i.fi-logout.mt-n1.me-2
+        | Sign out
+
+    
+    // Page content
+    .card.card-body.p-4.p-md-5.shadow-sm
+
+      // Account nav
+      include partials/nav-account-city-guide
+
+      .d-flex.flex-md-row.flex-column.align-items-md-center.justify-content-md-between.mb-4.py-2
+        h1.h3.mb-md-0 Your reviews
+
+        // Sort
+        .d-flex.align-items-sm-center.align-items-end
+          .d-flex.flex-sm-row.flex-column.align-items-sm-center.w-100
+            label(for='reviews-sort').mb-sm-0.mb-2.me-sm-2.pe-sm-1.text-nowrap
+              i.fi-arrows-sort.me-2
+              | Sort by:
+            select(id='reviews-sort' style='min-width: 180px;').form-select.form-select-sm
+              option Newest
+              option Oldest
+              option Rating
+
+      // Review
+      .row.mb-4.pb-4.border-bottom
+        .col-md-3.mb-md-0.mb-3
+          h2.mb-2.fs-base
+            span.fw-normal.me-1 For:
+            a(href='city-guide-single.html').nav-link.d-inline-block.p-0 Simon Rock Concert
+          .mb-md-3.mb-2: +star-rating(2)
+          span.fs-sm.text-muted Dec 17, 2020
+        .col-md-9
+          p.mb-3 Quam in vel diam phasellus eleifend. Tincidunt libero arcu sapien vestibulum volutpat. Ipsum tellus fames amet odio orci urna, nec sed. Aenean viverra est faucibus mauris cras dapibus enim, ullamcorper purus. Morbi odio tempor orci accumsan.
+          .d-flex.align-items-center.justify-content-between
+            .d-flex.align-items-center
+              button(type='button').btn-like
+                i.fi-like
+                span (3)
+              .border-end.me-1 &nbsp;
+              button(type='button').btn-dislike
+                i.fi-dislike
+                span (0)
+            button(data-bs-toggle='tooltip' title='Delete').btn.btn-link.py-1.px-2.opacity-90
+              i.fi-trash
+
+      // Review
+      .row.mb-4.pb-4.border-bottom
+        .col-md-3.mb-md-0.mb-3
+          h2.mb-2.fs-base
+            span.fw-normal.me-1 For:
+            a(href='city-guide-single.html').nav-link.d-inline-block.p-0 Dunkin' Donuts
+          .mb-md-3.mb-2: +star-rating(4)
+          span.fs-sm.text-muted Dec 1, 2020
+        .col-md-9
+          p.mb-3 Tempus cras felis dui volutpat neque, viverra facilisi. Scelerisque non aliquam morbi eleifend aliquet elementum et urna. Proin facilisis ut semper adipiscing gravida urna, integer.
+          .d-flex.align-items-center.justify-content-between
+            .d-flex.align-items-center
+              button(type='button').btn-like
+                i.fi-like
+                span (0)
+              .border-end.me-1 &nbsp;
+              button(type='button').btn-dislike
+                i.fi-dislike
+                span (1)
+            button(data-bs-toggle='tooltip' title='Delete').btn.btn-link.py-1.px-2.opacity-90
+              i.fi-trash
+
+      // Review
+      .row.mb-4.pb-4.border-bottom
+        .col-md-3.mb-md-0.mb-3
+          h2.mb-2.fs-base
+            span.fw-normal.me-1 For:
+            a(href='city-guide-single.html').nav-link.d-inline-block.p-0 Grand Resort &amp; Spa
+          .mb-md-3.mb-2: +star-rating(5)
+          span.fs-sm.text-muted Oct  28, 2020
+        .col-md-9
+          p.mb-3 Blandit cras integer placerat sem quisque. Venenatis dictumst mi mattis phasellus in sollicitudin. Nisl, et rhoncus pellentesque volutpat.
+          .d-flex.align-items-center.justify-content-between
+            .d-flex.align-items-center
+              button(type='button').btn-like
+                i.fi-like
+                span (2)
+              .border-end.me-1 &nbsp;
+              button(type='button').btn-dislike
+                i.fi-dislike
+                span (1)
+            button(data-bs-toggle='tooltip' title='Delete').btn.btn-link.py-1.px-2.opacity-90
+              i.fi-trash
+
+      // Review
+      .row.mb-4
+        .col-md-3.mb-md-0.mb-3
+          h2.mb-2.fs-base
+            span.fw-normal.me-1 For:
+            a(href='city-guide-single.html').nav-link.d-inline-block.p-0 Pina Pizza Restaurant
+          .mb-md-3.mb-2: +star-rating(5)
+          span.fs-sm.text-muted Oct  22, 2020
+        .col-md-9
+          p.mb-3 Nec augue ut senectus quisque diam quis. At augue accumsan, in bibendum. A eget et, eget quisque egestas netus vel. Velit, aliquet turpis convallis ullamcorper. Scelerisque sagittis condimentum pretium in vitae etiam lacinia quis amet. Porttitor consequat, sollicitudin vivamus pharetra nibh faucibus neque, viverra. Praesent amet sed lacus vitae etiam scelerisque. Quam in vel diam phasellus eleifend.
+          .d-flex.align-items-center.justify-content-between
+            .d-flex.align-items-center
+              button(type='button').btn-like
+                i.fi-like
+                span (3)
+              .border-end.me-1 &nbsp;
+              button(type='button').btn-dislike
+                i.fi-dislike
+                span (0)
+            button(data-bs-toggle='tooltip' title='Delete').btn.btn-link.py-1.px-2.opacity-90
+              i.fi-trash
+
+
+//- Footer
+block footer
+  include partials/footer-city-guide

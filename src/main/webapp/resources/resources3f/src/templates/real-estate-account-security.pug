@@ -1,0 +1,105 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var parentMenu = 'Account'
+  - var pageTitle = 'Real Estate | Account Password & Security'
+
+//- Navbar
+block navbar
+  include partials/navbar-real-estate
+
+//- Page Content
+block content
+  .container.pt-5.pb-lg-4.mt-5.mb-sm-2
+
+    // Breadcrumb
+    nav(aria-label='Breadcrumb').mb-4.pt-md-3
+      ol.breadcrumb
+        li.breadcrumb-item
+          a(href='real-estate-home-v1.html') Home
+        li.breadcrumb-item
+          a(href='real-estate-account-info.html') Account
+        li(aria-current='page').breadcrumb-item.active
+          | Password &amp; Security
+    
+
+    // Page content
+    .row
+
+      // Sidebar
+      aside.col-lg-4.col-md-5.pe-xl-4.mb-5
+        include partials/sidebar-account-real-estate
+
+      // Content
+      .col-lg-8.col-md-7.mb-5
+        h1.h2 Password &amp; Security
+        p.pt-1 Manage your password settings and secure your account.
+        h2.h5 Password
+        form(novalidate).needs-validation.pb-4
+          .row.align-items-end.mb-2
+            .col-sm-6.mb-2
+              label(for='account-password').form-label Current password
+              .password-toggle
+                input(type='password' id='account-password' required).form-control
+                label(aria-label='Show/hide password').password-toggle-btn
+                  input(type='checkbox').password-toggle-check
+                  span.password-toggle-indicator
+            .col-sm-6.mb-2
+              a(href='#').d-inline-block.mb-2 Forgot password?
+          .row.mb-2
+            .col-sm-6.mb-3
+              label(for='account-password-new').form-label New password
+              .password-toggle
+                input(type='password' id='account-password-new' required).form-control
+                label(aria-label='Show/hide password').password-toggle-btn
+                  input(type='checkbox').password-toggle-check
+                  span.password-toggle-indicator
+            .col-sm-6.mb-3
+              label(for='account-password-confirm').form-label Confirm password
+              .password-toggle
+                input(type='password' id='account-password-confirm' required).form-control
+                label(aria-label='Show/hide password').password-toggle-btn
+                  input(type='checkbox').password-toggle-check
+                  span.password-toggle-indicator
+          button(type='submit').btn.btn-outline-primary Update password
+        .border-top.pt-4.mt-3
+        h2.h5.pt-2.mb-4 Where you're signed in on
+        .d-flex.border-bottom.pb-3.mb-3
+          i.fi-device-desktop.fs-5.text-muted.me-1
+          .ps-2
+            .fw-bold.mb-1 Mac – New York, USA
+            span.d-inline-block.fs-sm.text-muted.border-end.pe-2.me-2 Chrome
+            span.fs-sm.fw-bold.text-success Active now
+        .d-flex.border-bottom.pb-3.mb-3
+          i.fi-device-mobile.fs-5.text-muted.me-1
+          .ps-2
+            .fw-bold.mb-1 iPhone 12 – New York, USA
+            span.d-inline-block.fs-sm.text-muted.border-end.pe-2.me-2 Finder App
+            span.fs-sm.text-muted 20 hours ago
+          .align-self-center.ms-auto
+            .dropdown
+              button(type='button' id='contextMenu1' data-bs-toggle='dropdown' aria-expanded='false').btn.btn-icon.btn-light.btn-xs.rounded-circle.shadow-sm
+                i.fi-dots-vertical
+              ul(aria-labelledby='contextMenu1').dropdown-menu.pb-3.my-1
+                li: a(href='#').dropdown-item.text-body Not you?
+                li: a(href='#').d-block.px-3 Sign out
+        .d-flex.border-bottom.pb-3.mb-3
+          i.fi-device-desktop.fs-5.text-muted.me-1
+          .ps-2
+            .fw-bold.mb-1 Windows 10.1 – New York, USA
+            span.d-inline-block.fs-sm.text-muted.border-end.pe-2.me-2 Chrome
+            span.fs-sm.text-muted November 15 at 8:42 AM
+          .align-self-center.ms-auto
+            .dropdown
+              button(type='button' id='contextMenu2' data-bs-toggle='dropdown' aria-expanded='false').btn.btn-icon.btn-light.btn-xs.rounded-circle.shadow-sm
+                i.fi-dots-vertical
+              ul(aria-labelledby='contextMenu2').dropdown-menu.pb-3.my-1
+                li: a(href='#').dropdown-item.text-body Not you?
+                li: a(href='#').d-block.px-3 Sign out
+        a(href='#').d-inline-block.fw-bold.text-decoration-none.mt-3 Sign out of all sessions     
+
+
+//- Footer
+block footer
+  include partials/footer-real-estate

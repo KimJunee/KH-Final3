@@ -1,0 +1,157 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var parentMenu = 'Pages'
+  - var pageTitle = 'Real Estate | Single Post'
+
+//- Navbar
+block navbar
+  include partials/navbar-real-estate
+
+//- Page Content
+block content
+
+  // Page container
+  .container.mt-5.mb-md-4.py-5
+
+    // Breadcrumb
+    nav(aria-label='breadcrumb').mb-3.pt-md-3
+      ol.breadcrumb
+        li.breadcrumb-item
+          a(href='real-estate-home-v1.html') Home
+        li.breadcrumb-item
+          a(href='real-estate-blog.html') Blog
+        li(aria-current='page').breadcrumb-item.active
+          | How Real Estate Drone Photography Can Elevate Your Listing?
+
+    // Post title + meta
+    a(href='#').nav-link.d-inline-block.fw-normal.text-uppercase.px-0.mb-2 Tips &amp; Advice
+    h1.h2.mb-4 How Real Estate Drone Photography Can Elevate Your Listing?
+    .mb-4.pb-1
+      ul.list-unstyled.d-flex.flex-wrap.mb-0.text-nowrap
+        li.me-3
+          i.fi-calendar-alt.me-2.mt-n1.opacity-60
+          | Mar 18
+        li.me-3.border-end
+        li.me-3
+          i.fi-clock.me-2.mt-n1.opacity-60
+          | 4 min read
+        li.me-3.border-end
+        li.me-3
+          a(href='#comments' data-scroll).nav-link-muted
+            i.fi-chat-circle.me-2.mt-n1.opacity-60
+            | 3 comments
+
+    // Post content
+    .mb-4.pb-md-3
+      img(src='img/real-estate/blog/single.jpg' alt='Post image').rounded-3
+    .row
+      .col-lg-2.col-md-1.mb-md-0.mb-4.mt-md-n5
+
+        // Sharing
+        .sticky-top.py-md-5.mt-md-5
+          .d-flex.flex-md-column.align-items-center.my-2.mt-md-4.pt-md-5
+            .d-md-none.fw-bold.text-nowrap.me-2.pe-1 Share:
+            a(href='#' data-bs-toggle='tooltip' title='Share with Facebook').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.mb-md-2.me-md-0.me-2
+              i.fi-facebook
+            a(href='#' data-bs-toggle='tooltip' title='Share with Twitter').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.mb-md-2.me-md-0.me-2
+              i.fi-twitter
+            a(href='#' data-bs-toggle='tooltip' title='Share with LinkedIn').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.mb-md-2.me-md-0.me-2
+              i.fi-linkedin
+
+      .col-lg-8.col-md-10
+
+        // Author
+        .mb-4.pb-md-3
+          a(href='#').d-flex.align-items-center.text-body.text-decoration-none
+            img(src='img/avatars/32.jpg' width='80' alt='Kristin Watson').rounded-circle
+            .ps-3
+              h2.h6.mb-1 Kristin Watson
+              span.fs-sm Imperial Property Group Agent
+
+        // Post content
+        h6 Feugiat eget gravida urna placerat posuere pulvinar. Id nibh hendrerit semper urna consequat. Mauris elit tellus risus ultricies ut consequat. Tempor tellus imperdiet nec velit fames pellentesque sed sed arcu. Neque quam id pellentesque in diam in.
+        p Purus ornare nisl est nec. Nunc, enim tellus pretium viverra quisque id in metus volutpat. Urna eget velit venenatis, commodo eget massa. Magna donec dictum cras nullam platea. Diam rhoncus massa lectus pellentesque tristique. Amet commodo, egestas vitae bibendum. Volutpat elit condimentum integer tortor porttitor justo vel lobortis risus. Lacinia pellentesque fermentum tellus orci mauris, velit duis eget. Commodo justo, hac ligula molestie felis, iaculis. Vitae dui at ante orci, dictum fusce. Urna, sed urna fringilla faucibus euismod aliquet nec. Quis libero, fermentum amet eu, condimentum auctor. Sit vel ipsum sem tempus gravida et. Scelerisque blandit orci, est quis. Nisi, tellus amet est nascetur habitant faucibus ornare et vivamus.
+        p Convallis massa nunc, tempus eget egestas sollicitudin mauris. Purus donec sed neque arcu, dictumst tortor nisi, odio. A sit lectus sem velit orci, rhoncus pharetra facilisis. Cras sodales a, dui pellentesque enim odio rutrum leo. Auctor viverra sit sit ut. Massa, elit venenatis, ultrices viverra at sagittis, velit. Cursus tempus phasellus consectetur suspendisse a blandit pellentesque diam neque. Massa est nibh congue elit amet, diam faucibus. Morbi non est semper ullamcorper quam iaculis at.
+        blockquote.blockquote
+          p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          footer.fs-base — Annette Black
+        p Praesent sed pulvinar posuere nisl tincidunt. Iaculis sit quam magna congue. Amet vel non aliquet habitasse. Egestas erat odio et, eleifend turpis etiam blandit interdum. Nec augue ut senectus quisque diam quis. At augue accumsan, in bibendum. A eget et, eget quisque egestas netus vel. Velit, aliquet turpis convallis ullamcorper. Scelerisque sagittis condimentum pretium in vitae etiam lacinia quis amet. Porttitor consequat, sollicitudin vivamus pharetra nibh faucibus neque, viverra. Praesent amet sed lacus vitae.
+        p Velit parturient tellus tellus, congue pulvinar tellus viverra. In cum massa mattis ac. Amet vitae massa ut mi etiam. Auctor aliquam tristique felis donec eu sit nisi. Accumsan mauris eget convallis mattis sed etiam scelerisque.
+
+
+        // Post tags
+        .d-flex.align-items-center.my-md-5.my-4.py-md-4.py-3.border-top
+          .fw-bold.text-nowrap.mb-2.me-2.pe-1 Tags:
+          .d-flex.flex-wrap
+            a(href='#').btn.btn-xs.btn-outline-secondary.rounded-pill.fs-sm.fw-normal.me-2.mb-2 Tutorial
+            a(href='#').btn.btn-xs.btn-outline-secondary.rounded-pill.fs-sm.fw-normal.me-2.mb-2 Jobs
+            a(href='#').btn.btn-xs.btn-outline-secondary.rounded-pill.fs-sm.fw-normal.mb-2 Business
+
+        
+        // Comments
+        #comments.mb-4.mb-md-5
+          h3.mb-4.pb-2 3 comments
+
+          // Comment
+          .border-bottom.pb-4.mb-4
+            p Elementum ut quam tincidunt egestas vitae elit, hendrerit. Ullamcorper nulla amet lobortis elit, nibh condimentum enim. Aliquam felis nisl tellus sodales lectus dictum tristique proin vitae. Odio fermentum viverra tortor quis reprehenderit in voluptate velit.
+            .d-flex.justify-content-between.align-items-center
+              .d-flex.align-items-center.pe-2
+                img(src='img/avatars/05.jpg' width='48' alt='Daniel Adams').rounded-circle.me-1
+                .ps-2
+                  h6.fs-base.mb-0 Daniel Adams
+                  span.text-muted.fs-sm 3 days ago
+              button(type='button').btn.btn-link.btn-sm
+                i.fi-reply.fs-lg.me-2
+                span.fw-normal Reply
+
+            // Reply to comment
+            .border-start.border-4.ps-4.ms-4.mt-4
+              p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+              .d-flex.align-items-center.pe-2
+                img(src='img/avatars/06.jpg' width='48' alt='Kristin Watsons').rounded-circle.me-1
+                .ps-2
+                  h6.fs-base.mb-0
+                    | Kristin Watsons
+                    span.badge.bg-info.rounded-pill.fs-xs.ms-2 Author
+                  span.text-muted.fs-sm 2 days ago
+          // Comment
+          .pb-4
+            p Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
+            .d-flex.justify-content-between.align-items-center
+              .d-flex.align-items-center.pe-2
+                img(src='img/avatars/04.jpg' width='48' alt='Darrel Steward').rounded-circle.me-1
+                .ps-2
+                  h6.fs-base.mb-0 Darrel Steward
+                  span.text-muted.fs-sm 1 week ago
+              button(type='button').btn.btn-link.btn-sm
+                i.fi-reply.fs-lg.me-2
+                span.fw-normal Reply
+                  
+
+    // Comment form
+    .card.py-md-4.py-3.shadow-sm
+      .card-body.col-lg-8.col-md-10.mx-auto.px-md-0.px-4
+        h3.mb-4.pb-sm-2 Leave your comment
+        form(novalidate).needs-validation.row.gy-md-4.gy-3
+          .col-sm-6
+            label(for='comment-name').form-label Name
+            input(type='text' id='comment-name' placeholder='Enter your name' required).form-control.form-control-lg
+            .invalid-feedback Please enter your name.
+          .col-sm-6
+            label(for='comment-email').form-label Email
+            input(type='email' id='comment-email' placeholder='Enter your email' required).form-control.form-control-lg
+            .invalid-feedback Please provide a valid email address.
+          .col-12
+            label(for='comment-text').form-label Comment
+            textarea(id='comment-text' rows='4' placeholder='Type comment here' required).form-control.form-control-lg
+            .invalid-feedback Please type your comment.
+          .col-12.py-2
+            button(type='submit').btn.btn-lg.btn-primary Post comment
+
+
+//- Footer
+block footer
+  include partials/footer-real-estate

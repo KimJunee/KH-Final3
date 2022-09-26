@@ -1,0 +1,386 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['lightgallery.js/dist/css/lightgallery.min.css', 'tiny-slider/dist/tiny-slider.css', 'flatpickr/dist/flatpickr.min.css']
+  - var vendorScripts = ['lightgallery.js/dist/js/lightgallery.min.js', 'lg-fullscreen.js/dist/lg-fullscreen.min.js', 'lg-zoom.js/dist/lg-zoom.min.js', 'lg-thumbnail.js/dist/lg-thumbnail.min.js', 'flatpickr/dist/flatpickr.min.js', 'tiny-slider/dist/min/tiny-slider.js']
+  - var parentMenu = 'Catalog'
+  - var pageTitle = 'Real Estate | Single Property v.2'
+
+//- Navbar
+block navbar
+  include partials/navbar-real-estate
+
+//- Page Content
+block content
+
+  // Page content
+  section.container.mt-5.mb-lg-5.mb-4.pt-5.pb-lg-5
+
+    // Breadcrumb
+    nav(aria-label='breadcrumb').mb-3.pt-md-3
+      ol.breadcrumb
+        li.breadcrumb-item: a(href='real-estate-home-v1.html') Home
+        li.breadcrumb-item: a(href='real-estate-catalog-rent.html') Property for rent
+        li(aria-current='page').breadcrumb-item.active Pine Apartments
+
+    .row.gy-5.pt-lg-2
+      .col-lg-7
+
+        .d-flex.flex-column
+
+          // Carousel with slides count
+          .order-lg-1.order-2
+            .tns-carousel-wrapper
+              .tns-slides-count.text-light
+                i.fi-image.fs-lg.me-2
+                .ps-1
+                  span.tns-current-slide.fs-5.fw-bold
+                  span.fs-5.fw-bold /
+                  span.tns-total-slides.fs-5.fw-bold
+              .tns-carousel-inner(data-carousel-options='{"navAsThumbnails": true, "navContainer": "#thumbnails", "gutter": 12, "responsive": {"0":{"controls": false},"500":{"controls": true}}}')
+                div
+                  img(src='img/real-estate/single/09.jpg' alt='Image').rounded-3
+                div
+                  img(src='img/real-estate/single/10.jpg' alt='Image').rounded-3
+                div
+                  img(src='img/real-estate/single/11.jpg' alt='Image').rounded-3
+                div
+                  img(src='img/real-estate/single/12.jpg' alt='Image').rounded-3
+                div
+                  .ratio.ratio-16x9
+                    iframe(src='https://www.youtube.com/embed/dofyR9p8e7w' title='YouTube video player' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen).rounded-3
+
+            // Thumbnails nav
+            ul(id='thumbnails').tns-thumbnails.mb-4
+              li.tns-thumbnail
+                img(src='img/real-estate/single/th09.jpg' alt='Thumbnail')
+              li.tns-thumbnail
+                img(src='img/real-estate/single/th10.jpg' alt='Thumbnail')
+              li.tns-thumbnail
+                img(src='img/real-estate/single/th11.jpg' alt='Thumbnail')
+              li.tns-thumbnail
+                img(src='img/real-estate/single/th12.jpg' alt='Thumbnail')
+              li.tns-thumbnail
+                .d-flex.flex-column.align-items-center.justify-content-center.h-100
+                  i.fi-play-circle.fs-4.mb-1
+                  span Play video
+
+          // Page title + Features
+          .order-lg-2.order-1
+            h1.h2.mb-2 Pine Apartments
+            p.mb-2.pb-1.fs-lg 28 Jackson Ave Long Island City, NY 67234
+            ul.d-flex.mb-4.pb-lg-2.list-unstyled
+              li.me-3.pe-3.border-end
+                b.me-1 4
+                i.fi-bed.mt-n1.lead.align-middle.text-muted
+              li.me-3.pe-3.border-end
+                b.me-1 2
+                i.fi-bath.mt-n1.lead.align-middle.text-muted
+              li.me-3.pe-3.border-end
+                b.me-1 2
+                i.fi-car.mt-n1.lead.align-middle.text-muted
+              li
+                b 56 
+                | sq.m
+
+        // Overview
+        h2.h5 Overview
+        p.mb-4.pb-2 Etiam ut morbi egestas nunc quis. Nulla tincidunt senectus suspendisse neque, sed sem ut donec sed. Nullam hac netus quis nec tortor mi auctor risus praesent. In pharetra consequat diam nibh consectetur aliquet nulla. Non convallis nascetur viverra viverra diam vel bibendum sed. Elementum odio sed etiam consequat scelerisque in. Diam sit donec nunc enim. Tellus, commodo eget pharetra pharetra quis pellentesque. Enim aliquam sit in porttitor sed gravida a. Aliquam ac tellus sit erat. Non, et ac enim felis. Proin habitasse sit ut mauris, aliquam ornare pretium, nulla aliquam. Scelerisque velit netus quis mauris, dictumst suspendisse tortor.
+
+        // Rental agent
+        h2.h5 Rental agent
+        .card.card-horizontal
+          .card-img-top.bg-position-center-x(style='background-image: url(img/real-estate/agents/01.jpg);')
+          blockquote.blockquote.card-body.p-4
+            p.mb-4 Amet libero morbi venenatis ut est. Iaculis leo ultricies nunc id ante adipiscing. Vel metus odio at faucibus ac. Neque id placerat et id ut.
+            footer.d-flex.justify-content-between
+              .pe-3
+                h6.mb-0 Kristin Watson
+                .text-muted.fw-normal.fs-sm.mb-3 Imperial Property Group Agent
+                a(href='#').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.me-2.mb-2
+                  i.fi-facebook
+                a(href='#').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.me-2.mb-2
+                  i.fi-twitter
+                a(href='#').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.me-2.mb-2
+                  i.fi-instagram
+              div
+                +star-rating(5)
+                .text-muted.fs-sm.mt-1 24 reviews
+
+      // Sidebar with details
+      aside.col-lg-5
+        .ps-lg-5
+          .d-flex.align-items-center.justify-content-between.mb-3
+            div
+              span.badge.bg-success.me-2.mb-2 Verified
+              span.badge.bg-info.me-2.mb-2 New
+            .text-nowrap
+              button(type='button' data-bs-toggle='tooltip' title='Add to Wishlist').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.ms-2.mb-2
+                i.fi-heart
+              .dropdown.d-inline-block(data-bs-toggle='tooltip' title='Share')
+                button(type='button' data-bs-toggle='dropdown').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.ms-2.mb-2
+                  i.fi-share
+                .dropdown-menu.dropdown-menu-end.my-1
+                  button(type='button').dropdown-item
+                    i.fi-facebook.fs-base.opacity-75.me-2
+                    | Facebook
+                  button(type='button').dropdown-item
+                    i.fi-twitter.fs-base.opacity-75.me-2
+                    | Twitter
+                  button(type='button').dropdown-item
+                    i.fi-instagram.fs-base.opacity-75.me-2
+                    | Instagram
+          h3.h5.mb-2 Monthly rent:
+          h2.h3.mb-4.pb-2 $2,000
+            span.d-inline-block.ms-1.fs-base.fw-normal.text-body /month
+          
+          // Property details
+          .card.border-0.bg-secondary.mb-4
+            .card-body
+              h5.mb-0.pb-3 Property Details
+              ul.list-unstyled.mt-n2.mb-0
+                li.mt-2.mb-0
+                  b Type: 
+                  | apartment
+                li.mt-2.mb-0
+                  b Apartment area: 
+                  | 56 sq.m
+                li.mt-2.mb-0
+                  b Built: 
+                  | 2015
+                li.mt-2.mb-0
+                  b Bedrooms: 
+                  | 4
+                li.mt-2.mb-0
+                  b Bathrooms: 
+                  | 2
+                li.mt-2.mb-0
+                  b Parking places: 
+                  | 2
+                li.mt-2.mb-0
+                  b Pets allowed: 
+                  | cats only
+
+          a(href='#').btn.btn-lg.btn-primary.w-100.mb-3
+            | Book a viewing
+          a(href='#').d-inline-block.mb-4.pb-2.text-decoration-none
+            i.fi-help.me-2.mt-n1.align-middle
+            | Frequently asked questions
+
+          // Amenities
+          .card.border-0.bg-secondary.mb-4
+            .card-body
+              h5 Amenities
+              ul.list-unstyled.row.row-cols-md-2.row-cols-1.gy-2.mb-0.text-nowrap
+                li.col
+                  i.fi-wifi.mt-n1.me-2.fs-lg.align-middle
+                  | WiFi
+                li.col
+                  i.fi-thermometer.mt-n1.me-2.fs-lg.align-middle
+                  | Heating
+                li.col
+                  i.fi-dish.mt-n1.me-2.fs-lg.align-middle
+                  | Dishwasher
+                li.col
+                  i.fi-parking.mt-n1.me-2.fs-lg.align-middle
+                  | Parking place
+                li.col
+                  i.fi-snowflake.mt-n1.me-2.fs-lg.align-middle
+                  | Air conditioning
+                li.col
+                  i.fi-iron.mt-n1.me-2.fs-lg.align-middle
+                  | Iron
+                li.col
+                  i.fi-tv.mt-n1.me-2.fs-lg.align-middle
+                  | TV
+                li.col
+                  i.fi-laundry.mt-n1.me-2.fs-lg.align-middle
+                  | Laundry
+                li.col
+                  i.fi-cctv.mt-n1.me-2.fs-lg.align-middle
+                  | Security cameras
+                li.col
+                  i.fi-no-smoke.mt-n1.me-2.fs-lg.align-middle
+                  | No smocking
+              #seeMoreAmenities.collapse
+                ul.list-unstyled.row.row-cols-md-2.row-cols-1.gy-2.pt-2.mb-0.text-nowrap
+                  li.col
+                    i.fi-double-bed.mt-n1.me-2.fs-lg.align-middle
+                    | Double bed
+                  li.col
+                    i.fi-bed.mt-n1.me-2.fs-lg.align-middle
+                    | Single bed
+              a(href='#seeMoreAmenities' data-bs-toggle='collapse' data-bs-label-collapsed='Show more' data-bs-label-expanded='Show less' role='button' aria-expanded='false' aria-controls='seeMoreAmenities').collapse-label.collapsed.d-inline-block.mt-3
+
+          // Not included in rent
+          .card.border-0.bg-secondary.mb-4
+            .card-body
+              h5 Not included in rent
+              ul.list-unstyled.row.row-cols-md-2.row-cols-1.gy-2.mb-0.text-nowrap
+                li.col
+                  i.fi-swimming-pool.mt-n1.me-2.fs-lg.align-middle
+                  | Swimming pool
+                li.col
+                  i.fi-cafe.mt-n1.me-2.fs-lg.align-middle
+                  | Restaurant
+                li.col
+                  i.fi-spa.mt-n1.me-2.fs-lg.align-middle
+                  | Spa lounge
+                li.col
+                  i.fi-cocktail.mt-n1.me-2.fs-lg.align-middle
+                  | Bar
+
+          // Post meta
+          ul.d-flex.mb-4.list-unstyled.fs-sm
+            li.me-3.pe-3.border-end
+              | Published: 
+              b Dec 9, 2020
+            li.me-3.pe-3.border-end
+              | Ad number: 
+              b 681013232
+            li.me-3.pe-3
+              | Views: 
+              b 48
+
+
+  // Recently viewed
+  section.container.mb-5.pb-2.pb-lg-4
+    .d-flex.align-items-center.justify-content-between.mb-3
+      h2.h3.mb-0 Recently viewed
+      a(href='real-estate-catalog-rent.html').btn.btn-link.fw-normal.p-0
+        | View all
+        i.fi-arrow-long-right.ms-2
+    .tns-carousel-wrapper.tns-controls-outside-xxl.tns-nav-outside.tns-nav-outside-flush.mx-n2
+      .tns-carousel-inner.row.gx-4.mx-0.pt-3.pb-4(data-carousel-options='{"items": 4, "responsive": {"0":{"items":1},"500":{"items":2},"768":{"items":3},"992":{"items":4}}}')
+
+        // Item
+        .col
+          .card.shadow-sm.card-hover.border-0.h-100
+            .card-img-top.card-img-hover
+              a(href='real-estate-single-v1.html').img-overlay
+              .content-overlay.end-0.top-0.pt-3.pe-3
+                button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                  i.fi-heart
+              img(src='img/real-estate/catalog/39.jpg' alt='Image')
+            .card-body.position-relative.pb-3
+              h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For Sale
+              h3.h6.mb-2.fs-base
+                a(href='real-estate-single-v1.html').nav-link.stretched-link Modern House | 90 sq.m
+              p.mb-2.fs-sm.text-muted 67-04 Myrtle Ave Glendale, NY 11385
+              .fw-bold
+                i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+                | $84,000
+            .card-footer.d-flex.align-items-center.justify-content-center.mx-3.pt-3.text-nowrap
+              span.d-inline-block.mx-1.px-2.fs-sm 4
+                i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+              span.d-inline-block.mx-1.px-2.fs-sm 2
+                i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+              span.d-inline-block.mx-1.px-2.fs-sm 2
+                i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+
+        // Item
+        .col
+          .card.shadow-sm.card-hover.border-0.h-100
+            .card-img-top.card-img-hover
+              a(href='real-estate-single-v1.html').img-overlay
+              .content-overlay.end-0.top-0.pt-3.pe-3
+                button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                  i.fi-heart
+              img(src='img/real-estate/catalog/40.jpg' alt='Image')
+            .card-body.position-relative.pb-3
+              h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For rent
+              h3.h6.mb-2.fs-base
+                a(href='real-estate-single-v1.html').nav-link.stretched-link Country House | 120 sq.m
+              p.mb-2.fs-sm.text-muted 3811 Ditmars Blvd Astoria, NY 11105
+              .fw-bold
+                i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+                | $1,629 
+            .card-footer.d-flex.align-items-center.justify-content-center.mx-3.pt-3.text-nowrap
+              span.d-inline-block.mx-1.px-2.fs-sm 3
+                i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+              span.d-inline-block.mx-1.px-2.fs-sm 2
+                i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+              span.d-inline-block.mx-1.px-2.fs-sm 2
+                i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+
+        // Item
+        .col
+          .card.shadow-sm.card-hover.border-0.h-100
+            .card-img-top.card-img-hover
+              a(href='real-estate-single-v1.html').img-overlay
+              .content-overlay.end-0.top-0.pt-3.pe-3
+                button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                  i.fi-heart
+              img(src='img/real-estate/catalog/41.jpg' alt='Image')
+            .card-body.position-relative.pb-3
+              h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For rent
+              h3.h6.mb-2.fs-base
+                a(href='real-estate-single-v1.html').nav-link.stretched-link Luxury Rental Villa | 180 sq.m
+              p.mb-2.fs-sm.text-muted 1510 Castle Hill Ave Bronx, NY 10462
+              .fw-bold
+                i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+                | $1,330
+            .card-footer.d-flex.align-items-center.justify-content-center.mx-3.pt-3.text-nowrap
+              span.d-inline-block.mx-1.px-2.fs-sm 1
+                i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+              span.d-inline-block.mx-1.px-2.fs-sm 1
+                i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+              span.d-inline-block.mx-1.px-2.fs-sm 1
+                i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+
+        // Item
+        .col
+          .card.shadow-sm.card-hover.border-0.h-100
+            .card-img-top.card-img-hover
+              a(href='real-estate-single-v1.html').img-overlay
+              .content-overlay.end-0.top-0.pt-3.pe-3
+                button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                  i.fi-heart
+              img(src='img/real-estate/catalog/42.jpg' alt='Image')
+            .card-body.position-relative.pb-3
+              h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For sale
+              h3.h6.mb-2.fs-base
+                a(href='real-estate-single-v1.html').nav-link.stretched-link Duplex with Garage | 200 sq.m
+              p.mb-2.fs-sm.text-muted 140-60 Beech Ave Flushing, NY 11355
+              .fw-bold
+                i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+                | $65,000
+            .card-footer.d-flex.align-items-center.justify-content-center.mx-3.pt-3.text-nowrap
+              span.d-inline-block.mx-1.px-2.fs-sm 1
+                i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+              span.d-inline-block.mx-1.px-2.fs-sm 1
+                i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+              span.d-inline-block.mx-1.px-2.fs-sm 2
+                i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+
+        // Item
+        .col
+          .card.shadow-sm.card-hover.border-0.h-100
+            .card-img-top.card-img-hover
+              a(href='real-estate-single-v1.html').img-overlay
+              .content-overlay.end-0.top-0.pt-3.pe-3
+                button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                  i.fi-heart
+              img(src='img/real-estate/catalog/43.jpg' alt='Image')
+            .card-body.position-relative.pb-3
+              h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For sale
+              h3.h6.mb-2.fs-base
+                a(href='real-estate-single-v1.html').nav-link.stretched-link Merry House | 98 sq.m
+              p.mb-2.fs-sm.text-muted 123-12 Jamaica Ave Queens, NY 11418
+              .fw-bold
+                i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+                | $351,900
+            .card-footer.d-flex.align-items-center.justify-content-center.mx-3.pt-3.text-nowrap
+              span.d-inline-block.mx-1.px-2.fs-sm 1
+                i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+              span.d-inline-block.mx-1.px-2.fs-sm 1
+                i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+              span.d-inline-block.mx-1.px-2.fs-sm 2
+                i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+
+
+
+//- Footer
+block footer
+  include partials/footer-real-estate

@@ -1,0 +1,36 @@
+//
+// Breadcrumb
+// --------------------------------------------------
+
+
+.breadcrumb {
+  --#{$prefix}breadcrumb-color: #{$breadcrumb-color};
+  --#{$prefix}breadcrumb-font-weight: #{$breadcrumb-font-weight};
+  @include rfs($breadcrumb-divider-font-size, --#{$prefix}breadcrumb-divider-font-size);
+  --#{$prefix}breadcrumb-item-hover-color: #{$breadcrumb-hover-color};
+
+  font-weight: var(--#{$prefix}breadcrumb-font-weight);
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  + .breadcrumb-item::before {
+    margin-top: .15em;
+    font: {
+      family: $icons-font-family;
+      weight: normal;
+    }
+    @include font-size(var(--#{$prefix}breadcrumb-divider-font-size));
+    line-height: 1;
+  }
+  > a {
+    display: flex;
+    align-items: center;
+    color: var(--#{$prefix}breadcrumb-color);    
+    text-decoration: none;
+  }
+  &:hover > a {
+    color: var(--#{$prefix}breadcrumb-item-hover-color);
+  }
+}

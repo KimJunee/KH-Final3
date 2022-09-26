@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Around | Mailchimp subscription form</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="Around - Multipurpose Bootstrap HTML Template">
+    <meta name="keywords" content="bootstrap, business, corporate, coworking space, services, creative agency, dashboard, e-commerce, mobile app showcase, saas, multipurpose, product landing, shop, software, ui kit, web studio, landing, dark mode, html5, css3, javascript, gallery, slider, touch, creative">
+    <meta name="author" content="Createx Studio">
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../assets/favicon/site.webmanifest">
+    <link rel="mask-icon" color="#6366f1" href="../assets/favicon/safari-pinned-tab.svg">
+    <meta name="msapplication-TileColor" content="#080032">
+    <meta name="msapplication-config" content="../assets/favicon/browserconfig.xml">
+    <meta name="theme-color" content="white">
+    <!-- Theme mode-->
+    <script>
+      let mode = window.localStorage.getItem('mode'),
+          root = document.getElementsByTagName('html')[0];
+      if (mode !== undefined && mode === 'dark') {
+        root.classList.add('dark-mode');
+      } else {
+        root.classList.remove('dark-mode');
+      }
+      
+      
+    </script>
+    <!-- Import Google Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" id="google-font">
+    <!-- Vendor styles-->
+    <link rel="stylesheet" media="screen" href="../assets/vendor/simplebar/dist/simplebar.min.css"/>
+    <link rel="stylesheet" media="screen" href="../assets/vendor/prismjs/themes/prism.css"/>
+    <link rel="stylesheet" media="screen" href="../assets/vendor/prismjs/plugins/toolbar/prism-toolbar.css"/>
+    <link rel="stylesheet" media="screen" href="../assets/vendor/prismjs/plugins/line-numbers/prism-line-numbers.css"/>
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="../assets/css/theme.min.css">
+  </head>
+  <!-- Body-->
+  <body class="bg-secondary">
+    <!-- Navbar-->
+    <header class="navbar navbar-expand justify-content-end fixed-top" data-scroll-header>
+      <div class="container"><a class="navbar-brand pe-xl-2 me-4" href="typography.html"><span class="text-primary flex-shrink-0 me-2">
+            <svg version="1.1" width="35" height="32" viewBox="0 0 36 33" xmlns="http://www.w3.org/2000/svg">
+              <path fill="currentColor" d="M35.6,29c-1.1,3.4-5.4,4.4-7.9,1.9c-2.3-2.2-6.1-3.7-9.4-3.7c-3.1,0-7.5,1.8-10,4.1c-2.2,2-5.8,1.5-7.3-1.1c-1-1.8-1.2-4.1,0-6.2l0.6-1.1l0,0c0.6-0.7,4.4-5.2,12.5-5.7c0.5,1.8,2,3.1,3.9,3.1c2.2,0,4.1-1.9,4.1-4.2s-1.8-4.2-4.1-4.2c-2,0-3.6,1.4-4,3.3H7.7c-0.8,0-1.3-0.9-0.9-1.6l5.6-9.8c2.5-4.5,8.8-4.5,11.3,0L35.1,24C36,25.7,36.1,27.5,35.6,29z"></path>
+            </svg></span>Around<span class="badge bg-info fs-sm ms-2">Docs</span></a>
+        <ul class="navbar-nav d-none d-lg-flex me-auto">
+          <li class="nav-item"><a class="nav-link" href="../index.html"><i class="ai-monitor fs-lg opacity-90 me-2"></i>Live demo</a></li>
+          <li class="nav-item"><a class="nav-link" href="../components/typography.html"><i class="ai-layer fs-lg opacity-90 me-2"></i>UI Kit (Components)</a></li>
+        </ul>
+        <div class="form-check form-switch mode-switch pe-lg-1 ms-auto" data-bs-toggle="mode">
+          <input class="form-check-input" type="checkbox" id="theme-mode">
+          <label class="form-check-label" for="theme-mode"><i class="ai-sun fs-lg"></i></label>
+          <label class="form-check-label" for="theme-mode"><i class="ai-moon fs-lg"></i></label>
+        </div>
+        <button class="navbar-toggler d-block d-lg-none ms-3 border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#docsNav"><span class="navbar-toggler-icon"></span></button><a class="btn btn-sm btn-primary d-none d-lg-inline-flex fs-sm ms-4" href="https://themes.getbootstrap.com/product/around-multipurpose-template-ui-kit/" target="_blank" rel="noopener"><i class="ai-cart d-sm-inline-block fs-xl me-2 ms-n1"></i>Buy now</a>
+      </div>
+    </header>
+    <!-- Desktop sidebar navigation (on screens > 991px) (Offcanvas)-->
+    <aside class="container position-fixed d-none d-lg-block start-50 translate-middle-x h-100 pt-5">
+      <div class="row h-100 pt-5">
+        <div class="col-lg-3 d-flex flex-column pb-3 pt-4" style="height: calc(100% - 2rem);">
+          <div class="h-100 mt-2" data-simplebar>
+            <h3 class="h5 mb-1 pb-2">Contents</h3>
+            <ul class="nav flex-column">
+              <li class="nav-item"><a class="nav-link px-0 py-2" href="getting-started.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Getting started</a>
+              </li>
+              <li class="nav-item"><a class="nav-link px-0 py-2" href="dev-setup.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Dev environment setup</a>
+              </li>
+              <li class="nav-item"><a class="nav-link px-0 py-2" href="working-with-gulp.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Working with Gulp</a>
+              </li>
+              <li class="nav-item"><a class="nav-link px-0 py-2" href="project-structure.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Project structure</a>
+              </li>
+              <li class="nav-item"><a class="nav-link px-0 py-2" href="install-vendor-plugin.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Installing Vendor plugins with Npm and Gulp</a>
+              </li>
+              <li class="nav-item"><a class="nav-link px-0 py-2" href="using-preprocessors.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Using Pug &amp; Sass</a>
+              </li>
+              <li class="nav-item"><a class="nav-link px-0 py-2" href="autoprefixer.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Browser support</a>
+              </li>
+              <li class="nav-item"><a class="nav-link px-0 py-2" href="theme-mode.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Theme mode</a>
+              </li>
+              <li class="nav-item"><a class="nav-link px-0 py-2" href="global-colors.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Global colors</a>
+              </li>
+              <li class="nav-item"><a class="nav-link px-0 py-2" href="components.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Components</a>
+              </li>
+              <li class="nav-item"><a class="nav-link px-0 py-2" href="utilities.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Utility classes</a>
+              </li>
+              <li class="nav-item"><a class="nav-link px-0 py-2" href="ui-icons.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>UI icons (Icon font)</a>
+              </li>
+              <li class="nav-item"><span class="nav-link px-0 py-2 active"><i class="ai-circle-arrow-down fs-lg opacity-90 me-2"></i>Mailchimp subscription form</span>
+              </li>
+              <li class="nav-item"><a class="nav-link px-0 py-2" href="credits.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Sources and credits</a>
+              </li>
+              <li class="nav-item"><a class="nav-link px-0 py-2" href="changelog.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Changelog</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <!-- Mobile offcanvas navigation (on screens < 992px)-->
+    <div class="offcanvas offcanvas-start" id="docsNav">
+      <div class="offcanvas-header align-items-center">
+        <div class="d-flex align-items-center">
+          <h4 class="offcanvas-title">Menu</h4>
+        </div>
+        <button class="btn-close" type="button" data-bs-dismiss="offcanvas"></button>
+      </div>
+      <ul class="nav flex-column border-bottom pb-4">
+        <li class="nav-item"><a class="nav-link py-2" href="../index.html"><i class="ai-monitor fs-lg opacity-90 me-2"></i>Live demo</a></li>
+        <li class="nav-item"><a class="nav-link py-2" href="../components/typography.html"><i class="ai-layer fs-lg opacity-90 me-2"></i>UI Kit (Components)</a></li>
+      </ul>
+      <div class="offcanvas-body">
+        <h3 class="h5 mb-1 pb-2">Contents</h3>
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link px-0 py-2" href="getting-started.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Getting started</a>
+          </li>
+          <li class="nav-item"><a class="nav-link px-0 py-2" href="dev-setup.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Dev environment setup</a>
+          </li>
+          <li class="nav-item"><a class="nav-link px-0 py-2" href="working-with-gulp.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Working with Gulp</a>
+          </li>
+          <li class="nav-item"><a class="nav-link px-0 py-2" href="project-structure.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Project structure</a>
+          </li>
+          <li class="nav-item"><a class="nav-link px-0 py-2" href="install-vendor-plugin.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Installing Vendor plugins with Npm and Gulp</a>
+          </li>
+          <li class="nav-item"><a class="nav-link px-0 py-2" href="using-preprocessors.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Using Pug &amp; Sass</a>
+          </li>
+          <li class="nav-item"><a class="nav-link px-0 py-2" href="autoprefixer.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Browser support</a>
+          </li>
+          <li class="nav-item"><a class="nav-link px-0 py-2" href="theme-mode.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Theme mode</a>
+          </li>
+          <li class="nav-item"><a class="nav-link px-0 py-2" href="global-colors.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Global colors</a>
+          </li>
+          <li class="nav-item"><a class="nav-link px-0 py-2" href="components.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Components</a>
+          </li>
+          <li class="nav-item"><a class="nav-link px-0 py-2" href="utilities.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Utility classes</a>
+          </li>
+          <li class="nav-item"><a class="nav-link px-0 py-2" href="ui-icons.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>UI icons (Icon font)</a>
+          </li>
+          <li class="nav-item"><span class="nav-link px-0 py-2 active"><i class="ai-circle-arrow-down fs-lg opacity-90 me-2"></i>Mailchimp subscription form</span>
+          </li>
+          <li class="nav-item"><a class="nav-link px-0 py-2" href="credits.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Sources and credits</a>
+          </li>
+          <li class="nav-item"><a class="nav-link px-0 py-2" href="changelog.html"><i class="ai-circle-arrow-right fs-lg opacity-90 me-2"></i>Changelog</a>
+          </li>
+        </ul>
+      </div>
+      <div class="offcanvas-header border-top"><a class="btn btn-primary w-100" href="https://themes.getbootstrap.com/product/around-multipurpose-template-ui-kit/" target="_blank" rel="noopener"><i class="ai-cart d-sm-inline-block fs-xl me-2 ms-n1"></i>Buy now</a></div>
+    </div>
+    <!-- Page content-->
+    <section class="container pt-5 pb-4">
+      <div class="row pt-5 mt-lg-4 pb-2 pb-sm-3">
+        <div class="col-lg-9 offset-lg-3 position-relative zindex-5">
+          <div class="card border-0 mb-4">
+            <div class="card-body">
+              <h1 class="pt-1 pt-lg-2 pb-2 pb-sm-3 pb-lg-4">Mailchimp subscription form</h1>
+              <p>Mailchimp is a marketing automation platform and an email marketing service.</p>
+              <p class="mb-4">In other words this Mailchimp widget will help you to collect user emails right from your website to run email marketing campaign via Mailchimp web application. Below is the live example of the widget that collects emails for Createx Studio.</p>
+              <ul class="nav nav-tabs card-header-tabs flex-nowrap align-items-center border-bottom pb-2 mb-4" role="tablist">
+                <li class="nav-item me-3"><a class="nav-link px-0 py-2 border-0 rounded-1 active" href="#preview" data-bs-toggle="tab" role="tab" aria-controls="preview" aria-selected="true"><i class="ai-show fs-lg opacity-90 me-2"></i>Preview</a></li>
+                <li class="vr opacity-20 my-3 me-3"></li>
+                <li class="nav-item me-3"><a class="nav-link px-0 py-2 border-0 rounded-1" href="#html" data-bs-toggle="tab" role="tab" aria-controls="html" aria-selected="false"><i class="ai-code fs-xl opacity-90 me-2"></i>HTML</a></li>
+                <li class="vr opacity-20 my-3 me-3"></li>
+                <li class="nav-item me-0"><a class="nav-link px-0 py-2 border-0 rounded-1" href="#pug" data-bs-toggle="tab" role="tab" aria-controls="pug" aria-selected="false"><i class="ai-code-curly opacity-90 me-2"></i>Pug</a></li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane fade show active" id="preview" role="tabpanel">
+                  <form class="subscription-form validate" action="https://studio.us12.list-manage.com/subscribe/post?u=c7103e2c981361a6639545bd5&amp;amp;id=29ca296126" method="post" name="mc-embedded-subscribe-form" target="_blank" novalidate style="max-width: 430px;">
+                    <label class="form-label fs-base mb-2" for="subscr-email">Subscribe to newsletter</label>
+                    <div class="input-group"><span class="input-group-text"><i class="ai-mail"></i></span>
+                      <input class="form-control" type="email" name="EMAIL" placeholder="Enter your email" required id="subscr-email">
+                      <button class="btn btn-primary" type="submit" name="subscribe">Subscribe*</button>
+                    </div>
+                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                      <input class="subscription-form-antispam" type="text" name="b_c7103e2c981361a6639545bd5_29ca296126" tabindex="-1">
+                    </div>
+                    <div class="subscription-status"></div>
+                    <div class="form-text pt-1">*Subscribe to our newsletter to receive early discount offers, updates, promo materials and new products info.</div>
+                  </form>
+                </div>
+                <div class="tab-pane fade" id="html" role="tabpanel">
+                  <pre class="line-numbers rounded-3"><code class="lang-html">&lt;!-- Widget: Subscription (MailChimp Ajax)
+Instructions how to get MailChimp action link:
+1. Log in to your MailChimp Dashboard / Audience / Manage Audience / Signup forms / Embedded forms
+2. In the provided code find form action link and copy it
+3. Paste it to the form action attribute below
+4. Also in the form code provided by MailChimp find antispam input and copy it name attribute contents
+5. Paste what you have copied from name attribute to the name attribute of input with class "subscription-form-antispam" --&gt;
+&lt;form class=&quot;subscription-form validate&quot; action=&quot;mailchimp-embedded-form-atcion-link&quot; method=&quot;post&quot; name=&quot;mc-embedded-subscribe-form&quot; target=&quot;_blank&quot; novalidate&gt;
+  &lt;label for=&quot;subscr-email&quot; class=&quot;form-label fs-base mb-2&quot;&gt;Subscribe to newsletter&lt;/label&gt;
+  &lt;div class=&quot;input-group&quot;&gt;
+    &lt;span class=&quot;input-group-text&quot;&gt;
+      &lt;i class=&quot;ai-mail&quot;&gt;&lt;/i&gt;
+    &lt;/span&gt;
+    &lt;input type=&quot;email&quot; class=&quot;form-control&quot; id=&quot;subscr-email&quot; name=&quot;EMAIL&quot; placeholder=&quot;Enter your email&quot; required&gt;
+    &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot; name=&quot;subscribe&quot;&gt;Subscribe*&lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups --&gt;
+  &lt;div style=&quot;position: absolute; left: -5000px;&quot; aria-hidden=&quot;true&quot;&gt;
+    &lt;input type=&quot;text&quot; class=&quot;subscription-form-antispam&quot; name=&quot;mailchimp-embedded-form-antispam-name-attribute&quot; tabindex=&quot;-1&quot;&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;subscription-status&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;form-text pt-1&quot;&gt;*Subscribe to our newsletter to receive early discount offers, updates, promo materials and new products info.&lt;/div&gt;
+&lt;/form&gt;</code></pre>
+                </div>
+                <div class="tab-pane fade" id="pug" role="tabpanel">
+                  <pre class="line-numbers rounded-3"><code class="lang-pug">// Widget: Subscription (MailChimp Ajax)
+// Instructions how to get MailChimp action link:
+// 1. Log in to your MailChimp Dashboard / Audience / Manage Audience / Signup forms / Embedded forms
+// 2. In the provided code find form action link and copy it
+// 3. Paste it to the form action attribute below
+// 4. Also in the form code provided by MailChimp find antispam input and copy it name attribute contents
+// 5. Paste what you have copied from name attribute to the name attribute of input with class "subscription-form-antispam"
+form(action=&quot;mailchimp-embedded-form-atcion-link&quot;, method=&quot;post&quot;, name=&quot;mc-embedded-subscribe-form&quot;, target=&quot;_blank&quot;, novalidate).subscription-form.validate
+  label(for=&quot;subscr-email&quot;).form-label.fs-base.mb-2
+    | Subscribe to newsletter
+  .input-group
+    span.input-group-text
+      i.ai-mail
+    input(type=&quot;email&quot;, name=&quot;EMAIL&quot;, placeholder=&quot;Enter your email&quot;, required)#subscr-email.form-control
+    button(type=&quot;submit&quot;, name=&quot;subscribe&quot;).btn.btn-primary
+      | Subscribe*
+
+  // real people should not fill this in and expect good things - do not remove this or risk form bot signups
+  div(style=&quot;position: absolute; left: -5000px;&quot;, aria-hidden=&quot;true&quot;)
+    input(type=&quot;text&quot;, name=&quot;mailchimp-embedded-form-antispam-name-attribute&quot;, tabindex=&quot;-1&quot;).subscription-form-antispam
+
+  .subscription-status
+  .form-text.pt-1 *Subscribe to our newsletter to receive early discount offers, updates, promo materials and new products info.</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll>
+      <svg viewBox="0 0 40 40" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="19" fill="none" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"></circle>
+      </svg><i class="ai-arrow-up">   </i></a>
+    <!-- Vendor scripts: js libraries and plugins-->
+    <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="../assets/vendor/simplebar/dist/simplebar.min.js"></script>
+    <script src="../assets/vendor/prismjs/components/prism-core.min.js"></script>
+    <script src="../assets/vendor/prismjs/components/prism-markup.min.js"></script>
+    <script src="../assets/vendor/prismjs/components/prism-clike.min.js"></script>
+    <script src="../assets/vendor/prismjs/components/prism-javascript.min.js"></script>
+    <script src="../assets/vendor/prismjs/components/prism-pug.min.js"></script>
+    <script src="../assets/vendor/prismjs/plugins/toolbar/prism-toolbar.min.js"></script>
+    <script src="../assets/vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+    <script src="../assets/vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <!-- Main theme script-->
+    <script src="../assets/js/theme.min.js"></script>
+  </body>
+</html>

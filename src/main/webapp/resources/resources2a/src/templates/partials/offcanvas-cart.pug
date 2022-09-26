@@ -1,0 +1,88 @@
+//- Shopping cart offcanvas
+#cartOffcanvas.offcanvas.offcanvas-end.py-2.p-sm-4.p-md-5(style='width: 680px;')
+
+  // Title
+  .px-4.pt-3
+    .d-flex.justify-content-between.align-items-center.border-bottom.pb-3.pb-sm-4
+      h2.offcanvas-title.d-flex.align-items-center.mb-1
+        | Your cart 
+        span.fs-base.fw-normal.text-muted.ms-3 (3 items)
+      button(type='button' data-bs-dismiss='offcanvas' data-bs-target='#cartOffcanvas').btn-close.mb-1.me-n1
+
+  .offcanvas-body
+
+    // Item
+    .d-sm-flex.align-items-center.pb-4
+      a(href='shop-single.html').d-inline-block.flex-shrink-0.bg-secondary.rounded-1.p-sm-2.p-md-3.mb-2.mb-sm-0
+        img(src='assets/img/shop/cart/01.png' width='110' alt='Product')
+      .w-100.pt-1.ps-sm-4
+        .d-flex
+          .me-3
+            h3.h5.mb-2: a(href='shop-single.html') Candle in concrete bowl
+            .d-flex.flex-wrap
+              .text-muted.fs-sm.me-3 Color: <span class='text-dark fw-medium'>Gray night</span>
+              .text-muted.fs-sm.me-3 Weight: <span class='text-dark fw-medium'>140g</span>
+          .text-end.ms-auto
+            .fs-5.mb-2 $11.00
+            del.text-muted.ms-auto $15.00
+        .count-input.ms-n3
+          button(type='button' data-decrement).btn.btn-icon.fs-xl -
+          input(type='number' value='2' readonly).form-control
+          button(type='button' data-increment).btn.btn-icon.fs-xl +
+        .nav.justify-content-end.mt-n5.mt-sm-n3
+          a(href='#' data-bs-toggle='tooltip' title='Remove').nav-link.fs-xl.p-2: i.ai-trash
+    
+    // Item
+    .d-sm-flex.align-items-center.border-top.py-4
+      a(href='shop-single.html').d-inline-block.flex-shrink-0.bg-secondary.rounded-1.p-sm-2.p-md-3.mb-2.mb-sm-0
+        img(src='assets/img/shop/cart/02.png' width='110' alt='Product')
+      .w-100.pt-1.ps-sm-4
+        .d-flex
+          .me-3
+            h3.h5.mb-2: a(href='shop-single.html') Exquisite glass vase
+          .text-end.ms-auto
+            .fs-5.mb-2 $23.00
+        .count-input.ms-n3
+          button(type='button' data-decrement).btn.btn-icon.fs-xl -
+          input(type='number' value='1' readonly).form-control
+          button(type='button' data-increment).btn.btn-icon.fs-xl +
+        .nav.justify-content-end.mt-n5.mt-sm-n3
+          a(href='#' data-bs-toggle='tooltip' title='Remove').nav-link.fs-xl.p-2: i.ai-trash
+    
+    // Item
+    .d-sm-flex.align-items-center.border-top.pt-4
+      a(href='shop-single.html').d-inline-block.flex-shrink-0.bg-secondary.rounded-1.p-sm-2.p-md-3.mb-2.mb-sm-0
+        img(src='assets/img/shop/cart/03.png' width='110' alt='Product')
+      .w-100.pt-1.ps-sm-4
+        .d-flex
+          .me-3
+            h3.h5.mb-2: a(href='shop-single.html') Set for a dinner party of 7 items
+          .text-end.ms-auto
+            .fs-5.mb-2 $47.00
+        .count-input.ms-n3
+          button(type='button' data-decrement).btn.btn-icon.fs-xl -
+          input(type='number' value='1' readonly).form-control
+          button(type='button' data-increment).btn.btn-icon.fs-xl +
+        .nav.justify-content-end.mt-n5.mt-sm-n3
+          a(href='#' data-bs-toggle='tooltip' title='Remove').nav-link.fs-xl.p-2: i.ai-trash
+
+
+  // Coupon input + total
+  .px-4.pb-3.pb-sm-4.pb-sm-5
+    .d-sm-flex.align-items-center.border-top.pt-4
+      .input-group.input-group-sm.border-dashed.mb-3.mb-sm-0.me-sm-4.me-md-5
+        input(type='text' placeholder='Your coupon code').form-control.text-uppercase
+        button(type='button').btn.btn-secondary Apply coupon
+      .d-flex.align-items-center.justify-content-center
+        span.fs-xl.me-3 Total:
+        span.h3.mb-0 $92.00
+    
+  // Action buttons
+  .d-flex.align-items-center.justify-content-between.px-4.pb-3
+    .nav.d-none.d-sm-block
+      a(href='#cartOffcanvas' data-bs-dismiss='offcanvas').nav-link.fw-semibold.px-0
+        i.ai-chevron-left.fs-xl.me-2
+        | Back to shop
+    a(href='shop-checkout.html').btn.btn-lg.btn-primary.w-100.w-sm-auto
+      | Proceed to checkout
+      i.ai-chevron-right.ms-2.me-n1

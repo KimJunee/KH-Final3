@@ -1,0 +1,438 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var parentMenu = 'Account'
+  - var pageTitle = 'Account - Overview'
+  - var isSignedIn = true
+  - var isFixedButton = true
+  - var bodyAttributes = {'class': 'bg-secondary'}
+
+
+//- Navbar
+block navbar
+  include partials/navbar.pug
+
+
+//- Page Content
+block content
+  .container.py-5.mt-4.mt-lg-5.mb-lg-4.my-xl-5
+    .row.pt-sm-2.pt-lg-0
+
+      // Sidebar (offcanvas on sreens < 992px)
+      aside.col-lg-3.pe-lg-4.pe-xl-5.mt-n3
+        .position-lg-sticky.top-0
+          .d-none.d-lg-block(style='padding-top: 105px;')
+          include partials/sidebar-account.pug
+
+
+      // Page content
+      .col-lg-9.pt-4.pb-2.pb-sm-4
+        h1.h2.mb-4 Overview
+
+        // Basic info
+        section.card.border-0.py-1.p-md-2.p-xl-3.p-xxl-4.mb-4
+          .card-body
+            .d-flex.align-items-center.mt-sm-n1.pb-4.mb-0.mb-lg-1.mb-xl-3
+              i.ai-user.text-primary.lead.pe-1.me-2
+              h2.h4.mb-0 Basic info
+              a(href='account-settings.html').btn.btn-sm.btn-secondary.ms-auto
+                i.ai-edit.ms-n1.me-2
+                | Edit info
+
+            .d-md-flex.align-items-center
+              .d-sm-flex.align-items-center
+                .rounded-circle.bg-size-cover.bg-position-center.flex-shrink-0(style='width: 80px; height: 80px; background-image: url(assets/img/avatar/02.jpg);')
+                .pt-3.pt-sm-0.ps-sm-3
+                  h3.h5.mb-2
+                    | Isabella Bocouse
+                    i.ai-circle-check-filled.fs-base.text-success.ms-2
+                  .text-muted.fw-medium.d-flex.flex-wrap.flex-sm-nowrap.align-iteems-center
+                    .d-flex.align-items-center.me-3
+                      i.ai-mail.me-1
+                      | email@example.com
+                    .d-flex.align-items-center.text-nowrap
+                      i.ai-map-pin.me-1
+                      | USA, $
+              .w-100.pt-3.pt-md-0.ms-md-auto(style='max-width: 212px;')
+                .d-flex.justify-content-between.fs-sm.pb-1.mb-2
+                  | Profile completion
+                  strong.ms-2 62%
+                .progress(style='height: 5px;')
+                  .progress-bar(role='progressbar' style='width: 62%' aria-valuenow='62' aria-valuemin='0' aria-valuemax='100')
+
+            .row.py-4.mb-2.mb-sm-3
+              .col-md-6.mb-4.mb-md-0
+                table.table.mb-0
+                  tr
+                    td.border-0.text-muted.py-1.px-0 Phone
+                    td.border-0.text-dark.fw-medium.py-1.ps-3 +1 234 567 890
+                  tr
+                    td.border-0.text-muted.py-1.px-0 Language
+                    td.border-0.text-dark.fw-medium.py-1.ps-3 English
+                  tr
+                    td.border-0.text-muted.py-1.px-0 Gender
+                    td.border-0.text-dark.fw-medium.py-1.ps-3 Female
+                  tr
+                    td.border-0.text-muted.py-1.px-0 Communication
+                    td.border-0.text-dark.fw-medium.py-1.ps-3 Mobile, email
+              .col-md-6.d-md-flex.justify-content-end
+                .w-100.border.rounded-3.p-4(style='max-width: 212px;')
+                  img(src='assets/img/account/gift-icon.svg' width='24' alt='Gift icon').d-block.mb-2
+                  h4.h5.lh-base.mb-0 123 bonuses
+                  p.fs-sm.text-muted.mb-0 1 bonus $1
+            
+            .alert.alert-info.d-flex.mb-0(role='alert')
+              i.ai-circle-info.fs-xl
+              .ps-2
+                | Fill in the information 100% to receive more suitable offers.
+                a(href='account-settings.html').alert-link.ms-1 Go to settings!
+
+
+        .row.row-cols-1.row-cols-md-2.g-4.mb-4
+
+          // Address
+          section.col
+            .card.h-100.border-0.py-1.p-md-2.p-xl-3.p-xxl-4
+              .card-body
+                .d-flex.align-items-center.mt-sm-n1.pb-4.mb-1.mb-lg-2
+                  i.ai-map-pin.text-primary.lead.pe-1.me-2
+                  h2.h4.mb-0 Address
+                  a(href='account-settings.html').btn.btn-sm.btn-secondary.ms-auto
+                    i.ai-edit.ms-n1.me-2
+                    | Edit info
+                .d-flex.align-items-center.pb-1.mb-2
+                  h3.h6.mb-0.me-3 Shipping address
+                  span.badge.bg-faded-primary.text-primary Primary
+                p.mb-0 401 Magnetic Drive Unit 2,<br>Toronto, Ontario, M3J 3H9<br>Canada
+                .d-flex.align-items-center.pt-4.pb-1.my-2
+                  h3.h6.mb-0.me-3 Billing address 1
+                  span.badge.bg-faded-primary.text-primary Primary
+                p.mb-0 314 Robinson Lane,<br>Wilmington, DE 19805,<br>USA
+
+          // Billing
+          section.col
+            .card.h-100.border-0.py-1.p-md-2.p-xl-3.p-xxl-4
+              .card-body
+                .d-flex.align-items-center.mt-sm-n1.pb-4.mb-1.mb-lg-2
+                  i.ai-wallet.text-primary.lead.pe-1.me-2
+                  h2.h4.mb-0 Billing
+                  a(href='account-billing.html').btn.btn-sm.btn-secondary.ms-auto
+                    i.ai-edit.ms-n1.me-2
+                    | Edit info
+                .d-flex.align-items-center.pb-1.mb-2
+                  h3.h6.mb-0.me-3 Isabella Bocouse
+                  span.badge.bg-faded-primary.text-primary Primary
+                .d-flex.align-items-center.pb-4.mb-2.mb-sm-3
+                  <svg width='52' height='42' viewBox='0 0 52 42' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M22.6402 28.2865H18.5199L21.095 12.7244H25.2157L22.6402 28.2865ZM15.0536 12.7244L11.1255 23.4281L10.6607 21.1232L10.6611 21.124L9.27467 14.1256C9.27467 14.1256 9.10703 12.7244 7.32014 12.7244H0.8262L0.75 12.9879C0.75 12.9879 2.73586 13.3942 5.05996 14.7666L8.63967 28.2869H12.9327L19.488 12.7244H15.0536ZM47.4619 28.2865H51.2453L47.9466 12.7239H44.6345C43.105 12.7239 42.7324 13.8837 42.7324 13.8837L36.5873 28.2865H40.8825L41.7414 25.9749H46.9793L47.4619 28.2865ZM42.928 22.7817L45.093 16.9579L46.3109 22.7817H42.928ZM36.9095 16.4667L37.4975 13.1248C37.4975 13.1248 35.6831 12.4463 33.7916 12.4463C31.7469 12.4463 26.8913 13.3251 26.8913 17.5982C26.8913 21.6186 32.5902 21.6685 32.5902 23.7803C32.5902 25.8921 27.4785 25.5137 25.7915 24.182L25.1789 27.6763C25.1789 27.6763 27.0187 28.555 29.8296 28.555C32.6414 28.555 36.8832 27.1234 36.8832 23.2271C36.8832 19.1808 31.1331 18.8041 31.1331 17.0449C31.1335 15.2853 35.1463 15.5113 36.9095 16.4667Z' fill='#2566AF'/><path d='M10.6611 22.1235L9.2747 15.1251C9.2747 15.1251 9.10705 13.7239 7.32016 13.7239H0.8262L0.75 13.9874C0.75 13.9874 3.87125 14.6235 6.86507 17.0066C9.72766 19.2845 10.6611 22.1235 10.6611 22.1235Z' fill='#E6A540'/></svg>
+                  .ps-3.fs-sm
+                    .text-dark Visa •••• 9016
+                    .text-muted Debit - Expires 03/24
+                .alert.alert-danger.d-flex.mb-0
+                  i.ai-octagon-alert.fs-xl.me-2
+                  p.mb-0 Your primary credit card expired on 01/04/2022. Please add a new card or update this one.
+
+        
+       
+        // Orders
+        section.card.border-0.py-1.p-md-2.p-xl-3.p-xxl-4
+          .card-body
+            .d-flex.align-items-center.mt-sm-n1.pb-4.mb-0.mb-lg-1.mb-xl-3
+              i.ai-cart.text-primary.lead.pe-1.me-2
+              h2.h4.mb-0 Orders
+              a(href='account-orders.html').btn.btn-sm.btn-secondary.ms-auto View all
+            
+            // Orders accordion
+            #orders.accordion.accordion-alt.accordion-orders
+              
+              // Order
+              .accordion-item.border-top.mb-0
+                .accordion-header
+                  a(href='#orderOne' data-bs-toggle='collapse' aria-expanded='false' aria-controls='orderOne').accordion-button.d-flex.fs-4.fw-normal.text-decoration-none.py-3.collapsed
+                    .d-flex.justify-content-between.w-100(style='max-width: 440px;')
+                      .me-3.me-sm-4
+                        .fs-sm.text-muted #78A6431D409
+                        span.badge.bg-faded-info.text-info.fs-xs In progress
+                      .me-3.me-sm-4
+                        .d-none.d-sm-block.fs-sm.text-muted.mb-2 Order date
+                        .d-sm-none.fs-sm.text-muted.mb-2 Date
+                        .fs-sm.fw-medium.text-dark Jan 27, 2022
+                      .me-3.me-sm-4
+                        .fs-sm.text-muted.mb-2 Total
+                        .fs-sm.fw-medium.text-dark $16.00
+                    .accordion-button-img.d-none.d-sm-flex.ms-auto
+                      .mx-1
+                        img(src='assets/img/account/orders/01.png' width='48' alt='Product')
+                #orderOne.accordion-collapse.collapse(data-bs-parent='#orders')
+                  .accordion-body
+                    .table-responsive.pt-1
+                      table(style='min-width: 450px;').table.align-middle.w-100
+                        tr
+                          td.border-0.py-1.px-0
+                            .d-flex.align-items-center
+                              a(href='shop-single.html').d-inline-block.flex-shrink-0.bg-secondary.rounded-1.p-md-2.p-lg-3
+                                img(src='assets/img/shop/cart/01.png' width='110' alt='Product')
+                              .ps-3.ps-sm-4
+                                h4.h6.mb-2: a(href='shop-single.html') Candle in concrete bowl
+                                .text-muted.fs-sm.me-3 Color: <span class='text-dark fw-medium'>Gray night</span>
+                          td.border-0.py-1.pe-0.ps-3.ps-sm-4
+                            .fs-sm.text-muted.mb-2 Quantity
+                            .fs-sm.fw-medium.text-dark 1
+                          td.border-0.py-1.pe-0.ps-3.ps-sm-4
+                            .fs-sm.text-muted.mb-2 Price
+                            .fs-sm.fw-medium.text-dark $16
+                          td.border-0.text-end.py-1.pe-0.ps-3.ps-sm-4
+                            .fs-sm.text-muted.mb-2 Total
+                            .fs-sm.fw-medium.text-dark $16
+                    .bg-secondary.rounded-1.p-4.my-2
+                      .row
+                        .col-sm-5.col-md-3.col-lg-4.mb-3.mb-md-0
+                          .fs-sm.fw-medium.text-dark.mb-1 Payment:
+                          .fs-sm Upon the delivery
+                          a(href='#').btn.btn-link.py-1.px-0.mt-2
+                            i.ai-time.me-2.ms-n1
+                            | Order history
+                        .col-sm-7.col-md-5.mb-4.mb-md-0
+                          .fs-sm.fw-medium.text-dark.mb-1 Delivery address:
+                          .fs-sm 401 Magnetic Drive Unit 2,<br>Toronto, Ontario, M3J 3H9, Canada
+                        .col-md-4.col-lg-3.text-md-end
+                          button(type='button').btn.btn-sm.btn-outline-primary.w-100.w-md-auto
+                            i.ai-star.me-2.ms-n1
+                            | Leave a review
+              
+              // Order
+              .accordion-item.border-top.mb-0
+                .accordion-header
+                  a(href='#orderTwo' data-bs-toggle='collapse' aria-expanded='false' aria-controls='orderTwo').accordion-button.d-flex.fs-4.fw-normal.text-decoration-none.py-3.collapsed
+                    .d-flex.justify-content-between.w-100(style='max-width: 440px;')
+                      .me-3.me-sm-4
+                        .fs-sm.text-muted #47H76G09F33
+                        span.badge.bg-faded-danger.text-danger.fs-xs Canceled
+                      .me-3.me-sm-4
+                        .d-none.d-sm-block.fs-sm.text-muted.mb-2 Order date
+                        .d-sm-none.fs-sm.text-muted.mb-2 Date
+                        .fs-sm.fw-medium.text-dark Sep 14, 2022
+                      .me-3.me-sm-4
+                        .fs-sm.text-muted.mb-2 Total
+                        .fs-sm.fw-medium.text-dark $59.00
+                    .accordion-button-img.d-none.d-sm-flex.ms-auto
+                      .mx-1
+                        img(src='assets/img/account/orders/02.png' width='48' alt='Product')
+                      .mx-1
+                        img(src='assets/img/account/orders/03.png' width='48' alt='Product')
+                      .mx-1
+                        img(src='assets/img/account/orders/04.png' width='48' alt='Product')
+                #orderTwo.accordion-collapse.collapse(data-bs-parent='#orders')
+                  .accordion-body
+                    .table-responsive.pt-1
+                      table(style='min-width: 450px;').table.align-middle.w-100
+                        tr
+                          td.border-0.py-1.px-0
+                            .d-flex.align-items-center
+                              a(href='shop-single.html').d-inline-block.flex-shrink-0.bg-secondary.rounded-1.p-md-2.p-lg-3
+                                img(src='assets/img/shop/cart/04.png' width='110' alt='Product')
+                              .ps-3.ps-sm-4
+                                h4.h6.mb-2: a(href='shop-single.html') Analogue wall clock
+                                .text-muted.fs-sm.me-3 Color: <span class='text-dark fw-medium'>Turquoise</span>
+                          td.border-0.py-1.pe-0.ps-3.ps-sm-4
+                            .fs-sm.text-muted.mb-2 Quantity
+                            .fs-sm.fw-medium.text-dark 1
+                          td.border-0.py-1.pe-0.ps-3.ps-sm-4
+                            .fs-sm.text-muted.mb-2 Price
+                            .fs-sm.fw-medium.text-dark $25
+                          td.border-0.text-end.py-1.pe-0.ps-3.ps-sm-4
+                            .fs-sm.text-muted.mb-2 Total
+                            .fs-sm.fw-medium.text-dark $25
+                        tr
+                          td.border-0.py-1.px-0
+                            .d-flex.align-items-center
+                              a(href='shop-single.html').d-inline-block.flex-shrink-0.bg-secondary.rounded-1.p-md-2.p-lg-3
+                                img(src='assets/img/shop/cart/05.png' width='110' alt='Product')
+                              .ps-3.ps-sm-4
+                                h4.h6.mb-2: a(href='shop-single.html') Glossy round vase
+                                .text-muted.fs-sm.me-3 Color: <span class='text-dark fw-medium'>White</span>
+                          td.border-0.py-1.pe-0.ps-3.ps-sm-4
+                            .fs-sm.text-muted.mb-2 Quantity
+                            .fs-sm.fw-medium.text-dark 1
+                          td.border-0.py-1.pe-0.ps-3.ps-sm-4
+                            .fs-sm.text-muted.mb-2 Price
+                            .fs-sm.fw-medium.text-dark $15
+                          td.border-0.text-end.py-1.pe-0.ps-3.ps-sm-4
+                            .fs-sm.text-muted.mb-2 Total
+                            .fs-sm.fw-medium.text-dark $15
+                        tr
+                          td.border-0.py-1.px-0
+                            .d-flex.align-items-center
+                              a(href='shop-single.html').d-inline-block.flex-shrink-0.bg-secondary.rounded-1.p-md-2.p-lg-3
+                                img(src='assets/img/shop/cart/06.png' width='110' alt='Product')
+                              .ps-3.ps-sm-4
+                                h4.h6.mb-2: a(href='shop-single.html') Ceramic flower pot
+                                .text-muted.fs-sm.me-3 Color: <span class='text-dark fw-medium'>Gray concrete</span>
+                          td.border-0.py-1.pe-0.ps-3.ps-sm-4
+                            .fs-sm.text-muted.mb-2 Quantity
+                            .fs-sm.fw-medium.text-dark 1
+                          td.border-0.py-1.pe-0.ps-3.ps-sm-4
+                            .fs-sm.text-muted.mb-2 Price
+                            .fs-sm.fw-medium.text-dark $19
+                          td.border-0.text-end.py-1.pe-0.ps-3.ps-sm-4
+                            .fs-sm.text-muted.mb-2 Total
+                            .fs-sm.fw-medium.text-dark $19
+                    .bg-secondary.rounded-1.p-4.my-2
+                      .row
+                        .col-sm-5.col-md-3.col-lg-4.mb-3.mb-md-0
+                          .fs-sm.fw-medium.text-dark.mb-1 Payment:
+                          .fs-sm Upon the delivery
+                          a(href='#').btn.btn-link.py-1.px-0.mt-2
+                            i.ai-time.me-2.ms-n1
+                            | Order history
+                        .col-sm-7.col-md-5.mb-4.mb-md-0
+                          .fs-sm.fw-medium.text-dark.mb-1 Delivery address:
+                          .fs-sm 401 Magnetic Drive Unit 2,<br>Toronto, Ontario, M3J 3H9, Canada
+                        .col-md-4.col-lg-3.text-md-end
+                          button(type='button').btn.btn-sm.btn-outline-primary.w-100.w-md-auto
+                            i.ai-star.me-2.ms-n1
+                            | Leave a review
+
+              // Order
+              .accordion-item.border-top.mb-0
+                .accordion-header
+                  a(href='#orderThree' data-bs-toggle='collapse' aria-expanded='false' aria-controls='orderThree').accordion-button.fs-4.fw-normal.text-decoration-none.py-3.collapsed
+                    .d-flex.justify-content-between.w-100(style='max-width: 440px;')
+                      .me-3.me-sm-4
+                        .fs-sm.text-muted #34VB5540K83
+                        span.badge.bg-faded-primary.text-primary.fs-xs Delivered
+                      .me-3.me-sm-4
+                        .d-none.d-sm-block.fs-sm.text-muted.mb-2 Order date
+                        .d-sm-none.fs-sm.text-muted.mb-2 Date
+                        .fs-sm.fw-medium.text-dark Jul 10, 2022
+                      .me-3.me-sm-4
+                        .fs-sm.text-muted.mb-2 Total
+                        .fs-sm.fw-medium.text-dark $38.00
+                    .accordion-button-img.d-none.d-sm-flex.ms-auto
+                      .mx-1
+                        img(src='assets/img/account/orders/01.png' width='48' alt='Product')
+                      .mx-1
+                        img(src='assets/img/account/orders/05.png' width='48' alt='Product')
+                #orderThree.accordion-collapse.collapse(data-bs-parent='#orders')
+                  .accordion-body
+                    .table-responsive.pt-1
+                      table(style='min-width: 450px;').table.align-middle.w-100
+                        tr
+                          td.border-0.py-1.px-0
+                            .d-flex.align-items-center
+                              a(href='shop-single.html').d-inline-block.flex-shrink-0.bg-secondary.rounded-1.p-md-2.p-lg-3
+                                img(src='assets/img/shop/cart/01.png' width='110' alt='Product')
+                              .ps-3.ps-sm-4
+                                h4.h6.mb-2: a(href='shop-single.html') Candle in concrete bowl
+                                .text-muted.fs-sm.me-3 Color: <span class='text-dark fw-medium'>Gray night</span>
+                          td.border-0.py-1.pe-0.ps-3.ps-sm-4
+                            .fs-sm.text-muted.mb-2 Quantity
+                            .fs-sm.fw-medium.text-dark 1
+                          td.border-0.py-1.pe-0.ps-3.ps-sm-4
+                            .fs-sm.text-muted.mb-2 Price
+                            .fs-sm.fw-medium.text-dark $16
+                          td.border-0.text-end.py-1.pe-0.ps-3.ps-sm-4
+                            .fs-sm.text-muted.mb-2 Total
+                            .fs-sm.fw-medium.text-dark $16
+                        tr
+                          td.border-0.py-1.px-0
+                            .d-flex.align-items-center
+                              a(href='shop-single.html').d-inline-block.flex-shrink-0.bg-secondary.rounded-1.p-md-2.p-lg-3
+                                img(src='assets/img/shop/cart/02.png' width='110' alt='Product')
+                              .ps-3.ps-sm-4
+                                h4.h6.mb-2: a(href='shop-single.html') Exquisite glass vase 
+                                .text-muted.fs-sm.me-3 Color: <span class='text-dark fw-medium'>Rose</span>
+                          td.border-0.py-1.pe-0.ps-3.ps-sm-4
+                            .fs-sm.text-muted.mb-2 Quantity
+                            .fs-sm.fw-medium.text-dark 2
+                          td.border-0.py-1.pe-0.ps-3.ps-sm-4
+                            .fs-sm.text-muted.mb-2 Price
+                            .fs-sm.fw-medium.text-dark $11
+                          td.border-0.text-end.py-1.pe-0.ps-3.ps-sm-4
+                            .fs-sm.text-muted.mb-2 Total
+                            .fs-sm.fw-medium.text-dark $22
+                    .bg-secondary.rounded-1.p-4.my-2
+                      .row
+                        .col-sm-5.col-md-3.col-lg-4.mb-3.mb-md-0
+                          .fs-sm.fw-medium.text-dark.mb-1 Payment:
+                          .fs-sm Upon the delivery
+                          a(href='#').btn.btn-link.py-1.px-0.mt-2
+                            i.ai-time.me-2.ms-n1
+                            | Order history
+                        .col-sm-7.col-md-5.mb-4.mb-md-0
+                          .fs-sm.fw-medium.text-dark.mb-1 Delivery address:
+                          .fs-sm 401 Magnetic Drive Unit 2,<br>Toronto, Ontario, M3J 3H9, Canada
+                        .col-md-4.col-lg-3.text-md-end
+                          button(type='button').btn.btn-sm.btn-outline-primary.w-100.w-md-auto
+                            i.ai-star.me-2.ms-n1
+                            | Leave a review
+              
+              // Order
+              .accordion-item.border-top.border-bottom.mb-0
+                .accordion-header
+                  a(href='#orderFour' data-bs-toggle='collapse' aria-expanded='false' aria-controls='orderFour').accordion-button.d-flex.fs-4.fw-normal.text-decoration-none.py-3.collapsed
+                    .d-flex.justify-content-between.w-100(style='max-width: 440px;')
+                      .me-3.me-sm-4
+                        .fs-sm.text-muted #502TR872W2
+                        span.badge.bg-faded-primary.text-primary.fs-xs Delivered
+                      .me-3.me-sm-4
+                        .d-none.d-sm-block.fs-sm.text-muted.mb-2 Order date
+                        .d-sm-none.fs-sm.text-muted.mb-2 Date
+                        .fs-sm.fw-medium.text-dark May 11, 2022
+                      .me-3.me-sm-4
+                        .fs-sm.text-muted.mb-2 Total
+                        .fs-sm.fw-medium.text-dark $17.00
+                    .accordion-button-img.d-none.d-sm-flex.ms-auto
+                      .mx-1
+                        img(src='assets/img/account/orders/06.png' width='48' alt='Product')
+                #orderFour.accordion-collapse.collapse(data-bs-parent='#orders')
+                  .accordion-body
+                    .table-responsive.pt-1
+                      table(style='min-width: 450px;').table.align-middle.w-100
+                        tr
+                          td.border-0.py-1.px-0
+                            .d-flex.align-items-center
+                              a(href='shop-single.html').d-inline-block.flex-shrink-0.bg-secondary.rounded-1.p-md-2.p-lg-3
+                                img(src='assets/img/shop/cart/07.png' width='110' alt='Product')
+                              .ps-3.ps-sm-4
+                                h4.h6.mb-2: a(href='shop-single.html') Dispenser for soap
+                                .text-muted.fs-sm.me-3 Color: <span class='text-dark fw-medium'>White marble</span>
+                          td.border-0.py-1.pe-0.ps-3.ps-sm-4
+                            .fs-sm.text-muted.mb-2 Quantity
+                            .fs-sm.fw-medium.text-dark 1
+                          td.border-0.py-1.pe-0.ps-3.ps-sm-4
+                            .fs-sm.text-muted.mb-2 Price
+                            .fs-sm.fw-medium.text-dark $17
+                          td.border-0.text-end.py-1.pe-0.ps-3.ps-sm-4
+                            .fs-sm.text-muted.mb-2 Total
+                            .fs-sm.fw-medium.text-dark $17
+                    .bg-secondary.rounded-1.p-4.my-2
+                      .row
+                        .col-sm-5.col-md-3.col-lg-4.mb-3.mb-md-0
+                          .fs-sm.fw-medium.text-dark.mb-1 Payment:
+                          .fs-sm Upon the delivery
+                          a(href='#').btn.btn-link.py-1.px-0.mt-2
+                            i.ai-time.me-2.ms-n1
+                            | Order history
+                        .col-sm-7.col-md-5.mb-4.mb-md-0
+                          .fs-sm.fw-medium.text-dark.mb-1 Delivery address:
+                          .fs-sm 401 Magnetic Drive Unit 2,<br>Toronto, Ontario, M3J 3H9, Canada
+                        .col-md-4.col-lg-3.text-md-end
+                          button(type='button').btn.btn-sm.btn-outline-primary.w-100.w-md-auto
+                            i.ai-star.me-2.ms-n1
+                            | Leave a review
+
+  
+  // Divider for dark mode only
+  hr.d-none.d-dark-mode-block
+
+
+  // Sidebar toggle button
+  button(data-bs-toggle='offcanvas' data-bs-target='#sidebarAccount').d-lg-none.btn.btn-sm.fs-sm.btn-primary.w-100.rounded-0.fixed-bottom
+    i.ai-menu.me-2
+    | Account menu
+
+
+//- Footer
+block footer
+  include partials/footer-shop.pug

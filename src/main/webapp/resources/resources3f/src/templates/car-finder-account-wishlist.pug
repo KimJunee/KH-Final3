@@ -1,0 +1,211 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['tiny-slider/dist/tiny-slider.css']
+  - var vendorScripts = ['tiny-slider/dist/min/tiny-slider.js']
+  - var parentMenu = 'Account'
+  - var pageTitle = 'Car Finder | Account Wishlist'
+  - var bodyClass = 'bg-dark'
+
+//- Navbar
+block navbar
+  include partials/navbar-car-finder
+
+//- Page Content
+block content
+  .container.pt-5.pb-lg-4.mt-5.mb-sm-2
+
+    // Breadcrumb
+    nav(aria-label='Breadcrumb').mb-4.pt-md-3
+      ol.breadcrumb.breadcrumb-light
+        li.breadcrumb-item
+          a(href='car-finder-home.html') Home
+        li.breadcrumb-item
+          a(href='car-finder-account-info.html') Account
+        li(aria-current='page').breadcrumb-item.active
+          | Wishlist
+    
+
+    // Page content
+    .row
+
+      // Sidebar
+      aside.col-lg-4.col-md-5.pe-xl-4.mb-5
+        include partials/sidebar-account-car-finder
+
+      // Content
+      .col-lg-8.col-md-7.mb-5
+        .d-flex.align-items-center.justify-content-between.mb-4.pb-2
+          h1.h2.text-light.mb-0
+            | Wishlist
+            span.badge.bg-faded-light.fs-base.align-middle.ms-3 4
+          a(href='#').nav-link-light.fw-bold
+            i.fi-x.fs-xs.mt-n1.me-2
+            | Clear all
+        
+        // Item
+        .card.card-light.card-hover.card-horizontal.mb-4
+          .tns-carousel-wrapper.card-img-top.card-img-hover
+            a(href='car-finder-single.html').img-overlay
+            .position-absolute.start-0.top-0.pt-3.ps-3
+              span.d-table.badge.bg-info Used
+            .position-absolute.end-0.top-0.pt-3.pe-3.zindex-5
+              button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Remove from Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle.shadow-sm
+                i.fi-heart-filled
+            .tns-carousel-inner.position-absolute.top-0.h-100
+              .bg-size-cover.bg-position-center.w-100.h-100(style='background-image: url(img/car-finder/catalog/09.jpg);')
+              .bg-size-cover.bg-position-center.w-100.h-100(style='background-image: url(img/car-finder/catalog/09.jpg);')
+          .card-body
+            .d-flex.align-items-center.justify-content-between.pb-1
+              span.fs-sm.text-light.me-3 1995
+              .form-check.form-check-light
+                input(type='checkbox' id='compare1').form-check-input
+                label(for='compare1').form-check-label.fs-sm
+                  | Compare
+            h3.h6.mb-1
+              a(href='car-finder-single.html').nav-link-light Ford Truck Lifted
+            .text-primary.fw-bold.mb-1 $24,000
+            .fs-sm.text-light.opacity-70
+              i.fi-map-pin.me-1
+              | New Jersey
+            .border-top.border-light.mt-3.pt-3
+              .row.g-2
+                .col.me-sm-1
+                  .bg-dark.rounded.text-center.w-100.h-100.p-2
+                    i.fi-dashboard.d-block.h4.text-light.mb-0.mx-center
+                    span.fs-xs.text-light 278K mi
+                .col.me-sm-1
+                  .bg-dark.rounded.text-center.w-100.h-100.p-2
+                    i.fi-gearbox.d-block.h4.text-light.mb-0.mx-center
+                    span.fs-xs.text-light Manual
+                .col
+                  .bg-dark.rounded.text-center.w-100.h-100.p-2
+                    i.fi-petrol.d-block.h4.text-light.mb-0.mx-center
+                    span.fs-xs.text-light Diesel
+        
+        // Item
+        .card.card-light.card-hover.card-horizontal.mb-4
+          .tns-carousel-wrapper.card-img-top.card-img-hover
+            a(href='car-finder-single.html').img-overlay
+            .position-absolute.start-0.top-0.pt-3.ps-3
+              span.d-table.badge.bg-info.mb-1 Used
+              span(data-bs-toggle='popover' data-bs-placement='bottom' data-bs-trigger='hover' data-bs-html='true' data-bs-content='<div class="d-flex"><i class="fi-award mt-1 me-2"></i><div>This car is checked and<br>certified by Finder.</div></div>').d-table.badge.bg-success.mb-1 Certified
+            .position-absolute.end-0.top-0.pt-3.pe-3.zindex-5
+              button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Remove from Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle.shadow-sm
+                i.fi-heart-filled
+            .tns-carousel-inner.position-absolute.top-0.h-100
+              .bg-size-cover.bg-position-center.w-100.h-100(style='background-image: url(img/car-finder/catalog/10.jpg);')
+              .bg-size-cover.bg-position-center.w-100.h-100(style='background-image: url(img/car-finder/catalog/10.jpg);')
+          .card-body
+            .d-flex.align-items-center.justify-content-between.pb-1
+              span.fs-sm.text-light.me-3 2018
+              .form-check.form-check-light
+                input(type='checkbox' id='compare2').form-check-input
+                label(for='compare2').form-check-label.fs-sm
+                  | Compare
+            h3.h6.mb-1
+              a(href='car-finder-single.html').nav-link-light Mercedes Benz C300 Sport
+            .text-primary.fw-bold.mb-1 $53,600
+            .fs-sm.text-light.opacity-70
+              i.fi-map-pin.me-1
+              | San Francisco
+            .border-top.border-light.mt-3.pt-3
+              .row.g-2
+                .col.me-sm-1
+                  .bg-dark.rounded.text-center.w-100.h-100.p-2
+                    i.fi-dashboard.d-block.h4.text-light.mb-0.mx-center
+                    span.fs-xs.text-light 35K mi
+                .col.me-sm-1
+                  .bg-dark.rounded.text-center.w-100.h-100.p-2
+                    i.fi-gearbox.d-block.h4.text-light.mb-0.mx-center
+                    span.fs-xs.text-light Automatic
+                .col
+                  .bg-dark.rounded.text-center.w-100.h-100.p-2
+                    i.fi-petrol.d-block.h4.text-light.mb-0.mx-center
+                    span.fs-xs.text-light Hybrid
+        
+        // Item
+        .card.card-light.card-hover.card-horizontal.mb-4
+          .tns-carousel-wrapper.card-img-top.card-img-hover
+            a(href='car-finder-single.html').img-overlay
+            .position-absolute.start-0.top-0.pt-3.ps-3
+              span.d-table.badge.bg-info Used
+            .position-absolute.end-0.top-0.pt-3.pe-3.zindex-5
+              button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Remove from Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle.shadow-sm
+                i.fi-heart-filled
+            .tns-carousel-inner.position-absolute.top-0.h-100
+              .bg-size-cover.bg-position-center.w-100.h-100(style='background-image: url(img/car-finder/catalog/11.jpg);')
+              .bg-size-cover.bg-position-center.w-100.h-100(style='background-image: url(img/car-finder/catalog/11.jpg);')
+          .card-body
+            .d-flex.align-items-center.justify-content-between.pb-1
+              span.fs-sm.text-light.me-3 2019
+              .form-check.form-check-light
+                input(type='checkbox' id='compare3').form-check-input
+                label(for='compare3').form-check-label.fs-sm
+                  | Compare
+            h3.h6.mb-1
+              a(href='car-finder-single.html').nav-link-light Mazda MX-5 Miata Convertible
+            .text-primary.fw-bold.mb-1 $29,700
+            .fs-sm.text-light.opacity-70
+              i.fi-map-pin.me-1
+              | Los Angeles
+            .border-top.border-light.mt-3.pt-3
+              .row.g-2
+                .col.me-sm-1
+                  .bg-dark.rounded.text-center.w-100.h-100.p-2
+                    i.fi-dashboard.d-block.h4.text-light.mb-0.mx-center
+                    span.fs-xs.text-light 18K mi
+                .col.me-sm-1
+                  .bg-dark.rounded.text-center.w-100.h-100.p-2
+                    i.fi-gearbox.d-block.h4.text-light.mb-0.mx-center
+                    span.fs-xs.text-light Manual
+                .col
+                  .bg-dark.rounded.text-center.w-100.h-100.p-2
+                    i.fi-petrol.d-block.h4.text-light.mb-0.mx-center
+                    span.fs-xs.text-light Gasoline
+        
+        // Item
+        .card.card-light.card-hover.card-horizontal
+          .tns-carousel-wrapper.card-img-top.card-img-hover
+            a(href='car-finder-single.html').img-overlay
+            .position-absolute.start-0.top-0.pt-3.ps-3
+              span.d-table.badge.bg-info Used
+            .position-absolute.end-0.top-0.pt-3.pe-3.zindex-5
+              button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Remove from Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle.shadow-sm
+                i.fi-heart-filled
+            .tns-carousel-inner.position-absolute.top-0.h-100
+              .bg-size-cover.bg-position-center.w-100.h-100(style='background-image: url(img/car-finder/catalog/12.jpg);')
+              .bg-size-cover.bg-position-center.w-100.h-100(style='background-image: url(img/car-finder/catalog/12.jpg);')
+          .card-body
+            .d-flex.align-items-center.justify-content-between.pb-1
+              span.fs-sm.text-light.me-3 2016
+              .form-check.form-check-light
+                input(type='checkbox' id='compare4').form-check-input
+                label(for='compare4').form-check-label.fs-sm
+                  | Compare
+            h3.h6.mb-1
+              a(href='car-finder-single.html').nav-link-light Nissan 370Z Nismo 
+            .text-primary.fw-bold.mb-1 $31,200
+            .fs-sm.text-light.opacity-70
+              i.fi-map-pin.me-1
+              | New York
+            .border-top.border-light.mt-3.pt-3
+              .row.g-2
+                .col.me-sm-1
+                  .bg-dark.rounded.text-center.w-100.h-100.p-2
+                    i.fi-dashboard.d-block.h4.text-light.mb-0.mx-center
+                    span.fs-xs.text-light 16K mi
+                .col.me-sm-1
+                  .bg-dark.rounded.text-center.w-100.h-100.p-2
+                    i.fi-gearbox.d-block.h4.text-light.mb-0.mx-center
+                    span.fs-xs.text-light Automatic
+                .col
+                  .bg-dark.rounded.text-center.w-100.h-100.p-2
+                    i.fi-petrol.d-block.h4.text-light.mb-0.mx-center
+                    span.fs-xs.text-light Gasoline
+
+
+//- Footer
+block footer
+  include partials/footer-car-finder

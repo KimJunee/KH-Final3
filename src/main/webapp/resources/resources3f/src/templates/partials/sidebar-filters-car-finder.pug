@@ -1,0 +1,298 @@
+#filters-sidebar.offcanvas.offcanvas-start.offcanvas-collapse.bg-dark
+  .offcanvas-header.bg-transparent.d-flex.d-lg-none.align-items-center
+    h2.h5.text-light.mb-0 Filters
+    button(type='button' data-bs-dismiss='offcanvas').btn-close.btn-close-white
+  .offcanvas-header.bg-transparent.d-block.border-bottom.border-light.pt-0.pt-lg-4.px-lg-0
+    ul.nav.nav-tabs.nav-tabs-light.mb-0
+      li.nav-item
+        a(href='#').nav-link Search New
+      li.nav-item
+        a(href='#').nav-link.active Search Used
+  .offcanvas-body.py-lg-4
+    .pb-3.mb-4.border-bottom.border-light
+      .d-flex.align-items-center.justify-content-between.mb-3
+        h3.h6.text-light.mb-0 Selection
+        button(type='button').btn.btn-link.btn-light.fw-normal.fs-sm.p-0 Clear all
+      ul.nav.nav-pills.nav-pills-light.flex-row.fs-sm.mx-0
+        li.nav-item.mb-2.me-2
+          button(type='button').nav-link.px-3
+            | Under 2019
+            i.fi-x.fs-xxs.ms-2
+        li.nav-item.mb-2.me-2
+          button.nav-link.px-3
+            | Crossover
+            i.fi-x.fs-xxs.ms-2
+        li.nav-item.mb-2.me-2
+          button(type='button').nav-link.px-3
+            | Sedan
+            i.fi-x.fs-xxs.ms-2
+        li.nav-item.mb-2.me-2
+          button(type='button').nav-link.px-3
+            | SUV
+            i.fi-x.fs-xxs.ms-2
+        li.nav-item.mb-2.me-2
+          button(type='button').nav-link.px-3
+            | Diesel
+            i.fi-x.fs-xxs.ms-2
+        li.nav-item.mb-2.me-2
+          button(type='button').nav-link.px-3
+            | Gasoline
+            i.fi-x.fs-xxs.ms-2
+        li.nav-item.mb-2.me-2
+          button(type='button').nav-link.px-3
+            | Hybrid
+            i.fi-x.fs-xxs.ms-2
+    .pb-4.mb-2
+      h3.h6.text-light Location
+      select.form-select.form-select-light.mb-2
+        option(value='' disabled selected) Select location
+        option(value='Chicago') Chicago
+        option(value='Dallas') Dallas
+        option(value='Los Angeles') Los Angeles
+        option(value='New York') New York
+        option(value='San Diego') San Diego
+    .pb-4.mb-2
+      h3.h6.text-light Body Type
+      .overflow-auto(data-simplebar data-simplebar-auto-hide='false' data-simplebar-inverse style='height: 11rem;')
+        .form-check.form-check-light
+          input(type='checkbox' id='sedan' checked).form-check-input
+          label(for='sedan').form-check-label.fs-sm
+            | Sedan
+        .form-check.form-check-light
+          input(type='checkbox' id='suv' checked).form-check-input
+          label(for='suv').form-check-label.fs-sm
+            | SUV
+        .form-check.form-check-light
+          input(type='checkbox' id='wagon').form-check-input
+          label(for='wagon').form-check-label.fs-sm
+            | Wagon
+        .form-check.form-check-light
+          input(type='checkbox' id='crossover' checked).form-check-input
+          label(for='crossover').form-check-label.fs-sm
+            | Crossover
+        .form-check.form-check-light
+          input(type='checkbox' id='coupe').form-check-input
+          label(for='coupe').form-check-label.fs-sm
+            | Coupe
+        .form-check.form-check-light
+          input(type='checkbox' id='pickup').form-check-input
+          label(for='pickup').form-check-label.fs-sm
+            | Pickup
+        .form-check.form-check-light
+          input(type='checkbox' id='sport').form-check-input
+          label(for='sport').form-check-label.fs-sm
+            | Sport Coupe
+        .form-check.form-check-light
+          input(type='checkbox' id='compact').form-check-input
+          label(for='compact').form-check-label.fs-sm
+            | Compact
+        .form-check.form-check-light
+          input(type='checkbox' id='convertible').form-check-input
+          label(for='convertible').form-check-label.fs-sm
+            | Convertible
+        .form-check.form-check-light
+          input(type='checkbox' id='mpv').form-check-input
+          label(for='mpv').form-check-label.fs-sm
+            | Family MPV
+    .pb-4.mb-2
+      h3.h6.text-light.pt-1 Year
+      .d-flex.align-items-center
+        select.form-select.form-select-light.w-100
+          option(value='' disabled selected) From
+          option(value='2021') 2021
+          option(value='2020') 2020
+          option(value='2019') 2019
+          option(value='2018') 2018
+          option(value='2017') 2017
+          option(value='2016') 2016
+          option(value='2015') 2015
+          option(value='2014') 2014
+          option(value='2013') 2013
+          option(value='2012') 2012
+          option(value='2011') 2011
+          option(value='2010') 2010
+        .mx-2 &mdash;
+        select.form-select.form-select-light.w-100
+          option(value='' disabled) To
+          option(value='2021') 2021
+          option(value='2020') 2020
+          option(value='2019' selected) 2019
+          option(value='2018') 2018
+          option(value='2017') 2017
+          option(value='2016') 2016
+          option(value='2015') 2015
+          option(value='2014') 2014
+          option(value='2013') 2013
+          option(value='2012') 2012
+          option(value='2011') 2011
+          option(value='2010') 2010
+    .pb-4.mb-2
+      h3.h6.text-light Make &amp; Model
+      select.form-select.form-select-light.mb-2
+        option(value='' disabled selected) Any make
+        option(value='Audi') Audi
+        option(value='Infiniti') Infiniti
+        option(value='Honda') Honda
+        option(value='Hyundai') Hyundai
+        option(value='Lexus') Lexus
+        option(value='Mazda') Mazda
+        option(value='Mitsubishi') Mitsubishi
+        option(value='Mercedes-Benz') Mercedes-Benz
+        option(value='Nissan') Nissan
+        option(value='Opel') Opel
+        option(value='Renault') Renault
+        option(value='Toyota') Toyota
+      select.form-select.form-select-light.mb-1
+        option(value='' disabled selected) Any model
+        option(value='Altima') Altima
+        option(value='Juke') Juke
+        option(value='Leaf') Leaf
+        option(value='Maxima') Maxima
+        option(value='Micra') Micra
+        option(value='Murano') Murano
+        option(value='Note') Note
+        option(value='Pathfinder') Pathfinder
+        option(value='Patrol') Patrol
+    .pb-4.mb-2
+      h3.h6.text-light Price
+      .range-slider.range-slider-light.mb-3(data-start-min='25000' data-start-max='65000' data-min='4000' data-max='100000' data-step='1000')
+        .range-slider-ui
+        .d-flex.align-items-center
+          .w-50.pe-2
+            input(type='text').form-control.form-control-light.range-slider-value-min
+          .text-muted &mdash;
+          .w-50.ps-2
+            input(type='text').form-control.form-control-light.range-slider-value-max
+      .form-check.form-switch.form-switch-light
+        input(type='checkbox' id='negotiated-price').form-check-input
+        label(for='negotiated-price').form-check-label.fs-sm
+          | Negotiated price
+    .pb-4.mb-2
+      h3.h6.text-light Drivetrain
+      .form-check.form-check-light
+        input(type='checkbox' id='awd').form-check-input
+        label(for='awd').form-check-label.fs-sm
+          | AWD/4WD
+      .form-check.form-check-light
+        input(type='checkbox' id='front-wheel').form-check-input
+        label(for='front-wheel').form-check-label.fs-sm
+          | Front Wheel Drive
+      .form-check.form-check-light
+        input(type='checkbox' id='rear-wheel').form-check-input
+        label(for='rear-wheel').form-check-label.fs-sm
+          | Rear Wheel Drive
+    .pb-4.mb-2
+      h3.h6.text-light Fuel Type
+      .form-check.form-check-light
+        input(type='checkbox' id='diesel' checked).form-check-input
+        label(for='diesel').form-check-label.fs-sm
+          | Diesel
+      .form-check.form-check-light
+        input(type='checkbox' id='electric').form-check-input
+        label(for='electric').form-check-label.fs-sm
+          | Electric
+      .form-check.form-check-light
+        input(type='checkbox' id='gasoline' checked).form-check-input
+        label(for='gasoline').form-check-label.fs-sm
+          | Gasoline
+      .form-check.form-check-light
+        input(type='checkbox' id='hybrid' checked).form-check-input
+        label(for='hybrid').form-check-label.fs-sm
+          | Hybrid
+      .form-check.form-check-light
+        input(type='checkbox' id='hydrogen').form-check-input
+        label(for='hydrogen').form-check-label.fs-sm
+          | Hydrogen
+      .form-check.form-check-light
+        input(type='checkbox' id='plugin').form-check-input
+        label(for='plugin').form-check-label.fs-sm
+          | Plug-in Hybrid
+    .pb-4.mb-1
+      h3.h6.text-light Transmission
+      .form-check.form-check-light
+        input(type='checkbox' id='auto').form-check-input
+        label(for='auto').form-check-label.fs-sm
+          | Automatic
+      .form-check.form-check-light
+        input(type='checkbox' id='manual').form-check-input
+        label(for='manual').form-check-label.fs-sm
+          | Manual
+    .pb-4.mb-2
+      h3.h6.text-light.pt-1 Mileage
+      .d-flex.align-items-center
+        input(type='number' min='0' step='500' placeholder='From').form-control.form-control-light.w-100
+        .mx-2 &mdash;
+        input(type='number' min='0' step='500' placeholder='To').form-control.form-control-light.w-100
+    .pb-4.mb-2
+      h3.h6.text-light Color
+      .overflow-auto(data-simplebar data-simplebar-auto-hide='false' data-simplebar-inverse style='height: 11rem;')
+        .form-check.form-check-light
+          input(type='checkbox' id='amber').form-check-input
+          label(for='amber').form-check-label.fs-sm
+            | Amber
+        .form-check.form-check-light
+          input(type='checkbox' id='azure').form-check-input
+          label(for='azure').form-check-label.fs-sm
+            | Azure
+        .form-check.form-check-light
+          input(type='checkbox' id='beige').form-check-input
+          label(for='beige').form-check-label.fs-sm
+            | Beige
+        .form-check.form-check-light
+          input(type='checkbox' id='black').form-check-input
+          label(for='black').form-check-label.fs-sm
+            | Black
+        .form-check.form-check-light
+          input(type='checkbox' id='blue').form-check-input
+          label(for='blue').form-check-label.fs-sm
+            | Blue
+        .form-check.form-check-light
+          input(type='checkbox' id='brown').form-check-input
+          label(for='brown').form-check-label.fs-sm
+            | Brown
+        .form-check.form-check-light
+          input(type='checkbox' id='camouflage').form-check-input
+          label(for='camouflage').form-check-label.fs-sm
+            | Camouflage green
+        .form-check.form-check-light
+          input(type='checkbox' id='charcoal').form-check-input
+          label(for='charcoal').form-check-label.fs-sm
+            | Charcoal
+        .form-check.form-check-light
+          input(type='checkbox' id='gray').form-check-input
+          label(for='gray').form-check-label.fs-sm
+            | Gray
+        .form-check.form-check-light
+          input(type='checkbox' id='green').form-check-input
+          label(for='green').form-check-label.fs-sm
+            | Green
+        .form-check.form-check-light
+          input(type='checkbox' id='gold').form-check-input
+          label(for='gold').form-check-label.fs-sm
+            | Gold
+        .form-check.form-check-light
+          input(type='checkbox' id='purple').form-check-input
+          label(for='purple').form-check-label.fs-sm
+            | Purple
+        .form-check.form-check-light
+          input(type='checkbox' id='red').form-check-input
+          label(for='red').form-check-label.fs-sm
+            | Red
+        .form-check.form-check-light
+          input(type='checkbox' id='white').form-check-input
+          label(for='white').form-check-label.fs-sm
+            | White
+        .form-check.form-check-light
+          input(type='checkbox' id='yellow').form-check-input
+          label(for='yellow').form-check-label.fs-sm
+            | Yellow
+    .pb-2
+      h3.h6.text-light Sellers
+      .form-check.form-check-light
+        input(type='checkbox' id='dealers').form-check-input
+        label(for='dealers').form-check-label.fs-sm
+          | Dealers Only
+      .form-check.form-check-light
+        input(type='checkbox' id='private-sellers').form-check-input
+        label(for='private-sellers').form-check-label.fs-sm
+          | Private Sellers Only

@@ -1,0 +1,319 @@
+if parentMenu !== 'Account'
+
+  // Sign In Modal
+  #signin-modal.modal.fade(tabindex='-1' aria-hidden='true')
+    .modal-dialog.modal-lg.modal-dialog-centered.p-2.my-0.mx-auto(style='max-width: 950px;')
+      .modal-content
+        .modal-body.px-0.py-2.py-sm-0
+          button(type='button' data-bs-dismiss='modal').btn-close.position-absolute.top-0.end-0.mt-3.me-3
+          .row.mx-0.align-items-center
+            .col-md-6.border-end-md.p-4.p-sm-5
+              h2.h3.mb-4.mb-sm-5 Hey there!<br>Welcome back.
+              img(src='img/signin-modal/signin.svg' class='d-block mx-auto' width='344' alt='Illustartion')
+              .mt-4.mt-sm-5
+                | Don't have an account? 
+                a(href='#signup-modal' data-bs-toggle='modal' data-bs-dismiss='modal') Sign up here
+            .col-md-6.px-4.pt-2.pb-4.px-sm-5.pb-sm-5.pt-md-5
+              a(href='#').btn.btn-outline-info.w-100.rounded-pill.mb-3
+                i.fi-google.fs-lg.me-1
+                | Sign in with Google
+              a(href='#').btn.btn-outline-info.w-100.rounded-pill.mb-3
+                i.fi-facebook.fs-lg.me-1
+                | Sign in with Facebook
+              .d-flex.align-items-center.py-3.mb-3
+                hr.w-100
+                .px-3 Or
+                hr.w-100
+              form(novalidate).needs-validation
+                .mb-4
+                  label(for='signin-email').form-label.mb-2 Email address
+                  input(type='email' id='signin-email' placeholder='Enter your email' required).form-control
+                .mb-4
+                  .d-flex.align-items-center.justify-content-between.mb-2
+                    label(for='signin-password').form-label.mb-0 Password
+                    a(href='#').fs-sm Forgot password?
+                  .password-toggle
+                    input(type='password' id='signin-password' placeholder='Enter password' required).form-control
+                    label(aria-label='Show/hide password').password-toggle-btn
+                      input(type='checkbox').password-toggle-check
+                      span.password-toggle-indicator
+                button(type='submit').btn.btn-primary.btn-lg.w-100.rounded-pill Sign in
+
+
+  // Sign Up Modal
+  #signup-modal.modal.fade(tabindex='-1' aria-hidden='true')
+    .modal-dialog.modal-lg.modal-dialog-centered.p-2.my-0.mx-auto(style='max-width: 734px;')
+      .modal-content
+        .modal-body.p-sm-5
+          button(type='button' data-bs-dismiss='modal').btn-close.position-absolute.top-0.end-0.mt-3.me-3
+          ul(role='tablist').nav.nav-pills.flex-column.flex-sm-row.border-bottom.pb-4.mt-sm-n2.my-4
+            li.nav-item.me-sm-3.mb-sm-0
+              a(href='#job-seeker' data-bs-toggle='tab' role='tab' aria-controls='job-seeker' aria-selected='true').nav-link.active
+                i.fi-user.me-2
+                | I am job seeker
+            li.nav-item.mb-sm-0
+              a(href='#employer' data-bs-toggle='tab' role='tab' aria-controls='employer' aria-selected='false').nav-link
+                i.fi-briefcase.me-2
+                | I am employer
+          .tab-content
+            #job-seeker.tab-pane.fade.show.active(role='tabpanel')
+              h3 Register to add a resume
+              p.pb-3 Get access to all the functions of the site that will help you find a great job.
+              .row.gx-2.gx-md-4
+                .col-sm-6.mb-3
+                  a(href='#').btn.btn-outline-info.w-100.rounded-pill
+                    i.fi-google.fs-lg.me-1
+                    | Sign in with Google
+                .col-sm-6.mb-3
+                  a(href='#').btn.btn-outline-info.w-100.rounded-pill
+                    i.fi-facebook.fs-lg.me-1
+                    | Sign in with Facebook
+              .d-flex.align-items-center.py-2.mb-2
+                hr.w-100
+                .px-3 Or
+                hr.w-100
+              form(novalidate).needs-validation
+                .row.gx-2.gx-md-4
+                  .col-sm-6.mb-4
+                    label(for='js-fn').form-label Full name
+                    input(type='text' id='js-fn' placeholder='Enter your full name' required).form-control
+                  .col-sm-6.mb-4
+                    label(for='js-email').form-label Emaill address
+                    input(type='email' id='js-email' placeholder='Enter your email' required).form-control
+                  .col-sm-6.mb-4
+                    label(for='js-password').form-label Password <span class='text-muted'>(min. 8 char)</span>
+                    .password-toggle
+                      input(type='password' id='js-password' minlength='8' required).form-control
+                      label(aria-label='Show/hide password').password-toggle-btn
+                        input(type='checkbox').password-toggle-check
+                        span.password-toggle-indicator
+                  .col-sm-6.mb-4
+                    label(for='js-password-confirm').form-label Confirm password
+                    .password-toggle
+                      input(type='password' id='js-password-confirm' minlength='8' required).form-control
+                      label(aria-label='Show/hide password').password-toggle-btn
+                        input(type='checkbox').password-toggle-check
+                        span.password-toggle-indicator
+                .form-check.mb-4
+                  input(type='checkbox' id='agree-to-terms' required).form-check-input
+                  label(for='agree-to-terms').form-check-label
+                    | By joining, I agree to the <a href='#'>Terms of use</a> and <a href='#'>Privacy policy</a>
+                button(type='submit').btn.btn-primary.btn-lg.w-100.rounded-pill Sign up
+            #employer.tab-pane.fade(role='tabpanel')
+              h3 Register to post a vacancy
+              p.pb-3 Get access to all special services for employers on Finder.
+              form(novalidate).needs-validation
+                .row.gx-2.gx-md-4
+                  .col-sm-6.mb-4
+                    label(for='em-fn').form-label Full name
+                    input(type='text' id='em-fn' placeholder='Enter your full name' required).form-control
+                  .col-sm-6.mb-4
+                    label(for='em-email').form-label Emaill <span class='text-muted'>(better corporate)</span>
+                    input(type='email' id='em-email' placeholder='Enter email' required).form-control
+                  .col-sm-6.mb-4
+                    label(for='em-company').form-label Company name
+                    input(type='text' id='em-company' placeholder='Enter company name' required).form-control
+                  .col-sm-6.mb-4
+                    label(for='em-location').form-label Main office location
+                    input(type='text' id='em-location' placeholder='Country, City, Address' required).form-control
+                  .col-sm-6.mb-4
+                    label(for='em-password').form-label Password <span class='text-muted'>(min. 8 char)</span>
+                    .password-toggle
+                      input(type='password' id='em-password' minlength='8' required).form-control
+                      label(aria-label='Show/hide password').password-toggle-btn
+                        input(type='checkbox').password-toggle-check
+                        span.password-toggle-indicator
+                  .col-sm-6.mb-4
+                    label(for='em-password-confirm').form-label Confirm password
+                    .password-toggle
+                      input(type='password' id='em-password-confirm' minlength='8' required).form-control
+                      label(aria-label='Show/hide password').password-toggle-btn
+                        input(type='checkbox').password-toggle-check
+                        span.password-toggle-indicator
+                .form-check.mb-4
+                  input(type='checkbox' id='agree-to-terms2' required).form-check-input
+                  label(for='agree-to-terms2').form-check-label
+                    | By joining, I agree to the <a href='#'>Terms of use</a> and <a href='#'>Privacy policy</a>
+                button(type='submit').btn.btn-primary.btn-lg.w-100.rounded-pill Sign up
+          .pt-4.pb-3.pb-sm-0.mt-2
+            | Already have an account? 
+            a(href='#signin-modal' data-bs-toggle='modal' data-bs-dismiss='modal') Sign in
+
+
+// Navbar
+header(data-scroll-header).navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
+  .container
+    a(href='job-board-home-v1.html').navbar-brand.me-0.me-xl-4
+      img(src='img/logo/logo-light.svg' width='116' alt='Finder').d-block
+    button(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation').navbar-toggler.ms-auto
+      span.navbar-toggler-icon
+    if parentMenu === 'Account'
+      .dropdown.d-none.d-lg-block.order-lg-3.my-n2.me-3
+        a(href='job-board-account-profile.html').d-block.py-2
+          img(src='img/avatars/35.png' width='40' alt='Annette Black').rounded-circle
+        .dropdown-menu.dropdown-menu-dark.dropdown-menu-end
+          .d-flex.align-items-start.border-bottom.border-light.px-3.py-1.mb-2(style='width: 16rem;')
+            img(src='img/avatars/25.png' width='48' alt='Annette Black').rounded-circle
+            .ps-2
+              h6.fs-base.text-light.mb-0 Annette Black
+              .fs-xs.py-2
+                | (302) 555-0107
+                br
+                | annette_black@email.com
+          a(href='job-board-account-profile.html').dropdown-item
+            i.fi-settings.me-2
+            | Profile Settings
+          a(href='job-board-account-my-resumes.html').dropdown-item
+            i.fi-file.me-2
+            | My Resumes
+          a(href='job-board-account-saved-jobs.html').dropdown-item
+            i.fi-heart.me-2
+            | Saved Jobs
+          a(href='job-board-account-notifications.html').dropdown-item
+            i.fi-bell.me-2
+            | Notifications
+          .dropdown-divider
+          a(href='signin-light.html').dropdown-item
+            i.fi-logout.me-2
+            | Sign Out
+    else
+      a(href='#signin-modal' data-bs-toggle='modal').btn.btn-link.btn-light.btn-sm.d-none.d-lg-block.order-lg-3
+        i.fi-user.me-2
+        | Sign in
+    if pageTitle === 'Job Board | Home - Employers'
+      a(href='job-board-post-resume-1.html').btn.btn-primary.btn-sm.rounded-pill.ms-2.order-lg-3
+        i.fi-plus.me-2
+        | Post vacancy
+      a(href='job-board-home-v1.html').btn.btn-link.btn-light.btn-sm.d-none.d-lg-block.order-lg-3.pe-0.ms-2
+        | For job seekers
+        i.fi-arrow-long-right.ms-2
+    else
+      a(href='job-board-post-resume-1.html').btn.btn-primary.btn-sm.rounded-pill.ms-2.order-lg-3
+        i.fi-plus.me-2
+        | Post resume
+      a(href='job-board-home-v2.html').btn.btn-link.btn-light.btn-sm.d-none.d-lg-block.order-lg-3.pe-0.ms-2
+        | For employers
+        i.fi-arrow-long-right.ms-2
+    #navbarNav.collapse.navbar-collapse.order-lg-2
+      ul.navbar-nav.navbar-nav-scroll(style='max-height: 35rem;')
+        // Demos switcher
+        li.nav-item.dropdown.me-lg-2
+          a(href='#' data-bs-toggle='dropdown' role='button' aria-expanded='false').nav-link.dropdown-toggle.align-items-center.pe-lg-4
+            i.fi-layers.me-2
+            | Demos
+            span.d-none.d-lg-block.position-absolute.top-50.end-0.translate-middle-y.border-end.border-light(style='width: 1px; height: 30px;')
+          ul.dropdown-menu.dropdown-menu-dark
+            li
+              a(href='real-estate-home-v1.html').dropdown-item
+                i.fi-building.fs-base.me-2
+                | Real Estate Demo
+            li.dropdown-divider
+            li
+              a(href='car-finder-home.html').dropdown-item
+                i.fi-car.fs-base.me-2
+                | Car Finder Demo
+            li.dropdown-divider
+            li
+              a(href='job-board-home-v1.html').dropdown-item
+                i.fi-briefcase.fs-base.me-2
+                | Job Board Demo
+            li.dropdown-divider
+            li
+              a(href='city-guide-home-v1.html').dropdown-item
+                i.fi-map-pin.fs-base.me-2
+                | City Guide Demo
+            li.dropdown-divider
+            li
+              a(href='index.html').dropdown-item
+                i.fi-home.fs-base.me-2
+                | Main Page
+            li
+              a(href='components/typography.html').dropdown-item
+                i.fi-list.fs-base.me-2
+                | Components
+            li
+              a(href='docs/dev-setup.html').dropdown-item
+                i.fi-file.fs-base.me-2
+                | Documentation
+        
+        // Menu items
+        li()&attributes(parentMenu === 'Home' ? {'class': 'nav-item dropdown active'} : {'class': 'nav-item dropdown'})
+          a(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false').nav-link.dropdown-toggle Home
+          ul.dropdown-menu.dropdown-menu-dark
+            li: a(href='job-board-home-v1.html').dropdown-item For Job Seekers
+            li: a(href='job-board-home-v2.html').dropdown-item For Employers
+        li()&attributes(parentMenu === 'Catalog' ? {'class': 'nav-item dropdown active'} : {'class': 'nav-item dropdown'})
+          a(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false').nav-link.dropdown-toggle Catalog
+          ul.dropdown-menu.dropdown-menu-dark
+            li: a(href='job-board-catalog.html').dropdown-item List of Jobs
+            li: a(href='job-board-single.html').dropdown-item Single Job Page
+        li()&attributes(parentMenu === 'Account' ? {'class': 'nav-item dropdown active'} : {'class': 'nav-item dropdown'})
+          a(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false').nav-link.dropdown-toggle Account
+          ul.dropdown-menu.dropdown-menu-dark
+            li.dropdown
+              a(href='#').dropdown-item.dropdown-toggle Account Pages
+              ul.dropdown-menu.dropdown-menu-dark
+                li: a(href='job-board-account-profile.html').dropdown-item Profile Settings
+                li: a(href='job-board-account-my-resumes.html').dropdown-item My Resumes
+                li: a(href='job-board-account-saved-jobs.html').dropdown-item Saved Jobs
+                li: a(href='job-board-account-notifications.html').dropdown-item Notifications
+                li: a(href='signin-light.html').dropdown-item Sign In
+                li: a(href='signup-light.html').dropdown-item Sign Up
+            li.dropdown
+              a(href='#').dropdown-item.dropdown-toggle Post Resume
+              ul.dropdown-menu.dropdown-menu-dark
+                li: a(href='job-board-post-resume-1.html').dropdown-item Step 1: Basic Info
+                li: a(href='job-board-post-resume-2.html').dropdown-item Step 2: Education
+                li: a(href='job-board-post-resume-3.html').dropdown-item Step 3: Work Experience
+                li: a(href='job-board-post-resume-4.html').dropdown-item Step 4: Skills
+                li: a(href='job-board-post-resume-5.html').dropdown-item Step 5: Review
+            li: a(href='job-board-promotion.html').dropdown-item Ad Promotion Page
+            li: a(href='job-board-employer-single.html').dropdown-item Employer / Company Page
+        li()&attributes(parentMenu === 'Pages' ? {'class': 'nav-item dropdown active'} : {'class': 'nav-item dropdown'})
+          a(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false').nav-link.dropdown-toggle Pages
+          ul.dropdown-menu.dropdown-menu-dark
+            li: a(href='job-board-about.html').dropdown-item About
+            li.dropdown
+              a(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false').dropdown-item.dropdown-toggle Blog
+              ul.dropdown-menu.dropdown-menu-dark
+                li: a(href='job-board-blog.html').dropdown-item Blog Grid
+                li: a(href='job-board-blog-single.html').dropdown-item Single Post
+            li: a(href='job-board-contacts.html').dropdown-item Contacts
+            li.dropdown
+              a(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false').dropdown-item.dropdown-toggle Help Center
+              ul.dropdown-menu.dropdown-menu-dark
+                li: a(href='job-board-help-center.html').dropdown-item Help Topics
+                li: a(href='job-board-help-center-single-topic.html').dropdown-item Single Topic
+            li: a(href='job-board-404.html').dropdown-item 404 Not Found
+        if parentMenu === 'Account'
+          li.nav-item.dropdown.d-lg-none
+            a(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false').nav-link.dropdown-toggle.d-flex.align-items-center
+              img(src='img/avatars/35.png' width='30' alt='Annette Black').rounded-circle.me-2
+              | Annette Black
+            .dropdown-menu.dropdown-menu-dark
+              .ps-3
+                .fs-xs.py-2
+                  | (302) 555-0107
+                  br
+                  | annette_black@email.com
+              a(href='job-board-account-profile.html').dropdown-item
+                i.fi-settings.me-2
+                | Profile Settings
+              a(href='job-board-account-my-resumes.html').dropdown-item
+                i.fi-file.me-2
+                | My Resumes
+              a(href='job-board-account-saved-jobs.html').dropdown-item
+                i.fi-heart.me-2
+                | Saved Jobs
+              a(href='job-board-account-notifications.html').dropdown-item
+                i.fi-bell.me-2
+                | Notifications
+              .dropdown-divider
+              a(href='signin-light.html').dropdown-item
+                i.fi-logout.me-2
+                | Sign Out
+        else
+          li.nav-item.d-lg-none
+            a(href='#signin-modal' data-bs-toggle='modal').nav-link
+              i.fi-user.me-2
+              | Sign in

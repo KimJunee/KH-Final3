@@ -1,0 +1,80 @@
+//- Blog sidebar (offcanvas on sreens < 992px)
+#sidebarBlog.offcanvas-lg.offcanvas-end
+  .offcanvas-header
+    h4.offcanvas-title Sidebar
+    button(type='button' data-bs-dismiss='offcanvas' data-bs-target='#sidebarBlog').btn-close.ms-auto
+
+  .offcanvas-body
+
+    // Search box
+    .position-relative.mb-4.mb-lg-5
+      i.ai-search.position-absolute.top-50.start-0.translate-middle-y.ms-3
+      input(type='search' placeholder='Enter keyword').form-control.ps-5
+
+    // Category links
+    h4.pt-1.pt-lg-0.mt-lg-n2 Categories:
+    ul.nav.flex-column.mb-lg-5.mb-4
+      li.mb-2
+        a(href='#').nav-link.d-flex.p-0.active
+          | All categories
+          span.fs-sm.text-muted.ms-2 (110)
+      li.mb-2
+        a(href='#').nav-link.d-flex.p-0
+          | Inspiration
+          span.fs-sm.text-muted.ms-2 (34)
+      li.mb-2
+        a(href='#').nav-link.d-flex.p-0
+          | Brand strategy
+          span.fs-sm.text-muted.ms-2 (8)
+      li.mb-2
+        a(href='#').nav-link.d-flex.p-0
+          | Advertisement
+          span.fs-sm.text-muted.ms-2 (45)
+      li.mb-2
+        a(href='#').nav-link.d-flex.p-0
+          | Ecommerce
+          span.fs-sm.text-muted.ms-2 (17)
+      li
+        a(href='#').nav-link.d-flex.p-0
+          | Travel &amp; Vacation
+          span.fs-sm.text-muted.ms-2 (6)
+
+    // Featured posts widget
+    h4.pt-3.pt-lg-0.pb-1 Trending posts:
+    .mb-lg-5.mb-4
+      article.position-relative.d-flex.align-items-center.mb-4
+        img(src='assets/img/blog/sidebar/01.jpg' width='92' alt='Post image').rounded
+        .ps-3
+          h4.h6.mb-2
+            a(href='blog-single-v1.html').stretched-link Instagram trends that will definitely work
+          span.fs-sm.text-muted 13 hours ago
+      article.position-relative.d-flex.align-items-center.mb-4
+        img(src='assets/img/blog/sidebar/02.jpg' width='92' alt='Post image').rounded
+        .ps-3
+          h4.h6.mb-2
+            a(href='blog-single-v2.html').stretched-link A session with a psychologist
+          span.fs-sm.text-muted May 12, 2022
+      article.position-relative.d-flex.align-items-center
+        img(src='assets/img/blog/sidebar/03.jpg' width='92' alt='Post image').rounded
+        .ps-3
+          h4.h6.mb-2
+            a(href='blog-single-v3.html').stretched-link How to look for inspiration for new goals
+          span.fs-sm.text-muted June 10, 2022
+
+    // Social buttons
+    h4.pt-3.pt-lg-0.pb-1 Join us:
+    .mt-n3.ms-n3.mb-lg-5.mb-4.pb-3.pb-lg-0
+      a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-instagram.rounded-circle.mt-3.ms-3
+        i.ai-instagram
+      a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-facebook.rounded-circle.mt-3.ms-3
+        i.ai-facebook
+      a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-telegram.rounded-circle.mt-3.ms-3
+        i.ai-telegram
+      a(href='#').btn.btn-secondary.btn-icon.btn-sm.btn-twitter.rounded-circle.mt-3.ms-3
+        i.ai-twitter
+    
+    // Banner
+    .position-relative.mb-3
+      .ignore-dark-mode.position-absolute.w-100.text-center.top-0.start-50.translate-middle-x.pt-4(style='max-width: 15rem;')
+        h3.h2.pt-3.mb-0 Your banner here!
+      img(src='assets/img/blog/sidebar/banner.jpg' alt='Banner').rounded-5

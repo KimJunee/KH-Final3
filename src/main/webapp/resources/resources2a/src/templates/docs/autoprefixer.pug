@@ -1,0 +1,18 @@
+extends ../partials/layout-docs
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js']
+  - var pageTitle = 'Browser support'
+    
+//- Page Content
+block content
+
+  p.mb-5 Vendor prefixes are not used inside SCSS instead we use <a href='https://github.com/postcss/autoprefixer' class='fw-semibold' target='_blank' rel='noopener'>Autoprefixer</a> to handle intended browser support via CSS prefixes. After compilation CSS styles are passed through Autoprefixer to add necessary vendor prefixes. As you know vendor prefixes are important to ensure cross-browser compatibility of latest CSS3 features.
+  h2.h3 Customize browser support via Autoprefixer settings
+  p Autoprefixer is integral part of Gulp / Node building process. So to customize it's settings you need to go to <code>package.json</code> and find <code>"browserslist"</code> array. It's currently set to the Bootstrap's default list of browsers.
+  p Generally it's a good practice to collect some analytics about what Browsers/OSs your visitors use. And then customize Autoprefixer settings based on this data.
+  p.mb-4 For more information about available Browserlist options visit <a href='https://github.com/browserslist/browserslist' class='fw-semibold' target='_blank' rel='noopener'>https://github.com/browserslist/browserslist</a>.
+  img(src='../assets/img/docs/autoprefixer.png' alt='Browserlist').rounded-3
+  

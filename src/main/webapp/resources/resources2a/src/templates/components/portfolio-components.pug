@@ -1,0 +1,472 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css', 'vendor/aos/dist/aos.css', 'vendor/prismjs/themes/prism.css', 'vendor/prismjs/plugins/toolbar/prism-toolbar.css', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js', 'vendor/aos/dist/aos.js', 'vendor/prismjs/components/prism-core.min.js', 'vendor/prismjs/components/prism-markup.min.js', 'vendor/prismjs/components/prism-clike.min.js', 'vendor/prismjs/components/prism-javascript.min.js', 'vendor/prismjs/components/prism-pug.min.js', 'vendor/prismjs/plugins/toolbar/prism-toolbar.min.js', 'vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Portfolio components'
+  - var pageSubtitle = 'Components that are related to the portfolio section of the website.'
+  - var isPageTitleBadge = true
+  - var anchorNav = [{'title': 'Grid view style 1', 'link': '#portfolio-grid-1'}, {'title': 'Grid view style 2', 'link': '#portfolio-grid-2'}, {'title': 'Grid view style 3', 'link': '#portfolio-grid-3'}, {'title': 'List view style 1', 'link': '#portfolio-list-1'}, {'title': 'List view style 2', 'link': '#portfolio-list-2'}]
+    
+//- Page Content
+block content
+
+  // Info alert
+  .alert.alert-info.d-flex.mb-4(role='alert')
+    i.ai-circle-info.lead.me-2.me-sm-3
+    .text-break
+      p.mb-1 <span class='fw-semibold'>Scroll animations</span> are powered by <span class='fw-semibold'>AOS (Animate on Scroll) plugin</span>. Make sure to link to <span class='fw-semibold'>AOS css and js</span> files in your document: <span class='fw-semibold'>assets/vendor/aos/dist/aos.css</span> and <span class='fw-semibold'>assets/vendor/aos/dist/aos.js</span>.
+
+  // Grid view style 1
+  section#portfolio-grid-1.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Grid view style 1
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview1' data-bs-toggle='tab' role='tab' aria-controls='preview1' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview1.tab-pane.fade.show.active(role='tabpanel')
+          article(style='max-width: 480px;').card-hover.zoom-effect
+            .zoom-effect-wrapper.rounded-5
+              .zoom-effect-img
+                img(src='../assets/img/portfolio/grid/02.jpg' alt='Image')
+            .pt-4.mt-lg-2
+              h2.h5.mb-2
+                a(href='#').stretched-link.text-nav
+                  | Design for eco bags and merch
+              span.fs-sm.text-muted.opacity-0.d-none.d-sm-block Product design
+              span.fs-sm.text-muted.d-sm-none Product design
+        #html1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Portfolio card vertical layout style 1 (Grid view) --&gt;
+              &lt;article class=&quot;card-hover zoom-effect&quot; style=&quot;max-width: 480px;&quot;&gt;
+                &lt;div class=&quot;zoom-effect-wrapper rounded-5&quot;&gt;
+                  &lt;div class=&quot;zoom-effect-img&quot;&gt;
+                    &lt;img src=&quot;assets/img/portfolio/grid/02.jpg&quot; alt=&quot;Image&quot;&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;pt-4 mt-lg-2&quot;&gt;
+                  &lt;h2 class=&quot;h5 mb-2&quot;&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;stretched-link text-nav&quot;&gt;Design for eco bags and merch&lt;/a&gt;
+                  &lt;/h2&gt;
+                  &lt;span class=&quot;fs-sm text-muted opacity-0 d-none d-sm-block&quot;&gt;Product design&lt;/span&gt;
+                  &lt;span class=&quot;fs-sm text-muted d-sm-none&quot;&gt;Product design&lt;/span&gt;
+                &lt;/div&gt;
+              &lt;/article&gt;
+        #pug1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Portfolio card vertical layout style 1 (Grid view)
+              article(style=&quot;max-width: 480px;&quot;).card-hover.zoom-effect
+                .zoom-effect-wrapper.rounded-5
+                  .zoom-effect-img
+                    img(src=&quot;assets/img/portfolio/grid/02.jpg&quot;, alt=&quot;Image&quot;)
+                .pt-4.mt-lg-2
+                  h2.h5.mb-2
+                    a(href=&quot;#&quot;).stretched-link.text-nav
+                      | Design for eco bags and merch
+                  span.fs-sm.text-muted.opacity-0.d-none.d-sm-block Product design
+                  span.fs-sm.text-muted.d-sm-none Product design
+
+  // Grid view style 2
+  section#portfolio-grid-2.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Grid view style 2
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview2' data-bs-toggle='tab' role='tab' aria-controls='preview2' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview2.tab-pane.fade.show.active(role='tabpanel')
+          article(style='max-width: 480px;').zoom-effect.position-relative.border-bottom.pb-3
+            .zoom-effect-wrapper
+              .zoom-effect-img
+                img(src='../assets/img/portfolio/grid/12.jpg' alt='Image')
+            .pt-4.mt-lg-2
+              h2.h4.mb-2
+                a(href='#').stretched-link The Studio
+              .d-flex.justify-content-between.fs-lg.text-muted
+                span Web design
+                span 2021
+        #html2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Portfolio card vertical layout style 2 (Grid view) --&gt;
+              &lt;article class=&quot;zoom-effect position-relative border-bottom pb-3&quot; style=&quot;max-width: 480px;&quot;&gt;
+                &lt;div class=&quot;zoom-effect-wrapper&quot;&gt;
+                  &lt;div class=&quot;zoom-effect-img&quot;&gt;
+                    &lt;img src=&quot;assets/img/portfolio/grid/12.jpg&quot; alt=&quot;Image&quot;&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;pt-4 mt-lg-2&quot;&gt;
+                  &lt;h2 class=&quot;h4 mb-2&quot;&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;stretched-link&quot;&gt;The Studio&lt;/a&gt;
+                  &lt;/h2&gt;
+                  &lt;div class=&quot;d-flex justify-content-between fs-lg text-muted&quot;&gt;
+                    &lt;span&gt;Web design&lt;/span&gt;
+                    &lt;span&gt;2021&lt;/span&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/article&gt;
+        #pug2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Portfolio card vertical layout style 2 (Grid view)
+              article(style=&quot;max-width: 480px;&quot;).zoom-effect.position-relative.border-bottom.pb-3
+                .zoom-effect-wrapper
+                  .zoom-effect-img
+                    img(src=&quot;assets/img/portfolio/grid/12.jpg&quot;, alt=&quot;Image&quot;)
+                .pt-4.mt-lg-2
+                  h2.h4.mb-2
+                    a(href=&quot;#&quot;).stretched-link
+                      | The Studio
+                  .d-flex.justify-content-between
+                    span.fs-lg.text-muted Web design
+                    span.fs-lg.text-muted 2021
+
+  // Grid view style 3
+  section#portfolio-grid-3.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Grid view style 3
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview3' data-bs-toggle='tab' role='tab' aria-controls='preview3' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview3.tab-pane.fade.show.active(role='tabpanel')
+          a(href='#' style='max-width: 316px;').card-flip
+            .card-flip-inner
+              .card-flip-front(style='background-image: url(../assets/img/landing/creative-agency/services/03.jpg);')
+                .d-flex.flex-column.h-100.ignore-dark-mode
+                  h2.fs-lg.fw-normal.mb-0.mt-auto Branding
+              .card-flip-back.bg-secondary
+                .d-flex.flex-column.h-100.px-sm-2.pt-sm-2.px-lg-0.pt-lg-0.px-xl-3.pt-xl-3
+                  h3.h4 Branding
+                  ul.text-body.ps-4.mb-3
+                    li.mb-2 Identity design
+                    li.mb-2 Brand book creation
+                    li.mb-2 Colors and fonts
+                    li.mb-2 Banners and covers
+                    li.mb-1 Visual style
+                  .text-end.pt-3.pt-sm-2.pt-xl-4.mt-auto.me-sm-n2.me-lg-0.me-xl-n3
+                    .btn.btn-sm.btn-icon.btn-outline-primary.rounded-circle
+                      i.ai-arrow-right
+        #html3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Portfolio card with flipping effect (Grid view) --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;card-flip&quot; style=&quot;max-width: 316px;&quot;&gt;
+                &lt;div class=&quot;card-flip-inner&quot;&gt;
+                  &lt;div class=&quot;card-flip-front&quot; style=&quot;background-image: url(assets/img/landing/creative-agency/services/03.jpg);&quot;&gt;
+                    &lt;div class=&quot;d-flex flex-column h-100 ignore-dark-mode&quot;&gt;
+                      &lt;h2 class=&quot;fs-lg fw-normal mb-0 mt-auto&quot;&gt;Branding&lt;/h2&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;card-flip-back bg-secondary&quot;&gt;
+                    &lt;div class=&quot;d-flex flex-column h-100 px-sm-2 pt-sm-2 px-lg-0 pt-lg-0 px-xl-3 pt-xl-3&quot;&gt;
+                      &lt;h3 class=&quot;h4&quot;&gt;Branding&lt;/h3&gt;
+                      &lt;ul class=&quot;text-body ps-4 mb-3&quot;&gt;
+                        &lt;li class=&quot;mb-2&quot;&gt;Identity design&lt;/li&gt;
+                        &lt;li class=&quot;mb-2&quot;&gt;Brand book creation&lt;/li&gt;
+                        &lt;li class=&quot;mb-2&quot;&gt;Colors and fonts&lt;/li&gt;
+                        &lt;li class=&quot;mb-2&quot;&gt;Banners and covers&lt;/li&gt;
+                        &lt;li class=&quot;mb-1&quot;&gt;Visual style&lt;/li&gt;
+                      &lt;/ul&gt;
+                      &lt;div class=&quot;text-end pt-3 pt-sm-2 pt-xl-4 mt-auto me-sm-n2 me-lg-0 me-xl-n3&quot;&gt;
+                        &lt;div class=&quot;btn btn-sm btn-icon btn-outline-primary rounded-circle&quot;&gt;
+                          &lt;i class=&quot;ai-arrow-right&quot;&gt;&lt;/i&gt;
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/a&gt;
+        #pug3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Portfolio card with flipping effect (Grid view)
+              a(href=&quot;#&quot;, style=&quot;max-width: 316px;&quot;).card-flip
+                .card-flip-inner
+                  .card-flip-front(style=&quot;background-image: url(assets/img/landing/creative-agency/services/03.jpg);&quot;)
+                    .d-flex.flex-column.h-100.ignore-dark-mode
+                      h2.fs-lg.fw-normal.mb-0.mt-auto Branding
+                  .card-flip-back.bg-secondary
+                    .d-flex.flex-column.h-100.px-sm-2.pt-sm-2.px-lg-0.pt-lg-0.px-xl-3.pt-xl-3
+                      h3.h4 Branding
+                      ul.text-body.ps-4.mb-3
+                        li.mb-2 Identity design
+                        li.mb-2 Brand book creation
+                        li.mb-2 Colors and fonts
+                        li.mb-2 Banners and covers
+                        li.mb-1 Visual style
+                      .text-end.pt-3.pt-sm-2.pt-xl-4.mt-auto.me-sm-n2.me-lg-0.me-xl-n3
+                        .btn.btn-sm.btn-icon.btn-outline-primary.rounded-circle
+                          i.ai-arrow-right
+
+  // List view style 1
+  section#portfolio-list-1.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 List view style 1
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview4' data-bs-toggle='tab' role='tab' aria-controls='preview4' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview4.tab-pane.fade.show.active(role='tabpanel')
+          article.row.align-items-center.card-hover.pb-5.mb-md-2.mb-lg-3.mb-xl-4(data-aos='fade-up' data-aos-duration='600' data-aos-offset='280')
+            .col-md-7.mb-4.mb-md-0
+              a(href='#')
+                img(src='../assets/img/portfolio/list/03.jpg' width='700' alt='Image').rounded-5
+            .col-md-5(data-aos='fade-up' data-aos-duration='850' data-aos-offset='180' data-disable-parallax-down='md')
+              .ms-md-2.ms-xl-4(style='max-width: 330px;')
+                .text-muted.mb-2 Identity, Packaging
+                h2.mb-lg-4: a(href='#') Bottle for French perfume brand
+                p.mb-0.mb-md-1.mb-lg-3 Egestas ultrices condimentum consectetur massa aliquam volutpat pulvinar aliquet nisi quam. Nibh commodo tristique nisi, justo, sed maecenas lectus ut nec eu.
+                a(href='#').btn.btn-lg.btn-link.px-0.opacity-0.d-none.d-md-inline-flex
+                  | Read more
+                  i.ai-arrow-right.ms-2
+          article.row.align-items-center.card-hover.pb-4(data-aos='fade-up' data-aos-duration='600' data-aos-offset='280')
+            .col-md-7.order-md-2.mb-4.mb-md-0
+              a(href='#')
+                img(src='../assets/img/portfolio/list/04.jpg' width='700' alt='Image').rounded-5
+            .col-md-5.order-md-1(data-aos='fade-up' data-aos-duration='850' data-aos-offset='180' data-disable-parallax-down='md')
+              .me-md-2.me-xl-4(style='max-width: 330px;')
+                .text-muted.mb-2 E-book, Branding
+                h2.mb-lg-4: a(href='#') Book cover design Twin Fish
+                p.mb-0.mb-md-1.mb-lg-3 Sed feugiat tristique enim aenean netus cum adipiscing est sem eget nulla leo vestibulum. Cras urna, proin ut ut dictum risus porttitor nulla consequat et iaculis.
+                a(href='#').btn.btn-lg.btn-link.px-0.opacity-0.d-none.d-md-inline-flex
+                  | Read more
+                  i.ai-arrow-right.ms-2
+        #html4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Portfolio card horizontal layout style 1 (List view). Ideally should be placed inside .container --&gt;
+
+              &lt;!-- Image on the left --&gt;
+              &lt;article class=&quot;row align-items-center card-hover pb-5 mb-md-2 mb-lg-3 mb-xl-4&quot; data-aos=&quot;fade-up&quot; data-aos-duration=&quot;600&quot; data-aos-offset=&quot;280&quot;&gt;
+                &lt;div class=&quot;col-md-7 offset-xxl-1 mb-4 mb-md-0&quot;&gt;
+                  &lt;a href=&quot;#&quot;&gt;
+                    &lt;img src=&quot;assets/img/portfolio/list/03.jpg&quot; class=&quot;rounded-5&quot; width=&quot;700&quot; alt=&quot;Image&quot;&gt;
+                  &lt;/a&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;col-md-5 col-xl-4&quot; data-aos=&quot;fade-up&quot; data-aos-duration=&quot;850&quot; data-aos-offset=&quot;180&quot; data-disable-parallax-down=&quot;md&quot;&gt;
+                  &lt;div class=&quot;ms-md-4 ms-lg-5 ms-xxl-0&quot; style=&quot;max-width: 330px;&quot;&gt;
+                    &lt;div class=&quot;text-muted mb-2&quot;&gt;Identity, Packaging&lt;/div&gt;
+                    &lt;h2 class=&quot;mb-lg-4&quot;&gt;
+                      &lt;a href=&quot;#&quot;&gt;Bottle for French perfume brand&lt;/a&gt;
+                    &lt;/h2&gt;
+                    &lt;p class=&quot;mb-0 mb-md-1 mb-lg-3&quot;&gt;Egestas ultrices condimentum consectetur massa aliquam volutpat pulvinar aliquet nisi quam. Nibh commodo tristique nisi, justo, sed maecenas lectus ut nec eu.&lt;/p&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;btn btn-lg btn-link px-0 opacity-0 d-none d-md-inline-flex&quot;&gt;
+                      Read more
+                      &lt;i class=&quot;ai-arrow-right ms-2&quot;&gt;&lt;/i&gt;
+                    &lt;/a&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/article&gt;
+
+              &lt;!-- Image on the right --&gt;
+              &lt;article class=&quot;row align-items-center card-hover pb-5 mb-md-2 mb-lg-3 mb-xl-4&quot; data-aos=&quot;fade-up&quot; data-aos-duration=&quot;600&quot; data-aos-offset=&quot;280&quot;&gt;
+                &lt;div class=&quot;col-md-7 order-md-2 mb-4 mb-md-0&quot;&gt;
+                  &lt;a href=&quot;#&quot;&gt;
+                    &lt;img src=&quot;assets/img/portfolio/list/04.jpg&quot; class=&quot;rounded-5&quot; width=&quot;700&quot; alt=&quot;Image&quot;&gt;
+                  &lt;/a&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;col-md-5 col-xl-4 offset-xxl-1 order-md-1&quot; data-aos=&quot;fade-up&quot; data-aos-duration=&quot;850&quot; data-aos-offset=&quot;180&quot; data-disable-parallax-down=&quot;md&quot;&gt;
+                  &lt;div class=&quot;me-md-4 me-lg-5 me-xxl-0&quot; style=&quot;max-width: 330px;&quot;&gt;
+                    &lt;div class=&quot;text-muted mb-2&quot;&gt;E-book, Branding&lt;/div&gt;
+                    &lt;h2 class=&quot;mb-lg-4&quot;&gt;
+                      &lt;a href=&quot;#&quot;&gt;Book cover design Twin Fish&lt;/a&gt;
+                    &lt;/h2&gt;
+                    &lt;p class=&quot;mb-0 mb-md-1 mb-lg-3&quot;&gt;Sed feugiat tristique enim aenean netus cum adipiscing est sem eget nulla leo vestibulum. Cras urna, proin ut ut dictum risus porttitor nulla consequat et iaculis.&lt;/p&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;btn btn-lg btn-link px-0 opacity-0 d-none d-md-inline-flex&quot;&gt;
+                      Read more
+                      &lt;i class=&quot;ai-arrow-right ms-2&quot;&gt;&lt;/i&gt;
+                    &lt;/a&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/article&gt;
+        #pug4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Portfolio card horizontal layout style 1 (List view). Ideally should be placed inside .container
+
+              // Image on the left
+              article(data-aos=&quot;fade-up&quot;, data-aos-duration=&quot;600&quot;, data-aos-offset=&quot;280&quot;).row.align-items-center.card-hover.pb-5.mb-md-2.mb-lg-3.mb-xl-4
+                .col-md-7.offset-xxl-1.mb-4.mb-md-0
+                  a(href=&quot;#&quot;)
+                    img(src=&quot;assets/img/portfolio/list/03.jpg&quot;, width=&quot;700&quot;, alt=&quot;Image&quot;).rounded-5
+                .col-md-5.col-xl-4(data-aos=&quot;fade-up&quot;, data-aos-duration=&quot;850&quot;, data-aos-offset=&quot;180&quot;, data-disable-parallax-down=&quot;md&quot;)
+                  .ms-md-4.ms-lg-5.ms-xxl-0(style=&quot;max-width: 330px;&quot;)
+                    .text-muted.mb-2 Identity, Packaging
+                    h2.mb-lg-4
+                      a(href=&quot;#&quot;) Bottle for French perfume brand
+                    p.mb-0.mb-md-1.mb-lg-3
+                      | Egestas ultrices condimentum consectetur massa aliquam volutpat pulvinar aliquet nisi quam. Nibh commodo tristique nisi, justo, sed maecenas lectus ut nec eu.
+                    a(href=&quot;#&quot;).btn.btn-lg.btn-link.px-0.opacity-0.d-none.d-md-inline-flex
+                      | Read more
+                      i.ai-arrow-right.ms-2
+
+              // Image on the right
+              article(data-aos=&quot;fade-up&quot;, data-aos-duration=&quot;600&quot;, data-aos-offset=&quot;280&quot;).row.align-items-center.card-hover.pb-5.mb-md-2.mb-lg-3.mb-xl-4
+                .col-md-7.order-md-2.mb-4.mb-md-0
+                  a(href=&quot;#&quot;)
+                    img(src=&quot;assets/img/portfolio/list/04.jpg&quot;, width=&quot;700&quot;, alt=&quot;Image&quot;).rounded-5
+                .col-md-5.col-xl-4.offset-xxl-1.order-md-1(data-aos=&quot;fade-up&quot;, data-aos-duration=&quot;850&quot;, data-aos-offset=&quot;180&quot;, data-disable-parallax-down=&quot;md&quot;)
+                  .me-md-4.me-lg-5.me-xxl-0(style=&quot;max-width: 330px;&quot;)
+                    .text-muted.mb-2 E-book, Branding
+                    h2.mb-lg-4
+                      a(href=&quot;#&quot;) Book cover design Twin Fish
+                    p.mb-0.mb-md-1.mb-lg-3
+                      | Sed feugiat tristique enim aenean netus cum adipiscing est sem eget nulla leo vestibulum. Cras urna, proin ut ut dictum risus porttitor nulla consequat et iaculis.
+                    a(href=&quot;#&quot;).btn.btn-lg.btn-link.px-0.opacity-0.d-none.d-md-inline-flex
+                      | Read more
+                      i.ai-arrow-right.ms-2
+
+  // List view style 2
+  section#portfolio-list-2.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 List view style 2
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview5' data-bs-toggle='tab' role='tab' aria-controls='preview5' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html5' data-bs-toggle='tab' role='tab' aria-controls='html5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug5' data-bs-toggle='tab' role='tab' aria-controls='pug5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview5.tab-pane.fade.show.active(role='tabpanel')
+          .row.align-items-center.pt-xl-2.pb-4
+            .col-md-7.mb-4.mb-md-0
+              a(href='#').d-block.position-relative
+                .bg-info.rounded-5.position-absolute.top-0.start-0.w-100.h-100(data-aos='zoom-in' data-aos-duration='600' data-aos-offset='250')
+                img(src='../assets/img/portfolio/list/06.png' width='636' alt='Image' data-aos='fade-in' data-aos-duration='400' data-aos-offset='250').d-block.position-relative.zindex-2.mx-auto
+            .col-md-5(data-aos='fade-up' data-aos-duration='400' data-aos-offset='170')
+              .ps-md-3.ps-lg-4
+                img(src='../assets/img/portfolio/brands/champion-blue-dark.svg' alt='Champion').d-block.d-dark-mode-none.mb-2.mb-lg-3
+                img(src='../assets/img/portfolio/brands/champion-blue-light.svg' alt='Champion').d-none.d-dark-mode-block.mb-2.mb-lg-3
+                h2.h4 Development of a fintech application
+                p.fs-sm.pb-3.pb-lg-4.mb-3 Morbi et massa fames ac scelerisque sit commodo dignissim faucibus vel quisque proin lectus. Morbi et massa fames ac scelerisque.
+                a(href='#').btn.btn-sm.btn-outline-dark.rounded-pill Read the full story
+                .d-flex.align-items-center.pt-2.pt-lg-3.mt-3
+                  h6.text-body.mb-0.me-3 Awards:
+                  img(src='../assets/img/portfolio/brands/vuejs-dark.svg' width='90' alt='Vue.js').d-block.d-dark-mode-none.me-4
+                  img(src='../assets/img/portfolio/brands/vuejs-light.svg' width='90' alt='Vue.js').d-none.d-dark-mode-block.me-4
+                  img(src='../assets/img/portfolio/brands/deloitte-dark.svg' width='95' alt='Deloitte').d-block.d-dark-mode-none
+                  img(src='../assets/img/portfolio/brands/deloitte-light.svg' width='95' alt='Deloitte').d-none.d-dark-mode-block
+        #html5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Portfolio card horizontal layout style 2 (List view). Ideally should be placed inside .container --&gt;
+              &lt;div class=&quot;row align-items-center pt-xl-2 pb-5 mb-lg-2 mb-xl-3 mb-xxl-4&quot;&gt;
+                &lt;div class=&quot;col-md-7 col-lg-6 mb-4 mb-md-0&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;d-block position-relative&quot;&gt;
+                    &lt;div class=&quot;bg-info rounded-5 position-absolute top-0 start-0 w-100 h-100&quot; data-aos=&quot;zoom-in&quot; data-aos-duration=&quot;600&quot; data-aos-offset=&quot;250&quot;&gt;&lt;/div&gt;
+                    &lt;img src=&quot;assets/img/portfolio/list/06.png&quot; class=&quot;d-block position-relative zindex-2 mx-auto&quot; width=&quot;636&quot; alt=&quot;Image&quot; data-aos=&quot;fade-in&quot; data-aos-duration=&quot;400&quot; data-aos-offset=&quot;250&quot;&gt;
+                  &lt;/a&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;col-md-5 col-xl-4 offset-lg-1&quot; data-aos=&quot;fade-up&quot; data-aos-duration=&quot;400&quot; data-aos-offset=&quot;170&quot;&gt;
+                  &lt;div class=&quot;ps-md-3 ps-lg-0&quot;&gt;
+                    &lt;img src=&quot;assets/img/portfolio/brands/champion-blue-dark.svg&quot; class=&quot;d-block d-dark-mode-none mb-2 mb-lg-3&quot; alt=&quot;Champion&quot;&gt;
+                    &lt;img src=&quot;assets/img/portfolio/brands/champion-blue-light.svg&quot; class=&quot;d-none d-dark-mode-block mb-2 mb-lg-3&quot; alt=&quot;Champion&quot;&gt;
+                    &lt;h2 class=&quot;h4&quot;&gt;Development of a fintech application&lt;/h2&gt;
+                    &lt;p class=&quot;fs-sm pb-3 pb-lg-4 mb-3&quot;&gt;Morbi et massa fames ac scelerisque sit commodo dignissim faucibus vel quisque proin lectus. Morbi et massa fames ac scelerisque sit commodo dignissim.&lt;/p&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;btn btn-sm btn-outline-dark rounded-pill&quot;&gt;Read the full story&lt;/a&gt;
+                    &lt;div class=&quot;d-flex align-items-center pt-2 pt-lg-3 mt-3&quot;&gt;
+                      &lt;h6 class=&quot;text-body mb-0 me-3&quot;&gt;Awards:&lt;/h6&gt;
+                      &lt;img src=&quot;assets/img/portfolio/brands/vuejs-dark.svg&quot; class=&quot;d-block d-dark-mode-none me-4&quot; width=&quot;90&quot; alt=&quot;Vue.js&quot;&gt;
+                      &lt;img src=&quot;assets/img/portfolio/brands/vuejs-light.svg&quot; class=&quot;d-none d-dark-mode-block me-4&quot; width=&quot;90&quot; alt=&quot;Vue.js&quot;&gt;
+                      &lt;img src=&quot;assets/img/portfolio/brands/deloitte-dark.svg&quot; class=&quot;d-block d-dark-mode-none&quot; width=&quot;95&quot; alt=&quot;Deloitte&quot;&gt;
+                      &lt;img src=&quot;assets/img/portfolio/brands/deloitte-light.svg&quot; class=&quot;d-none d-dark-mode-block&quot; width=&quot;95&quot; alt=&quot;Deloitte&quot;&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Portfolio card horizontal layout style 2 (List view). Ideally should be placed inside .container
+              .row.align-items-center.pt-xl-2.pb-5.mb-lg-2.mb-xl-3.mb-xxl-4
+                .col-md-7.col-lg-6.mb-4.mb-md-0
+                  a(href=&quot;#&quot;).d-block.position-relative
+                    .bg-info.rounded-5.position-absolute.top-0.start-0.w-100.h-100(data-aos=&quot;zoom-in&quot;, data-aos-duration=&quot;600&quot;, data-aos-offset=&quot;250&quot;)
+                    img(src=&quot;assets/img/portfolio/list/06.png&quot;, width=&quot;636&quot;, alt=&quot;Image&quot;, data-aos=&quot;fade-in&quot;, data-aos-duration=&quot;400&quot;, data-aos-offset=&quot;250&quot;).d-block.position-relative.zindex-2.mx-auto
+                .col-md-5.col-xl-4.offset-lg-1(data-aos=&quot;fade-up&quot;, data-aos-duration=&quot;400&quot;, data-aos-offset=&quot;170&quot;)
+                  .ps-md-3.ps-lg-0
+                    img(src=&quot;assets/img/portfolio/brands/champion-blue-dark.svg&quot;, alt=&quot;Champion&quot;).d-block.d-dark-mode-none.mb-2.mb-lg-3
+                    img(src=&quot;assets/img/portfolio/brands/champion-blue-light.svg&quot;, alt=&quot;Champion&quot;).d-none.d-dark-mode-block.mb-2.mb-lg-3
+                    h2.h4 Development of a fintech application
+                    p.fs-sm.pb-3.pb-lg-4.mb-3
+                      | Morbi et massa fames ac scelerisque sit commodo dignissim faucibus vel quisque proin lectus. Morbi et massa fames ac scelerisque sit commodo dignissim.
+                    a(href=&quot;#&quot;).btn.btn-sm.btn-outline-dark.rounded-pill
+                      | Read the full story
+                    .d-flex.align-items-center.pt-2.pt-lg-3.mt-3
+                      h6.text-body.mb-0.me-3 Awards:
+                      img(src=&quot;assets/img/portfolio/brands/vuejs-dark.svg&quot;, width=&quot;90&quot;, alt=&quot;Vue.js&quot;).d-block.d-dark-mode-none.me-4
+                      img(src=&quot;assets/img/portfolio/brands/vuejs-light.svg&quot;, width=&quot;90&quot;, alt=&quot;Vue.js&quot;).d-none.d-dark-mode-block.me-4
+                      img(src=&quot;assets/img/portfolio/brands/deloitte-dark.svg&quot;, width=&quot;95&quot;, alt=&quot;Deloitte&quot;).d-block.d-dark-mode-none
+                      img(src=&quot;assets/img/portfolio/brands/deloitte-light.svg&quot;, width=&quot;95&quot;, alt=&quot;Deloitte&quot;).d-none.d-dark-mode-block

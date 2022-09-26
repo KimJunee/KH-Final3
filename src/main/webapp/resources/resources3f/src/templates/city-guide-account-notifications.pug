@@ -1,0 +1,99 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var parentMenu = 'Account'
+  - var pageTitle = 'City Guide | Account - Notifications'
+  - var bodyClass = 'bg-secondary'
+
+//- Navbar
+block navbar
+  include partials/navbar-city-guide
+
+//- Page Content
+block content
+
+  // Page container
+  .container.mt-5.mb-md-4.py-5
+
+    // Breadcrumbs
+    nav(aria-label='breadcrumb').mb-4.pt-2.pt-lg-3
+      ol.breadcrumb
+        li.breadcrumb-item
+          a(href='city-guide-home-v1.html') Home
+        li.breadcrumb-item
+          a(href='city-guide-account-info.html') Account
+        li(aria-current='page').breadcrumb-item.active
+          | Notifications
+
+
+    // Account header
+    .d-flex.align-items-center.justify-content-between.pb-4.mb-2
+      .d-flex.align-items-center
+        .position-relative.flex-shrink-0
+          img(src='img/avatars/29.png' width='100' alt='Annette Black').rounded-circle.border.border-white
+          button(type='button' data-bs-toggle='tooltip' title='Change image').btn.btn-icon.btn-light.btn-xs.rounded-circle.shadow-sm.position-absolute.end-0.bottom-0
+            i.fi-pencil.fs-xs
+        .ps-3.ps-sm-4
+          h3.h4.mb-2 Annette Black
+          +star-rating(5)
+      a(href='signin-light.html').nav-link.p-0.d-none.d-md-block
+        i.fi-logout.mt-n1.me-2
+        | Sign out
+
+
+    // Page content
+    .card.card-body.p-4.p-md-5.shadow-sm
+
+      // Account nav
+      include partials/nav-account-city-guide
+
+      .d-flex.flex-md-row.flex-column.align-items-md-center.justify-content-md-between.mb-4.py-2
+        h1.h3.mb-0 Notifications
+
+      .border-bottom.mb-3.pb-3
+        .form-check.form-switch
+          input(type='checkbox' id='all-notifications' data-master-checkbox-for="#notification-settings" checked).form-check-input
+          label(for='all-notifications').form-check-label.ms-2.fw-bold.text-dark.opacity-90 Enable / disable all notifications
+
+      #notification-settings.py-2
+        .d-flex.mb-4
+          .form-check.form-switch
+            input(type='checkbox' id='product-sold' checked).form-check-input
+            label(for='product-sold').form-check-label
+          .ms-2
+            h6.mb-1.fs-base.opacity-90 Product sold notifications
+            p.fs-sm.mb-0 Send an email when someone purchased one of my products
+        .d-flex.mb-4
+          .form-check.form-switch
+            input(type='checkbox' id='product-update' checked).form-check-input
+            label(for='product-update').form-check-label
+          .ms-2
+            h6.mb-1.fs-base.opacity-90 Product update notifications
+            p.fs-sm.mb-0 Send an email when the product I've purchased is updated
+        .d-flex.mb-4
+          .form-check.form-switch
+            input(type='checkbox' id='product-comment').form-check-input
+            label(for='product-comment').form-check-label
+          .ms-2
+            h6.mb-1.fs-base.opacity-90 Product comment notifications
+            p.fs-sm.mb-0 Send an email when someone comments on one of my products
+        .d-flex.mb-4
+          .form-check.form-switch
+            input(type='checkbox' id='product-review' checked).form-check-input
+            label(for='product-review').form-check-label
+          .ms-2
+            h6.mb-1.fs-base.opacity-90 Product review notification
+            p.fs-sm.mb-0 Send an email when someone leaves a review with their rating
+        .d-flex
+          .form-check.form-switch
+            input(type='checkbox' id='daily-emails').form-check-input
+            label(for='daily-emails').form-check-label
+          .ms-2
+            h6.mb-1.fs-base.opacity-90 Daily summary emails
+            p.fs-sm.mb-0 Send me a daily summary of all products sold, commented or reviewed
+
+
+//- Footer
+block footer
+  include partials/footer-city-guide

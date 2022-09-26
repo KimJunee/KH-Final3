@@ -1,0 +1,48 @@
+// Account nav
+.card.card-body.border-0.shadow-sm.pb-1.me-lg-1
+  .d-flex.d-md-block.d-lg-flex.align-items-start.pt-lg-2.mb-4
+    img(src='img/avatars/03.jpg' class='rounded-circle' width='48' alt='Annette Black')
+    .pt-md-2.pt-lg-0.ps-3.ps-md-0.ps-lg-3
+      h2.fs-lg.mb-0 Annette Black
+      +star-rating(5)
+      ul.list-unstyled.fs-sm.mt-3.mb-0
+        li
+          a(href='tel:3025550107').nav-link.fw-normal.p-0
+            i.fi-phone.opacity-60.me-2
+            | (302) 555-0107
+        li
+          a(href='mailto:annette_black@email.com').nav-link.fw-normal.p-0
+            i.fi-mail.opacity-60.me-2
+            | annette_black@email.com
+  a(href='real-estate-add-property.html').btn.btn-primary.btn-lg.w-100.mb-3
+    i.fi-plus.me-2
+    | Add property
+  a(href='#account-nav' data-bs-toggle='collapse').btn.btn-outline-secondary.d-block.d-md-none.w-100.mb-3
+    i.fi-align-justify.me-2
+    | Menu
+  #account-nav.collapse.d-md-block.mt-3
+    .card-nav
+      a(href='real-estate-account-info.html')&attributes(pageTitle === 'Real Estate | Account Personal Info' ? {'class': 'card-nav-link active'} : {'class': 'card-nav-link'})
+        i.fi-user.opacity-60.me-2
+        | Personal Info
+      a(href='real-estate-account-security.html')&attributes(pageTitle === 'Real Estate | Account Password & Security' ? {'class': 'card-nav-link active'} : {'class': 'card-nav-link'})
+        i.fi-lock.opacity-60.me-2
+        | Password &amp; Security
+      a(href='real-estate-account-properties.html')&attributes(pageTitle === 'Real Estate | Account My Properties' ? {'class': 'card-nav-link active'} : {'class': 'card-nav-link'})
+        i.fi-home.opacity-60.me-2
+        | My Properties
+      a(href='real-estate-account-wishlist.html')&attributes(pageTitle === 'Real Estate | Account Wishlist' ? {'class': 'card-nav-link active'} : {'class': 'card-nav-link'})
+        i.fi-heart.opacity-60.me-2
+        | Wishlist
+      a(href='real-estate-account-reviews.html')&attributes(pageTitle === 'Real Estate | Account Reviews' ? {'class': 'card-nav-link active'} : {'class': 'card-nav-link'})
+        i.fi-star.opacity-60.me-2
+        | Reviews
+      a(href='real-estate-account-notifications.html')&attributes(pageTitle === 'Real Estate | Account Notifications' ? {'class': 'card-nav-link active'} : {'class': 'card-nav-link'})
+        i.fi-bell.opacity-60.me-2
+        | Notifications
+      a(href='real-estate-help-center.html').card-nav-link
+        i.fi-help.opacity-60.me-2
+        | Help
+      a(href='signin-light.html').card-nav-link
+        i.fi-logout.opacity-60.me-2
+        | Sign Out

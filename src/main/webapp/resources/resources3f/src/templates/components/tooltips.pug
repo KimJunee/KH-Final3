@@ -1,0 +1,115 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['prismjs/themes/prism.css', 'prismjs/plugins/toolbar/prism-toolbar.css', 'prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var vendorScripts = ['prismjs/components/prism-core.min.js', 'prismjs/components/prism-markup.min.js', 'prismjs/components/prism-clike.min.js', 'prismjs/components/prism-javascript.min.js', 'prismjs/components/prism-pug.min.js', 'prismjs/plugins/toolbar/prism-toolbar.min.js', 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Tooltips'
+  - var pageSubtitle = 'Custom tooltips for local title storage.'
+  - var pageTitleLink = {'title': 'Bootstrap docs', 'link': 'https://getbootstrap.com/docs/5.1/components/tooltips/'}
+  - var anchorNav = [{'title': 'Static example', 'link': '#tooltips-static'}, {'title': 'Live demo', 'link': '#tooltips-demo'}]
+  
+//- Page Content
+block content
+
+  // Static example
+  section#tooltips-static.pb-5.mb-md-2
+    h2.h5.mb-3 Static example
+    .card.border-0.shadow-sm
+      .card-body
+        //-- Styles For Demo purpose only
+        style.
+          .example-tooltip .tooltip {
+            display: inline-block;
+            position: relative;
+            margin: .625rem 1.25rem;
+            opacity: 1;
+            z-index: 1;
+          }
+          .example-tooltip .tooltip.bs-tooltip-top .tooltip-arrow,
+          .example-tooltip .tooltip.bs-tooltip-bottom .tooltip-arrow {
+            left: 50%;
+            margin-left: -.375rem;
+          }
+          .example-tooltip .tooltip.bs-tooltip-end .tooltip-arrow,
+          .example-tooltip .tooltip.bs-tooltip-start .tooltip-arrow {
+            top: 50%;
+            margin-top: -.375rem;
+          }
+        //-- End of styles
+        .example-tooltip
+          .tooltip.bs-tooltip-top(role='tooltip')
+            .tooltip-arrow
+            .tooltip-inner Tooltip on the top
+          .tooltip.bs-tooltip-end(role='tooltip')
+            .tooltip-arrow
+            .tooltip-inner Tooltip on the right
+          .tooltip.bs-tooltip-bottom(role='tooltip')
+            .tooltip-arrow
+            .tooltip-inner Tooltip on the bottom
+          .tooltip.bs-tooltip-start(role='tooltip')
+            .tooltip-arrow
+            .tooltip-inner Tooltip on the left
+          .tooltip.bs-tooltip-top(role='tooltip')
+            .tooltip-arrow
+            .tooltip-inner <i>Tooltip</i> <u>with</u> <strong>HTML</strong>
+
+  // Live demo
+  section#tooltips-demo.pb-5.mb-md-2
+    h2.h5.mb-3 Live demo
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result1' data-bs-toggle='tab' role='tab' aria-controls='result1' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result1.tab-pane.fade.show.active(role='tabpanel')
+            button(type='button' class='btn btn-outline-secondary me-2 mb-3' data-bs-toggle='tooltip' data-bs-placement='top' title='Tooltip on top') Tooltip on top
+            button(type='button' class='btn btn-outline-secondary me-2 mb-3' data-bs-toggle='tooltip' data-bs-placement='right' title='Tooltip on right') Tooltip on right
+            button(type='button' class='btn btn-outline-secondary me-2 mb-3' data-bs-toggle='tooltip' data-bs-placement='bottom' title='Tooltip on bottom') Tooltip on bottom
+            button(type='button' class='btn btn-outline-secondary me-2 mb-3' data-bs-toggle='tooltip' data-bs-placement='left' title='Tooltip on left') Tooltip on left
+            button(type='button' class='btn btn-outline-secondary mb-3' data-bs-toggle='tooltip' data-bs-placement='top' data-bs-html='true' title='<em>Tooltip</em> <u>with</u> <b>HTML</b>') Tooltip with HTML
+          #html1.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Tooltip on top --&gt;
+                &lt;button class=&quot;btn btn-outline-secondary&quot; type=&quot;button&quot; data-bs-toggle=&quot;tooltip&quot; data-bs-placement=&quot;top&quot; title=&quot;Tooltip on top&quot;&gt;Tooltip on top&lt;/button&gt;
+
+                &lt;!-- Tooltip on right --&gt;
+                &lt;button class=&quot;btn btn-outline-secondary&quot; type=&quot;button&quot; data-bs-toggle=&quot;tooltip&quot; data-bs-placement=&quot;right&quot; title=&quot;Tooltip on right&quot;&gt;Tooltip on right&lt;/button&gt;
+
+                &lt;!-- Tooltip on bottom --&gt;
+                &lt;button class=&quot;btn btn-outline-secondary&quot; type=&quot;button&quot; data-bs-toggle=&quot;tooltip&quot; data-bs-placement=&quot;bottom&quot; title=&quot;Tooltip on bottom&quot;&gt;Tooltip on bottom&lt;/button&gt;
+
+                &lt;!-- Tooltip on left --&gt;
+                &lt;button class=&quot;btn btn-outline-secondary&quot; type=&quot;button&quot; data-bs-toggle=&quot;tooltip&quot; data-bs-placement=&quot;left&quot; title=&quot;Tooltip on left&quot;&gt;Tooltip on left&lt;/button&gt;
+
+                &lt;!-- Tooltip with HTML --&gt;
+                &lt;button class=&quot;btn btn-outline-secondary&quot; type=&quot;button&quot; data-bs-toggle=&quot;tooltip&quot; data-bs-placement=&quot;top&quot; data-bs-html=&quot;true&quot; title=&quot;&lt;i&gt;Tooltip&lt;/i&gt; &lt;u&gt;with&lt;/u&gt; &lt;strong&gt;HTML&lt;/strong&gt;&quot;&gt;Tooltip with HTML&lt;/button&gt;
+          #pug1.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Tooltip on top
+                button(type=&quot;button&quot;, class=&quot;btn btn-outline-secondary&quot;, data-bs-toggle=&quot;tooltip&quot;, data-bs-placement=&quot;top&quot;, title=&quot;Tooltip on top&quot;)
+                  | Tooltip on top
+                
+                // Tooltip on right
+                button(type=&quot;button&quot;, class=&quot;btn btn-outline-secondary&quot;, data-bs-toggle=&quot;tooltip&quot;, data-bs-placement=&quot;right&quot;, title=&quot;Tooltip on right&quot;)
+                  | Tooltip on right
+
+                // Tooltip on bottom
+                button(type=&quot;button&quot;, class=&quot;btn btn-outline-secondary&quot;, data-bs-toggle=&quot;tooltip&quot;, data-bs-placement=&quot;bottom&quot;, title=&quot;Tooltip on bottom&quot;)
+                  | Tooltip on bottom
+
+                // Tooltip on left
+                button(type=&quot;button&quot;, class=&quot;btn btn-outline-secondary&quot;, data-bs-toggle=&quot;tooltip&quot;, data-bs-placement=&quot;left&quot;, title=&quot;Tooltip on left&quot;)
+                  | Tooltip on left
+
+                // Tooltip with HTML
+                button(type=&quot;button&quot;, class=&quot;btn btn-outline-secondary&quot;, data-bs-toggle=&quot;tooltip&quot;, data-bs-placement=&quot;top&quot;, data-bs-html=&quot;true&quot;, title=&quot;&lt;i&gt;Tooltip&lt;/i&gt; &lt;u&gt;with&lt;/u&gt; &lt;strong&gt;HTML&lt;/strong&gt;&quot;)
+                  | Tooltip with HTML

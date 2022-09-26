@@ -1,0 +1,228 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css', 'vendor/flatpickr/dist/flatpickr.min.css', 'vendor/prismjs/themes/prism.css', 'vendor/prismjs/plugins/toolbar/prism-toolbar.css', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js', 'vendor/flatpickr/dist/flatpickr.min.js', 'vendor/flatpickr/dist/plugins/rangePlugin.js', 'vendor/prismjs/components/prism-core.min.js', 'vendor/prismjs/components/prism-markup.min.js', 'vendor/prismjs/components/prism-clike.min.js', 'vendor/prismjs/components/prism-javascript.min.js', 'vendor/prismjs/components/prism-pug.min.js', 'vendor/prismjs/plugins/toolbar/prism-toolbar.min.js', 'vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Date / time picker'
+  - var pageSubtitle = 'A lightweight and powerful date / time picker component.'
+  - var isPageTitleBadge = true
+  - var anchorNav = [{'title': 'Date picker', 'link': '#picker-date'}, {'title': 'Date and time picker', 'link': '#picker-date-time'}, {'title': 'Min date + default date', 'link': '#picker-min-default-date'}, {'title': 'Date range', 'link': '#picker-date-range'}]
+    
+//- Page Content
+block content
+
+  // Info alert
+  .alert.alert-info.d-flex.mb-4(role='alert')
+    i.ai-circle-info.lead.me-2.me-sm-3
+    .text-break
+      p.mb-3 Make sure to link to <span class='fw-semibold'>Flatpickr css and js</span> files in your document: <span class='fw-semibold'>assets/vendor/flatpickr/dist/flatpickr.min.css</span> and <span class='fw-semibold'>assets/vendor/flatpickr/dist/flatpickr.min.js</span>. Use this page as a reference.
+      p.mb-1 For <span class='fw-semibold'>date range feature</span> you also need to add <span class='fw-semibold'>assets/vendor/flatpickr/dist/plugins/rangePlugin.js</span>.
+
+  .pb-4
+    h6.fs-sm You can alter date / time picker behaviour via flexible data API.
+    code.fs-sm data-datepicker-options = '{}'
+    | :
+    h6.fs-sm.pt-3 To see all available options visit:
+      a(href='https://flatpickr.js.org/options/' target='_blank' rel='noopener').text-break.ms-2
+        | https://flatpickr.js.org/options/
+    h6.fs-sm Usage examples:
+      a(href='https://flatpickr.js.org/examples/' target='_blank' rel='noopener').text-break.ms-2
+        | https://flatpickr.js.org/examples/
+
+
+  // Date picker
+  section#picker-date.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Date picker
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview1' data-bs-toggle='tab' role='tab' aria-controls='preview1' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview1.tab-pane.fade.show.active(role='tabpanel')
+          .mb-1(style='max-width: 22rem;')
+            label.form-label Choose date
+            .position-relative
+              input(type='text' placeholder='Choose date' data-datepicker-options='{"altInput": true, "altFormat": "F j, Y", "dateFormat": "Y-m-d"}').form-control.date-picker.pe-5
+              i.ai-calendar.position-absolute.top-50.end-0.translate-middle-y.me-3
+        #html1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Date picker --&gt;
+              &lt;label class=&quot;form-label&quot;&gt;Choose date&lt;/label&gt;
+              &lt;div class=&quot;position-relative&quot;&gt;
+                &lt;input class=&quot;form-control date-picker pe-5&quot; type=&quot;text&quot; placeholder=&quot;Choose date&quot; data-datepicker-options='{&quot;altInput&quot;: true, &quot;altFormat&quot;: &quot;F j, Y&quot;, &quot;dateFormat&quot;: &quot;Y-m-d&quot;}'&gt;
+                &lt;i class=&quot;ai-calendar position-absolute top-50 end-0 translate-middle-y me-3&quot;&gt;&lt;/i&gt;
+              &lt;/div&gt;
+        #pug1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Date picker
+              label.form-label
+                | Choose date
+              .position-relative
+                input(type=&quot;text&quot;, placeholder=&quot;Choose date&quot;, data-datepicker-options='{&quot;altInput&quot;: true, &quot;altFormat&quot;: &quot;F j, Y&quot;, &quot;dateFormat&quot;: &quot;Y-m-d&quot;}').form-control.date-picker.pe-5
+                i.ai-calendar.position-absolute.top-50.end-0.translate-middle-y.me-3
+
+  // Date and time picker
+  section#picker-date-time.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Date and time picker
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview2' data-bs-toggle='tab' role='tab' aria-controls='preview2' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview2.tab-pane.fade.show.active(role='tabpanel')
+          .mb-1(style='max-width: 22rem;')
+            label.form-label Choose date and time
+            .position-relative
+              input(type='text' placeholder='Choose date and time' data-datepicker-options='{"enableTime": true, "altInput": true, "altFormat": "F j, Y H:i", "dateFormat": "Y-m-d H:i"}').form-control.date-picker.pe-5
+              i.ai-calendar.position-absolute.top-50.end-0.translate-middle-y.me-3
+        #html2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Date and time picker --&gt;
+              &lt;label class=&quot;form-label&quot;&gt;Choose date and time&lt;/label&gt;
+              &lt;div class=&quot;position-relative&quot;&gt;
+                &lt;input class=&quot;form-control date-picker pe-5&quot; type=&quot;text&quot; placeholder=&quot;Choose date and time&quot; data-datepicker-options='{&quot;enableTime&quot;: true, &quot;altInput&quot;: true, &quot;altFormat&quot;: &quot;F j, Y H:i&quot;, &quot;dateFormat&quot;: &quot;Y-m-d H:i&quot;}'&gt;
+                &lt;i class=&quot;ai-calendar position-absolute top-50 end-0 translate-middle-y me-3&quot;&gt;&lt;/i&gt;
+              &lt;/div&gt;
+        #pug2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Date and time picker
+              label.form-label
+                | Choose date and time
+              .position-relative
+                input(type=&quot;text&quot;, placeholder=&quot;Choose date and time&quot;, data-datepicker-options='{&quot;enableTime&quot;: true, &quot;altInput&quot;: true, &quot;altFormat&quot;: &quot;F j, Y H:i&quot;, &quot;dateFormat&quot;: &quot;Y-m-d H:i&quot;}').form-control.date-picker.pe-5
+                i.ai-calendar.position-absolute.top-50.end-0.translate-middle-y.me-3
+
+  // Min date + default date
+  section#picker-min-default-date.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Min date + default date
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview3' data-bs-toggle='tab' role='tab' aria-controls='preview3' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview3.tab-pane.fade.show.active(role='tabpanel')
+          .mb-1(style='max-width: 22rem;')
+            label.form-label Min date - Today
+            .position-relative
+              input(type='text' placeholder='Choose date and time' data-datepicker-options='{"altInput": true, "altFormat": "F j, Y", "dateFormat": "Y-m-d", "defaultDate": "today", "minDate": "today"}').form-control.date-picker.pe-5
+              i.ai-calendar.position-absolute.top-50.end-0.translate-middle-y.me-3
+        #html3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Min date + default date - Today --&gt;
+              &lt;label class=&quot;form-label&quot;&gt;Min date - Today&lt;/label&gt;
+              &lt;div class=&quot;position-relative&quot;&gt;
+                &lt;input class=&quot;form-control date-picker pe-5&quot; type=&quot;text&quot; placeholder=&quot;Choose date and time&quot; data-datepicker-options='{&quot;altInput&quot;: true, &quot;altFormat&quot;: &quot;F j, Y&quot;, &quot;dateFormat&quot;: &quot;Y-m-d&quot;, &quot;defaultDate&quot;: &quot;today&quot;, &quot;minDate&quot;: &quot;today&quot;}'&gt;
+                &lt;i class=&quot;ai-calendar position-absolute top-50 end-0 translate-middle-y me-3&quot;&gt;&lt;/i&gt;
+              &lt;/div&gt;
+        #pug3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Min date + default date - Today
+              label.form-label Min date - Today
+              .position-relative
+                input(type=&quot;text&quot;, placeholder=&quot;Choose date and time&quot;, data-datepicker-options='{&quot;altInput&quot;: true, &quot;altFormat&quot;: &quot;F j, Y&quot;, &quot;dateFormat&quot;: &quot;Y-m-d&quot;, &quot;defaultDate&quot;: &quot;today&quot;, &quot;minDate&quot;: &quot;today&quot;}').form-control.date-picker.pe-5
+                i.ai-calendar.position-absolute.top-50.end-0.translate-middle-y.me-3
+
+  // Date range
+  section#picker-date-range.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Date range
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview4' data-bs-toggle='tab' role='tab' aria-controls='preview4' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview4.tab-pane.fade.show.active(role='tabpanel')
+          .mb-1(style='max-width: 30rem;')
+            label.form-label Date range
+            .input-group
+              span.input-group-text
+                i.ai-calendar
+              input(type='text' placeholder='From date' data-datepicker-options='{"altInput": true, "altFormat": "F j, Y", "dateFormat": "Y-m-d"}' data-linked-input='#end-date').form-control.date-picker.date-range
+              span.border-end.border-input
+              input(type='text' placeholder='To date' data-datepicker-options='{"altInput": true, "altFormat": "F j, Y", "dateFormat": "Y-m-d"}')#end-date.form-control.date-picker
+        #html4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Date range --&gt;
+              &lt;label&gt;Date range&lt;/label&gt;
+              &lt;div class=&quot;input-group&quot;&gt;
+                &lt;span class=&quot;input-group-text&quot;&gt;
+                  &lt;i class=&quot;ai-calendar&quot;&gt;&lt;/i&gt;
+                &lt;/span&gt;
+                &lt;input class=&quot;form-control date-picker date-range&quot; type=&quot;text&quot; placeholder=&quot;From date&quot; data-datepicker-options='{&quot;altInput&quot;: true, &quot;altFormat&quot;: &quot;F j, Y&quot;, &quot;dateFormat&quot;: &quot;Y-m-d&quot;}' data-linked-input=&quot;#end-date&quot;&gt;
+                &lt;span class=&quot;border-end border-input&quot;&gt;&lt;/span&gt;
+                &lt;input class=&quot;form-control date-picker&quot; type=&quot;text&quot; placeholder=&quot;To date&quot; data-datepicker-options='{&quot;altInput&quot;: true, &quot;altFormat&quot;: &quot;F j, Y&quot;, &quot;dateFormat&quot;: &quot;Y-m-d&quot;}' id=&quot;end-date&quot;&gt;
+              &lt;/div&gt;
+        #pug4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Date range
+              label Date range
+              .input-group
+                span.input-group-text
+                  i.ai-calendar
+                input(type=&quot;text&quot;, placeholder=&quot;From date&quot;, data-datepicker-options='{&quot;altInput&quot;: true, &quot;altFormat&quot;: &quot;F j, Y&quot;, &quot;dateFormat&quot;: &quot;Y-m-d&quot;}', data-linked-input=&quot;#end-date&quot;).form-control.date-picker.date-range
+                span.border-end.border-input
+                input(type=&quot;text&quot;, placeholder=&quot;To date&quot;, data-datepicker-options='{&quot;altInput&quot;: true, &quot;altFormat&quot;: &quot;F j, Y&quot;, &quot;dateFormat&quot;: &quot;Y-m-d&quot;}')#end-date.form-control.date-picker

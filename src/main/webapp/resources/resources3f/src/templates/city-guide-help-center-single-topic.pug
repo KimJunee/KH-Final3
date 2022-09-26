@@ -1,0 +1,77 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var parentMenu = 'Pages'
+  - var pageTitle = 'City Guide | Help Center - Single Topic'
+
+//- Navbar
+block navbar
+  include partials/navbar-city-guide
+
+//- Page Content
+block content
+
+  // Page content
+  section.container.my-5.pt-lg-5.pt-4.pb-lg-4
+
+    // Breadcrumbs
+    nav(aria-label='breadcrumb')
+      ol.breadcrumb.pt-3
+        li.breadcrumb-item
+          a(href='city-guide-home-v1.html') Home
+        li.breadcrumb-item
+          a(href='city-guide-help-center.html') Help center
+        li(aria-current='page').breadcrumb-item.active
+          | Privacy &amp; security
+
+    .row.pt-4
+
+      // Sidebar
+      aside.col-md-4.d-md-block.d-none.position-relative.pe-lg-5
+        nav(style='top: 116px;').border-start.sticky-top
+          h3.h5.mb-2.pb-1.px-4
+            | Articles in this section
+          ul.nav.flex-column.fs-sm
+            li.nav-item: a(href='#').nav-link.py-1.px-4.fw-normal First question heading in the section
+            li.nav-item: a(href='#').nav-link.py-1.px-4.fw-normal Massa fermentum, eget nec elementum
+            li.nav-item: a(href='#').nav-link.py-1.px-4.fw-normal Eros, dolor in consequat netus?
+            li.nav-item: a(href='#').nav-link.py-1.px-4.fw-normal Eu quam bibendum adipiscing leo?
+            li.nav-item: a(href='#').nav-link.py-1.px-4.fw-normal In quis pulvinar amet morbi praesent
+            li.nav-item: a(href='#').nav-link.py-1.px-4.fw-normal Pellentesque ante quisque sit
+
+      .col-md-8
+        .pb-md-4.pb-3
+          h2.h3.mb-4
+            | Article heading
+          p Purus ornare nisl est nec. Nunc, enim tellus pretium viverra quisque id in metus volutpat. Urna eget velit venenatis, commodo eget massa. Magna donec dictum cras nullam platea. Diam rhoncus massa lectus pellentesque tristique. Amet commodo, egestas vitae bibendum. Volutpat elit condimentum integer tortor porttitor justo vel lobortis risus. Lacinia pellentesque fermentum tellus orci mauris, velit duis eget. Commodo justo, hac ligula molestie felis, iaculis. Vitae dui at ante orci, dictum fusce. Urna, sed urna fringilla faucibus euismod aliquet nec. Quis libero, fermentum amet eu, condimentum auctor. Sit vel ipsum sem tempus gravida et. Scelerisque blandit orci, est quis. Nisi, tellus amet est nascetur habitant faucibus ornare et vivamus.
+          p Convallis massa nunc, tempus eget egestas sollicitudin mauris. Purus donec sed neque arcu, dictumst tortor nisi, odio. A sit lectus sem velit orci, rhoncus pharetra facilisis. Cras sodales a, dui pellentesque enim odio rutrum leo. Auctor viverra sit sit ut. Massa, elit venenatis, ultrices viverra at sagittis, velit. Cursus tempus phasellus consectetur suspendisse a blandit pellentesque diam neque. Massa est nibh congue elit amet, diam faucibus. Morbi non est semper ullamcorper quam iaculis at.
+        .pb-md-4.pb-3
+          h3.h5.mb-4 Paragraph subheading 1
+          ul
+            li Nunc felis neque non sagittis. Sodales eros suspendisse scelerisque varius neque elit elementum quis.
+            li Sed vitae accumsan lorem pharetra dictum eget vestibulum.
+            li Non blandit viverra laoreet amet, maecenas auctor leo justo, sit. Vitae vulputate gravida est feugiat.
+            li Adipiscing tristique mauris, eu sit tortor. Velit in scelerisque sit tincidunt habitant urna nec.
+            li Justo, non massa metus convallis cursus lorem volutpat eu duis.
+            li Ipsum dolor feugiat est tristique. Aliquam sed felis risus quis.
+        div
+          h3.h5.mb-4 Paragraph subheading 2
+          p A nunc tempor habitasse amet aliquam in. Arcu eu quam pellentesque sed suspendisse mattis pellentesque blandit. Dui consectetur neque, imperdiet non non amet, integer volutpat condimentum. Laoreet gravida ac faucibus nunc dictum euismod quam egestas. A metus sagittis facilisi dictum cursus bibendum ipsum hendrerit. Adipiscing ornare urna massa nunc, consequat.
+
+
+  // Contact Us
+  section.container.mb-5.pb-lg-5
+    .py-md-4.py-5.bg-secondary.rounded-3
+      .col-sm-10.col-11.d-flex.flex-md-row.flex-column.align-items-center.justify-content-between.mx-auto.px-0
+        div(style='max-width: 524px;').order-md-1.order-2.text-md-start.text-center
+          h2.mb-4.pb-md-3
+            | Haven't found the answer? <br> We can help.
+          a(href='city-guide-contacts.html').btn.btn-lg.btn-primary.rounded-pill.w-sm-auto.w-100
+            | Contact us
+        img(src='img/city-guide/illustrations/support.svg' alt='Illustration').order-md-2.order-1.ms-md-4
+
+
+//- Footer
+block footer
+  include partials/footer-city-guide

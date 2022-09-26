@@ -1,0 +1,246 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var parentMenu = 'Account'
+  - var pageTitle = 'Car Finder | Account Reviews'
+  - var bodyClass = 'bg-dark'
+
+//- Navbar
+block navbar
+  include partials/navbar-car-finder
+
+//- Page Content
+block content
+  .container.pt-5.pb-lg-4.mt-5.mb-sm-2
+
+    // Breadcrumb
+    nav(aria-label='Breadcrumb').mb-4.pt-md-3
+      ol.breadcrumb.breadcrumb-light
+        li.breadcrumb-item
+          a(href='car-finder-home.html') Home
+        li.breadcrumb-item
+          a(href='car-finder-account-info.html') Account
+        li(aria-current='page').breadcrumb-item.active
+          | Reviews
+    
+
+    // Page content
+    .row
+
+      // Sidebar
+      aside.col-lg-4.col-md-5.pe-xl-4.mb-5
+        include partials/sidebar-account-car-finder
+
+      // Content
+      .col-lg-8.col-md-7.mb-5
+        h1.h2.text-light Reviews
+        p.text-light.pt-1.mb-4 Reviews you’ve received will be visible both here and on your public profile.
+
+        // Nav tabs
+        ul(role='tablist').nav.nav-tabs.nav-tabs-light.flex-column.flex-sm-row.align-items-stretch.align-items-sm-start.border-bottom.border-light.mb-4
+          li.nav-item.me-sm-3.mb-3
+            a(href='#reviews-about-you' data-bs-toggle='tab' role='tab' aria-controls='reviews-about-you' aria-selected='true').nav-link.text-center.active Reviews about you
+          li.nav-item.mb-3
+            a(href='#reviews-by-you' data-bs-toggle='tab' role='tab' aria-controls='reviews-by-you' aria-selected='false').nav-link.text-center Reviews by you
+        
+        // Tabs content
+        .tab-content.pt-2
+
+          // Reviews about you tab
+          #reviews-about-you.tab-pane.fade.show.active(role='tabpanel')
+            .d-flex.flex-sm-row.flex-column.align-items-sm-center.align-items-stretch.justify-content-between.pb-4.mb-2.mb-md-3
+              h3.h4.mb-sm-0
+                i.fi-star-filled.mt-n1.me-2.lead.align-middle.text-warning
+                span.text-light 4,9 (32 reviews)
+              .d-flex.align-items-center.ms-sm-4
+                label(for='review-sorting1').fs-sm.text-light.me-2.pe-1.text-nowrap
+                  i.fi-arrows-sort.mt-n1.me-2
+                  | Sort by:
+                select(id='review-sorting1').form-select.form-select-light.form-select-sm
+                  option Newest
+                  option Oldest
+                  option Popular
+                  option High rating
+                  option Low rating
+
+            // Review
+            .mb-4.pb-4.border-bottom.border-light
+              .d-flex.justify-content-between.mb-3
+                .d-flex.align-items-center.pe-2
+                  img(src='img/avatars/06.jpg' width='48' alt='Avatar').rounded-circle.me-1
+                  .ps-2
+                    h6.fs-base.text-light.mb-0 Kathryn Murphy
+                    .text-light
+                      +star-rating(5)
+                span.text-light.fs-sm.opacity-50 Jan 17, 2021
+              p.text-light.opacity-70 Elementum ut quam tincidunt egestas vitae elit, hendrerit. Ullamcorper nulla amet lobortis elit, nibh condimentum enim. Aliquam felis nisl tellus sodales lectus dictum tristique proin vitae. Odio fermentum viverra tortor quis.
+              .d-flex.align-items-center
+                button(type='button').btn-like.btn-light
+                  i.fi-like
+                  span (3)
+                .border-end.border-light.me-1 &nbsp;
+                button(type='button').btn-dislike.btn-light
+                  i.fi-dislike
+                  span (0)
+
+            // Review
+            .mb-4.pb-4.border-bottom.border-light
+              .d-flex.justify-content-between.mb-3
+                .d-flex.align-items-center.pe-2
+                  img(src='img/avatars/14.png' width='48' alt='Avatar').rounded-circle.me-1
+                  .ps-2
+                    h6.fs-base.text-light.mb-0 Darrell Steward
+                    .text-light
+                      +star-rating(3.5)
+                span.text-light.fs-sm.opacity-50 Dec 1, 2020
+              p.text-light.opacity-70 Vel dictum nunc ut tristique. Egestas diam amet, ut proin hendrerit. Dui accumsan at phasellus tempus consequat dignissim tellus sodales.
+              .d-flex.align-items-center
+                button(type='button').btn-like.btn-light
+                  i.fi-like
+                  span (0)
+                .border-end.border-light.me-1 &nbsp;
+                button(type='button').btn-dislike.btn-light
+                  i.fi-dislike
+                  span (1)
+
+            // Review
+            .mb-4.pb-4.border-bottom.border-light
+              .d-flex.justify-content-between.mb-3
+                .d-flex.align-items-center.pe-2
+                  img(src='img/avatars/05.jpg' width='48' alt='Avatar').rounded-circle.me-1
+                  .ps-2
+                    h6.fs-base.text-light.mb-0 Floyd Miles
+                    .text-light
+                      +star-rating(5)
+                span.text-light.fs-sm.opacity-50 Oct  28, 2020
+              p.text-light.opacity-70 Viverra nunc blandit sapien non imperdiet sit. Purus tempus elementum aliquam eu urna. A aenean duis non egestas at libero porttitor integer eget. Sed dictum lobortis laoreet gravida.
+              .d-flex.align-items-center
+                button(type='button').btn-like.btn-light
+                  i.fi-like
+                  span (2)
+                .border-end.border-light.me-1 &nbsp;
+                button(type='button').btn-dislike.btn-light
+                  i.fi-dislike
+                  span (1)
+
+            // Review
+            .mb-4.pb-4.border-bottom.border-light
+              .d-flex.justify-content-between.mb-3
+                .d-flex.align-items-center.pe-2
+                  img(src='img/avatars/04.jpg' width='48' alt='Avatar').rounded-circle.me-1
+                  .ps-2
+                    h6.fs-base.text-light.text-light.mb-0 Ralph Edwards
+                    .text-light
+                      +star-rating(4)
+                span.text-light.fs-sm.opacity-50 Sep 14, 2020
+              p.text-light.opacity-70 Elementum nisl, egestas nam consectetur nisl, at pellentesque cras. Non sed ac vivamus dolor dignissim ut. Nisl sapien blandit pulvinar sagittis donec sociis ipsum arcu est. Tempus, rutrum morbi scelerisque tempor mi. Etiam urna, cras bibendum leo nec faucibus velit. Tempor lectus dignissim at auctor integer neque quam amet.
+              .d-flex.align-items-center
+                button(type='button').btn-like.btn-light
+                  i.fi-like
+                  span (0)
+                .border-end.border-light.me-1 &nbsp;
+                button(type='button').btn-dislike.btn-light
+                  i.fi-dislike
+                  span (0)
+
+            // Pagination
+            nav.mt-2(aria-label='Reviews pagination')
+              ul.pagination.pagination-light
+                li.page-item.d-sm-none
+                  span.page-link.page-link-static 1 / 5
+                li.page-item.active.d-none.d-sm-block(aria-current='page')
+                  span.page-link
+                    | 1
+                    span.visually-hidden (current)
+                li.page-item.d-none.d-sm-block
+                  a(href='#').page-link 2
+                li.page-item.d-none.d-sm-block
+                  a(href='#').page-link 3
+                li.page-item.d-none.d-sm-block
+                  | ...
+                li.page-item.d-none.d-sm-block
+                  a(href='#').page-link 8
+                li.page-item
+                  a(href='#' aria-label='Next').page-link
+                    i.fi-chevron-right
+          
+          // Reviews by you tab
+          #reviews-by-you.tab-pane.fade(role='tabpanel')
+            .d-flex.flex-sm-row.flex-column.align-items-sm-center.align-items-stretch.justify-content-between.pb-4.mb-2.mb-md-3
+              h3.h4.text-light.mb-sm-0 3 reviews
+              .d-flex.align-items-center.ms-sm-4
+                label(for='review-sorting2').fs-sm.text-light.me-2.pe-1.text-nowrap
+                  i.fi-arrows-sort.mt-n1.me-2
+                  | Sort by:
+                select(id='review-sorting2').form-select.form-select-light.form-select-sm
+                  option Newest
+                  option Oldest
+                  option Popular
+                  option High rating
+                  option Low rating
+
+            // Review
+            .mb-4.pb-4.border-bottom.border-light
+              .d-flex.justify-content-between.mb-3
+                .pe-2
+                  h6.text-light.mb-0 
+                    span.fw-normal.opacity-70.me-1 For:
+                    | 3-bed Apartment
+                  .text-light
+                    +star-rating(2)
+                span.text-light.fs-sm.opacity-50 Jan 13, 2021
+              p.text-light.opacity-70 Elementum ut quam tincidunt egestas vitae elit, hendrerit. Ullamcorper nulla amet lobortis elit, nibh condimentum enim. Aliquam felis nisl tellus sodales lectus dictum tristique proin vitae. Odio fermentum viverra tortor quis.
+              .d-flex.align-items-center
+                button(type='button').btn-like.btn-light
+                  i.fi-like
+                  span (2)
+                .border-end.border-light.me-1 &nbsp;
+                button(type='button').btn-dislike.btn-light
+                  i.fi-dislike
+                  span (1)
+
+            // Review
+            .mb-4.pb-4.border-bottom.border-light
+              .d-flex.justify-content-between.mb-3
+                .pe-2
+                  h6.text-light.mb-0 
+                    span.fw-normal.opacity-70.me-1 For:
+                    | Terra Nova Apartments
+                  .text-light
+                    +star-rating(3.5)
+                span.text-light.fs-sm.opacity-50 Dec 10, 2020
+              p.text-light.opacity-70 Vel dictum nunc ut tristique. Egestas diam amet, ut proin hendrerit. Dui accumsan at phasellus tempus consequat dignissim tellus sodales.
+              .d-flex.align-items-center
+                button(type='button').btn-like.btn-light
+                  i.fi-like
+                  span (4)
+                .border-end.border-light.me-1 &nbsp;
+                button(type='button').btn-dislike.btn-light
+                  i.fi-dislike
+                  span (2)
+
+            // Review
+            .mb-2
+              .d-flex.justify-content-between.mb-3
+                .pe-2
+                  h6.text-light.mb-0 
+                    span.fw-normal.opacity-70.me-1 For:
+                    | Duplex with Garage
+                  .text-light
+                    +star-rating(5)
+                span.text-light.fs-sm.opacity-50 Oct  24, 2020
+              p.text-light.opacity-70 Viverra nunc blandit sapien non imperdiet sit. Purus tempus elementum aliquam eu urna. A aenean duis non egestas at libero porttitor integer eget. Sed dictum lobortis laoreet gravida.
+              .d-flex.align-items-center
+                button(type='button').btn-like.btn-light
+                  i.fi-like
+                  span (2)
+                .border-end.border-light.me-1 &nbsp;
+                button(type='button').btn-dislike.btn-light
+                  i.fi-dislike
+                  span (0)
+
+
+//- Footer
+block footer
+  include partials/footer-car-finder

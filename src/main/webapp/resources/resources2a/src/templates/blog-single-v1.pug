@@ -1,0 +1,270 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/swiper/swiper-bundle.min.css']
+  - var scripts = ['vendor/jarallax/dist/jarallax.min.js', 'vendor/swiper/swiper-bundle.min.js']
+  - var parentMenu = 'Pages'
+  - var pageTitle = 'Single Post v.1'
+  - var navbarExtraClass = 'bg-light'
+
+
+//- Navbar
+block navbar
+  include partials/navbar.pug
+
+
+//- Page Content
+block content
+
+  // Page header
+  section.container.py-5.mt-5.mb-md-2.mb-lg-3.mb-xl-4
+
+    // Breadcrumb
+    +breadcrumb([{'link': 'blog-grid-sidebar.html', 'title': 'Blog'}, {'title': 'Single post v.1'}]).pt-lg-3.pb-lg-4.pb-2
+
+    .row
+
+      // Post title + post meta
+      .col-lg-8.pb-2.pb-lg-0.mb-4.mb-lg-0
+        h1.display-4.pb-2.pb-lg-3 How to look for inspiration for new goals in life and remember to give yourself a break?
+        .d-flex.flex-wrap.align-items-center.mt-n2
+          span.text-muted.fs-sm.fw-normal.p-0.mt-2.me-3
+            | 12
+            i.ai-share.fs-lg.ms-1
+          a(href='#comments' data-scroll data-scroll-offset='60').nav-link.position-relative.text-muted.fs-sm.fw-normal.d-flex.align-items-end.p-0.mt-2
+            span(data-bs-toggle='collapse' data-bs-target='#commentsCollapse').position-absolute.w-100.h-100.top-0.start-0
+            | 4
+            i.ai-message.fs-lg.ms-1
+          span.fs-xs.opacity-20.mt-2.mx-3 |
+          span.fs-sm.text-muted.mt-2 16 hours ago
+          span.fs-xs.opacity-20.mt-2.mx-3 |
+          a(href='#').badge.text-nav.fs-xs.border.mt-2 Inspiration
+
+      // Author widget
+      .col-lg-4.col-xl-3.offset-xl-1
+        .card.border-0.bg-secondary
+          .card-body.text-center
+            img(src='assets/img/avatar/03.jpg' width='80' alt='Author image').d-block.rounded-circle.mx-auto.mb-3
+            h3.h5.mb-2.pb-1 Darlene Robertson
+            p.fs-sm.mb-4 Duis consectetur quis enim iaculis eu sagittis posuere imperdiet
+            a(href='#').btn.btn-outline-primary.btn-sm Follow the author
+    
+  
+  // Post cover image (parallax)
+  section.jarallax(data-jarallax data-speed='.65')
+    .jarallax-img.bg-position-center-y(style='background-image: url(assets/img/blog/single/cover.jpg);')
+    .d-none.d-xxl-block(style='height: 760px;')
+    .d-none.d-xl-block.d-xxl-none(style='height: 650px;')
+    .d-none.d-lg-block.d-xl-none(style='height: 500px;')
+    .d-none.d-md-block.d-lg-none(style='height: 400px;')
+    .d-md-none(style='height: 300px;')
+  
+
+  // Post content
+  section.container.py-5.my-md-2.my-lg-3.my-xl-4
+    .row.pt-xxl-2
+      .col-lg-9.col-xl-8.pe-lg-4.pe-xl-0
+        p.fs-lg Dolor laoreet fermentum lectus praesent aenean molestie mollis integer. Sem ullamcorper montes, lorem ullamcorper orci, pellentesque ipsum malesuada gravida. Donec imperdiet nulla suscipit in. Dignissim ornare ac lorem consectetur massa a. Pellentesque urna pharetra, quis maecenas. Sit dolor amet nulla aenean eu, ac. Nisl mi tempus, iaculis viverra vestibulum scelerisque imperdiet montes. Mauris massa elit pretium elementum eget tortor quis. Semper interdum lectus odio diam.
+        p.fs-lg.mb-3 Ut pellentesque bibendum dignissim a molestie. Ultrices diam ut vel neque tincidunt eget. Sed ut quis sit semper nunc at etiam lacinia. Quam laoreet eget id sapien a pharetra, ornare diam dignissim. Lorem amet nisl, enim mi aenean mauris. Porta nisl a ultrices ut libero id. Gravida a mi neque, tristique justo, et pharetra. Laoreet nulla est nulla cras ac arcu sed mattis tristique. Morbi convallis suspendisse enim blandit massa. Cursus augue dui mattis morbi velit.
+        h2.h4.mb-lg-4.pt-3.pt-md-4.pt-xl-5 Dolor laoreet fermentum lectus praesent aenean
+        p.fs-lg.pb-4.pb-xl-5 Ut pellentesque bibendum dignissim a molestie. Ultrices diam ut vel neque tincidunt eget. Sed ut quis sit semper nunc at etiam lacinia. Quam laoreet eget id sapien a pharetra, ornare diam dignissim. Lorem amet nisl, enim mi aenean mauris. Porta nisl a ultrices ut libero id. Gravida a mi neque, tristique justo, et pharetra. Laoreet nulla est nulla cras ac arcu sed mattis tristique. Morbi convallis suspendisse enim blandit massa. Cursus augue dui mattis morbi velit.
+        figure.figure
+          img(src='assets/img/blog/single/image.jpg' alt='Image').figure-img.rounded-5.mb-3
+          figcaption.figure-caption Image source tristique justo et pharetra
+        h2.h4.mb-lg-4.pt-3.pt-md-4.pt-xl-5 Cursus augue dui mattis morbi velit
+        p.fs-lg.pb-2.pb-lg-0.mb-4.mb-lg-5 Proin non congue sem, sed tristique ante. Donec et sollicitudin tellus. Duis maximus, dui eget egestas mattis, purus ex tempor nulla, quis tempor sapien neque at nisl. Aliquam eu nisi ut nisl ultrices posuere. Praesent dignissim efficitur nisi, a hendrerit ipsum elementum sit amet. Vivamus non ante nisl. Nunc faucibus velit at eros mollis semper. Curabitur aliquam eros tellus, nec facilisis nisl finibus sit amet. Ut et dolor nec lorem gravida elementum.
+        .card.border-0.bg-secondary.mb-3
+          .card-body
+            figure
+              blockquote.blockquote
+                p Ut pellentesque bibendum dignissim a molestie ultrices diam ut vel neque tincidunt eget sed ut quis sit semper nunc at etiam lacinia quam laoreet eget id sapien a pharetra, ornare diam dignissim  neque tincidunt.
+              figcaption.blockquote-footer Darlene Robertson
+        h2.h4.mb-lg-4.pt-3.pt-md-4.pt-xl-5 Lorem ipsum dolor sit amet consectetur
+        p.fs-lg Ut pellentesque bibendum dignissim a molestie. Ultrices diam ut vel neque tincidunt eget. Sed ut quis sit semper nunc at etiam lacinia. Quam laoreet eget id sapien a pharetra, ornare diam dignissim.
+        ul
+          li.mb-1 Quam laoreet eget id sapien
+          li.mb-1 Morbi convallis suspendisse
+          li.mb-1 Vivamus non ante
+          li.mb-1 Praesent dignissim efficitur
+          li.mb-1 Gravida a mi neque
+        p.fs-lg Donec diam neque, efficitur vitae ante a, eleifend placerat est. Phasellus dapibus scelerisque diam, eu rhoncus lorem vulputate lobortis. Praesent pulvinar venenatis mauris, eget fringilla sem.
+
+        // Tags
+        .d-flex.flex-wrap.pt-3.pt-md-4.pt-xl-5.mt-xl-n2
+          h3.h6.py-1.mb-0.me-4 Relevant tags:
+          a(href='#').nav-link.fs-sm.py-1.px-0.me-3
+            span.text-primary #
+            | Nature
+          a(href='#').nav-link.fs-sm.py-1.px-0.me-3
+            span.text-primary #
+            | Books
+          a(href='#').nav-link.fs-sm.py-1.px-0.me-3
+            span.text-primary #
+            | Travel
+
+      
+      // Sidebar
+      aside.col-lg-3.offset-xl-1.pt-4.pt-lg-0(style='margin-top: -7rem;')
+        .position-sticky.top-0.mt-2.mt-md-3.mt-lg-0(style='padding-top: 7rem;')
+
+          // Sharing
+          h4.mb-4 Share this post:
+          .mt-n3.ms-n3.mb-lg-5.mb-4.pb-3.pb-lg-0
+            a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-instagram.rounded-circle.mt-3.ms-3
+              i.ai-instagram
+            a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-facebook.rounded-circle.mt-3.ms-3
+              i.ai-facebook
+            a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-telegram.rounded-circle.mt-3.ms-3
+              i.ai-telegram
+            a(href='#').btn.btn-outline-secondary.btn-icon.btn-sm.btn-twitter.rounded-circle.mt-3.ms-3
+              i.ai-twitter
+
+          // Relevant topics
+          h4.pt-xl-1.mb-4 Relevant topics:
+          .d-flex.flex-wrap.mt-n3.ms-n3.mb-lg-5.mb-4.pb-3.pb-lg-0
+            a(href='#').btn.btn-outline-secondary.rounded-pill.mt-3.ms-3
+              | Nature
+            a(href='#').btn.btn-outline-secondary.rounded-pill.mt-3.ms-3
+              | Inspiration
+            a(href='#').btn.btn-outline-secondary.rounded-pill.mt-3.ms-3
+              | Travel
+            a(href='#').btn.btn-outline-secondary.rounded-pill.mt-3.ms-3
+              | Psychology
+
+          // Trending posts
+          h4.pt-xl-1.mb-4 Trending posts:
+          ul.list-unstyled.mb-0
+            li.border-bottom.pb-3.mb-3
+              span.h6.mb-0: a(href='blog-single-v2.html') Instagram trends that will definitely work and bring results in the new 2022
+            li.border-bottom.pb-3.mb-3
+              span.h6.mb-0: a(href='blog-single-v3.html') A session with a psychologist as a personal choice 
+            li.border-bottom.pb-3.mb-3
+              span.h6.mb-0: a(href='blog-single-v2.html') Travel destinations to inspire and restore resources
+            li
+              span.h6.mb-0: a(href='blog-single-v3.html') How to look for inspiration for new goals in life?
+
+
+  // Comments
+  section#comments.container.pt-xl-2.pb-5.mb-md-2.mb-lg-4.mb-xl-5
+    .border-top.border-bottom
+      
+      // Comments collapse
+      #commentsCollapse.collapse(style='max-width: 54rem;')
+
+        // Comment
+        .border-bottom.py-4.mt-2.mb-4
+          .d-flex.align-items-center.pb-1.mb-3
+            img(src='assets/img/avatar/08.jpg' width='48' alt='Comment author').rounded-circle
+            .ps-3
+              h6.mb-0 Albert Flores
+              span.fs-sm.text-muted 5 hours ago
+          p.pb-2.mb-0 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tellus lectus, tempus eu urna eu, imperdiet dignissim augue. Aliquam fermentum est a ligula bibendum, ac gravida ipsum dictum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur suscipit quam ut velit condimentum, nec mollis risus semper. Curabitur quis mauris eget ligula tincidunt venenatis. Sed congue pulvinar hendrerit.
+          button(type='button').nav-link.fs-sm.fw-semibold.px-0.py-2
+            | Reply
+            i.ai-redo.fs-xl.ms-2
+
+        // Comment
+        .border-bottom.pt-2.pb-4
+          .d-flex.align-items-center.pb-1.mb-3
+            img(src='assets/img/avatar/11.jpg' width='48' alt='Comment author').rounded-circle
+            .ps-3
+              h6.mb-0 Jenny Wilson
+              span.fs-sm.text-muted 2 days ago at 9:20
+          p.pb-2.mb-0 Pellentesque urna pharetra, quis maecenas. Sit dolor amet nulla aenean eu, ac. Nisl mi tempus, iaculis viverra vestibulum scelerisque imperdiet montes mauris massa elit pretium elementum eget tortor quis
+          button(type='button').nav-link.fs-sm.fw-semibold.px-0.py-2
+            | Reply
+            i.ai-redo.fs-xl.ms-2
+          
+          // Comment reply
+          .card.card-body.border-0.bg-secondary.mt-4
+            .d-flex.align-items-center.pb-1.mb-3
+              img(src='assets/img/avatar/10.jpg' width='48' alt='Comment author').rounded-circle
+              .ps-3
+                h6.mb-0 Ralph Edwards
+                span.fs-sm.text-muted 2 days ago at 11:45
+            p.mb-0
+              a(href='#').fw-bold.text-decoration-none @Jenny Wilson
+              |  Massa morbi duis et ornare urna dictum vestibulum pulvinar nunc facilisis ornare id at at ut arcu integer tristique placerat non turpis nibh turpis ullamcorper est porttitor.
+
+        // Comment
+        .pt-4.mt-2.mb-2
+          .d-flex.align-items-center.pb-1.mb-3
+            img(src='assets/img/avatar/07.jpg' width='48' alt='Comment author').rounded-circle
+            .ps-3
+              h6.mb-0 Esther Howard
+              span.fs-sm.text-muted May 19, 2022
+          p.pb-2.mb-0 Donec et sollicitudin tellus. Duis maximus, dui eget egestas mattis, purus ex tempor nulla, quis tempor sapien neque at nisl. Aliquam eu nisi ut nisl ultrices posuere. Praesent dignissim efficitur nisi, a hendrerit ipsum elementum sit amet. Vivamus non ante nisl. Nunc faucibus velit at eros mollis semper.
+          button(type='button').nav-link.fs-sm.fw-semibold.px-0.py-2
+            | Reply
+            i.ai-redo.fs-xl.ms-2
+
+      // Comments toggle
+      .nav
+        button(type='button' data-bs-toggle='collapse' data-bs-target='#commentsCollapse' aria-expanded='false' aria-controls='commentsCollapse' data-show-label='Show all comments' data-hide-label='Hide all comments').btn-more.nav-link.collapsed.w-100.justify-content-center.p-3
+          span.fw-normal.opacity-70.ms-1 (4)
+    
+
+  // Related articles (carousel) 
+  section.container.pt-2.pt-sm-3.pb-5.mb-md-3.mb-lg-4.mb-xl-5
+    .d-flex.align-items-center.pb-3.mb-3.mb-lg-4
+      h2.h1.mb-0.me-4 Related articles
+      .d-flex.ms-auto
+        button(type='button')#prev-post.btn.btn-prev.btn-icon.btn-sm.btn-outline-primary.rounded-circle.me-3
+          i.ai-arrow-left
+        button(type='button')#next-post.btn.btn-next.btn-icon.btn-sm.btn-outline-primary.rounded-circle
+          i.ai-arrow-right
+    
+    .swiper.pb-2.pb-sm-3.pb-md-4(data-swiper-options=`
+      {
+        "spaceBetween": 24,
+        "loop": true,
+        "autoHeight": true,
+        "navigation": {
+          "prevEl": "#prev-post",
+          "nextEl": "#next-post"
+        },
+        "breakpoints": {
+          "576": { "slidesPerView": 2 },
+          "1000": { "slidesPerView": 3 }
+        }
+      }
+    `)
+      .swiper-wrapper
+
+        // Post
+        article.swiper-slide
+          .position-relative
+            img(src='assets/img/blog/list/01.jpg' alt='Post image').rounded-5
+            h3.h4.mt-4.mb-0
+              a(href='blog-single-v2.html').stretched-link
+                | The fashion for eco bags with vintage prints will still be relevant for more than one year
+
+        // Post
+        article.swiper-slide
+          .position-relative
+            img(src='assets/img/blog/list/04.jpg' alt='Post image').rounded-5
+            h3.h4.mt-4.mb-0
+              a(href='blog-single-v3.html').stretched-link
+                | How to look for inspiration for new goals in life and remember to give yourself a break?
+
+        // Post
+        article.swiper-slide
+          .position-relative
+            img(src='assets/img/blog/list/06.jpg' alt='Post image').rounded-5
+            h3.h4.mt-4.mb-0
+              a(href='blog-single-v2.html').stretched-link
+                | A session with a psychologist as a personal choice or a fashion trend in society
+
+        // Post
+        article.swiper-slide
+          .position-relative
+            img(src='assets/img/blog/list/05.jpg' alt='Post image').rounded-5
+            h3.h4.mt-4.mb-0
+              a(href='blog-single-v3.html').stretched-link
+                | Top 10 best TV shows on Netflix for your next weekend
+
+
+//- Footer
+block footer
+  include partials/footer-blog.pug

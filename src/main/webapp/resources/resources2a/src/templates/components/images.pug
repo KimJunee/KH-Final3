@@ -1,0 +1,242 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css', 'vendor/prismjs/themes/prism.css', 'vendor/prismjs/plugins/toolbar/prism-toolbar.css', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js', 'vendor/prismjs/components/prism-core.min.js', 'vendor/prismjs/components/prism-markup.min.js', 'vendor/prismjs/components/prism-clike.min.js', 'vendor/prismjs/components/prism-javascript.min.js', 'vendor/prismjs/components/prism-pug.min.js', 'vendor/prismjs/plugins/toolbar/prism-toolbar.min.js', 'vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Images & figures'
+  - var pageSubtitle = 'Image styles and figure component for displaying images and text.'
+  - var pageTitleLink = {'title': 'Bootstrap docs', 'link': 'https://getbootstrap.com/docs/5.2/content/images/'}
+  - var anchorNav = [{'title': 'Image shapes', 'link': '#image-shapes'}, {'title': 'Thumbnails', 'link': '#image-thumbnails'}, {'title': 'Figures with caption', 'link': '#image-figures'}, {'title': 'Image swap on hover', 'link': '#image-swap'}]
+    
+//- Page Content
+block content
+
+  // Image shapes
+  section#image-shapes.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Image shapes
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview1' data-bs-toggle='tab' role='tab' aria-controls='preview1' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview1.tab-pane.fade.show.active(role='tabpanel')
+          .row
+            .col-sm-4.mb-4.mb-sm-2
+              img(src='../assets/img/portfolio/list/04.jpg' width='280' alt='Square image').d-block.mx-auto
+            .col-sm-4.mb-4.mb-sm-2
+              img(src='../assets/img/portfolio/list/03.jpg' width='280' alt='Rounded image').d-block.rounded-5.mx-auto
+            .col-sm-4.mb-4.mb-sm-2
+              img(src='../assets/img/portfolio/list/01.jpg' width='280' alt='Circle image').d-block.rounded-circle.mx-auto
+        #html1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Square image (default) --&gt;
+              &lt;img src=&quot;assets/img/portfolio/list/04.jpg&quot; alt=&quot;Square image&quot;&gt;
+
+              &lt;!-- Rounded image --&gt;
+              &lt;img src=&quot;assets/img/portfolio/list/03.jpg&quot; class=&quot;rounded-5&quot; alt=&quot;Rounded image&quot;&gt;
+
+              &lt;!-- Circle image --&gt;
+              &lt;img src=&quot;assets/img/portfolio/list/01.jpg&quot; class=&quot;rounded-circle&quot; alt=&quot;Circle image&quot;&gt;
+        #pug1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Square image (default)
+              img(src=&quot;assets/img/portfolio/list/04.jpg&quot;, alt=&quot;Square image&quot;)
+
+              // Rounded image
+              img(src=&quot;assets/img/portfolio/list/03.jpg&quot;, alt=&quot;Rounded image&quot;).rounded-5
+
+              // Circle image
+              img(src=&quot;assets/img/portfolio/list/01.jpg&quot;, alt=&quot;Circle image&quot;).rounded-circle
+
+  // Thumbnails
+  section#image-thumbnails.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Thumbnails
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview2' data-bs-toggle='tab' role='tab' aria-controls='preview2' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview2.tab-pane.fade.show.active(role='tabpanel')
+          .row
+            .col-sm-4.mb-4.mb-sm-2
+              img(src='../assets/img/portfolio/list/04.jpg' width='280' alt='Square image').img-thumbnail.rounded-0.d-block.mx-auto
+            .col-sm-4.mb-4.mb-sm-2
+              img(src='../assets/img/portfolio/list/03.jpg' width='280' alt='Rounded image').img-thumbnail.d-block.mx-auto
+            .col-sm-4.mb-4.mb-sm-2
+              img(src='../assets/img/portfolio/list/01.jpg' width='280' alt='Circle image').img-thumbnail.d-block.rounded-circle.mx-auto
+        #html2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Square thumbnail --&gt;
+              &lt;img src=&quot;assets/img/portfolio/list/04.jpg&quot; class=&quot;img-thumbnail rounded-0&quot; alt=&quot;Square thumbnail&quot;&gt;
+
+              &lt;!-- Rounded thumbnail (default) --&gt;
+              &lt;img src=&quot;assets/img/portfolio/list/03.jpg&quot; class=&quot;img-thumbnail&quot; alt=&quot;Rounded thumbnail&quot;&gt;
+
+              &lt;!-- Circle thumbnail --&gt;
+              &lt;img src=&quot;assets/img/portfolio/list/01.jpg&quot; class=&quot;img-thumbnail rounded-circle&quot; alt=&quot;Circle thumbnail&quot;&gt;
+        #pug2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Square thumbnail
+              img(src=&quot;assets/img/portfolio/list/04.jpg&quot;, alt=&quot;Square image&quot;).img-thumbnail.rounded-0
+
+              // Rounded thumbnail (default)
+              img(src=&quot;assets/img/portfolio/list/03.jpg&quot;, alt=&quot;Rounded image&quot;).img-thumbnail
+
+              // Circle thumbnail
+              img(src=&quot;assets/img/portfolio/list/01.jpg&quot;, alt=&quot;Circle image&quot;).img-thumbnail.rounded-circle
+
+  // Figures with caption
+  section#image-figures.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Figures with caption
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview3' data-bs-toggle='tab' role='tab' aria-controls='preview3' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview3.tab-pane.fade.show.active(role='tabpanel')
+          .row
+            .col-sm-4.mb-4.mb-sm-2
+              figure.figure
+                img(src='../assets/img/portfolio/list/01.jpg' alt='Figure with caption').figure-img
+                figcaption.figure-caption Caption on the left
+            .col-sm-4.mb-2
+              figure.figure
+                img(src='../assets/img/portfolio/list/02.jpg' alt='Figure with caption').figure-img
+                figcaption.figure-caption.text-center Caption in the center
+            .col-sm-4.mb-2
+              figure.figure
+                img(src='../assets/img/portfolio/list/04.jpg' alt='Figure with caption').figure-img
+                figcaption.figure-caption.text-end Caption on the right
+        #html3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Caption on the left --&gt;
+              &lt;figure class=&quot;figure&quot;&gt;
+                &lt;img src=&quot;assets/img/portfolio/list/01.jpg&quot; class=&quot;figure-img&quot; alt=&quot;...&quot;&gt;
+                &lt;figcaption class=&quot;figure-caption&quot;&gt;Caption on the left&lt;/figcaption&gt;
+              &lt;/figure&gt;
+
+              &lt;!-- Caption in the center --&gt;
+              &lt;figure class=&quot;figure&quot;&gt;
+                &lt;img src=&quot;assets/img/portfolio/list/02.jpg&quot; class=&quot;figure-img&quot; alt=&quot;...&quot;&gt;
+                &lt;figcaption class=&quot;figure-caption text-center&quot;&gt;Caption in the center&lt;/figcaption&gt;
+              &lt;/figure&gt;
+
+              &lt;!-- Caption on the right --&gt;
+              &lt;figure class=&quot;figure&quot;&gt;
+                &lt;img src=&quot;assets/img/portfolio/list/04.jpg&quot; class=&quot;figure-img&quot; alt=&quot;...&quot;&gt;
+                &lt;figcaption class=&quot;figure-caption text-end&quot;&gt;Caption on the right&lt;/figcaption&gt;
+              &lt;/figure&gt;
+        #pug3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Caption on the left
+              figure.figure
+                img(src=&quot;assets/img/portfolio/list/01.jpg&quot;, alt=&quot;...&quot;).figure-img
+                figcaption.figure-caption Caption on the left
+
+              // Caption in the center
+              figure.figure
+                img(src=&quot;assets/img/portfolio/list/02.jpg&quot;, alt=&quot;...&quot;).figure-img
+                figcaption.figure-caption.text-center Caption in the center
+
+              // Caption on the right
+              figure.figure
+                img(src=&quot;assets/img/portfolio/list/04.jpg&quot;, alt=&quot;...&quot;).figure-img
+                figcaption.figure-caption.text-end Caption on the right
+
+  // Image swap on hover
+  section#image-swap.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Image swap on hover
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview4' data-bs-toggle='tab' role='tab' aria-controls='preview4' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview4.tab-pane.fade.show.active(role='tabpanel')
+          a(href='#').swap-image
+            img(src='../assets/img/landing/saas-1/brands/champion-color.svg' width='180' alt='Champion').swap-to
+            .swap-from
+              img(src='../assets/img/landing/saas-1/brands/champion-gray.svg' width='180' alt='Champion').d-dark-mode-none
+              img(src='../assets/img/landing/saas-1/brands/champion-light.svg' width='180' alt='Champion').d-none.d-dark-mode-block
+        #html4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Image swap on hover --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;swap-image&quot;&gt;
+                &lt;img src=&quot;assets/img/landing/saas-1/brands/champion-color.svg&quot; class=&quot;swap-to&quot; width=&quot;180&quot; alt=&quot;Champion&quot;&gt;
+                &lt;div class=&quot;swap-from&quot;&gt;
+                  &lt;img src=&quot;assets/img/landing/saas-1/brands/champion-gray.svg&quot; class=&quot;d-dark-mode-none&quot; width=&quot;180&quot; alt=&quot;Champion&quot;&gt;
+                  &lt;img src=&quot;assets/img/landing/saas-1/brands/champion-light.svg&quot; class=&quot;d-none d-dark-mode-block&quot; width=&quot;180&quot; alt=&quot;Champion&quot;&gt;
+                &lt;/div&gt;
+              &lt;/a&gt;
+        #pug4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Image swap on hover
+              a(href=&quot;#&quot;).swap-image
+                img(src=&quot;assets/img/landing/saas-1/brands/champion-color.svg&quot;, width=&quot;180&quot;, alt=&quot;Champion&quot;).swap-to
+                .swap-from
+                  img(src=&quot;assets/img/landing/saas-1/brands/champion-gray.svg&quot;, width=&quot;180&quot;, alt=&quot;Champion&quot;).d-dark-mode-none
+                  img(src=&quot;assets/img/landing/saas-1/brands/champion-light.svg&quot;, width=&quot;180&quot;, alt=&quot;Champion&quot;).d-none.d-dark-mode-block

@@ -1,0 +1,49 @@
+// Account nav
+.card.card-body.card-light.border-0.shadow-sm.pb-1.me-lg-1
+  .d-flex.d-md-block.d-lg-flex.align-items-start.pt-lg-2.mb-4
+    img(src='img/avatars/01.jpg' class='rounded-circle' width='48' alt='Robert Fox')
+    .pt-md-2.pt-lg-0.ps-3.ps-md-0.ps-lg-3
+      h2.fs-lg.text-light.mb-0 Robert Fox
+      +star-rating(5)
+      ul.list-unstyled.fs-sm.mt-3.mb-0
+        li
+          a(href='tel:3025550107').nav-link-light.fw-normal
+            i.fi-phone.opacity-60.me-2
+            | (302) 555-0107
+        li
+          a(href='mailto:robert_fox@email.com').nav-link-light.fw-normal
+            i.fi-mail.opacity-60.me-2
+            | robert_fox@email.com
+  a(href='car-finder-sell-car.html').btn.btn-primary.btn-lg.w-100.mb-3
+    i.fi-plus.me-2
+    | Sell car
+  a(href='#account-nav' data-bs-toggle='collapse').btn.btn-outline-light.d-block.d-md-none.w-100.mb-3
+    i.fi-align-justify.me-2
+    | Menu
+  #account-nav.collapse.d-md-block.mt-3
+    .card-nav
+      a(href='car-finder-account-info.html')&attributes(pageTitle === 'Car Finder | Account Personal Info' ? {'class': 'card-nav-link active'} : {'class': 'card-nav-link'})
+        i.fi-user.me-2
+        | Personal Info
+      a(href='car-finder-account-security.html')&attributes(pageTitle === 'Car Finder | Account Password & Security' ? {'class': 'card-nav-link active'} : {'class': 'card-nav-link'})
+        i.fi-lock.me-2
+        | Password &amp; Security
+      a(href='car-finder-account-cars.html')&attributes(pageTitle === 'Car Finder | Account My Cars' ? {'class': 'card-nav-link active'} : {'class': 'card-nav-link'})
+        i.fi-car.me-2
+        | My Cars
+      a(href='car-finder-account-wishlist.html')&attributes(pageTitle === 'Car Finder | Account Wishlist' ? {'class': 'card-nav-link active'} : {'class': 'card-nav-link'})
+        i.fi-heart.me-2
+        | Wishlist
+        span.badge.bg-faded-light.ms-2 4
+      a(href='car-finder-account-reviews.html')&attributes(pageTitle === 'Car Finder | Account Reviews' ? {'class': 'card-nav-link active'} : {'class': 'card-nav-link'})
+        i.fi-star.me-2
+        | Reviews
+      a(href='car-finder-account-notifications.html')&attributes(pageTitle === 'Car Finder | Account Notifications' ? {'class': 'card-nav-link active'} : {'class': 'card-nav-link'})
+        i.fi-bell.me-2
+        | Notifications
+      a(href='car-finder-help-center.html').card-nav-link
+        i.fi-help.me-2
+        | Help
+      a(href='signin-dark.html').card-nav-link
+        i.fi-logout.me-2
+        | Sign Out

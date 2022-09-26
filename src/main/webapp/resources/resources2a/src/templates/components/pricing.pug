@@ -1,0 +1,1059 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css', 'vendor/prismjs/themes/prism.css', 'vendor/prismjs/plugins/toolbar/prism-toolbar.css', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js', 'vendor/prismjs/components/prism-core.min.js', 'vendor/prismjs/components/prism-markup.min.js', 'vendor/prismjs/components/prism-clike.min.js', 'vendor/prismjs/components/prism-javascript.min.js', 'vendor/prismjs/components/prism-pug.min.js', 'vendor/prismjs/plugins/toolbar/prism-toolbar.min.js', 'vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Pricing'
+  - var pageSubtitle = 'Quickly build pricing plans for subscription based pricing model.'
+  - var isPageTitleBadge = true
+  - var anchorNav = [{'title': 'Cards: Style 1', 'link': '#pricing-cards-1'}, {'title': 'Cards: Style 2', 'link': '#pricing-cards-2'}, {'title': 'List', 'link': '#pricing-list'}, {'title': 'Table', 'link': '#pricing-table'}, {'title': 'Price switch', 'link': '#pricing-switch'}]
+    
+//- Page Content
+block content
+
+  // Cards: Style 1
+  section#pricing-cards-1.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Cards: Style 1
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview1' data-bs-toggle='tab' role='tab' aria-controls='preview1' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview1.tab-pane.fade.show.active(role='tabpanel')
+          .bg-secondary.p-4.m-n4.rounded-4.rounded-top-0
+            .row.row-cols-1.row-cols-md-2.g-4(style='max-width: 55rem;')
+              .col
+                .card.border-0.h-100.py-lg-3(style='max-width: 26rem;')
+                  .card-body.w-100.mx-auto(style='max-width: 21rem;')
+                    .d-flex.align-items-center.border-bottom.pb-4.mb-4
+                      .bg-info.rounded.flex-shrink-0.p-2
+                        img(src='../assets/img/landing/saas-1/pricing/starter.svg' width='44' alt='Icon').d-block.m-1
+                      .ps-3
+                        h3.h4.text-info.mb-0 Starter
+                        .d-flex.align-items-end
+                          span.h5.mb-1.me-1 $
+                          span.h2.mb-0 15.00
+                    ul.list-unstyled.mb-1.pb-4
+                      li.d-flex.pb-1.mb-2
+                        i.ai-check.fs-xl.mt-1.me-2
+                        | In lorem eget amet sit
+                      li.d-flex.pb-1.mb-2
+                        i.ai-check.fs-xl.mt-1.me-2
+                        | Sodales sit velit ornare
+                      li.d-flex.pb-1.mb-2
+                        i.ai-check.fs-xl.mt-1.me-2
+                        | Tristique suspendisse proin
+                      li.d-flex.text-muted.pb-1.mb-2
+                        i.ai-cross.lead.opacity-80.me-2
+                        | Nunc nullam in dignissim
+                      li.d-flex.text-muted.pb-1.mb-2
+                        i.ai-cross.lead.opacity-80.me-2
+                        | Imperdiet amet suspendisse
+                      li.d-flex.text-muted.pb-1.mb-2
+                        i.ai-cross.lead.opacity-80.me-2
+                        | Tristique nibh erat et quis
+                    button(type='button').btn.btn-outline-primary.w-100
+                      | Get this plan now
+              .col
+                .card.border-primary.h-100.py-lg-3(style='max-width: 26rem;')
+                  .card-body.w-100.mx-auto(style='max-width: 21rem;')
+                    .d-flex.align-items-center.border-bottom.pb-4.mb-4
+                      .bg-primary.rounded.flex-shrink-0.p-2
+                        img(src='../assets/img/landing/saas-1/pricing/business.svg' width='44' alt='Icon').d-block.m-1
+                      .ps-3
+                        h3.h4.text-primary.mb-0 Business
+                        .d-flex.align-items-end
+                          span.h5.mb-1.me-1 $
+                          span.h2.mb-0 35.00
+                    ul.list-unstyled.mb-1.pb-4
+                      li.d-flex.pb-1.mb-2
+                        i.ai-check.fs-xl.mt-1.me-2
+                        | In lorem eget amet sit
+                      li.d-flex.pb-1.mb-2
+                        i.ai-check.fs-xl.mt-1.me-2
+                        | Sodales sit velit ornare
+                      li.d-flex.pb-1.mb-2
+                        i.ai-check.fs-xl.mt-1.me-2
+                        | Tristique suspendisse proin
+                      li.d-flex.pb-1.mb-2
+                        i.ai-check.fs-xl.mt-1.me-2
+                        | Nunc nullam in dignissim
+                      li.d-flex.pb-1.mb-2
+                        i.ai-check.fs-xl.mt-1.me-2
+                        | Imperdiet amet suspendisse
+                      li.d-flex.text-muted.pb-1.mb-2
+                        i.ai-cross.lead.opacity-80.me-2
+                        | Tristique nibh erat et quis
+                    button(type='button').btn.btn-primary.w-100
+                      | Get this plan now
+        #html1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Regular pricing plan --&gt;
+              &lt;div class=&quot;card border-0 h-100 py-lg-3&quot; style=&quot;max-width: 26rem;&quot;&gt;
+                &lt;div class=&quot;card-body w-100 mx-auto&quot; style=&quot;max-width: 21rem;&quot;&gt;
+                  &lt;div class=&quot;d-flex align-items-center border-bottom pb-4 mb-4&quot;&gt;
+                    &lt;div class=&quot;bg-info rounded flex-shrink-0 p-2&quot;&gt;
+                      &lt;img src=&quot;assets/img/landing/saas-1/pricing/starter.svg&quot; class=&quot;d-block m-1&quot; width=&quot;44&quot; alt=&quot;Icon&quot;&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;ps-3&quot;&gt;
+                      &lt;h3 class=&quot;h4 text-info mb-0&quot;&gt;Starter&lt;/h3&gt;
+                      &lt;div class=&quot;d-flex align-items-end&quot;&gt;
+                        &lt;span class=&quot;h5 mb-1 me-1&quot;&gt;$&lt;/span&gt;
+                        &lt;span class=&quot;h2 mb-0&quot;&gt;15.00&lt;/span&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;ul class=&quot;list-unstyled mb-1 pb-4&quot;&gt;
+                    &lt;li class=&quot;d-flex pb-1 mb-2&quot;&gt;
+                      &lt;i class=&quot;ai-check fs-xl mt-1 me-2&quot;&gt;&lt;/i&gt;
+                      In lorem eget amet sit
+                    &lt;/li&gt;
+                    &lt;li class=&quot;d-flex pb-1 mb-2&quot;&gt;
+                      &lt;i class=&quot;ai-check fs-xl mt-1 me-2&quot;&gt;&lt;/i&gt;
+                      Sodales sit velit ornare
+                    &lt;/li&gt;
+                    &lt;li class=&quot;d-flex pb-1 mb-2&quot;&gt;
+                      &lt;i class=&quot;ai-check fs-xl mt-1 me-2&quot;&gt;&lt;/i&gt;
+                      Tristique suspendisse proin
+                    &lt;/li&gt;
+                    &lt;li class=&quot;d-flex text-muted pb-1 mb-2&quot;&gt;
+                      &lt;i class=&quot;ai-cross lead opacity-80 me-2&quot;&gt;&lt;/i&gt;
+                      Nunc nullam in dignissim
+                    &lt;/li&gt;
+                    &lt;li class=&quot;d-flex text-muted pb-1 mb-2&quot;&gt;
+                      &lt;i class=&quot;ai-cross lead opacity-80 me-2&quot;&gt;&lt;/i&gt;
+                      Imperdiet amet suspendisse
+                    &lt;/li&gt;
+                    &lt;li class=&quot;d-flex text-muted pb-1 mb-2&quot;&gt;
+                      &lt;i class=&quot;ai-cross lead opacity-80 me-2&quot;&gt;&lt;/i&gt;
+                      Tristique nibh erat et quis
+                    &lt;/li&gt;
+                  &lt;/ul&gt;
+                  &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-primary w-100&quot;&gt;
+                    Get this plan now
+                  &lt;/button&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Featured pricing plan --&gt;
+              &lt;div class=&quot;card border-primary h-100 py-lg-3&quot; style=&quot;max-width: 26rem;&quot;&gt;
+                &lt;div class=&quot;card-body w-100 mx-auto&quot; style=&quot;max-width: 21rem;&quot;&gt;
+                  &lt;div class=&quot;d-flex align-items-center border-bottom pb-4 mb-4&quot;&gt;
+                    &lt;div class=&quot;bg-primary rounded flex-shrink-0 p-2&quot;&gt;
+                      &lt;img src=&quot;assets/img/landing/saas-1/pricing/business.svg&quot; class=&quot;d-block m-1&quot; width=&quot;44&quot; alt=&quot;Icon&quot;&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;ps-3&quot;&gt;
+                      &lt;h3 class=&quot;h4 text-primary mb-0&quot;&gt;Business&lt;/h3&gt;
+                      &lt;div class=&quot;d-flex align-items-end&quot;&gt;
+                        &lt;span class=&quot;h5 mb-1 me-1&quot;&gt;$&lt;/span&gt;
+                        &lt;span class=&quot;h2 mb-0&quot;&gt;35.00&lt;/span&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;ul class=&quot;list-unstyled mb-1 pb-4&quot;&gt;
+                    &lt;li class=&quot;d-flex pb-1 mb-2&quot;&gt;
+                      &lt;i class=&quot;ai-check fs-xl mt-1 me-2&quot;&gt;&lt;/i&gt;
+                      In lorem eget amet sit
+                    &lt;/li&gt;
+                    &lt;li class=&quot;d-flex pb-1 mb-2&quot;&gt;
+                      &lt;i class=&quot;ai-check fs-xl mt-1 me-2&quot;&gt;&lt;/i&gt;
+                      Sodales sit velit ornare
+                    &lt;/li&gt;
+                    &lt;li class=&quot;d-flex pb-1 mb-2&quot;&gt;
+                      &lt;i class=&quot;ai-check fs-xl mt-1 me-2&quot;&gt;&lt;/i&gt;
+                      Tristique suspendisse proin
+                    &lt;/li&gt;
+                    &lt;li class=&quot;d-flex pb-1 mb-2&quot;&gt;
+                      &lt;i class=&quot;ai-check fs-xl mt-1 me-2&quot;&gt;&lt;/i&gt;
+                      Nunc nullam in dignissim
+                    &lt;/li&gt;
+                    &lt;li class=&quot;d-flex pb-1 mb-2&quot;&gt;
+                      &lt;i class=&quot;ai-check fs-xl mt-1 me-2&quot;&gt;&lt;/i&gt;
+                      Imperdiet amet suspendisse
+                    &lt;/li&gt;
+                    &lt;li class=&quot;d-flex text-muted pb-1 mb-2&quot;&gt;
+                      &lt;i class=&quot;ai-cross lead opacity-80 me-2&quot;&gt;&lt;/i&gt;
+                      Tristique nibh erat et quis
+                    &lt;/li&gt;
+                  &lt;/ul&gt;
+                  &lt;button type=&quot;button&quot; class=&quot;btn btn-primary w-100&quot;&gt;
+                    Get this plan now
+                  &lt;/button&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Regular pricing plan
+              .card.border-0.h-100.py-lg-3(style=&quot;max-width: 26rem;&quot;)
+                .card-body.w-100.mx-auto(style=&quot;max-width: 21rem;&quot;)
+                  .d-flex.align-items-center.border-bottom.pb-4.mb-4
+                    .bg-info.rounded.flex-shrink-0.p-2
+                      img(src=&quot;assets/img/landing/saas-1/pricing/starter.svg&quot;, width=&quot;44&quot;, alt=&quot;Icon&quot;).d-block.m-1
+                    .ps-3
+                      h3.h4.text-info.mb-0 Starter
+                      .d-flex.align-items-end
+                        span.h5.mb-1.me-1 $
+                        span.h2.mb-0 15.00
+                  ul.list-unstyled.mb-1.pb-4
+                    li.d-flex.pb-1.mb-2
+                      i.ai-check.fs-xl.mt-1.me-2
+                      | In lorem eget amet sit
+                    li.d-flex.pb-1.mb-2
+                      i.ai-check.fs-xl.mt-1.me-2
+                      | Sodales sit velit ornare
+                    li.d-flex.pb-1.mb-2
+                      i.ai-check.fs-xl.mt-1.me-2
+                      | Tristique suspendisse proin
+                    li.d-flex.text-muted.pb-1.mb-2
+                      i.ai-cross.lead.opacity-80.me-2
+                      | Nunc nullam in dignissim
+                    li.d-flex.text-muted.pb-1.mb-2
+                      i.ai-cross.lead.opacity-80.me-2
+                      | Imperdiet amet suspendisse
+                    li.d-flex.text-muted.pb-1.mb-2
+                      i.ai-cross.lead.opacity-80.me-2
+                      | Tristique nibh erat et quis
+                  button(type=&quot;button&quot;).btn.btn-outline-primary.w-100
+                    | Get this plan now
+
+              // Featured pricing plan
+              .card.border-primary.h-100.py-lg-3(style=&quot;max-width: 26rem;&quot;)
+                .card-body.w-100.mx-auto(style=&quot;max-width: 21rem;&quot;)
+                  .d-flex.align-items-center.border-bottom.pb-4.mb-4
+                    .bg-primary.rounded.flex-shrink-0.p-2
+                      img(src=&quot;assets/img/landing/saas-1/pricing/business.svg&quot;, width=&quot;44&quot;, alt=&quot;Icon&quot;).d-block.m-1
+                    .ps-3
+                      h3.h4.text-primary.mb-0 Business
+                      .d-flex.align-items-end
+                        span.h5.mb-1.me-1 $
+                        span.h2.mb-0 35.00
+                  ul.list-unstyled.mb-1.pb-4
+                    li.d-flex.pb-1.mb-2
+                      i.ai-check.fs-xl.mt-1.me-2
+                      | In lorem eget amet sit
+                    li.d-flex.pb-1.mb-2
+                      i.ai-check.fs-xl.mt-1.me-2
+                      | Sodales sit velit ornare
+                    li.d-flex.pb-1.mb-2
+                      i.ai-check.fs-xl.mt-1.me-2
+                      | Tristique suspendisse proin
+                    li.d-flex.pb-1.mb-2
+                      i.ai-check.fs-xl.mt-1.me-2
+                      | Nunc nullam in dignissim
+                    li.d-flex.pb-1.mb-2
+                      i.ai-check.fs-xl.mt-1.me-2
+                      | Imperdiet amet suspendisse
+                    li.d-flex.text-muted.pb-1.mb-2
+                      i.ai-cross.lead.opacity-80.me-2
+                      | Tristique nibh erat et quis
+                  button(type=&quot;button&quot;).btn.btn-primary.w-100
+                    | Get this plan now
+
+  // Cards: Style 2
+  section#pricing-cards-2.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Cards: Style 2
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview2' data-bs-toggle='tab' role='tab' aria-controls='preview2' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview2.tab-pane.fade.show.active(role='tabpanel')
+          .row.row-cols-1.row-cols-md-2.g-4(style='max-width: 55rem;')
+            .col
+              .card.h-100.py-lg-4(style='max-width: 26rem;')
+                .card-body.w-100.mx-auto.text-center(style='max-width: 23rem;')
+                  h3 Light
+                  .display-2.text-primary $8
+                  .mb-4 per day
+                  p.mb-4.pb-4 Phasellus in hendrerit interdum lorem proin pretium dictum urna
+                  button(type='button').btn.btn-primary.w-100
+                    | Get this plan now
+            .col
+              .card.border-primary.bg-primary.h-100.py-lg-4(style='max-width: 26rem;')
+                .card-body.w-100.mx-auto.text-center(style='max-width: 23rem;')
+                  h3.text-light Pro
+                  .display-2.text-light $97
+                  .text-light.opacity-70.mb-4 per month
+                  p.text-light.opacity-70.mb-4.pb-4 Morbi et massa fames ac scelerisque sit commodo dignissim aucibus
+                  button(type='button').btn.btn-light.w-100
+                    | Get this plan now
+        #html2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Regular pricing plan --&gt;
+              &lt;div class=&quot;card h-100 py-lg-4&quot; style=&quot;max-width: 26rem;&quot;&gt;
+                &lt;div class=&quot;card-body w-100 mx-auto text-center&quot; style=&quot;max-width: 23rem;&quot;&gt;
+                  &lt;h3&gt;Light&lt;/h3&gt;
+                  &lt;div class=&quot;display-2 text-primary&quot;&gt;$8&lt;/div&gt;
+                  &lt;div class=&quot;mb-4&quot;&gt;per day&lt;/div&gt;
+                  &lt;p class=&quot;mb-4 pb-4&quot;&gt;Phasellus in hendrerit interdum lorem proin pretium dictum urna&lt;/p&gt;
+                  &lt;button type=&quot;button&quot; class=&quot;btn btn-primary w-100&quot;&gt;
+                    Get this plan now
+                  &lt;/button&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Featured pricing plan --&gt;
+              &lt;div class=&quot;card border-primary bg-primary h-100 py-lg-4&quot; style=&quot;max-width: 26rem;&quot;&gt;
+                &lt;div class=&quot;card-body w-100 mx-auto text-center&quot; style=&quot;max-width: 23rem;&quot;&gt;
+                  &lt;h3 class=&quot;text-light&quot;&gt;Pro&lt;/h3&gt;
+                  &lt;div class=&quot;display-2 text-light&quot;&gt;$97&lt;/div&gt;
+                  &lt;div class=&quot;text-light opacity-70 mb-4&quot;&gt;per month&lt;/div&gt;
+                  &lt;p class=&quot;text-light opacity-70 mb-4 pb-4&quot;&gt;Morbi et massa fames ac scelerisque sit commodo dignissim aucibus&lt;/p&gt;
+                  &lt;button type=&quot;button&quot; class=&quot;btn btn-light w-100&quot;&gt;
+                    Get this plan now
+                  &lt;/button&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Regular pricing plan
+              .card.h-100.py-lg-4(style=&quot;max-width: 26rem;&quot;)
+                .card-body.w-100.mx-auto.text-center(style=&quot;max-width: 23rem;&quot;)
+                  h3 Light
+                  .display-2.text-primary $8
+                  .mb-4 per day
+                  p.mb-4.pb-4 Phasellus in hendrerit interdum lorem proin pretium dictum urna
+                  button(type=&quot;button&quot;).btn.btn-primary.w-100
+                    | Get this plan now
+
+              // Featured pricing plan
+              .card.border-primary.bg-primary.h-100.py-lg-4(style=&quot;max-width: 26rem;&quot;)
+                .card-body.w-100.mx-auto.text-center(style=&quot;max-width: 23rem;&quot;)
+                  h3.text-light Pro
+                  .display-2.text-light $97
+                  .text-light.opacity-70.mb-4 per month
+                  p.text-light.opacity-70.mb-4.pb-4 Morbi et massa fames ac scelerisque sit commodo dignissim aucibus
+                  button(type=&quot;button&quot;).btn.btn-light.w-100
+                    | Get this plan now
+
+  // List
+  section#pricing-list.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 List
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview3' data-bs-toggle='tab' role='tab' aria-controls='preview3' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview3.tab-pane.fade.show.active(role='tabpanel')
+          .card.border-0.bg-secondary.rounded-4.position-relative.mb-3(style='max-width: 700px;')
+            .card-body.d-sm-flex.align-items-start.text-center.text-sm-start
+              .w-100.pe-sm-4.mb-3.mb-sm-0(style='max-width: 27rem;')
+                h3.mb-2 4 lessons
+                p.fs-lg.mb-0 Valid for all types of classes
+              .w-100.pe-sm-3.mx-auto.me-sm-0.mb-3.mb-sm-0(style='max-width: 8rem;')
+                .h3.text-primary.mb-0.mb-sm-2 $40
+                span.fs-sm $10 per class
+              button(type='button').btn.btn-sm.btn-outline-primary.stretched-link.w-100.w-sm-auto Buy
+          .card.border-0.bg-secondary.rounded-4.position-relative.mb-3(style='max-width: 700px;')
+            .card-body.d-sm-flex.align-items-start.text-center.text-sm-start
+              .w-100.pe-sm-4.mb-3.mb-sm-0(style='max-width: 27rem;')
+                h3.mb-2 8 lessons
+                p.fs-lg.mb-0 Valid for all types of classes
+              .w-100.pe-sm-3.mx-auto.me-sm-0.mb-3.mb-sm-0(style='max-width: 8rem;')
+                .h3.text-primary.mb-0.mb-sm-2 $72
+                span.fs-sm $9 per class
+              button(type='button').btn.btn-sm.btn-outline-primary.stretched-link.w-100.w-sm-auto Buy
+          .card.border-0.bg-secondary.rounded-4.position-relative(style='max-width: 700px;')
+            .card-body.d-sm-flex.align-items-start.text-center.text-sm-start
+              .w-100.pe-sm-4.mb-3.mb-sm-0(style='max-width: 27rem;')
+                h3.mb-2 16 lessons
+                p.fs-lg.mb-0 Valid for all types of classes
+              .w-100.pe-sm-3.mx-auto.me-sm-0.mb-3.mb-sm-0(style='max-width: 8rem;')
+                .h3.text-primary.mb-0.mb-sm-2 $120
+                span.fs-sm $7 per class
+              button(type='button').btn.btn-sm.btn-outline-primary.stretched-link.w-100.w-sm-auto Buy
+        #html3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Horizontal pricing plan card (List view) --&gt;
+              &lt;div class=&quot;card border-0 bg-secondary rounded-4 position-relative mb-3&quot;&gt;
+                &lt;div class=&quot;card-body d-sm-flex align-items-start text-center text-sm-start&quot;&gt;
+                  &lt;div class=&quot;w-100 pe-sm-4 mb-3 mb-sm-0&quot; style=&quot;max-width: 27rem;&quot;&gt;
+                    &lt;h3 class=&quot;mb-2&quot;&gt;4 lessons&lt;/h3&gt;
+                    &lt;p class=&quot;fs-lg mb-0&quot;&gt;Valid for all types of classes&lt;/p&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;w-100 pe-sm-3 mx-auto me-sm-0 mb-3 mb-sm-0&quot; style=&quot;max-width: 8rem;&quot;&gt;
+                    &lt;div class=&quot;h3 text-primary mb-0 mb-sm-2&quot;&gt;$40&lt;/div&gt;
+                    &lt;span class=&quot;fs-sm&quot;&gt;$10 per class&lt;/span&gt;
+                  &lt;/div&gt;
+                  &lt;button type=&quot;button&quot; class=&quot;btn btn-sm btn-outline-primary stretched-link w-100 w-sm-auto&quot;&gt;
+                    Buy
+                  &lt;/button&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Horizontal pricing plan card (List view)
+              .card.border-0.bg-secondary.rounded-4.position-relative.mb-3
+                .card-body.d-sm-flex.align-items-start.text-center.text-sm-start
+                  .w-100.pe-sm-4.mb-3.mb-sm-0(style=&quot;max-width: 27rem;&quot;)
+                    h3.mb-2 4 lessons
+                    p.fs-lg.mb-0 Valid for all types of classes
+                  .w-100.pe-sm-3.mx-auto.me-sm-0.mb-3.mb-sm-0(style=&quot;max-width: 8rem;&quot;)
+                    .h3.text-primary.mb-0.mb-sm-2 $40
+                    span.fs-sm $10 per class
+                  button(type=&quot;button&quot;).btn.btn-sm.btn-outline-primary.stretched-link.w-100.w-sm-auto
+                    | Buy
+
+  // Table
+  section#pricing-table.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Table
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview4' data-bs-toggle='tab' role='tab' aria-controls='preview4' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview4.tab-pane.fade.show.active(role='tabpanel')
+          .table-responsive
+            table.table.text-center.text-nowrap
+              thead
+                tr
+                  th.border-0.py-3 &nbsp;
+                  th.border-0.py-3: span.h5.mb-0 Light
+                  th.border-0.py-3: span.h5.mb-0 Premium
+                  th.border-0.py-3: span.h5.mb-0 Medium
+              tbody
+                tr
+                  th.border-0.bg-secondary.rounded-3.rounded-end-0.text-start.py-3.ps-4
+                    span.text-body.fw-medium Billed monthly
+                  td.border-0.bg-secondary.py-3
+                    span.text-dark $18
+                  td.border-0.bg-secondary.py-3
+                    span.text-dark $72
+                  td.border-0.rounded-3.rounded-start-0.bg-secondary.py-3
+                    span.text-dark $36
+                tr
+                  th.border-0.text-start.py-3.ps-4
+                    span.d-flex.align-items-center.text-body.fw-medium
+                      | Members
+                      i.ai-circle-info.fs-lg.ms-2(data-bs-toggle='popover' data-bs-trigger='hover' data-bs-placement='right' data-bs-html='true' data-bs-content='Feature description text')
+                  td.border-0.py-3
+                    span.text-dark Just you
+                  td.border-0.py-3
+                    span.text-dark Unlimited
+                  td.border-0.py-3
+                    span.text-dark 3 members
+                tr
+                  th.border-0.bg-secondary.rounded-3.rounded-end-0.text-start.py-3.ps-4
+                    span.d-flex.align-items-center.text-body.fw-medium
+                      | Guest access
+                      i.ai-circle-info.fs-lg.ms-2(data-bs-toggle='popover' data-bs-trigger='hover' data-bs-placement='right' data-bs-html='true' data-bs-content='Feature description text')
+                  td.border-0.bg-secondary.py-3
+                    span.text-dark Just you
+                  td.border-0.bg-secondary.py-3
+                    span.text-dark Unlimited
+                  td.border-0.rounded-3.rounded-start-0.bg-secondary.py-3
+                    span.text-dark 3 members
+                tr
+                  th.border-0.text-start.py-3.ps-4
+                    span.d-flex.align-items-center.text-body.fw-medium
+                      | File uploads
+                      i.ai-circle-info.fs-lg.ms-2(data-bs-toggle='popover' data-bs-trigger='hover' data-bs-placement='right' data-bs-html='true' data-bs-content='Feature description text')
+                  td.border-0.py-3
+                    span.text-dark 2 GB
+                  td.border-0.py-3
+                    span.text-dark 30 GB
+                  td.border-0.py-3
+                    span.text-dark 10 GB
+                tr
+                  th.border-0.text-start.pt-4.pb-3.ps-4
+                    .h5.pt-1.mb-0 Features
+                  th.border-0.py-3 &nbsp;
+                  th.border-0.py-3 &nbsp;
+                  th.border-0.py-3 &nbsp;
+                tr
+                  th.border-0.bg-secondary.rounded-3.rounded-end-0.text-start.py-3.ps-4
+                    span.text-body.fw-medium Web, desktop, &amp; mobile apps
+                  td.border-0.bg-secondary.py-3
+                    i.ai-cross.fs-xl.text-danger
+                  td.border-0.bg-secondary.py-3
+                    i.ai-check.fs-xl.text-success
+                  td.border-0.rounded-3.rounded-start-0.bg-secondary.py-3
+                    i.ai-check.fs-xl.text-success
+                tr
+                  th.border-0.text-start.py-3.ps-4
+                    span.d-flex.align-items-center.text-body.fw-medium
+                      | Reminders
+                      i.ai-circle-info.fs-lg.ms-2(data-bs-toggle='popover' data-bs-trigger='hover' data-bs-placement='right' data-bs-html='true' data-bs-content='Feature description text')
+                  td.border-0.py-3
+                    i.ai-check.fs-xl.text-success
+                  td.border-0.py-3
+                    i.ai-check.fs-xl.text-success
+                  td.border-0.py-3
+                    i.ai-check.fs-xl.text-success
+                tr
+                  th.border-0.bg-secondary.rounded-3.rounded-end-0.text-start.py-3.ps-4
+                    span.text-body.fw-medium Priorities
+                  td.border-0.bg-secondary.py-3
+                    i.ai-cross.fs-xl.text-danger
+                  td.border-0.bg-secondary.py-3
+                    i.ai-check.fs-xl.text-success
+                  td.border-0.rounded-3.rounded-start-0.bg-secondary.py-3
+                    i.ai-check.fs-xl.text-success
+                tr
+                  th.border-0.text-start.py-3.ps-4
+                    span.d-flex.align-items-center.text-body.fw-medium
+                      | Comments
+                      i.ai-circle-info.fs-lg.ms-2(data-bs-toggle='popover' data-bs-trigger='hover' data-bs-placement='right' data-bs-html='true' data-bs-content='Feature description text')
+                  td.border-0.py-3
+                    i.ai-check.fs-xl.text-success
+                  td.border-0.py-3
+                    i.ai-check.fs-xl.text-success
+                  td.border-0.py-3
+                    i.ai-check.fs-xl.text-success
+                tr
+                  th.border-0.bg-secondary.rounded-3.rounded-end-0.text-start.py-3.ps-4
+                    span.text-body.fw-medium Integrations
+                  td.border-0.bg-secondary.py-3
+                    span.text-dark 5
+                  td.border-0.bg-secondary.py-3
+                    span.text-dark Unlimited
+                  td.border-0.rounded-3.rounded-start-0.bg-secondary.py-3
+                    span.text-dark 15
+                tr
+                  td.border-0.pt-4 &nbsp;
+                  td.border-0.pt-4
+                    button(type='button').btn.btn-outline-primary.mt-3
+                      | Get started $18
+                  td.border-0.pt-4
+                    button(type='button').btn.btn-outline-primary.mt-3
+                      | Get started $72
+                  td.border-0.pt-4
+                    button(type='button').btn.btn-outline-primary.mt-3
+                      | Get started $36
+        #html4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Pricing comparison table --&gt;
+              &lt;div class=&quot;table-responsive&quot;&gt;
+                &lt;table class=&quot;table text-center text-nowrap&quot;&gt;
+                  &lt;thead&gt;
+                    &lt;tr&gt;
+                      &lt;th class=&quot;border-0 py-3&quot;&gt;&amp;nbsp;&lt;/th&gt;
+                      &lt;th class=&quot;border-0 py-3&quot;&gt;
+                        &lt;span class=&quot;h5 mb-0&quot;&gt;Light&lt;/span&gt;
+                      &lt;/th&gt;
+                      &lt;th class=&quot;border-0 py-3&quot;&gt;
+                        &lt;span class=&quot;h5 mb-0&quot;&gt;Premium&lt;/span&gt;
+                      &lt;/th&gt;
+                      &lt;th class=&quot;border-0 py-3&quot;&gt;
+                        &lt;span class=&quot;h5 mb-0&quot;&gt;Medium&lt;/span&gt;
+                      &lt;/th&gt;
+                    &lt;/tr&gt;
+                  &lt;/thead&gt;
+                  &lt;tbody&gt;
+                    &lt;tr&gt;
+                      &lt;th class=&quot;border-0 bg-secondary rounded-3 rounded-end-0 text-start py-3 ps-4&quot;&gt;
+                        &lt;span class=&quot;text-body fw-medium&quot;&gt;Billed monthly&lt;/span&gt;
+                      &lt;/th&gt;
+                      &lt;td class=&quot;border-0 bg-secondary py-3&quot;&gt;
+                        &lt;span class=&quot;text-dark&quot;&gt;$18&lt;/span&gt;
+                      &lt;/td&gt;
+                      &lt;td class=&quot;border-0 bg-secondary py-3&quot;&gt;
+                        &lt;span class=&quot;text-dark&quot;&gt;$72&lt;/span&gt;
+                      &lt;/td&gt;
+                      &lt;td class=&quot;border-0 rounded-3 rounded-start-0 bg-secondary py-3&quot;&gt;
+                        &lt;span class=&quot;text-dark&quot;&gt;$36&lt;/span&gt;
+                      &lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;th class=&quot;border-0 text-start py-3 ps-4&quot;&gt;
+                        &lt;span class=&quot;d-flex align-items-center text-body fw-medium&quot;&gt;
+                          Members
+                          &lt;i class=&quot;ai-circle-info fs-lg ms-2&quot; data-bs-toggle=&quot;popover&quot; data-bs-trigger=&quot;hover&quot; data-bs-placement=&quot;right&quot; data-bs-html=&quot;true&quot; data-bs-content=&quot;Feature description text&quot;&gt;&lt;/i&gt;
+                        &lt;/span&gt;
+                      &lt;/th&gt;
+                      &lt;td class=&quot;border-0 py-3&quot;&gt;
+                        &lt;span class=&quot;text-dark&quot;&gt;Just you&lt;/span&gt;
+                      &lt;/td&gt;
+                      &lt;td class=&quot;border-0 py-3&quot;&gt;
+                        &lt;span class=&quot;text-dark&quot;&gt;Unlimited&lt;/span&gt;
+                      &lt;/td&gt;
+                      &lt;td class=&quot;border-0 py-3&quot;&gt;
+                        &lt;span class=&quot;text-dark&quot;&gt;3 members&lt;/span&gt;
+                      &lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;th class=&quot;border-0 bg-secondary rounded-3 rounded-end-0 text-start py-3 ps-4&quot;&gt;
+                        &lt;span class=&quot;d-flex align-items-center text-body fw-medium&quot;&gt;Guest access&lt;i class=&quot;ai-circle-info fs-lg ms-2&quot; data-bs-toggle=&quot;popover&quot; data-bs-trigger=&quot;hover&quot; data-bs-placement=&quot;right&quot; data-bs-html=&quot;true&quot; data-bs-content=&quot;Feature description text&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+                      &lt;/th&gt;
+                      &lt;td class=&quot;border-0 bg-secondary py-3&quot;&gt;&lt;span class=&quot;text-dark&quot;&gt;Just you&lt;/span&gt;&lt;/td&gt;
+                      &lt;td class=&quot;border-0 bg-secondary py-3&quot;&gt;&lt;span class=&quot;text-dark&quot;&gt;Unlimited&lt;/span&gt;&lt;/td&gt;
+                      &lt;td class=&quot;border-0 rounded-3 rounded-start-0 bg-secondary py-3&quot;&gt;&lt;span class=&quot;text-dark&quot;&gt;3 members&lt;/span&gt;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;th class=&quot;border-0 text-start py-3 ps-4&quot;&gt;
+                        &lt;span class=&quot;d-flex align-items-center text-body fw-medium&quot;&gt;File uploads&lt;i class=&quot;ai-circle-info fs-lg ms-2&quot; data-bs-toggle=&quot;popover&quot; data-bs-trigger=&quot;hover&quot; data-bs-placement=&quot;right&quot; data-bs-html=&quot;true&quot; data-bs-content=&quot;Feature description text&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+                      &lt;/th&gt;
+                      &lt;td class=&quot;border-0 py-3&quot;&gt;&lt;span class=&quot;text-dark&quot;&gt;2 GB&lt;/span&gt;&lt;/td&gt;
+                      &lt;td class=&quot;border-0 py-3&quot;&gt;&lt;span class=&quot;text-dark&quot;&gt;30 GB&lt;/span&gt;&lt;/td&gt;
+                      &lt;td class=&quot;border-0 py-3&quot;&gt;&lt;span class=&quot;text-dark&quot;&gt;10 GB&lt;/span&gt;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;th class=&quot;border-0 text-start pt-4 pb-3 ps-4&quot;&gt;
+                        &lt;div class=&quot;h5 pt-1 mb-0&quot;&gt;Features&lt;/div&gt;
+                      &lt;/th&gt;
+                      &lt;th class=&quot;border-0 py-3&quot;&gt;&amp;nbsp;&lt;/th&gt;
+                      &lt;th class=&quot;border-0 py-3&quot;&gt;&amp;nbsp;&lt;/th&gt;
+                      &lt;th class=&quot;border-0 py-3&quot;&gt;&amp;nbsp;&lt;/th&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;th class=&quot;border-0 bg-secondary rounded-3 rounded-end-0 text-start py-3 ps-4&quot;&gt;
+                        &lt;span class=&quot;text-body fw-medium&quot;&gt;Web, desktop, &amp;amp; mobile apps&lt;/span&gt;
+                      &lt;/th&gt;
+                      &lt;td class=&quot;border-0 bg-secondary py-3&quot;&gt;
+                        &lt;i class=&quot;ai-cross fs-xl text-danger&quot;&gt;&lt;/i&gt;
+                      &lt;/td&gt;
+                      &lt;td class=&quot;border-0 bg-secondary py-3&quot;&gt;
+                        &lt;i class=&quot;ai-check fs-xl text-success&quot;&gt;&lt;/i&gt;
+                      &lt;/td&gt;
+                      &lt;td class=&quot;border-0 rounded-3 rounded-start-0 bg-secondary py-3&quot;&gt;
+                        &lt;i class=&quot;ai-check fs-xl text-success&quot;&gt;&lt;/i&gt;
+                      &lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;th class=&quot;border-0 text-start py-3 ps-4&quot;&gt;
+                        &lt;span class=&quot;d-flex align-items-center text-body fw-medium&quot;&gt;
+                          Reminders
+                          &lt;i class=&quot;ai-circle-info fs-lg ms-2&quot; data-bs-toggle=&quot;popover&quot; data-bs-trigger=&quot;hover&quot; data-bs-placement=&quot;right&quot; data-bs-html=&quot;true&quot; data-bs-content=&quot;Feature description text&quot;&gt;&lt;/i&gt;
+                        &lt;/span&gt;
+                      &lt;/th&gt;
+                      &lt;td class=&quot;border-0 py-3&quot;&gt;
+                        &lt;i class=&quot;ai-check fs-xl text-success&quot;&gt;&lt;/i&gt;
+                      &lt;/td&gt;
+                      &lt;td class=&quot;border-0 py-3&quot;&gt;
+                        &lt;i class=&quot;ai-check fs-xl text-success&quot;&gt;&lt;/i&gt;
+                      &lt;/td&gt;
+                      &lt;td class=&quot;border-0 py-3&quot;&gt;
+                        &lt;i class=&quot;ai-check fs-xl text-success&quot;&gt;&lt;/i&gt;
+                      &lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;th class=&quot;border-0 bg-secondary rounded-3 rounded-end-0 text-start py-3 ps-4&quot;&gt;
+                        &lt;span class=&quot;text-body fw-medium&quot;&gt;Priorities&lt;/span&gt;
+                      &lt;/th&gt;
+                      &lt;td class=&quot;border-0 bg-secondary py-3&quot;&gt;
+                        &lt;i class=&quot;ai-cross fs-xl text-danger&quot;&gt;&lt;/i&gt;
+                      &lt;/td&gt;
+                      &lt;td class=&quot;border-0 bg-secondary py-3&quot;&gt;
+                        &lt;i class=&quot;ai-check fs-xl text-success&quot;&gt;&lt;/i&gt;
+                      &lt;/td&gt;
+                      &lt;td class=&quot;border-0 rounded-3 rounded-start-0 bg-secondary py-3&quot;&gt;
+                        &lt;i class=&quot;ai-check fs-xl text-success&quot;&gt;&lt;/i&gt;
+                      &lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;th class=&quot;border-0 text-start py-3 ps-4&quot;&gt;
+                        &lt;span class=&quot;d-flex align-items-center text-body fw-medium&quot;&gt;
+                          Comments
+                          &lt;i class=&quot;ai-circle-info fs-lg ms-2&quot; data-bs-toggle=&quot;popover&quot; data-bs-trigger=&quot;hover&quot; data-bs-placement=&quot;right&quot; data-bs-html=&quot;true&quot; data-bs-content=&quot;Feature description text&quot;&gt;&lt;/i&gt;
+                        &lt;/span&gt;
+                      &lt;/th&gt;
+                      &lt;td class=&quot;border-0 py-3&quot;&gt;
+                        &lt;i class=&quot;ai-check fs-xl text-success&quot;&gt;&lt;/i&gt;
+                      &lt;/td&gt;
+                      &lt;td class=&quot;border-0 py-3&quot;&gt;
+                        &lt;i class=&quot;ai-check fs-xl text-success&quot;&gt;&lt;/i&gt;
+                      &lt;/td&gt;
+                      &lt;td class=&quot;border-0 py-3&quot;&gt;
+                        &lt;i class=&quot;ai-check fs-xl text-success&quot;&gt;&lt;/i&gt;
+                      &lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;th class=&quot;border-0 bg-secondary rounded-3 rounded-end-0 text-start py-3 ps-4&quot;&gt;
+                        &lt;span class=&quot;text-body fw-medium&quot;&gt;Integrations&lt;/span&gt;
+                      &lt;/th&gt;
+                      &lt;td class=&quot;border-0 bg-secondary py-3&quot;&gt;
+                        &lt;span class=&quot;text-dark&quot;&gt;5&lt;/span&gt;
+                      &lt;/td&gt;
+                      &lt;td class=&quot;border-0 bg-secondary py-3&quot;&gt;
+                        &lt;span class=&quot;text-dark&quot;&gt;Unlimited&lt;/span&gt;
+                      &lt;/td&gt;
+                      &lt;td class=&quot;border-0 rounded-3 rounded-start-0 bg-secondary py-3&quot;&gt;
+                        &lt;span class=&quot;text-dark&quot;&gt;15&lt;/span&gt;
+                      &lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td class=&quot;border-0 pt-4&quot;&gt;&amp;nbsp;&lt;/td&gt;
+                      &lt;td class=&quot;border-0 pt-4&quot;&gt;
+                        &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-primary mt-3&quot;&gt;Get started $18&lt;/button&gt;
+                      &lt;/td&gt;
+                      &lt;td class=&quot;border-0 pt-4&quot;&gt;
+                        &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-primary mt-3&quot;&gt;Get started $72&lt;/button&gt;
+                      &lt;/td&gt;
+                      &lt;td class=&quot;border-0 pt-4&quot;&gt;
+                        &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-primary mt-3&quot;&gt;Get started $36&lt;/button&gt;
+                      &lt;/td&gt;
+                    &lt;/tr&gt;
+                  &lt;/tbody&gt;
+                &lt;/table&gt;
+              &lt;/div&gt;
+        #pug4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Pricing comparison table
+              .table-responsive
+                table.table.text-center.text-nowrap
+                  thead
+                    tr
+                      th.border-0.py-3 &amp;nbsp;
+                      th.border-0.py-3: span.h5.mb-0 Light
+                      th.border-0.py-3: span.h5.mb-0 Premium
+                      th.border-0.py-3: span.h5.mb-0 Medium
+                  tbody
+                    tr
+                      th.border-0.bg-secondary.rounded-3.rounded-end-0.text-start.py-3.ps-4
+                        span.text-body.fw-medium Billed monthly
+                      td.border-0.bg-secondary.py-3
+                        span.text-dark $18
+                      td.border-0.bg-secondary.py-3
+                        span.text-dark $72
+                      td.border-0.rounded-3.rounded-start-0.bg-secondary.py-3
+                        span.text-dark $36
+                    tr
+                      th.border-0.text-start.py-3.ps-4
+                        span.d-flex.align-items-center.text-body.fw-medium
+                          | Members
+                          i.ai-circle-info.fs-lg.ms-2(data-bs-toggle=&quot;popover&quot;, data-bs-trigger=&quot;hover&quot;, data-bs-placement=&quot;right&quot;, data-bs-html=&quot;true&quot;, data-bs-content=&quot;Feature description text&quot;)
+                      td.border-0.py-3
+                        span.text-dark Just you
+                      td.border-0.py-3
+                        span.text-dark Unlimited
+                      td.border-0.py-3
+                        span.text-dark 3 members
+                    tr
+                      th.border-0.bg-secondary.rounded-3.rounded-end-0.text-start.py-3.ps-4
+                        span.d-flex.align-items-center.text-body.fw-medium
+                          | Guest access
+                          i.ai-circle-info.fs-lg.ms-2(data-bs-toggle=&quot;popover&quot;, data-bs-trigger=&quot;hover&quot;, data-bs-placement=&quot;right&quot;, data-bs-html=&quot;true&quot;, data-bs-content=&quot;Feature description text&quot;)
+                      td.border-0.bg-secondary.py-3
+                        span.text-dark Just you
+                      td.border-0.bg-secondary.py-3
+                        span.text-dark Unlimited
+                      td.border-0.rounded-3.rounded-start-0.bg-secondary.py-3
+                        span.text-dark 3 members
+                    tr
+                      th.border-0.text-start.py-3.ps-4
+                        span.d-flex.align-items-center.text-body.fw-medium
+                          | File uploads
+                          i.ai-circle-info.fs-lg.ms-2(data-bs-toggle=&quot;popover&quot;, data-bs-trigger=&quot;hover&quot;, data-bs-placement=&quot;right&quot;, data-bs-html=&quot;true&quot;, data-bs-content=&quot;Feature description text&quot;)
+                      td.border-0.py-3
+                        span.text-dark 2 GB
+                      td.border-0.py-3
+                        span.text-dark 30 GB
+                      td.border-0.py-3
+                        span.text-dark 10 GB
+                    tr
+                      th.border-0.text-start.pt-4.pb-3.ps-4
+                        .h5.pt-1.mb-0 Features
+                      th.border-0.py-3 &amp;nbsp;
+                      th.border-0.py-3 &amp;nbsp;
+                      th.border-0.py-3 &amp;nbsp;
+                    tr
+                      th.border-0.bg-secondary.rounded-3.rounded-end-0.text-start.py-3.ps-4
+                        span.text-body.fw-medium Web, desktop, &amp;amp; mobile apps
+                      td.border-0.bg-secondary.py-3
+                        i.ai-cross.fs-xl.text-danger
+                      td.border-0.bg-secondary.py-3
+                        i.ai-check.fs-xl.text-success
+                      td.border-0.rounded-3.rounded-start-0.bg-secondary.py-3
+                        i.ai-check.fs-xl.text-success
+                    tr
+                      th.border-0.text-start.py-3.ps-4
+                        span.d-flex.align-items-center.text-body.fw-medium
+                          | Reminders
+                          i.ai-circle-info.fs-lg.ms-2(data-bs-toggle=&quot;popover&quot;, data-bs-trigger=&quot;hover&quot;, data-bs-placement=&quot;right&quot;, data-bs-html=&quot;true&quot;, data-bs-content=&quot;Feature description text&quot;)
+                      td.border-0.py-3
+                        i.ai-check.fs-xl.text-success
+                      td.border-0.py-3
+                        i.ai-check.fs-xl.text-success
+                      td.border-0.py-3
+                        i.ai-check.fs-xl.text-success
+                    tr
+                      th.border-0.bg-secondary.rounded-3.rounded-end-0.text-start.py-3.ps-4
+                        span.text-body.fw-medium Priorities
+                      td.border-0.bg-secondary.py-3
+                        i.ai-cross.fs-xl.text-danger
+                      td.border-0.bg-secondary.py-3
+                        i.ai-check.fs-xl.text-success
+                      td.border-0.rounded-3.rounded-start-0.bg-secondary.py-3
+                        i.ai-check.fs-xl.text-success
+                    tr
+                      th.border-0.text-start.py-3.ps-4
+                        span.d-flex.align-items-center.text-body.fw-medium
+                          | Comments
+                          i.ai-circle-info.fs-lg.ms-2(data-bs-toggle=&quot;popover&quot;, data-bs-trigger=&quot;hover&quot;, data-bs-placement=&quot;right&quot;, data-bs-html=&quot;true&quot;, data-bs-content=&quot;Feature description text&quot;)
+                      td.border-0.py-3
+                        i.ai-check.fs-xl.text-success
+                      td.border-0.py-3
+                        i.ai-check.fs-xl.text-success
+                      td.border-0.py-3
+                        i.ai-check.fs-xl.text-success
+                    tr
+                      th.border-0.bg-secondary.rounded-3.rounded-end-0.text-start.py-3.ps-4
+                        span.text-body.fw-medium Integrations
+                      td.border-0.bg-secondary.py-3
+                        span.text-dark 5
+                      td.border-0.bg-secondary.py-3
+                        span.text-dark Unlimited
+                      td.border-0.rounded-3.rounded-start-0.bg-secondary.py-3
+                        span.text-dark 15
+                    tr
+                      td.border-0.pt-4 &amp;nbsp;
+                      td.border-0.pt-4
+                        button(type=&quot;button&quot;).btn.btn-outline-primary.mt-3
+                          | Get started $18
+                      td.border-0.pt-4
+                        button(type=&quot;button&quot;).btn.btn-outline-primary.mt-3
+                          | Get started $72
+                      td.border-0.pt-4
+                        button(type=&quot;button&quot;).btn.btn-outline-primary.mt-3
+                          | Get started $36
+
+  // Price switch
+  section#pricing-switch.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Price switch
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview5' data-bs-toggle='tab' role='tab' aria-controls='preview5' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html5' data-bs-toggle='tab' role='tab' aria-controls='html5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug5' data-bs-toggle='tab' role='tab' aria-controls='pug5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview5.tab-pane.fade.show.active(role='tabpanel')
+          .price-switch-wrapper.bg-secondary.p-4.m-n4.rounded-4.rounded-top-0
+            .text-center.py-3.mb-3(data-bs-toggle='price')
+              .form-check.form-check-inline.pe-4
+                input(type='radio' id='monthly' name='price' data-monthly-switch checked).form-check-input
+                label(for='monthly').form-check-label.text-dark.fs-base.fw-medium Monthly payment
+              .form-check.form-check-inline
+                input(type='radio' id='annual' name='price' data-annual-switch).form-check-input
+                label(for='annual').form-check-label.text-dark.fs-base.fw-medium Annual payment
+            .card.border-0.h-100.py-lg-3.mx-auto(style='max-width: 26rem;')
+              .card-body.w-100.mx-auto(style='max-width: 21rem;')
+                .d-flex.align-items-center.border-bottom.pb-4.mb-4
+                  .bg-info.rounded.flex-shrink-0.p-2
+                    img(src='../assets/img/landing/saas-1/pricing/starter.svg' width='44' alt='Icon').d-block.m-1
+                  .ps-3
+                    h3.h4.text-info.mb-0 Starter
+                    .d-flex.align-items-end
+                      span.h5.mb-1.me-1 $
+                      span(data-monthly-price).h2.mb-0 15.00
+                      span(data-annual-price).h2.mb-0.d-none 12.00
+                ul.list-unstyled.mb-1.pb-4
+                  li.d-flex.pb-1.mb-2
+                    i.ai-check.fs-xl.mt-1.me-2
+                    | In lorem eget amet sit
+                  li.d-flex.pb-1.mb-2
+                    i.ai-check.fs-xl.mt-1.me-2
+                    | Sodales sit velit ornare
+                  li.d-flex.pb-1.mb-2
+                    i.ai-check.fs-xl.mt-1.me-2
+                    | Tristique suspendisse proin
+                  li.d-flex.text-muted.pb-1.mb-2
+                    i.ai-cross.lead.opacity-80.me-2
+                    | Nunc nullam in dignissim
+                  li.d-flex.text-muted.pb-1.mb-2
+                    i.ai-cross.lead.opacity-80.me-2
+                    | Imperdiet amet suspendisse
+                  li.d-flex.text-muted.pb-1.mb-2
+                    i.ai-cross.lead.opacity-80.me-2
+                    | Tristique nibh erat et quis
+                button(type='button').btn.btn-outline-primary.w-100
+                  | Get this plan now
+        #html5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Pricing with monthly / anuall price switch --&gt;
+              &lt;div class=&quot;price-switch-wrapper&quot;&gt;
+
+                &lt;!-- Price switch --&gt;
+                &lt;div class=&quot;text-center py-3 mb-3&quot; data-bs-toggle=&quot;price&quot;&gt;
+                  &lt;div class=&quot;form-check form-check-inline pe-4&quot;&gt;
+                    &lt;input class=&quot;form-check-input&quot; type=&quot;radio&quot; id=&quot;monthly&quot; name=&quot;price&quot; data-monthly-switch checked&gt;
+                    &lt;label class=&quot;form-check-label text-dark fs-base fw-medium&quot; for=&quot;monthly&quot;&gt;
+                      Monthly payment
+                    &lt;/label&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;form-check form-check-inline&quot;&gt;
+                    &lt;input class=&quot;form-check-input&quot; type=&quot;radio&quot; id=&quot;annual&quot; name=&quot;price&quot; data-annual-switch&gt;
+                    &lt;label class=&quot;form-check-label text-dark fs-base fw-medium&quot; for=&quot;annual&quot;&gt;
+                      Annual payment
+                    &lt;/label&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Pricing plan --&gt;
+                &lt;div class=&quot;card border-0 h-100 py-lg-3 mx-auto&quot; style=&quot;max-width: 26rem;&quot;&gt;
+                  &lt;div class=&quot;card-body w-100 mx-auto&quot; style=&quot;max-width: 21rem;&quot;&gt;
+                    &lt;div class=&quot;d-flex align-items-center border-bottom pb-4 mb-4&quot;&gt;
+                      &lt;div class=&quot;bg-info rounded flex-shrink-0 p-2&quot;&gt;
+                        &lt;img src=&quot;assets/img/landing/saas-1/pricing/starter.svg&quot; class=&quot;d-block m-1&quot; width=&quot;44&quot; alt=&quot;Icon&quot;&gt;
+                      &lt;/div&gt;
+                      &lt;div class=&quot;ps-3&quot;&gt;
+                        &lt;h3 class=&quot;h4 text-info mb-0&quot;&gt;Starter&lt;/h3&gt;
+                        &lt;div class=&quot;d-flex align-items-end&quot;&gt;
+                          &lt;span class=&quot;h5 mb-1 me-1&quot;&gt;$&lt;/span&gt;
+                          &lt;span class=&quot;h2 mb-0&quot; data-monthly-price&gt;15.00&lt;/span&gt;
+                          &lt;span class=&quot;h2 mb-0 d-none&quot; data-annual-price&gt;12.00&lt;/span&gt;
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;ul class=&quot;list-unstyled mb-1 pb-4&quot;&gt;
+                      &lt;li class=&quot;d-flex pb-1 mb-2&quot;&gt;
+                        &lt;i class=&quot;ai-check fs-xl mt-1 me-2&quot;&gt;&lt;/i&gt;
+                        In lorem eget amet sit
+                      &lt;/li&gt;
+                      &lt;li class=&quot;d-flex pb-1 mb-2&quot;&gt;
+                        &lt;i class=&quot;ai-check fs-xl mt-1 me-2&quot;&gt;&lt;/i&gt;
+                        Sodales sit velit ornare
+                      &lt;/li&gt;
+                      &lt;li class=&quot;d-flex pb-1 mb-2&quot;&gt;
+                        &lt;i class=&quot;ai-check fs-xl mt-1 me-2&quot;&gt;&lt;/i&gt;
+                        Tristique suspendisse proin
+                      &lt;/li&gt;
+                      &lt;li class=&quot;d-flex text-muted pb-1 mb-2&quot;&gt;
+                        &lt;i class=&quot;ai-cross lead opacity-80 me-2&quot;&gt;&lt;/i&gt;
+                        Nunc nullam in dignissim
+                      &lt;/li&gt;
+                      &lt;li class=&quot;d-flex text-muted pb-1 mb-2&quot;&gt;
+                        &lt;i class=&quot;ai-cross lead opacity-80 me-2&quot;&gt;&lt;/i&gt;
+                        Imperdiet amet suspendisse
+                      &lt;/li&gt;
+                      &lt;li class=&quot;d-flex text-muted pb-1 mb-2&quot;&gt;
+                        &lt;i class=&quot;ai-cross lead opacity-80 me-2&quot;&gt;&lt;/i&gt;
+                        Tristique nibh erat et quis
+                      &lt;/li&gt;
+                    &lt;/ul&gt;
+                    &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-primary w-100&quot;&gt;
+                      Get this plan now
+                    &lt;/button&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Pricing with monthly / anuall price switch
+              .price-switch-wrapper
+
+                // Price switch
+                .text-center.py-3.mb-3(data-bs-toggle=&quot;price&quot;)
+                  .form-check.form-check-inline.pe-4
+                    input(type=&quot;radio&quot;, id=&quot;monthly&quot;, name=&quot;price&quot;, data-monthly-switch, checked).form-check-input
+                    label(for=&quot;monthly&quot;).form-check-label.text-dark.fs-base.fw-medium
+                      | Monthly payment
+                  .form-check.form-check-inline
+                    input(type=&quot;radio&quot;, id=&quot;annual&quot;, name=&quot;price&quot;, data-annual-switch).form-check-input
+                    label(for=&quot;annual&quot;).form-check-label.text-dark.fs-base.fw-medium
+                      | Annual payment
+                
+                // Pricing plan
+                .card.border-0.h-100.py-lg-3.mx-auto(style=&quot;max-width: 26rem;&quot;)
+                  .card-body.w-100.mx-auto(style=&quot;max-width: 21rem;&quot;)
+                    .d-flex.align-items-center.border-bottom.pb-4.mb-4
+                      .bg-info.rounded.flex-shrink-0.p-2
+                        img(src=&quot;assets/img/landing/saas-1/pricing/starter.svg&quot;, width=&quot;44&quot;, alt=&quot;Icon&quot;).d-block.m-1
+                      .ps-3
+                        h3.h4.text-info.mb-0 Starter
+                        .d-flex.align-items-end
+                          span.h5.mb-1.me-1 $
+                          span(data-monthly-price).h2.mb-0
+                            | 15.00
+                          span(data-annual-price).h2.mb-0.d-none
+                            | 12.00
+                    ul.list-unstyled.mb-1.pb-4
+                      li.d-flex.pb-1.mb-2
+                        i.ai-check.fs-xl.mt-1.me-2
+                        | In lorem eget amet sit
+                      li.d-flex.pb-1.mb-2
+                        i.ai-check.fs-xl.mt-1.me-2
+                        | Sodales sit velit ornare
+                      li.d-flex.pb-1.mb-2
+                        i.ai-check.fs-xl.mt-1.me-2
+                        | Tristique suspendisse proin
+                      li.d-flex.text-muted.pb-1.mb-2
+                        i.ai-cross.lead.opacity-80.me-2
+                        | Nunc nullam in dignissim
+                      li.d-flex.text-muted.pb-1.mb-2
+                        i.ai-cross.lead.opacity-80.me-2
+                        | Imperdiet amet suspendisse
+                      li.d-flex.text-muted.pb-1.mb-2
+                        i.ai-cross.lead.opacity-80.me-2
+                        | Tristique nibh erat et quis
+                    button(type=&quot;button&quot;).btn.btn-outline-primary.w-100
+                      | Get this plan now

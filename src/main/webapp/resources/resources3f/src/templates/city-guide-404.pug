@@ -1,0 +1,24 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var vendorScripts = ['@lottiefiles/lottie-player/dist/lottie-player.js']
+  - var parentMenu = 'Pages'
+  - var pageTitle = 'City Guide | 404 Not Found'
+
+//- Page Content
+block content
+
+  section.d-flex.align-items-center.min-vh-100.py-5.bg-secondary
+    .container.d-flex.justify-content-center.text-center
+      .col-lg-8.col-md-10.col-12.px-0
+        .ratio.ratio-16x9.mb-lg-5.mb-4
+          lottie-player(src='json/animation-city-guide-404.json' background='transparent' speed='1.5' loop autoplay)
+        h1.h3.pt-lg-4
+          | Sorry, the content you are looking for doesn’t exist.
+        p.lead.mb-5.pb-lg-2
+          | Either it was removed, or you mistyped the link.
+        a(href='city-guide-home-v1.html').btn.btn-lg.btn-primary.rounded-pill.w-sm-auto.w-100.mb-3.me-sm-4
+          | Go to homepage
+        a(href='city-guide-contacts.html').btn.btn-lg.btn-outline-primary.rounded-pill.w-sm-auto.w-100.mb-3
+          | Contact us

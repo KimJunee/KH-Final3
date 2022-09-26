@@ -1,0 +1,774 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css', 'vendor/prismjs/themes/prism.css', 'vendor/prismjs/plugins/toolbar/prism-toolbar.css', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js', 'vendor/prismjs/components/prism-core.min.js', 'vendor/prismjs/components/prism-markup.min.js', 'vendor/prismjs/components/prism-clike.min.js', 'vendor/prismjs/components/prism-javascript.min.js', 'vendor/prismjs/components/prism-pug.min.js', 'vendor/prismjs/plugins/toolbar/prism-toolbar.min.js', 'vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Blog components'
+  - var pageSubtitle = 'Components that are related to the blog / news section of the website.'
+  - var isPageTitleBadge = true
+  - var anchorNav = [{'title': 'Post preview (Grid)', 'link': '#blog-grid'}, {'title': 'Post preview (List)', 'link': '#blog-list'}, {'title': 'Post preview (Simple)', 'link': '#blog-simple'}, {'title': 'Featured posts widget', 'link': '#blog-posts-widget'}, {'title': 'Categories widget', 'link': '#blog-categories-widget'}, {'title': 'Author widget style 1', 'link': '#blog-author-widget-1'}, {'title': 'Author widget style 2', 'link': '#blog-author-widget-2'}, {'title': 'Post comments', 'link': '#blog-comments'}]
+    
+//- Page Content
+block content
+
+  // Post preview (Grid)
+  section#blog-grid.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Post preview (Grid)
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview1' data-bs-toggle='tab' role='tab' aria-controls='preview1' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview1.tab-pane.fade.show.active(role='tabpanel')
+          .row.row-cols-1.row-cols-md-2.g-4
+            .col
+              article.card.border-0.bg-secondary(style='max-width: 26rem;')
+                a(href='#'): img(src='../assets/img/blog/grid/01.jpg' alt='Post image').card-img-top
+                .card-body.pb-4
+                  .d-flex.align-items-center.mb-4.mt-n1
+                    span.fs-sm.text-muted 12 hours ago
+                    span.fs-xs.opacity-20.mx-3 |
+                    a(href='#').badge.text-nav.fs-xs.border Books
+                  h3.h4.card-title: a(href='#') Top books for inspiration
+                  p.card-text Vulputate auctor lacus imperdiet facilisi tristique nisl pulvinar porta diam duis odio
+                .card-footer.pt-3
+                  a(href='#').d-flex.align-items-center.text-decoration-none.pb-2
+                    img(src='../assets/img/avatar/06.jpg' width='48' alt='Post author').rounded-circle
+                    h6.ps-3.mb-0 Jenny Wilson
+            .col
+              article.card.border-0.bg-secondary(style='max-width: 26rem;')
+                .card-body.pb-4
+                  .d-flex.align-items-center.mb-4.mt-n1
+                    span.fs-sm.text-muted July 16, 2022
+                    span.fs-xs.opacity-20.mx-3 |
+                    a(href='#').badge.text-nav.fs-xs.border Inspiration
+                  h3.h4.card-title: a(href='#') How to look for inspiration for new goals
+                  p.card-text Pharetra in morbi quis is massa maecenas arcu vulputate pulvinar elit non nullage a, duis tortor mi massa ipsum in eu eu eget libero pulvinar elit vulputate...
+                .card-footer.pt-3
+                  a(href='#').d-flex.align-items-center.text-decoration-none.pb-2
+                    img(src='../assets/img/avatar/08.jpg' width='48' alt='Post author').rounded-circle
+                    h6.ps-3.mb-0 Guy Hawkins
+        #html1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Post preview card with image --&gt;
+              &lt;article class=&quot;card border-0 bg-secondary&quot;&gt;
+                &lt;a href=&quot;#&quot;&gt;
+                  &lt;img src=&quot;assets/img/blog/grid/01.jpg&quot; class=&quot;card-img-top&quot; alt=&quot;Post image&quot;&gt;
+                &lt;/a&gt;
+                &lt;div class=&quot;card-body pb-4&quot;&gt;
+                  &lt;div class=&quot;d-flex align-items-center mb-4 mt-n1&quot;&gt;
+                    &lt;span class=&quot;fs-sm text-muted&quot;&gt;12 hours ago&lt;/span&gt;
+                    &lt;span class=&quot;fs-xs opacity-20 mx-3&quot;&gt;|&lt;/span&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;badge text-nav fs-xs border&quot;&gt;Books&lt;/a&gt;
+                  &lt;/div&gt;
+                  &lt;h3 class=&quot;h4 card-title&quot;&gt;
+                    &lt;a href=&quot;#&quot;&gt;Top books for inspiration&lt;/a&gt;
+                  &lt;/h3&gt;
+                  &lt;p class=&quot;card-text&quot;&gt;Vulputate auctor lacus imperdiet facilisi tristique nisl pulvinar porta diam duis odio&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;card-footer pt-3&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;d-flex align-items-center text-decoration-none pb-2&quot;&gt;
+                    &lt;img src=&quot;assets/img/avatar/06.jpg&quot; class=&quot;rounded-circle&quot; width=&quot;48&quot; alt=&quot;Post author&quot;&gt;
+                    &lt;h6 class=&quot;ps-3 mb-0&quot;&gt;Jenny Wilson&lt;/h6&gt;
+                  &lt;/a&gt;
+                &lt;/div&gt;
+              &lt;/article&gt;
+
+              &lt;!-- Post preview card no image --&gt;
+              &lt;article class=&quot;card border-0 bg-secondary&quot;&gt;
+                &lt;div class=&quot;card-body pb-4&quot;&gt;
+                  &lt;div class=&quot;d-flex align-items-center mb-4 mt-n1&quot;&gt;
+                    &lt;span class=&quot;fs-sm text-muted&quot;&gt;July 16, 2022&lt;/span&gt;
+                    &lt;span class=&quot;fs-xs opacity-20 mx-3&quot;&gt;|&lt;/span&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;badge text-nav fs-xs border&quot;&gt;Inspiration&lt;/a&gt;
+                  &lt;/div&gt;
+                  &lt;h3 class=&quot;h4 card-title&quot;&gt;
+                    &lt;a href=&quot;#&quot;&gt;How to look for inspiration for new goals&lt;/a&gt;
+                  &lt;/h3&gt;
+                  &lt;p class=&quot;card-text&quot;&gt;Pharetra in morbi quis is massa maecenas arcu vulputate pulvinar elit non nullage a, duis tortor mi massa ipsum in eu eu eget libero pulvinar elit vulputate...&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;card-footer pt-3&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;d-flex align-items-center text-decoration-none pb-2&quot;&gt;
+                    &lt;img src=&quot;assets/img/avatar/08.jpg&quot; class=&quot;rounded-circle&quot; width=&quot;48&quot; alt=&quot;Post author&quot;&gt;
+                    &lt;h6 class=&quot;ps-3 mb-0&quot;&gt;Guy Hawkins&lt;/h6&gt;
+                  &lt;/a&gt;
+                &lt;/div&gt;
+              &lt;/article&gt;
+        #pug1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Post preview card with image
+              article.card.border-0.bg-secondary
+                a(href=&quot;#&quot;)
+                  img(src=&quot;assets/img/blog/grid/01.jpg&quot;, alt=&quot;Post image&quot;).card-img-top
+                .card-body.pb-4
+                  .d-flex.align-items-center.mb-4.mt-n1
+                    span.fs-sm.text-muted 12 hours ago
+                    span.fs-xs.opacity-20.mx-3 |
+                    a(href=&quot;#&quot;).badge.text-nav.fs-xs.border
+                      | Reading
+                  h3.h4.card-title
+                    a(href=&quot;#&quot;) Top books for inspiration
+                  p.card-text Vulputate auctor lacus imperdiet facilisi tristique nisl pulvinar porta diam duis odio
+                .card-footer.pt-3
+                  a(href=&quot;#&quot;).d-flex.align-items-center.text-decoration-none.pb-2
+                    img(src=&quot;assets/img/avatar/06.jpg&quot;, width=&quot;48&quot;, alt=&quot;Post author&quot;).rounded-circle
+                    h6.ps-3.mb-0 Jenny Wilson
+
+              // Post preview card no image
+              article.card.border-0.bg-secondary
+                .card-body.pb-4
+                  .d-flex.align-items-center.mb-4.mt-n1
+                    span.fs-sm.text-muted July 16, 2022
+                    span.fs-xs.opacity-20.mx-3 |
+                    a(href=&quot;#&quot;).badge.text-nav.fs-xs.border
+                      | Inspiration
+                  h3.h4.card-title
+                    a(href=&quot;#&quot;) How to look for inspiration for new goals
+                  p.card-text Pharetra in morbi quis is massa maecenas arcu vulputate pulvinar elit non nullage a, duis tortor mi massa ipsum in eu eu eget libero pulvinar elit vulputate...
+                .card-footer.pt-3
+                  a(href=&quot;#&quot;).d-flex.align-items-center.text-decoration-none.pb-2
+                    img(src=&quot;assets/img/avatar/08.jpg&quot;, width=&quot;48&quot;, alt=&quot;Post author&quot;).rounded-circle
+                    h6.ps-3.mb-0 Guy Hawkins
+
+  // Post preview (List)
+  section#blog-list.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Post preview (List)
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview2' data-bs-toggle='tab' role='tab' aria-controls='preview2' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview2.tab-pane.fade.show.active(role='tabpanel')
+          article.row.g-0.border-0
+            a(href='#' style='background-image: url(../assets/img/blog/list/03.jpg); min-height: 14rem').col-sm-5.bg-repeat-0.bg-size-cover.bg-position-center.rounded-5
+            .col-sm-7
+              .pt-4.pb-sm-4.ps-sm-4.pe-lg-4
+                h3: a(href='#') Destinations to inspire and restore resources
+                p.d-sm-none.d-md-block Sapien ultrices egestas at faucibus eu diam velit diam id amet nibh quam rutrum diam fermentum diam natoque scelerisque viverra molestie fames...
+                .d-flex.flex-wrap.align-items-center.mt-n2
+                  a(href='#').nav-link.text-muted.fs-sm.fw-normal.p-0.mt-2.me-3
+                    | 8
+                    i.ai-share.fs-lg.ms-1
+                  a(href='#').nav-link.text-muted.fs-sm.fw-normal.d-flex.align-items-end.p-0.mt-2
+                    | 2
+                    i.ai-message.fs-lg.ms-1
+                  span.fs-xs.opacity-20.mt-2.mx-3 |
+                  span.fs-sm.text-muted.mt-2 16 hours ago
+                  span.fs-xs.opacity-20.mt-2.mx-3 |
+                  a(href='#').badge.text-nav.fs-xs.border.mt-2 Travel
+        #html2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Post preview card horizontal (List view) --&gt;
+              &lt;article class=&quot;row g-0 border-0&quot;&gt;
+                &lt;a href=&quot;#&quot; class=&quot;col-sm-5 bg-repeat-0 bg-size-cover bg-position-center rounded-5&quot; style=&quot;background-image: url(assets/img/blog/list/03.jpg); min-height: 14rem&quot;&gt;&lt;/a&gt;
+                &lt;div class=&quot;col-sm-7&quot;&gt;
+                  &lt;div class=&quot;pt-4 pb-sm-4 ps-sm-4 pe-lg-4&quot;&gt;
+                    &lt;h3&gt;
+                      &lt;a href=&quot;#&quot;&gt;Destinations to inspire and restore resources&lt;/a&gt;
+                    &lt;/h3&gt;
+                    &lt;p class=&quot;d-sm-none d-md-block&quot;&gt;Sapien ultrices egestas at faucibus eu diam velit diam id amet nibh quam rutrum diam fermentum diam natoque scelerisque viverra molestie fames...&lt;/p&gt;
+                    &lt;div class=&quot;d-flex flex-wrap align-items-center mt-n2&quot;&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;nav-link text-muted fs-sm fw-normal p-0 mt-2 me-3&quot;&gt;
+                        8
+                        &lt;i class=&quot;ai-share fs-lg ms-1&quot;&gt;&lt;/i&gt;
+                      &lt;/a&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;nav-link text-muted fs-sm fw-normal d-flex align-items-end p-0 mt-2&quot;&gt;
+                        2
+                        &lt;i class=&quot;ai-message fs-lg ms-1&quot;&gt;&lt;/i&gt;
+                      &lt;/a&gt;
+                      &lt;span class=&quot;fs-xs opacity-20 mt-2 mx-3&quot;&gt;|&lt;/span&gt;
+                      &lt;span class=&quot;fs-sm text-muted mt-2&quot;&gt;16 hours ago&lt;/span&gt;
+                      &lt;span class=&quot;fs-xs opacity-20 mt-2 mx-3&quot;&gt;|&lt;/span&gt;
+                      &lt;a href=&quot;#&quot; class=&quot;badge text-nav fs-xs border mt-2&quot;&gt;Travel&lt;/a&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/article&gt;
+        #pug2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Post preview card horizontal (List view)
+              article.row.g-0.border-0
+                a(href=&quot;#&quot;, style=&quot;background-image: url(assets/img/blog/list/03.jpg); min-height: 14rem&quot;).col-sm-5.bg-repeat-0.bg-size-cover.bg-position-center.rounded-5
+                .col-sm-7
+                  .pt-4.pb-sm-4.ps-sm-4.pe-lg-4
+                    h3
+                      a(href=&quot;#&quot;) Destinations to inspire and restore resources
+                    p.d-sm-none.d-md-block Sapien ultrices egestas at faucibus eu diam velit diam id amet nibh quam rutrum diam fermentum diam natoque scelerisque viverra molestie fames...
+                    .d-flex.flex-wrap.align-items-center.mt-n2
+                      a(href=&quot;#&quot;).nav-link.text-muted.fs-sm.fw-normal.p-0.mt-2.me-3
+                        | 8
+                        i.ai-share.fs-lg.ms-1
+                      a(href=&quot;#&quot;).nav-link.text-muted.fs-sm.fw-normal.d-flex.align-items-end.p-0.mt-2
+                        | 2
+                        i.ai-message.fs-lg.ms-1
+                      span.fs-xs.opacity-20.mt-2.mx-3 |
+                      span.fs-sm.text-muted.mt-2 16 hours ago
+                      span.fs-xs.opacity-20.mt-2.mx-3 |
+                      a(href=&quot;#&quot;).badge.text-nav.fs-xs.border.mt-2
+                        | Travel
+
+  // Post preview (Simple)
+  section#blog-simple.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Post preview (Simple)
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview3' data-bs-toggle='tab' role='tab' aria-controls='preview3' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview3.tab-pane.fade.show.active(role='tabpanel')
+          article.position-relative(style='max-width: 26rem;')
+            img(src='../assets/img/blog/list/06.jpg' alt='Post image').rounded-5
+            h3.h4.mt-4.mb-0
+              a(href='#').stretched-link A session with a psychologist as a personal choice or a fashion trend in society
+        #html3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Simple post preview card --&gt;
+              &lt;article class=&quot;position-relative&quot;&gt;
+                &lt;img src=&quot;assets/img/blog/list/06.jpg&quot; class=&quot;rounded-5&quot; alt=&quot;Post image&quot;&gt;
+                &lt;h3 class=&quot;h4 mt-4 mb-0&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;stretched-link&quot;&gt;A session with a psychologist as a personal choice or a fashion trend in society&lt;/a&gt;
+                &lt;/h3&gt;
+              &lt;/article&gt;
+        #pug3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Simple post preview card
+              article.position-relative
+                img(src=&quot;assets/img/blog/list/06.jpg&quot;, alt=&quot;Post image&quot;).rounded-5
+                h3.h4.mt-4.mb-0
+                  a(href=&quot;#&quot;).stretched-link
+                    | A session with a psychologist as a personal choice or a fashion trend in society
+
+  // Featured posts widget
+  section#blog-posts-widget.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Featured posts widget
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview4' data-bs-toggle='tab' role='tab' aria-controls='preview4' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview4.tab-pane.fade.show.active(role='tabpanel' style='max-width: 310px;')
+          h3.h4.pb-1 Trending posts:
+          article.position-relative.d-flex.align-items-center.mb-4
+            img(src='../assets/img/blog/sidebar/01.jpg' width='92' alt='Post image').rounded
+            .ps-3
+              h4.h6.mb-2
+                a(href='#').stretched-link Instagram trends that will definitely work
+              span.fs-sm.text-muted 13 hours ago
+          article.position-relative.d-flex.align-items-center.mb-4
+            img(src='../assets/img/blog/sidebar/02.jpg' width='92' alt='Post image').rounded
+            .ps-3
+              h4.h6.mb-2
+                a(href='#').stretched-link A session with a psychologist
+              span.fs-sm.text-muted May 12, 2022
+          article.position-relative.d-flex.align-items-center
+            img(src='../assets/img/blog/sidebar/03.jpg' width='92' alt='Post image').rounded
+            .ps-3
+              h4.h6.mb-2
+                a(href='#').stretched-link How to look for inspiration for new goals
+              span.fs-sm.text-muted June 10, 2022
+        #html4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Featureed posts widget for sidebar area --&gt;
+              &lt;h3 class=&quot;h4 pb-1&quot;&gt;Trending posts:&lt;/h3&gt;
+
+              &lt;!-- Item --&gt;
+              &lt;article class=&quot;position-relative d-flex align-items-center mb-4&quot;&gt;
+                &lt;img src=&quot;assets/img/blog/sidebar/01.jpg&quot; class=&quot;rounded&quot; width=&quot;92&quot; alt=&quot;Post image&quot;&gt;
+                &lt;div class=&quot;ps-3&quot;&gt;
+                  &lt;h4 class=&quot;h6 mb-2&quot;&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;stretched-link&quot;&gt;Instagram trends that will definitely work&lt;/a&gt;
+                  &lt;/h4&gt;
+                  &lt;span class=&quot;fs-sm text-muted&quot;&gt;13 hours ago&lt;/span&gt;
+                &lt;/div&gt;
+              &lt;/article&gt;
+
+              &lt;!-- Item --&gt;
+              &lt;article class=&quot;position-relative d-flex align-items-center mb-4&quot;&gt;
+                &lt;img src=&quot;assets/img/blog/sidebar/02.jpg&quot; class=&quot;rounded&quot; width=&quot;92&quot; alt=&quot;Post image&quot;&gt;
+                &lt;div class=&quot;ps-3&quot;&gt;
+                  &lt;h4 class=&quot;h6 mb-2&quot;&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;stretched-link&quot;&gt;A session with a psychologist&lt;/a&gt;
+                  &lt;/h4&gt;
+                  &lt;span class=&quot;fs-sm text-muted&quot;&gt;May 12, 2022&lt;/span&gt;
+                &lt;/div&gt;
+              &lt;/article&gt;
+
+              &lt;!-- Item --&gt;
+              &lt;article class=&quot;position-relative d-flex align-items-center&quot;&gt;
+                &lt;img src=&quot;assets/img/blog/sidebar/03.jpg&quot; class=&quot;rounded&quot; width=&quot;92&quot; alt=&quot;Post image&quot;&gt;
+                &lt;div class=&quot;ps-3&quot;&gt;
+                  &lt;h4 class=&quot;h6 mb-2&quot;&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;stretched-link&quot;&gt;How to look for inspiration for new goals&lt;/a&gt;
+                  &lt;/h4&gt;
+                  &lt;span class=&quot;fs-sm text-muted&quot;&gt;June 10, 2022&lt;/span&gt;
+                &lt;/div&gt;
+              &lt;/article&gt;
+        #pug4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Featureed posts widget for sidebar area
+              h3.h4.pb-1 Trending posts:
+
+              // Item
+              article.position-relative.d-flex.align-items-center.mb-4
+                img(src=&quot;assets/img/blog/sidebar/01.jpg&quot;, width=&quot;92&quot;, alt=&quot;Post image&quot;).rounded
+                .ps-3
+                  h4.h6.mb-2
+                    a(href=&quot;#&quot;).stretched-link
+                      | Instagram trends that will definitely work
+                  span.fs-sm.text-muted 13 hours ago
+              
+              // Item
+              article.position-relative.d-flex.align-items-center.mb-4
+                img(src=&quot;assets/img/blog/sidebar/02.jpg&quot;, width=&quot;92&quot;, alt=&quot;Post image&quot;).rounded
+                .ps-3
+                  h4.h6.mb-2
+                    a(href=&quot;#&quot;).stretched-link
+                      | A session with a psychologist
+                  span.fs-sm.text-muted May 12, 2022
+
+              // Item
+              article.position-relative.d-flex.align-items-center
+                img(src=&quot;assets/img/blog/sidebar/03.jpg&quot;, width=&quot;92&quot;, alt=&quot;Post image&quot;).rounded
+                .ps-3
+                  h4.h6.mb-2
+                    a(href=&quot;#&quot;).stretched-link
+                      | How to look for inspiration for new goals
+                  span.fs-sm.text-muted June 10, 2022
+
+  // Categories widget
+  section#blog-categories-widget.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Categories widget
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview5' data-bs-toggle='tab' role='tab' aria-controls='preview5' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html5' data-bs-toggle='tab' role='tab' aria-controls='html5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug5' data-bs-toggle='tab' role='tab' aria-controls='pug5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview5.tab-pane.fade.show.active(role='tabpanel' style='max-width: 310px;')
+          h3.h4 Categories:
+          ul.nav.flex-column
+            li.mb-2
+              a(href='#').nav-link.d-flex.p-0.active
+                | All categories
+                span.fs-sm.text-muted.ms-2 (110)
+            li.mb-2
+              a(href='#').nav-link.d-flex.p-0
+                | Inspiration
+                span.fs-sm.text-muted.ms-2 (34)
+            li.mb-2
+              a(href='#').nav-link.d-flex.p-0
+                | Brand strategy
+                span.fs-sm.text-muted.ms-2 (8)
+            li.mb-2
+              a(href='#').nav-link.d-flex.p-0
+                | Advertisement
+                span.fs-sm.text-muted.ms-2 (45)
+            li.mb-2
+              a(href='#').nav-link.d-flex.p-0
+                | Ecommerce
+                span.fs-sm.text-muted.ms-2 (17)
+            li
+              a(href='#').nav-link.d-flex.p-0
+                | Travel &amp; Vacation
+                span.fs-sm.text-muted.ms-2 (6)
+        #html5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- List of categories links with count --&gt;
+              &lt;h3 class=&quot;h4&quot;&gt;Categories:&lt;/h3&gt;
+              &lt;ul class=&quot;nav flex-column&quot;&gt;
+                &lt;li class=&quot;mb-2&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link d-flex p-0 active&quot;&gt;
+                    All categories
+                    &lt;span class=&quot;fs-sm text-muted ms-2&quot;&gt;(110)&lt;/span&gt;
+                  &lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;mb-2&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link d-flex p-0&quot;&gt;
+                    Inspiration
+                    &lt;span class=&quot;fs-sm text-muted ms-2&quot;&gt;(34)&lt;/span&gt;
+                  &lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;mb-2&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link d-flex p-0&quot;&gt;
+                    Brand strategy
+                    &lt;span class=&quot;fs-sm text-muted ms-2&quot;&gt;(8)&lt;/span&gt;
+                  &lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;mb-2&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link d-flex p-0&quot;&gt;
+                    Advertisement
+                    &lt;span class=&quot;fs-sm text-muted ms-2&quot;&gt;(45)&lt;/span&gt;
+                  &lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;mb-2&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link d-flex p-0&quot;&gt;
+                    Ecommerce
+                    &lt;span class=&quot;fs-sm text-muted ms-2&quot;&gt;(17)&lt;/span&gt;
+                  &lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link d-flex p-0&quot;&gt;
+                    Travel &amp;amp; Vacation
+                    &lt;span class=&quot;fs-sm text-muted ms-2&quot;&gt;(6)&lt;/span&gt;
+                  &lt;/a&gt;
+                &lt;/li&gt;
+              &lt;/ul&gt;
+        #pug5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // List of categories links with count
+              h3.h4 Categories:
+              ul.nav.flex-column
+                li.mb-2
+                  a(href=&quot;#&quot;).nav-link.d-flex.p-0.active
+                    | All categories
+                    span.fs-sm.text-muted.ms-2 (110)
+                li.mb-2
+                  a(href=&quot;#&quot;).nav-link.d-flex.p-0
+                    | Inspiration
+                    span.fs-sm.text-muted.ms-2 (34)
+                li.mb-2
+                  a(href=&quot;#&quot;).nav-link.d-flex.p-0
+                    | Brand strategy
+                    span.fs-sm.text-muted.ms-2 (8)
+                li.mb-2
+                  a(href=&quot;#&quot;).nav-link.d-flex.p-0
+                    | Advertisement
+                    span.fs-sm.text-muted.ms-2 (45)
+                li.mb-2
+                  a(href=&quot;#&quot;).nav-link.d-flex.p-0
+                    | Ecommerce
+                    span.fs-sm.text-muted.ms-2 (17)
+                li
+                  a(href=&quot;#&quot;).nav-link.d-flex.p-0
+                    | Travel &amp;amp; Vacation
+                    span.fs-sm.text-muted.ms-2 (6)
+
+  // Author widget style 1
+  section#blog-author-widget-1.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Author widget style 1
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview6' data-bs-toggle='tab' role='tab' aria-controls='preview6' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html6' data-bs-toggle='tab' role='tab' aria-controls='html6' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug6' data-bs-toggle='tab' role='tab' aria-controls='pug6' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview6.tab-pane.fade.show.active(role='tabpanel')
+          .card.border-0.bg-secondary(style='max-width: 306px;')
+            .card-body.text-center
+              img(src='../assets/img/avatar/03.jpg' width='80' alt='Author image').d-block.rounded-circle.mx-auto.mb-3
+              h3.h5.mb-2.pb-1 Darlene Robertson
+              p.fs-sm.mb-4 Duis consectetur quis enim iaculis eu sagittis posuere imperdiet
+              a(href='#').btn.btn-outline-primary.btn-sm Follow the author
+        #html6.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Author card widget style 1 --&gt;
+              &lt;div class=&quot;card border-0 bg-secondary&quot;&gt;
+                &lt;div class=&quot;card-body text-center&quot;&gt;
+                  &lt;img src=&quot;assets/img/avatar/03.jpg&quot; class=&quot;d-block rounded-circle mx-auto mb-3&quot; width=&quot;80&quot; alt=&quot;Author image&quot;&gt;
+                  &lt;h3 class=&quot;h5 mb-2 pb-1&quot;&gt;Darlene Robertson&lt;/h3&gt;
+                  &lt;p class=&quot;fs-sm mb-4&quot;&gt;Duis consectetur quis enim iaculis eu sagittis posuere imperdiet&lt;/p&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-primary btn-sm&quot;&gt;
+                    Follow the author
+                  &lt;/a&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug6.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Author card widget style 1
+              .card.border-0.bg-secondary
+                .card-body.text-center
+                  img(src=&quot;assets/img/avatar/03.jpg&quot;, width=&quot;80&quot;, alt=&quot;Author image&quot;).d-block.rounded-circle.mx-auto.mb-3
+                  h3.h5.mb-2.pb-1 Darlene Robertson
+                  p.fs-sm.mb-4 Duis consectetur quis enim iaculis eu sagittis posuere imperdiet
+                  a(href=&quot;#&quot;).btn.btn-outline-primary.btn-sm
+                    | Follow the author
+
+  // Author widget style 2
+  section#blog-author-widget-2.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Author widget style 2
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview7' data-bs-toggle='tab' role='tab' aria-controls='preview7' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html7' data-bs-toggle='tab' role='tab' aria-controls='html7' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug7' data-bs-toggle='tab' role='tab' aria-controls='pug7' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview7.tab-pane.fade.show.active(role='tabpanel')
+          .border-top.border-bottom.py-4
+            .d-flex.align-items-start.py-2
+              img(src='../assets/img/avatar/04.jpg' width='56' alt='Author image').d-block.rounded-circle.mb-3
+              .d-md-flex.w-100.ps-4
+                div(style='max-width: 26rem;')
+                  h3.h5.mb-2 Darlene Robertson
+                  p.fs-sm.mb-0 Porta nisl a ultrices ut libero id. Gravida mi neque, tristique justo, et pharetra laoreet nulla est nulla cras ac arcu sed mattis tristique convallis suspen enim blandit massa cursus augue dui mattis morbi velit semper nunc at etiam lacinia.
+                .pt-4.pt-md-0.ps-md-4.ms-md-auto
+                  h3.h5 Share post:
+                  .d-flex
+                    a(href='#' data-bs-toggle='tooltip' data-bs-placement='bottom' title='Instagram').nav-link.p-2.me-2
+                      i.ai-instagram
+                    a(href='#' data-bs-toggle='tooltip' data-bs-placement='bottom' title='Facebook').nav-link.p-2.me-2
+                      i.ai-facebook
+                    a(href='#' data-bs-toggle='tooltip' data-bs-placement='bottom' title='Telegram').nav-link.p-2.me-2
+                      i.ai-telegram.fs-sm
+                    a(href='#' data-bs-toggle='tooltip' data-bs-placement='bottom' title='Twitter').nav-link.p-2
+                      i.ai-twitter
+        #html7.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Author card widget style 2 --&gt;
+              &lt;div class=&quot;border-top border-bottom py-4&quot;&gt;
+                &lt;div class=&quot;d-flex align-items-start py-2&quot;&gt;
+                  &lt;img src=&quot;assets/img/avatar/04.jpg&quot; class=&quot;d-block rounded-circle mb-3&quot; width=&quot;56&quot; alt=&quot;Author image&quot;&gt;
+                  &lt;div class=&quot;d-md-flex w-100 ps-4&quot;&gt;
+                    &lt;div style=&quot;max-width: 26rem;&quot;&gt;
+                      &lt;h3 class=&quot;h5 mb-2&quot;&gt;Darlene Robertson&lt;/h3&gt;
+                      &lt;p class=&quot;fs-sm mb-0&quot;&gt;Porta nisl a ultrices ut libero id. Gravida mi neque, tristique justo, et pharetra laoreet nulla est nulla cras ac arcu sed mattis tristique convallis suspen enim blandit massa cursus augue dui mattis morbi velit semper nunc at etiam lacinia.&lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;pt-4 pt-md-0 ps-md-4 ms-md-auto&quot;&gt;
+                      &lt;h3 class=&quot;h5&quot;&gt;Share post:&lt;/h3&gt;
+                      &lt;div class=&quot;d-flex&quot;&gt;
+                        &lt;a href=&quot;#&quot; class=&quot;nav-link p-2 me-2&quot; data-bs-toggle=&quot;tooltip&quot; data-bs-placement=&quot;bottom&quot; title=&quot;Instagram&quot;&gt;
+                          &lt;i class=&quot;ai-instagram&quot;&gt;&lt;/i&gt;
+                        &lt;/a&gt;
+                        &lt;a href=&quot;#&quot; class=&quot;nav-link p-2 me-2&quot; data-bs-toggle=&quot;tooltip&quot; data-bs-placement=&quot;bottom&quot; title=&quot;Facebook&quot;&gt;
+                          &lt;i class=&quot;ai-facebook&quot;&gt;&lt;/i&gt;
+                        &lt;/a&gt;
+                        &lt;a href=&quot;#&quot; class=&quot;nav-link p-2 me-2&quot; data-bs-toggle=&quot;tooltip&quot; data-bs-placement=&quot;bottom&quot; title=&quot;Telegram&quot;&gt;
+                          &lt;i class=&quot;ai-telegram fs-sm&quot;&gt;&lt;/i&gt;
+                        &lt;/a&gt;
+                        &lt;a href=&quot;#&quot; class=&quot;nav-link p-2&quot; data-bs-toggle=&quot;tooltip&quot; data-bs-placement=&quot;bottom&quot; title=&quot;Twitter&quot;&gt;
+                          &lt;i class=&quot;ai-twitter&quot;&gt;&lt;/i&gt;
+                        &lt;/a&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug7.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Author card widget style 2
+              .border-top.border-bottom.py-4
+                .d-flex.align-items-start.py-2
+                  img(src=&quot;assets/img/avatar/04.jpg&quot;, width=&quot;56&quot;, alt=&quot;Author image&quot;).d-block.rounded-circle.mb-3
+                  .d-md-flex.w-100.ps-4
+                    div(style=&quot;max-width: 26rem;&quot;)
+                      h3.h5.mb-2 Darlene Robertson
+                      p.fs-sm.mb-0 Porta nisl a ultrices ut libero id. Gravida mi neque, tristique justo, et pharetra laoreet nulla est nulla cras ac arcu sed mattis tristique convallis suspen enim blandit massa cursus augue dui mattis morbi velit semper nunc at etiam lacinia.
+                    .pt-4.pt-md-0.ps-md-4.ms-md-auto
+                      h3.h5 Share post:
+                      .d-flex
+                        a(href=&quot;#&quot;, data-bs-toggle=&quot;tooltip&quot;, data-bs-placement=&quot;bottom&quot;, title=&quot;Instagram&quot;).nav-link.p-2.me-2
+                          i.ai-instagram
+                        a(href=&quot;#&quot;, data-bs-toggle=&quot;tooltip&quot;, data-bs-placement=&quot;bottom&quot;, title=&quot;Facebook&quot;).nav-link.p-2.me-2
+                          i.ai-facebook
+                        a(href=&quot;#&quot;, data-bs-toggle=&quot;tooltip&quot;, data-bs-placement=&quot;bottom&quot;, title=&quot;Telegram&quot;).nav-link.p-2.me-2
+                          i.ai-telegram.fs-sm
+                        a(href=&quot;#&quot;, data-bs-toggle=&quot;tooltip&quot;, data-bs-placement=&quot;bottom&quot;, title=&quot;Twitter&quot;).nav-link.p-2
+                          i.ai-twitter
+
+  // Post comments
+  section#blog-comments.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Post comments
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview8' data-bs-toggle='tab' role='tab' aria-controls='preview8' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html8' data-bs-toggle='tab' role='tab' aria-controls='html8' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug8' data-bs-toggle='tab' role='tab' aria-controls='pug8' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview8.tab-pane.fade.show.active(role='tabpanel')
+          .border-bottom.pb-4
+            .d-flex.align-items-center.pb-1.mb-3
+              img(src='../assets/img/avatar/11.jpg' width='48' alt='Comment author').rounded-circle
+              .ps-3
+                h6.mb-0 Jenny Wilson
+                span.fs-sm.text-muted 2 days ago at 9:20
+            p.pb-2.mb-0 Pellentesque urna pharetra, quis maecenas. Sit dolor amet nulla aenean eu, ac. Nisl mi tempus, iaculis viverra vestibulum scelerisque imperdiet montes mauris massa elit pretium elementum eget tortor quis
+            button(type='button').nav-link.fs-sm.fw-semibold.px-0.py-2
+              | Reply
+              i.ai-redo.fs-xl.ms-2
+            .card.card-body.border-0.bg-secondary.mt-4
+              .d-flex.align-items-center.pb-1.mb-3
+                img(src='../assets/img/avatar/10.jpg' width='48' alt='Comment author').rounded-circle
+                .ps-3
+                  h6.mb-0 Ralph Edwards
+                  span.fs-sm.text-muted 2 days ago at 11:45
+              p.mb-0
+                a(href='#').fw-bold.text-decoration-none @Jenny Wilson
+                |  Massa morbi duis et ornare urna dictum vestibulum pulvinar nunc facilisis ornare id at at ut arcu integer tristique placerat non turpis nibh turpis ullamcorper est porttitor.
+        #html8.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Comment --&gt;
+              &lt;div class=&quot;border-bottom pb-4&quot;&gt;
+                &lt;div class=&quot;d-flex align-items-center pb-1 mb-3&quot;&gt;
+                  &lt;img src=&quot;assets/img/avatar/11.jpg&quot; class=&quot;rounded-circle&quot; width=&quot;48&quot; alt=&quot;Comment author&quot;&gt;
+                  &lt;div class=&quot;ps-3&quot;&gt;
+                    &lt;h6 class=&quot;mb-0&quot;&gt;Jenny Wilson&lt;/h6&gt;
+                    &lt;span class=&quot;fs-sm text-muted&quot;&gt;2 days ago at 9:20&lt;/span&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;p class=&quot;pb-2 mb-0&quot;&gt;Pellentesque urna pharetra, quis maecenas. Sit dolor amet nulla aenean eu, ac. Nisl mi tempus, iaculis viverra vestibulum scelerisque imperdiet montes mauris massa elit pretium elementum eget tortor quis&lt;/p&gt;
+                &lt;button type=&quot;button&quot; class=&quot;nav-link fs-sm fw-semibold px-0 py-2&quot;&gt;
+                  Reply
+                  &lt;i class=&quot;ai-redo fs-xl ms-2&quot;&gt;&lt;/i&gt;
+                &lt;/button&gt;
+
+                &lt;!-- Comment reply --&gt;
+                &lt;div class=&quot;card card-body border-0 bg-secondary mt-4&quot;&gt;
+                  &lt;div class=&quot;d-flex align-items-center pb-1 mb-3&quot;&gt;
+                    &lt;img src=&quot;assets/img/avatar/10.jpg&quot; class=&quot;rounded-circle&quot; width=&quot;48&quot; alt=&quot;Comment author&quot;&gt;
+                    &lt;div class=&quot;ps-3&quot;&gt;
+                      &lt;h6 class=&quot;mb-0&quot;&gt;Ralph Edwards&lt;/h6&gt;
+                      &lt;span class=&quot;fs-sm text-muted&quot;&gt;2 days ago at 11:45&lt;/span&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;p class=&quot;mb-0&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;fw-bold text-decoration-none&quot;&gt;@Jenny Wilson&lt;/a&gt; Massa morbi duis et ornare urna dictum vestibulum pulvinar nunc facilisis ornare id at at ut arcu integer tristique placerat non turpis nibh turpis ullamcorper est porttitor.&lt;/p&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug8.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Comment
+              .border-bottom.pt-2.pb-4.mb-4
+                .d-flex.align-items-center.pb-1.mb-3
+                  img(src=&quot;assets/img/avatar/11.jpg&quot;, width=&quot;48&quot;, alt=&quot;Comment author&quot;).rounded-circle
+                  .ps-3
+                    h6.mb-0 Jenny Wilson
+                    span.fs-sm.text-muted 2 days ago at 9:20
+                p.pb-2.mb-0 Pellentesque urna pharetra, quis maecenas. Sit dolor amet nulla aenean eu, ac. Nisl mi tempus, iaculis viverra vestibulum scelerisque imperdiet montes mauris massa elit pretium elementum eget tortor quis
+                button(type=&quot;button&quot;).nav-link.fs-sm.fw-semibold.px-0.py-2
+                  | Reply
+                  i.ai-redo.fs-xl.ms-2
+
+                // Comment reply
+                .card.card-body.border-0.bg-secondary.mt-4
+                  .d-flex.align-items-center.pb-1.mb-3
+                    img(src=&quot;assets/img/avatar/10.jpg&quot;, width=&quot;48&quot;, alt=&quot;Comment author&quot;).rounded-circle
+                    .ps-3
+                      h6.mb-0 Ralph Edwards
+                      span.fs-sm.text-muted 2 days ago at 11:45
+                  p.mb-0
+                    a(href=&quot;#&quot;).fw-bold.text-decoration-none
+                      | @Jenny Wilson
+                    |  Massa morbi duis et ornare urna dictum vestibulum pulvinar nunc facilisis ornare id at at ut arcu integer tristique placerat non turpis nibh turpis ullamcorper est porttitor.

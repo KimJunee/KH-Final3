@@ -1,0 +1,32 @@
+//- Search modal
+#searchModal.modal.fade(tabindex='-1' role='dialog' data-focus-input='#search')
+  .modal-dialog.modal-dialog-scrollable(role='document')
+    .modal-content
+      .modal-header.d-block.position-relative.border-0.pb-3
+        form.position-relative.w-100.mt-2.mb-4
+          button(type='reset' data-bs-dismiss='modal').btn-close.position-absolute.top-50.end-0.translate-middle-y.m-0.me-n1
+          i.ai-search.fs-xl.position-absolute.top-50.start-0.translate-middle-y.ms-3
+          input(type='search' placeholder='Type to search' data-focus-on-open='["modal", "#searchModal"]').form-control.form-control-lg.px-5
+        .fs-xs.fw-medium.text-muted.text-uppercase Suggestions
+      .modal-body.pt-3
+        .d-flex.align-items-center.border-bottom.pb-4.mb-4
+          a(href='shop-single.html').position-relative.d-inline-block.flex-shrink-0.bg-secondary.rounded-1
+            span.badge.bg-success.position-absolute.top-0.start-100.translate-middle.ms-n1 Shop
+            img(src='assets/img/shop/cart/01.png' width='90' alt='Product')
+          .ps-3
+            h4.h6.mb-2: a(href='shop-single.html') Candle in concrete bowl
+            span.mb-0.me-2 $11.00
+            del.fs-sm.text-muted.ms-auto $15.00
+        .d-flex.align-items-center.border-bottom.pb-4.mb-4
+          a(href='#').position-relative.d-inline-block.flex-shrink-0
+            span.badge.bg-info.position-absolute.top-0.start-100.translate-middle.ms-n1 Blog
+            img(src='assets/img/landing/shop/instagram/02.jpg' width='90' alt='Post').rounded-1
+          .ps-3
+            h4.h6.mb-0: a(href='#') Bedroom decoration explained. Tips &amp; tricks from the field experts.
+        .d-flex.align-items-center
+          a(href='shop-single.html').position-relative.d-inline-block.flex-shrink-0.bg-secondary.rounded-1
+            span.badge.bg-success.position-absolute.top-0.start-100.translate-middle.ms-n1 Shop
+            img(src='assets/img/shop/cart/02.png' width='90' alt='Product')
+          .ps-3
+            h4.h6.mb-2: a(href='shop-single.html') Exquisite glass vase
+            span.mb-0.me-2 $23.00

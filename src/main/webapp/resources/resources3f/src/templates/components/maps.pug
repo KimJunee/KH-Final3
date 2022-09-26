@@ -1,0 +1,194 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['prismjs/themes/prism.css', 'prismjs/plugins/toolbar/prism-toolbar.css', 'prismjs/plugins/line-numbers/prism-line-numbers.css', 'leaflet/dist/leaflet.css']
+  - var vendorScripts = ['prismjs/components/prism-core.min.js', 'prismjs/components/prism-markup.min.js', 'prismjs/components/prism-clike.min.js', 'prismjs/components/prism-javascript.min.js', 'prismjs/components/prism-pug.min.js', 'prismjs/plugins/toolbar/prism-toolbar.min.js', 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'prismjs/plugins/line-numbers/prism-line-numbers.min.js', 'leaflet/dist/leaflet.js']
+  - var pageTitle = 'Interactive maps'
+  - var pageSubtitle = 'Mobile-friendly interactive maps powered by Leaflet.js.'
+  - var isPageTitleBadge = true
+  - var anchorNav = [{'title': 'Basic example (no options passed)', 'link': '#map-basic'}, {'title': 'Inline options: Default marker + alternative map style', 'link': '#map-inline-options-1'}, {'title': 'Inline options: Dot markers + popups', 'link': '#map-inline-options-2'}, {'title': 'Complex options via external local .json file', 'link': '#map-external-options'}]
+  
+//- Page Content
+block content
+
+  .alert.alert-info.mb-4(role='alert')
+    .d-flex
+      i.fi-alert-circle.lead.me-2.me-sm-3
+      .text-break
+        p.mb-1 In order to display maps on the page you need to include <strong>Leaflet css and js</strong> files in your document: <strong>vendor/leaflet/dist/leaflet.css</strong> and <strong>vendor/leaflet/dist/leaflet.js</strong>. See details below or use this page as a reference.
+
+  //-- Styles For Demo purpose only
+  style.
+    .example-code {
+      padding-top: 0 !important;
+    }
+    div.code-toolbar > .example-code + .toolbar {
+      display: none;
+    }
+  //-- End of styles
+  .bg-dark.rounded.p-4.mb-5
+    h5.fs-base.text-light Basic markup
+    h6.fs-sm.fw-bold.text-light Inline options:
+    pre.example-code
+      code(class='lang-html').
+        &lt;div class=&quot;interactive-map&quot; style=&quot;height: 300px;&quot; data-map-options='{&lt;!--json options goes here--&gt;}'&gt;&lt;/div&gt;
+    h6.fs-sm.fw-bold.text-light External local JSON file:
+    pre.example-code
+      code(class='lang-html').
+        &lt;div class=&quot;interactive-map&quot; style=&quot;height: 300px;&quot; data-map-options-json='{&lt;!--link to external local .json file--&gt;}'&gt;&lt;/div&gt;
+    h5.fs-base.text-light Data API:
+    code.fs-sm data-map-options = '{}'
+    | :
+    ul.list-unstyled.fs-sm.mb-0
+      li
+        code "mapLayer": "https://..." (link to API)
+        span.text-light &nbsp;- <span class='opacity-70'>This is a visual style (layer) of your map. We used <strong>Maptiler</strong> in this template to get map skins:</span> <a href='https://cloud.maptiler.com/maps' class='text-light' target='_blank' rel='noopener'>https://cloud.maptiler.com/maps</a>. <span class='opacity-70'>Choose the skin you like. Make sure to copy Raster tiles (HiDPI) link and pass it to "mapLayer" property.</span>
+      li
+        code "coordinates": [51.5, -0.09]
+        span.text-light.opacity-70 &nbsp;- An array of 2 values: latitude and longitude.
+      li
+        code "zoom": 1
+        span.text-light.opacity-70 &nbsp;- Sets the zoom (scale) of the map. Default value: 1
+      li
+        code "markers": [{...}, {...}]
+        span.text-light.opacity-70 &nbsp;- Array of objects. Each object is an individual marker. You can set as many markers as you need on a single map.
+      li
+        pre.example-code.pb-0
+          code.
+            "markers": [
+              {
+                "coordinates": [51.5, -0.09],
+                "iconUrl": "path-to-map-marker-icon.png",
+                "className": null || "custom-marker-icon" || "custom-marker-dot",
+                "popup": "&lt;div class='p-3'&gt;I'm a popup!&lt;/div&gt;"
+              }
+            ]
+      li
+        code markers[0].coordinates
+        span.text-light.opacity-70 &nbsp;- Position of the marker on the map. An array of 2 values: latitude and longitude.
+      li
+        code markers[0].iconUrl
+        span.text-light.opacity-70 &nbsp;- Path to custom marker icon. If not provided default icon (pin) will be used. You can find all marker icons inside <code>dist/img/map</code> folder
+      li
+        code markers[0].className
+        span.text-light.opacity-70 &nbsp;- Custom CSS class for marker. Useful if you need to style it differently. There are 2 pre-defined classes: <code>custom-marker-icon</code> (if you use one of the circle marker icons supplied with the template) and <code>custom-marker-dot</code> (alternative dot style marker). If not set, default map pin would be used.
+      li
+        code markers[0].popup
+        span.text-light.opacity-70 &nbsp;- Pass HTML markup of the popup linked to this particular marker. Popups are revealed on click on the marker.
+      li.fw-medium.text-light.pt-3
+        span.opacity-70 For more options please visit
+        a(href='https://leafletjs.com/' target='_blank' rel='noopener').text-light.ms-2
+          | https://leafletjs.com/
+
+
+  // Basic example (no options passed)
+  section#map-basic.pb-5.mb-md-2
+    h2.h5.mb-3 Basic example (no options passed)
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result1' data-bs-toggle='tab' role='tab' aria-controls='result1' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result1.tab-pane.fade.show.active(role='tabpanel')
+            .interactive-map(style='height: 400px;')
+          #html1.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Basic map example (no options passed) --&gt;
+                &lt;div class=&quot;interactive-map&quot; style=&quot;height: 400px;&quot;&gt;&lt;/div&gt;
+          #pug1.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Basic map example (no options passed)
+                .interactive-map(style='height: 400px;')
+
+  // Inline options: Default marker + alternative map style
+  section#map-inline-options-1.pb-5.mb-md-2
+    h2.h5.mb-3 Inline options: Default marker + alternative map style
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result2' data-bs-toggle='tab' role='tab' aria-controls='result2' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result2.tab-pane.fade.show.active(role='tabpanel')
+            .interactive-map(data-map-options='{"mapLayer": "https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=5vRQzd34MMsINEyeKPIs", "coordinates": [51.5074, -0.1278], "zoom": 10, "markers": [{"coordinates": [51.5074, -0.1278], "popup": "<div class=\'p-3\'><h6>Hi, I\'m in London</h6><p class=\'fs-sm pt-1 mt-n3 mb-0\'>Lorem ipsum dolor sit amet elit.</p></div>"}]}' style='height: 400px;')
+          #html2.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Inline options: Default marker + alternative map style --&gt;
+                &lt;div class=&quot;interactive-map&quot; data-map-options='{&quot;mapLayer&quot;: &quot;https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=5vRQzd34MMsINEyeKPIs&quot;, &quot;coordinates&quot;: [51.5074, -0.1278], &quot;zoom&quot;: 10, &quot;markers&quot;: [{&quot;coordinates&quot;: [51.5074, -0.1278], &quot;popup&quot;: &quot;&lt;div class='p-3'&gt;&lt;h6&gt;Hi, I'm in London&lt;/h6&gt;&lt;p class='fs-sm pt-1 mt-n3 mb-0'&gt;Lorem ipsum dolor sit amet elit.&lt;/p&gt;&lt;/div&gt;&quot;}]}' style=&quot;height: 400px;&quot;&gt;&lt;/div&gt;
+          #pug2.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Inline options: Default marker + alternative map style
+                .interactive-map(data-map-options='{&quot;mapLayer&quot;: &quot;https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=5vRQzd34MMsINEyeKPIs&quot;, &quot;coordinates&quot;: [51.5074, -0.1278], &quot;zoom&quot;: 10, &quot;markers&quot;: [{&quot;coordinates&quot;: [51.5074, -0.1278], &quot;popup&quot;: &quot;&lt;div class=\'p-3\'&gt;&lt;h6&gt;Hi, I\'m in London&lt;/h6&gt;&lt;p class=\'fs-sm pt-1 mt-n3 mb-0\'&gt;Lorem ipsum dolor sit amet elit.&lt;/p&gt;&lt;/div&gt;&quot;}]}', style=&quot;height: 400px;&quot;)
+
+  // Inline options: Dot markers + popups
+  section#map-inline-options-2.pb-5.mb-md-2
+    h2.h5.mb-3 Inline options: Dot markers + popups
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result3' data-bs-toggle='tab' role='tab' aria-controls='result3' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result3.tab-pane.fade.show.active(role='tabpanel')
+            .interactive-map(data-map-options='{"mapLayer": "https://api.maptiler.com/maps/pastel/{z}/{x}/{y}.png?key=5vRQzd34MMsINEyeKPIs", "coordinates": [40.7128, -74.0060], "zoom": 11, "markers": [{"coordinates": [40.702, -74.006], "className": "custom-marker-dot", "popup": "<div class=\'p-3\'><h6>Hi, I\'m in New York</h6><p class=\'fs-sm pt-1 mt-n3 mb-0\'>Lorem ipsum dolor sit amet elit.</p></div>"}, {"coordinates": [40.716, -74.078], "className": "custom-marker-dot", "popup": "<div class=\'p-3\'><h6>Hi, I\'m in Jersey Cty</h6><p class=\'fs-sm pt-1 mt-n3 mb-0\'>Lorem ipsum dolor sit amet elit.</p></div>"}, {"coordinates": [40.650, -74.209], "className": "custom-marker-dot", "popup": "<div class=\'p-3\'><h6>Hi, I\'m in Elizabeth</h6><p class=\'fs-sm pt-1 mt-n3 mb-0\'>Lorem ipsum dolor sit amet elit.</p></div>"}]}' style='height: 400px;')
+          #html3.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Inline options: Dot markers + popups --&gt;
+                &lt;div class=&quot;interactive-map&quot; data-map-options='{&quot;mapLayer&quot;: &quot;https://api.maptiler.com/maps/pastel/{z}/{x}/{y}.png?key=5vRQzd34MMsINEyeKPIs&quot;, &quot;coordinates&quot;: [40.7128, -74.0060], &quot;zoom&quot;: 11, &quot;markers&quot;: [{&quot;coordinates&quot;: [40.702, -74.006], &quot;className&quot;: &quot;custom-marker-dot&quot;, &quot;popup&quot;: &quot;&lt;div class='p-3'&gt;&lt;h6&gt;Hi, I'm in New York&lt;/h6&gt;&lt;p class='fs-sm pt-1 mt-n3 mb-0'&gt;Lorem ipsum dolor sit amet elit.&lt;/p&gt;&lt;/div&gt;&quot;}, {&quot;coordinates&quot;: [40.716, -74.078], &quot;className&quot;: &quot;custom-marker-dot&quot;, &quot;popup&quot;: &quot;&lt;div class='p-3'&gt;&lt;h6&gt;Hi, I'm in Jersey Cty&lt;/h6&gt;&lt;p class='fs-sm pt-1 mt-n3 mb-0'&gt;Lorem ipsum dolor sit amet elit.&lt;/p&gt;&lt;/div&gt;&quot;}, {&quot;coordinates&quot;: [40.650, -74.209], &quot;className&quot;: &quot;custom-marker-dot&quot;, &quot;popup&quot;: &quot;&lt;div class='p-3'&gt;&lt;h6&gt;Hi, I'm in Elizabeth&lt;/h6&gt;&lt;p class='fs-sm pt-1 mt-n3 mb-0'&gt;Lorem ipsum dolor sit amet elit.&lt;/p&gt;&lt;/div&gt;&quot;}]}' style=&quot;height: 400px;&quot;&gt;&lt;/div&gt;
+          #pug3.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Inline options: Dot markers + popups
+                .interactive-map(data-map-options='{&quot;mapLayer&quot;: &quot;https://api.maptiler.com/maps/pastel/{z}/{x}/{y}.png?key=5vRQzd34MMsINEyeKPIs&quot;, &quot;coordinates&quot;: [40.7128, -74.0060], &quot;zoom&quot;: 11, &quot;markers&quot;: [{&quot;coordinates&quot;: [40.702, -74.006], &quot;className&quot;: &quot;custom-marker-dot&quot;, &quot;popup&quot;: &quot;&lt;div class=\'p-3\'&gt;&lt;h6&gt;Hi, I\'m in New York&lt;/h6&gt;&lt;p class=\'fs-sm pt-1 mt-n3 mb-0\'&gt;Lorem ipsum dolor sit amet elit.&lt;/p&gt;&lt;/div&gt;&quot;}, {&quot;coordinates&quot;: [40.716, -74.078], &quot;className&quot;: &quot;custom-marker-dot&quot;, &quot;popup&quot;: &quot;&lt;div class=\'p-3\'&gt;&lt;h6&gt;Hi, I\'m in Jersey Cty&lt;/h6&gt;&lt;p class=\'fs-sm pt-1 mt-n3 mb-0\'&gt;Lorem ipsum dolor sit amet elit.&lt;/p&gt;&lt;/div&gt;&quot;}, {&quot;coordinates&quot;: [40.650, -74.209], &quot;className&quot;: &quot;custom-marker-dot&quot;, &quot;popup&quot;: &quot;&lt;div class=\'p-3\'&gt;&lt;h6&gt;Hi, I\'m in Elizabeth&lt;/h6&gt;&lt;p class=\'fs-sm pt-1 mt-n3 mb-0\'&gt;Lorem ipsum dolor sit amet elit.&lt;/p&gt;&lt;/div&gt;&quot;}]}', style=&quot;height: 400px;&quot;)
+
+  // Complex options via external local .json file
+  section#map-external-options.pb-5.mb-md-2
+    h2.h5.mb-3 Complex options via external local .json file
+    .card.border-0.shadow-sm
+      .card-header
+        ul(role='tablist').nav.nav-tabs.card-header-tabs
+          li.nav-item
+            a(href='#result4' data-bs-toggle='tab' role='tab' aria-controls='result4' aria-selected='true').nav-link.active Result
+          li.nav-item
+            a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link HTML
+          li.nav-item
+            a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link Pug
+      .card-body
+        .tab-content
+          #result4.tab-pane.fade.show.active(role='tabpanel')
+            .interactive-map(data-map-options-json='../json/map-options-example.json' style='height: 600px;')
+          #html4.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-html').
+                &lt;!-- Complex options via external local .json file --&gt;
+                &lt;div class=&quot;interactive-map&quot; data-map-options-json=&quot;path-to-external-json-with-map-options&quot; style=&quot;height: 600px;&quot;&gt;&lt;/div&gt;
+                &lt;!-- Examples of .json files with map options you can find in dist/json folder --&gt;
+          #pug4.tab-pane.fade(role='tabpanel')
+            pre.line-numbers
+              code(class='lang-pug').
+                // Complex options via external local .json file
+                .interactive-map(data-map-options-json=&quot;path-to-external-json-with-map-options&quot;, style=&quot;height: 600px;&quot;)
+                // Examples of .json files with map options you can find in dist/json folder
+                

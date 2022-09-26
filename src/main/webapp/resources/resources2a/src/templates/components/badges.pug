@@ -1,0 +1,469 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css', 'vendor/prismjs/themes/prism.css', 'vendor/prismjs/plugins/toolbar/prism-toolbar.css', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js', 'vendor/prismjs/components/prism-core.min.js', 'vendor/prismjs/components/prism-markup.min.js', 'vendor/prismjs/components/prism-clike.min.js', 'vendor/prismjs/components/prism-javascript.min.js', 'vendor/prismjs/components/prism-pug.min.js', 'vendor/prismjs/plugins/toolbar/prism-toolbar.min.js', 'vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Badges'
+  - var pageSubtitle = 'Small count and labeling component.'
+  - var pageTitleLink = {'title': 'Bootstrap docs', 'link': 'https://getbootstrap.com/docs/5.2/components/badge/'}
+  - var anchorNav = [{'title': 'Solid', 'link': '#badges-solid'}, {'title': 'Outline', 'link': '#badges-outline'}, {'title': 'Translucent', 'link': '#badges-translucent'}, {'title': 'Inside heading', 'link': '#badges-heading'}, {'title': 'Inside button', 'link': '#badges-button'}, {'title': 'Inside list group', 'link': '#badges-list-group'}]
+    
+//- Page Content
+block content
+
+  // Solid
+  section#badges-solid.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Solid
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview1' data-bs-toggle='tab' role='tab' aria-controls='preview1' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview1.tab-pane.fade.show.active(role='tabpanel')
+          span.badge.bg-primary.fs-sm.me-2.mb-2 Primary
+          span.badge.bg-secondary.fs-sm.me-2.mb-2 Secondary
+          span.badge.bg-success.fs-sm.me-2.mb-2 Success
+          span.badge.bg-danger.fs-sm.me-2.mb-2 Danger
+          span.badge.bg-warning.fs-sm.me-2.mb-2 Warning
+          span.badge.bg-info.fs-sm.me-2.mb-2 Info
+          .d-inline-block.mb-2.px-2.py-2.bg-dark
+            span.badge.bg-light.fs-sm Light
+          .d-inline-block.mb-2.px-2.py-2.bg-white
+            span.badge.bg-dark.fs-sm Dark
+        #html1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Primary solid badge --&gt;
+              &lt;span class=&quot;badge bg-primary fs-sm&quot;&gt;Primary&lt;/span&gt;
+
+              &lt;!-- Secondary solid badge --&gt;
+              &lt;span class=&quot;badge bg-secondary fs-sm&quot;&gt;Secondary&lt;/span&gt;
+
+              &lt;!-- Success solid badge --&gt;
+              &lt;span class=&quot;badge bg-success fs-sm&quot;&gt;Success&lt;/span&gt;
+
+              &lt;!-- Danger solid badge --&gt;
+              &lt;span class=&quot;badge bg-danger fs-sm&quot;&gt;Danger&lt;/span&gt;
+
+              &lt;!-- Warning solid badge --&gt;
+              &lt;span class=&quot;badge bg-warning fs-sm&quot;&gt;Warning&lt;/span&gt;
+
+              &lt;!-- Info solid badge --&gt;
+              &lt;span class=&quot;badge bg-info fs-sm&quot;&gt;Info&lt;/span&gt;
+
+              &lt;!-- Light solid badge --&gt;
+              &lt;span class=&quot;badge bg-light fs-sm&quot;&gt;Light&lt;/span&gt;
+
+              &lt;!-- Dark solid badge --&gt;
+              &lt;span class=&quot;badge bg-dark fs-sm&quot;&gt;Dark&lt;/span&gt;
+        #pug1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Primary solid badge
+              span.badge.bg-primary.fs-sm Primary
+
+              // Secondary solid badge
+              span.badge.bg-secondary.fs-sm Secondary
+
+              // Success solid badge
+              span.badge.bg-success.fs-sm Success
+
+              // Danger solid badge
+              span.badge.bg-danger.fs-sm Danger
+
+              // Warning solid badge
+              span.badge.bg-warning.fs-sm Warning
+
+              // Info solid badge
+              span.badge.bg-info.fs-sm Info
+
+              // Light solid badge
+              span.badge.bg-light.fs-sm Light
+
+              // Dark solid badge
+              span.badge.bg-dark.fs-sm Dark
+
+  // Outline
+  section#badges-outline.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Outline
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview2' data-bs-toggle='tab' role='tab' aria-controls='preview2' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview2.tab-pane.fade.show.active(role='tabpanel')
+          span.badge.border.border-primary.text-primary.fs-sm.me-2.mb-2 Primary
+          span.badge.border.text-nav.fs-sm.me-2.mb-2 Secondary
+          span.badge.border.border-success.text-success.fs-sm.me-2.mb-2 Success
+          span.badge.border.border-danger.text-danger.fs-sm.me-2.mb-2 Danger
+          span.badge.border.border-warning.text-warning.fs-sm.me-2.mb-2 Warning
+          span.badge.border.border-info.text-info.fs-sm.me-2.mb-2 Info
+          .d-inline-block.mb-2.px-2.py-2.bg-dark
+            span.badge.border.border-white.fs-sm Light
+          .d-inline-block.mb-2.px-2.py-2.bg-white
+            span.badge.border.border-dark.text-dark.fs-sm Dark
+        #html2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Primary outline badge --&gt;
+              &lt;span class=&quot;badge border border-primary text-primary fs-sm&quot;&gt;Primary&lt;/span&gt;
+
+              &lt;!-- Secondary outline badge --&gt;
+              &lt;span class=&quot;badge border text-nav fs-sm&quot;&gt;Secondary&lt;/span&gt;
+
+              &lt;!-- Success outline badge --&gt;
+              &lt;span class=&quot;badge border border-success text-success fs-sm&quot;&gt;Success&lt;/span&gt;
+
+              &lt;!-- Danger outline badge --&gt;
+              &lt;span class=&quot;badge border border-danger text-danger fs-sm&quot;&gt;Danger&lt;/span&gt;
+
+              &lt;!-- Warning outline badge --&gt;
+              &lt;span class=&quot;badge border border-warning text-warning fs-sm&quot;&gt;Warning&lt;/span&gt;
+
+              &lt;!-- Info outline badge --&gt;
+              &lt;span class=&quot;badge border border-info text-info fs-sm&quot;&gt;Info&lt;/span&gt;
+
+              &lt;!-- Light outline badge --&gt;
+              &lt;span class=&quot;badge border border-white fs-sm&quot;&gt;Light&lt;/span&gt;
+
+              &lt;!-- Dark outline badge --&gt;
+              &lt;span class=&quot;badge border border-dark text-dark fs-sm&quot;&gt;Dark&lt;/span&gt;
+        #pug2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Primary outline badge
+              span.badge.border.border-primary.text-primary.fs-sm Primary
+
+              // Secondary outline badge
+              span.badge.border.text-nav.fs-sm Secondary
+
+              // Success outline badge
+              span.badge.border.border-success.text-success.fs-sm Success
+
+              // Danger outline badge
+              span.badge.border.border-danger.text-danger.fs-sm Danger
+
+              // Warning outline badge
+              span.badge.border.border-warning.text-warning.fs-sm Warning
+
+              // Info outline badge
+              span.badge.border.border-info.text-info.fs-sm Info
+
+              // Light outline badge
+              span.badge.border.border-white.fs-sm Light
+
+              // Dark outline badge
+              span.badge.border.border-dark.text-dark.fs-sm Dark
+  
+  // Translucent
+  section#badges-translucent.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Translucent
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview3' data-bs-toggle='tab' role='tab' aria-controls='preview3' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview3.tab-pane.fade.show.active(role='tabpanel')
+          span.badge.bg-faded-primary.text-primary.fs-sm.me-2.mb-2 Primary
+          span.badge.bg-faded-success.text-success.fs-sm.me-2.mb-2 Success
+          span.badge.bg-faded-danger.text-danger.fs-sm.me-2.mb-2 Danger
+          span.badge.bg-faded-warning.text-warning.fs-sm.me-2.mb-2 Warning
+          span.badge.bg-faded-info.text-info.fs-sm.me-2.mb-2 Info
+          .d-inline-block.mb-2.px-2.py-2.bg-dark
+            span.badge.bg-faded-light.fs-sm Light
+          .d-inline-block.mb-2.px-2.py-2.bg-white
+            span.badge.bg-faded-dark.text-dark.fs-sm Dark
+        #html3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Primary translucent badge --&gt;
+              &lt;span class=&quot;badge bg-faded-primary text-primary fs-sm&quot;&gt;Primary&lt;/span&gt;
+
+              &lt;!-- Success translucent badge --&gt;
+              &lt;span class=&quot;badge bg-faded-success text-success fs-sm&quot;&gt;Success&lt;/span&gt;
+
+              &lt;!-- Danger translucent badge --&gt;
+              &lt;span class=&quot;badge bg-faded-danger text-danger fs-sm&quot;&gt;Danger&lt;/span&gt;
+
+              &lt;!-- Warning translucent badge --&gt;
+              &lt;span class=&quot;badge bg-faded-warning text-warning fs-sm&quot;&gt;Warning&lt;/span&gt;
+
+              &lt;!-- Info translucent badge --&gt;
+              &lt;span class=&quot;badge bg-faded-info text-info fs-sm&quot;&gt;Info&lt;/span&gt;
+
+              &lt;!-- Light translucent badge --&gt;
+              &lt;span class=&quot;badge bg-faded-light fs-sm&quot;&gt;Light&lt;/span&gt;
+
+              &lt;!-- Dark translucent badge --&gt;
+              &lt;span class=&quot;badge bg-faded-dark text-dark fs-sm&quot;&gt;Dark&lt;/span&gt;
+        #pug3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Primary translucent badge
+              span.badge.bg-faded-primary.text-primary.fs-sm Primary
+
+              // Success translucent badge
+              span.badge.bg-faded-success.text-success.fs-sm Success
+
+              // Danger translucent badge
+              span.badge.bg-faded-danger.text-danger.fs-sm Danger
+
+              // Warning translucent badge
+              span.badge.bg-faded-warning.text-warning.fs-sm Warning
+
+              // Info translucent badge
+              span.badge.bg-faded-info.text-info.fs-sm Info
+
+              // Light translucent badge
+              span.badge.bg-faded-light.fs-sm Light
+
+              // Dark translucent badge
+              span.badge.bg-faded-dark.text-dark.fs-sm Dark
+  
+  // Inside heading
+  section#badges-heading.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Inside heading
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview4' data-bs-toggle='tab' role='tab' aria-controls='preview4' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview4.tab-pane.fade.show.active(role='tabpanel')
+          h1
+            | Example heading 
+            span.badge.bg-secondary New
+          h2
+            | Example heading 
+            span.badge.bg-secondary New
+          h3
+            | Example heading 
+            span.badge.bg-secondary New
+          h4
+            | Example heading 
+            span.badge.bg-secondary New
+          h5
+            | Example heading 
+            span.badge.bg-secondary New
+          h6
+            | Example heading 
+            span.badge.bg-secondary New
+        #html4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;h1&gt;Example heading &lt;span class=&quot;badge bg-secondary&quot;&gt;New&lt;/span&gt;&lt;/h1&gt;
+              &lt;h2&gt;Example heading &lt;span class=&quot;badge bg-secondary&quot;&gt;New&lt;/span&gt;&lt;/h2&gt;
+              &lt;h3&gt;Example heading &lt;span class=&quot;badge bg-secondary&quot;&gt;New&lt;/span&gt;&lt;/h3&gt;
+              &lt;h4&gt;Example heading &lt;span class=&quot;badge bg-secondary&quot;&gt;New&lt;/span&gt;&lt;/h4&gt;
+              &lt;h5&gt;Example heading &lt;span class=&quot;badge bg-secondary&quot;&gt;New&lt;/span&gt;&lt;/h5&gt;
+              &lt;h6&gt;Example heading &lt;span class=&quot;badge bg-secondary&quot;&gt;New&lt;/span&gt;&lt;/h6&gt;
+        #pug4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              h1
+                | Example heading 
+                span.badge.bg-secondary New
+              h2
+                | Example heading 
+                span.badge.bg-secondary New
+              h3
+                | Example heading 
+                span.badge.bg-secondary New
+              h4
+                | Example heading 
+                span.badge.bg-secondary New
+              h5
+                | Example heading 
+                span.badge.bg-secondary New
+              h6
+                | Example heading 
+                span.badge.bg-secondary New
+  
+  // Inside button
+  section#badges-button.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Inside button
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview5' data-bs-toggle='tab' role='tab' aria-controls='preview5' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html5' data-bs-toggle='tab' role='tab' aria-controls='html5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug5' data-bs-toggle='tab' role='tab' aria-controls='pug5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview5.tab-pane.fade.show.active(role='tabpanel')
+          button(type='button').btn.btn-primary.me-3.mb-3
+            | Notifications 
+            span.badge.bg-light.ms-2 4
+          button(type='button').btn.btn-dark.rounded-pill.me-3.mb-3
+            | Profile 
+            span.badge.bg-danger.ms-2 9
+          button(type='button').btn.btn-outline-secondary.mb-3
+            | Messages 
+            span.badge.bg-info.ms-2 18
+        #html5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Button + badge --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;
+                Notifications &lt;span class=&quot;badge bg-light ms-2&quot;&gt;4&lt;/span&gt;
+              &lt;/button&gt;
+
+              &lt;!-- Pill button + badge --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-dark rounded-pill&quot;&gt;
+                Profile &lt;span class=&quot;badge bg-danger ms-2&quot;&gt;9&lt;/span&gt;
+              &lt;/button&gt;
+
+              &lt;!-- Outline button + badge --&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-secondary&quot;&gt;
+                Messages &lt;span class=&quot;badge bg-info ms-2&quot;&gt;18&lt;/span&gt;
+              &lt;/button&gt;
+        #pug5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Button + badge
+              button(type=&quot;button&quot;).btn.btn-primary
+                | Notifications 
+                span.badge.bg-light.ms-2 4
+
+              // Pill button + badge
+              button(type=&quot;button&quot;).btn.btn-dark.rounded-pill
+                | Profile 
+                span.badge.bg-danger.ms-2 9
+              
+              // Outline button + badge
+              button(type=&quot;button&quot;).btn.btn-outline-secondary
+                | Messages 
+                span.badge.bg-info.ms-2 18
+  
+  // Inside list group
+  section#badges-list-group.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Inside list group
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview6' data-bs-toggle='tab' role='tab' aria-controls='preview6' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html6' data-bs-toggle='tab' role='tab' aria-controls='html6' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug6' data-bs-toggle='tab' role='tab' aria-controls='pug6' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview6.tab-pane.fade.show.active(role='tabpanel')
+          .list-group(style='max-width: 350px;')
+            a(href='#').list-group-item.list-group-item-action.d-flex.justify-content-between.align-items-center
+              | Messages
+              span.badge.bg-success 14
+            a(href='#').list-group-item.list-group-item-action.d-flex.justify-content-between.align-items-center
+              | Orders
+              span.badge.bg-warning 2
+            a(href='#').list-group-item.list-group-item-action.d-flex.justify-content-between.align-items-center
+              | Favourites
+              span.badge.bg-danger 6
+        #html6.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Badges inside list group --&gt;
+              &lt;div class=&quot;list-group&quot;&gt;
+                &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action d-flex justify-content-between align-items-center&quot;&gt;
+                  Messages
+                  &lt;span class=&quot;badge bg-success&quot;&gt;14&lt;/span&gt;
+                &lt;/a&gt;
+                &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action d-flex justify-content-between align-items-center&quot;&gt;
+                  Orders
+                  &lt;span class=&quot;badge bg-warning&quot;&gt;2&lt;/span&gt;
+                &lt;/a&gt;
+                &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action d-flex justify-content-between align-items-center&quot;&gt;
+                  Favourites
+                  &lt;span class=&quot;badge bg-danger&quot;&gt;6&lt;/span&gt;
+                &lt;/a&gt;
+              &lt;/div&gt;
+        #pug6.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Badges inside list group
+              .list-group
+                a(href=&quot;#&quot;).list-group-item.list-group-item-action.d-flex.justify-content-between.align-items-center
+                  | Messages
+                  span.badge.bg-success 14
+                a(href=&quot;#&quot;).list-group-item.list-group-item-action.d-flex.justify-content-between.align-items-center
+                  | Orders
+                  span.badge.bg-warning 2
+                a(href=&quot;#&quot;).list-group-item.list-group-item-action.d-flex.justify-content-between.align-items-center
+                  | Favourites
+                  span.badge.bg-danger 6

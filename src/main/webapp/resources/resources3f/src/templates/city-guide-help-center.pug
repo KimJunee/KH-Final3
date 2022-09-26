@@ -1,0 +1,200 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var parentMenu = 'Pages'
+  - var pageTitle = 'City Guide | Help Center'
+
+//- Navbar
+block navbar
+  include partials/navbar-city-guide
+
+//- Page Content
+block content
+
+  // Page header
+  section.bg-secondary.py-5
+    .container.mb-md-2.mb-lg-4.py-5
+
+      // Breadcrumbs
+      nav(aria-label='breadcrumb')
+        ol.breadcrumb.pt-3.mb-4
+          li.breadcrumb-item
+            a(href='city-guide-home-v1.html') Home
+          li(aria-current='page').breadcrumb-item.active
+            | Help center
+
+      // Page title
+      .col-lg-8.col-md-10.px-0
+        h1.mb-4.pb-2
+          | How can we help?
+
+        // Search form
+        form.form-group.rounded-pill
+          input(type='text' placeholder='What are you looking for?').form-control
+          button(type='submit').btn.btn-lg.btn-primary.rounded-pill.px-sm-4.px-3
+            i.fi-search.me-sm-2
+            span.d-sm-inline.d-none Search
+
+
+  // Page content
+  section.position-relative.bg-white.rounded-xxl-4.mb-5.pt-3.pb-lg-5.zindex-5(style='margin-top: -30px;')
+    .container.pt-2.pt-md-5
+
+      // Help topics grid
+      .row.row-cols-lg-3.row-cols-md-2.row-cols-1.gy-lg-5.gy-md-4.gy-0.gx-4
+
+        // Topic
+        .col
+          .card.border-0.card-hover.h-100.bg-transparent
+            .card-body.icon-box.pb-0
+              .icon-box-media.bg-faded-accent.text-accent.rounded-circle.mb-3
+                i.fi-settings
+              h3.h4
+                | Getting started
+              a(href='city-guide-help-center-single-topic.html').nav-link.mb-2.p-0.fw-normal
+                | Quis arcu euismod est, varius nisi?
+              a(href='city-guide-help-center-single-topic.html').nav-link.mb-2.p-0.fw-normal
+                | Aliquam, commodo sed nibh?
+              a(href='city-guide-help-center-single-topic.html').nav-link.mb-2.p-0.fw-normal
+                | Faucibus felis fames mauris dolor purus?
+              a(href='city-guide-help-center-single-topic.html').nav-link.mb-2.p-0.fw-normal
+                | Odio diam, tellus facilisi?
+              a(href='city-guide-help-center-single-topic.html').nav-link.mb-2.p-0.fw-normal
+                | Eu quisque libero, sed neque?
+              a(href='city-guide-help-center-single-topic.html').nav-link.mb-2.p-0.fw-normal
+                | Lectus sed sit cursus amet, vitae tempor?
+            .card-footer.pt-0.pb-4.border-top-0
+              a(href='city-guide-help-center-single-topic.html') View all
+
+        // Topic
+        .col
+          .card.border-0.card-hover.h-100.bg-transparent
+            .card-body.icon-box.pb-0
+              .icon-box-media.bg-faded-warning.text-warning.rounded-circle.mb-3
+                i.fi-file
+              h3.h4
+                | Partnership
+              a(href='city-guide-help-center-single-topic.html').nav-link.mb-2.p-0.fw-normal
+                | Tincidunt molestie scelerisque?
+              a(href='city-guide-help-center-single-topic.html').nav-link.mb-2.p-0.fw-normal
+                | Nunc, ipsum ut augue fusce ornare?
+              a(href='city-guide-help-center-single-topic.html').nav-link.mb-2.p-0.fw-normal
+                | Velit, mauris amet feugiat condimentum mollis?
+              a(href='city-guide-help-center-single-topic.html').nav-link.mb-2.p-0.fw-normal
+                | Lacus, sed fames mi cras id?
+              a(href='city-guide-help-center-single-topic.html').nav-link.mb-2.p-0.fw-normal
+                | Adipiscing magna suspendisse?
+              a(href='city-guide-help-center-single-topic.html').nav-link.mb-2.p-0.fw-normal
+                | Libero pellentesque ultricies maecenas?
+            .card-footer.pt-0.pb-4.border-top-0
+              a(href='city-guide-help-center-single-topic.html') View all
+
+        // Topic
+        .col
+          .card.border-0.card-hover.h-100.bg-transparent
+            .card-body.icon-box.pb-0
+              .icon-box-media.bg-faded-danger.text-danger.rounded-circle.mb-3
+                i.fi-user
+              h3.h4
+                | Account &amp; profile
+              a(href='city-guide-help-center-single-topic.html').nav-link.mb-2.p-0.fw-normal
+                | Cursus fusce volutpat tempor?
+              a(href='city-guide-help-center-single-topic.html').nav-link.mb-2.p-0.fw-normal
+                | A senectus auctor sodales gravida non elit?
+              a(href='city-guide-help-center-single-topic.html').nav-link.mb-2.p-0.fw-normal
+                | Mauris accumsan vel rhoncus?
+              a(href='city-guide-help-center-single-topic.html').nav-link.mb-2.p-0.fw-normal
+                | Cras nunc, semper lectus turpis?
+              a(href='city-guide-help-center-single-topic.html').nav-link.mb-2.p-0.fw-normal
+                | Pulvinar sed morbi massa nulla dolor eget?
+              a(href='city-guide-help-center-single-topic.html').nav-link.mb-2.p-0.fw-normal
+                | Bibendum mattis amet amet?
+            .card-footer.pt-0.pb-4.border-top-0
+              a(href='city-guide-help-center-single-topic.html') View all
+
+        // Topic
+        .col
+          .card.border-0.card-hover.h-100.bg-transparent
+            .card-body.icon-box.pb-0
+              .icon-box-media.bg-faded-success.text-success.rounded-circle.mb-3
+                i.fi-security
+              h3.h4
+                | Privacy &amp; security
+              a(href='city-guide-help-center-single-topic.html').nav-link.mb-2.p-0.fw-normal
+                | Mauris accumsan vel rhoncus?
+              a(href='city-guide-help-center-single-topic.html').nav-link.mb-2.p-0.fw-normal
+                | Eu quam bibendum adipiscing leo?
+              a(href='city-guide-help-center-single-topic.html').nav-link.mb-2.p-0.fw-normal
+                | Massa fermentum, eget nec elementum?
+              a(href='city-guide-help-center-single-topic.html').nav-link.mb-2.p-0.fw-normal
+                | In quis pulvinar amet morbi praesent?
+              a(href='city-guide-help-center-single-topic.html').nav-link.mb-2.p-0.fw-normal
+                | Eros, dolor in consequat netus?
+              a(href='city-guide-help-center-single-topic.html').nav-link.mb-2.p-0.fw-normal
+                | Quis gravida felis dui non gravida?
+            .card-footer.pt-0.pb-4.border-top-0
+              a(href='city-guide-help-center-single-topic.html') View all
+
+        // Topic
+        .col
+          .card.border-0.card-hover.h-100.bg-transparent
+            .card-body.icon-box.pb-0
+              .icon-box-media.bg-faded-primary.text-primary.rounded-circle.mb-3
+                i.fi-credit-card
+              h3.h4
+                | Transactions
+              a(href='city-guide-help-center-single-topic.html').nav-link.mb-2.p-0.fw-normal
+                | Nisl urna id aliquam sed vitae pellentesque?
+              a(href='city-guide-help-center-single-topic.html').nav-link.mb-2.p-0.fw-normal
+                | Eu quam bibendum adipiscing leo?
+              a(href='city-guide-help-center-single-topic.html').nav-link.mb-2.p-0.fw-normal
+                | Massa fermentum, eget nec elementum?
+              a(href='city-guide-help-center-single-topic.html').nav-link.mb-2.p-0.fw-normal
+                | In quis pulvinar amet morbi praesent?
+              a(href='city-guide-help-center-single-topic.html').nav-link.mb-2.p-0.fw-normal
+                | Eros, dolor in consequat netus?
+              a(href='city-guide-help-center-single-topic.html').nav-link.mb-2.p-0.fw-normal
+                | Quis gravida felis dui non gravida?
+            .card-footer.pt-0.pb-4.border-top-0
+              a(href='city-guide-help-center-single-topic.html') View all
+
+        // Topic
+        .col
+          .card.border-0.card-hover.h-100.bg-transparent
+            .card-body.icon-box.pb-0
+              .icon-box-media.bg-faded-info.text-info.rounded-circle.mb-3
+                i.fi-dots-horisontal
+              h3.h4
+                | More
+              a(href='city-guide-help-center-single-topic.html').nav-link.mb-2.p-0.fw-normal
+                | Lacus eget amet blandit egestas?
+              a(href='city-guide-help-center-single-topic.html').nav-link.mb-2.p-0.fw-normal
+                | Augue at donec molestie vulputate cum?
+              a(href='city-guide-help-center-single-topic.html').nav-link.mb-2.p-0.fw-normal
+                | Viverra adipiscing nisl, lacus at et?
+              a(href='city-guide-help-center-single-topic.html').nav-link.mb-2.p-0.fw-normal
+                | Sagittis dictum hendrerit faucibus malesuada?
+              a(href='city-guide-help-center-single-topic.html').nav-link.mb-2.p-0.fw-normal
+                | Tempus est non sapien tempus?
+              a(href='city-guide-help-center-single-topic.html').nav-link.mb-2.p-0.fw-normal
+                | Nunc est hendrerit volutpat nunc donec?
+            .card-footer.pt-0.pb-4.border-top-0
+              a(href='city-guide-help-center-single-topic.html') View all
+
+
+  // Contact Us
+  section.container.mb-5.pb-lg-5
+    .py-md-4.py-5.bg-secondary.rounded-3
+      .col-sm-10.col-11.d-flex.flex-md-row.flex-column.align-items-center.justify-content-between.mx-auto.px-0
+        div(style='max-width: 524px;').order-md-1.order-2.text-md-start.text-center
+          h2.mb-4.pb-md-3
+            | Haven't found the answer? <br> We can help.
+          a(href='city-guide-contacts.html').btn.btn-lg.btn-primary.rounded-pill.w-sm-auto.w-100
+            | Contact us
+        img(src='img/city-guide/illustrations/support.svg' alt='Illustration').order-md-2.order-1.ms-md-4
+
+
+//- Footer
+block footer
+  include partials/footer-city-guide

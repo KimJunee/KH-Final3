@@ -1,0 +1,150 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var parentMenu = 'Account'
+  - var pageTitle = 'Job Board | Post Resume - Skils'
+  - var bodyClass = 'bg-secondary'
+
+//- Navbar
+block navbar
+  include partials/navbar-job-board
+
+//- Page Content
+block content
+
+  // Page container
+  .container.mt-5.mb-md-4.py-5
+    
+    // Breadcrumb
+    nav(aria-label='Breadcrumb').mb-3.mb-md-4.pt-md-3
+      ol.breadcrumb
+        li.breadcrumb-item
+          a(href='job-board-home-v1.html') Home
+        li(aria-current='page').breadcrumb-item.active
+          | Post resume
+
+
+    // Page content
+    .row.justify-content-center.pb-sm-2
+      .col-lg-11.col-xl-10
+
+        // Page title
+        h1.h2.text-center.pb-4.mb-3 Create online resume
+        
+        // Steps
+        .bg-light.rounded-3.py-4.px-md-4.mb-3
+          .steps.pt-4.pb-1
+            .step.active
+              .step-progress
+                span.step-progress-start
+                span.step-progress-end
+                span.step-number 1
+              .step-label Basic info
+            .step.active
+              .step-progress
+                span.step-progress-start
+                span.step-progress-end
+                span.step-number 2
+              .step-label Education
+            .step.active
+              .step-progress
+                span.step-progress-start
+                span.step-progress-end
+                span.step-number 3
+              .step-label Experience
+            .step.active
+              .step-progress
+                span.step-progress-start
+                span.step-progress-end
+                span.step-number 4
+              .step-label Skills
+            .step
+              .step-progress
+                span.step-progress-start
+                span.step-progress-end
+                span.step-number 5
+              .step-label Review
+
+
+        // Step 4: Skills
+        .bg-light.rounded-3.p-4.p-md-5.mb-3
+          h2.h4.mb-4
+            i.fi-star.text-primary.fs-5.mt-n1.me-2.pe-1
+            | Skills
+          .mb-4
+            label(for='pr-add-skill').form-label Add skill
+            .d-flex.flex-column.flex-sm-row
+              input(type='text' id='pr-add-skill' placeholder='Enter skill here').form-control.form-control-lg.w-100.me-sm-3.me-md-4.mb-3.mb-sm-0
+              button(type='button').btn.btn-primary.btn-lg.rounded-pill Add
+            .form-text.pt-1 You can add 26 more skills
+          .d-flex.flex-wrap.mb-4
+            span.bg-success.text-light.fs-sm.btn.btn-xs.disabled.opacity-100.rounded-pill.me-2.mb-2.ms-1.mt-1
+              | User Interface
+              i.fi-check.fs-xs.ms-2
+            span.bg-success.text-light.fs-sm.btn.btn-xs.disabled.opacity-100.rounded-pill.me-2.mb-2.ms-1.mt-1
+              | Typography
+              i.fi-check.fs-xs.ms-2
+            span.bg-success.text-light.fs-sm.btn.btn-xs.disabled.opacity-100.rounded-pill.me-2.mb-2.ms-1.mt-1
+              | User Experience
+              i.fi-check.fs-xs.ms-2
+            span.bg-success.text-light.fs-sm.btn.btn-xs.disabled.opacity-100.rounded-pill.me-2.mb-2.ms-1.mt-1
+              | Illustration
+              i.fi-check.fs-xs.ms-2
+          .border-top.py-4.mb-md-2
+            label.form-label.fw-bold.py-2 Recommended skills based on your profile info:
+            .d-flex.flex-wrap
+              span.fs-sm.btn.text-nav.btn-outline-secondary.btn-xs.disabled.opacity-100.rounded-pill.me-2.mb-2.ms-1.mt-1
+                | CSS
+                i.fi-plus.fs-xs.ms-2
+              span.fs-sm.btn.text-nav.btn-outline-secondary.btn-xs.disabled.opacity-100.rounded-pill.me-2.mb-2.ms-1.mt-1
+                | Usability Testing
+                i.fi-plus.fs-xs.ms-2
+              span.fs-sm.btn.text-nav.btn-outline-secondary.btn-xs.disabled.opacity-100.rounded-pill.me-2.mb-2.ms-1.mt-1
+                | InDesign
+                i.fi-plus.fs-xs.ms-2
+              span.fs-sm.btn.text-nav.btn-outline-secondary.btn-xs.disabled.opacity-100.rounded-pill.me-2.mb-2.ms-1.mt-1
+                | Adobe After Effects
+                i.fi-plus.fs-xs.ms-2
+              span.fs-sm.btn.text-nav.btn-outline-secondary.btn-xs.disabled.opacity-100.rounded-pill.me-2.mb-2.ms-1.mt-1
+                | Premiere Pro
+                i.fi-plus.fs-xs.ms-2
+              span.fs-sm.btn.text-nav.btn-outline-secondary.btn-xs.disabled.opacity-100.rounded-pill.me-2.mb-2.ms-1.mt-1
+                | Visual Design
+                i.fi-plus.fs-xs.ms-2
+              span.fs-sm.btn.text-nav.btn-outline-secondary.btn-xs.disabled.opacity-100.rounded-pill.me-2.mb-2.ms-1.mt-1
+                | HTML
+                i.fi-plus.fs-xs.ms-2
+              span.fs-sm.btn.text-nav.btn-outline-secondary.btn-xs.disabled.opacity-100.rounded-pill.me-2.mb-2.ms-1.mt-1
+                | Logo Development
+                i.fi-plus.fs-xs.ms-2
+              span.fs-sm.btn.text-nav.btn-outline-secondary.btn-xs.disabled.opacity-100.rounded-pill.me-2.mb-2.ms-1.mt-1
+                | Mobile Applications
+                i.fi-plus.fs-xs.ms-2
+              span.fs-sm.btn.text-nav.btn-outline-secondary.btn-xs.disabled.opacity-100.rounded-pill.me-2.mb-2.ms-1.mt-1
+                | Researching
+                i.fi-plus.fs-xs.ms-2
+              span.fs-sm.btn.text-nav.btn-outline-secondary.btn-xs.disabled.opacity-100.rounded-pill.me-2.mb-2.ms-1.mt-1
+                | Adobe Photoshop
+                i.fi-plus.fs-xs.ms-2
+              span.fs-sm.btn.text-nav.btn-outline-secondary.btn-xs.disabled.opacity-100.rounded-pill.me-2.mb-2.ms-1.mt-1
+                | Adobe Illustrator
+                i.fi-plus.fs-xs.ms-2
+          .form-check.mb-0
+            input(type='checkbox' id='no-skills').form-check-input
+            label(for='no-skills').form-check-label
+              | I do not want to enter any skills at this time
+
+        // Navigation
+        .d-flex.flex-column.flex-sm-row.bg-light.rounded-3.p-4.px-md-5
+          a(href='job-board-post-resume-3.html').btn.btn-outline-primary.btn-lg.rounded-pill.mb-3.mb-sm-0
+            i.fi-chevron-left.fs-sm.me-2
+            | Previous step
+          a(href='job-board-post-resume-5.html').btn.btn-primary.btn-lg.rounded-pill.ms-sm-auto
+            | Next step
+            i.fi-chevron-right.fs-sm.ms-2
+
+
+//- Footer
+block footer
+  include partials/footer-job-board

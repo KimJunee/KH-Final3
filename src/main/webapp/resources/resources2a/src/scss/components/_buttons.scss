@@ -1,0 +1,259 @@
+//
+// Buttons
+// --------------------------------------------------
+
+
+// Global styles
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  &:not([class^='btn-outline-']):not([class*=' btn-outline-']):not(.btn-secondary):not(.btn-light):not(.btn-link) {
+    --#{$prefix}btn-color: #{$btn-color};
+  }
+
+  > [class^='ai-'],
+  > [class*=' ai-'] {
+    font-size: 1.25em;
+  }
+}
+
+
+// Override solid buttons
+
+@each $color, $value in $theme-colors {
+  .btn-#{$color} {
+    --#{$prefix}btn-hover-color: #{$btn-color};
+    --#{$prefix}btn-active-color: #{$btn-color};
+    --#{$prefix}btn-hover-bg: #{darken($value, 8%)};
+    --#{$prefix}btn-active-bg: #{darken($value, 8%)};
+    --#{$prefix}btn-hover-border-color: #{darken($value, 8%)};
+    --#{$prefix}btn-active-border-color: #{darken($value, 8%)};
+    --#{$prefix}btn-disabled-color: #{$btn-color};
+  }
+}
+
+.btn-secondary,
+.btn-light {
+  --#{$prefix}btn-color: #{$gray-800}  !important;
+  --#{$prefix}btn-hover-color: #{$gray-900} !important;
+  --#{$prefix}btn-active-color: #{$gray-900} !important;
+  --#{$prefix}btn-disabled-color: #{$gray-700};
+}
+
+
+// Outline buttons
+
+[class^='btn-outline-'],
+[class*=' btn-outline-'] {
+  --#{$prefix}btn-hover-color: #{$btn-color};
+  --#{$prefix}btn-active-color: #{$btn-color};
+}
+
+.btn-outline-secondary {
+  --#{$prefix}btn-color: #{$gray-800};
+  --#{$prefix}btn-hover-color: #{$gray-900};
+  --#{$prefix}btn-active-color: #{$gray-900};
+  --#{$prefix}btn-hover-bg: #{$gray-200};
+  --#{$prefix}btn-active-bg: #{$gray-200};
+  --#{$prefix}btn-border-color: #{$gray-400};
+  --#{$prefix}btn-hover-border-color: #{$gray-400};
+  --#{$prefix}btn-active-border-color: #{$gray-400};
+  --#{$prefix}btn-disabled-color: #{$gray-700};
+  --#{$prefix}btn-disabled-border-color: #{$gray-300};
+}
+
+.btn-outline-light {
+  --#{$prefix}btn-hover-color: #{$gray-800};
+  --#{$prefix}btn-active-color: #{$gray-800};
+  --#{$prefix}btn-hover-bg: #{$light};
+  --#{$prefix}btn-active-bg: #{$light};
+}
+
+
+// Link button
+
+.btn-link {
+  --#{$prefix}btn-font-weight: #{$btn-font-weight};
+  text-decoration: $btn-link-decoration;
+}
+
+
+// Icon button
+
+.btn-icon {
+  --#{$prefix}btn-size: #{$btn-icon-size};
+
+  flex-shrink: 0;
+  width: var(--#{$prefix}btn-size);
+  height: var(--#{$prefix}btn-size);
+  padding: 0;
+
+  &.btn-xs {
+    --#{$prefix}btn-size: #{$btn-icon-size-xs};
+    --#{$prefix}btn-font-size: #{$font-size-xs};
+  }
+
+  &.btn-sm {
+    --#{$prefix}btn-size: #{$btn-icon-size-sm};
+  }
+
+  &.btn-lg {
+    --#{$prefix}btn-size: #{$btn-icon-size-lg};
+  }
+
+  &.btn-xl {
+    --#{$prefix}btn-size: #{$btn-icon-size-xl};
+    --#{$prefix}btn-font-size: #{$font-size-lg};
+  }
+
+  > .ai-play,
+  > .ai-play-filled {
+    margin-left: .1875rem;
+  }
+}
+
+
+// Button group
+
+.btn-group .btn {
+  --#{$prefix}btn-padding-x: #{$input-btn-padding-x * .75};
+  &.dropdown-toggle-split {
+    --#{$prefix}btn-padding-x: #{$input-btn-padding-x * .5};
+    padding: {
+      right: var(--#{$prefix}btn-padding-x);
+      left: var(--#{$prefix}btn-padding-x);
+    }
+  }
+}
+.btn-group-lg .btn,
+.btn-group .btn-lg {
+  --#{$prefix}btn-padding-x: #{$input-btn-padding-x-lg * .75};
+  &.dropdown-toggle-split {
+    --#{$prefix}btn-padding-x: #{$input-btn-padding-x-lg * .5};
+    padding: {
+      right: var(--#{$prefix}btn-padding-x);
+      left: var(--#{$prefix}btn-padding-x);
+    }
+  }
+}
+.btn-group-sm .btn,
+.btn-group .btn-sm {
+  --#{$prefix}btn-padding-x: #{$input-btn-padding-x-sm * .75};
+  &.dropdown-toggle-split {
+    --#{$prefix}btn-padding-x: #{$input-btn-padding-x-sm * .5};
+    padding: {
+      right: var(--#{$prefix}btn-padding-x);
+      left: var(--#{$prefix}btn-padding-x);
+    }
+  }
+}
+.btn-group > .btn:not(:first-child),
+.btn-group > .btn-group:not(:first-child) {
+  margin-left: calc(var(--#{$prefix}border-width) * -1);
+}
+
+
+// Close button
+
+.btn-close {
+  transition: $btn-close-transition;
+}
+
+
+// Show more button
+
+.btn-more {
+  &::before {
+    content: attr(data-hide-label);
+  }
+  &::after {
+    display: inline-block;
+    margin-left: .25rem;
+    will-change: transform;
+    transition: transform .2s ease-in-out;
+    transform: rotate(180deg);
+    font: {
+      family: $icons-font-family;
+      size: 1.5em;
+    }
+    content: $ai-chevron-down;
+  }
+  &.fs-2, &.fs-3,
+  &.fs-4, &.fs-5 {
+    &::after {
+      font-size: 1em;
+    }
+  }
+  &.h2, &.h3, &.h4,
+  &.h5, &.h6 {
+    &::after {
+      font-weight: $font-weight-medium;
+    }
+  }
+  &.collapsed {
+    &::before {
+      content: attr(data-show-label);
+    }
+    &::after {
+      transform: none;
+    }
+  }
+}
+
+
+// Scroll to top button
+
+.btn-scroll-top {
+  --#{$prefix}btn-scroll-top-size: #{$btn-scroll-top-size};
+  --#{$prefix}btn-scroll-top-font-size: #{$btn-scroll-top-font-size};
+  --#{$prefix}btn-scroll-top-color: #{$btn-scroll-top-color};
+  --#{$prefix}btn-scroll-top-bg: #{$btn-scroll-top-bg};
+  --#{$prefix}btn-scroll-top-border-radius: 50%;
+  --#{$prefix}btn-scroll-top-box-shadow: #{$btn-scroll-top-box-shadow};
+
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: $spacer;
+  bottom: $spacer;
+  width: var(--#{$prefix}btn-scroll-top-size);
+  height: var(--#{$prefix}btn-scroll-top-size);
+  transition: $btn-scroll-top-transition;
+  transform: scale(0);
+  @include border-radius(50%);
+  color: var(--#{$prefix}btn-scroll-top-color) !important;
+  font-size: var(--#{$prefix}btn-scroll-top-font-size);
+  box-shadow: var(--#{$prefix}btn-scroll-top-box-shadow);
+  text-decoration: none;
+  opacity: 0;
+  z-index: $zindex-fixed;
+
+  &::before {
+    position: absolute;
+    top: .0625rem;
+    left: .0625rem;
+    width: calc(var(--#{$prefix}btn-scroll-top-size) - .125rem);
+    height: calc(var(--#{$prefix}btn-scroll-top-size) - .125rem);
+    background-color: var(--#{$prefix}btn-scroll-top-bg);
+    @include border-radius(50%);
+    z-index: -1;
+    content: '';
+  }
+
+  > svg {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(90deg);
+  }
+
+  &.show {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

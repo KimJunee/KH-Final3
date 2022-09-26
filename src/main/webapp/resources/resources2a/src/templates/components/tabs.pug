@@ -1,0 +1,543 @@
+extends ../partials/layout-components
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/simplebar/dist/simplebar.min.css', 'vendor/prismjs/themes/prism.css', 'vendor/prismjs/plugins/toolbar/prism-toolbar.css', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.css']
+  - var scripts = ['vendor/simplebar/dist/simplebar.min.js', 'vendor/prismjs/components/prism-core.min.js', 'vendor/prismjs/components/prism-markup.min.js', 'vendor/prismjs/components/prism-clike.min.js', 'vendor/prismjs/components/prism-javascript.min.js', 'vendor/prismjs/components/prism-pug.min.js', 'vendor/prismjs/plugins/toolbar/prism-toolbar.min.js', 'vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js', 'vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js']
+  - var pageTitle = 'Tabs'
+  - var pageSubtitle = 'Horizontally or vertically stacked list of items. When clicked each item switch content in the tab pane.'
+  - var pageTitleLink = {'title': 'Bootstrap docs', 'link': 'https://getbootstrap.com/docs/5.2/components/navs-tabs/#tabs'}
+  - var anchorNav = [{'title': 'With icons and dropdown', 'link': '#tabs-icon-dropdown'}, {'title': 'Pill shape', 'link': '#tabs-pill-shape'}, {'title': 'Alignment and fill', 'link': '#tabs-alignment'}, {'title': 'Vertical tabs', 'link': '#tabs-vertical'}, {'title': 'Image tabs', 'link': '#tabs-image'}]
+    
+//- Page Content
+block content
+
+  // With icons and dropdown
+  section#tabs-icon-dropdown.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 With icons and dropdown
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview1' data-bs-toggle='tab' role='tab' aria-controls='preview1' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html1' data-bs-toggle='tab' role='tab' aria-controls='html1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug1' data-bs-toggle='tab' role='tab' aria-controls='pug1' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview1.tab-pane.fade.show.active(role='tabpanel')
+            ul(class='nav nav-tabs' role='tablist')
+              li.nav-item
+                a(href='#home' class='nav-link active' data-bs-toggle='tab' role='tab')
+                  i.ai-home.me-2
+                  | Home
+              li.nav-item
+                a(href='#profile' class='nav-link' data-bs-toggle='tab' role='tab')
+                  i.ai-user.me-2
+                  | Profile
+              li.nav-item.dropdown
+                a(href='#' class='nav-link dropdown-toggle' data-bs-toggle='dropdown' role='button') Dropdown
+                .dropdown-menu
+                  a(href='#messages' class='dropdown-item' data-bs-toggle='tab' role='tab') Messages
+                  a(href='#settings' class='dropdown-item' data-bs-toggle='tab' role='tab') Settings
+            .tab-content
+              div(id='home' class='tab-pane fade show active' role='tabpanel')
+                p Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.
+              div(id='profile' class='tab-pane fade' role='tabpanel')
+                p Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente.
+              div(id='messages' class='tab-pane fade' role='tabpanel')
+                p Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu.
+              div(id='settings' class='tab-pane fade' role='tabpanel')
+                p Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical.
+        #html1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Nav tabs --&gt;
+              &lt;ul class=&quot;nav nav-tabs&quot; role=&quot;tablist&quot;&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                  &lt;a href=&quot;#home&quot; class=&quot;nav-link active&quot; data-bs-toggle=&quot;tab&quot; role=&quot;tab&quot;&gt;
+                    &lt;i class=&quot;fi-home me-2&quot;&gt;&lt;/i&gt;
+                    Home
+                  &lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                  &lt;a href=&quot;#profile&quot; class=&quot;nav-link&quot; data-bs-toggle=&quot;tab&quot; role=&quot;tab&quot;&gt;
+                    &lt;i class=&quot;fi-user me-2&quot;&gt;&lt;/i&gt;
+                    Profile
+                  &lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;nav-item dropdown&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link dropdown-toggle&quot; data-bs-toggle=&quot;dropdown&quot; role=&quot;button&quot;&gt;Dropdown&lt;/a&gt;
+                  &lt;div class=&quot;dropdown-menu&quot;&gt;
+                    &lt;a href=&quot;#messages&quot; class=&quot;dropdown-item&quot; data-bs-toggle=&quot;tab&quot; role=&quot;tab&quot;&gt;Messages&lt;/a&gt;
+                    &lt;a href=&quot;#settings&quot; class=&quot;dropdown-item&quot; data-bs-toggle=&quot;tab&quot; role=&quot;tab&quot;&gt;Settings&lt;/a&gt;
+                  &lt;/div&gt;
+                &lt;/li&gt;
+              &lt;/ul&gt;
+
+              &lt;!-- Tabs content --&gt;
+              &lt;div class=&quot;tab-content&quot;&gt;
+                &lt;div class=&quot;tab-pane fade show active&quot; id=&quot;home&quot; role=&quot;tabpanel&quot;&gt;
+                  &lt;p&gt;Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;tab-pane fade&quot; id=&quot;profile&quot; role=&quot;tabpanel&quot;&gt;
+                  &lt;p&gt;Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente.&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;tab-pane fade&quot; id=&quot;messages&quot; role=&quot;tabpanel&quot;&gt;
+                  &lt;p&gt;Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu.&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;tab-pane fade&quot; id=&quot;settings&quot; role=&quot;tabpanel&quot;&gt;
+                  &lt;p&gt;Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical.&lt;/p&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        #pug1.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Nav tabs
+              ul(class=&quot;nav nav-tabs&quot;, role=&quot;tablist&quot;)
+                li.nav-item
+                  a(href=&quot;#home&quot;, class=&quot;nav-link active&quot;, data-bs-toggle=&quot;tab&quot;, role=&quot;tab&quot;)
+                    i.ai-home.me-2
+                    | Home
+                li.nav-item
+                  a(href=&quot;#profile&quot;, class=&quot;nav-link&quot;, data-bs-toggle=&quot;tab&quot;, role=&quot;tab&quot;)
+                    i.ai-user.me-2
+                    | Profile
+                li.nav-item.dropdown
+                  a(href=&quot;#&quot;, class=&quot;nav-link dropdown-toggle&quot;, data-bs-toggle=&quot;dropdown&quot;, role=&quot;button&quot;)
+                    | Dropdown
+                  .dropdown-menu
+                    a(href=&quot;#messages&quot;, class=&quot;dropdown-item&quot;, data-bs-toggle=&quot;tab&quot;, role=&quot;tab&quot;)
+                      | Messages
+                    a(href=&quot;#settings&quot;, class=&quot;dropdown-item&quot;, data-bs-toggle=&quot;tab&quot;, role=&quot;tab&quot;)
+                      | Settings
+
+              // Tabs content
+              .tab-content
+                div(id=&quot;home&quot;, class=&quot;tab-pane fade show active&quot;, role=&quot;tabpanel&quot;)
+                  p
+                    | Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui. Excepteur sint occaecat cupidatat non proident.
+                div(id=&quot;profile&quot;, class=&quot;tab-pane fade&quot;, role=&quot;tabpanel&quot;)
+                  p
+                    | Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente.
+                div(id=&quot;messages&quot;, class=&quot;tab-pane fade&quot;, role=&quot;tabpanel&quot;)
+                  p
+                    | Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.
+                div(id=&quot;settings&quot;, class=&quot;tab-pane fade&quot;, role=&quot;tabpanel&quot;)
+                  p
+                    | Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical. Wolf salvia freegan.
+
+  // Pill shape
+  section#tabs-pill-shape.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Pill shape
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview2' data-bs-toggle='tab' role='tab' aria-controls='preview2' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html2' data-bs-toggle='tab' role='tab' aria-controls='html2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug2' data-bs-toggle='tab' role='tab' aria-controls='pug2' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview2.tab-pane.fade.show.active(role='tabpanel')
+          ul(class='nav nav-tabs' role='tablist')
+            li.nav-item
+              a(href='#' class='nav-link rounded-pill active' data-bs-toggle='tab' role='tab')
+                | Home
+            li.nav-item
+              a(href='#' class='nav-link rounded-pill' data-bs-toggle='tab' role='tab')
+                | Profile
+            li.nav-item
+              a(href='#' class='nav-link rounded-pill' data-bs-toggle='tab' role='tab')
+                | Settings
+            li.nav-item
+              a(href='#' class='nav-link rounded-pill disabled' data-bs-toggle='tab' role='tab')
+                | Disabled
+        #html2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Pill shape tabs --&gt;
+              &lt;ul class=&quot;nav nav-tabs&quot; role=&quot;tablist&quot;&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link rounded-pill active&quot; data-bs-toggle=&quot;tab&quot; role=&quot;tab&quot;&gt;
+                    Home
+                  &lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link rounded-pill&quot; data-bs-toggle=&quot;tab&quot; role=&quot;tab&quot;&gt;
+                    Profile
+                  &lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link rounded-pill&quot; data-bs-toggle=&quot;tab&quot; role=&quot;tab&quot;&gt;
+                    Settings
+                  &lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link rounded-pill disabled&quot; data-bs-toggle=&quot;tab&quot; role=&quot;tab&quot;&gt;
+                    Disabled
+                  &lt;/a&gt;
+                &lt;/li&gt;
+              &lt;/ul&gt;
+        #pug2.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Pill shape tabs
+              ul(class=&quot;nav nav-tabs&quot;, role=&quot;tablist&quot;)
+                li.nav-item
+                  a(href=&quot;#&quot;, class=&quot;nav-link rounded-pill active&quot; ,data-bs-toggle=&quot;tab&quot;, role=&quot;tab&quot;)
+                    | Home
+                li.nav-item
+                  a(href=&quot;#&quot;, class=&quot;nav-link rounded-pill&quot;, data-bs-toggle=&quot;tab&quot;, role=&quot;tab&quot;)
+                    | Profile
+                li.nav-item
+                  a(href=&quot;#&quot;, class=&quot;nav-link rounded-pill&quot;, data-bs-toggle=&quot;tab&quot;, role=&quot;tab&quot;)
+                    | Settings
+                li.nav-item
+                  a(href=&quot;#&quot;, class=&quot;nav-link rounded-pill disabled&quot;, data-bs-toggle=&quot;tab&quot;, role=&quot;tab&quot;)
+                    | Disabled
+
+  // Alignment and fill
+  section#tabs-alignment.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Alignment and fill
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview3' data-bs-toggle='tab' role='tab' aria-controls='preview3' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html3' data-bs-toggle='tab' role='tab' aria-controls='html3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug3' data-bs-toggle='tab' role='tab' aria-controls='pug3' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview3.tab-pane.fade.show.active(role='tabpanel')
+          ul(class='nav nav-tabs justify-content-center mb-5' role='tablist')
+            li.nav-item
+              a(href='#' class='nav-link active' data-bs-toggle='tab' role='tab')
+                | Home
+            li.nav-item
+              a(href='#' class='nav-link' data-bs-toggle='tab' role='tab')
+                | Profile
+            li.nav-item
+              a(href='#' class='nav-link' data-bs-toggle='tab' role='tab')
+                | Settings
+            li.nav-item
+              a(href='#' class='nav-link disabled' data-bs-toggle='tab' role='tab')
+                | Disabled
+          ul(class='nav nav-tabs justify-content-end mb-5' role='tablist')
+            li.nav-item
+              a(href='#' class='nav-link active' data-bs-toggle='tab' role='tab')
+                | Home
+            li.nav-item
+              a(href='#' class='nav-link' data-bs-toggle='tab' role='tab')
+                | Profile
+            li.nav-item
+              a(href='#' class='nav-link' data-bs-toggle='tab' role='tab')
+                | Settings
+            li.nav-item
+              a(href='#' class='nav-link disabled' data-bs-toggle='tab' role='tab')
+                | Disabled
+          ul(class='nav nav-tabs nav-fill' role='tablist')
+            li.nav-item.me-2
+              a(href='#' class='nav-link active' data-bs-toggle='tab' role='tab')
+                | Home
+            li.nav-item.me-2
+              a(href='#' class='nav-link' data-bs-toggle='tab' role='tab')
+                | Profile
+            li.nav-item
+              a(href='#' class='nav-link' data-bs-toggle='tab' role='tab')
+                | Settings
+            li.nav-item
+              a(href='#' class='nav-link disabled' data-bs-toggle='tab' role='tab')
+                | Disabled
+        #html3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Center aligned --&gt;
+              &lt;ul class=&quot;nav nav-tabs justify-content-center&quot; role=&quot;tablist&quot;&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link&quot; data-bs-toggle=&quot;tab&quot; role=&quot;tab&quot;&gt;Home&lt;/a&gt;
+                &lt;/li&gt;
+                ...
+              &lt;/ul&gt;
+
+              &lt;!-- Right aligned --&gt;
+              &lt;ul class=&quot;nav nav-tabs justify-content-end&quot; role=&quot;tablist&quot;&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link&quot; data-bs-toggle=&quot;tab&quot; role=&quot;tab&quot;&gt;Home&lt;/a&gt;
+                &lt;/li&gt;
+                ...
+              &lt;/ul&gt;
+
+              &lt;!-- Fill tabs --&gt;
+              &lt;ul class=&quot;nav nav-tabs nav-fill&quot; role=&quot;tablist&quot;&gt;
+                &lt;li class=&quot;nav-item me-2&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link&quot; data-bs-toggle=&quot;tab&quot; role=&quot;tab&quot;&gt;Home&lt;/a&gt;
+                &lt;/li&gt;
+                ...
+              &lt;/ul&gt;
+
+              &lt;!-- Justified tabs --&gt;
+              &lt;ul class=&quot;nav nav-tabs nav-justified&quot; role=&quot;tablist&quot;&gt;
+                &lt;li class=&quot;nav-item me-2&quot;&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;nav-link&quot; data-bs-toggle=&quot;tab&quot; role=&quot;tab&quot;&gt;Home&lt;/a&gt;
+                &lt;/li&gt;
+                ...
+              &lt;/ul&gt;
+        #pug3.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Center aligned
+              ul(class=&quot;nav nav-tabs justify-content-center&quot;, role=&quot;tablist&quot;)
+                li.nav-item
+                  a(href=&quot;#&quot;, class=&quot;nav-link&quot;, data-bs-toggle=&quot;tab&quot;, role=&quot;tab&quot;) Home
+                ...
+
+              // Right aligned
+              ul(class=&quot;nav nav-tabs justify-content-end&quot;, role=&quot;tablist&quot;)
+                li.nav-item
+                  a(href=&quot;#&quot;, class=&quot;nav-link&quot;, data-bs-toggle=&quot;tab&quot;, role=&quot;tab&quot;) Home
+                ...
+
+              // Fill tabs
+              ul(class=&quot;nav nav-tabs nav-fill&quot;, role=&quot;tablist&quot;)
+                li.nav-item.me-2
+                  a(href=&quot;#&quot;, class=&quot;nav-link&quot;, data-bs-toggle=&quot;tab&quot;, role=&quot;tab&quot;) Home
+                ...
+
+              // Justified tabs
+              ul(class=&quot;nav nav-tabs nav-justified&quot;, role=&quot;tablist&quot;)
+                li.nav-item.me-2
+                  a(href=&quot;#&quot;, class=&quot;nav-link&quot;, data-bs-toggle=&quot;tab&quot;, role=&quot;tab&quot;) Home
+                ...
+
+  // Vertical tabs
+  section#tabs-vertical.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Vertical tabs
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview4' data-bs-toggle='tab' role='tab' aria-controls='preview4' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html4' data-bs-toggle='tab' role='tab' aria-controls='html4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug4' data-bs-toggle='tab' role='tab' aria-controls='pug4' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview4.tab-pane.fade.show.active(role='tabpanel')
+          ul(class='nav nav-tabs flex-column' style='max-width: 16rem;' role='tablist')
+            li.nav-item
+              a(href='#' class='nav-link active' data-bs-toggle='tab' role='tab')
+                i.ai-home.me-2
+                | Home
+            li.nav-item
+              a(href='#' class='nav-link' data-bs-toggle='tab' role='tab')
+                i.ai-user.me-2
+                | Profile
+            li.nav-item
+              a(href='#' class='nav-link' data-bs-toggle='tab' role='tab')
+                i.ai-messages.me-2
+                | Messages
+            li.nav-item
+              a(href='#' class='nav-link' data-bs-toggle='tab' role='tab')
+                i.ai-settings.me-2
+                | Settings
+        #html4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Vertical tabs --&gt;
+              &lt;ul class=&quot;nav nav-tabs flex-column&quot; role=&quot;tablist&quot;&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                  &lt;a class=&quot;nav-link active&quot; href=&quot;#&quot; data-bs-toggle=&quot;tab&quot; role=&quot;tab&quot;&gt;
+                    &lt;i class=&quot;ai-home me-2&quot;&gt;&lt;/i&gt;
+                    Home
+                  &lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                  &lt;a class=&quot;nav-link&quot; href=&quot;#&quot; data-bs-toggle=&quot;tab&quot; role=&quot;tab&quot;&gt;
+                    &lt;i class=&quot;ai-user me-2&quot;&gt;&lt;/i&gt;
+                    Profile
+                  &lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                  &lt;a class=&quot;nav-link&quot; href=&quot;#&quot; data-bs-toggle=&quot;tab&quot; role=&quot;tab&quot;&gt;
+                    &lt;i class=&quot;ai-message-square me-2&quot;&gt;&lt;/i&gt;
+                    Messages
+                  &lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                  &lt;a class=&quot;nav-link&quot; href=&quot;#&quot; data-bs-toggle=&quot;tab&quot; role=&quot;tab&quot;&gt;
+                    &lt;i class=&quot;ai-settings me-2&quot;&gt;&lt;/i&gt;
+                    Settings
+                  &lt;/a&gt;
+                &lt;/li&gt;
+              &lt;/ul&gt;
+        #pug4.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Vertical tabs
+              ul(class=&quot;nav nav-tabs flex-column&quot;, role=&quot;tablist&quot;)
+                li.nav-item
+                  a(href=&quot;#&quot;, class=&quot;nav-link active&quot;, data-bs-toggle=&quot;tab&quot;, role=&quot;tab&quot;)
+                    i.ai-home.me-2
+                    | Home
+                li.nav-item
+                  a(href=&quot;#&quot;, class=&quot;nav-link&quot;, data-bs-toggle=&quot;tab&quot;, role=&quot;tab&quot;)
+                    i.ai-user.me-2
+                    | Profile
+                li.nav-item
+                  a(href=&quot;#&quot;, class=&quot;nav-link&quot;, data-bs-toggle=&quot;tab&quot;, role=&quot;tab&quot;)
+                    i.ai-message-square.me-2
+                    | Messages
+                li.nav-item
+                  a(href=&quot;#&quot;, class=&quot;nav-link&quot;, data-bs-toggle=&quot;tab&quot;, role=&quot;tab&quot;)
+                    i.ai-settings.me-2
+                    | Settings
+
+  // Image tabs
+  section#tabs-image.card.border-0.mb-4
+    .card-body.pb-0
+      h2.h4.mb-n2 Image tabs
+    .card-header
+      ul(role='tablist').nav.nav-tabs.card-header-tabs.flex-nowrap.align-items-center.mb-n1
+        li.nav-item.me-3
+          a(href='#preview5' data-bs-toggle='tab' role='tab' aria-controls='preview5' aria-selected='true').nav-link.px-0.py-2.border-0.rounded-1.active
+            i.ai-show.fs-lg.opacity-90.me-2
+            | Preview
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-3
+          a(href='#html5' data-bs-toggle='tab' role='tab' aria-controls='html5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code.fs-xl.opacity-90.me-2
+            | HTML
+        li.vr.opacity-20.my-3.me-3
+        li.nav-item.me-0
+          a(href='#pug5' data-bs-toggle='tab' role='tab' aria-controls='pug5' aria-selected='false').nav-link.px-0.py-2.border-0.rounded-1
+            i.ai-code-curly.opacity-90.me-2
+            | Pug
+    .card-body
+      .tab-content
+        #preview5.tab-pane.fade.show.active(role='tabpanel')
+          ul(class='nav nav-tabs' role='tablist')
+            li.nav-item
+              a(href='#' class='nav-link active' data-bs-toggle='tab' role='tab')
+                .swap-image
+                  img(src='../assets/img/landing/saas-1/brands/klinos-color.svg' width='131' alt='Klinos').swap-to
+                  .swap-from
+                    img(src='../assets/img/landing/saas-1/brands/klinos-gray.svg' width='131' alt='Klinos').d-dark-mode-none
+                    img(src='../assets/img/landing/saas-1/brands/klinos-light.svg' width='131' alt='Klinos').d-none.d-dark-mode-block
+            li.nav-item
+              a(href='#' class='nav-link' data-bs-toggle='tab' role='tab')
+                .swap-image
+                  img(src='../assets/img/landing/saas-1/brands/champion-color.svg' width='162' alt='Champion').swap-to
+                  .swap-from
+                    img(src='../assets/img/landing/saas-1/brands/champion-gray.svg' width='162' alt='Champion').d-dark-mode-none
+                    img(src='../assets/img/landing/saas-1/brands/champion-light.svg' width='162' alt='Champion').d-none.d-dark-mode-block
+            li.nav-item
+              a(href='#' class='nav-link' data-bs-toggle='tab' role='tab')
+                .swap-image
+                  img(src='../assets/img/landing/saas-1/brands/airbnb-color.svg' width='132' alt='Airbnb').swap-to
+                  .swap-from
+                    img(src='../assets/img/landing/saas-1/brands/airbnb-gray.svg' width='132' alt='Airbnb').d-dark-mode-none
+                    img(src='../assets/img/landing/saas-1/brands/airbnb-light.svg' width='132' alt='Airbnb').d-none.d-dark-mode-block
+        #html5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-html').
+              &lt;!-- Image based nav tabs --&gt;
+              &lt;ul class=&quot;nav nav-tabs&quot; role=&quot;tablist&quot;&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                  &lt;a class=&quot;nav-link active&quot; href=&quot;#&quot; data-bs-toggle=&quot;tab&quot; role=&quot;tab&quot;&gt;
+                    &lt;div class=&quot;swap-image&quot;&gt;
+                      &lt;img src=&quot;assets/img/landing/saas-1/brands/klinos-color.svg&quot; class=&quot;swap-to&quot; width=&quot;131&quot; alt=&quot;Klinos&quot;&gt;
+                      &lt;div class=&quot;swap-from&quot;&gt;
+                        &lt;img src=&quot;assets/img/landing/saas-1/brands/klinos-gray.svg&quot; class=&quot;d-dark-mode-none&quot; width=&quot;131&quot; alt=&quot;Klinos&quot;&gt;
+                        &lt;img src=&quot;assets/img/landing/saas-1/brands/klinos-light.svg&quot; class=&quot;d-none d-dark-mode-block&quot; width=&quot;131&quot; alt=&quot;Klinos&quot;&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                  &lt;a class=&quot;nav-link&quot; href=&quot;#&quot; data-bs-toggle=&quot;tab&quot; role=&quot;tab&quot;&gt;
+                    &lt;div class=&quot;swap-image&quot;&gt;
+                      &lt;img src=&quot;assets/img/landing/saas-1/brands/champion-color.svg&quot; class=&quot;swap-to&quot; width=&quot;162&quot; alt=&quot;Champion&quot;&gt;
+                      &lt;div class=&quot;swap-from&quot;&gt;
+                        &lt;img src=&quot;assets/img/landing/saas-1/brands/champion-gray.svg&quot; class=&quot;d-dark-mode-none&quot; width=&quot;162&quot; alt=&quot;Champion&quot;&gt;
+                        &lt;img src=&quot;assets/img/landing/saas-1/brands/champion-light.svg&quot; class=&quot;d-none d-dark-mode-block&quot; width=&quot;162&quot; alt=&quot;Champion&quot;&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                  &lt;a class=&quot;nav-link&quot; href=&quot;#&quot; data-bs-toggle=&quot;tab&quot; role=&quot;tab&quot;&gt;
+                    &lt;div class=&quot;swap-image&quot;&gt;
+                      &lt;img src=&quot;assets/img/landing/saas-1/brands/airbnb-color.svg&quot; class=&quot;swap-to&quot; width=&quot;132&quot; alt=&quot;Airbnb&quot;&gt;
+                      &lt;div class=&quot;swap-from&quot;&gt;
+                        &lt;img src=&quot;assets/img/landing/saas-1/brands/airbnb-gray.svg&quot; class=&quot;d-dark-mode-none&quot; width=&quot;132&quot; alt=&quot;Airbnb&quot;&gt;
+                        &lt;img src=&quot;assets/img/landing/saas-1/brands/airbnb-light.svg&quot; class=&quot;d-none d-dark-mode-block&quot; width=&quot;132&quot; alt=&quot;Airbnb&quot;&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/a&gt;
+                &lt;/li&gt;
+              &lt;/ul&gt;
+        #pug5.tab-pane.fade(role='tabpanel')
+          pre.line-numbers
+            code(class='lang-pug').
+              // Image based nav tabs
+              ul(class=&quot;nav nav-tabs&quot;, role=&quot;tablist&quot;)
+                li.nav-item
+                  a(href=&quot;#&quot;, class=&quot;nav-link active&quot;, data-bs-toggle=&quot;tab&quot;, role=&quot;tab&quot;)
+                    .swap-image
+                      img(src=&quot;assets/img/landing/saas-1/brands/klinos-color.svg&quot;, width=&quot;131&quot;, alt=&quot;Klinos&quot;).swap-to
+                      .swap-from
+                        img(src=&quot;assets/img/landing/saas-1/brands/klinos-gray.svg&quot;, width=&quot;131&quot;, alt=&quot;Klinos&quot;).d-dark-mode-none
+                        img(src=&quot;assets/img/landing/saas-1/brands/klinos-light.svg&quot;, width=&quot;131&quot;, alt=&quot;Klinos&quot;).d-none.d-dark-mode-block
+                li.nav-item
+                  a(href=&quot;#&quot;, class=&quot;nav-link&quot;, data-bs-toggle=&quot;tab&quot;, role=&quot;tab&quot;)
+                    .swap-image
+                      img(src=&quot;assets/img/landing/saas-1/brands/champion-color.svg&quot;, width=&quot;162&quot;, alt=&quot;Champion&quot;).swap-to
+                      .swap-from
+                        img(src=&quot;assets/img/landing/saas-1/brands/champion-gray.svg&quot;, width=&quot;162&quot;, alt=&quot;Champion&quot;).d-dark-mode-none
+                        img(src=&quot;assets/img/landing/saas-1/brands/champion-light.svg&quot;, width=&quot;162&quot;, alt=&quot;Champion&quot;).d-none.d-dark-mode-block
+                li.nav-item
+                  a(href=&quot;#&quot;, class=&quot;nav-link&quot;, data-bs-toggle=&quot;tab&quot;, role=&quot;tab&quot;)
+                    .swap-image
+                      img(src=&quot;assets/img/landing/saas-1/brands/airbnb-color.svg&quot;, width=&quot;132&quot;, alt=&quot;Airbnb&quot;).swap-to
+                      .swap-from
+                        img(src=&quot;assets/img/landing/saas-1/brands/airbnb-gray.svg&quot;, width=&quot;132&quot;, alt=&quot;Airbnb&quot;).d-dark-mode-none
+                        img(src=&quot;assets/img/landing/saas-1/brands/airbnb-light.svg&quot;, width=&quot;132&quot;, alt=&quot;Airbnb&quot;).d-none.d-dark-mode-block

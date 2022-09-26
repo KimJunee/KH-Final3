@@ -1,0 +1,267 @@
+if isShopPage
+  // Search modal
+  include modal-search.pug
+
+  //- Do not render Shopping cart offcanvas on Checkout page
+  unless pageTitle === 'Checkout'
+    // Cart offcanvas
+    include offcanvas-cart.pug
+
+
+// Navbar. Remove 'fixed-top' class to make the navigation bar scrollable with the page
+header()&attributes(navbarExtraClass ? {'class': `navbar navbar-expand-lg fixed-top ${navbarExtraClass}`} : {'class': 'navbar navbar-expand-lg fixed-top'})
+  .container
+    a(href='index.html').navbar-brand.pe-sm-3
+      span.text-primary.flex-shrink-0.me-2
+        svg(version='1.1' width='35' height='32' viewBox='0 0 36 33' xmlns='http://www.w3.org/2000/svg')
+          path(fill='currentColor' d='M35.6,29c-1.1,3.4-5.4,4.4-7.9,1.9c-2.3-2.2-6.1-3.7-9.4-3.7c-3.1,0-7.5,1.8-10,4.1c-2.2,2-5.8,1.5-7.3-1.1c-1-1.8-1.2-4.1,0-6.2l0.6-1.1l0,0c0.6-0.7,4.4-5.2,12.5-5.7c0.5,1.8,2,3.1,3.9,3.1c2.2,0,4.1-1.9,4.1-4.2s-1.8-4.2-4.1-4.2c-2,0-3.6,1.4-4,3.3H7.7c-0.8,0-1.3-0.9-0.9-1.6l5.6-9.8c2.5-4.5,8.8-4.5,11.3,0L35.1,24C36,25.7,36.1,27.5,35.6,29z')
+      if isShopPage
+        span.d-none.d-sm-inline Around
+      else
+        | Around
+    if isThemeModeSwitch
+      div(data-bs-toggle='mode').form-check.form-switch.mode-switch.order-lg-2.me-3.me-lg-4.ms-auto
+        input(type='checkbox')#theme-mode.form-check-input
+        label(for='theme-mode').form-check-label
+          i.ai-sun.fs-lg
+        label(for='theme-mode').form-check-label
+          i.ai-moon.fs-lg
+    if isSignedIn
+
+      // User signed in state. Account dropdown on screens > 576px
+      .dropdown.nav.d-none.d-sm-block.order-lg-3
+        a(href='#' data-bs-toggle='dropdown' aria-expanded='false').nav-link.d-flex.align-items-center.p-0
+          img(src='assets/img/avatar/01.jpg' width='48' alt='Isabella Bocouse').border.rounded-circle
+          .ps-2
+            .fs-xs.lh-1.opacity-60 Hello,
+            .fs-sm.dropdown-toggle Isabella
+        .dropdown-menu.dropdown-menu-end.my-1
+          h6.dropdown-header.fs-xs.fw-medium.text-muted.text-uppercase.pb-1 Account
+          a(href='account-overview.html').dropdown-item
+            i.ai-user-check.fs-lg.opacity-70.me-2
+            | Overview
+          a(href='account-settings.html').dropdown-item
+            i.ai-settings.fs-lg.opacity-70.me-2
+            | Settings
+          a(href='account-billing.html').dropdown-item
+            i.ai-wallet.fs-base.opacity-70.me-2.mt-n1
+            | Billing
+          .dropdown-divider
+          h6.dropdown-header.fs-xs.fw-medium.text-muted.text-uppercase.pb-1 Dashboard
+          a(href='account-orders.html').dropdown-item
+            i.ai-cart.fs-lg.opacity-70.me-2
+            | Orders
+          a(href='account-earnings.html').dropdown-item
+            i.ai-activity.fs-lg.opacity-70.me-2
+            | Earnings
+          a(href='account-chat.html').dropdown-item.d-flex.align-items-center
+            i.ai-messages.fs-lg.opacity-70.me-2
+            | Chat
+            span.badge.bg-danger.ms-auto 4
+          a(href='account-favorites.html').dropdown-item
+            i.ai-heart.fs-lg.opacity-70.me-2
+            | Favorites
+          .dropdown-divider
+          a(href='account-signin.html').dropdown-item
+            i.ai-logout.fs-lg.opacity-70.me-2
+            | Sign out
+    else if isShopPage
+      .nav.align-items-center.order-lg-3.ms-n1.me-3.me-sm-0
+        a(href='#searchModal' data-bs-toggle='modal').nav-link.fs-4.p-2.mx-sm-1
+          i.ai-search
+        a(href='account-signin.html').nav-link.fs-4.p-2.mx-sm-1.d-none.d-sm-flex
+          i.ai-user
+          
+        //- Hide cart button on Checkout page
+        unless pageTitle === 'Checkout'
+          a(href='#cartOffcanvas' data-bs-toggle='offcanvas').nav-link.position-relative.fs-4.p-2
+            i.ai-cart
+            span.badge.bg-primary.fs-xs.position-absolute.end-0.top-0.me-n1(style='padding: .25rem .375rem;') 3
+    else
+      a(href='https://themes.getbootstrap.com/product/around-multipurpose-template-ui-kit/' target='_blank' rel='noopener')&attributes(buttonShape ? {'class': `btn btn-primary btn-sm ${buttonShape} fs-sm order-lg-3 d-none d-sm-inline-flex`} : {'class': 'btn btn-primary btn-sm fs-sm order-lg-3 d-none d-sm-inline-flex'})
+        i.ai-cart.fs-xl.me-2.ms-n1
+        | Buy now
+    button(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav').navbar-toggler.ms-sm-3
+      span.navbar-toggler-icon
+    nav#navbarNav.collapse.navbar-collapse
+      ul.navbar-nav.navbar-nav-scroll.me-auto(style='--ar-scroll-height: 520px;')
+        li.nav-item.dropdown
+          a(href='#' data-bs-toggle='dropdown' aria-expanded='false')&attributes(parentMenu === 'Landings' ? {'class': 'nav-link dropdown-toggle active'} : {'class': 'nav-link dropdown-toggle'})
+            | Landings
+          .dropdown-menu.overflow-hidden.p-0
+            .d-lg-flex
+              .mega-dropdown-column.pt-1.pt-lg-3.pb-lg-4
+                ul.list-unstyled.mb-0
+                  li
+                    a(href='index.html').dropdown-item Template Intro Page
+                    span.mega-dropdown-column.position-absolute.top-0.end-0.h-100.bg-size-cover.bg-repeat-0.rounded-3.rounded-start-0(style='background-image: url(assets/img/megamenu/landings.jpg);')
+                  li
+                    a(href='landing-mobile-app-showcase.html').dropdown-item Mobile App Showcase
+                    span.mega-dropdown-column.position-absolute.top-0.end-0.h-100.bg-size-cover.bg-repeat-0.zindex-2.opacity-0(style='background-image: url(assets/img/megamenu/mobile-app.jpg);')
+                  li
+                    a(href='landing-product.html').dropdown-item Product Landing
+                    span.mega-dropdown-column.position-absolute.top-0.end-0.h-100.bg-size-cover.bg-repeat-0.zindex-2.opacity-0(style='background-image: url(assets/img/megamenu/product-landing.jpg);')
+                  li
+                    a(href='landing-saas-v1.html').dropdown-item SaaS v.1
+                    span.mega-dropdown-column.position-absolute.top-0.end-0.h-100.bg-size-cover.bg-repeat-0.zindex-2.opacity-0(style='background-image: url(assets/img/megamenu/saas-1.jpg);')
+                  li
+                    a(href='landing-saas-v2.html').dropdown-item SaaS v.2
+                    span.mega-dropdown-column.position-absolute.top-0.end-0.h-100.bg-size-cover.bg-repeat-0.zindex-2.opacity-0(style='background-image: url(assets/img/megamenu/saas-2.jpg);')
+                  li
+                    a(href='landing-marketing-agency.html').dropdown-item Marketing Agency
+                    span.mega-dropdown-column.position-absolute.top-0.end-0.h-100.bg-size-cover.bg-repeat-0.zindex-2.opacity-0(style='background-image: url(assets/img/megamenu/marketing-agency.jpg);')
+                  li
+                    a(href='landing-shop.html').dropdown-item Shop Homepage
+                    span.mega-dropdown-column.position-absolute.top-0.end-0.h-100.bg-size-cover.bg-repeat-0.zindex-2.opacity-0(style='background-image: url(assets/img/megamenu/shop-homepage.jpg);')
+                  li
+                    a(href='landing-creative-agency.html').dropdown-item Creative Agency
+                    span.mega-dropdown-column.position-absolute.top-0.end-0.h-100.bg-size-cover.bg-repeat-0.zindex-2.opacity-0(style='background-image: url(assets/img/megamenu/creative-agency.jpg);')
+              .mega-dropdown-column.pb-2.pt-lg-3.pb-lg-4
+                ul.list-unstyled.mb-0
+                  li
+                    a(href='landing-web-studio.html').dropdown-item Web Studio
+                    span.mega-dropdown-column.position-absolute.top-0.end-0.h-100.bg-size-cover.bg-repeat-0.zindex-2.opacity-0(style='background-image: url(assets/img/megamenu/web-studio.jpg);')
+                  li
+                    a(href='landing-corporate.html').dropdown-item Corporate
+                    span.mega-dropdown-column.position-absolute.top-0.end-0.h-100.bg-size-cover.bg-repeat-0.zindex-2.opacity-0(style='background-image: url(assets/img/megamenu/corporate.jpg);')
+                  li
+                    a(href='landing-business-consulting.html').dropdown-item Business Consulting
+                    span.mega-dropdown-column.position-absolute.top-0.end-0.h-100.bg-size-cover.bg-repeat-0.zindex-2.opacity-0(style='background-image: url(assets/img/megamenu/business-consulting.jpg);')
+                  li
+                    a(href='landing-coworking-space.html').dropdown-item Coworking Space
+                    span.mega-dropdown-column.position-absolute.top-0.end-0.h-100.bg-size-cover.bg-repeat-0.zindex-2.opacity-0(style='background-image: url(assets/img/megamenu/coworking.jpg);')
+                  li
+                    a(href='landing-yoga-studio.html').dropdown-item Yoga Studio
+                    span.mega-dropdown-column.position-absolute.top-0.end-0.h-100.bg-size-cover.bg-repeat-0.zindex-2.opacity-0(style='background-image: url(assets/img/megamenu/yoga-studio.jpg);')
+                  li
+                    a(href='landing-blog.html').dropdown-item Blog Homepage
+                    span.mega-dropdown-column.position-absolute.top-0.end-0.h-100.bg-size-cover.bg-repeat-0.zindex-2.opacity-0(style='background-image: url(assets/img/megamenu/blog-homepage.jpg);')
+              .mega-dropdown-column.position-relative.border-start.zindex-3
+        li.nav-item.dropdown
+          a(href='#' data-bs-toggle='dropdown' data-bs-auto-close='outside' aria-expanded='false')&attributes(parentMenu === 'Pages' ? {'class': 'nav-link dropdown-toggle active'} : {'class': 'nav-link dropdown-toggle'})
+            | Pages
+          ul.dropdown-menu
+            li.dropdown
+              a(href='#' data-bs-toggle='dropdown' aria-expanded='false').dropdown-item.dropdown-toggle Portfolio
+              ul.dropdown-menu
+                li: a(href='portfolio-list-v1.html').dropdown-item List View v.1
+                li: a(href='portfolio-list-v2.html').dropdown-item List View v.2
+                li: a(href='portfolio-grid-v1.html').dropdown-item Grid View v.1
+                li: a(href='portfolio-grid-v2.html').dropdown-item Grid View v.2
+                li: a(href='portfolio-slider.html').dropdown-item Slider View
+                li: a(href='portfolio-single-v1.html').dropdown-item Single Project v.1
+                li: a(href='portfolio-single-v2.html').dropdown-item Single Project v.2
+            li.dropdown
+              a(href='#' data-bs-toggle='dropdown' aria-expanded='false').dropdown-item.dropdown-toggle Shop
+              ul.dropdown-menu
+                li: a(href='shop-catalog.html').dropdown-item Catalog (Listing)
+                li: a(href='shop-single.html').dropdown-item Product Page
+                li: a(href='shop-checkout.html').dropdown-item Checkout
+            li.dropdown
+              a(href='#' data-bs-toggle='dropdown' aria-expanded='false').dropdown-item.dropdown-toggle Blog
+              ul.dropdown-menu
+                li: a(href='blog-grid-sidebar.html').dropdown-item Grid View with Sidebar
+                li: a(href='blog-grid.html').dropdown-item Grid View no Sidebar
+                li: a(href='blog-list-sidebar.html').dropdown-item List View with Sidebar
+                li: a(href='blog-list.html').dropdown-item List View no Sidebar
+                li: a(href='blog-single-v1.html').dropdown-item Single post v.1
+                li: a(href='blog-single-v2.html').dropdown-item Single post v.2
+                li: a(href='blog-single-v3.html').dropdown-item Single post v.3
+            li.dropdown
+              a(href='#' data-bs-toggle='dropdown' aria-expanded='false').dropdown-item.dropdown-toggle About
+              ul.dropdown-menu
+                li: a(href='about-agency.html').dropdown-item About - Agency
+                li: a(href='about-product.html').dropdown-item About - Product
+            li.dropdown
+              a(href='#' data-bs-toggle='dropdown' aria-expanded='false').dropdown-item.dropdown-toggle Services
+              ul.dropdown-menu
+                li: a(href='services-v1.html').dropdown-item Services v.1
+                li: a(href='services-v2.html').dropdown-item Services v.2
+                li: a(href='services-v3.html').dropdown-item Services v.3
+            li: a(href='pricing.html').dropdown-item Pricing
+            li.dropdown
+              a(href='#' data-bs-toggle='dropdown' aria-expanded='false').dropdown-item.dropdown-toggle Contacts
+              ul.dropdown-menu
+                li: a(href='contacts-v1.html').dropdown-item Contacts v.1
+                li: a(href='contacts-v2.html').dropdown-item Contacts v.2
+                li: a(href='contacts-v3.html').dropdown-item Contacts v.3
+            li.dropdown
+              a(href='#' data-bs-toggle='dropdown' aria-expanded='false').dropdown-item.dropdown-toggle Specialty Pages
+              ul.dropdown-menu
+                li: a(href='404-v1.html').dropdown-item 404 Error v.1
+                li: a(href='404-v2.html').dropdown-item 404 Error v.2
+                li: a(href='404-v3.html').dropdown-item 404 Error v.3
+        li.nav-item.dropdown
+          a(href='#' data-bs-toggle='dropdown' data-bs-auto-close='outside' aria-expanded='false')&attributes(parentMenu === 'Account' ? {'class': 'nav-link dropdown-toggle active'} : {'class': 'nav-link dropdown-toggle'})
+            | Account
+          ul.dropdown-menu
+            li.dropdown
+              a(href='#' data-bs-toggle='dropdown' aria-expanded='false').dropdown-item.dropdown-toggle Auth pages
+              ul.dropdown-menu
+                li: a(href='account-signin.html').dropdown-item Sign In
+                li: a(href='account-signup.html').dropdown-item Sign Up
+                li: a(href='account-signinup.html').dropdown-item Sign In / Up
+                li: a(href='account-password-recovery.html').dropdown-item Password Recovery
+            li: a(href='account-overview.html').dropdown-item Overview
+            li: a(href='account-settings.html').dropdown-item Settings
+            li: a(href='account-billing.html').dropdown-item Billing
+            li: a(href='account-orders.html').dropdown-item Orders
+            li: a(href='account-earnings.html').dropdown-item Earnings
+            li: a(href='account-chat.html').dropdown-item Chat (Messages)
+            li: a(href='account-favorites.html').dropdown-item Favorites (Wishlist)
+        li.nav-item
+          a(href='components/typography.html').nav-link UI Kit
+        li.nav-item
+          a(href='docs/getting-started.html').nav-link Docs
+
+        if isShopPage
+          li.nav-item.border-top.mt-2.py-2.d-sm-none
+            a(href='account-signin.html').nav-link
+              i.ai-user.fs-lg.me-2
+              | Sign In
+
+        
+        if isSignedIn
+
+          // User signed in state. Account dropdown on screens > 576px
+          li.nav-item.dropdown.d-sm-none.border-top.mt-2.pt-2
+            a(href='#' data-bs-toggle='dropdown' aria-expanded='false').nav-link
+              img(src='assets/img/avatar/01.jpg' width='48' alt='Isabella Bocouse').border.rounded-circle
+              .ps-2
+                .fs-xs.lh-1.opacity-60 Hello,
+                .fs-sm.dropdown-toggle Isabella
+            .dropdown-menu
+              h6.dropdown-header.fs-xs.fw-medium.text-muted.text-uppercase.pb-1 Account
+              a(href='account-overview.html').dropdown-item
+                i.ai-user-check.fs-lg.opacity-70.me-2
+                | Overview
+              a(href='account-settings.html').dropdown-item
+                i.ai-settings.fs-lg.opacity-70.me-2
+                | Settings
+              a(href='account-billing.html').dropdown-item
+                i.ai-wallet.fs-base.opacity-70.me-2.mt-n1
+                | Billing
+              h6.dropdown-header.fs-xs.fw-medium.text-muted.text-uppercase.pt-3.pb-1 Dashboard
+              a(href='account-orders.html').dropdown-item
+                i.ai-cart.fs-lg.opacity-70.me-2
+                | Orders
+              a(href='account-earnings.html').dropdown-item
+                i.ai-activity.fs-lg.opacity-70.me-2
+                | Earnings
+              a(href='account-chat.html').dropdown-item.d-flex.align-items-center
+                i.ai-messages.fs-lg.opacity-70.me-2
+                | Chat
+                span.badge.bg-danger.ms-3 4
+              a(href='account-favorites.html').dropdown-item
+                i.ai-heart.fs-lg.opacity-70.me-2
+                | Favorites
+              .dropdown-divider
+              a(href='account-signin.html').dropdown-item
+                i.ai-logout.fs-lg.opacity-70.me-2
+                | Sign out
+
+      unless isSignedIn
+        .d-sm-none.p-3.mt-n3
+          a(href='https://themes.getbootstrap.com/product/around-multipurpose-template-ui-kit/' target='_blank' rel='noopener')&attributes(navbarButtonShape ? {'class': `btn btn-primary ${navbarButtonShape} w-100 mb-1`} : {'class': 'btn btn-primary w-100  mb-1'})
+            i.ai-cart.fs-xl.me-2.ms-n1
+            | Buy now

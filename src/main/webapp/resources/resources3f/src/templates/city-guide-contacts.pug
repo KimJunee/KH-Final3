@@ -1,0 +1,113 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['leaflet/dist/leaflet.css']
+  - var vendorScripts = ['leaflet/dist/leaflet.js']
+  - var parentMenu = 'Pages'
+  - var pageTitle = 'City Guide | Contact Us'
+
+//- Navbar
+block navbar
+  include partials/navbar-city-guide
+
+//- Page Content
+block content
+
+  section.container.my-5.pt-lg-5.pt-4.pb-lg-5
+
+    // Breadcrumbs
+    nav(aria-label='breadcrumb')
+      ol.breadcrumb.pt-3.mb-4
+        li.breadcrumb-item
+          a(href='city-guide-home-v1.html') Home
+        li(aria-current='page').breadcrumb-item.active
+          | Contact us
+
+    .row.gy-4
+      .col-md-6
+        img(src='img/city-guide/contacts/01.jpg' alt='Cover').rounded-3
+      .col-xl-5.offset-xl-1.col-md-6
+        h1.mb-md-4.mb-3
+          | Contact us
+        p.mb-4.pb-md-2.fs-lg
+          | Fill out the form and out team will try to get back to you within 24 hours.
+
+        // Contact form
+        form(novalidate).needs-validation.row.row-cols-sm-2.row-cols-1.gy-sm-4.gy-3
+          .col
+            label(for='c-name').form-label
+              | Full Name
+            input(id='c-name' type='text' required).form-control.form-control-lg
+            .invalid-tooltip.mt-1
+              | Please, enter your name
+          .col
+            label(for='c-email').form-label
+              | Email
+            input(id='c-email' type='email' required).form-control.form-control-lg
+            .invalid-tooltip.mt-1
+              | Please, enter your email
+          .col
+            label(for='c-phone').form-label
+              | Phone
+            input(id='c-phone' type='tel' required).form-control.form-control-lg
+            .invalid-tooltip.mt-1
+              | Please, enter your phone
+          .col
+            label(for='c-subject').form-label
+              | Subject
+            select(id='c-subject' required).form-select.form-select-lg
+              option(value='' selected disabled) Chose subject
+              option(value='Subject 1') Subject 1
+              option(value='Subject 2') Subject 2
+              option(value='Subject 3') Subject 3
+            .invalid-tooltip.mt-1
+              | Please, choose your subject
+          .col-12.w-100
+            label(for='c-message').form-label
+              | Message
+            textarea(id='c-message' rows='4' placeholder='Leave your message' required).form-control.form-control-lg
+            .invalid-tooltip.mt-1
+              | Please, leave your message
+          .col-12.w-100
+            button(type='submit').btn.btn-lg.btn-primary.w-sm-auto.w-100.mt-2
+              | Submit form
+
+
+  // Contact cards
+  section.container.pb-5.mb-lg-5
+    .row.g-4
+      .col-md-4
+        a(href='mailto:example@email.com').icon-box.card.card-body.border-0.shadow-sm.card-hover.h-100.text-center
+          .icon-box-media.bg-faded-accent.text-accent.rounded-circle.mx-auto.mb-3
+            i.fi-mail
+          span.d-block.mb-1.text-body
+            | Drop us a line
+          h3.h4.icon-box-title.mb-0.opacity-90
+            | example@email.com
+      .col-md-4
+        a(href='tel:4065550120').icon-box.card.card-body.border-0.shadow-sm.card-hover.h-100.text-center
+          .icon-box-media.bg-faded-success.text-success.rounded-circle.mx-auto.mb-3
+            i.fi-device-mobile
+          span.d-block.mb-1.text-body
+            | Call us any time
+          h3.h4.icon-box-title.mb-0.opacity-90
+            | (406) 555-0120
+      .col-md-4
+        a(href='#').icon-box.card.card-body.border-0.shadow-sm.card-hover.h-100.text-center
+          .icon-box-media.bg-faded-warning.text-warning.rounded-circle.mx-auto.mb-3
+            i.fi-instagram
+          span.d-block.mb-1.text-body
+            | Follow us
+          h3.h4.icon-box-title.mb-0.opacity-90
+            | @finder_directory
+
+
+  // Map location
+  section.container.pb-5.mb-2.mb-lg-5
+    .interactive-map(data-map-options='{"mapLayer": "https://api.maptiler.com/maps/pastel/{z}/{x}/{y}.png?key=5vRQzd34MMsINEyeKPIs", "coordinates": [51.5074, -0.1278], "zoom": 10, "markers": [{"coordinates": [51.5074, -0.1278], "popup": "<div class=\'p-3\'><h6>Hi, I\'m in London</h6><p class=\'fs-sm pt-1 mt-n3 mb-0\'>Lorem ipsum dolor sit amet elit.</p></div>"}]}', style="height: 500px;").rounded-3
+
+
+//- Footer
+block footer
+  include partials/footer-city-guide

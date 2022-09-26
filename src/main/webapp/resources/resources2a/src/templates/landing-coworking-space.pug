@@ -1,0 +1,410 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var styles = ['vendor/swiper/swiper-bundle.min.css', 'vendor/flatpickr/dist/flatpickr.min.css', 'vendor/lightgallery/css/lightgallery-bundle.min.css', 'vendor/aos/dist/aos.css', 'vendor/leaflet/dist/leaflet.css']
+  - var scripts = ['vendor/jarallax/dist/jarallax.min.js', 'vendor/flatpickr/dist/flatpickr.min.js', 'vendor/swiper/swiper-bundle.min.js', 'vendor/lightgallery/lightgallery.min.js', 'vendor/lightgallery/plugins/video/lg-video.min.js', 'vendor/lightgallery/plugins/fullscreen/lg-fullscreen.min.js', 'vendor/lightgallery/plugins/zoom/lg-zoom.min.js', 'vendor/lightgallery/plugins/thumbnail/lg-thumbnail.min.js', 'vendor/aos/dist/aos.js', 'vendor/leaflet/dist/leaflet.js']
+  - var parentMenu = 'Landings'
+  - var pageTitle = 'Coworking Space'
+  - var navbarExtraClass = 'bg-light'
+
+
+//- Navbar
+block navbar
+  include partials/navbar.pug
+
+
+//- Page Content
+block content
+
+  // Hero with contact form
+  section.pt-5
+    .container.position-relative.zindex-2.pt-5.mt-3.mt-sm-4.mt-md-5
+      .row.pt-xl-3.pt-xxl-4
+        .col-lg-7.col-xxl-6
+          h1.display-3.text-center.text-lg-start The best space for work and business meetings
+        .col-lg-5.offset-xxl-1.pt-sm-3
+          p.fs-lg.text-center.text-lg-start.pb-3.pb-sm-0.pb-md-2.mb-4.mb-sm-5 Magna in purus in facilisis pretium eleifend in nullamer magna morbi eleifend vel convallis quis utrices neque tellus purus in facilisis pretium  eleifend vel convallis.
+
+          // Contact form
+          .card.border-0.bg-primary.py-4.px-xxl-4
+            form.card-body.dark-mode
+              h2.h3.card-title.text-center.pb-2.pb-xxl-3 Reserve your spot
+              .mb-3
+                label(for='space').form-label.fs-base Space
+                select(required)#space.form-select.form-select-lg
+                  option(value='' disabled) Choose space
+                  option(value='Coworking main room') Coworking main room
+                  option(value='Coworking terrace') Coworking terrace
+                  option(value='Skype room 1' selected) Skype room 1
+                  option(value='Skype room 2') Skype room 2
+                  option(value='Meeting room 1') Meeting room 1
+                  option(value='Meeting room 2') Meeting room 2
+                  option(value='Gaming room') Gaming room
+              .mb-3
+                label(for='company').form-label.fs-base Company size
+                input(type='number' value='1' required)#company.form-control.form-control-lg
+              .mb-3
+                label.form-label
+                  | Date and time
+                .position-relative
+                  input(type='text' placeholder='Choose date/time' data-datepicker-options='{"enableTime": true, "altInput": true, "altFormat": "F j, Y H:i", "dateFormat": "Y-m-d H:i"}').form-control.form-control-lg.date-picker.pe-5
+                  i.ai-calendar.position-absolute.top-50.end-0.translate-middle-y.fs-lg.text-white.opacity-80.me-3
+              .mb-3
+                label(for='email').form-label.fs-base Email address
+                input(type='email' placeholder='johnDoe@example.com' required)#email.form-control.form-control-lg
+              .d-flex.flex-column.flex-sm-row.flex-lg-column.flex-xxl-row.align-items-center.justify-content-center.justify-content-lg-start.pt-3.pt-xxl-4
+                button(type='submit').btn.btn-light.w-100.w-sm-auto.w-lg-100.w-xxl-auto.mb-2.mb-sm-0.mb-lg-2.mb-xxl-0.me-sm-3.me-lg-0.me-xxl-3 Book space now
+                a(href='tel:+15262200459').d-flex.align-items-center.fs-sm.fw-semibold.text-white.text-decoration-none.px-3.py-2
+                  i.ai-phone.fs-xl.me-2
+                  | +1 526 220 0459
+
+    // Parallax image
+    .jarallax(data-jarallax data-speed='0.6')
+      .jarallax-img(style='background-image: url(assets/img/landing/coworking-space/parallax-image.jpg);')
+      .d-none.d-xxl-block(style='height: 830px; margin-top: -470px;')
+      .d-none.d-xl-block.d-xxl-none(style='height: 780px; margin-top: -490px;')
+      .d-none.d-lg-block.d-xl-none(style='height: 700px; margin-top: -560px;')
+      .d-none.d-sm-block.d-lg-none(style='height: 520px; margin-top: -450px;')
+      .d-sm-none(style='height: 500px; margin-top: -450px;')
+
+
+  // About (Features)
+  section.container.pt-5.mt-lg-3.mt-xl-4.mt-xxl-5
+    .text-center.pb-3.pt-2.pt-sm-3.pt-md-4.pt-xl-5.mx-auto.mb-sm-2.mb-md-3.mb-lg-4(style='max-width: 525px;')
+      h2.h1 About Around
+      p.mb-0 Enim aenean phasellus in hendrerit interdum lorem proin pretium, dictum urna suspendisse quis risus vivamus.
+    .row.row-cols-2.row-cols-sm-3.gy-sm-2.g-md-4
+      .col.card.border-0.bg-transparent.p-xxl-2
+        .card-body.text-center.p-3.p-sm-4
+          i.ai-space.display-1.fw-normal.text-primary.mb-3.mb-sm-4
+          .h2.fw-normal.mb-0 362 m²
+      .col.card.border-0.bg-transparent.p-xxl-2
+        .card-body.text-center.p-3.p-sm-4
+          i.ai-shower.display-1.fw-normal.text-primary.mb-3.mb-sm-4
+          .h2.fw-normal.mb-0 5 showers
+      .col.card.border-0.bg-transparent.p-xxl-2
+        .card-body.text-center.p-3.p-sm-4
+          i.ai-clock.display-1.fw-normal.text-primary.mb-3.mb-sm-4
+          .h2.fw-normal.mb-0 24/7 acces
+      .col.card.border-0.bg-transparent.p-xxl-2
+        .card-body.text-center.p-3.p-sm-4
+          i.ai-parking.display-1.fw-normal.text-primary.mb-3.mb-sm-4
+          .h2.fw-normal.mb-0 2 parkings
+      .col.card.border-0.bg-transparent.p-xxl-2
+        .card-body.text-center.p-3.p-sm-4
+          i.ai-stairs.display-1.fw-normal.text-primary.mb-3.mb-sm-4
+          .h2.fw-normal.mb-0 3 floors
+      .col.card.border-0.bg-transparent.p-xxl-2
+        .card-body.text-center.p-3.p-sm-4
+          i.ai-canteen.display-1.fw-normal.text-primary.mb-3.mb-sm-4
+          .h2.fw-normal.mb-0 2 cafes
+
+  
+  // Gallery
+  section.container.py-5.my-lg-3.my-xl-4.my-xxl-5
+    .text-center.pb-3.pt-sm-3.pt-md-4.mx-auto.mt-xxl-1.mb-3.mb-lg-4(style='max-width: 525px;')
+      h2.h1 Our space
+      p.mb-0 Morbi et massa fames ac scelerisque sit commodo dignissim faucibus vel quisque proin lectus et massa.
+    
+    // Navs
+    ul(role='tablist' style='max-width: 646px;').nav.nav-tabs.flex-nowrap.overflow-auto.text-nowrap.w-100.mx-auto.pb-3.mb-3.mb-lg-4
+      li.nav-item.mb-0
+        a(href='#' role='tab').nav-link.active All
+      li.nav-item.mb-0
+        a(href='#' role='tab').nav-link Open space
+      li.nav-item.mb-0
+        a(href='#' role='tab').nav-link Lounge zone
+      li.nav-item.mb-0
+        a(href='#' role='tab').nav-link Kitchen
+      li.nav-item.mb-0
+        a(href='#' role='tab').nav-link Parking
+    
+    // Gallery grid
+    .gallery.row.g-4.g-sm-3.g-lg-4.pb-2.pb-sm-4.pb-xl-5.mb-lg-2.mb-xl-0.mb-xxl-2
+      .col-sm-5
+        a(href='assets/img/landing/coworking-space/gallery/01.jpg').d-block.gallery-item.card-hover.zoom-effect
+          .d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100.rounded-5.overflow-hidden.zindex-2.opacity-0
+            i.ai-zoom-in.fs-2.text-white.position-relative.zindex-2
+            .position-absolute.top-0.start-0.w-100.h-100.bg-dark.opacity-40
+          .zoom-effect-wrapper.rounded-5
+            img(src='assets/img/landing/coworking-space/gallery/th01.jpg' alt='Open space').zoom-effect-img
+      .col-sm-7
+        a(href='assets/img/landing/coworking-space/gallery/02.jpg').d-block.gallery-item.card-hover.zoom-effect
+          .d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100.rounded-5.overflow-hidden.zindex-2.opacity-0
+            i.ai-zoom-in.fs-2.text-white.position-relative.zindex-2
+            .position-absolute.top-0.start-0.w-100.h-100.bg-dark.opacity-40
+          .zoom-effect-wrapper.rounded-5
+            img(src='assets/img/landing/coworking-space/gallery/th02.jpg' alt='Kitchen').zoom-effect-img
+      .col-sm-4
+        a(href='assets/img/landing/coworking-space/gallery/03.jpg').d-block.gallery-item.card-hover.zoom-effect
+          .d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100.rounded-5.overflow-hidden.zindex-2.opacity-0
+            i.ai-zoom-in.fs-2.text-white.position-relative.zindex-2
+            .position-absolute.top-0.start-0.w-100.h-100.bg-dark.opacity-40
+          .zoom-effect-wrapper.rounded-5
+            img(src='assets/img/landing/coworking-space/gallery/th03.jpg' alt='Lounge zone').zoom-effect-img
+      .col-sm-3
+        a(href='assets/img/landing/coworking-space/gallery/04.jpg' style='max-width: 458px;').d-block.gallery-item.card-hover.zoom-effect
+          .d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100.rounded-5.overflow-hidden.zindex-2.opacity-0
+            i.ai-zoom-in.fs-2.text-white.position-relative.zindex-2
+            .position-absolute.top-0.start-0.w-100.h-100.bg-dark.opacity-40
+          .zoom-effect-wrapper.rounded-5
+            img(src='assets/img/landing/coworking-space/gallery/th04.jpg' alt='Open space').zoom-effect-img
+      .col-sm-5
+        a(href='assets/img/landing/coworking-space/gallery/05.jpg').d-block.gallery-item.card-hover.zoom-effect
+          .d-flex.justify-content-center.align-items-center.position-absolute.top-0.start-0.w-100.h-100.rounded-5.overflow-hidden.zindex-2.opacity-0
+            i.ai-zoom-in.fs-2.text-white.position-relative.zindex-2
+            .position-absolute.top-0.start-0.w-100.h-100.bg-dark.opacity-40
+          .zoom-effect-wrapper.rounded-5
+            img(src='assets/img/landing/coworking-space/gallery/th05.jpg' alt='Cafe').zoom-effect-img
+      
+
+  // Features (Why choose Around)
+  section.bg-secondary.py-5
+    .container.py-lg-3.py-xl-4.py-xxl-5
+      h2.h1.text-center.pt-1.pt-sm-3.pt-md-4.pb-3.pb-sm-4.pb-lg-5 Why choose Around as a coworking space
+      .row.align-items-center.pb-5.mb-2.mb-md-3.mb-lg-4.mb-xl-5(data-aos='fade-up' data-aos-duration='600' data-aos-offset='300' data-disable-parallax-down='md')
+        .col-md-6.pb-1.pb-sm-3.pb-md-0.mb-4.mb-md-0
+          img(src='assets/img/landing/coworking-space/features/01.jpg' width='470' alt='Image').d-block.rounded-5.mx-auto
+        .col-md-6.col-lg-5.col-xl-4.offset-lg-1(data-aos='fade-up' data-aos-duration='850' data-aos-offset='200' data-disable-parallax-down='md')
+          .ps-md-4.ps-lg-0
+            h3.h2.pb-md-2.pb-lg-3 Fixed workplace when buying a monthly pass
+            p.mb-4.pb-md-2.pb-lg-0.mb-lg-5 Morbi et massa fames ac scelerisque sit commodo dignissim aucibus vel quisque proin lectus laoreet adipiscing sollicitudin erat massa tellus lorem.
+            a(href='#').btn.btn-sm.btn-primary Buy a monthly pass
+      .row.align-items-center.pb-5.mb-2.mb-md-3.mb-lg-4.mb-xl-5(data-aos='fade-up' data-aos-duration='600' data-aos-offset='300' data-disable-parallax-down='md')
+        .col-md-6.pb-1.pb-sm-3.pb-md-0.mb-4.mb-md-0
+          .position-relative(style='max-width: 503px;').overflow-hidden.mx-auto
+            img(src='assets/img/landing/coworking-space/features/02.png' alt='Image').position-relative.zindex-2
+            img(src='assets/img/landing/coworking-space/features/circles-dark.png' alt='Image' style='animation: rotate-cw 60s linear infinite;').position-absolute.top-0.start-0.d-dark-mode-none
+            img(src='assets/img/landing/coworking-space/features/circles-light.png' alt='Image' style='animation: rotate-cw 60s linear infinite;').position-absolute.top-0.start-0.d-none.d-dark-mode-block
+        .col-md-6.col-lg-5.col-xl-4.offset-lg-1(data-aos='fade-up' data-aos-duration='850' data-aos-offset='200' data-disable-parallax-down='md')
+          .ps-md-4.ps-lg-0
+            h3.h2.pb-md-2.pb-lg-3 Buy passes for a team of 5 or more members with a <span class='text-danger'>20% discount</span>
+            p.mb-0 Scelerisque et massa fames ac morbi sit commodo dignissim aucibus vel quisque proin lectus laoreet sem adipiscing sollicitudin erat massa tellus lorem aenean phasellus in hendrerit interdum lorem proin pretium, dictum urna suspendisse quis risus.
+      .row.align-items-center.pb-2.pb-sm-4.pb-lg-5(data-aos='fade-up' data-aos-duration='600' data-aos-offset='300' data-disable-parallax-down='md')
+        .col-md-6.pb-1.pb-sm-3.pb-md-0.mb-4.mb-md-0
+          img(src='assets/img/landing/coworking-space/features/03.jpg' width='470' alt='Image').d-block.rounded-5.mx-auto
+        .col-md-6.col-lg-5.col-xl-4.offset-lg-1(data-aos='fade-up' data-aos-duration='850' data-aos-offset='200' data-disable-parallax-down='md')
+          .ps-md-4.ps-lg-0
+            h3.h2.pb-md-2.pb-lg-3 Private fully equipped halls for online meetings and conferences
+            ul.list-unstyled.fs-lg.mb-0
+              li.d-flex.pt-1.mt-2.mx-2.mx-md-0
+                i.ai-check-alt.text-primary.fs-4.mt-n1.me-2
+                | Faucibus vel quisque lectus laoreet sem
+              li.d-flex.pt-1.mt-2.mx-2.mx-md-0
+                i.ai-check-alt.text-primary.fs-4.mt-n1.me-2
+                | Egestas in porta netus semper at nunc 
+              li.d-flex.pt-1.mt-2.mx-2.mx-md-0
+                i.ai-check-alt.text-primary.fs-4.mt-n1.me-2
+                | Sed amet est at faucibus dolor sed
+
+  
+  // Video showreel
+  section.container.pt-5.mt-lg-3.mt-xl-4.mt-xxl-5
+    .row.text-center.text-md-start.pb-3.pt-1.pt-sm-3.pt-md-4.pt-xl-5.mt-lg-2.mt-xl-0.mb-3.mb-lg-4
+      .col-md-6
+        h2.h1.mb-md-0 Our working atmosphere
+      .col-md-6.pt-2
+        p.mb-0 Morbi et massa fames ac scelerisque sit commodo dignissim aucibus vel quisque proin lectus laoreet sem adipiscing sollicitudin erat massa tellus lorem aenean.
+    .rounded-5.overflow-hidden    
+      .jarallax.ratio.ratio-16x9.d-flex.align-items-center.justify-content-center(data-jarallax data-speed='0.6')
+        .jarallax-img(style='background-image: url(assets/img/landing/coworking-space/parallax-image.jpg);')
+        .w-auto.position-relative.p-4
+           a(href='https://www.youtube.com/watch?v=IxRVa1DbSAg' data-bs-toggle='video').btn.btn-icon.btn-xl.btn-primary.rounded-circle.stretched-link
+              i.ai-play-filled
+
+  
+  // Testimonials + CTA
+  section.container.pt-5.mt-1.mt-sm-2.mt-lg-4.mt-xxl-5
+    .row.align-items-center.pt-2.pt-sm-3.pt-md-4.pt-xl-5.mt-xxl-2
+      
+      // CTA
+      .col-md-5.col-xl-4.offset-lg-1.mt-0.mt-md-n5.mb-5.mb-md-0
+        .pe-md-4
+          h2.h1.text-center.text-md-start.mb-4 More than 2,000 clients use Around as a work space
+          ul.list-unstyled.d-flex.d-md-block.flex-wrap.justify-content-center.pb-2.pb-lg-0.mb-4.mb-lg-5
+            li.d-flex.pt-1.mt-2.mx-2.mx-md-0
+              i.ai-check-alt.text-primary.fs-4.mt-n1.me-2
+              | 24/7 access to the workplace
+            li.d-flex.pt-1.mt-2.mx-2.mx-md-0
+              i.ai-check-alt.text-primary.fs-4.mt-n1.me-2
+              | Private fully equipped halls 
+            li.d-flex.pt-1.mt-2.mx-2.mx-md-0
+              i.ai-check-alt.text-primary.fs-4.mt-n1.me-2
+              | Fixed workplace
+          .text-center.text-md-start
+            a(href='#').btn.btn-lg.btn-primary Start free 14-day trial
+
+      // Testimonials
+      .col-md-7.col-lg-6
+        .card.border-0.bg-secondary.py-1.p-lg-4
+          .card-body
+            .swiper(data-swiper-options=`
+              {
+                "spaceBetween": 30,
+                "loop": true,
+                "navigation": {
+                  "prevEl": "#prev-testimonial",
+                  "nextEl": "#next-testimonial"
+                }
+              }
+            `)
+              .swiper-wrapper
+
+                // Item
+                .swiper-slide
+                  p.lead.text-dark.pb-3.mb-3 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et tempus erat, a vulputate dui. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut luctus molestie massa sit amet dapibus. Cras pulvinar lacinia sollicitudin malesuada vestibulum."
+                  .d-flex.align-items-center
+                    img(src='assets/img/avatar/30.jpg' width='60' alt='Jenny Wilson').rounded-circle
+                    .ps-3
+                      h3.h4.mb-0 Jenny Wilson
+                      .fs-lg.text-muted Head of Marketing
+
+                // Item
+                .swiper-slide
+                  p.lead.text-dark.pb-3.mb-3 "Turpis augue pulvinar est adipiscing netus. Arcu at aliquet venenatis elementum. Mi at gravida id nullam imperdiet a proin dolor. Egestas facilisis venenatis quisque viverra donec et. Augue convallis eu a volutpat sed ullamcorper. At dictumst sapien, tristique vitae nec massa."
+                  .d-flex.align-items-center
+                    img(src='assets/img/avatar/31.jpg' width='60' alt='Esther Howard').rounded-circle
+                    .ps-3
+                      h3.h4.mb-0 Esther Howard
+                      .fs-lg.text-muted CEO, Co-Founder
+
+                // Item
+                .swiper-slide
+                  p.lead.text-dark.pb-3.mb-3 "Cursus fames sollicitudin nunc eget sceler tortor. Sem amet, velit posuere ipsum id. Mi feugiat at vulputate vel pellentesque proin viverra. Massa, tellus orci, aenean nulla leo maecenas sed. Magna at aliquam dictum velit dolor phasellus donec et mi. Aenean adipiscing amet mauris."
+                  .d-flex.align-items-center
+                    img(src='assets/img/avatar/32.jpg' width='60' alt='Nick Wenirten').rounded-circle
+                    .ps-3
+                      h3.h4.mb-0 Nick Wenirten
+                      .fs-lg.text-muted Web Developer
+        .d-flex.justify-content-center.justify-content-md-start.pt-4
+          button(type='button')#prev-testimonial.btn.btn-icon.btn-sm.btn-outline-primary.rounded-circle.me-3
+            i.ai-arrow-left
+          button(type='button')#next-testimonial.btn.btn-icon.btn-sm.btn-outline-primary.rounded-circle
+            i.ai-arrow-right
+
+  
+  // Pricing
+  section.container.pt-5.mt-lg-3.mt-xl-4.mt-xxl-5
+    h2.h1.text-center.pb-3.pt-2.pt-sm-3.pt-md-4.pt-xl-5.mb-3.mb-lg-4 Choose a convenient plan
+    
+    // Plans
+    .row.row-cols-3.flex-nowrap.pb-3.overflow-auto
+
+      // Plan
+      .col(style='min-width: 19rem;')
+        .card.h-100.py-lg-4
+          .card-body.w-100.mx-auto.text-center(style='max-width: 23rem;')
+            h3 Light
+            .display-2.text-primary $8
+            .mb-4 per day
+            p.mb-4.pb-4 Phasellus in hendrerit interdum lorem proin pretium dictum urna
+            button(type='button').btn.btn-primary.w-100
+              | Get this plan now
+
+      // Plan
+      .col(style='min-width: 19rem;')
+        .card.border-primary.bg-primary.h-100.py-lg-4
+          .card-body.w-100.mx-auto.text-center(style='max-width: 23rem;')
+            h3.text-light Pro
+            .display-2.text-light $97
+            .text-light.opacity-70.mb-4 per month
+            p.text-light.opacity-70.mb-4.pb-4 Morbi et massa fames ac scelerisque sit commodo dignissim aucibus
+            button(type='button').btn.btn-light.w-100
+              | Get this plan now
+
+      // Plan
+      .col(style='min-width: 19rem;')
+        .card.h-100.py-lg-4
+          .card-body.w-100.mx-auto.text-center(style='max-width: 23rem;')
+            h3 Medium
+            .display-2.text-primary $36
+            .mb-4 per week
+            p.mb-4.pb-4 Enim aenean phasellus in hendrerit interdum lorem proin pretium
+            button(type='button').btn.btn-primary.w-100
+              | Get this plan now
+
+  
+  // Address (Map)
+  section.container.pt-5.mt-sm-2.mt-md-3.mt-lg-4.mt-xxl-5.mb-n4.mb-md-n2.mb-lg-0
+
+    // Map for screens < 992px
+    .d-lg-none.rounded-5.overflow-hidden
+      .interactive-map(data-map-options=`{
+        "center": [51.5074, 0.29],
+        "zoom": 10,
+        "scrollWheelZoom": false,
+        "markers": [
+          {
+            "position": [51.59, 0.3338],
+            "popup": "<div class='p-3'><h6>Hi, we are in London</h6><p class='fs-sm pt-1 mt-n3 mb-0'>Lorem ipsum dolor sit amet elit.</p></div>"
+          },
+          {
+            "position": [51.4074, 0.1838],
+            "popup": "<div class='p-3'><h6>Hi, we are in London</h6><p class='fs-sm pt-1 mt-n3 mb-0'>Lorem ipsum dolor sit amet elit.</p></div>"
+          }
+        ]
+      }` style='height: 350px;')
+    .position-relative.overflow-hidden.rounded-5.px-lg-5.mt-lg-3.mt-xl-5
+      .d-none.d-xxl-block(style='height: 160px;')
+      .d-none.d-xl-block.d-xxl-none(style='height: 130px;')
+      .d-none.d-lg-block.d-xl-none(style='height: 100px;')
+      .position-relative.zindex-5.ms-lg-5(style='max-width: 530px;')
+        .card.border-0
+          .card-body
+            h2.h4.mb-sm-4 Around Space
+            .d-sm-flex.mb-3
+              .mb-3.mb-sm-0.me-sm-4
+                p.mb-0 5211 Valley Apt. 667 Victoria Hill Rd., London
+                p.mb-0 +1 526 220 0459
+              .d-none.d-sm-block.border-end
+              .ms-sm-4
+                p.mb-0 5217 Apartment. 705 Childerditch Ln., London
+                p.mb-0 +1 526 220 5439
+            a(href='milto:email@xample.com') email@xample.com
+      .d-none.d-xxl-block(style='height: 160px;')
+      .d-none.d-xl-block.d-xxl-none(style='height: 130px;')
+      .d-none.d-lg-block.d-xl-none(style='height: 100px;')
+
+      // Map for screens > 992px
+      .d-none.d-lg-block.interactive-map.position-absolute.zindex-1.top-0.start-0.w-100.h-100(data-map-options=`{
+        "center": [51.5074, -0.1278],
+        "zoom": 10,
+        "scrollWheelZoom": false,
+        "markers": [
+          {
+            "position": [51.5900, 0.3338],
+            "popup": "<div class='p-3'><h6>Hi, we are in London</h6><p class='fs-sm pt-1 mt-n3 mb-0'>5217 Apartment. 705 Childerditch Ln.</p></div>"
+          },
+          {
+            "position": [51.4074, 0.1838],
+            "popup": "<div class='p-3'><h6>Hi, we are in London</h6><p class='fs-sm pt-1 mt-n3 mb-0'>5211 Valley Apt. 667 Victoria Hill Rd.</p></div>"
+          }
+        ]
+      }`)
+
+
+//- Footer
+block footer
+  
+  // Footer
+  footer.footer.py-5
+    .container.pt-lg-3.mt-xl-3
+      .border-bottom.text-center.pb-4
+        ul.nav.justify-content-center.py-1.pb-sm-2
+          li.nav-item: a(href='#').nav-link.py-2.px-3.mx-1 Space
+          li.nav-item: a(href='#').nav-link.py-2.px-3.mx-1 Features
+          li.nav-item: a(href='#').nav-link.py-2.px-3.mx-1 Reviews
+          li.nav-item: a(href='#').nav-link.py-2.px-3.mx-1 Pricing
+          li.nav-item: a(href='#').nav-link.py-2.px-3.mx-1 Contact
+      .d-sm-flex.align-items-center.justify-content-between.pt-4.mt-2.mt-sm-0
+        .d-flex.justify-content-center.order-sm-2.mb-4.mb-sm-0
+          a(href='#').btn.btn-icon.btn-sm.btn-secondary.btn-instagram.rounded-circle.me-3
+            i.ai-instagram
+          a(href='#').btn.btn-icon.btn-sm.btn-secondary.btn-facebook.rounded-circle.me-3
+            i.ai-facebook
+          a(href='#').btn.btn-icon.btn-sm.btn-secondary.btn-youtube.rounded-circle
+            i.ai-youtube
+        p.fs-sm.order-sm-1.text-center.mb-0
+          span.opacity-70 &copy; All rights reserved. Made by 
+          a(href='https://createx.studio/' target='_blank' rel='noopener').nav-link.d-inline.fw-normal.p-0 Createx Studio
