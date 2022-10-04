@@ -7695,6 +7695,11 @@ textarea.form-control-lg {
   content: "";
 }
 
+.text-bg-mypage {
+    color: #fff !important;
+    background-color: RGBA(147, 112, 219, var(--bs-bg-opacity, 1)) !important;
+}
+
 .text-bg-primary {
   color: #fff !important;
   background-color: RGBA(33, 99, 232, var(--bs-bg-opacity, 1)) !important;
