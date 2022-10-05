@@ -98,9 +98,13 @@
     <!-- Vendors -->
     <script src="resources/resources1b/vendor/apexcharts/js/apexcharts.min.js"></script>
     <script src="resources/resources1b/vendor/overlay-scrollbar/js/OverlayScrollbars.min.js"></script>
+    <script src="resources/resources1b/vendor/sticky-js/sticky.min.js"></script>
 
     <!-- Template Functions -->
     <script src="resources/resources1b/js/functions.js"></script>
+    
+     <!-- jquery import -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
 </body>
 
