@@ -482,90 +482,90 @@
                                     <div class="col-12">
                                         <!-- Checkbox -->
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="amenitiesType11">
-                                            <label class="form-check-label" for="amenitiesType11">전국</label>
+                                            <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType1">
+                                            <label class="form-check-label" for="amenitiesType1">전국</label>
                                         </div>
                                         <!-- Checkbox -->
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="amenitiesType11">
-                                            <label class="form-check-label" for="amenitiesType11">서울특별시</label>
+                                            <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType2">
+                                            <label class="form-check-label" for="amenitiesType2">서울특별시</label>
                                         </div>
                                         <!-- Checkbox -->
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="amenitiesType12">
-                                            <label class="form-check-label" for="amenitiesType12">부산광역시</label>
+                                            <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType3">
+                                            <label class="form-check-label" for="amenitiesType3">부산광역시</label>
                                         </div>
                                         <!-- Checkbox -->
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="amenitiesType13">
-                                            <label class="form-check-label" for="amenitiesType13">대구광역시</label>
+                                            <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType4">
+                                            <label class="form-check-label" for="amenitiesType4">대구광역시</label>
                                         </div>
                                         <!-- Collapse body -->
                                         <div class="multi-collapse collapse" id="amenitiesCollapes">
                                             <!-- Checkbox -->
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="amenitiesType14">
-                                                <label class="form-check-label" for="amenitiesType14">인천광역시</label>
+                                                <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType5">
+                                                <label class="form-check-label" for="amenitiesType5">인천광역시</label>
                                             </div>
                                             <!-- Checkbox -->
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="amenitiesType15">
-                                                <label class="form-check-label" for="amenitiesType15">광주광역시</label>
+                                                <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType6">
+                                                <label class="form-check-label" for="amenitiesType6">광주광역시</label>
                                             </div>
                                             <!-- Checkbox -->
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="amenitiesType16">
-                                                <label class="form-check-label" for="amenitiesType16">대전광역시</label>
+                                                <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType7">
+                                                <label class="form-check-label" for="amenitiesType7">대전광역시</label>
                                             </div>
                                             <!-- Checkbox -->
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="amenitiesType17">
-                                                <label class="form-check-label" for="amenitiesType17">울산광역시</label>
+                                                <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType8">
+                                                <label class="form-check-label" for="amenitiesType8">울산광역시</label>
                                             </div>
                                             <!-- Checkbox -->
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="amenitiesType18">
-                                                <label class="form-check-label" for="amenitiesType18">세종특별자치시</label>
+                                                <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType9">
+                                                <label class="form-check-label" for="amenitiesType9">세종특별자치시</label>
                                             </div>
                                             <!-- Checkbox -->
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="amenitiesType18">
-                                                <label class="form-check-label" for="amenitiesType18">경기도</label>
+                                                <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType10">
+                                                <label class="form-check-label" for="amenitiesType10">경기도</label>
                                             </div>
                                             <!-- Checkbox -->
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="amenitiesType18">
-                                                <label class="form-check-label" for="amenitiesType18">강원도</label>
+                                                <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType11">
+                                                <label class="form-check-label" for="amenitiesType11">강원도</label>
                                             </div>
                                             <!-- Checkbox -->
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="amenitiesType18">
-                                                <label class="form-check-label" for="amenitiesType18">충청북도</label>
+                                                <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType12">
+                                                <label class="form-check-label" for="amenitiesType12">충청북도</label>
                                             </div>
                                             <!-- Checkbox -->
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="amenitiesType18">
-                                                <label class="form-check-label" for="amenitiesType18">충청남도</label>
+                                                <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType13">
+                                                <label class="form-check-label" for="amenitiesType13">충청남도</label>
                                             </div>
                                             <!-- Checkbox -->
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="amenitiesType18">
-                                                <label class="form-check-label" for="amenitiesType18">전라북도</label>
+                                                <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType14">
+                                                <label class="form-check-label" for="amenitiesType14">전라북도</label>
                                             </div>
                                             <!-- Checkbox -->
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="amenitiesType18">
-                                                <label class="form-check-label" for="amenitiesType18">전라남도</label>
+                                                <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType15">
+                                                <label class="form-check-label" for="amenitiesType15">전라남도</label>
                                             </div>
                                             <!-- Checkbox -->
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="amenitiesType18">
-                                                <label class="form-check-label" for="amenitiesType18">경상북도</label>
+                                                <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType16">
+                                                <label class="form-check-label" for="amenitiesType16">경상북도</label>
                                             </div>
                                             <!-- Checkbox -->
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="amenitiesType18">
-                                                <label class="form-check-label" for="amenitiesType18">제주특별자치도</label>
+                                                <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType17">
+                                                <label class="form-check-label" for="amenitiesType17">제주특별자치도</label>
                                             </div>
                                         </div>
                                         <!-- Collapse button -->
@@ -585,13 +585,13 @@
 
                                     <!-- Checkbox -->
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="amenitiesType1">
-                                        <label class="form-check-label" for="amenitiesType1">민영</label>
+                                        <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType18">
+                                        <label class="form-check-label" for="amenitiesType18">민영</label>
                                     </div>
                                     <!-- Checkbox -->
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="amenitiesType2">
-                                        <label class="form-check-label" for="amenitiesType2">국민</label>
+                                        <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType19">
+                                        <label class="form-check-label" for="amenitiesType19">국민</label>
                                     </div>
                                 </div>
                                 <!------------- filter 2 END ------------->
@@ -605,18 +605,18 @@
 
                                     <!-- Checkbox -->
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="amenitiesType1">
-                                        <label class="form-check-label" for="amenitiesType1">아파트</label>
+                                        <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType20">
+                                        <label class="form-check-label" for="amenitiesType20">아파트</label>
                                     </div>
                                     <!-- Checkbox -->
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="amenitiesType2">
-                                        <label class="form-check-label" for="amenitiesType2">오피스텔/도시형/민간임대</label>
+                                        <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType21">
+                                        <label class="form-check-label" for="amenitiesType21">오피스텔/도시형/민간임대</label>
                                     </div>
                                     <!-- Checkbox -->
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="amenitiesType2">
-                                        <label class="form-check-label" for="amenitiesType2">무순위/잔여세대</label>
+                                        <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType22">
+                                        <label class="form-check-label" for="amenitiesType22">무순위/잔여세대</label>
                                     </div>
                                 </div>
                                 <!------------- filter 3 END ------------->
@@ -631,35 +631,41 @@
 
                                     <!-- Checkbox -->
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="amenitiesType1">
-                                        <label class="form-check-label" for="amenitiesType1">분양중</label>
+                                        <input class="form-check-input" type="checkbox"  id="amenitiesType23" name="type[]">
+                                        <label class="form-check-label" for="amenitiesType23">분양중</label>
                                     </div>
                                     <!-- Checkbox -->
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="amenitiesType2">
-                                        <label class="form-check-label" for="amenitiesType2">분양예정</label>
+                                        <input class="form-check-input" type="checkbox"  id="amenitiesType24" name="type[]">
+                                        <label class="form-check-label" for="amenitiesType24">분양예정</label>
                                     </div>
                                     <!-- Checkbox -->
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="amenitiesType2">
-                                        <label class="form-check-label" for="amenitiesType2">분양완료</label>
+                                        <input class="form-check-input" type="checkbox"  id="amenitiesType25" name="type[]">
+                                        <label class="form-check-label" for="amenitiesType25">분양완료</label>
                                     </div>
                                 </div>
                                 <!------------- filter 4 END ------------->
 
                                 <hr class="my-0">
                                 <!-- Divider -->
-                            </form>
+                            
                             <!-- Form End -->
                         </div>
                         <!-- Buttons -->
                         <div class="d-flex justify-content-between p-2 p-xl-0 mt-xl-3">
-                            <button class="btn btn-link p-0 mb-0">초기화</button>
+                            <button onclick="deselect()" type="button" class="btn btn-link p-0 mb-0">초기화</button>
                             <button class="btn btn-primary mb-0">검색</button>
+                 <script>
+                        function deselect() {
+                            $('.form-check-input').prop('checked', false);
+                        }
+                    </script>
                         </div>
                     </div>
                     <!-- Responsive offcanvas body END -->
                 </aside>
+                    </form>
                 <!------------- 검색 엔진 END ------------->
 
                 <!------------- Main part START ------------->
@@ -992,6 +998,9 @@
 
     <!-- Template Functions -->
     <script src="resources/resources1b/js/functions.js"></script>
+    
+    <!-- jquery import -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
 
 </body>
