@@ -640,28 +640,34 @@ Main contain START -->
 
                     <div class="col-4 mb-0">
                         <aside class="pe-xl-4 mb-5">
-                            <!-- Account nav-->
+                            <!-- 왼쪽 사이드바 -->
                             <div class="card border card-body shadow-sm pb-1 me-lg-1">
                                 <div class="d-flex d-md-block d-lg-flex align-items-start pt-lg-2 mb-2"><img class="" src="resources/resources1b/images/favicon.ico" width="48" alt="Annette Black">
                                     <div class="pt-md-2 pt-lg-0 ps-3 ps-md-0 ps-lg-3">
-                                        <h2 class="fs-lg mb-0" style="margin-left: 10px;">탬버리이인</h2><span class="star-rating"><i class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i></span>
+                                        <h2 class="fs-lg mb-0" style="margin-left: 10px;">탬버리이인</h2>
                                         <ul class="list-unstyled fs-sm mt-1 mb-0">
-                                            <li><a class="nav-link fw-normal p-0" href="mailto:annette_black@email.com"><i class="fi-mail opacity-60 me-2"></i>rlaxodla91@email.com</a></li>
+                                            <li>
+                                                <a class="nav-link fw-normal p-0" href="mailto:annette_black@email.com">
+                                                    <i class="fi-mail opacity-60 me-2"></i>rlaxodla91@email.com</a>
+                                            </li>
                                         </ul>
                                     </div>
-                                </div><a class="btn btn-primary btn-lg w-100 mb-2 fw-bold" href="real-estate-add-property.html"><i class="fi-plus me-2"></i>+ 게시글 작성하기</a>
-                                <a class="btn btn-outline-secondary d-block d-md-none w-100 mb-3" href="#account-nav" data-bs-toggle="collapse"><i class="fi-align-justify me-2"></i>Menu</a>
+                                </div>
+                                <a class="btn btn-primary btn-lg w-100 mb-2 fw-bold" href="real-estate-add-property.html">+ 게시글 작성하기</a>
                                 <div class="collapse d-md-block mt-0 fw-bold" id="account-nav">
-                                    <div class="card-nav"><a class="card-nav-link" href="real-estate-account-info.html"><i class="fi-user opacity-60 me-2"></i>회원정보</a><a class="card-nav-link " href="real-estate-account-security.html"><i class="fi-lock opacity-60 me-2"></i>내 금융상품</a>
-                                        <a class="card-nav-link active" href="real-estate-account-properties.html"><i class="fi-home opacity-60 me-2"></i>청약부동산</a><a class="card-nav-link" href="real-estate-account-wishlist.html"><i class="fi-heart opacity-60 me-2"></i>뉴스 스크랩</a>
-                                        <a class="card-nav-link" href="real-estate-account-reviews.html"><i class="fi-star opacity-60 me-2"></i>내 글 목록</a><a class="card-nav-link" href="real-estate-account-notifications.html"><i class="fi-bell opacity-60 me-2"></i>내 댓글 목록</a>
-                                        <a class="card-nav-link" href="signin-light.html"><i class="fi-logout opacity-60 me-2"></i>회원탈퇴</a>
+                                    <div class="card-nav">
+                                        <a class="card-nav-link" href="real-estate-account-info.html"><i class="fa fa-solid fa-user" style="margin-right:10px; margin-left: 10px;"></i>회원정보</a>
+                                        <a class="card-nav-link" href="real-estate-account-security.html"><i class="fa fa-solid fa-piggy-bank" style="margin-right:10px; margin-left: 6px;"></i>내 금융상품</a>
+                                        <a class="card-nav-link active" href="real-estate-account-properties.html"><i class="fa fa-solid fa-building" style="margin-right:10px; margin-left: 10px;"></i>청약부동산</a>
+                                        <a class="card-nav-link" href="real-estate-account-wishlist.html"><i class="fa fa-solid fa-bookmark" style="margin-right:10px; margin-left: 10px;"></i>뉴스 스크랩</a>
+                                        <a class="card-nav-link" href="real-estate-account-reviews.html"><i class="fa fa-solid fa-quote-left" style="margin-right:10px; margin-left: 10px;"></i>내 글 목록</a>
+                                        <a class="card-nav-link" href="real-estate-account-notifications.html"><i class="fa fa-solid fa-comment-dots" style="margin-right:10px; margin-left: 10px;"></i>내 댓글 목록</a>
                                     </div>
                                 </div>
                             </div>
                         </aside>
                     </div>
-
+                    <!-- 내 금융상품 시작 -->
                     <div class="col-8 mb-0">
                         <!-- Blog list table START -->
                         <div class="card border bg-transparent rounded-3">
