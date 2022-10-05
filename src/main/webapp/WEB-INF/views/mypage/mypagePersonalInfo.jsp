@@ -258,7 +258,7 @@
     
     @font-face {
         font-family: "finder-icons";
-        src: url("resources/resources1b/fonts/finder-icons.ttf?7648j3") format("truetype"), url("resources/resources1b/fonts/finder-icons.woff?7648j3") format("woff"), url("resources/resources1b/fonts/finder-icons.svg?7648j3#finder-icons") format("svg");
+        src: url("resources/resources3f/dist/fonts/finder-icons.ttf?7648j3") format("truetype"), url("resources/resources3f/dist/fonts/finder-icons.woff?7648j3") format("woff"), url("resources/resources3f/dist/fonts/finder-icons.svg?7648j3#finder-icons") format("svg");
         font-weight: normal;
         font-style: normal;
         font-display: block;
@@ -493,17 +493,6 @@
         }
     }
 </style>
-<script>
-    (function() {
-        window.onload = function() {
-            var preloader = document.querySelector('.page-loading');
-            preloader.classList.remove('active');
-            setTimeout(function() {
-                preloader.remove();
-            }, 2000);
-        };
-    })();
-</script>
 
 <head>
     <title>FinTouch | My Page | Personal Info</title>
@@ -850,13 +839,13 @@
                                             <label class="form-label fw-bold">닉네임</label>
                                             <div id="gender-value">탬버리이인</div>
                                         </div>
-                                        <div class="col-1 me-n3" data-bs-toggle="tooltip" title="Edit"><a style="margin-left: 10px;" class="nav-link py-0" href="#gender-collapse" data-bs-toggle="collapse"><i class="fi-edit"></i></a></div>
+                                        <div class="col-1 me-n3" data-bs-toggle="tooltip" title="Edit">
+                                        	<a style="margin-left: 10px;" class="nav-link py-0" href="#gender-collapse" data-bs-toggle="collapse">
+                                        	<i class="fa fa-solid fa-pen"></i></a>
+                                        </div>
                                     </div>
                                     <div class="collapse" id="gender-collapse" data-bs-parent="#personal-info">
-                                        <div class="input-group mt-3">
-                                            <input class="form-control date-picker rounded pe-5" type="text" data-bs-binded-element="#birth-value" data-datepicker-options="{&quot;altInput&quot;: true, &quot;altFormat&quot;: &quot;F j, Y&quot;, &quot;dateFormat&quot;: &quot;F j, Y&quot;}" placeholder="수정할 닉네임">
-                                            <i class="fi-calendar text-muted position-absolute top-50 end-0 translate-middle-y me-3"></i>
-                                        </div>
+                                        <input class="form-control mt-3" type="email" data-bs-binded-element="#email-value" data-bs-unset-value="Not specified" value="탬버리이인">
                                     </div>
                                 </div>
                                 <!-- Email -->
@@ -867,7 +856,8 @@
                                             <div id="email-value">rlaxodla91@email.com</div>
                                         </div>
                                         <div class="col-1 me-n3" data-bs-toggle="tooltip" title="Edit">
-                                        	<a style="margin-left: 10px;" class="nav-link py-0" href="#email-collapse" data-bs-toggle="collapse"><i class="fi-edit"></i></a>
+                                        	<a style="margin-left: 10px;" class="nav-link py-0" href="#email-collapse" data-bs-toggle="collapse">
+                                        	<i class="fa fa-solid fa-pen"></i></a>
                                         </div>
                                     </div>
                                     <div class="collapse" id="email-collapse" data-bs-parent="#personal-info">
@@ -881,7 +871,7 @@
                                         <div class="password-toggle">
                                             <input class="form-control" type="password" id="account-password" required>
                                             <label class="password-toggle-btn" aria-label="Show/hide password">
-                                                <input class="password-toggle-check" type="checkbox">
+                                            <input class="password-toggle-check" type="checkbox">
                                                 <span class="password-toggle-indicator"></span>
                                             </label>
                                         </div>
