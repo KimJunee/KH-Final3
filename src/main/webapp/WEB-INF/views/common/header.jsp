@@ -20,11 +20,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
 
     <!-- Plugins CSS -->
+    <link rel="stylesheet" type="text/css" href="resources/css/header.css">
     <link rel="stylesheet" type="text/css" href="resources/resources1b/vendor/font-awesome/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="resources/resources1b/vendor/bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" type="text/css" href="resources/resources1b/vendor/tiny-slider/tiny-slider.css">
     <link rel="stylesheet" type="text/css" href="resources/resources1b/vendor/plyr/plyr.css">
-    <link rel="stylesheet" type="text/css" href="resources/css/header.css">
+    <link rel="stylesheet" type="text/css" href="resources/resources1b/vendor/apexcharts/css/apexcharts.css">
+    <link rel="stylesheet" type="text/css" href="resources/resources1b/vendor/overlay-scrollbar/css/OverlayScrollbars.min.css">
 
     <!-- 차트제이에스 chart.js css -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
