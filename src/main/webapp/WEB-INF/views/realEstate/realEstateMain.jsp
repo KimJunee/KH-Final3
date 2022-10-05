@@ -125,9 +125,11 @@
 
     <!-- **************** MAIN CONTENT START **************** -->
     <!-- =======================섹션1: 청약 메인 시작 =======================-->
+    <section class="overflow-hidden pt-0">
+    </section>
     <section class="overflow-hidden">
         <div class="container-fluid">
-            <div class="row g-4 g-md-5 align-items-center justify-content-between mb-xxl-n7">
+            <div class="row g-4 g-md-5 align-items-center justify-content-between	mb-xxl-n7">
                 <!-- Left image side START -->
                 <div class="col-lg-3 col-xl-4 col-xxl-3 d-none d-lg-block">
                     <div class="row g-md-5 align-items-center ms-n6">

@@ -5,6 +5,231 @@
  * Copyright 2011-2022 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+ 
+ /* 태임 카드컷 css 시작*/
+
+.rounded-3 {
+    border-radius: 0.75rem !important;
+}
+
+.img-thumbnail {
+    padding: 0.375rem;
+    background-color: #fff;
+    border: 1px solid #efecf3;
+    border-radius: 0.75rem;
+    box-shadow: 0 0.125rem 0.125rem -0.125rem rgba(31, 27, 45, 0.08), 0 0.25rem 0.75rem rgba(31, 27, 45, 0.08);
+    max-width: 100%;
+    height: auto;
+}
+
+.tns-carousel-wrapper {
+    position: relative;
+}
+
+.tns-carousel-wrapper .tns-carousel-inner {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    touch-action: manipulation;
+    opacity: 0;
+}
+
+.tns-carousel-wrapper .tns-carousel-inner:active {
+    cursor: -webkit-grab;
+    cursor: grab;
+}
+
+.tns-carousel-wrapper .tns-carousel-inner.tns-slider {
+    display: block;
+    opacity: 1;
+}
+
+.tns-carousel-wrapper .tns-carousel-inner>* {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.tns-carousel-wrapper .tns-carousel-inner.tns-horizontal:not(.tns-gallery) {
+    display: flex;
+}
+
+.tns-carousel-wrapper .tns-carousel-inner.position-absolute {
+    z-index: 0;
+}
+
+@supports (-ms-ime-align: auto) {
+    .tns-carousel-wrapper .tns-carousel-inner.tns-horizontal:not(.tns-gallery) {
+        display: block;
+    }
+}
+
+.tns-carousel-wrapper .tns-controls:focus {
+    outline: none;
+}
+
+.tns-carousel-wrapper [data-controls] {
+    position: absolute;
+    top: 50%;
+    width: 2.25rem;
+    height: 2.25rem;
+    margin-top: -1.125rem;
+    transition: all 0.3s ease-in-out;
+    border-radius: 50%;
+    background-color: #fff;
+    color: #454056;
+    font-size: 0.75rem;
+    line-height: 2.25rem -0.25rem;
+    text-align: center;
+    border: 0;
+    box-shadow: 0 0.125rem 0.125rem -0.125rem rgba(31, 27, 45, 0.08), 0 0.25rem 0.75rem rgba(31, 27, 45, 0.08);
+    z-index: 10;
+}
+
+.tns-carousel-wrapper [data-controls]:hover {
+    color: #fd5631;
+    box-shadow: 0 0.125rem 0.5rem -0.25rem rgba(31, 27, 45, 0.12), 0 0.25rem 1rem rgba(31, 27, 45, 0.12);
+}
+
+.tns-carousel-wrapper [data-controls][disabled] {
+    opacity: 0 !important;
+    visibility: hidden;
+}
+
+.tns-carousel-wrapper.tns-carousel-light [data-controls] {
+    background-color: rgba(255, 255, 255, 0.04);
+    color: #fff;
+    box-shadow: none;
+}
+
+.tns-carousel-wrapper.tns-carousel-light [data-controls]:hover {
+    background-color: #fff;
+    color: #fd5631;
+}
+
+.tns-carousel-wrapper [data-controls=prev] {
+    left: 1rem;
+}
+
+.tns-carousel-wrapper [data-controls=prev]>i:not(.fi-chevron-up) {
+    margin-right: 0.0625rem;
+}
+
+.tns-carousel-wrapper [data-controls=prev]>i.fi-chevron-up {
+    margin-bottom: 0.125rem;
+}
+
+.tns-carousel-wrapper [data-controls=next] {
+    right: 1rem;
+}
+
+.tns-carousel-wrapper [data-controls=next]>i:not(.fi-chevron-down) {
+    margin-left: 0.0625rem;
+}
+
+.tns-carousel-wrapper:not(.tns-controls-static):not([class^=tns-controls-outside]):not([class*=" tns-controls-outside"]) [data-controls] {
+    opacity: 0;
+}
+
+.tns-carousel-wrapper:not(.tns-controls-static):not([class^=tns-controls-outside]):not([class*=" tns-controls-outside"]) [data-controls=prev] {
+    transform: translateX(1rem);
+}
+
+.tns-carousel-wrapper:not(.tns-controls-static):not([class^=tns-controls-outside]):not([class*=" tns-controls-outside"]) [data-controls=next] {
+    transform: translateX(-1rem);
+}
+
+.tns-carousel-wrapper:not(.tns-controls-static):not([class^=tns-controls-outside]):not([class*=" tns-controls-outside"]):hover [data-controls] {
+    transform: none;
+    opacity: 1;
+}
+
+.tns-carousel-wrapper.tns-nav-outside [data-controls] {
+    margin-top: -2.9rem;
+}
+
+.tns-slides-count {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    right: 1.5rem;
+    bottom: 1.25rem;
+    z-index: 10;
+}
+
+.tns-thumbnails {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -0.4375rem;
+    margin-left: -0.4375rem;
+    padding: 0.4375rem 0;
+    list-style: none;
+}
+
+.tns-thumbnails:focus {
+    outline: none;
+}
+
+@media (max-width: 499.98px) {
+    .tns-thumbnails {
+        margin-right: -0.291375rem;
+        margin-left: -0.291375rem;
+        padding: 0.291375rem 0;
+    }
+    .tns-thumbnail {
+        width: 33.33%;
+        padding: 0.291375rem;
+    }
+}
+
+.tns-thumbnail {
+    display: block;
+    width: 20%;
+    margin: 0;
+    padding: 0.4375rem;
+    cursor: pointer;
+}
+
+.tns-thumbnail:focus {
+    outline: none;
+}
+
+.tns-thumbnail>img {
+    display: block;
+    width: 100%;
+    transition: opacity 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    border: 1px solid transparent;
+    border-radius: 0.5rem;
+    opacity: 0.6;
+}
+
+.tns-thumbnail:hover>img {
+    opacity: 1;
+}
+
+.tns-thumbnail.tns-nav-active {
+    pointer-events: none;
+    cursor: default;
+}
+
+.tns-thumbnail.tns-nav-active>img {
+    border-color: #fd5631;
+    opacity: 1;
+}
+
+.order-lg-1 {
+    order: 1 !important;
+}
+
+.order-2 {
+    order: 2 !important;
+}
+
+/* 태임 카드컷 css 끝*/
+ 
+ 
+ 
+ 
+ 
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
