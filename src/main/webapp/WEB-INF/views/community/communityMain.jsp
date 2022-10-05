@@ -2,10 +2,144 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<c:set var="path" value="${pageContext.request.contextPath }"/>   
-
+<c:set var="path" value="${pageContext.request.contextPath}"/>  
+    
 <!DOCTYPE html>
 <html lang="ko">
+
+<!-- 헤더스타일css 시작-->
+<style>
+    /* 헤더스타일css 시작 */
+    
+    .dark-overlay:after,
+    .gradient-overlay:after,
+    .light-overlay:after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        content: " ";
+        opacity: .3;
+        background: #000;
+    }
+    
+     :after,
+     :before {
+        box-sizing: border-box;
+    }
+    
+    .navbar {
+        --bs-navbar-padding-x: 0;
+        --bs-navbar-padding-y: 0;
+        --bs-navbar-color: #a1a1a8;
+        --bs-navbar-hover-color: #2163e8;
+        --bs-navbar-disabled-color: rgba(0, 0, 0, 0.3);
+        --bs-navbar-active-color: #2163e8;
+        --bs-navbar-brand-padding-y: 30px;
+        --bs-navbar-brand-margin-end: 1rem;
+        --bs-navbar-brand-font-size: 1.25rem;
+        --bs-navbar-brand-color: rgba(0, 0, 0, 0.9);
+        --bs-navbar-brand-hover-color: rgba(0, 0, 0, 0.9);
+        /* --bs-navbar-nav-link-padding-x: 1rem; */
+        /* --bs-navbar-toggler-padding-y: 0.25rem; */
+        --bs-navbar-toggler-padding-x: 0;
+        /* --bs-navbar-toggler-font-size: 1.25rem; */
+        --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23a1a1a8' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        --bs-navbar-toggler-border-color: rgba(0, 0, 0, 0.1);
+        --bs-navbar-toggler-border-radius: 0.375rem;
+        --bs-navbar-toggler-focus-width: 0;
+        --bs-navbar-toggler-transition: box-shadow 0.15s ease-in-out;
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        padding: var(--bs-navbar-padding-y) var(--bs-navbar-padding-x);
+    }
+    
+    .navbar-nav-sp {
+        --bs-nav-link-padding-x: 0;
+        --bs-nav-link-padding-y: 0.25rem;
+        --bs-nav-link-font-weight: ;
+        --bs-nav-link-color: var(--bs-navbar-color);
+        --bs-nav-link-hover-color: var(--bs-navbar-hover-color);
+        --bs-nav-link-disabled-color: var(--bs-navbar-disabled-color);
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        padding-right: 0;
+        margin-bottom: 0;
+        list-style: none;
+        height: 80px;
+    }
+    
+    .nav-link-sp {
+        display: block;
+        padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
+        /* 헤더폰트사이즈 */
+        font-size: 17px;
+        /* font-weight: bold; */
+        color: white;
+        -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+        /* font: 15px; */
+        padding-right: 1.5rem;
+        /* 좌우 간격 */
+        margin-bottom: 0;
+        --bs-nav-link-padding-x: 0;
+        --bs-nav-link-padding-y: 0.01rem;
+        --bs-nav-link-font-weight: ;
+        --bs-nav-link-color: var(--bs-navbar-color);
+        --bs-nav-link-hover-color: var(--bs-navbar-hover-color);
+        --bs-nav-link-disabled-color: var(--bs-navbar-disabled-color);
+        display: -webkit-box;
+        display: -ms-flexbox;
+        /* height: 80px; */
+    }
+    
+    .navbar-sticky-sp {
+        position: fixed;
+        /* padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x); */
+        height: 70px;
+        /* z-index: 500px; */
+        /* padding-top: -500px; */
+        padding-bottom: -45px;
+        top: -15px;
+        right: 0;
+        left: 0;
+        background-color: #191a1f;
+        -webkit-animation: fadeInDown 0.5s;
+        animation: fadeInDown 0.5s;
+        width: 100%;
+        -webkit-box-shadow: 0px 0px 40px rgba(83, 88, 93, 0.2);
+        box-shadow: 0px 0px 40px rgba(83, 88, 93, 0.2);
+        /* display: -webkit-box; */
+        display: center;
+    }
+    
+    .navbar-brand-sp {
+        padding-top: var(--bs-navbar-brand-padding-y);
+        padding-bottom: var(--bs-navbar-brand-padding-y);
+        margin-left: var(--bs-navbar-brand-margin-end);
+        font-size: var(--bs-navbar-brand-font-size);
+        color: var(--bs-navbar-brand-color);
+        white-space: nowrap;
+        /* height: 80px; */
+    }
+    /* 헤더스타일css 끝 */
+</style>
 
 <head>
     <title>FinTouch | Community</title>
@@ -17,7 +151,7 @@
     <meta name="description" content="Bootstrap based News, Magazine and Blog Theme">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="resources1b/images/favicon.ico">
+    <link rel="shortcut icon" href="resources/resources1b/images/favicon.ico">
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -32,155 +166,10 @@
     <!-- Theme CSS -->
     <link id="style-switch" rel="stylesheet" type="text/css" href="resources/resources1b/css/style.css">
 
-    <style>
-        /* 테이블 반띵 */
-        
-        div.left {
-            width: 48%;
-            float: left;
-            position: relative;
-        }
-        
-        div.right {
-            width: 48%;
-            float: right;
-            position: relative;
-        }
-    </style>
-
-    <style>
-        .dark-overlay:after,
-        .gradient-overlay:after,
-        .light-overlay:after {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            content: " ";
-            opacity: .3;
-            background: #000;
-        }
-        
-         :after,
-         :before {
-            box-sizing: border-box;
-        }
-        
-        .navbar {
-            --bs-navbar-padding-x: 0;
-            --bs-navbar-padding-y: 0;
-            --bs-navbar-color: #a1a1a8;
-            --bs-navbar-hover-color: #2163e8;
-            --bs-navbar-disabled-color: rgba(0, 0, 0, 0.3);
-            --bs-navbar-active-color: #2163e8;
-            --bs-navbar-brand-padding-y: 30px;
-            --bs-navbar-brand-margin-end: 1rem;
-            --bs-navbar-brand-font-size: 1.25rem;
-            --bs-navbar-brand-color: rgba(0, 0, 0, 0.9);
-            --bs-navbar-brand-hover-color: rgba(0, 0, 0, 0.9);
-            /* --bs-navbar-nav-link-padding-x: 1rem; */
-            /* --bs-navbar-toggler-padding-y: 0.25rem; */
-            --bs-navbar-toggler-padding-x: 0;
-            /* --bs-navbar-toggler-font-size: 1.25rem; */
-            --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23a1a1a8' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-            --bs-navbar-toggler-border-color: rgba(0, 0, 0, 0.1);
-            --bs-navbar-toggler-border-radius: 0.375rem;
-            --bs-navbar-toggler-focus-width: 0;
-            --bs-navbar-toggler-transition: box-shadow 0.15s ease-in-out;
-            position: relative;
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            align-items: center;
-            -webkit-box-pack: justify;
-            -ms-flex-pack: justify;
-            justify-content: space-between;
-            padding: var(--bs-navbar-padding-y) var(--bs-navbar-padding-x);
-        }
-        
-        .navbar-nav-sp {
-            --bs-nav-link-padding-x: 0;
-            --bs-nav-link-padding-y: 0.25rem;
-            --bs-nav-link-font-weight: ;
-            --bs-nav-link-color: var(--bs-navbar-color);
-            --bs-nav-link-hover-color: var(--bs-navbar-hover-color);
-            --bs-nav-link-disabled-color: var(--bs-navbar-disabled-color);
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-orient: vertical;
-            -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-            flex-direction: column;
-            padding-right: 0;
-            margin-bottom: 0;
-            list-style: none;
-            height: 80px;
-        }
-        
-        .nav-link-sp {
-            display: block;
-            padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
-            /* 헤더폰트사이즈 */
-            font-size: 17px;
-            /* font-weight: bold; */
-            color: white;
-            -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
-            transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
-            /* font: 15px; */
-            padding-right: 1.5rem;
-            /* 좌우 간격 */
-            margin-bottom: 0;
-            --bs-nav-link-padding-x: 0;
-            --bs-nav-link-padding-y: 0.01rem;
-            --bs-nav-link-font-weight: ;
-            --bs-nav-link-color: var(--bs-navbar-color);
-            --bs-nav-link-hover-color: var(--bs-navbar-hover-color);
-            --bs-nav-link-disabled-color: var(--bs-navbar-disabled-color);
-            display: -webkit-box;
-            display: -ms-flexbox;
-            /* height: 80px; */
-        }
-        
-        .navbar-sticky-sp {
-            position: fixed;
-            /* padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x); */
-            height: 70px;
-            /* z-index: 500px; */
-            /* padding-top: -500px; */
-            padding-bottom: -45px;
-            top: -15px;
-            right: 0;
-            left: 0;
-            background-color: #191a1f;
-            -webkit-animation: fadeInDown 0.5s;
-            animation: fadeInDown 0.5s;
-            width: 100%;
-            -webkit-box-shadow: 0px 0px 40px rgba(83, 88, 93, 0.2);
-            box-shadow: 0px 0px 40px rgba(83, 88, 93, 0.2);
-            /* display: -webkit-box; */
-            display: center;
-        }
-        
-        .navbar-brand-sp {
-            padding-top: var(--bs-navbar-brand-padding-y);
-            padding-bottom: var(--bs-navbar-brand-padding-y);
-            margin-left: var(--bs-navbar-brand-margin-end);
-            font-size: var(--bs-navbar-brand-font-size);
-            color: var(--bs-navbar-brand-color);
-            white-space: nowrap;
-            /* height: 80px; */
-        }
-    </style>
 </head>
 
 <body>
-    <!-- ======================= 헤더 시작 -->
+    <!-- =======================헤더 시작 =======================-->
     <header class="navbar-light navbar-sticky-sp header-static bg-dark navbar-nav-sp nav-link-sp">
         <!-- Logo Nav START -->
         <nav class=" navbar navbar-expand-sm navbar-nav-sp nav-link-sp">
@@ -192,16 +181,66 @@
                 </a>
                 <!-- Logo END -->
                 <!-- Responsive navbar toggler -->
-                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="text-body h1 d-none d-sm-inline-block">Menu</span>
-                        <span class="navbar-toggler-icon"></span>
+                <button class="navbar-toggler ms-auto " type="button " data-bs-toggle="collapse " data-bs-target="#navbarCollapse " aria-controls="navbarCollapse " aria-expanded="false " aria-label="Toggle navigation ">
+                        <span class="text-body h1 d-none d-sm-inline-block ">Menu</span>
+                        <span class="navbar-toggler-icon "></span>
                     </button>
                 <!-- Main navbar START -->
                 <div class="collapse navbar-collapse  " id="navbarCollapse ">
                     <ul class="navbar-nav navbar-nav-scroll mx-auto ">
                         <!-- <li class="nav-item "> -->
-                        <a class="nav-link-sp active" href="#" id="homeMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>
+                        <a class="nav-link-sp active " href="# " id="homeMenu " data-bs-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">
+                                    Home
+                            </a>
                         <!-- </li> -->
+                        <!-- 금융메뉴 Nav item 3 Post -->
+                        <li class="nav-item dropdown ">
+                            <a class="nav-link-sp  " href="# " id="postMenu " data-bs-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">부동산청약</a>
+                            <ul class="dropdown-menu bg-dark text-white" aria-labelledby="postMenu ">
+                                <!-- dropdown submenu -->
+                                <li class="dropdown-submenu dropend text-white">
+                                    <a class="dropdown-item dropdown-toggle text-white" href="post-list.html ">청약홈</a>
+                                </li>
+                                <li> <a class="dropdown-item text-white" href="post-list.html ">청약정보</a> </li>
+                                <li> <a class="dropdown-item text-white" href="post-list.html ">청약캘린더</a> </li>
+                                <li class="dropdown-submenu dropend text-white">
+                                    <a class="dropdown-item text-white" href="post-list.html ">청약공지사항</a>
+                                </li>
+                                <li class="dropdown-divider text-white"></li>
+                                <li> <a class="dropdown-item text-white" href="post-list-2.html ">부동산커뮤니티</a> </li>
+                            </ul>
+                        </li>
+
+                        <!-- 금융메뉴 Nav item 3 Post -->
+                        <li class="nav-item dropdown ">
+                            <a class="nav-link-sp  " href="# " id="postMenu " data-bs-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">금융</a>
+                            <ul class="dropdown-menu bg-dark text-white" aria-labelledby="postMenu ">
+                                <!-- dropdown submenu -->
+                                <li class="dropdown-submenu dropend text-white">
+                                    <a class="dropdown-item dropdown-toggle text-white" href="post-list.html ">금융홈</a>
+                                </li>
+                                <li> <a class="dropdown-item text-white" href="post-list.html ">오늘의코스피</a> </li>
+                                <li> <a class="dropdown-item text-white" href="post-list-2.html ">오늘의코스닥</a> </li>
+                                <li> <a class="dropdown-item text-white" href="post-single.html ">금융상품비교</a> </li>
+                                <li class="dropdown-divider text-white"></li>
+                                <li> <a class="dropdown-item text-white" href="post-single.html ">금융커뮤니티</a> </li>
+                            </ul>
+                        </li>
+
+                        <!-- Nav item 2 Pages -->
+                        <li class="nav-item dropdown ">
+                            <a class="nav-link-sp " href="# " id="pagesMenu " data-bs-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">정치</a>
+                            <ul class="dropdown-menu bg-dark" aria-labelledby="pagesMenu ">
+                                <!-- dropdown submenu -->
+                                <li class="dropdown-submenu dropend text-white">
+                                    <a class="dropdown-item dropdown-toggle text-white" href="post-list.html ">카드한컷</a>
+                                </li>
+                                <li> <a class="dropdown-item text-white" href="post-list.html ">정부부처소개</a> </li>
+                                <li> <a class="dropdown-item text-white" href="post-list-2.html ">제21대국회의원현황</a> </li>
+                                <li class="dropdown-divider text-white"></li>
+                                <li> <a class="dropdown-item text-white" href="post-single.html ">정치커뮤니티</a> </li>
+                            </ul>
+                        </li>
                         <!-- 금융메뉴 Nav item 3 Post -->
                         <!-- <h5 class="mb-4 text-white "> -->
                         <!-- Nav item 4 Mega menu -->
@@ -216,7 +255,8 @@
                                                 <!-- Card img -->
                                                 <img class="card-img rounded " src="resources/resources1b/images/blog/16by9/small/01.jpg " alt="Card image ">
                                                 <div class="card-body px-0 pt-3 ">
-                                                    <h6 class="card-title mb-0 "><a href="# " class="btn-link text-reset fw-bold ">7 common mistakes everyone makes while traveling</a></h6>
+                                                    <h6 class="card-title mb-0 "><a href="# " class="btn-link text-reset fw-bold ">7 common mistakes
+                                            everyone makes while traveling</a></h6>
                                                     <!-- Card info -->
                                                     <ul class="nav nav-divider align-items-center text-uppercase small mt-2 ">
                                                         <li class="nav-item ">
@@ -300,63 +340,8 @@
                             </div>
                         </li>
 
-                        <!-- Nav item 2 Pages -->
-                        <li class="nav-item dropdown ">
-                            <a class="nav-link-sp " href="# " id="pagesMenu " data-bs-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">정치</a>
-                            <ul class="dropdown-menu bg-dark" aria-labelledby="pagesMenu ">
-                                <!-- dropdown submenu -->
-                                <li class="dropdown-submenu dropend text-white">
-                                    <a class="dropdown-item dropdown-toggle text-white" href="post-list.html ">카드한컷</a>
-                                </li>
-                                <li> <a class="dropdown-item text-white" href="post-list.html ">정부부처소개</a> </li>
-                                <li> <a class="dropdown-item text-white" href="post-list-2.html ">제21대국회의원현황</a> </li>
-                                <li class="dropdown-divider text-white"></li>
-                                <li> <a class="dropdown-item text-white" href="post-single.html ">정치커뮤니티</a> </li>
-                            </ul>
-                        </li>
-
-                        <!-- <li class="dropdown-submenu dropend text-white">
-                                    <li> <a class="dropdown-item dropdown-toggle text-white" href="post-list.html ">카드한컷</a> </li>
-                                </li><a class="dropdown-item text-white" href="post-list.html ">정부부처소개</a>
-                        </li>
-                        <li> <a class="dropdown-item text-white" href="post-list-2.html ">제21대국회의원현황</a> </li>
-                        <li class="dropdown-divider text-white"></li>
-                        <li> <a class="dropdown-item text-white" href="post-single.html ">정치커뮤니티</a> </li>
-                        </ul>
-                        </li> -->
-                        <!-- 금융메뉴 Nav item 3 Post -->
-                        <li class="nav-item dropdown ">
-                            <a class="nav-link-sp  " href="# " id="postMenu " data-bs-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">금융</a>
-                            <ul class="dropdown-menu bg-dark text-white" aria-labelledby="postMenu ">
-                                <!-- dropdown submenu -->
-                                <li class="dropdown-submenu dropend text-white">
-                                    <a class="dropdown-item dropdown-toggle text-white" href="post-list.html ">금융홈</a>
-                                </li>
-                                <li> <a class="dropdown-item text-white" href="post-list.html ">오늘의 코스피</a> </li>
-                                <li> <a class="dropdown-item text-white" href="post-list-2.html ">오늘의 코스닥</a> </li>
-                                <li> <a class="dropdown-item text-white" href="post-single.html ">금융상품비교</a> </li>
-                                <li class="dropdown-divider text-white"></li>
-                                <li> <a class="dropdown-item text-white" href="post-single.html ">금융커뮤니티</a> </li>
-                            </ul>
-                        </li>
-
-                        <!-- 금융메뉴 Nav item 3 Post -->
-                        <li class="nav-item dropdown ">
-                            <a class="nav-link-sp  " href="# " id="postMenu " data-bs-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">부동산청약</a>
-                            <ul class="dropdown-menu bg-dark text-white" aria-labelledby="postMenu ">
-                                <!-- dropdown submenu -->
-                                <li class="dropdown-submenu dropend text-white">
-                                    <a class="dropdown-item dropdown-toggle text-white" href="post-list.html ">청약홈</a>
-                                </li>
-                                <li> <a class="dropdown-item text-white" href="post-list.html ">청약정보</a> </li>
-                                <li> <a class="dropdown-item text-white" href="post-list.html ">청약캘린더</a> </li>
-                                <li class="dropdown-submenu dropend text-white">
-                                    <a class="dropdown-item text-white" href="post-list.html ">청약공지사항</a>
-                                </li>
-                                <li class="dropdown-divider text-white"></li>
-                                <li> <a class="dropdown-item text-white" href="post-list-2.html ">부동산커뮤니티</a> </li>
-                            </ul>
-                        </li>
+                        <!-- Nav item 5 link-->
+                        <li class="nav-item "> <a class="nav-link-sp" href="dashboard.html ">오피니언</a></li>
 
                         <!-- 커뮤니티메뉴 Nav item 3 Post -->
                         <li class="nav-item dropdown">
@@ -375,8 +360,6 @@
                                 <li> <a class="dropdown-item text-white" href="post-single.html ">자유광장</a> </li>
                             </ul>
                         </li>
-                        <!-- Nav item 5 link-->
-                        <li class="nav-item "> <a class="nav-link-sp" href="dashboard.html ">오피니언</a></li>
                     </ul>
                 </div>
                 <!-- Main navbar END -->
@@ -422,23 +405,19 @@
                 </div>
                 <!-- Nav right END -->
             </div>
+            <!-- Logo Nav END -->
         </nav>
-        <!-- Logo Nav END -->
     </header>
-    <!-- ======================= 헤더 끝 -->
+    <!-- =======================헤더 끝 =======================-->
+
 
     <!-- **************** MAIN CONTENT START **************** -->
     <main>
         <!-- ============ 메뉴소개 시작 ============ -->
-        <section class="bg-dark-overlay-4" style="background-image:url('resources/resources1b/images/avatar/fintouch/Success-3-scaled.jpg'); background-position: center left; background-size: cover; height: 300px;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 py-md-5 my-lg-0">
-                        <a href="#" class="badge text-bg-info mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Community</a>
-                        <h1 class="text-white">커뮤니티</h1>
-                        <p class="lead text-white"> 프로재태커가 되기 위한 소통 공간! <br>분야별 게시판에서 다양한 이야기를 확인해보세요.</p>
-                    </div>
-                </div>
+        <section style="background-image:url('resources/resources1b/images/avatar/fintouch/community04.png'); background-position: center; height:652px; width:99%;">
+            <div style="margin-left: 370px; margin-top: 520px;">
+                <h5><span style="color:#2163E8;">C&nbsp;O&nbsp;M&nbsp;M&nbsp;U&nbsp;N&nbsp;I&nbsp;T&nbsp;Y</span></h5>
+                <h1>실시간<span style="color:#2163E8">커뮤니티</span>인기글</h1>
             </div>
         </section>
         <!-- ============ 메뉴소개 끝 ============ -->
@@ -446,14 +425,6 @@
         <section class="py-4 mb-5">
             <div class="container">
                 <div class="row g-4">
-                    <div>
-                        <div>
-                            <a href="#" class="badge text-bg-danger" style="width: 100px; margin-left: 10px; margin-bottom: 10px;"><i class="fas fa-circle small fw-bold"></i>&nbsp;&nbsp;H O T</a>
-                        </div>
-                        <div style="margin-bottom: -30px;">
-                            <h1>실시간<span style="color:#2163E8">커뮤니티</span>인기글</h1>
-                        </div>
-                    </div>
                     <div class="col-12">
                         <!-- Counter START -->
                         <div class="row g-4">
@@ -1180,16 +1151,16 @@
     </main>
     <!-- **************** MAIN CONTENT END **************** -->
 
-    <!-- ======================= 푸터 시작 -->
-    <footer class="bg-dark pt-3 ">
+    <!-- =======================푸터 시작 =======================-->
+    <footer class="bg-light pt-3">
         <div class="container ">
             <!-- About and Newsletter START -->
             <div class="row pt-3 pb-1 ">
                 <div class="col-md-3 ">
-                    <img src="resources/resources1b/images/01_main/logo_white.png" alt="footer logo ">
+                    <img src="resources/resources1b/images/01_main/logo_dark.png " alt="footer logo ">
                 </div>
                 <div class="col-md-5 ">
-                    <p class="text-muted ">그 누구보다도 정치경제소식에 신속하게 닿을 수 있는 곳. <br> 여러 사람들과 정보를 공유할 수 있는 커뮤니티! <br> FinTouch는 늘 고급 정보를 여러분께 전달하기 위해 노력합니다.</p>
+                    <p class="text-dark ">그 누구보다도 정치경제소식에 신속하게 닿을 수 있는 곳. <br> FinTouch는 늘 고급 정보를 여러분께 전달하기 위해 노력합니다.</p>
                 </div>
                 <div class="col-md-4 ">
                     <!-- Form -->
@@ -1200,87 +1171,59 @@
                         <div class="col-12 ">
                             <button type="submit " class="btn btn-primary m-0 ">Subscribe</button>
                         </div>
-                        <div class="form-text mt-2 ">By subscribing you agree to our
-                            <a href="# " class="text-decoration-underline text-reset ">Privacy Policy</a>
-                        </div>
                     </form>
                 </div>
             </div>
-            <!-- About and Newsletter END -->
-
             <!-- Divider -->
             <hr>
-
             <!-- Widgets START -->
-            <div class="row pt-3 ">
+            <div class="row pt-1 text-dark ">
                 <!-- Footer Widget -->
-                <div class="col-md-6 col-lg-3 mb-4 ">
-                    <h5 class="mb-4 text-white ">Recent post</h5>
+                <div class="col-md-6 col-lg-3 mb-3 ">
+                    <h5 class="mb-4 text-dark ">Recent post</h5>
                     <!-- Item -->
                     <div class="mb-4 position-relative ">
-                        <div><a href="# " class="badge text-bg-danger mb-2 "><i
-                                    class="fas fa-circle me-2 small fw-bold "></i>Finance</a></div>
-                        <a href="post-single-3.html " class="btn-link text-white fw-normal ">10조로 커진 액티브 ETF…금리연동·채권형 대세로</a>
-                        <div>
-                            <br>
-                            <a href="# " class="badge text-bg-info mb-2 "><i
-                            class="fas fa-circle me-2 small fw-bold "></i>Community</a></div>
-                        <a href="post-single-3.html " class="btn-link text-white fw-normal ">지속가능한 부동산 산업의 미래</a>
+                        <div><a href="# " class="badge text-bg-danger mb-2 "><i class="fas fa-circle me-2 small fw-bold "></i>Finance</a></div>
+                        <a href="post-single-3.html " class="btn-link text-dark fw-normal ">10조로 커진 액티브 ETF…금리연동·채권형 대세로</a>
                     </div>
-                    <!-- <ul class="nav nav-divider align-items-center small mt-2 text-muted ">
-                        <li class="nav-item position-relative ">
-                            <div class="nav-link ">by <a href="# " class="stretched-link text-reset btn-link ">Dennis</a>
-                            </div>
-                        </li>
-                        <li class="nav-item ">Apr 06, 2022</li>
-                    </ul> -->
                 </div>
-
                 <!-- Footer Widget -->
-                <div class="col-md-6 col-lg-3 mb-4 ">
-                    <h5 class="mb-4 text-white ">Sponsor</h5>
+                <div class="col-md-6 col-lg-3 mb-3 text-dark ">
+                    <h5 class="mb-4 text-dark ">Sponsor</h5>
                     <div class="row ">
                         <div class="col-6 ">
-                            <ul class="nav flex-column text-primary-hover ">
+                            <ul class="nav flex-column ">
                                 <li class="nav-item "><a class="nav-link " href="# ">대한민국 국회</a></li>
                                 <li class="nav-item "><a class="nav-link pt-0 " href="# ">금융감독원</a></li>
                                 <li class="nav-item "><a class="nav-link pt-0 " href="# ">금융감독위원회 </a></li>
-                                <li class="nav-item "><a class="nav-link " href="# ">한국예탁결제원</a></li>
-                                <li class="nav-item "><a class="nav-link " href="# ">국토교통부</a></li>
                             </ul>
                         </div>
                         <div class="col-6 ">
-                            <ul class="nav flex-column text-primary-hover ">
+                            <ul class="nav flex-column ">
                                 <li class="nav-item "><a class="nav-link " href="# ">기획재정부</a></li>
-                                <li class="nav-item "><a class="nav-link " href="# ">한국부동산원</a></li>
+                                <li class="nav-item "><a class="nav-link " href="# ">국토교통부</a></li>
                                 <li class="nav-item "><a class="nav-link " href="# ">주택도시기금</a></li>
-                                <li class="nav-item "><a class="nav-link " href="# ">매일경제</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
-
                 <!-- Footer Widget -->
-                <div class="col-sm-6 col-lg-3 mb-4 ">
-                    <h5 class="mb-4 text-white ">Get Regular Updates</h5>
-                    <ul class="nav flex-column text-primary-hover ">
-                        <li class="nav-item "><a class="nav-link pt-0 " href="# "><i
-                                    class="fab fa-whatsapp fa-fw me-2 "></i>WhatsApp</a></li>
-                        <li class="nav-item "><a class="nav-link " href="# "><i
-                                    class="fab fa-youtube fa-fw me-2 "></i>YouTube</a></li>
-                        <li class="nav-item "><a class="nav-link " href="# "><i class="far fa-bell fa-fw me-2 "></i>Website
-                                Notifications</a></li>
-                        <li class="nav-item "><a class="nav-link " href="# "><i
-                                    class="far fa-envelope fa-fw me-2 "></i>Newsletters</a></li>
-                        <li class="nav-item "><a class="nav-link " href="# "><i
-                                    class="fas fa-headphones-alt fa-fw me-2 "></i>Podcasts</a></li>
+                <div class="col-sm-6 col-lg-3 mb-3 text-dark ">
+                    <h5 class="mb-4 text-dark ">Get Regular Updates</h5>
+                    <ul class="nav flex-column ">
+                        <li class="nav-item ">
+                            <a class="nav-link pt-0 " href="# ">
+                                <i class="fab fa-whatsapp fa-fw me-2 "></i>WhatsApp
+                            </a>
+                        </li>
+                        <li class="nav-item "><a class="nav-link " href="# "><i class="fab fa-youtube fa-fw me-2 "></i>YouTube</a></li>
+                        <li class="nav-item "><a class="nav-link " href="# "><i class="far fa-bell fa-fw me-2 "></i>Website Notifications</a></li>
                     </ul>
                 </div>
-
                 <!-- Footer Widget -->
-                <div class="col-sm-6 col-lg-3 mb-4 ">
-                    <h5 class="mb-4 text-white ">Our Mobile App</h5>
-                    <p class="text-muted ">FinTouch의 앱을 다운로드하여 최신 속보 알림과 오늘의 기사 헤드라인 및 주요뉴스를 가장 빠르게 확인해보세요! </p>
+                <div class="col-sm-6 col-lg-3 mb-3 ">
+                    <h5 class="mb-4 text-dark ">Our Mobile App</h5>
+                    <p class="text-dark ">FinTouch의 앱을 다운로드하여 최신 속보를 가장 빠르게 확인해보세요! </p>
                     <div class="row g-2 ">
                         <div class="col ">
                             <a href="# "><img class="w-100 " src="resources/resources1b/images/app-store.svg " alt="app-store "></a>
@@ -1292,24 +1235,23 @@
                 </div>
             </div>
             <!-- Widgets END -->
-        </div>
     </footer>
-    <!-- ======================= 푸터 끝 -->
+    <!-- ====================== 푸터 끝 ======================= -->
 
     <!-- Back to top -->
-    <div class="back-top "><i class="bi bi-arrow-up-short "></i></div>
+    <div class="back-top"><i class="bi bi-arrow-up-short"></i></div>
 
     <!-- ======================= JS libraries, plugins and custom scripts -->
 
     <!-- Bootstrap JS -->
-    <script src="resources/resources1b/vendor/bootstrap/dist/js/bootstrap.bundle.min.js "></script>
+    <script src="resources/resources1b/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Vendors -->
-    <script src="resources/resources1b/vendor/apexcharts/js/apexcharts.min.js "></script>
-    <script src="resources/resources1b/vendor/overlay-scrollbar/js/OverlayScrollbars.min.js "></script>
+    <script src="resources/resources1b/vendor/apexcharts/js/apexcharts.min.js"></script>
+    <script src="resources/resources1b/vendor/overlay-scrollbar/js/OverlayScrollbars.min.js"></script>
 
     <!-- Template Functions -->
-    <script src="resources1b/js/functions.js "></script>
+    <script src="resources/resources1b/js/functions.js"></script>
 
 </body>
 
