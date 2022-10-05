@@ -41,12 +41,13 @@
                                             <div class="col-md-12">
                                                 <form class="rounded position-relative">
                                                     <input class="form-control pe-5 bg-transparent" type="search" placeholder="Search" aria-label="Search">
-                                                    <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
+                                                    <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit">
+                                                   		<i class="fas fa-search fs-6"></i>
+                                                    </button>
                                                 </form>
                                             </div>
                                         </div>
                                         <!-- 검색 끝 -->
-
                                         <!-- 인기글 시작 -->
                                         <div class="table-responsive border-0">
                                             <table class="table align-middle p-4 mb-0 table-hover table-shrink">
@@ -61,7 +62,6 @@
                                                         <th scope="col" class="border-0 text-center rounded-end">Comments</th>
                                                     </tr>
                                                 </thead>
-
                                                 <!-- 인기글 10개 -->
                                                 <tbody class="border-top-0">
                                                     <!-- 인기글 1 -->
@@ -85,7 +85,6 @@
                                                         <!-- Comments -->
                                                         <td class="text-center">42</td>
                                                     </tr>
-
                                                     <!-- 인기글 2 -->
                                                     <tr>
                                                         <!-- Categories -->
@@ -107,7 +106,6 @@
                                                         <!-- Comments -->
                                                         <td class="text-center">58</td>
                                                     </tr>
-
                                                     <!-- 인기글 3 -->
                                                     <tr>
                                                         <!-- Categories -->
@@ -129,7 +127,6 @@
                                                         <!-- Comments -->
                                                         <td class="text-center">78</td>
                                                     </tr>
-
                                                     <!-- 인기글 4 -->
                                                     <tr>
                                                         <!-- Categories -->
@@ -151,7 +148,6 @@
                                                         <!-- Comments -->
                                                         <td class="text-center">65</td>
                                                     </tr>
-
                                                     <!-- 인기글 5 -->
                                                     <tr>
                                                         <!-- Categories -->
@@ -173,7 +169,6 @@
                                                         <!-- Comments -->
                                                         <td class="text-center">212</td>
                                                     </tr>
-
                                                     <!-- 인기글 6 -->
                                                     <tr>
                                                         <!-- Categories -->
@@ -195,7 +190,6 @@
                                                         <!-- Comments -->
                                                         <td class="text-center">22</td>
                                                     </tr>
-
                                                     <!-- 인기글 7 -->
                                                     <tr>
                                                         <!-- Categories -->
@@ -217,7 +211,6 @@
                                                         <!-- Comments -->
                                                         <td class="text-center">117</td>
                                                     </tr>
-
                                                     <!-- 인기글 8 -->
                                                     <tr>
                                                         <!-- Categories -->
@@ -239,7 +232,6 @@
                                                         <!-- Comments -->
                                                         <td class="text-center">210</td>
                                                     </tr>
-
                                                     <!-- 인기글 9 -->
                                                     <tr>
                                                         <!-- Categories -->
@@ -261,7 +253,6 @@
                                                         <!-- Comments -->
                                                         <td class="text-center">73</td>
                                                     </tr>
-
                                                     <!-- 인기글 10 -->
                                                     <tr>
                                                         <!-- Categories -->
@@ -283,13 +274,10 @@
                                                         <!-- Comments -->
                                                         <td class="text-center">66</td>
                                                     </tr>
-
                                                 </tbody>
-                                                <!-- Table body END -->
                                             </table>
                                         </div>
-                                        <!-- Blog list table END -->
-
+                                        <!-- 인기글 끝 -->
                                         <!-- 페이지넘버 시작 -->
                                         <nav class="mb-sm-0 d-flex justify-content-center mt-2" aria-label="navigation">
                                             <ul class="pagination pagination-sm pagination-bordered mb-0">
@@ -314,7 +302,7 @@
                                         <!-- 페이지넘버 끝 -->
                                     </div>
                                 </div>
-                                <!-- Blog list table END -->
+                                <!-- 인기글 테이블 끝 -->
                             </div>
                         </div>
                     </div>
@@ -749,112 +737,5 @@
                 </div>
             </div>
         </section>
-        <!-- ======================= Main contain END -->
     </main>
-    <!-- **************** MAIN CONTENT END **************** -->
-
-    <!-- =======================푸터 시작 =======================-->
-    <footer class="bg-light pt-3">
-        <div class="container ">
-            <!-- About and Newsletter START -->
-            <div class="row pt-3 pb-1 ">
-                <div class="col-md-3 ">
-                    <img src="resources/resources1b/images/01_main/logo_dark.png " alt="footer logo ">
-                </div>
-                <div class="col-md-5 ">
-                    <p class="text-dark ">그 누구보다도 정치경제소식에 신속하게 닿을 수 있는 곳. <br> FinTouch는 늘 고급 정보를 여러분께 전달하기 위해 노력합니다.</p>
-                </div>
-                <div class="col-md-4 ">
-                    <!-- Form -->
-                    <form class="row row-cols-lg-auto g-2 align-items-center justify-content-end ">
-                        <div class="col-12 ">
-                            <input type="email " class="form-control " placeholder="Enter your email address ">
-                        </div>
-                        <div class="col-12 ">
-                            <button type="submit " class="btn btn-primary m-0 ">Subscribe</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <!-- Divider -->
-            <hr>
-            <!-- Widgets START -->
-            <div class="row pt-1 text-dark ">
-                <!-- Footer Widget -->
-                <div class="col-md-6 col-lg-3 mb-3 ">
-                    <h5 class="mb-4 text-dark ">Recent post</h5>
-                    <!-- Item -->
-                    <div class="mb-4 position-relative ">
-                        <div><a href="# " class="badge text-bg-danger mb-2 "><i class="fas fa-circle me-2 small fw-bold "></i>Finance</a></div>
-                        <a href="post-single-3.html " class="btn-link text-dark fw-normal ">10조로 커진 액티브 ETF…금리연동·채권형 대세로</a>
-                    </div>
-                </div>
-                <!-- Footer Widget -->
-                <div class="col-md-6 col-lg-3 mb-3 text-dark ">
-                    <h5 class="mb-4 text-dark ">Sponsor</h5>
-                    <div class="row ">
-                        <div class="col-6 ">
-                            <ul class="nav flex-column ">
-                                <li class="nav-item "><a class="nav-link " href="# ">대한민국 국회</a></li>
-                                <li class="nav-item "><a class="nav-link pt-0 " href="# ">금융감독원</a></li>
-                                <li class="nav-item "><a class="nav-link pt-0 " href="# ">금융감독위원회 </a></li>
-                            </ul>
-                        </div>
-                        <div class="col-6 ">
-                            <ul class="nav flex-column ">
-                                <li class="nav-item "><a class="nav-link " href="# ">기획재정부</a></li>
-                                <li class="nav-item "><a class="nav-link " href="# ">국토교통부</a></li>
-                                <li class="nav-item "><a class="nav-link " href="# ">주택도시기금</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- Footer Widget -->
-                <div class="col-sm-6 col-lg-3 mb-3 text-dark ">
-                    <h5 class="mb-4 text-dark ">Get Regular Updates</h5>
-                    <ul class="nav flex-column ">
-                        <li class="nav-item ">
-                            <a class="nav-link pt-0 " href="# ">
-                                <i class="fab fa-whatsapp fa-fw me-2 "></i>WhatsApp
-                            </a>
-                        </li>
-                        <li class="nav-item "><a class="nav-link " href="# "><i class="fab fa-youtube fa-fw me-2 "></i>YouTube</a></li>
-                        <li class="nav-item "><a class="nav-link " href="# "><i class="far fa-bell fa-fw me-2 "></i>Website Notifications</a></li>
-                    </ul>
-                </div>
-                <!-- Footer Widget -->
-                <div class="col-sm-6 col-lg-3 mb-3 ">
-                    <h5 class="mb-4 text-dark ">Our Mobile App</h5>
-                    <p class="text-dark ">FinTouch의 앱을 다운로드하여 최신 속보를 가장 빠르게 확인해보세요! </p>
-                    <div class="row g-2 ">
-                        <div class="col ">
-                            <a href="# "><img class="w-100 " src="resources/resources1b/images/app-store.svg " alt="app-store "></a>
-                        </div>
-                        <div class="col ">
-                            <a href="# "><img class="w-100 " src="resources/resources1b/images/google-play.svg " alt="google-play "></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Widgets END -->
-    </footer>
-    <!-- ====================== 푸터 끝 ======================= -->
-
-    <!-- Back to top -->
-    <div class="back-top"><i class="bi bi-arrow-up-short"></i></div>
-
-    <!-- ======================= JS libraries, plugins and custom scripts -->
-
-    <!-- Bootstrap JS -->
-    <script src="resources/resources1b/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Vendors -->
-    <script src="resources/resources1b/vendor/apexcharts/js/apexcharts.min.js"></script>
-    <script src="resources/resources1b/vendor/overlay-scrollbar/js/OverlayScrollbars.min.js"></script>
-
-    <!-- Template Functions -->
-    <script src="resources/resources1b/js/functions.js"></script>
-
-</body>
-
-</html>
+<%@ include file="/WEB-INF/views/common/footer.jsp" %>
