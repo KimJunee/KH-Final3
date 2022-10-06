@@ -27,7 +27,7 @@
         <div class="container z-index-9 position-relative">
             <div class="row py-0 align-items-center text-center text-sm-start">
                 <div class="col-sm-12 all-text-white mt-md-0">
-                    <div class="py-0 py-md-5 my-2">
+                    <div class="py-0 py-md-5 my-2 mt-0">
                         <!-- Badge with content -->
                         <div class="d-inline-block bg-white bg-opacity-75 px-3 py-2 rounded-pill mb-3">
                             <p class="mb-0 text-dark"><span class="badge text-bg-success rounded-pill me-1">New</span> Start with the best Real Estate</p>
@@ -35,7 +35,7 @@
                         <!-- Title -->
                         <h1 class="text-white display-5">청약조회</h1>
                         <p class="text-white">조건에 맞는 검색을 통해 청약에 관한 상세 정보들을 확인하실 수 있습니다.</p>
-                        <div class="d-sm-flex align-items-center mt-4">
+                        <div class="d-sm-flex align-items-center mb-3">
                             <!-- Button -->
                             <a href="#" class="btn btn-primary me-2 mb-4 mb-sm-0">Get Started</a>
                         </div>
@@ -503,3 +503,7 @@
     <!-- **************** MAIN CONTENT END **************** -->
 
     <%@ include file="/WEB-INF/views/common/footer.jsp" %>
+    
+    </body>
+
+</html>
