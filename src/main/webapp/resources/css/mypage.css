@@ -112,7 +112,7 @@ div.right {
 
 @font-face {
     font-family: "finder-icons";
-    src: url("resources/resources1b/fonts/finder-icons.ttf?7648j3") format("truetype"), url("resources/resources1b/fonts/finder-icons.woff?7648j3") format("woff"), url("resources/resources1b/fonts/finder-icons.svg?7648j3#finder-icons") format("svg");
+    src: url("resources/resources3f/dist/fonts/finder-icons.ttf?7648j3") format("truetype"), url("resources/resources3f/dist/fonts/finder-icons.woff?7648j3") format("woff"), url("resources/resources3f/dist/fonts/finder-icons.svg?7648j3#finder-icons") format("svg");
     font-weight: normal;
     font-style: normal;
     font-display: block;

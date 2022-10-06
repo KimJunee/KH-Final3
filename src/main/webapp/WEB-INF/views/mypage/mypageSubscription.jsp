@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<c:set var="path" value="${pageContext.request.contextPath }"/>   
+<c:set var="path" value="${pageContext.request.contextPath }"/>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -35,13 +35,12 @@
         <section class="py-4">
             <div class="container mt-5">
                 <div class="row">
-                    <div class="col-12 d-sm-flex justify-content-between align-items-center">
+                    <div class="col-12 d-sm-flex justify-content-between align-items-center" style="margin-bottom:10px;">
                         <div class="col-4"></div>
                         <div class="col-8 mb-1" style="margin-left:20px;">
                             <h3 class="mb-2 mb-sm-0"><i class="bi bi-building"></i>&nbsp;My Subscription</h3>
                         </div>
                     </div>
-
                     <div class="col-4 mb-0">
                         <aside class="pe-xl-4 mb-5">
                             <!-- 왼쪽 사이드바 -->
@@ -57,27 +56,26 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <a class="btn btn-primary btn-lg w-100 mb-2 fw-bold" href="real-estate-add-property.html">+ 게시글 작성하기</a>
+                                <a class="btn btn-outline-primary btn-lg w-100 mb-2 fw-bold" style="border-radius: 10px;" href="1community-board-post-lightfooter.html">+ 게시글 작성하기</a>
                                 <div class="collapse d-md-block mt-0 fw-bold" id="account-nav">
                                     <div class="card-nav">
-                                        <a class="card-nav-link" href="real-estate-account-info.html"><i class="fa fa-solid fa-user" style="margin-right:10px; margin-left: 10px;"></i>회원정보</a>
-                                        <a class="card-nav-link" href="real-estate-account-security.html"><i class="fa fa-solid fa-piggy-bank" style="margin-right:10px; margin-left: 6px;"></i>내 금융상품</a>
-                                        <a class="card-nav-link active" href="real-estate-account-properties.html"><i class="fa fa-solid fa-building" style="margin-right:10px; margin-left: 10px;"></i>청약부동산</a>
-                                        <a class="card-nav-link" href="real-estate-account-wishlist.html"><i class="fa fa-solid fa-bookmark" style="margin-right:10px; margin-left: 10px;"></i>뉴스 스크랩</a>
-                                        <a class="card-nav-link" href="real-estate-account-reviews.html"><i class="fa fa-solid fa-quote-left" style="margin-right:10px; margin-left: 10px;"></i>내 글 목록</a>
-                                        <a class="card-nav-link" href="real-estate-account-notifications.html"><i class="fa fa-solid fa-comment-dots" style="margin-right:10px; margin-left: 10px;"></i>내 댓글 목록</a>
+                                        <a class="card-nav-link" href="1myPageInfo.html"><i class="fa fa-solid fa-user" style="margin-right:10px; margin-left: 10px;"></i>회원정보</a>
+                                        <a class="card-nav-link" href="1myPageFinance.html"><i class="fa fa-solid fa-piggy-bank" style="margin-right:10px; margin-left: 6px;"></i>내 금융상품</a>
+                                        <a class="card-nav-link active" href="1myPageSubscription.html"><i class="fa fa-solid fa-building" style="margin-right:10px; margin-left: 10px;"></i>부동산청약</a>
+                                        <a class="card-nav-link" href="1mypage-newsscrap1003.html"><i class="fa fa-solid fa-bookmark" style="margin-right:10px; margin-left: 10px;"></i>뉴스스크랩</a>
+                                        <a class="card-nav-link" href="1myPage-board.html"><i class="fa fa-solid fa-quote-left" style="margin-right:10px; margin-left: 10px;"></i>내 글 목록</a>
+                                        <a class="card-nav-link" href="1myPage-reply.html"><i class="fa fa-solid fa-comment-dots" style="margin-right:10px; margin-left: 10px;"></i>내 댓글 목록</a>
                                     </div>
                                 </div>
                             </div>
                         </aside>
                     </div>
-                    <!-- 내 금융상품 시작 -->
-                    <div class="col-8 mb-0">
+                    <!-- 부동산청약 시작 -->
+                    <div class="col-8 col-xxl-8">
                         <!-- Blog list table START -->
                         <div class="card border bg-transparent rounded-3">
                             <!-- Card body START -->
                             <div class="card-body">
-
                                 <!-- Search and select START -->
                                 <div class="row g-3 align-items-center justify-content-between mb-3">
                                     <!-- Search -->
@@ -87,7 +85,6 @@
                                             <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
                                         </form>
                                     </div>
-
                                     <!-- Select option -->
                                     <div class="col-md-3">
                                         <!-- Short by filter -->
@@ -102,7 +99,6 @@
                                     </div>
                                 </div>
                                 <!-- Search and select END -->
-
                                 <!-- Blog list table START -->
                                 <div class="table-responsive border-0">
                                     <table class="table align-middle p-4 mb-0 table-hover table-shrink">
@@ -237,39 +233,39 @@
                                                     </div>
                                                 </td>
                                             </tr>
-
                                         </tbody>
                                         <!-- Table body END -->
                                     </table>
                                 </div>
-                                <!-- Blog list table END -->
-
-                                <!-- Pagination START -->
-                                <div class="d-sm-flex justify-content-center align-items-sm-center mt-4 mt-sm-3">
-                                    <p class="mb-sm-0 text-center text-sm-start"></p>
-                                    <!-- Pagination -->
-                                    <nav class="mb-sm-0 d-flex justify-content-center" aria-label="navigation">
-                                        <ul class="pagination pagination-sm pagination-bordered mb-0">
-                                            <li class="page-item disabled">
-                                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Prev</a>
-                                            </li>
-                                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                            <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                                            <li class="page-item disabled"><a class="page-link" href="#">..</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">15</a></li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">Next</a>
-                                            </li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                                <!-- Pagination END -->
+                                <!-- 부동산청약 끝 -->
                             </div>
                         </div>
-                        <!-- Blog list table END -->
+                        <!-- 페이지넘버 시작 -->
+                        <div class="mt-4" style="margin-bottom:80px;">
+                            <nav class="mb-sm-0 d-flex justify-content-center mt-0 " aria-label="navigation ">
+                                <ul class="pagination pagination-sm pagination-bordered mb-3 ">
+                                    <li class="page-item disabled ">
+                                        <a class="page-link " href="# " tabindex="-1 " aria-disabled="true ">Prev</a>
+                                    </li>
+                                    <li class="page-item active "><a class="page-link " href="# ">1</a></li>
+                                    <li class="page-item "><a class="page-link " href="# ">2</a></li>
+                                    <li class="page-item "><a class="page-link " href="# ">3</a></li>
+                                    <li class="page-item "><a class="page-link " href="# ">4</a></li>
+                                    <li class="page-item "><a class="page-link " href="# ">5</a></li>
+                                    <li class="page-item "><a class="page-link " href="# ">6</a></li>
+                                    <li class="page-item "><a class="page-link " href="# ">7</a></li>
+                                    <li class="page-item "><a class="page-link " href="# ">8</a></li>
+                                    <li class="page-item "><a class="page-link " href="# ">9</a></li>
+                                    <li class="page-item "><a class="page-link " href="# ">10</a></li>
+                                    <li class="page-item ">
+                                        <a class="page-link " href="# ">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <!-- 페이지넘버 끝 -->
                     </div>
                 </div>
-            </div>
         </section>
     </main>
    <%@ include file="/WEB-INF/views/common/footer.jsp" %>

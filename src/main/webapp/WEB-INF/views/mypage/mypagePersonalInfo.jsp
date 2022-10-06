@@ -7,6 +7,16 @@
 <!DOCTYPE html>
 <html lang="ko">
 
+<style>
+	@font-face {
+    font-family: "finder-icons";
+    src: url("resources/resources3f/dist/fonts/finder-icons.ttf?7648j3") format("truetype"), url("resources/resources3f/dist/fonts/finder-icons.woff?7648j3") format("woff"), url("resources/resources3f/dist/fonts/finder-icons.svg?7648j3#finder-icons") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+</style>
+
 <head>
     <title>FinTouch | My Page | Personal Info</title>
 	<!-- Favicon -->
@@ -35,7 +45,7 @@
         <section class="py-4">
             <div class="container mt-5">
                 <div class="row">
-                    <div class="col-12 d-sm-flex justify-content-between align-items-center">
+                    <div class="col-12 d-sm-flex justify-content-between align-items-center" style="margin-bottom:10px;">
                         <div class="col-4"></div>
                         <div class="col-8 mb-1" style="margin-left:20px;">
                             <h3 class="mb-2 mb-sm-0"><i class="fa fa-solid fa-user"></i>&nbsp;Personal Info</h3>
@@ -51,20 +61,20 @@
                                         <ul class="list-unstyled fs-sm mt-1 mb-0">
                                             <li>
                                                 <a class="nav-link fw-normal p-0" href="mailto:annette_black@email.com">
-                                                <i class="fi-mail opacity-60 me-2"></i>rlaxodla91@email.com</a>
+                                                    <i class="fi-mail opacity-60 me-2"></i>rlaxodla91@email.com</a>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
-                                <a class="btn btn-primary btn-lg w-100 mb-2 fw-bold" href="real-estate-add-property.html">+ 게시글 작성하기</a>
+                                <a class="btn btn-outline-primary btn-lg w-100 mb-2 fw-bold" style="border-radius: 10px;" href="1community-board-post-lightfooter.html">+ 게시글 작성하기</a>
                                 <div class="collapse d-md-block mt-0 fw-bold" id="account-nav">
                                     <div class="card-nav">
-                                        <a class="card-nav-link active" href="real-estate-account-info.html"><i class="fa fa-solid fa-user" style="margin-right:10px; margin-left: 10px;"></i>회원정보</a>
-                                        <a class="card-nav-link" href="real-estate-account-security.html"><i class="fa fa-solid fa-piggy-bank" style="margin-right:10px; margin-left: 6px;"></i>내 금융상품</a>
-                                        <a class="card-nav-link" href="real-estate-account-properties.html"><i class="fa fa-solid fa-building" style="margin-right:10px; margin-left: 10px;"></i>청약부동산</a>
-                                        <a class="card-nav-link" href="real-estate-account-wishlist.html"><i class="fa fa-solid fa-bookmark" style="margin-right:10px; margin-left: 10px;"></i>뉴스 스크랩</a>
-                                        <a class="card-nav-link" href="real-estate-account-reviews.html"><i class="fa fa-solid fa-quote-left" style="margin-right:10px; margin-left: 10px;"></i>내 글 목록</a>
-                                        <a class="card-nav-link" href="real-estate-account-notifications.html"><i class="fa fa-solid fa-comment-dots" style="margin-right:10px; margin-left: 10px;"></i>내 댓글 목록</a>
+                                        <a class="card-nav-link active" href="1myPageInfo.html"><i class="fa fa-solid fa-user" style="margin-right:10px; margin-left: 10px;"></i>회원정보</a>
+                                        <a class="card-nav-link" href="1myPageFinance.html"><i class="fa fa-solid fa-piggy-bank" style="margin-right:10px; margin-left: 6px;"></i>내 금융상품</a>
+                                        <a class="card-nav-link" href="1myPageSubscription.html"><i class="fa fa-solid fa-building" style="margin-right:10px; margin-left: 10px;"></i>부동산청약</a>
+                                        <a class="card-nav-link" href="1mypage-newsscrap1003.html"><i class="fa fa-solid fa-bookmark" style="margin-right:10px; margin-left: 10px;"></i>뉴스스크랩</a>
+                                        <a class="card-nav-link" href="1myPage-board.html"><i class="fa fa-solid fa-quote-left" style="margin-right:10px; margin-left: 10px;"></i>내 글 목록</a>
+                                        <a class="card-nav-link" href="1myPage-reply.html"><i class="fa fa-solid fa-comment-dots" style="margin-right:10px; margin-left: 10px;"></i>내 댓글 목록</a>
                                     </div>
                                 </div>
                             </div>
@@ -95,8 +105,8 @@
                                             <div id="gender-value">탬버리이인</div>
                                         </div>
                                         <div class="col-1 me-n3" data-bs-toggle="tooltip" title="Edit">
-                                        	<a style="margin-left: 10px;" class="nav-link py-0" href="#gender-collapse" data-bs-toggle="collapse">
-                                        	<i class="fa fa-solid fa-pen"></i></a>
+                                            <a style="margin-left: 10px;" class="nav-link py-0" href="#gender-collapse" data-bs-toggle="collapse">
+                                                <i class="fa fa-solid fa-pen"></i></a>
                                         </div>
                                     </div>
                                     <div class="collapse" id="gender-collapse" data-bs-parent="#personal-info">
@@ -111,8 +121,8 @@
                                             <div id="email-value">rlaxodla91@email.com</div>
                                         </div>
                                         <div class="col-1 me-n3" data-bs-toggle="tooltip" title="Edit">
-                                        	<a style="margin-left: 10px;" class="nav-link py-0" href="#email-collapse" data-bs-toggle="collapse">
-                                        	<i class="fa fa-solid fa-pen"></i></a>
+                                            <a style="margin-left: 10px;" class="nav-link py-0" href="#email-collapse" data-bs-toggle="collapse">
+                                                <i class="fa fa-solid fa-pen"></i></a>
                                         </div>
                                     </div>
                                     <div class="collapse" id="email-collapse" data-bs-parent="#personal-info">
@@ -126,7 +136,7 @@
                                         <div class="password-toggle">
                                             <input class="form-control" type="password" id="account-password" required>
                                             <label class="password-toggle-btn" aria-label="Show/hide password">
-                                            <input class="password-toggle-check" type="checkbox">
+                                                <input class="password-toggle-check" type="checkbox">
                                                 <span class="password-toggle-indicator"></span>
                                             </label>
                                         </div>

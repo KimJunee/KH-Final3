@@ -16,15 +16,9 @@
     <meta name="author" content="Createx Studio">
     <!-- Viewport-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Favicon and Touch Icons-->
-    <link rel="apple-touch-icon" sizes="180x180" href="resources/resources2a/assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="resources/resources2a/assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="resources/resources2a/assets/favicon/favicon-16x16.png">
-    <link rel="manifest" href="resources/resources2a/assets/favicon/site.webmanifest">
-    <link rel="mask-icon" color="#6366f1" href="resources/resources2a/assets/favicon/safari-pinned-tab.svg">
-    <meta name="msapplication-TileColor" content="#080032">
-    <meta name="msapplication-config" content="resources/resources2a/assets/favicon/browserconfig.xml">
-    <meta name="theme-color" content="white">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="resources/resources1b/images/favicon.ico">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <!-- Theme mode-->
     <script>
         let mode = window.localStorage.getItem('mode'),
