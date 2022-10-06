@@ -44,9 +44,9 @@
                 <!-- 로고 끝-->
                 <!-- 메뉴 시작 -->
                 <button class="navbar-toggler ms-auto " type="button" data-bs-toggle="collapse " data-bs-target="#navbarCollapse " aria-controls="navbarCollapse " aria-expanded="false " aria-label="Toggle navigation ">
-                        <span class="text-body h1 d-none d-sm-inline-block ">Menu</span>
-                        <span class="navbar-toggler-icon "></span>
-                    </button>
+                    <span class="text-body h1 d-none d-sm-inline-block ">Menu</span>
+                    <span class="navbar-toggler-icon "></span>
+                </button>
                 <!-- 메인 네비바 시작 -->
                 <div class="collapse navbar-collapse  " id="navbarCollapse ">
                     <ul class="navbar-nav navbar-nav-scroll mx-auto ">
