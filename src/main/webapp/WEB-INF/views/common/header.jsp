@@ -28,10 +28,6 @@
     <!-- 차트제이에스 chart.js css -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
 
-    <!-- JS	 -->
-
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"> -->
-
     <!-- Theme CSS -->
     <link id="style-switch" rel="stylesheet" type="text/css" href="resources/resources1b/css/style.css">
 </head>
@@ -47,18 +43,17 @@
                 </a>
                 <!-- 로고 끝-->
                 <!-- 메뉴 시작 -->
-                <button class="navbar-toggler ms-auto " type="button " data-bs-toggle="collapse " data-bs-target="#navbarCollapse " aria-controls="navbarCollapse " aria-expanded="false " aria-label="Toggle navigation ">
+                <button class="navbar-toggler ms-auto " type="button" data-bs-toggle="collapse " data-bs-target="#navbarCollapse " aria-controls="navbarCollapse " aria-expanded="false " aria-label="Toggle navigation ">
                         <span class="text-body h1 d-none d-sm-inline-block ">Menu</span>
                         <span class="navbar-toggler-icon "></span>
                     </button>
                 <!-- 메인 네비바 시작 -->
                 <div class="collapse navbar-collapse  " id="navbarCollapse ">
                     <ul class="navbar-nav navbar-nav-scroll mx-auto ">
-                        <!-- <li class="nav-item "> -->
-                        <a class="nav-link-sp active " href="# " id="homeMenu " data-bs-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">
-                                    Home
-                            </a>
-
+                        <!-- Home -->
+                        <li>
+                        	<a class="nav-link-sp active " href="# " id="homeMenu " data-bs-toggle="dropdown " aria-haspopup="true " aria-expanded="false">Home</a>
+						</li>
                         <!-- 금융 메뉴 시작-->
                         <li class="nav-item dropdown ">
                             <a class="nav-link-sp  " href="# " id="postMenu " data-bs-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">금융</a>
@@ -75,7 +70,6 @@
                             </ul>
                         </li>
                         <!-- 금융 메뉴 끝-->
-
                         <!-- 부동산청약 메뉴 시작 -->
                         <li class="nav-item dropdown ">
                             <a class="nav-link-sp  " href="# " id="postMenu " data-bs-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">부동산청약</a>
@@ -94,8 +88,6 @@
                             </ul>
                         </li>
                         <!-- 부동산청약 메뉴 끝 -->
-
-
                         <!-- 정치 메뉴 시작-->
                         <li class="nav-item dropdown ">
                             <a class="nav-link-sp " href="# " id="pagesMenu " data-bs-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">정치</a>
@@ -111,7 +103,6 @@
                             </ul>
                         </li>
                         <!-- 정치 메뉴 끝-->
-
                         <!-- 뉴스 메뉴 시작 -->
                         <li class="nav-item dropdown ">
                             <a class="nav-link-sp " href="# " id="pagesMenu " data-bs-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">뉴스</a>
@@ -126,11 +117,9 @@
                             </ul>
                         </li>
                         <!-- 뉴스 메뉴 끝  -->
-
                         <!-- 오피니언 메뉴 시작 -->
                         <li class="nav-item "> <a class="nav-link-sp" href="dashboard.html ">오피니언</a></li>
                         <!-- 오피니언 메뉴 끝 -->
-
                         <!-- 커뮤니티 메뉴 시작 -->
                         <li class="nav-item dropdown">
                             <a class="nav-link-sp " href="# " id="postMenu " data-bs-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">커뮤니티</a>
@@ -152,10 +141,8 @@
                     </ul>
                 </div>
                 <!-- 메인 네비바 끝 -->
-
                 <!-- 네비바 오른쪽 아이콘들 시작-->
                 <div class="nav flex-nowrap align-items-center ">
-
                     <!-- Nav bookmark -->
                     <div class="nav-item ">
                         <a class="nav-link-sp " href="# ">
@@ -168,7 +155,6 @@
                             <i class="bi bi-person-square fs-4 "></i>
                         </a>
                     </div>
-
                     <!-- Nav Search -->
                     <div class="nav-item dropdown dropdown-toggle-icon-none nav-search ">
                         <a class="nav-link-sp dropdown-toggle " role="button " href="# " id="navSearch " data-bs-toggle="dropdown " aria-expanded="false ">
@@ -176,8 +162,8 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-end shadow rounded p-2 " aria-labelledby="navSearch ">
                             <form class="input-group ">
-                                <input class="form-control border-success " type="search " placeholder="Search " aria-label="Search ">
-                                <button class="btn btn-success m-0 " type="submit ">Search</button>
+                                <input class="form-control border-success " type="search" placeholder="Search " aria-label="Search ">
+                                <button class="btn btn-success m-0 " type="submit">Search</button>
                             </form>
                         </div>
                     </div>
