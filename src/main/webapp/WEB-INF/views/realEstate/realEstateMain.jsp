@@ -62,7 +62,7 @@
                     <!-- Buttons -->
                     <div class="d-sm-flex align-items-center justify-content-center">
                         <!-- Button -->
-                        <a href="#" class="btn btn-lg btn-primary me-2 mb-4 mb-sm-0">View Courses<i class="bi bi-arrow-right ms-2"></i></a>
+                        <a href="#" class="btn btn-lg btn-primary me-2 mb-4 mb-sm-0">Subscription guide<i class="bi bi-arrow-right ms-2"></i></a>
                         <!-- Video button -->
                         <div class="d-flex align-items-center justify-content-center py-2 ms-0 ms-sm-4">
                             <a data-glightbox="" data-gallery="office-tour" href="https://youtu.be/Cs1Xv7N2GeE" class="btn btn-lg btn-round btn-light mb-0 overflow-visible me-7">

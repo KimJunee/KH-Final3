@@ -106,7 +106,7 @@
     <section class="pb-0">
         <div class="container text-center">
             <!-- Card header -->
-            <p class="subtitle pb-5" style="font-size: 20px; margin-bottom: 1%; color:#e83e9e "><b>T H E S E &nbsp A R E &nbsp E X P I R I N G &nbsp S O O N</b></p>
+            <p class="subtitle" style="font-size: 20px; margin-bottom: 1%; color:#e83e9e "><b>T H E S E &nbsp A R E &nbsp E X P I R I N G &nbsp S O O N</b></p>
             <h2 class="m-0"><i class="bi bi-geo me-2 "></i>입주자모집공고</h2>
             <p>※ 특별공급 종류에 따라 접수기간 및 장소가 다를 수 있으니 모집공고를 반드시 확인하시기 바랍니다. </p>
             <div class="container pt-3">
@@ -211,6 +211,7 @@
         <div class="container text-center">
             <!-- 청약상세 페이지 -->
             <!-- 카카오 지도 부분 시작 -->
+            <p class="subtitle text-primary" style="font-size: 20px; margin-bottom: 1%;"><b>G E T &nbsp D I R E C T I O N S</b></p>
             <h2><i class="bi bi-geo me-2"></i>청약지도</h2>
             <p>분양 단지의 위치를 확인해보세요.</p>
             <!-- 카카오 지도 body -->
