@@ -74,7 +74,7 @@
 		                                options: {
 		                                    title: {
 		                                        display: true,
-		                                        text: '연령별의원현황'
+		                                        text: '은행별금리현황'
 		                                    }
 		                                }
 		                            });
@@ -137,7 +137,7 @@
 		                        </div>
 		                        <div class="card border-0 bg-light mb-4">
 		                            <div class="card-body">
-		                                <h5>Not included in rent</h5>
+		                                <h5>Others</h5>
 		                                <span>- 금리유형 : 단리</span><br>
 		                                <span>- 적립유형 : 정액적립식</span><br>
 		                                <span>- 저축기간 : 6 ~ 36개월</span><br>
