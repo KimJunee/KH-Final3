@@ -7,13 +7,15 @@
 <!DOCTYPE html>
 <html lang="ko">
 
-<%@ include file="/WEB-INF/views/common/header.jsp" %>
-
 <head>
     <title>FinTouch | Community</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="resources/resources1b/images/favicon.ico">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
 </head>
 
 <body>
+<%@ include file="/WEB-INF/views/common/header.jsp" %>
     <main>
         <!-- ============ 메뉴소개 시작 ============ -->
         <section style="background-image:url('resources/resources1b/images/avatar/fintouch/community04.png'); background-position: center; height:652px; width:99%;">
@@ -738,4 +740,6 @@
             </div>
         </section>
     </main>
-<%@ include file="/WEB-INF/views/common/footer.jsp" %>
+	<%@ include file="/WEB-INF/views/common/footer.jsp" %>
+	</body>
+</html>
