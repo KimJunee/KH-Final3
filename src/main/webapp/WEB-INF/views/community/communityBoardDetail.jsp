@@ -43,7 +43,7 @@
                             <!-- 작성자 -->
                             <div class="position-relative">
                                 <div class="avatar avatar-xl">
-                                    <img class="avatar-img rounded-circle" src="resources/resources1b/images/avatar/fintouch/logo.png" alt="avatar">
+                                    <img class="avatar-img rounded-circle" src="resources/resources1b/images/avatar_w1.png" alt="avatar">
                                 </div>
                                 <a href="#" class="h5 stretched-link mt-2 mb-0 d-block">서현동뒹굴이</a>
                             </div>
@@ -77,7 +77,7 @@
                             <h3>2 comments</h3>
                             <!-- Comment level 1-->
                             <div class="my-4 d-flex border-bottom border-1 mb-1" style="color:#a1a1a8">
-                                <img class="avatar avatar-md rounded-circle float-start me-3" src="resources/resources1b/images/avatar/01.jpg" alt="avatar">
+                                <img class="avatar avatar-md rounded-circle float-start me-3" src="resources/resources1b/images/avatar_w3.png" alt="avatar">
                                 <div>
                                     <div class="mb-2">
                                         <h5 class="m-0">쏩쏲쏫쏙쏳쏘</h5>
@@ -90,7 +90,7 @@
                             </div>
                             <!-- Comment level 1 -->
                             <div class="my-4 d-flex">
-                                <img class="avatar avatar-md rounded-circle float-start me-3 pb-1" src="resources/resources1b/images/avatar/04.jpg" alt="avatar">
+                                <img class="avatar avatar-md rounded-circle float-start me-3 pb-1" src="resources/resources1b/images/avatar_m1.png" alt="avatar">
                                 <div>
                                     <div class="mb-2">
                                         <h5 class="m-0">형님들진정하세요</h5>
