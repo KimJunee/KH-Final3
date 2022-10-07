@@ -2,14 +2,15 @@ package com.kh.realfinal.financial.stock.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.kh.realfinal.financialterm.api.FinancialtermAPI;
-import com.kh.realfinal.financialterm.model.service.FinancialtermService;
-import com.kh.realfinal.financialterm.model.vo.Financialterm;
+import com.kh.realfinal.financial.stock.api.FinancialtermAPI;
+import com.kh.realfinal.financial.stock.model.service.FinancialtermService;
+import com.kh.realfinal.financial.stock.model.vo.Financialterm;
 
 
 @Controller

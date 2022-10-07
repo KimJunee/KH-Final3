@@ -2,6 +2,7 @@ package com.kh.realfinal.financial.stock.api;
 
 import java.io.BufferedReader;
 
+
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
@@ -21,7 +22,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import com.kh.realfinal.indexprice.model.vo.IndexPrice;
+import com.kh.realfinal.financial.stock.model.vo.IndexPrice;
 
 public class IndexPriceAPI {
 	

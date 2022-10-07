@@ -1,11 +1,12 @@
-package com.kh.realfinal.financial.stock.model.mapper;
+package com.kh.realfinal.financial.stock.model.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.kh.realfinal.indexprice.model.mapper.IndexPriceMapper;
-import com.kh.realfinal.indexprice.model.vo.IndexPrice;
+import com.kh.realfinal.financial.stock.model.mapper.IndexPriceMapper;
+import com.kh.realfinal.financial.stock.model.vo.IndexPrice;
 
 @Service
 public class IndexPriceServiceImpl implements IndexPriceService{
