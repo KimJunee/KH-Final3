@@ -1,4 +1,4 @@
-package com.kh.realfinal.financialterm.api;
+package com.kh.realfinal.financial.stock.api;
 
 import java.net.HttpURLConnection;
 import java.net.URL;

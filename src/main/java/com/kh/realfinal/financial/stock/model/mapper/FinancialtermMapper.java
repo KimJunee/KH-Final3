@@ -1,4 +1,4 @@
-package com.kh.realfinal.financialterm.model.mapper;
+package com.kh.realfinal.financial.stock.model.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 

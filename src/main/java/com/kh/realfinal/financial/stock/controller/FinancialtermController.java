@@ -1,4 +1,4 @@
-package com.kh.realfinal.financialterm.controller;
+package com.kh.realfinal.financial.stock.controller;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.kh.realfinal.financialterm.model.vo;
+package com.kh.realfinal.financial.stock.model.vo;
 
 
 import lombok.AllArgsConstructor;

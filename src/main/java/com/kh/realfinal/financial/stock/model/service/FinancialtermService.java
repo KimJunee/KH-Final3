@@ -1,4 +1,4 @@
-package com.kh.realfinal.financialterm.model.service;
+package com.kh.realfinal.financial.stock.model.service;
 
 import com.kh.realfinal.financialterm.model.vo.Financialterm;
 

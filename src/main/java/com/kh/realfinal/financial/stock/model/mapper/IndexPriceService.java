@@ -1,4 +1,4 @@
-package com.kh.realfinal.indexprice.model.service;
+package com.kh.realfinal.financial.stock.model.mapper;
 
 import com.kh.realfinal.indexprice.model.vo.IndexPrice;
 
