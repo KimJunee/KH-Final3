@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- 매퍼를 쓸려면 이렇게 가야된다. -->
-<!-- com.kh.realfinal.stockprice.model.mapper.StockpriceMapper.insertStockprice -->
+
 <mapper	namespace="com.kh.realfinal.financialStock.model.mapper.StockpriceMapper">
 	<insert id="insertStockprice"
 		parameterType="Stockprice">
