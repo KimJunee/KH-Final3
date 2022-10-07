@@ -1,4 +1,4 @@
-package com.kh.realfinal.financial.stock.api;
+package com.kh.realfinal.financialStock.api;
 
 import java.io.BufferedReader;
 
@@ -22,7 +22,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import com.kh.realfinal.financial.stock.model.vo.IndexPrice;
+import com.kh.realfinal.financialStock.model.vo.IndexPrice;
 
 public class IndexPriceAPI {
 	

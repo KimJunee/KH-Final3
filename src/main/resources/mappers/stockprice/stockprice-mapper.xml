@@ -5,7 +5,7 @@
 
 <!-- 매퍼를 쓸려면 이렇게 가야된다. -->
 <!-- com.kh.realfinal.stockprice.model.mapper.StockpriceMapper.insertStockprice -->
-<mapper	namespace="com.kh.realfinal.financial.stock.model.mapper.StockpriceMapper">
+<mapper	namespace="com.kh.realfinal.financialStock.model.mapper.StockpriceMapper">
 	<insert id="insertStockprice"
 		parameterType="Stockprice">
 		INSERT INTO STOCKPRICE (BASDT, SRTNCD, ISINCD, ITMSNM, 

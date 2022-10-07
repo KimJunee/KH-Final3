@@ -1,4 +1,4 @@
-package com.kh.realfinal.financial.stock.controller;
+package com.kh.realfinal.financialStock.controller;
 
 import java.io.UnsupportedEncodingException;
 
@@ -9,10 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.kh.realfinal.financial.stock.api.IndexPriceAPI;
-import com.kh.realfinal.financial.stock.model.service.IndexPriceService;
-import com.kh.realfinal.financial.stock.model.service.StockpriceService;
-import com.kh.realfinal.financial.stock.model.vo.IndexPrice;
+import com.kh.realfinal.financialStock.api.IndexPriceAPI;
+import com.kh.realfinal.financialStock.model.service.IndexPriceService;
+import com.kh.realfinal.financialStock.model.service.StockpriceService;
+import com.kh.realfinal.financialStock.model.vo.IndexPrice;
 
 @Controller
 public class IndexPriceController {

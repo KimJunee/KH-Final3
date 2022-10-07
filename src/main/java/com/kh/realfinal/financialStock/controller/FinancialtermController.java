@@ -1,4 +1,4 @@
-package com.kh.realfinal.financial.stock.controller;
+package com.kh.realfinal.financialStock.controller;
 
 import java.util.List;
 
@@ -8,9 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.kh.realfinal.financial.stock.api.FinancialtermAPI;
-import com.kh.realfinal.financial.stock.model.service.FinancialtermService;
-import com.kh.realfinal.financial.stock.model.vo.Financialterm;
+import com.kh.realfinal.financialStock.api.FinancialtermAPI;
+import com.kh.realfinal.financialStock.model.service.FinancialtermService;
+import com.kh.realfinal.financialStock.model.vo.Financialterm;
 
 
 @Controller
