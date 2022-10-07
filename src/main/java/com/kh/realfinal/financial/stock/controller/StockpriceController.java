@@ -1,4 +1,4 @@
-package com.kh.realfinal.stockprice.controller;
+package com.kh.realfinal.financial.stock.controller;
 
 import java.util.List;
 
@@ -7,9 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.kh.realfinal.stockprice.api.StockpriceAPI;
-import com.kh.realfinal.stockprice.model.service.StockpriceService;
-import com.kh.realfinal.stockprice.model.vo.Stockprice;
+import com.kh.realfinal.financial.stock.api.StockpriceAPI;
+import com.kh.realfinal.financial.stock.model.service.StockpriceService;
+import com.kh.realfinal.financial.stock.model.vo.Stockprice;
 
 @Controller
 public class StockpriceController {

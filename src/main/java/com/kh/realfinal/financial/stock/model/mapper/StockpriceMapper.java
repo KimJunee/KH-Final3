@@ -1,8 +1,8 @@
-package com.kh.realfinal.stockprice.model.mapper;
+package com.kh.realfinal.financial.stock.model.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.kh.realfinal.stockprice.model.vo.Stockprice;
+import com.kh.realfinal.financial.stock.model.vo.Stockprice;
 
 @Mapper
 public interface StockpriceMapper {

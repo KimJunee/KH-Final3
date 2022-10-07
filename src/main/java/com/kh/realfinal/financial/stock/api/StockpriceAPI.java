@@ -1,4 +1,4 @@
-package com.kh.realfinal.stockprice.api;
+package com.kh.realfinal.financial.stock.api;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -13,7 +13,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import com.kh.realfinal.stockprice.model.vo.Stockprice;
+import com.kh.realfinal.financial.stock.model.vo.Stockprice;
 
 public class StockpriceAPI {
 	
