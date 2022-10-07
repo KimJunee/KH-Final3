@@ -4,10 +4,11 @@ package com.kh.realfinal.financial.stock.model.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.kh.realfinal.financial.stock.model.mapper.FinancialtermMapper;
+import com.kh.realfinal.financial.stock.model.mapper.StockpriceMapper;
 import com.kh.realfinal.financial.stock.model.vo.Financialterm;
 
 @Service
@@ -16,7 +17,7 @@ public class FinancialtermServiceImpl implements FinancialtermService{
 	
 //	private FinancialtermDao dao = new FinancialtermDaoImpl();
 	@Autowired
-	private FinancialtermMapper mapper;
+	private StockpriceMapper mapper;
 	
 //	@Autowired
 //	@Qualifier("sqlSession") 

@@ -5,7 +5,7 @@
 
 <!-- 매퍼를 쓸려면 이렇게 가야된다. -->
 <!-- com.kh.realfinal.stockprice.model.mapper.StockpriceMapper.insertStockprice -->
-<mapper	namespace="com.kh.realfinal.stockprice.model.mapper.StockpriceMapper">
+<mapper	namespace="com.kh.realfinal.financial.stock.model.mapper.StockpriceMapper">
 	<insert id="insertStockprice"
 		parameterType="Stockprice">
 		INSERT INTO STOCKPRICE (BASDT, SRTNCD, ISINCD, ITMSNM, 
@@ -14,5 +14,31 @@
 					    VALUES(#{basDt}, #{srtnCd}, #{isinCd}, #{itmsNm}
 								,#{mrktCtg}, #{clpr}, #{vs}, #{fltRt}, #{mkp},
 								#{hipr}, #{lopr}, #{trqu}, #{trPrc}, #{lstgStCnt}, #{mrktTotAmt})
+	</insert>
+	
+	<insert id="insertIndexPrice" parameterType="IndexPrice">
+  	INSERT INTO INDEXPRICE (BASDT, IDXNM, IDXCSF, CLPR, VS, FLTRT, MKP,
+	HIPR, LOPR,TRQU,TRPRC,LSTGMRKTTOTAMT,LSYREDVSFLTRG,LSYREDVSFLTRT,YRWRCRDHGST,
+	YRWRCRDHGSTDT,YRWRCRDLWST,YRWRCRDLWSTDT)VALUES(#{basDt},#{idxNm},#{idxCsf}, 
+	#{clpr},#{vs},#{fltRt},#{mkp},#{hipr},#{lopr},#{trqu},#{trPrc},#{lstgMrktTotAmt},
+	#{lsYrEdVsFltRg},#{lsYrEdVsFltRt},#{yrWRcrdHgst},#{yrWRcrdHgstDt},#{yrWRcrdLwst},#{yrWRcrdLwstDt}
+	)
+  	
+  </insert>
+  
+  <insert id="insertFinancialterm"
+		parameterType="Financialterm">
+		INSERT INTO FINANCIALTERM(
+		fnceDictNm, ksdFnceDictDescContent) VALUES
+		(#{fnceDictNm},
+		#{ksdFnceDictDescContent})
+	</insert>
+	
+	<insert id="insertExchangeRate"
+		parameterType="ExchangeRate">
+		INSERT INTO EXCHANGERATE (
+			DOLLAR, YUAN, THEDATE) 
+		VALUES(#{dollar}, #{yuan}, #{theDate})		
+		
 	</insert>
 </mapper>
