@@ -9,9 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Financialterm {
-	
 	private String fnceDictNm; //금융용어이름
 	private String ksdFnceDictDescContent; //금융용어 설명
-	
-	
 }
