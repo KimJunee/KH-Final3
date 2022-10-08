@@ -49,9 +49,9 @@
 
 <%-- <h2><a href="${path}/cardcut/insert.do"> 카드한컷 DB INSERT</a></h2>--%>
 
-<iframe id="ytplayer" type="text/html" width="720" height="405"
+<%-- <iframe id="ytplayer" type="text/html" width="720" height="405"
 src="https://www.youtube.com/embed/qZVTkn2NjS0/default"
-frameborder="0" allowfullscreen></iframe>
+frameborder="0" allowfullscreen></iframe> --%> 
 
 <br><br><br>
 
