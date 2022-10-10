@@ -51,8 +51,18 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	@Transactional(rollbackFor = Exception.class)
-	public int delete(int user_no, String user_password) {
-		return mapper.deleteMember(user_no, user_password);
+	public int delete(int user_no, String user_id ,String user_password) {
+		Member member = this.findById(user_id);
+		if(member == null) { //id로 찾았는데 member가 없을때
+			return -1;
+		}
+		if(member != null && user_password == member.getUser_password()) {
+			// 인증성공하였을때
+			return mapper.deleteMember(user_no);
+		}else {
+			//인증실패하였을때
+			return -1;
+		}
 	}
 
 }

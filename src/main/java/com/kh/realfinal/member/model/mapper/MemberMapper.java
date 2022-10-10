@@ -11,5 +11,5 @@ public interface MemberMapper {
 	Member selectMember(String user_id);
 	int insertMember(Member member);
 	int updateMember(Member member);
-	int deleteMember(int user_no, String user_password);
+	int deleteMember(int user_no);
 }

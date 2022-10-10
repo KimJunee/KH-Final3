@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.kh.realfinal.member.model.mapper.MemberMapper">
+  
+  <sql id="selectMemberSql">
+		SELECT
+		   	USER_NO,
+		    USER_ID, 
+		    USER_NAME, 
+		    USER_NICKNAME,
+		    USER_PHONE, 
+		    USER_PASSWORD, 
+		    USER_EMAIL, 
+		    USER_STATUS
+    	FROM USER_T
+	</sql>
+  
+  <resultMap type="Member" id="memberResultMap">
+  	<id     property="user_no"       column="USER_NO" />
+  	<result property="user_id"       column="USER_ID"/>
+  	<result property="user_name"     column="USER_NAME"/>
+  	<result property="user_nickname" column="USER_NICKNAME"/>
+  	<result property="user_phone"    column="USER_PHONE"/>
+  	<result property="user_password" column="USER_PASSWORD"/>
+  	<result property="user_email"    column="USER_EMAIL"/>
+  	<result property="user_status"   column="USER_STATUS"/>
+  </resultMap>
+  
+  <select id="selectMember" parameterType="string" resultMap="memberResultMap">
+		<include refid="selectMemberSql"/>
+		WHERE ID = #{user_id} AND STATUS = 'Y'
+  </select>
+  
+  <insert id="insertMember" parameterType="Member"
+		useGeneratedKeys="true" keyColumn="USER_NO" keyProperty="user_no">
+		INSERT INTO USER_T (
+		    USER_NO, 
+		    USER_ID, 
+		    USER_NAME, 
+		    USER_NICKNAME,
+		    USER_PHONE, 
+		    USER_PASSWORD, 
+		    USER_EMAIL, 
+		    USER_STATUS
+		) VALUES(
+		    SEQ_UNO.NEXTVAL, 
+		    #{user_id}, 
+		    #{user_name}, 
+		    #{user_nickname}, 
+		    #{user_phone}, 
+		    #{user_password}, 
+		    #{user_email}, 
+		    DEFAULT
+		)
+	</insert>
+	
+	<update id="updateMember" parameterType="Member">
+		UPDATE USER_T
+		SET
+			USER_NICKNAME 	= #{user_nickname},
+			USER_EMAIL 	= #{user_email},
+			USER_PASSWORD 	= #{user_password}
+		WHERE USER_NO = #{user_no}
+	</update>
+  
+
+	<update id="deleteMember" parameterType="int">
+		UPDATE USER_T
+			SET USER_STATUS = 'N'
+		WHERE USER_NO = #{user_no}
+	</update>
+ 
+  </mapper>
