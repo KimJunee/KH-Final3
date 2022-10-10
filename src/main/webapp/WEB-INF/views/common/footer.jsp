@@ -111,6 +111,10 @@
     
      <!-- jquery import -->
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    
+    <!-- 마이페이지 수정 실시간 JS -->
+    <script src="resources/resources3f/dist/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="resources/resources3f/dist/js/theme.min.js"></script>
 
 </body>
 

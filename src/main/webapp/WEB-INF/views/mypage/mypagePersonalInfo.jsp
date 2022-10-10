@@ -102,15 +102,15 @@
                                     <div class="col-12 d-flex align-items-center justify-content-between">
                                         <div class="col-11 pe-2">
                                             <label class="form-label fw-bold">닉네임</label>
-                                            <div id="gender-value">탬버리이인</div>
+                                            <div id="nickname-value">탬버리이인</div>
                                         </div>
                                         <div class="col-1 me-n3" data-bs-toggle="tooltip" title="Edit">
-                                            <a style="margin-left: 10px;" class="nav-link py-0" href="#gender-collapse" data-bs-toggle="collapse">
+                                            <a style="margin-left: 10px;" class="nav-link py-0" href="#nickname-collapse" data-bs-toggle="collapse">
                                                 <i class="fa fa-solid fa-pen"></i></a>
                                         </div>
                                     </div>
-                                    <div class="collapse" id="gender-collapse" data-bs-parent="#personal-info">
-                                        <input class="form-control mt-3" type="email" data-bs-binded-element="#email-value" data-bs-unset-value="Not specified" value="탬버리이인">
+                                    <div class="collapse" id="nickname-collapse" data-bs-parent="#personal-info">
+                                        <input class="form-control mt-3" type="email" data-bs-binded-element="#nickname-value" data-bs-unset-value="Not specified" value="탬버리이인">
                                     </div>
                                 </div>
                                 <!-- Email -->
