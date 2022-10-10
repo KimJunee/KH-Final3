@@ -11,6 +11,46 @@ GRANT dba TO FINAL;
 GRANT CREATE TABLE TO FINAL;
 ALTER USER FINAL DEFAULT TABLESPACE USERS;
 */
+-----------------------------------------------------------------
+--유저테이블
+DROP TABLE USER_T;
+CREATE TABLE USER_T (
+	USER_NO	    NUMBER	PRIMARY KEY,
+	USER_ID	    VARCHAR2(40),
+	USER_NAME	    VARCHAR2(40),
+	USER_NICKNAME	VARCHAR2(40),
+	USER_PHONE	    VARCHAR2(100),
+	USER_PASSWORD	VARCHAR2(50),
+	USER_EMAIL	    VARCHAR2(100),
+	USER_STATUS	VARCHAR2(1) DEFAULT 'Y' CHECK(USER_STATUS IN('Y', 'N'))
+);
+
+DROP SEQUENCE SEQ_UNO;
+CREATE SEQUENCE SEQ_UNO;
+
+--INSERT INTO USER_T (
+--    USER_NO, 
+--    USER_ID, 
+--    USER_NAME, 
+--    USER_NICKNAME,
+--    USER_PHONE, 
+--    USER_PASSWORD, 
+--    USER_EMAIL, 
+--    USER_STATUS
+--) VALUES(
+--    SEQ_UNO.NEXTVAL, 
+--    'admin', 
+--    '관리자', 
+--    'ROLE_ADMIN', 
+--    '010-5138-2620', 
+--    '1234', 
+--    'admin@iei.or.kr', 
+--    DEFAULT
+--);
+
+COMMIT;
+
+--SELECT * FROM USER_T;
 
 
 
