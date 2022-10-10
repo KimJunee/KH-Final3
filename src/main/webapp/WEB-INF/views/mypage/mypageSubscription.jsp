@@ -19,18 +19,6 @@
 <body>
     <%@ include file="/WEB-INF/views/common/header.jsp" %>
     <main>
-    	<!-- ============ 메뉴소개 시작 ============ -->
-        <section class="bg-dark-overlay-1" style="background-image:url(resources/resources1b/images/finance01.jpg); background-position: center left; background-size: cover; height: 300px;">
-            <div class="container">
-                <div class="row mt-0">
-                    <div class="col-lg-8 py-md-5 my-lg-0">
-                        <a href="#" class="badge text-bg-mypage mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>MyPage</a>
-                        <h1 class="text-black">마이페이지</h1>
-                    </div>
-                </div>
-            </div>
-        </section>
-		<!-- ============ 메뉴소개 끝 ============ -->
         <!-- ======================= Main contain START -->
         <section class="py-4">
             <div class="container mt-5">
