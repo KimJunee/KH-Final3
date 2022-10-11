@@ -34,7 +34,7 @@
 	<body>
 		<%@include file="/WEB-INF/views/common/header.jsp" %>
 		    <!-- **************** 금융상품 상세 시작 **************** -->
-	        <main>
+		    <main>
 		        <section class="container ">
 		            <div class="row ">
 		                <div class="col-lg-7">
@@ -42,16 +42,79 @@
 		                        <!-- Page title + Features-->
 		                        <div class="row">
 		                            <div class="col-9">
-		                                <h2 class="mb-2 mice">KB내맘대로적금</h2>
-		                                <p class="mb-2 pb-1 fs-lg"> &nbsp; - 가입대상 : 실명의 개인 또는 개인사업자<br> &nbsp; - 가입방법 : 인터넷, 스마트폰<br> &nbsp; - 최고한도 : 없음</p>
+		                                <h2 class="mb-2 mice">우리전세론(주택금융보증)</h2>
+		                                <p class="mb-2 pb-1 fs-lg"> &nbsp; - 가입방법 : 영업점, 모집인<br> &nbsp; - 최고한도 : 최대2.2억원</p>
 		                            </div>
 		                            <div class="col-3">
-		                                <img src="resources/resources1b/images/02_fin_financePro/kbBank.jpg" alt="">
+		                                <img src="resources/resources1b/images/02_fin_financePro/wooriBank.jpg" alt="">
+		                            </div>
+		                        </div>
+		                        <div class="row">
+		                            <div class="card-body p-3 pb-0">
+		                                <!-- Tabs content START -->
+		                                <div class="tab-content py-0 my-0">
+		                                    <!-- Tabs content item START -->
+		                                    <div class="tab-pane fade show active" id="nav-list-tab">
+		                                        <!-- Table START -->
+		                                        <div class="table-responsive border-0">
+		                                            <table class="table align-middle p-4 mb-0 table-hover">
+		                                                <!-- Table head -->
+		                                                <thead class="table-light">
+		                                                    <tr style="text-align: center;">
+		                                                        <th scope="col" class="border-0 rounded-start">대출상환유형</th>
+		                                                        <th scope="col" class="border-0">대출금리유형</th>
+		                                                        <th scope="col" class="border-0">최저금리</th>
+		                                                        <th scope="col" class="border-0">최고금리</th>
+		                                                        <th scope="col" class="border-0 rounded-end">전월 평균금리</th>
+		                                                    </tr>
+		                                                </thead>
+		
+		                                                <!-- Table body START -->
+		                                                <tbody class="border-top-0" style="text-align:center;">
+		                                                    <tr>
+		                                                        <!-- NO -->
+		                                                        <td>분할상환방식</td>
+		                                                        <td>변동금리</td>
+		                                                        <!-- 최저금리 -->
+		                                                        <td>4.92%</td>
+		                                                        <!-- 최고금리 -->
+		                                                        <td>5.32%</td>
+		                                                        <!-- 전월 평균금리 -->
+		                                                        <td>4.55%</td>
+		                                                    </tr>
+		
+		                                                    <!-- Table row -->
+		                                                    <tr>
+		                                                        <!-- Table data -->
+		                                                        <td>만기일시상환방식</td>
+		                                                        <td>변동금리</td>
+		                                                        <!-- 최저금리 -->
+		                                                        <td>4.92%</td>
+		                                                        <!-- 최고금리 -->
+		                                                        <td>5.32%</td>
+		                                                        <!-- 전월 평균금리 -->
+		                                                        <td>4.56%</td>
+		                                                    </tr>
+		                                                    <tr>
+		                                                        <td>만기일시상환방식</td>
+		                                                        <td>고정금리</td>
+		                                                        <!-- 최저금리 -->
+		                                                        <td>-</td>
+		                                                        <!-- 최고금리 -->
+		                                                        <td>-</td>
+		                                                        <!-- 전월 평균금리 -->
+		                                                        <td>5.03%</td>
+		                                                    </tr>
+		                                                </tbody>
+		                                            </table>
+		                                        </div>
+		                                    </div>
+		                                </div>
 		                            </div>
 		                        </div>
 		                    </div>
-		                    <hr>
-		                    <h5 class="mice">유의사항</h5>
+		
+		                    <h5 class="mice mt-3">유의사항</h5>
 		                    <p class="mb-4 pb-2">&nbsp; ※ 이 금융상품을 가입하시기 전에 상품설명서 및 약관을 읽어보시기 바랍니다.<br>&nbsp; ※ 금융소비자는 해당 상품 또는 서비스에 대하여 설명받을 권리가 있습니다.<br> &nbsp; ※ 만기 전 해지할 경우 계약에서 정한 이율보다 낮은 중도해지이율이 적용됩니다.</p>
 		                    <h5 class="mice">은행별 최고 우대금리</h5>
 		                    <div class="card-body col-lg-15 p-4 rounded-3 border border-1 mb-5">
@@ -80,33 +143,6 @@
 		                            });
 		                        </script>
 		                    </div>
-		
-		                    <h5>Financial Advisors</h5>
-		                    <div class="card col-lg-15 p-2 rounded-3 border border-1">
-		                        <div class="card-body">
-		                            <div class="left rounded-circle">
-		                                <img src="resources/resources1b/images/02_fin_financePro/woman.jpg" style="width:300px; height:250px">
-		                            </div>
-		                            <div class="right" style="width:300px; height:250px">
-		                                <p class="mb-4 mt-2"> 자본주의 사회에서 금융에 대해 이해하는 것은 필수입니다. 당장 무엇부터 알아야 할지, 어디부터 시작해야 할지 막막하다면 전문가와의 재무상담을 통해 계획을 세워보시기 바랍니다!</p>
-		                                <div class="d-flex justify-content-between">
-		                                    <div class="pe-3">
-		                                        <h6 class="mb-0">김태임 재무설계사</h6>
-		                                        <div class="text-secondary fw-normal fs-sm mb-3">KH자산관리법인</div>
-		                                        <a class="btn btn-icon btn-light-primary btn-xs shadow-sm rounded-circle me-2 mb-2" href="#">
-		                                            <i class="fab fa-facebook-square"></i>
-		                                        </a>
-		                                        <a class="btn btn-icon btn-light-primary btn-xs shadow-sm rounded-circle me-2 mb-2" href="#">
-		                                            <i class="fab fa-linkedin"></i>
-		                                        </a>
-		                                        <a class="btn btn-icon btn-light-primary btn-xs shadow-sm rounded-circle me-2 mb-2" href="#">
-		                                            <i class="fab fa-twitter-square"></i>
-		                                        </a>
-		                                    </div>
-		                                </div>
-		                            </div>
-		                        </div>
-		                    </div>
 		                </div>
 		                <!-- 상품정보 details-->
 		                <aside class="col-lg-5">
@@ -115,7 +151,7 @@
 		                            <div class="col-8">
 		                                <div><span class="badge bg-success me-2 mb-2">Verified</span><span class="badge bg-info me-2 mb-2">New</span></div>
 		                                <h5 class="mice mb-2">이율</h5>
-		                                <h3 class="mice mb-2 pb-2">최저 1.95 ~ 최고 3.05 </h3>
+		                                <h3 class="mice mb-2 pb-2">최저 4.92 ~ 최고 5.03 </h3>
 		                            </div>
 		                            <div class="col-4">
 		                                <div class="avatar avatar-xl">
@@ -125,8 +161,8 @@
 		                        </div>
 		                        <div class="card border-0 bg-light mb-4">
 		                            <div class="card-body">
-		                                <h5 class="mice">우대조건</h5>
-		                                <span>우대이율 최고 연1.3%p <br>- 가족사랑 우대이율 : 연0.2%p <br>- 자동이체 우대이율 : 연0.1%p <br>- 아동수당 우대이율 : 연0.1%p <br>- 주택청약종합저축 우대이율 : 최고 연0.4%p <br>- 우리아이 성장축하/지문등록 우대이율 : 연0.5%p</span>
+		                                <h5 class="mice">대출부대비용</h5>
+		                                <span>- 인지세 : 해당세액의 50%(대출금액 5천만원 이하시 없음) <br>- 주택신보출연료 : 0.17 ~ 0.21% <br>- 주택신보보증료 : 연 0.12 ~ 연 0.40%</span>
 		                            </div>
 		                        </div>
 		                        <a class="btn btn-lg btn-primary w-100 mb-3" href="#">♥ Like This Financial Product</a>
@@ -135,21 +171,39 @@
 		                        </a>
 		                        <div class="card border-0 bg-light mb-4">
 		                            <div class="card-body">
-		                                <h5 class="mice">만기 후 이율</h5>
-		                                <span>- 1개월 이내 : 기본이율 X 50% <br>- 1개월 초과 ~ 3개월 이내 : 기본이율 X 30% <br>- 3개월 초과 : 0.1%</span>
+		                                <h5 class="mice">중도상환 수수료</h5>
+		                                <span> -고정금리 : 주택상환금액×0.7%×(대출잔액일수÷3년) <br> - 변동금리 : 주택상환금액×0.6%×(대출잔액일수÷3년)</span>
+		                                <h5 class="mice mt-2">연체 이자율</h5>
+		                                <span>- 적용금리 + 3% (최고연체이자율 : 12%)</span>
 		                            </div>
 		                        </div>
-		                        <div class="card border-0 bg-light mb-4">
+		                        <div class="card border border-1 mb-4">
 		                            <div class="card-body">
-		                                <h5>Others</h5>
-		                                <span>- 금리유형 : 단리</span><br>
-		                                <span>- 적립유형 : 정액적립식</span><br>
-		                                <span>- 저축기간 : 6 ~ 36개월</span><br>
-		                                <span>- 최고우대금리 : 3.05%</span><br>
-		                                <span>- 기타 유의사항 : 인터넷뱅킹/KB스타뱅킹 전용상품</span>
+		                                <div class="left rounded-circle">
+		                                    <img src="resources/resources1b/images/02_fin_financePro/woman.jpg" style="width:300px; height:180px">
+		                                </div>
+		                                <div class="right" style="width:180px; height:100px">
+		                                    <p class="mb-2 mt-2"> 개인별 맞춤 재무상담을 통해 자산관리 방법, 재무설계 솔루션, 재테크 전략, 금융 관련 정보 등을 제공합니다.</p>
+		                                    <div class="d-flex justify-content-between">
+		                                        <div class="pe-3">
+		                                            <h6 class="mb-0">김태임 재무설계사</h6>
+		                                            <div class="text-secondary fw-normal fs-sm mb-1">KH자산관리법인</div>
+		                                            <a class="btn btn-icon btn-light-primary btn-xs shadow-sm rounded-circle me-2 mb-2" href="#">
+		                                                <i class="fab fa-facebook-square"></i>
+		                                            </a>
+		                                            <a class="btn btn-icon btn-light-primary btn-xs shadow-sm rounded-circle me-2 mb-2" href="#">
+		                                                <i class="fab fa-linkedin"></i>
+		                                            </a>
+		                                            <a class="btn btn-icon btn-light-primary btn-xs shadow-sm rounded-circle me-2 mb-2" href="#">
+		                                                <i class="fab fa-twitter-square"></i>
+		                                            </a>
+		                                        </div>
+		                                    </div>
+		                                </div>
 		                            </div>
 		                        </div>
 		                    </div>
+		
 		                </aside>
 		            </div>
 		        </section>
