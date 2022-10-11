@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="path" value="${pageContext.request.contextPath}"/>  
 
 <html>
 <body>
@@ -11,7 +12,7 @@
             <!-- About and Newsletter START -->
             <div class="row pt-3 pb-1 ">
                 <div class="col-md-3 ">
-                    <img src="resources/resources1b/images/01_main/logo_dark.png " alt="footer logo ">
+                    <img src="${path}/resources/resources1b/images/01_main/logo_dark.png " alt="footer logo ">
                 </div>
                 <div class="col-md-5 ">
                     <p class="text-dark ">그 누구보다도 정치경제소식에 신속하게 닿을 수 있는 곳. <br> FinTouch는 늘 고급 정보를 여러분께 전달하기 위해 노력합니다.</p>
@@ -80,10 +81,10 @@
                     <p class="text-dark ">FinTouch의 앱을 다운로드하여 최신 속보를 가장 빠르게 확인해보세요! </p>
                     <div class="row g-2 ">
                         <div class="col ">
-                            <a href="# "><img class="w-100 " src="resources/resources1b/images/app-store.svg " alt="app-store "></a>
+                            <a href="# "><img class="w-100 " src="${path}/resources/resources1b/images/app-store.svg " alt="app-store "></a>
                         </div>
                         <div class="col ">
-                            <a href="# "><img class="w-100 " src="resources/resources1b/images/google-play.svg " alt="google-play "></a>
+                            <a href="# "><img class="w-100 " src="${path}/resources/resources1b/images/google-play.svg " alt="google-play "></a>
                         </div>
                     </div>
                 </div>
@@ -99,11 +100,11 @@
     <!-- ======================= JS libraries, plugins and custom scripts -->
     
     <!-- Vendor js -->
-    <script src="resources/resources4h/assets2/js/vendor.min.js "></script>
+    <script src="${path}/resources/resources4h/assets2/js/vendor.min.js "></script>
     <!-- 있어야함-->
     
     <!-- Apex Charts js -->
-    <script src="resources/resources4h/assets2/vendor/apexcharts/apexcharts.min.js "></script>
+    <script src="${path}/resources/resources4h/assets2/vendor/apexcharts/apexcharts.min.js "></script>
     <!-- 있어야함-->
     
      <!-- Apex Chart Area Demo js -->
@@ -111,31 +112,31 @@
     <script src="https://apexcharts.com/samples/assets/series1000.js "></script>
     <script src="https://apexcharts.com/samples/assets/github-data.js "></script>
     <script src="https://apexcharts.com/samples/assets/irregular-data-series.js "></script>
-    <script src="resources/resources4h/assets2/js/pages/demo.apex-area.js "></script>
-    <script src="resources/resources4h/assets2/js/pages/demo.apex-area2.js "></script>
-    <script src="resources/resources4h/assets2/js/pages/demo.crm-dashboard.js "></script>
+    <script src="${path}/resources/resources4h/assets2/js/pages/demo.apex-area.js "></script>
+    <script src="${path}/resources/resources4h/assets2/js/pages/demo.apex-area2.js "></script>
+    <script src="${path}/resources/resources4h/assets2/js/pages/demo.crm-dashboard.js "></script>
     
-    <script src="resources/resources4h/assets2/js/pages/demo.dashboard-wallet.js "></script>
+    <script src="${path}/resources/resources4h/assets2/js/pages/demo.dashboard-wallet.js "></script>
     <!-- 환율그래프-->
-    <script src="resources/resources4h/assets2/js/pages/demo.dashboard.js "></script>
+    <script src="${path}/resources/resources4h/assets2/js/pages/demo.dashboard.js "></script>
 
     <!-- Bootstrap JS -->
-    <script src="resources/resources1b/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="${path}/resources/resources1b/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Vendors -->
-    <script src="resources/resources1b/vendor/apexcharts/js/apexcharts.min.js"></script>
-    <script src="resources/resources1b/vendor/overlay-scrollbar/js/OverlayScrollbars.min.js"></script>
-    <script src="resources/resources1b/vendor/sticky-js/sticky.min.js"></script>
+    <script src="${path}/resources/resources1b/vendor/apexcharts/js/apexcharts.min.js"></script>
+    <script src="${path}/resources/resources1b/vendor/overlay-scrollbar/js/OverlayScrollbars.min.js"></script>
+    <script src="${path}/resources/resources1b/vendor/sticky-js/sticky.min.js"></script>
 
     <!-- Template Functions -->
-    <script src="resources/resources1b/js/functions.js"></script>
+    <script src="${path}/resources/resources1b/js/functions.js"></script>
     
      <!-- jquery import -->
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     
     <!-- 마이페이지 수정 실시간 JS -->
-    <script src="resources/resources3f/dist/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
-    <script src="resources/resources3f/dist/js/theme.min.js"></script>
+    <script src="${path}/resources/resources3f/dist/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="${path}/resources/resources3f/dist/js/theme.min.js"></script>
 
 </body>
 

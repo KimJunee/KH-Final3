@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="path" value="${pageContext.request.contextPath}"/>  
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -17,19 +18,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
 
     <!-- Plugins CSS -->
-    <link rel="stylesheet" type="text/css" href="resources/css/header.css">
-    <link rel="stylesheet" type="text/css" href="resources/resources1b/vendor/font-awesome/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="resources/resources1b/vendor/bootstrap-icons/bootstrap-icons.css">
-    <link rel="stylesheet" type="text/css" href="resources/resources1b/vendor/tiny-slider/tiny-slider.css">
-    <link rel="stylesheet" type="text/css" href="resources/resources1b/vendor/plyr/plyr.css">
-    <link rel="stylesheet" type="text/css" href="resources/resources1b/vendor/apexcharts/css/apexcharts.css">
-    <link rel="stylesheet" type="text/css" href="resources/resources1b/vendor/overlay-scrollbar/css/OverlayScrollbars.min.css">
+    <link rel="stylesheet" type="text/css" href="${path}/resources/css/header.css">
+    <link rel="stylesheet" type="text/css" href="${path}/resources/resources1b/vendor/font-awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="${path}/resources/resources1b/vendor/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="${path}/resources/resources1b/vendor/tiny-slider/tiny-slider.css">
+    <link rel="stylesheet" type="text/css" href="${path}/resources/resources1b/vendor/plyr/plyr.css">
+    <link rel="stylesheet" type="text/css" href="${path}/resources/resources1b/vendor/apexcharts/css/apexcharts.css">
+    <link rel="stylesheet" type="text/css" href="${path}/resources/resources1b/vendor/overlay-scrollbar/css/OverlayScrollbars.min.css">
 
     <!-- 차트제이에스 chart.js css -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
 
     <!-- Theme CSS -->
-    <link id="style-switch" rel="stylesheet" type="text/css" href="resources/resources1b/css/style.css">
+    <link id="style-switch" rel="stylesheet" type="text/css" href="${path}/resources/resources1b/css/style.css">
 </head>
 <body>
     <header class="navbar-sticky-sp header-static bg-dark navbar-nav-sp nav-link-sp">
@@ -38,8 +39,8 @@
             <div class="container ">
                 <!-- 로고 시작 -->
                 <a class="navbar-brand navbar-nav-sp nav-link-sp" href="index.html " style="margin-top:-5px">
-                    <img class="navbar-brand-item light-mode-item " src="resources/resources1b/images/01_main/logo_white.png" alt="logo ">
-                    <img class="navbar-brand-item dark-mode-item " src="resources/resources1b/images/01_main/logo_white.png" alt="logo ">
+                    <img class="navbar-brand-item light-mode-item " src="${path}/resources/resources1b/images/01_main/logo_white.png" alt="logo ">
+                    <img class="navbar-brand-item dark-mode-item " src="${path}/resources/resources1b/images/01_main/logo_white.png" alt="logo ">
                 </a>
                 <!-- 로고 끝-->
                 <!-- 메뉴 시작 -->

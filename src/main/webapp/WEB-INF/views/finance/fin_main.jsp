@@ -77,13 +77,13 @@
     }
     
     .my_bg {
-        background-image: url("resources/resources4h/assets2/images/02_fin/bg_top05.jpg");
+        background-image: url("${path}/resources/resources4h/assets2/images/02_fin/bg_top05.jpg");
         background-repeat: no-repeat;
         background-size: contain;
     }
     
     .my_bg_2 {
-        background-image: url("resources/resources4h/assets2/images/02_fin/bg_btm01.jpg");
+        background-image: url("${path}/resources/resources4h/assets2/images/02_fin/bg_btm01.jpg");
         background-repeat: no-repeat;
         background-size: cover;
         /* height: 100vh; */
@@ -101,20 +101,20 @@
     <meta content="Coderthemes" name="author" />
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="resources/resources4h/assets2/images/favicon.ico">
+    <link rel="shortcut icon" href="${path}/resources/resources4h/assets2/images/favicon.ico">
 
     <!-- Theme Config Js -->
-    <script src="resources/resources4h/assets2/js/hyper-config.js"></script>
+    <script src="${path}/resources/resources4h/assets2/js/hyper-config.js"></script>
 
     <!-- Icons css -->
-    <link href="resources/resources4h/assets2/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="${path}/resources/resources4h/assets2/css/icons.min.css" rel="stylesheet" type="text/css" />
 
     <!-- App css -->
-    <link href="resources/resources4h/assets2/css/app-creative.min.css" rel="stylesheet" type="text/css" id="app-style" />
+    <link href="${path}/resources/resources4h/assets2/css/app-creative.min.css" rel="stylesheet" type="text/css" id="app-style" />
 
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="resources/resources4h/assets1/images/favicon.ico">
+    <link rel="shortcut icon" href="${path}/resources/resources4h/assets1/images/favicon.ico">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
 
     <!-- 구글폰트 -->
@@ -124,10 +124,10 @@
 
 
     <!-- Plugins CSS -->
-    <link rel="stylesheet" type="text/css" href="resources/resources4h/assets1/vendor/font-awesome/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="resources/resources4h/assets1/vendor/bootstrap-icons/bootstrap-icons.css">
-    <link rel="stylesheet" type="text/css" href="resources/resources4h/assets1/vendor/tiny-slider/tiny-slider.css">
-    <link rel="stylesheet" type="text/css" href="resources/resources4h/assets1/vendor/plyr/plyr.css">
+    <link rel="stylesheet" type="text/css" href="${path}/resources/resources4h/assets1/vendor/font-awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="${path}/resources/resources4h/assets1/vendor/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="${path}/resources/resources4h/assets1/vendor/tiny-slider/tiny-slider.css">
+    <link rel="stylesheet" type="text/css" href="${path}/resources/resources4h/assets1/vendor/plyr/plyr.css">
 
     <!-- 차트제이에스 chart.js css -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
@@ -137,7 +137,7 @@
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"> -->
 
     <!-- Theme CSS -->
-    <link id="style-switch" rel="stylesheet" type="text/css" href="resources/resources4h/assets1/css/style.css">
+    <link id="style-switch" rel="stylesheet" type="text/css" href="${path}/resources/resources4h/assets1/css/style.css">
 </head>
 
 <body>
@@ -281,7 +281,7 @@
                                                 <div class="card-sp-sm widget-flat">
                                                     <div class="card-body">
                                                         <div class="float-end">
-                                                            <img src="resources/resources4h/assets2/images/05_financeProduct/shinhanBank.png" alt="Stockbanner" height="60" width="70">
+                                                            <img src="${path}/resources/resources4h/assets2/images/05_financeProduct/shinhanBank.png" alt="Stockbanner" height="60" width="70">
                                                         </div>
                                                         <h5 class="mice" style="color:black;">신한은행</h5>
                                                         <h3 class="mt-3 mb-3 mice" style="color:black;">
@@ -299,7 +299,7 @@
                                                 <div class="card-sp-sm widget-flat">
                                                     <div class="card-body">
                                                         <div class="float-end">
-                                                            <img src="resources/resources4h/assets2/images/05_financeProduct/deaguBank.png" alt="Stockbanner" height="60" width="70">
+                                                            <img src="${path}/resources/resources4h/assets2/images/05_financeProduct/deaguBank.png" alt="Stockbanner" height="60" width="70">
                                                         </div>
                                                         <h5 class="mice" style="color:black;">대구은행</h5>
                                                         <h3 class="mt-3 mb-3 mice" style="color:black;"><a href="02_fin_ProductDetail.html" style="color:black;">영플러스 적금</a></h3>
@@ -316,7 +316,7 @@
                                                 <div class="card-sp-sm widget-flat">
                                                     <div class="card-body">
                                                         <div class="float-end">
-                                                            <img src="resources/resources4h/assets2/images/05_financeProduct/ibkBank.png" alt="ibk은행" height="60" width="70">
+                                                            <img src="${path}/resources/resources4h/assets2/images/05_financeProduct/ibkBank.png" alt="ibk은행" height="60" width="70">
                                                         </div>
                                                         <h5 class="mice" style="color:black;">중소기업은행</h5>
                                                         <h3 class="mt-3 mb-3 mice" style="color:black;"><a href="02_fin_ProductDetail.html" style="color:black;">W효도적금</a></h3>
@@ -349,7 +349,7 @@
                                             <div class="card-sp-sm widget-flat">
                                                 <div class="card-body">
                                                     <!-- <div class="float-end">
-                                        <img src="resources/resources4h/assets2/images/05_financeProduct/wooriBank.jpg" alt="우리은행" height="60" width="70">
+                                        <img src="${path}/resources/resources4h/assets2/images/05_financeProduct/wooriBank.jpg" alt="우리은행" height="60" width="70">
                                     </div> -->
                                                     <h5 class="mice" style="color:black;">우리은행</h5>
                                                     <h3 class="mt-3 mb-3 mice" style="color:black;"><a href="02_fin_ProductDetail.html" style="color:black;">첫급여 우리적금</a></h3>
@@ -364,7 +364,7 @@
                                             <div class="card-sp-sm widget-flat">
                                                 <div class="card-body">
                                                     <!-- <div class="float-end">
-                                        <img src="resources/resources4h/assets2/images/05_financeProduct/kbBank.jpg" alt="국민은행" height="60" width="70">
+                                        <img src="${path}/resources/resources4h/assets2/images/05_financeProduct/kbBank.jpg" alt="국민은행" height="60" width="70">
                                     </div> -->
                                                     <h5 class="mice" style="color:black;">국민은행</h5>
                                                     <h3 class="mt-3 mb-3 mice" style="color:black;"><a href="02_fin_ProductDetail.html" style="color:black;">KB내맘대로적금</a></h3>
@@ -382,7 +382,7 @@
                                             <div class="card-sp-sm widget-flat">
                                                 <div class="card-body">
                                                     <!-- <div class="float-end">
-                                        <img src="resources/resources4h/assets2/images/05_financeProduct/nhBank.jpg" alt="농협은행" height="60" width="70">
+                                        <img src="${path}/resources/resources4h/assets2/images/05_financeProduct/nhBank.jpg" alt="농협은행" height="60" width="70">
                                     </div> -->
                                                     <h5 class="mice" style="color:black;">농협은행</h5>
                                                     <h3 class="mt-3 mb-3 mice" style="color:black;"><a href="02_fin_ProductDetail.html" style="color:black;">올원 5늘도 적금</a></h3>
@@ -399,7 +399,7 @@
                                             <div class="card-sp-sm widget-flat">
                                                 <div class="card-body">
                                                     <!-- <div class="float-end">
-                                        <img src="resources/resources4h/assets2/images/05_financeProduct/nhBank.jpg" alt="농협은행" height="60" width="70">
+                                        <img src="${path}/resources/resources4h/assets2/images/05_financeProduct/nhBank.jpg" alt="농협은행" height="60" width="70">
                                     </div> -->
                                                     <h5 class="mice" style="color:black;">농협은행</h5>
                                                     <h3 class="mt-3 mb-3 mice" style="color:black;"><a href="02_fin_ProductDetail.html" style="color:black;">늘 든든한 행복적금</a></h3>
@@ -638,7 +638,7 @@
                                         <title>Placeholder</title><rect width="500px" height="280px"></rect><text x="50%" y="50%"  dy=".3em"></text></svg>
                                             <div class="card-img-overlay" style="background-color: #7a95c3;">
                                                 <span class="mice" style="font-weight: bold; font-size: 25px; color:white;">
-                                            <img src="resources/resources4h/assets1/images/dailyfinance.png" width="80" height="50">데일리금융용어</span><span style="padding-left:70px;"><a href="https://20191118.tistory.com/category/%EA%B8%88%EC%9C%B5%EA%B2%BD%EC%A0%9C/%EB%8D%B0%EC%9D%BC%EB%A6%AC%20%EA%B8%88%EC%9C%B5%EA%B2%BD%EC%A0%9C%EC%8B%9C%EC%82%AC%EC%9A%A9%EC%96%B4" style="color:white">View all</a></span>
+                                            <img src="${path}/resources/resources4h/assets1/images/dailyfinance.png" width="80" height="50">데일리금융용어</span><span style="padding-left:70px;"><a href="https://20191118.tistory.com/category/%EA%B8%88%EC%9C%B5%EA%B2%BD%EC%A0%9C/%EB%8D%B0%EC%9D%BC%EB%A6%AC%20%EA%B8%88%EC%9C%B5%EA%B2%BD%EC%A0%9C%EC%8B%9C%EC%82%AC%EC%9A%A9%EC%96%B4" style="color:white">View all</a></span>
                                                 <div class="mt-2">
                                                     <h3 class="mice" style="font-size: 20px; color:#ffec44;">시가총액(時價總額)</h3>
                                                     <p class="card-text" style="color:white;">주가와 발행 주식수를 곱한 것으로 상장회사 혹은 기업 가치를 평가하는 지표이다. 시가총액이 크다는 것은 실적뿐 아니라 미래의 성장에 대한 기대도 크다는 것을 의미한다.</p>
@@ -651,7 +651,7 @@
                         </div>
                     </div>
                     <div class="col-3">
-                        <img src="resources/resources4h/assets2/images/Stockconsultationbanner.png" alt="">
+                        <img src="${path}/resources/resources4h/assets2/images/Stockconsultationbanner.png" alt="">
                     </div>
                 </div>
             </div>
