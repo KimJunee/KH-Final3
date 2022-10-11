@@ -1,5 +1,7 @@
 package com.kh.realfinal.financialStock.model.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
@@ -22,6 +24,18 @@ public class StockpriceServiceImpl implements StockpriceService{
 		
 		result = mapper.insertStockprice(sp);
 		return result;
+	}
+
+
+	@Override
+	public List<Stockprice> getKospiList() {
+		return mapper.selectKospiList();
+	}
+
+
+	@Override
+	public List<Stockprice> getKosdaqList() {
+		return mapper.selectKosdaqList();
 	}
 
 }

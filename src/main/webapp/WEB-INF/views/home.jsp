@@ -47,6 +47,8 @@
 
 <h2><a href="${path}/mortgage/insert.do"> 주택담보대출 DB INSERT</a></h2>
 
+<h2><a href="${path}/stockprice/fin_main.do"> 금융메인으로 갑니다</a></h2>
+
 <%-- <h2><a href="${path}/cardcut/insert.do"> 카드한컷 DB INSERT</a></h2>--%>
 
 <%-- <iframe id="ytplayer" type="text/html" width="720" height="405"

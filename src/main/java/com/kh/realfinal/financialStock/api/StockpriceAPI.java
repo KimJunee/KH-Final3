@@ -91,7 +91,7 @@ public class StockpriceAPI {
 						String mrktCtg = eElement.getElementsByTagName("mrktCtg").item(0).getTextContent();
 						int clpr = Integer.parseInt(eElement.getElementsByTagName("clpr").item(0).getTextContent());
 						int vs = Integer.parseInt(eElement.getElementsByTagName("vs").item(0).getTextContent());
-						String fltRt = eElement.getElementsByTagName("fltRt").item(0).getTextContent();
+						int fltRt =  Integer.parseInt(eElement.getElementsByTagName("fltRt").item(0).getTextContent());
 						int mkp = Integer.parseInt(eElement.getElementsByTagName("mkp").item(0).getTextContent());
 						int hipr = Integer.parseInt(eElement.getElementsByTagName("hipr").item(0).getTextContent());
 						int lopr = Integer.parseInt(eElement.getElementsByTagName("lopr").item(0).getTextContent());

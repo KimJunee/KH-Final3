@@ -6,6 +6,43 @@
 <!-- 매퍼를 쓸려면 이렇게 가야된다. -->
 
 <mapper	namespace="com.kh.realfinal.financialStock.model.mapper.StockpriceMapper">
+	
+	<resultMap type="Stockprice" id="StockpriceList">
+	<result property="basDt"       column="BASDT"/>
+	<result property="srtnCd"      column="SRTNCD"/>
+	<result property="isinCd"      column="ISINCD"/>
+	<result property="itmsNm"      column="ITMSNM"/>
+	<result property="mrktCtg"     column="MRKTCTG"/>
+	<result property="clpr"        column="CLPR"/>
+	<result property="vs"          column="VS"/>
+	<result property="fltRt"       column="FLTRT"/>
+	<result property="mkp"         column="MKP"/>
+	<result property="hipr"        column="HIPR"/>
+	<result property="lopr"        column="LOPR"/>
+	<result property="trqu"        column="TRQU"/>
+	<result property="trPrc"       column="TRPRC"/>
+	<result property="lstgStCnt"   column="LSTGSTCNT"/>
+	<result property="mrktTotAmt"  column="MRKTTOTAMT"/>
+	
+	</resultMap>
+
+	<select id="selectKospiList" resultMap="StockpriceList">
+		SELECT * FROM STOCKPRICE WHERE MRKTCTG ='KOSPI' AND basDt ='20221007' ORDER BY mrktTotAmt DESC
+	</select>
+	<select id="selectKosdaqList" resultMap="StockpriceList">
+		SELECT * FROM STOCKPRICE WHERE MRKTCTG ='KOSDAQ' AND basDt ='20221007' ORDER BY mrktTotAmt DESC
+	</select>
+
+
+
+
+
+
+
+
+
+
+
 	<insert id="insertStockprice"
 		parameterType="Stockprice">
 		INSERT INTO STOCKPRICE (BASDT, SRTNCD, ISINCD, ITMSNM, 

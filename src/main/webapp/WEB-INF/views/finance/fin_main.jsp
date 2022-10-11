@@ -211,9 +211,9 @@
                                             <h5 class="mt-0 mice" style="font-weight: bold; font-size: 18px; color:black"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-currency-dollar" viewBox="0 0 16 16">
                                                 <path d="M4 10.781c.148 1.667 1.513 2.85 3.591 3.003V15h1.043v-1.216c2.27-.179 3.678-1.438 3.678-3.3 0-1.59-.947-2.51-2.956-3.028l-.722-.187V3.467c1.122.11 1.879.714 2.07 1.616h1.47c-.166-1.6-1.54-2.748-3.54-2.875V1H7.591v1.233c-1.939.23-3.27 1.472-3.27 3.156 0 1.454.966 2.483 2.661 2.917l.61.162v4.031c-1.149-.17-1.94-.8-2.131-1.718H4zm3.391-3.836c-1.043-.263-1.6-.825-1.6-1.616 0-.944.704-1.641 1.8-1.828v3.495l-.2-.05zm1.591 1.872c1.287.323 1.852.859 1.852 1.769 0 1.097-.826 1.828-2.2 1.939V8.73l.348.086z"/>
                                               </svg>&nbsp;USD/KRW</h5>
-                                            <h3 class="my-2 py-1" style="font-weight: bold; font-size: 30px; color:red">1,454</h3>
+                                            <h3 class="my-2 py-1" style="font-weight: bold; font-size: 30px; color:red">1,433</h3>
                                             <p class="mb-0 text-muted">
-                                                <span class="text-danger me-2"><i class="mdi mdi-arrow-up-bold" style="color:red"></i> 5.38%</span>
+                                                <span class="text-danger me-2"><i class="mdi mdi-arrow-up-bold" style="color:red"></i> 0.28%</span>
                                             </p>
                                         </div>
                                         <div class="col-6">
@@ -229,9 +229,9 @@
                                             <h5 class=" mt-0 mice" style="font-weight: bold; font-size: 18px; color:black"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-currency-yen" viewBox="0 0 16 16">
                                                 <path d="M8.75 14v-2.629h2.446v-.967H8.75v-1.31h2.445v-.967H9.128L12.5 2h-1.699L8.047 7.327h-.086L5.207 2H3.5l3.363 6.127H4.778v.968H7.25v1.31H4.78v.966h2.47V14h1.502z"/>
                                               </svg>&nbsp;CNY/KRW</h5>
-                                            <h3 class="my-2 py-1" style="font-weight: bold; font-size: 30px; color:blue">154</h3>
+                                            <h3 class="my-2 py-1" style="font-weight: bold; font-size: 30px; color:blue">199.60</h3>
                                             <p class="mb-0 text-muted">
-                                                <span class="text-danger1 me-2"><i class="mdi mdi-arrow-down-bold"style="font-weight: bold; font-size: 20px; color:blue"></i> -3.38%</span>
+                                                <span class="text-danger1 me-2"><i class="mdi mdi-arrow-down-bold"style="font-weight: bold; font-size: 20px; color:blue"></i> -0.38%</span>
                                             </p>
                                         </div>
                                         <div class="col-6">
@@ -490,48 +490,29 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                <c:if test="${empty list1}">
+			                                      	<tr>
+			                                      		<td colspan="6">조회된 주식이 없습니다.</td>
+			                                      	</tr>
+			                                    </c:if>
+			                                    
+			                                    <c:if test="${!empty list1}">
+			                                    	<c:forEach var="stockprice" items="${list1}"  begin="0" end="5" step="1" varStatus="status">
                                                     <tr>
-                                                        <td width="50px; " style="color:black ">1</td>
-                                                        <td style="color:black ">삼성전자</td>
-                                                        <td style="color:black ">56,000</td>
-                                                        <td style="color:blue ">▼</td>
-                                                        <td style="color:blue ">-1.14%</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="50px; " style="color:black ">2</td>
-                                                        <td style="color:black ">LG에너지솔루션</td>
-                                                        <td style="color:black ">511,000</td>
-                                                        <td style="color:blue ">▼</td>
-                                                        <td style="color:blue ">-3.48%</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="50px; " style="color:black ">3</td>
-                                                        <td style="color:black ">SK하이닉스</td>
-                                                        <td style="color:black ">92,000</td>
-                                                        <td style="color:red ">▲</td>
-                                                        <td style="color:red ">+1.14%</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="50px; " style="color:black ">4</td>
-                                                        <td style="color:black ">삼성바이오로직스</td>
-                                                        <td style="color:black ">807,000</td>
-                                                        <td style="color:blue ">▼</td>
-                                                        <td style="color:blue ">-2.54%</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="50px; " style="color:black ">5</td>
-                                                        <td style="color:black ">LG화학</td>
-                                                        <td style="color:black ">658,000</td>
-                                                        <td style="color:blue ">▼</td>
-                                                        <td style="color:blue ">-0.54%</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="50px; " style="color:black ">6</td>
-                                                        <td style="color:black ">카카오</td>
-                                                        <td style="color:black ">67,400</td>
-                                                        <td style="color:red ">▲</td>
-                                                        <td style="color:red ">+1.14%</td>
-                                                    </tr>
+                                                        <td width="50px; " style="color:black ">${status.count}</td>
+                                                        <td style="color:black "><c:out value="${stockprice.itmsNm}" /></td>
+                                                        <td style="color:black "><fmt:formatNumber value="${stockprice.clpr}"/></td>
+                                                        <c:if test="${stockprice.fltRt < 0}">                                                       
+                                                        	<td style="color:blue ">▼</td>
+                                                        	<td style="color:blue "><c:out value="${stockprice.fltRt}"/>%</td>
+                                                        </c:if>
+                                                        <c:if test="${stockprice.fltRt > 0}">                                                       
+                                                        	 <td style="color:red ">▲</td>
+                                                        	 <td style="color:red ">+<c:out value="${stockprice.fltRt}" />%</td>
+                                                        </c:if>
+                                                    </tr> 
+                                                    </c:forEach>
+			                                    </c:if>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -622,48 +603,28 @@
                                                     </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td width="50px; " style="color:black ">1</td>
-                                                    <td style="color:black ">셀트리온헬스케어</td>
-                                                    <td style="color:black ">68,900</td>
-                                                    <td style="color:blue ">▼</td>
-                                                    <td style="color:blue ">-0.54%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td width="50px; " style="color:black ">2</td>
-                                                    <td style="color:black ">에코프로비엠</td>
-                                                    <td style="color:black ">104,300</td>
-                                                    <td style="color:red ">▲</td>
-                                                    <td style="color:red ">+4.54%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td width="50px; " style="color:black ">3</td>
-                                                    <td style="color:black ">엘엔에프</td>
-                                                    <td style="color:black ">213,000</td>
-                                                    <td style="color:red ">▲</td>
-                                                    <td style="color:red ">+0.54%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td width="50px; " style="color:black ">4</td>
-                                                    <td style="color:black ">펄어비스</td>
-                                                    <td style="color:black ">53,100</td>
-                                                    <td style="color:blue ">▼</td>
-                                                    <td style="color:blue ">-4.54%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td width="50px; " style="color:black ">5</td>
-                                                    <td style="color:black ">카카오게임즈</td>
-                                                    <td style="color:black ">48,150</td>
-                                                    <td style="color:blue ">▼</td>
-                                                    <td style="color:blue ">-6.54%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td width="50px; " style="color:black ">6</td>
-                                                    <td style="color:black ">JYPEnt</td>
-                                                    <td style="color:black ">57,900</td>
-                                                    <td style="color:red ">▲</td>
-                                                    <td style="color:red ">+0.54%</td>
-                                                </tr>
+                                            <c:if test="${empty list2}">
+			                                     <tr>
+			                                      	<td colspan="6">조회된 주식이 없습니다.</td>
+			                                     </tr>
+			                                 </c:if>
+                                                 <c:if test="${!empty list2}">
+			                                    	<c:forEach var="stockprice" items="${list2}"  begin="0" end="5" step="1" varStatus="status">
+                                                    <tr>
+                                                        <td width="50px; " style="color:black "><c:out value="${status.count}"/></td>
+                                                        <td style="color:black "><c:out value="${stockprice.itmsNm}" /></td>
+                                                        <td style="color:black "><fmt:formatNumber value="${stockprice.clpr}"/></td>
+                                                        <c:if test="${stockprice.fltRt < 0}">                                                       
+                                                        	<td style="color:blue ">▼</td>
+                                                        	<td style="color:blue "><c:out value="${stockprice.fltRt}"/>%</td>
+                                                        </c:if>
+                                                        <c:if test="${stockprice.fltRt > 0}">                                                       
+                                                        	 <td style="color:red ">▲</td>
+                                                        	 <td style="color:red ">+<c:out value="${stockprice.fltRt}" />%</td>
+                                                        </c:if>
+                                                    </tr> 
+                                                    </c:forEach>
+			                                    </c:if>
                                             </tbody>
                                         </table>
                                     </div>
