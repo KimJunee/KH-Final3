@@ -32,9 +32,8 @@ Table Of Content
 21 TRAFFIC CHART
 ====================== */
 
-"use strict";
 
-// 슬라이딩 이미지 script 시작
+// 태임 슬라이딩 이미지 script 시작
 var tns = (function() {
     var win = window;
 
@@ -3779,10 +3778,10 @@ const carousel = (() => {
     });
 
 })();
-// 슬라이딩 이미지 script 끝
+// 태임 슬라이딩 이미지 script 끝
 
-
-
+//====================== 원본 밑에 절대 건들지 말기!!!!!!!!!======================
+"use strict";
 ! function() {
 
     window.Element.prototype.removeClass = function() {
