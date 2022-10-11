@@ -99,11 +99,11 @@
     <!-- ======================= JS libraries, plugins and custom scripts -->
     
     <!-- Vendor js -->
-    <script src="assets2/js/vendor.min.js "></script>
+    <script src="resources/resources4h/assets2/js/vendor.min.js "></script>
     <!-- 있어야함-->
     
     <!-- Apex Charts js -->
-    <script src="assets2/vendor/apexcharts/apexcharts.min.js "></script>
+    <script src="resources/resources4h/assets2/vendor/apexcharts/apexcharts.min.js "></script>
     <!-- 있어야함-->
     
      <!-- Apex Chart Area Demo js -->
@@ -111,12 +111,13 @@
     <script src="https://apexcharts.com/samples/assets/series1000.js "></script>
     <script src="https://apexcharts.com/samples/assets/github-data.js "></script>
     <script src="https://apexcharts.com/samples/assets/irregular-data-series.js "></script>
-    <script src="assets2/js/pages/demo.apex-area.js "></script>
-    <script src="assets2/js/pages/demo.apex-area2.js "></script>
-    <script src="assets2/js/pages/demo.crm-dashboard.js "></script>
+    <script src="resources/resources4h/assets2/js/pages/demo.apex-area.js "></script>
+    <script src="resources/resources4h/assets2/js/pages/demo.apex-area2.js "></script>
+    <script src="resources/resources4h/assets2/js/pages/demo.crm-dashboard.js "></script>
     
+    <script src="resources/resources4h/assets2/js/pages/demo.dashboard-wallet.js "></script>
     <!-- 환율그래프-->
-    <script src="assets2/js/pages/demo.dashboard.js "></script>
+    <script src="resources/resources4h/assets2/js/pages/demo.dashboard.js "></script>
 
     <!-- Bootstrap JS -->
     <script src="resources/resources1b/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

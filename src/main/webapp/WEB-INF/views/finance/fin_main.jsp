@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="path" value="${pageContext.request.contextPath}"/>  
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en" data-theme="light" data-layout="topnav" data-topbar-color="dark" data-layout-mode="fluid" data-layout-position="fixed">
 <!-- 금융메인 타이틀 글자 자간 조절 시작-->
 <style>
     .card-sp {
