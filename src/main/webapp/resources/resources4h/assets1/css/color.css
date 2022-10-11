@@ -1,0 +1,223 @@
+/*
+
+If you are in need to change color scheme according to your brand color schemes, Just make very few changes here in some variables and you are good to go.
+
+IMP NOTES (Where to replace your color codes):
+
+1. Please change your desired colors in :root selector at line no. 12
+2. Change SVG colors at line no. 205 (Please read the comment mentioned there for better understanding)
+
+*/
+
+:root {
+  --primary-200: #ffd5bd;
+  --primary-300: #fb8c4c;
+  --primary-400: #ea681c;
+  --primary: #cc4f07;
+  --primary-600: #a74208;
+  --primary_rgb: 204, 79, 7;
+}
+
+/* Color */
+a,
+.navbar-dark .navbar-top a:not(.dropdown-item):hover,
+.navbar-top a:hover,
+.dropdown-item:hover,
+.dropdown-item:focus,
+h1 > a:hover, .h1 > a:hover, h2 > a:hover, .h2 > a:hover, h3 > a:hover, .h3 > a:hover, h4 > a:hover, .h4 > a:hover, h5 > a:hover, .h5 > a:hover, h6 > a:hover, .h6 > a:hover, .h1 > a:hover, .h2 > a:hover, .h3 > a:hover, .h4 > a:hover, .h5 > a:hover, .h6 > a:hover,
+.navbar-light .nav .nav-link:hover,
+.navbar-light .navbar-nav .show > .nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link:hover, 
+.navbar-light .navbar-nav .nav-link:focus,
+.nav-tabs.nav-tabs-line .nav-link.active,
+.blockquote:before,
+.dropdown-toggle-start-icon .collapsed.dropdown-toggle:after,
+.dropdown-toggle-start-icon .dropdown-toggle:after,
+.plyr--full-ui input[type=range],
+.breadcrumb-item a:hover,
+.breadcrumb.breadcrumb-dark .breadcrumb-item a:hover,
+.btn-outline-primary,
+.btn-primary-soft,
+.back-top,
+.nav-link:hover, .nav-link:focus{
+	color: var(--primary);
+}
+
+/* Color important */
+.dropdown-item.active,
+.dropdown-item:active,
+.navbar-dark .navbar-nav .nav-link:hover, 
+.navbar-dark .navbar-nav .nav-link:focus,
+.navbar-dark .navbar-nav .show > .nav-link, 
+.navbar-dark .navbar-nav .nav-link.active,
+.list-group-icon-primary-bg i,
+.list-group-icon-primary-bg span{
+	color: var(--primary) !important; 
+}
+
+/* Color primary dark */
+a:hover, 
+.navbar-dark .nav .nav-link:hover,
+.list-group-borderless a.list-group-item:hover,
+.page-link:focus,
+.accordion-button:not(.collapsed),
+.alert-primary,
+.alert-primary .alert-link
+{
+	color: var(--primary-600);
+}
+
+/* Color important */
+.text-primary,
+a.text-primary-hover:hover,
+button.text-primary-hover:hover,
+.text-primary-hover a:hover {
+	color: var(--primary) !important;
+}
+
+/* Background */
+.btn-primary,
+.card-featured,
+.tns-controls [data-controls]:hover,
+.plyr__control--overlaid,
+.plyr--video .plyr__control.plyr__tab-focus, 
+.plyr--video .plyr__control:hover,
+.plyr--video .plyr__control[aria-expanded=true],
+.page-item.active .page-link,
+.page-link:hover,
+.nav-pills .nav-link.active, 
+.nav-pills .show > .nav-link,
+.blockquote.blockquote-primary,
+.btn-outline-primary:hover,
+.btn-primary:disabled,
+.btn-primary.disabled,
+.form-range::-webkit-slider-thumb,
+.list-group-item.active,
+.progress-bar,
+.nav-tabs .nav-link.active,
+.nav-tabs.nav-tabs-bordered .nav-link.active,
+header .navbar-nav .show > .nav-link:before,
+header .navbar-nav .nav-link.active:before,
+.btn-primary-soft:hover,
+.back-top:hover,
+.dots-creative .tns-nav .tns-nav-active,
+.btn-check:checked + .btn-outline-primary, .btn-check:active + .btn-outline-primary, .btn-outline-primary:active, .btn-outline-primary.active, .btn-outline-primary.dropdown-toggle.show,
+.plyr__menu__container .plyr__control[role=menuitemradio][aria-checked=true]:before{
+	background-color: var(--primary);
+}
+
+.back-top:hover,
+.dropdown-item.active:before,
+.plyr__control--overlaid, .plyr--video .plyr__control.plyr__tab-focus, .plyr--video .plyr__control:hover, .plyr--video .plyr__control[aria-expanded=true], .plyr--audio .plyr__control:hover, .plyr--audio .plyr__control[aria-expanded=true]{
+	background: var(--primary);
+}
+
+.bg-primary{
+  background-color: rgba(var(--primary_rgb), var(--bs-bg-opacity)) !important;
+}
+
+.form-check-input:checked {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--primary_rgb), var(--bs-bg-opacity)) !important;
+}
+
+/* Background light*/
+.alert-primary,
+.form-range::-webkit-slider-thumb:active{
+	background: var(--primary-200);
+}
+
+/* Background dark*/
+.btn-check:focus + .btn-primary, 
+.btn-primary:focus,
+.btn-check:checked + .btn-primary,
+.btn-check:active + .btn-primary, 
+.btn-primary:active, 
+.btn-primary.active, 
+.show > .btn-primary.dropdown-toggle{
+	background-color: var(--primary);
+}
+
+/* Border Color */
+.btn-primary,
+.form-control:focus,
+.nav-tabs.nav-tabs-line .nav-link.active,
+.form-check-input:checked,
+.blockquote.blockquote-line,
+.btn-check:focus + .btn-primary,
+.btn-primary:focus,
+.btn-outline-primary,
+.btn-outline-primary:hover,
+.btn-primary:disabled,
+.btn-primary.disabled,
+.form-check-input:focus,
+.form-select:focus,
+.list-group-item.active,
+.btn-check:checked + .btn-outline-primary, .btn-check:active + .btn-outline-primary, .btn-outline-primary:active, .btn-outline-primary.active, .btn-outline-primary.dropdown-toggle.show{
+	border-color: var(--primary);
+}
+
+/* Border Color important*/
+.border-primary,
+.page-item.active .page-link,
+.page-link:hover{
+	border-color: var(--primary) !important;
+}
+
+/* Border Color dark*/
+.btn-primary:hover,
+.btn-check:checked + .btn-primary, .btn-check:active + .btn-primary, .btn-primary:active, .btn-primary.active, .show > .btn-primary.dropdown-toggle{
+	background-color: var(--primary-600);
+	border-color: var(--primary-600);
+}
+
+/* Border Color light*/
+.alert-primary{
+	border-color: var(--primary-300);
+}
+
+/*SVG fill color*/
+.fill-primary{
+	fill: var(--primary) !important;
+}
+
+/*box-shadow*/
+.dots-primary .tns-nav [data-nav] {
+    -webkit-box-shadow: inset 0 0 0 2px var(--primary);
+    box-shadow: inset 0 0 0 2px var(--primary);
+}
+.dots-primary .tns-nav [data-nav]:after {
+    background-color: var(--primary);
+    -webkit-box-shadow: 0 0 1px var(--primary);
+    box-shadow: 0 0 1px var(--primary);
+}
+
+/* soft bg color*/
+.accordion-button:not(.collapsed),
+.btn-primary-soft,
+.back-top
+{
+  background-color: rgba(var(--primary_rgb), 0.2);
+}
+
+/* soft bg color important;*/
+.bg-primary-soft
+{
+  background-color: rgba(var(--primary_rgb), 0.2) !important;
+}
+/* SVG inline colors */
+
+/* "%23" is the encoding of '#' so place your color code immediately after "%23" in fill attribute. For example, if you want to replace any fill color with red then code will be like:
+fill='%23ff0000' so it interprets like in HEX code: #ff0000; */
+
+.accordion-button:not(.collapsed)::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23cc4f07'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+.form-switch .form-check-input:focus {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23cc4f07'/%3e%3c/svg%3e");
+}
+.form-switch .form-check-input:checked {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+}
+ 
