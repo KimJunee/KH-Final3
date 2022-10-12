@@ -5,23 +5,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="path" value="${pageContext.request.contextPath}"/> 
 
-<%
-	String path = request.getContextPath();
-	String saveId = "";
-	Member loginMember = (Member)session.getAttribute("loginMember");
-	
-	Cookie[] cookies = request.getCookies();
-	
-		if(cookies != null){
-			for(Cookie c : cookies){
-				if(c.getName().equals("saveId")){
-					saveId = c.getValue();
-					break;
-				}
-			}
-		}
-%> 
-
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -211,11 +194,12 @@
 
                     <!-- 로그인 버튼 -->
                     <div class="nav-item d-none d-md-block ">
-                    <%if(loginMember == null){ %>
+                    <c:if test="${empty loginMember}">
                         <a href="${path}/mypage/signIn" class="btn btn-sm btn-danger mb-0 mx-2 ">Sign In</a>
-                    <%} else { %>
+                    </c:if>
+                    <c:if test="${not empty loginMember}">
                     	<a href="${path}/main/main" class="btn btn-sm btn-danger mb-0 mx-2 ">Logout</a>
-                    <%} %>
+                    </c:if>
                     </div>
                     <!-- Offcanvas menu toggler -->
                     <div class="nav-item ">
