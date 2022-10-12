@@ -42,11 +42,11 @@ public class RemndrLttotPblancDetailController {
 			model.addAttribute("location", "/");
 		}
 		
-		if(result1 > 0) {
-			model.addAttribute("msg", "RemndrMdl DB 저장성공");
+		if(result2 > 0) {
+			model.addAttribute("msg", "RemndrMdl DB 주택형별 저장성공");
 			model.addAttribute("location", "/");
 		}else {
-			model.addAttribute("msg", "RemndrMdl DB 저장 실패!!!!!!!");
+			model.addAttribute("msg", "RemndrMdl DB 주택형별 저장 실패!!!!!!!");
 			model.addAttribute("location", "/");
 		}
 		return "/common/msg";

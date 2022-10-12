@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.kh.realfinal.apply.api.ApplyApi;
 import com.kh.realfinal.apply.model.service.UrbtyOfctlLttotPblancDetailService;
+import com.kh.realfinal.apply.model.vo.UrbtyMdl;
 import com.kh.realfinal.apply.model.vo.UrbtyOfctlLttotPblancDetail;
 
 @Controller
@@ -18,19 +19,33 @@ public class UrbtyOfctlLttotPblancDetailController {
 	
 	@RequestMapping("/UrbtyOfctlLttotPblancDetail/insert.do")
 	public String initUrbtyOfctlLttotPblancDetailData(Model model) {
-		List<UrbtyOfctlLttotPblancDetail> list = ApplyApi.UrbtyOfctlLttotPblancDetailByJSON();
+		List<UrbtyOfctlLttotPblancDetail> list1 = ApplyApi.callUrbtyOfctlLttotPblancDetailByJSON();
 		
-		int result = 0;
-		for(UrbtyOfctlLttotPblancDetail ud : list) {
-			result = service.saveUrbtyOfctlLttotPblancDetailService(ud);
+		int result1 = 0;
+		int result2 = 0;
+		for(UrbtyOfctlLttotPblancDetail ud : list1) {
+			result1 = service.saveUrbtyOfctlLttotPblancDetailService(ud);
+			
+			List<UrbtyMdl> list2 = ApplyApi.UrbtyMdlByJSON(ud.getHouse_manage_no(), ud.getPblanc_no());
+			for(UrbtyMdl um : list2) {
+				result2 = service.saveUrbtyMdlService(um);
+			}
 		}
 		
 		
-		if(result > 0) {
-			model.addAttribute("msg", "공공서비스 DB 저장성공");
+		if(result1 > 0) {
+			model.addAttribute("msg", "UrbtyDetail DB 저장성공");
 			model.addAttribute("location", "/");
 		}else {
-			model.addAttribute("msg", "공공서비스 DB 저장 실패!!!!!!!");
+			model.addAttribute("msg", "UrbtyDetail DB 저장 실패!!!!!!!");
+			model.addAttribute("location", "/");
+		}
+		
+		if(result2 > 0) {
+			model.addAttribute("msg", "UrbtyMdl DB 주택형별 저장성공");
+			model.addAttribute("location", "/");
+		}else {
+			model.addAttribute("msg", "UrbtyMdl DB 주택형별 저장 실패!!!!!!!");
 			model.addAttribute("location", "/");
 		}
 		return "/common/msg";

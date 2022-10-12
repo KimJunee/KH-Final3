@@ -4,6 +4,48 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper	namespace="com.kh.realfinal.apply.model.mapper.UrbtyOfctlLttotPblancDetailMapper">
+	<resultMap type="UrbtyOfctlLttotPblancDetail" id="UrbtyMap">
+		<id property="house_manage_no" column="HOUSE_MANAGE_NO"/>
+		<result property="pblanc_no" column="PBLANC_NO"/>
+		<result property="house_nm" column="HOUSE_NM"/>
+		<result property="house_secd" column="HOUSE_SECD"/>
+		<result property="house_secd_nm" column="HOUSE_SECD_NM"/>
+		<result property="house_dtl_secd" column="HOUSE_DTL_SECD"/>
+		<result property="house_dtl_secd_nm" column="HOUSE_DTL_SECD_NM"/>
+		<result property="search_house_secd" column="SEARCH_HOUSE_SECD"/>
+		<result property="hssply_zip" column="HSSPLY_ZIP"/>
+		<result property="tot_suply_hshldco" column="TOT_SUPLY_HSHLDCO"/>
+		<result property="rcrit_pblanc_de" column="RCRIT_PBLANC_DE"/>
+		<result property="subscrpt_rcept_bgnde" column="SUBSCRPT_RCEPT_BGNDE"/>
+		<result property="subscrpt_rcept_endde" column="SUBSCRPT_RCEPT_ENDDE"/>
+		<result property="przwner_presnatn_de" column="PRZWNER_PRESNATN_DE"/>
+		<result property="cntrct_cncls_bgnde" column="CNTRCT_CNCLS_BGNDE"/>
+		<result property="cntrct_cncls_endde" column="CNTRCT_CNCLS_ENDDE"/>
+		<result property="hmpg_adres" column="HMPG_ADRES"/>
+		<result property="bsns_mby_nm" column="BSNS_MBY_NM"/>
+		<result property="mdhs_telno" column="MDHS_TELNO"/>
+		<result property="mvn_prearnge_ym" column="MVN_PREARNGE_YM"/>
+		<result property="hssply_adres" column="HSSPLY_ADRES"/>
+	</resultMap>
+	
+	
+	<resultMap type="UrbtyOfctlLttotPblancDetail" id="UrbtyOfctlLttotPblancDetailMap" extends="UrbtyMap">
+		<collection property="UrbtyOfctlLttotPblancDetailList" javaType="arrayList" resultMap="UrbtyMdlMap"/>
+	</resultMap>
+	
+	
+	<resultMap type="UrbtyMdl" id="UrbtyMdlMap">
+		<id property="house_manage_no" column="HOUSE_MANAGE_NO"/>
+		<result property="pblanc_no" column="PBLANC_NO"/>
+		<result property="model_no" column="MODEL_NO"/>
+		<result property="gp" column="GP"/>
+		<result property="tp" column="TP"/>
+		<result property="excluse_ar" column="EXCLUSE_AR"/>
+		<result property="suply_hshldco" column="SUPLY_HSHLDCO"/>
+		<result property="suply_amount" column="SUPLY_AMOUNT"/>
+		<result property="subscrpt_reqst_amount" column="SUBSCRPT_REQST_AMOUNT"/>
+	</resultMap>
+
 	<insert id="insertUrbtyOfctlLttotPblancDetail"
 		parameterType="hashMap">
 	INSERT INTO URBTYOFCTLLTTOTPBLANCDETAIL(
@@ -40,5 +82,25 @@
 	#{hmpg_adres}, #{bsns_mby_nm}, 
 	#{mdhs_telno}, #{mvn_prearnge_ym}, 
 	#{hssply_adres})
+	</insert>
+	
+	<insert id="insertUrbtyMdl"
+		parameterType="hashMap">
+	INSERT INTO URBTYMDL(
+		HOUSE_MANAGE_NO,			
+		PBLANC_NO,
+		MODEL_NO,				
+		GP,						
+		TP,						
+		EXCLUSE_AR,				
+		SUPLY_HSHLDCO,			
+		SUPLY_AMOUNT,			
+	    SUBSCRPT_REQST_AMOUNT
+	)
+	VALUES
+	(#{house_manage_no}, #{pblanc_no},
+	#{model_no}, #{gp}, #{tp},
+	#{excluse_ar}, #{suply_hshldco}, 
+	#{suply_amount}, #{subscrpt_reqst_amount})
 	</insert>
 </mapper>

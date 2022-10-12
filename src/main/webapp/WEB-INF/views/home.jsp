@@ -39,7 +39,7 @@
 
 <h2><a href="${path}/RemndrLttotPblancDetail/insert.do">청약 분양상세 : APT 무순위/잔여세대 (RemndrLttotPblancDetail)</a></h2>
 
-<h2><a href="${path}/UrbtyMdl/insert.do">청약 주택형별 : 오피스텔/도시형/민간임대 (UrbtyMdl)</a></h2>
+<!--  <h2><a href="${path}/UrbtyMdl/insert.do">청약 주택형별 : 오피스텔/도시형/민간임대 (UrbtyMdl)</a></h2>  -->
 
 <!-- <h2><a href="${path}/RemndrMdl/insert.do">청약 주택형별 : APT 무순위/잔여세대 (RemndrMdl)</a></h2>  -->
 
