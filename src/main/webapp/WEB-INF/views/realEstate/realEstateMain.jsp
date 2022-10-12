@@ -13,7 +13,8 @@
 
     <!-- **************** MAIN CONTENT START **************** -->
     <!-- =======================섹션1: 청약 메인 시작 =======================-->
-   
+    
+    
     <section class="overflow-hidden">
         <div class="container-fluid">
             <div class="row g-4 g-md-5 align-items-center justify-content-between	mb-xxl-n7">
@@ -34,7 +35,7 @@
                 <!-- Main content -->
                 <div class="col-lg-6 col-xl-4 col-xxl-5 text-center position-relative">
                     <!-- Title -->
-                    <h1 class="display-6 text-dark pb-2">지금 이 순간! Fin<a class="text-primary">T</a>ouc<a class="text-primary">h</a>와 함께
+                    <h1 class="display-6 text-dark pb-2 mice">지금 이 순간! Fin<a class="text-primary">T</a>ouc<a class="text-primary">h</a>와 함께
                         <p>주거고민에서 <a class="text-primary">졸업</a>하세요!</p>
                     </h1>
                     <figure class="position-absolute top-0 start-100 translate-middle pe-5 pb-4">
@@ -62,7 +63,7 @@
                     <!-- Buttons -->
                     <div class="d-sm-flex align-items-center justify-content-center">
                         <!-- Button -->
-                        <a href="#" class="btn btn-lg btn-primary me-2 mb-4 mb-sm-0">Subscription guide<i class="bi bi-arrow-right ms-2"></i></a>
+                        <a href="03_reales_calendar.html" class="btn btn-lg btn-primary me-2 mb-4 mb-sm-0 mice">청약캘린더 바로가기<i class="bi bi-arrow-right ms-2"></i></a>
                         <!-- Video button -->
                         <div class="d-flex align-items-center justify-content-center py-2 ms-0 ms-sm-4">
                             <a data-glightbox="" data-gallery="office-tour" href="https://youtu.be/Cs1Xv7N2GeE" class="btn btn-lg btn-round btn-light mb-0 overflow-visible me-7">
@@ -83,17 +84,7 @@
                         <div class="col-5 position-relative">
                             <img src="resources/resources1b/images/02_realEstate/family_03.jpg" class="rounded-3 mb-5" alt="">
                             <img src="resources/resources1b/images/02_realEstate/house_01" class="rounded-3 mb-n5" alt="">
-                            <!-- Content -->
-                            <div class="p-3 card card-body shadow position-absolute top-0 start-0 translate-middle z-index-1 d-none d-xxl-block mt-6 ms-n7">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <!-- Icon -->
-                                    <div class="icon-md text-bg-orange rounded-2 flex-shrink-0">
-                                        <i class="bi bi-star-fill"></i>
-                                    </div>
-                                    <!-- Info -->
-                                    <h6 class="mb-0 small mb-0 ms-3">15,343명의 청약희망자들이 이 페이지를 즐겨찾기하였습니다!</h6>
-                                </div>
-                            </div>
+
                         </div>
                         <!-- Images -->
                         <div class="col-3">
@@ -106,18 +97,20 @@
             </div>
         </div>
     </section>
+    
     <!-- =======================섹션1: 청약 메인 끝 =======================-->
 
     <!-- =======================섹션2: 청약 메인 시작 =======================-->
-    <section class="py-4">
-        <div class="container">
+    
+     <section class="py-4 mice">
+        <div class="container mice">
             <!-- 오늘의 청약 메인 -->
             <div class="row g-5 ">
                 <!-- 상단 요약 메뉴 -->
                 <!-- 공지사항 시작 -->
                 <div class="col-xl-4 mt-2">
-                    <h2 class="m-0"><i class="bi bi-megaphone me-2"></i>Notice</h2>
-                    <p>중요한 공지사항을 확인하세요</p>
+                    <h2 class="m-0 mice"><i class="bi bi-megaphone me-2"></i>&nbsp;Notice</h2>
+                    <p>중요한 공지사항을 확인해보세요</p>
                     <div class="card border h-75">
                         <div class="card-body p-3 ">
                             <!-- 게시글 -->
@@ -145,7 +138,7 @@
                         </div>
                         <!-- 공지사항 footer -->
                         <div class="card-footer border-top text-center p-3 ">
-                            <a href="# ">View all details</a>
+                            <a href="03_reales_notice.html">View all details</a>
                         </div>
                     </div>
                 </div>
@@ -153,7 +146,7 @@
 
                 <!-- 커뮤니티 시작-->
                 <div class="col-xl-4 mt-2">
-                    <h2 class="m-0"><i class="bi bi bi-people me-2"></i>Community</h2>
+                    <h2 class="m-0 mice"><i class="bi bi bi-people me-2 "></i>&nbsp;Community</h2>
                     <p>부동산 관련 이슈에 대해 함께 나누어보세요</p>
                     <div class="card border h-75">
                         <div class="card-body p-3">
@@ -161,7 +154,7 @@
                             <div class="col-12 ">
                                 <div class="d-flex align-items-center">
                                     <div class="avatar avatar-xs">
-                                        <img class="avatar-img rounded-circle" src="resources/resources1b/images/avatar/01.jpg" alt="avatar">
+                                        <img class="avatar-img rounded-circle" src="resources/resources1b/images/avatar_m1.png" alt="avatar">
                                     </div>
                                     <div class="ms-3">
                                         <h6 class="mb-0 "><a href="# " class="stretched-link ">가산점 정확히 계산하는 방법 맞나요? </a></h6>
@@ -177,7 +170,7 @@
                             <div class="col-12 ">
                                 <div class="d-flex align-items-center">
                                     <div class="avatar avatar-xs">
-                                        <img class="avatar-img rounded-circle" src="resources/resources1b/images/avatar/10.jpg" alt="avatar">
+                                        <img class="avatar-img rounded-circle" src="resources/resources1b/images/avatar_w2.png" alt="avatar">
                                     </div>
                                     <div class="ms-3">
                                         <h6 class="mb-0 "><a href="# " class="stretched-link ">서울 아파트 청약 경쟁률 조언해주세요.</a></h6>
@@ -190,7 +183,7 @@
                         </div>
                         <!-- 커뮤니티 footer -->
                         <div class="card-footer border-top text-center p-3 ">
-                            <a href="# ">View all details</a>
+                            <a href="07_com_realestate.html">View all details</a>
                         </div>
                     </div>
                 </div>
@@ -198,22 +191,22 @@
 
                 <!-- 오늘 마감 청약 시작 -->
                 <div class="col-xl-4 mt-2">
-                    <h2 class="m-0"><i class="bi bi-bell-fill"></i><a class="text-primary">&nbsp; Today</a></h2>
-                    <p>오늘 마감되는 청약을 확인하세요</p>
+                    <h2 class="m-0 mice"><i class="bi bi-bell-fill m-2"></i><a class="text-primary">&nbsp;Today</a></h2>
+                    <p>오늘 마감되는 청약을 확인해보세요</p>
                     <div class="card card-body bg-primary bg-opacity-15 p-4 h-75 text-center">
-                        <h3>22.09.27</h3>
+                        <h3 class=" ">22.09.27</h3>
                         <h5>마감 청약</h5>
                         <h1 class="fs-1 text-primary">16개</h1>
                         <p>오늘 모집 마감되는 청약일정과 <br> 공급 대상들을 즉시 확인하실 수 있습니다!</p>
-                        <div class="mt-auto"><a href="#" class="btn btn-link text-reset p-0 mb-0">View posts</a></div>
+                        <div class="mt-auto"><a href="03_reales_detailList.html" class="btn btn-link text-reset p-0 mb-0">View posts</a></div>
                     </div>
                 </div>
                 <!-- 오늘 마감 청약 끝 -->
 
                 <!-- 청약지도 시작 -->
                 <div class="col-xl-7 ">
-                    <h2 class="m-0"><i class="bi bi-map me-2"></i>청약 지도</h2>
-                    <p class="text-danger">지도 위에 마우스를 올려놓아 청약일정을 확인하세요.</p>
+                    <h2 class="m-0 mice"><i class="bi bi-map me-2"></i>&nbsp;청약지도</h2>
+                    <p class="text-danger">지도 위에 마우스를 올려놓으면 지역별 청약일정을 확인하실 수 있습니다</p>
                     <div class="card border h-md-600">
                         <!-- 청약지도 header -->
                         <!-- 청약지도 body -->
@@ -270,8 +263,8 @@
 
                 <!-- 지역별 청약 시작 -->
                 <div class="col-xl-5">
-                    <h2 class="m-0"><i class="bi bi-geo-alt me-2"></i>경기도 지역</h2>
-                    <p>지역별 청약 정보를 확인하세요.</p>
+                    <h2 class="m-0 mice"><i class="bi bi-geo-alt me-2"></i>&nbsp;경기도</h2>
+                    <p>지역별 청약 정보입니다</p>
                     <div class="card border h-md-600">
                         <div class="card-body p-3 ">
                             <div class="row ">
@@ -345,24 +338,23 @@
                         </div>
                         <!-- 지역별 청약 footer -->
                         <div class="card-footer border-top text-center p-3 ">
-                            <a href="# ">View all details</a>
+                            <a href="03_reales_detailList.html">View all details</a>
                         </div>
                     </div>
                 </div>
                 <!-- 지역별 청약 끝 -->
 
                 <!-- 청약 캘린더 시작 -->
-                <div class="col-xl-12">
+                <div class="col-xl-12 mb-4">
                     <!-- Blog list table START -->
                     <!-- Card header START -->
-                    <h2 class="m-0"><i class="bi bi-calendar-check me-2"></i>청약 캘린더</h2>
-                    <p>일정별 청약을 확인하세요.</p>
-                    <div class="card border h-md-600">
+                    <h2 class="m-0 mice"><i class="bi bi-calendar-check me-2"></i>&nbsp;청약캘린더</h2>
+                    <p>일정별 청약을 확인해보세요</p>
+                    <div class="card border h-600">
                         <!-- Card header END -->
 
                         <!-- Card body START -->
-                        <div class="card-body ">
-
+                        <div class="card-body">
                             <!-- Blog list table START -->
                             <div class="table-responsive border-0 ">
                                 <table class="table align-middle p-4 mb-0 table-hover table-shrink m-auto">
@@ -557,9 +549,6 @@
                                                 <a href="# " class="badge bg-secondary bg-opacity-50 text-white mb-2"><i class="bi bi-house-door-fill me-2 small fw-bold "></i>Home</a>
                                             </td>
                                         </tr>
-
-
-
                                     </tbody>
                                     <!-- Table body END -->
                                 </table>
@@ -567,23 +556,31 @@
                             <!-- Blog list table END -->
 
                             <!-- Pagination START -->
-                            <div class="justify-content-between align-items-center mt-4 mt-sm-3 ">
+                            <div class="justify-content-between align-items-center mt-3 mt-sm-3 ">
                                 <!-- Content -->
-                                <!-- Pagination -->
-                                <nav class="mb-sm-0 d-flex justify-content-center " aria-label="navigation ">
-                                    <ul class="pagination pagination-sm pagination-bordered mb-0 ">
-                                        <li class="page-item disabled ">
-                                            <a class="page-link " href="# " tabindex="-1 " aria-disabled="true ">Prev</a>
+
+                                <!-- 페이지넘버 시작 -->
+                                <nav class="mb-sm-0 d-flex justify-content-center mt-2" aria-label="navigation">
+                                    <ul class="pagination pagination-sm pagination-bordered mb-0">
+                                        <li class="page-item disabled">
+                                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Prev</a>
                                         </li>
-                                        <li class="page-item "><a class="page-link " href="# ">1</a></li>
-                                        <li class="page-item active "><a class="page-link " href="# ">2</a></li>
-                                        <li class="page-item disabled "><a class="page-link " href="# ">..</a></li>
-                                        <li class="page-item "><a class="page-link " href="# ">15</a></li>
-                                        <li class="page-item ">
-                                            <a class="page-link " href="# ">Next</a>
+                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">6</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">7</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">8</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">9</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">10</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#">Next</a>
                                         </li>
                                     </ul>
                                 </nav>
+                                <!-- 페이지넘버 끝 -->
                             </div>
                             <!-- Pagination END -->
                         </div>
@@ -592,6 +589,7 @@
                 </div>
                 <!-- 청약 캘린더 끝 -->
     </section>
+    
     <!-- =======================섹션2: 청약 메인 끝 =======================-->
     <!-- **************** MAIN CONTENT END **************** -->
     

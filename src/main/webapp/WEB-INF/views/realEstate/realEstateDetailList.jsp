@@ -24,28 +24,22 @@
             </svg>
         </figure>
 
-        <div class="container z-index-9 position-relative">
+        <div class="container z-index-9 position-relative mice">
             <div class="row py-0 align-items-center text-center text-sm-start">
                 <div class="col-sm-12 all-text-white mt-md-0">
                     <div class="py-0 py-md-5 my-2 mt-0">
                         <!-- Badge with content -->
-                        <div class="d-inline-block bg-white bg-opacity-75 px-3 py-2 rounded-pill mb-3">
-                            <p class="mb-0 text-dark"><span class="badge text-bg-success rounded-pill me-1">New</span> Start with the best Real Estate</p>
-                        </div>
+                        <a href="#" class="badge text-bg-warning mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Real Estate</a>
                         <!-- Title -->
-                        <h1 class="text-white display-5">청약조회</h1>
-                        <p class="text-white">조건에 맞는 검색을 통해 청약에 관한 상세 정보들을 확인하실 수 있습니다.</p>
-                        <div class="d-sm-flex align-items-center mb-3">
-                            <!-- Button -->
-                            <a href="#" class="btn btn-primary me-2 mb-4 mb-sm-0">Get Started</a>
-                        </div>
+                        <h1 class="text-white display-5 mice">청약조회</h1>
+                        <p class="text-white" style="font-size:20px">조건에 맞는 검색으로 청약 상세 정보들을 확인해보세요</p>
+
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- ======================= 섹션1 끝 =========================-->
-
 
     <!-- ======================= 섹션2: 청약 검색목록 시작 =========================-->
     <section class="py-4 mb-lg-5">
@@ -235,17 +229,17 @@
 
                                     <!-- Checkbox -->
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox"  id="amenitiesType23" name="type[]">
+                                        <input class="form-check-input" type="checkbox" id="amenitiesType23" name="type[]">
                                         <label class="form-check-label" for="amenitiesType23">분양중</label>
                                     </div>
                                     <!-- Checkbox -->
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox"  id="amenitiesType24" name="type[]">
+                                        <input class="form-check-input" type="checkbox" id="amenitiesType24" name="type[]">
                                         <label class="form-check-label" for="amenitiesType24">분양예정</label>
                                     </div>
                                     <!-- Checkbox -->
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox"  id="amenitiesType25" name="type[]">
+                                        <input class="form-check-input" type="checkbox" id="amenitiesType25" name="type[]">
                                         <label class="form-check-label" for="amenitiesType25">분양완료</label>
                                     </div>
                                 </div>
@@ -253,28 +247,28 @@
 
                                 <hr class="my-0">
                                 <!-- Divider -->
-                            
-                            <!-- Form End -->
+
+                                <!-- Form End -->
                         </div>
                         <!-- Buttons -->
                         <div class="d-flex justify-content-between p-2 p-xl-0 mt-xl-3">
                             <button onclick="deselect()" type="button" class="btn btn-link p-0 mb-0">초기화</button>
                             <button class="btn btn-primary mb-0">검색</button>
-                 <script>
-                        function deselect() {
-                            $('.form-check-input').prop('checked', false);
-                        }
-                    </script>
+                            <script>
+                                function deselect() {
+                                    $('.form-check-input').prop('checked', false);
+                                }
+                            </script>
                         </div>
                     </div>
                     <!-- Responsive offcanvas body END -->
                 </aside>
-                    </form>
+                </form>
                 <!------------- 검색 엔진 END ------------->
 
                 <!------------- Main part START ------------->
                 <div class="col-xl-9 mt-0">
-                    <h2 class="m-0"><i class="bi bi-card-list me-2"></i>청약 전체보기</h2>
+                    <h2 class="m-0 mice">청약 전체보기</h2>
                     <!-- Product START -->
                     <div class="row g-4 pt-3">
                         <!-- 공지사항 START -->
@@ -288,7 +282,7 @@
                                     <!-- Search -->
                                     <div class="col-xl-8">
                                         <div class="rounded position-relative">
-                                            <input class="form-control pe-5" type="search" placeholder="검색어를 입력하세요" aria-label="Search">
+                                            <input class="form-control pe-5" type="search" placeholder="검색어를 입력하세요!" aria-label="Search">
                                             <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="bi bi-search fs-5"> </i></button>
                                         </div>
                                     </div>
@@ -311,160 +305,159 @@
                                 <!-- Search filter END -->
                                 <!-- Blog list table START -->
                                 <div class="table-responsive border-0 ">
-                                    <table class="table align-middle p-4 mb-0 table-hover table-shrink">
+                                    <table class="table align-middle p-4 mb-0 table-hover table-shrink ">
                                         <!-- Table head -->
                                         <thead class="table-dark text-center">
                                             <tr>
-                                                <th scope="col" class="border-0 rounded-start">지역</th>
-                                                <th scope="col" class="border-0">주택구분</th>
+                                                <th scope="col" class="border-0 rounded-start">번호</th>
+                                                <th scope="col" class="border-0">지역</th>
                                                 <th scope="col" class="border-0">주택명</th>
-                                                <th scope="col" class="border-0">분양가(만원)</th>
+                                                <th scope="col" class="border-0">주택구분</th>
                                                 <th scope="col" class="border-0 rounded-end">모집공고일</th>
                                             </tr>
                                         </thead>
                                         <!------------- 청약 전체보기 list ------------->
                                         <tbody class="border-top-0 text-center">
                                             <tr>
+                                                <td>1</td>
                                                 <td>서울</td>
+                                                <td><a href="03_reales_detail.html">경산지역 미분양매입 임대주택</a></td>
                                                 <td>아파트</td>
-                                                <td>경산지역 미분양매입 임대주택</td>
-                                                <td>미정</td>
                                                 <td>2023-09-02</td>
                                             </tr>
                                             <tr>
+                                                <td>1</td>
                                                 <td>서울</td>
+                                                <td><a href="03_reales_detail.html">힐스테이트 푸르지오 수원</a></td>
                                                 <td>아파트</td>
-                                                <td>경산지역 미분양매입 임대주택</td>
-                                                <td>미정</td>
                                                 <td>2023-09-02</td>
                                             </tr>
                                             <tr>
+                                                <td>1</td>
                                                 <td>서울</td>
+                                                <td><a href="03_reales_detail.html">김포마송 B-5블록 행복주택</a></td>
                                                 <td>아파트</td>
-                                                <td>경산지역 미분양매입 임대주택</td>
-                                                <td>미정</td>
                                                 <td>2023-09-02</td>
                                             </tr>
                                             <tr>
+                                                <td>1</td>
                                                 <td>서울</td>
+                                                <td><a href="03_reales_detail.html">경산지역 미분양매입 임대주택</a></td>
                                                 <td>아파트</td>
-                                                <td>경산지역 미분양매입 임대주택</td>
-                                                <td>미정</td>
                                                 <td>2023-09-02</td>
                                             </tr>
                                             <tr>
+                                                <td>1</td>
                                                 <td>서울</td>
+                                                <td><a href="03_reales_detail.html">힐스테이트 푸르지오 수원</a></td>
                                                 <td>아파트</td>
-                                                <td>경산지역 미분양매입 임대주택</td>
-                                                <td>미정</td>
                                                 <td>2023-09-02</td>
                                             </tr>
                                             <tr>
+                                                <td>1</td>
                                                 <td>서울</td>
+                                                <td><a href="03_reales_detail.html">김포마송 B-5블록 행복주택</a></td>
                                                 <td>아파트</td>
-                                                <td>경산지역 미분양매입 임대주택</td>
-                                                <td>미정</td>
                                                 <td>2023-09-02</td>
                                             </tr>
                                             <tr>
+                                                <td>1</td>
                                                 <td>서울</td>
+                                                <td><a href="03_reales_detail.html">경산지역 미분양매입 임대주택</a></td>
                                                 <td>아파트</td>
-                                                <td>경산지역 미분양매입 임대주택</td>
-                                                <td>미정</td>
                                                 <td>2023-09-02</td>
                                             </tr>
                                             <tr>
+                                                <td>1</td>
                                                 <td>서울</td>
+                                                <td><a href="03_reales_detail.html">힐스테이트 푸르지오 수원</a></td>
                                                 <td>아파트</td>
-                                                <td>경산지역 미분양매입 임대주택</td>
-                                                <td>미정</td>
                                                 <td>2023-09-02</td>
                                             </tr>
                                             <tr>
+                                                <td>1</td>
                                                 <td>서울</td>
+                                                <td><a href="03_reales_detail.html">김포마송 B-5블록 행복주택</a></td>
                                                 <td>아파트</td>
-                                                <td>경산지역 미분양매입 임대주택</td>
-                                                <td>미정</td>
                                                 <td>2023-09-02</td>
                                             </tr>
                                             <tr>
+                                                <td>1</td>
                                                 <td>서울</td>
+                                                <td><a href="03_reales_detail.html">경산지역 미분양매입 임대주택</a></td>
                                                 <td>아파트</td>
-                                                <td>경산지역 미분양매입 임대주택</td>
-                                                <td>미정</td>
                                                 <td>2023-09-02</td>
                                             </tr>
                                             <tr>
+                                                <td>1</td>
                                                 <td>서울</td>
+                                                <td><a href="03_reales_detail.html">힐스테이트 푸르지오 수원</a></td>
                                                 <td>아파트</td>
-                                                <td>경산지역 미분양매입 임대주택</td>
-                                                <td>미정</td>
                                                 <td>2023-09-02</td>
                                             </tr>
                                             <tr>
+                                                <td>1</td>
                                                 <td>서울</td>
+                                                <td><a href="03_reales_detail.html">김포마송 B-5블록 행복주택</a></td>
                                                 <td>아파트</td>
-                                                <td>경산지역 미분양매입 임대주택</td>
-                                                <td>미정</td>
                                                 <td>2023-09-02</td>
                                             </tr>
                                             <tr>
+                                                <td>1</td>
                                                 <td>서울</td>
+                                                <td><a href="03_reales_detail.html">경산지역 미분양매입 임대주택</a></td>
                                                 <td>아파트</td>
-                                                <td>경산지역 미분양매입 임대주택</td>
-                                                <td>미정</td>
                                                 <td>2023-09-02</td>
                                             </tr>
                                             <tr>
+                                                <td>1</td>
                                                 <td>서울</td>
+                                                <td><a href="03_reales_detail.html">힐스테이트 푸르지오 수원</a></td>
                                                 <td>아파트</td>
-                                                <td>경산지역 미분양매입 임대주택</td>
-                                                <td>미정</td>
                                                 <td>2023-09-02</td>
                                             </tr>
                                             <tr>
+                                                <td>1</td>
                                                 <td>서울</td>
+                                                <td><a href="03_reales_detail.html">김포마송 B-5블록 행복주택</a></td>
                                                 <td>아파트</td>
-                                                <td>경산지역 미분양매입 임대주택</td>
-                                                <td>미정</td>
                                                 <td>2023-09-02</td>
                                             </tr>
                                             <tr>
+                                                <td>1</td>
                                                 <td>서울</td>
+                                                <td><a href="03_reales_detail.html">경산지역 미분양매입 임대주택</a></td>
                                                 <td>아파트</td>
-                                                <td>경산지역 미분양매입 임대주택</td>
-                                                <td>미정</td>
                                                 <td>2023-09-02</td>
                                             </tr>
                                             <tr>
+                                                <td>1</td>
                                                 <td>서울</td>
+                                                <td><a href="03_reales_detail.html">힐스테이트 푸르지오 수원</a></td>
                                                 <td>아파트</td>
-                                                <td>경산지역 미분양매입 임대주택</td>
-                                                <td>미정</td>
                                                 <td>2023-09-02</td>
                                             </tr>
                                             <tr>
+                                                <td>1</td>
                                                 <td>서울</td>
+                                                <td><a href="03_reales_detail.html">김포마송 B-5블록 행복주택</a></td>
                                                 <td>아파트</td>
-                                                <td>경산지역 미분양매입 임대주택</td>
-                                                <td>미정</td>
                                                 <td>2023-09-02</td>
                                             </tr>
                                             <tr>
+                                                <td>1</td>
                                                 <td>서울</td>
+                                                <td><a href="03_reales_detail.html">경산지역 미분양매입 임대주택</a></td>
                                                 <td>아파트</td>
-                                                <td>경산지역 미분양매입 임대주택</td>
-                                                <td>미정</td>
                                                 <td>2023-09-02</td>
                                             </tr>
                                             <tr>
+                                                <td>1</td>
                                                 <td>서울</td>
+                                                <td><a href="03_reales_detail.html">힐스테이트 푸르지오 수원</a></td>
                                                 <td>아파트</td>
-                                                <td>경산지역 미분양매입 임대주택</td>
-                                                <td>미정</td>
                                                 <td>2023-09-02</td>
                                             </tr>
-
                                         </tbody>
                                         <!------------- 청약 전체보기 list END ------------->
                                     </table>
@@ -472,23 +465,31 @@
                                 <!-- Blog list table END -->
 
                                 <!-- Pagination START -->
-                                <div class="justify-content-sm-between align-items-sm-center mt-4 mt-sm-3 ">
+                                <div class="justify-content-between align-items-center mt-3 mt-sm-3 ">
                                     <!-- Content -->
-                                    <!-- Pagination -->
-                                    <nav class="mb-sm-0 d-flex justify-content-center " aria-label="navigation ">
-                                        <ul class="pagination pagination-sm pagination-bordered mb-0 ">
-                                            <li class="page-item disabled ">
-                                                <a class="page-link " href="# " tabindex="-1 " aria-disabled="true ">Prev</a>
+
+                                    <!-- 페이지넘버 시작 -->
+                                    <nav class="mb-sm-0 d-flex justify-content-center mt-2" aria-label="navigation">
+                                        <ul class="pagination pagination-sm pagination-bordered mb-0">
+                                            <li class="page-item disabled">
+                                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Prev</a>
                                             </li>
-                                            <li class="page-item "><a class="page-link " href="# ">1</a></li>
-                                            <li class="page-item active "><a class="page-link " href="# ">2</a></li>
-                                            <li class="page-item disabled "><a class="page-link " href="# ">..</a></li>
-                                            <li class="page-item "><a class="page-link " href="# ">15</a></li>
-                                            <li class="page-item ">
-                                                <a class="page-link " href="# ">Next</a>
+                                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">6</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">7</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">8</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">9</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">10</a></li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="#">Next</a>
                                             </li>
                                         </ul>
                                     </nav>
+                                    <!-- 페이지넘버 끝 -->
                                 </div>
                                 <!-- Pagination END -->
                             </div>

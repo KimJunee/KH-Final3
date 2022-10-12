@@ -12,7 +12,7 @@
 
     <!-- **************** MAIN CONTENT START **************** -->
     <!-- =======================섹션1: 청약 메인 시작 =======================-->
-    <section class="position-relative overflow-hidden" style="background-image:url(resources/resources1b/images/02_realEstate/501b249c45892.jpg); background-position: center; background-size: cover;">
+    <section class="position-relative overflow-hidden mice" style="background-image:url(resources/resources1b/images/02_realEstate/501b249c45892.jpg); background-position: center; background-size: cover;">
         <div class="bg-overlay bg-transparent opacity-5"></div>
         <!-- SVG decoration for curve -->
         <figure class="position-absolute bottom-0 left-0 w-100 d-md-block mb-n3 z-index-9">
@@ -26,36 +26,35 @@
                 <div class="col-sm-12 all-text-white mt-md-0">
                     <div class="py-0 py-md-5 my-2 mt-0">
                         <!-- Badge with content -->
-                        <div class="d-inline-block bg-white bg-opacity-75 px-3 py-2 rounded-pill mb-3">
-                            <p class="mb-0 text-dark"><span class="badge text-bg-success rounded-pill me-1">New</span> Start with the best Real Estate</p>
-                        </div>
+                        <!-- <div class="d-inline-block bg-white bg-opacity-75 px-3 py-2 rounded-pill mb-3"> -->
+                        <a href="#" class="badge text-bg-warning mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Real Estate</a>
+                        <!-- </div> -->
                         <!-- Title -->
-                        <h1 class="text-white display-5">청약정보</h1>
-                        <p class="text-white">청약에 대한 상세 정보를 지도와 함께 확인하실 수 있습니다. </p>
-                        <div class="d-sm-flex align-items-center mb-3">
-                            <!-- Button -->
-                            <a href="#" class="btn btn-primary me-2 mb-4 mb-sm-0">Get Started</a>
-                        </div>
+                        <h1 class="text-white display-5 mice">청약정보</h1>
+                        <p class="text-white" style="font-size:20px">청약에 대한 상세 정보를 지도와 함께 확인해보세요 </p>
+
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    
     <!-- =======================섹션1: 청약 메인 끝 =======================-->
+
 
     <!-- =======================섹션2: 분양단지 상세 정보 시작 =======================-->
     <section>
         <div class="container">
-            <h2 class="m-0"><i class="bi bi-building me-2"></i>성남 금토지구 A-3블록 중흥S-클래스</h2>
-            <p>분양 단지의 상세정보를 확인해보세요.</p>
+            <h2 class="m-0 mice"><i class="bi bi-building me-2"></i>성남 금토지구 A-3블록 중흥S-클래스</h2>
+            <p>해당 분양 단지의 상세정보입니다</p>
             <div class="row g-4">
                 <!-- Image -->
                 <div class="col-xl-7">
-                    <!-- 카카오 지도 부분 시작 -->
+                    <!-- 청약아파트 이미지 -->
                     <div class="row g-2">
                         <div class="col-12">
                             <div class="bg-white rounded-2 glightbox-bg p-1 position-relative">
-                                <img src="resources/resources1b/images/02_realEstate/pic01.png" style="width:650px; height:450px;" alt="">
+                                <img src="resources/resources1b/images/02_realEstate/pic01.png" style="width:650px; height:455px;" alt="">
                                 </a>
                             </div>
                         </div>
@@ -67,7 +66,7 @@
                     <!-- Title -->
                     <div class="card-body table text-sm mb-0 rounded-2 bg-black ">
                         <tr>
-                            <h5 class="border-0 text-center p-3 text-white">조회결과</h5>
+                            <h4 class="text-center p-3 text-white mice">조 회 결 과</h4>
                         </tr>
                     </div>
                     <!-- Variant END -->
@@ -91,24 +90,32 @@
                                 <td class="p-3 h5 text-center">2023-03월</td>
                             </tr>
                             <tr>
-                                <th class="p-3 h5 text-center">문의처</th>
-                                <td class="p-3 h5 text-center text-success"><i class="bi bi-telephone-fill me-2"></i>031-214-9565</td>
+                                <th class="p-3 h5 text-center pb-4" style="border-bottom: none">문의처</th>
+                                <td class="p-3 h5 text-center pb-4" style="border-bottom: none"><i class="bi bi-telephone-fill me-2"></i>031-214-9565</td>
                             </tr>
                         </table>
+                        <a class="btn btn-lg btn-warning w-100 mb-3" href="#">♥ Like This Information</a>
+                        <article class="text-end">
+                            <a class="d-inline-block text-decoration-none" href="03_reales_calendar.html">
+                            청약캘린더로 돌아가기
+                            </a>
+                        </article>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    
     <!-- =======================섹션2: 분양단지 상세 정보 끝 =======================-->
+
 
     <!-- =======================섹션3: 입주자 모집공고 시작 =======================-->
     <section class="pb-0">
         <div class="container text-center">
             <!-- Card header -->
-            <p class="subtitle" style="font-size: 20px; margin-bottom: 1%; color:#e83e9e "><b>T H E S E &nbsp A R E &nbsp E X P I R I N G &nbsp S O O N</b></p>
-            <h2 class="m-0"><i class="bi bi-geo me-2 "></i>입주자모집공고</h2>
-            <p>※ 특별공급 종류에 따라 접수기간 및 장소가 다를 수 있으니 모집공고를 반드시 확인하시기 바랍니다. </p>
+            <p class="subtitle" style="font-size: 20px; margin-bottom: 0.5%; color:#e83e9e "><b>T H E S E &nbsp A R E &nbsp E X P I R I N G &nbsp S O O N</b></p>
+            <h2 class="m-3 mice"><i class="bi bi-geo me-2"></i>입주자모집공고</h2>
+            <p>※ 특별공급 종류에 따라 접수기간 및 장소가 다를 수 있으니 모집공고를 반드시 확인하시기 바랍니다 </p>
             <div class="container pt-3">
                 <div class="card-body rounded-2">
                     <!-- Form START -->
@@ -119,7 +126,7 @@
                             <div class="card border-0 shadow mb-5 ">
                                 <div class="card-header py-4 border-0 ">
                                     <tr>
-                                        <h3>단지정보</h3>
+                                        <h3 class="mice">단지정보</h3>
                                     </tr>
                                 </div>
                                 <div class="card-body  pb-5">
@@ -162,7 +169,7 @@
                             <div class="card border-0 shadow mb-5 ">
                                 <div class="card-header py-4 border-0 ">
                                     <tr>
-                                        <h3>청약정보</h3>
+                                        <h3 class="mice">청약정보</h3>
                                     </tr>
                                 </div>
                                 <div class="card-body  pb-5">
@@ -204,7 +211,9 @@
             </div>
         </div>
     </section>
+    
     <!-- =======================섹션3: 입주자 모집공고 끝 =======================-->
+
 
     <!-- =======================섹션4: 청약지도 시작 =======================-->
     <section class="pt-0">
@@ -212,22 +221,24 @@
             <!-- 청약상세 페이지 -->
             <!-- 카카오 지도 부분 시작 -->
             <p class="subtitle text-primary" style="font-size: 20px; margin-bottom: 1%;"><b>G E T &nbsp D I R E C T I O N S</b></p>
-            <h2><i class="bi bi-geo me-2"></i>청약지도</h2>
-            <p>분양 단지의 위치를 확인해보세요.</p>
+            <h2 class="mice"><i class="bi bi-geo me-2"></i>청약지도</h2>
+            <p>지도를 통하여 분양 단지의 위치를 확인하실 수 있습니다.</p>
             <!-- 카카오 지도 body -->
             <div id="map" style="height:500px;"></div>
             <!-- 카카오 지도 END -->
         </div>
     </section>
+    
     <!-- =======================섹션4: 청약지도 끝 =======================-->
 
-    <!-- 청약 주의사항 시작 -->
-    <section class="position-relative mb-5">
+
+	<!-- =======================섹션5: 청약주의사항 시작 =======================-->
+	<section class="position-relative mb-5">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-5 position-relative z-index-9">
                     <!-- Title -->
-                    <h2>청약 신청시 유의사항</h2>
+                    <h2 class="mice">청약 신청시 유의사항</h2>
                     <p class="h5">본 정보는 사실과 차이가 있을 수 있으니 청약신청 시 <br>반드시 해당
                         <a class="text-primary">"입주자모집공고"</a>를 확인하시기 바랍니다.</p>
                     <!-- Download button -->
@@ -247,7 +258,8 @@
             </div>
         </div>
     </section>
-    <!-- 청약 주의사항 끝 -->
+    
+    <!-- =======================섹션5: 청약주의사항 끝 =======================-->
     <!-- **************** MAIN CONTENT END **************** -->
 
     
