@@ -13,7 +13,7 @@ public class IndexPrice {          //지수 시세 정보
 	private String idxNm;          //지수의 명칭
 	private String idxCsf;         //지수의 분류명칭
 	private Double clpr;           //정규시장의 매매시간종료시까지 형성되는 최종가격(종가)
-	private Double vs;             //전일 대비 등락
+	private String vs;             //전일 대비 등락
 	private Double fltRt;          //전일 대비 등락에 따른 비율(%)
 	private Double mkp;            //정규시장의 매매시간개시후 형성되는 최초가격(시가)
 	private Double hipr;           //하루 중 지수의 최고치

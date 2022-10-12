@@ -51,8 +51,9 @@ public class StockpriceController {
 	public String fin_kospiDetail(Model model) { //코스피 상세로
 		List<Stockprice> list1 = service.getKospiList();
 		List<IndexPrice> list2 = service.getIndexKospiList();
-		
-		model.addAttribute(list2);
+		System.out.println(list2.toString());
+		model.addAttribute("list1", list1);
+		model.addAttribute("list2", list2);
 		
 		return "finance/fin_kospiDetail";
 	}
@@ -62,7 +63,8 @@ public class StockpriceController {
 		List<Stockprice> list1 = service.getKosdaqList();
 		List<IndexPrice> list2 = service.getIndexKosdaqList();
 		
-		model.addAttribute(list2);
+		model.addAttribute("list1", list1);
+		model.addAttribute("list2", list2);
 
 		
 		return "finance/fin_kosdaqDetail";

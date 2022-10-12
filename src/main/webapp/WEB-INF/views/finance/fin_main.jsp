@@ -166,7 +166,7 @@
                         <div class="col-xl-4" style="width:400px;">
                             <div class="card-sp">
                                 <div class="card-body ">
-                                    <div class="mice" style="font-weight: bold; font-size: 20px;color:black"><a href="02_fin_kospiDetail.html" style="color:black;">KOSPI</a>
+                                    <div class="mice" style="font-weight: bold; font-size: 20px;color:black"><a href="${path}/stockprice/fin_kospiDetail.do" style="color:black;">KOSPI</a>
                                     </div>
                                     <div style="font-weight: bold; font-size: 25px; color:blue">2,220.94 ▼69.06 -3.02%</div>
                                     <!--<h4 class="header-title mb-4">코스피 KOSPI</h4>-->

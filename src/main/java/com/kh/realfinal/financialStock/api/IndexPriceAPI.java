@@ -103,7 +103,7 @@ public class IndexPriceAPI {
 						String idxNm = eElement.getElementsByTagName("idxNm").item(0).getTextContent();
 						String idxCsf = eElement.getElementsByTagName("idxCsf").item(0).getTextContent();
 						Double clpr  = Double.parseDouble(eElement.getElementsByTagName("clpr").item(0).getTextContent());       
-						Double vs  = Double.parseDouble(eElement.getElementsByTagName("vs").item(0).getTextContent());           
+						String vs  = eElement.getElementsByTagName("vs").item(0).getTextContent();           
 						Double fltRt  = Double.parseDouble(eElement.getElementsByTagName("fltRt").item(0).getTextContent());        
 						Double mkp   = Double.parseDouble(eElement.getElementsByTagName("mkp").item(0).getTextContent());         
 						Double hipr  = Double.parseDouble(eElement.getElementsByTagName("hipr").item(0).getTextContent());         
@@ -200,7 +200,7 @@ public class IndexPriceAPI {
 						String idxNm = eElement.getElementsByTagName("idxNm").item(0).getTextContent();
 						String idxCsf = eElement.getElementsByTagName("idxCsf").item(0).getTextContent();
 						Double clpr  = Double.parseDouble(eElement.getElementsByTagName("clpr").item(0).getTextContent());       
-						Double vs  = Double.parseDouble(eElement.getElementsByTagName("vs").item(0).getTextContent());           
+						String vs  = eElement.getElementsByTagName("vs").item(0).getTextContent();           
 						Double fltRt  = Double.parseDouble(eElement.getElementsByTagName("fltRt").item(0).getTextContent());        
 						Double mkp   = Double.parseDouble(eElement.getElementsByTagName("mkp").item(0).getTextContent());         
 						Double hipr  = Double.parseDouble(eElement.getElementsByTagName("hipr").item(0).getTextContent());         
@@ -310,7 +310,7 @@ public class IndexPriceAPI {
 					String idxNm           = (String) obj.get("idxNm");           
 					String idxCsf          = (String) obj.get("idxCsf");          
 					Double clpr            = Double.valueOf((String) obj.get("clpr"));          
-					Double vs              = Double.valueOf((String) obj.get("vs"));            
+					String vs              = (String) obj.get("vs");            
 					Double fltRt           = Double.valueOf((String) obj.get("fltRt"));        
 					Double mkp             = Double.valueOf((String) obj.get("mkp"));           
 					Double hipr            = Double.valueOf((String) obj.get("hipr"));          
