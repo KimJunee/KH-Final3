@@ -8,7 +8,7 @@
 
 
 <head>
-    <title>Blogzine - Blog and Magazine Bootstrap 5 Theme</title>
+    <title>FinTouch | RealEstate | Detail</title>
 </head>
 
 
