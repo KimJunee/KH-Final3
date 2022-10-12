@@ -10,7 +10,7 @@ import com.kh.realfinal.member.model.vo.Member;
 public interface MemberMapper {
 	int selectCount();
 	List<Member> selectAll();
-	Member selectMember(@Param("id") String user_id);
+	Member selectMember(String user_id);
 	int insertMember(Member member);
 	int updateMember(Member member);
 	int updatePwd(Map<String, String> map);

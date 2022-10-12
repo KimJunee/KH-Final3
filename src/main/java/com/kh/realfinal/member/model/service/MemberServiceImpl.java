@@ -21,16 +21,21 @@ public class MemberServiceImpl implements MemberService{
 	// 로그인
 	@Override
 	public Member login(String user_id, String user_password) {
-		Member member = this.findById(user_id);
 		
-		if(member == null) { //id로 찾았는데 member가 없을때
+		Member member = this.findById(user_id);
+		if(member == null) { //id로 찾았는데 member가 없을 때
 			return null;
 		}
-		if(member != null && user_password == member.getUser_password()) {
-			// 인증성공하였을때
+		System.out.println(member.getUser_password()); // Hash 코드로 암호화된 비밀번호가 저장되어있음
+		System.out.println(passwordEncoder.encode(user_password)); // encode를 통해 평문에서 암호문으로 변경
+		System.out.println(passwordEncoder.matches(user_password, member.getUser_password())); 
+		System.out.println("in service Impl user_id : " + user_id + " / user_password : " + user_password);
+		
+		if(member != null && passwordEncoder.matches(user_password, member.getUser_password()) == true) {
+			// 인증 성공
 			return member;
 		}else {
-			//인증실패하였을때
+			// 인증 실패
 			return null;
 		}
 	}
@@ -40,10 +45,13 @@ public class MemberServiceImpl implements MemberService{
 	public int save(Member member) {
 		int result = 0;
 		
-		if(member.getUser_no() != 0) {
+		if(member.getUser_no() != 0) { 
+			String encodePwd = passwordEncoder.encode(member.getUser_password());
+			member.setUser_password(encodePwd);
 			result = mapper.updateMember(member);
-		}else {
-			member.setUser_password(member.getUser_password());
+		}else { 
+			String encodePwd = passwordEncoder.encode(member.getUser_password());
+			member.setUser_password(encodePwd);
 			result = mapper.insertMember(member);
 		}
 		return result;	

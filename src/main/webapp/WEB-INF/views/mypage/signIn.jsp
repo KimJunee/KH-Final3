@@ -51,18 +51,18 @@
                 <div class="w-100 mt-auto" style="max-width: 526px; font-family: 'MICEGothic Bold';">
                     <h1>Sign in</h1>
                     <p class="pb-3 mb-3 mb-lg-4">아직 계정이 없으세요?&nbsp;&nbsp;<a href="${path}/mypage/signUp">회원가입 하러가기</a></p>
-                    <form class="needs-validation" novalidate name="signIn" action="${path}/mypage/signIn" method="post">
+                    <form class="needs-validation" novalidate name="signIn" action="${path}/logIn" method="post">
                         <!-- ID -->
                         <div class="pb-3 mb-3">
                             <div class="position-relative"><i class="ai-mail fs-lg position-absolute top-50 start-0 translate-middle-y ms-3"></i>
-                                <input class="form-control form-control-lg ps-5" type="text" placeholder="ID" required>
+                                <input class="form-control form-control-lg ps-5" type="text" name="user_id" placeholder="ID" required>
                             </div>
                         </div>
                         <!-- 비밀번호 -->
                         <div class="mb-4">
                             <div class="position-relative"><i class="ai-lock-closed fs-lg position-absolute top-50 start-0 translate-middle-y ms-3"></i>
                                 <div class="password-toggle">
-                                    <input class="form-control form-control-lg ps-5" type="password" placeholder="Password" required>
+                                    <input class="form-control form-control-lg ps-5" type="password" name="user_password" placeholder="Password" required>
                                     <label class="password-toggle-btn" aria-label="Show/hide password">
                                         <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
                                     </label>
@@ -77,7 +77,7 @@
                             </form-check><a class="fs-sm fw-semibold text-decoration-none my-1" href="account-password-recovery.html">비밀번호를 잊었어요.</a>
                         </div>
                         <!-- 회원가입 버튼 -->
-                        <button class="btn btn-lg btn-primary w-100 mb-2" type="submit">Sign up</button>
+                        <button class="btn btn-lg btn-primary w-100 mb-2" type="submit">Sign In</button>
                         <h2 class="h6 text-center pt-3 pt-lg-4 mb-4">Or sign in with your social account</h2>
                         <div class="row row-cols-1 row-cols-sm-2 gy-3">
                             <button class="btn btn-lg btn-kakao w-100" style="background-color: #FEE500; border-color: #FEE500; border-radius: 12px;" type="submit" id="kakaologin"><img src="${path}/resources/resources2a/assets/img/account/kakao_logo01.png" width: 50%; height: 50%;>&nbsp Login with Kakao</button>

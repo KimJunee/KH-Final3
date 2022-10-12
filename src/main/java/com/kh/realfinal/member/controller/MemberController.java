@@ -29,9 +29,9 @@ public class MemberController {
 	
 	// 로그인
 	@PostMapping("logIn")
-	public String login(Model model, String userId, String userPwd) {
-		log.info("id : " + userId + ", pw : " + userPwd);
-		Member loginMember = service.login(userId, userPwd);
+	public String login(Model model, String user_id, String user_password) {
+		log.info("id : " + user_id + ", pw : " + user_password);
+		Member loginMember = service.login(user_id, user_password);
 		
 		if(loginMember != null) {
 			model.addAttribute("loginMember", loginMember);

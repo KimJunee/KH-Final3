@@ -28,8 +28,9 @@
   </resultMap>
   
   <select id="selectMember" parameterType="string" resultMap="memberResultMap">
+  		/* QueryId : selectMember */
 		<include refid="selectMemberSql"/>
-		WHERE ID = #{user_id} AND STATUS = 'Y'
+		WHERE USER_ID = #{user_id} AND USER_STATUS = 'Y'
   </select>
   
   <insert id="insertMember" parameterType="Member"
