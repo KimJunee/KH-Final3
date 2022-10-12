@@ -101,50 +101,45 @@
     <!-- =======================푸터 끝 =======================-->
 
 
-
     <!-- Back to top -->
-    <div class="back-top"><i class="bi bi-arrow-up-short"></i></div>
+    <div class="back-top "><i class="bi bi-arrow-up-short "></i></div>
 
-    <!-- ======================= JS libraries, plugins and custom scripts -->
-    
-    <!-- Vendor js -->
-    <script src="${path}/resources/resources4h/assets2/js/vendor.min.js "></script>
-    <!-- 있어야함-->
-    
-    <!-- Apex Charts js -->
-    <script src="${path}/resources/resources4h/assets2/vendor/apexcharts/apexcharts.min.js "></script>
-    <!-- 있어야함-->
-    
-     <!-- Apex Chart Area Demo js -->
+    <!-- =======================
+JS libraries, plugins and custom scripts -->
+
+    <!--그래프 관련1 -지수- - 그래프 관련script 순서 맞춘겁니다 이 위치에 두세요 절대 건들지마세요- -->
+    <script src="assets/vendor/apexcharts/js/apexcharts.min.js "></script>
+
+    <!-- 그래프 관련2 -지수- - 그래프 관련script 순서 맞춘겁니다 이 위치에 두세요 절대 건들지마세요- -->
     <script src="https://apexcharts.com/samples/assets/stock-prices.js "></script>
+
+    <!-- Bootstrap JS -->
+    <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js "></script>
+
+    <!-- Vendors -->
+    <script src="assets/vendor/tiny-slider/tiny-slider.js "></script>
+    <script src="assets/vendor/sticky-js/sticky.min.js "></script>
+    <script src="assets/vendor/glightbox/js/glightbox.js "></script>
+    <script src="assets/vendor/plyr/plyr.js "></script>
+
+    <!-- Template Functions -->
+    <script src="assets/js/functions.js "></script>
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js "></script>
+
+    <!--그래프 관련3 - 그래프 관련script 순서 맞춘겁니다 이 위치에 두세요 절대 건들지마세요- -->
+    <script src="assets/js/demo.apex-area.js "></script>
+    <script src="assets/js/demo.apex-area2.js "></script>
+    <script src="assets/js/demo.apex-area3.js "></script>
+    <script src="assets/js/demo.apex-area4.js "></script>
+    <script src="assets/js/demo.crm-dashboard.js "></script>
+    <script src="assets/js/vendor.min.js "></script>
+
+    <!-- 그래프 관련4 - 그래프 관련script 순서 맞춘겁니다 이 위치에 두세요 절대 건들지마세요- -->
     <script src="https://apexcharts.com/samples/assets/series1000.js "></script>
     <script src="https://apexcharts.com/samples/assets/github-data.js "></script>
     <script src="https://apexcharts.com/samples/assets/irregular-data-series.js "></script>
-    <script src="${path}/resources/resources4h/assets2/js/pages/demo.apex-area.js "></script>
-    <script src="${path}/resources/resources4h/assets2/js/pages/demo.apex-area2.js "></script>
-    <script src="${path}/resources/resources4h/assets2/js/pages/demo.crm-dashboard.js "></script>
-    
-    <script src="${path}/resources/resources4h/assets2/js/pages/demo.dashboard-wallet.js "></script>
-    <!-- 환율그래프-->
-    <script src="${path}/resources/resources4h/assets2/js/pages/demo.dashboard.js "></script>
-
-    <!-- Bootstrap JS -->
-    <script src="${path}/resources/resources1b/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Vendors -->
-    <script src="${path}/resources/resources1b/vendor/apexcharts/js/apexcharts.min.js"></script>
-    <script src="${path}/resources/resources1b/vendor/overlay-scrollbar/js/OverlayScrollbars.min.js"></script>
-    <script src="${path}/resources/resources1b/vendor/sticky-js/sticky.min.js"></script>
-
-    <!-- Template Functions -->
-    <script src="${path}/resources/resources1b/js/functions.js"></script>
-    
-     <!-- jquery import -->
-    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-    
-    <!-- 마이페이지 수정 실시간 JS -->
-    <script src="${path}/resources/resources3f/dist/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
-    <script src="${path}/resources/resources3f/dist/js/theme.min.js"></script>
 
 </body>
 
