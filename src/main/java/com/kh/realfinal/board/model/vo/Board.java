@@ -1,6 +1,7 @@
 package com.kh.realfinal.board.model.vo;
 
 import java.util.Date;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,4 +21,5 @@ public class Board {
 	private Date   board_register;          //등록일시
 	private String board_originalFileName;  //첨부파일원래이름
 	private String board_renamedFileName;   //첨부파일변경이름
+	private List<Reply> replies;            //댓글리스트 가져오기? 수업코드에 있어서 가져옴
 }
