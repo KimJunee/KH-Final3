@@ -48,6 +48,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+    
 
     <!-- Plugins CSS -->
     <link rel="stylesheet" type="text/css" href="${path}/resources/resources1b/vendor/font-awesome/css/all.min.css">
@@ -56,12 +58,11 @@
     <link rel="stylesheet" type="text/css" href="${path}/resources/resources1b/vendor/plyr/plyr.css">
     <link rel="stylesheet" type="text/css" href="${path}/resources/resources1b/vendor/apexcharts/css/apexcharts.css">
     <link rel="stylesheet" type="text/css" href="${path}/resources/resources1b/vendor/overlay-scrollbar/css/OverlayScrollbars.min.css">
-    
-    <!-- 차트제이에스 chart.js css -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
-
+ 
     <!-- Theme CSS -->
     <link id="style-switch" rel="stylesheet" type="text/css" href="${path}/resources/resources1b/css/style.css">
+  
+    
 </head>
 
 <body>
@@ -70,8 +71,8 @@
         <nav class="navbar navbar-expand-sm navbar-nav-sp nav-link-white-sp">
             <div class="container ">
                 <!-- 로고 시작 -->
-              <img class="navbar-brand-item light-mode-item " src="${path}/resources/resources1b/images/01_main/logo_white.png" alt="logo ">
-                    <img class="navbar-brand-item dark-mode-item " src="${path}/resources/resources1b/images/01_main/logo_white.png" alt="logo ">
+              <img class="navbar-brand-item light-mode-item " src="${path}/resources/resources1b/images/01_main/logo_dark.png" alt="logo ">
+                    <img class="navbar-brand-item dark-mode-item " src="${path}/resources/resources1b/images/01_main/logo_dark.png" alt="logo ">
                 </a>
                 <!-- 로고 끝-->
                 <!-- 메뉴 시작 -->
