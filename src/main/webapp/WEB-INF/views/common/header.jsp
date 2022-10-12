@@ -1,8 +1,25 @@
+<%@page import="com.kh.realfinal.member.model.vo.Member" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<c:set var="path" value="${pageContext.request.contextPath}"/>  
+<c:set var="path" value="${pageContext.request.contextPath}"/>
+<%
+	String path = request.getContextPath();
+	String saveId = "";
+	Member loginMember = (Member)session.getAttribute("loginMember");
+	
+	Cookie[] cookies = request.getCookies();
+	
+		if(cookies != null){
+			for(Cookie c : cookies){
+				if(c.getName().equals("saveId")){
+					saveId = c.getValue();
+					break;
+				}
+			}
+		}
+%>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -162,7 +179,11 @@
                     </div>
                     <!-- 로그인 버튼 -->
                     <div class="nav-item d-none d-md-block ">
+                    <%if(loginMember == null){ %>
                         <a href="${path}/mypage/signIn" class="btn btn-sm btn-danger mb-0 mx-2 ">Sign In</a>
+                    <%} else { %>
+                        <a href="${path}/main/main" class="btn btn-sm btn-danger mb-0 mx-2 ">Logout</a>
+                    <%} %>
                     </div>
                     <!-- Offcanvas menu toggler -->
                     <div class="nav-item ">
