@@ -61,7 +61,7 @@
 </style>
 
 <head>
-    <title>FinTouch | Politics | cardCutDetail</title>
+    <title>FinTouch | Politics | CardCutDetail</title>
     <!-- Favicon -->
     <link rel="shortcut icon" href="resources/resources1b/images/favicon.ico">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
