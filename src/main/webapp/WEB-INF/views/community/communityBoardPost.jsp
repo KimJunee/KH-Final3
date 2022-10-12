@@ -17,7 +17,7 @@
 </head>
 
 <body>
-<%@ include file="/WEB-INF/views/common/header.jsp" %>
+<%@ include file="/WEB-INF/views/common/headerWhite.jsp" %>
 <script src="resources/resources1b/vendor/quill/js/quill.min.js"></script>
     <main>
         <!-- ============ 메뉴소개 시작 ============ -->
