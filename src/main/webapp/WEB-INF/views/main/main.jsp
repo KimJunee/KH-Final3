@@ -18,13 +18,12 @@
     <!-- **************** 메인컨텐츠 시작 **************** -->
     <main>
         <div class="tiny-slider arrow-hover arrow-blur arrow-round position-relative ">
-           <div class="page bg-dark-overlay-5" style="background-image:url(${path}/resources/resources1b/images/01_main/finance_1.jpeg); background-size: cover;">
             <!-- <section> -->
             <!-- <div class="container"> -->
             <div class="tiny-slider arrow-hover arrow-blur arrow-round position-relative">
                 <div class="tiny-slider-inner" data-autoplay="false" data-hoverpause="true" data-gutter="2" data-arrow="false" data-dots="true" data-items="1">
                     <!-- Slide item -->
-                    <div class="card bg-dark-overlay-4 rounded-0 h-400 h-lg-500 h-xl-700 position-relative overflow-hidden " style="background-image:url(assets/images/01_main/finance_1.jpeg); background-position: center left; background-size: cover;">
+                    <div class="card bg-dark-overlay-4 rounded-0 h-400 h-lg-500 h-xl-700 position-relative overflow-hidden " style="background-image:url(${path}/resources/resources1b/images/01_main/finance_1.jpeg); background-position: center left; background-size: cover;">
                         <!-- Card Image overlay -->
                         <div class="card-img-overlay rounded-0 d-flex align-items-center ">
                             <div class="container px-3 my-auto ">
@@ -184,7 +183,7 @@
                                     <!-- 카드뉴스 1 -->
                                     <div class="card">
                                         <div class="position-relative">
-                                            <img class="card-img" src="assets/images/01_main/main_card_01.png" alt="Card image">
+                                            <img class="card-img" src="${path}/resources/resources1b/images/01_main/main_card_01.png" alt="Card image">
                                             <div class="card-img-overlay d-flex align-items-start flex-column p-3">
                                             </div>
                                         </div>
@@ -197,7 +196,7 @@
                                     <!-- 카드뉴스 2 -->
                                     <div class="card">
                                         <div class="position-relative">
-                                            <img class="card-img" src="assets/images/01_main/main_card_02.png" alt="Card image">
+                                            <img class="card-img" src="${path}/resources/resources1b/images/01_main/main_card_02.png" alt="Card image">
                                             <div class="card-img-overlay d-flex align-items-start flex-column p-3">
                                             </div>
                                         </div>
@@ -210,7 +209,7 @@
                                     <!-- 카드뉴스 3 -->
                                     <div class="card">
                                         <div class="position-relative">
-                                            <img class="card-img" src="assets/images/01_main/main_card_03.png" alt="Card image">
+                                            <img class="card-img" src="${path}/resources/resources1b/images/01_main/main_card_03.png" alt="Card image">
                                             <div class="card-img-overlay d-flex align-items-start flex-column p-3">
                                             </div>
                                         </div>
@@ -430,7 +429,7 @@
                                     <div>
                                         <div class="card card-overlay-bottom card-img-scale " style="width: 250px; height: 350px; ">
                                             <!-- Card Image -->
-                                            <img class="card-img " src="assets/images/01_main/main_opi_01.jpg " alt=" " style="width: 250px; height: 350px; ">
+                                            <img class="card-img " src="${path}/resources/resources1b/images/01_main/main_opi_01.jpg " alt=" " style="width: 250px; height: 350px; ">
                                             <!-- Card Image overlay -->
                                             <div class="card-img-overlay d-flex flex-column p-3 p-sm-4 ">
                                                 <div class="w-100 mt-auto ">
@@ -447,7 +446,7 @@
                                     <div>
                                         <div class="card card-overlay-bottom card-img-scale " style="width: 250px; height: 350px; ">
                                             <!-- Card Image -->
-                                            <img class="card-img " src="assets/images/01_main/main_opi_02.jpg " alt=" " style="width: 250px; height: 350px; ">
+                                            <img class="card-img " src="${path}/resources/resources1b/images/01_main/main_opi_02.jpg " alt=" " style="width: 250px; height: 350px; ">
                                             <!-- Card Image overlay -->
                                             <div class="card-img-overlay d-flex flex-column p-3 p-sm-4 ">
                                                 <div class="w-100 mt-auto ">
@@ -466,7 +465,7 @@
                                     <div>
                                         <div class="card card-overlay-bottom card-img-scale " style="width: 250px; height: 350px; ">
                                             <!-- Card Image -->
-                                            <img class="card-img " src="assets/images/01_main/main_opi_03.jpg " alt=" " style="width: 250px; height: 350px; ">
+                                            <img class="card-img " src="${path}/resources/resources1b/images/01_main/main_opi_03.jpg " alt=" " style="width: 250px; height: 350px; ">
                                             <!-- Card Image overlay -->
                                             <div class="card-img-overlay d-flex flex-column p-3 p-sm-4 ">
                                                 <div class="w-100 mt-auto ">
@@ -483,7 +482,7 @@
                                     <div>
                                         <div class="card card-overlay-bottom card-img-scale " style="width: 250px; height: 350px; ">
                                             <!-- Card Image -->
-                                            <img class="card-img " src="assets/images/01_main/main_opi_04.jpg " alt=" " style="width: 250px; height: 350px; ">
+                                            <img class="card-img " src="${path}/resources/resources1b/images/01_main/main_opi_04.jpg " alt=" " style="width: 250px; height: 350px; ">
                                             <!-- Card Image overlay -->
                                             <div class="card-img-overlay d-flex flex-column p-3 p-sm-4 ">
                                                 <div class="w-100 mt-auto ">
@@ -500,7 +499,7 @@
                                     <div>
                                         <div class="card card-overlay-bottom card-img-scale " style="width: 250px; height: 350px; ">
                                             <!-- Card Image -->
-                                            <img class="card-img " src="assets/images/01_main/main_opi_03.jpg " alt=" " style="width: 250px; height: 350px; ">
+                                            <img class="card-img " src="${path}/resources/resources1b/images/01_main/main_opi_03.jpg " alt=" " style="width: 250px; height: 350px; ">
                                             <!-- Card Image overlay -->
                                             <div class="card-img-overlay d-flex flex-column p-3 p-sm-4 ">
                                                 <div class="w-100 mt-auto ">
@@ -521,103 +520,9 @@
             </section>
             <!-- =======================오피니언 끝 =======================-->
     </main>
-    <!-- **************** MAIN CONTENT END **************** -->
-
-    <!-- =======================푸터 시작 =======================-->
-    <footer class="bg-dark pt-3 ">
-        <div class="container ">
-            <!-- About and Newsletter START -->
-            <div class="row pt-3 pb-1 ">
-                <div class="col-md-3 ">
-                    <img src="assets/images/01_main/logo_white.png " alt="footer logo ">
-                </div>
-                <div class="col-md-5 ">
-                    <p class="text-muted ">그 누구보다도 정치경제소식에 신속하게 닿을 수 있는 곳. <br> FinTouch는 늘 고급 정보를 여러분께 전달하기 위해 노력합니다.</p>
-                </div>
-                <div class="col-md-4 ">
-                    <!-- Form -->
-                    <form class="row row-cols-lg-auto g-2 align-items-center justify-content-end ">
-                        <div class="col-12 ">
-                            <input type="email " class="form-control " placeholder="Enter your email address ">
-                        </div>
-                        <div class="col-12 ">
-                            <button type="submit " class="btn btn-primary m-0 ">Subscribe</button>
-                        </div>
-
-                    </form>
-                </div>
-            </div>
-            <!-- Divider -->
-            <hr>
-            <!-- Widgets START -->
-            <div class="row pt-1 ">
-                <!-- Footer Widget -->
-                <div class="col-md-6 col-lg-3 mb-3 ">
-                    <h5 class="mb-4 text-white ">Recent post</h5>
-                    <!-- Item -->
-                    <div class="mb-4 position-relative ">
-                        <div>
-                            <a href="# " class="badge text-bg-danger mb-2 ">
-                                <i class="fas fa-circle me-2 small fw-bold "></i>Finance</a>
-                        </div>
-                        <a href="post-single-3.html " class="btn-link text-white fw-normal ">10조로 커진 액티브 ETF…금리연동·채권형 대세로</a>
-                        <div>
-                        </div>
-                        <!-- <a href="post-single-3.html " class="btn-link text-white fw-normal ">지속가능한 부동산 산업의 미래</a> -->
-                    </div>
-                </div>
-                <!-- Footer Widget -->
-                <div class="col-md-6 col-lg-3 mb-3 ">
-                    <h5 class="mb-4 text-white ">Sponsor</h5>
-                    <div class="row ">
-                        <div class="col-6 ">
-                            <ul class="nav flex-column text-primary-hover ">
-                                <li class="nav-item "><a class="nav-link " href="# ">대한민국 국회</a></li>
-                                <li class="nav-item "><a class="nav-link pt-0 " href="# ">금융감독원</a></li>
-                                <li class="nav-item "><a class="nav-link pt-0 " href="# ">금융감독위원회 </a></li>
-                                <!-- <li class="nav-item "><a class="nav-link " href="# ">한국예탁결제원</a></li> -->
-                            </ul>
-                        </div>
-                        <div class="col-6 ">
-                            <ul class="nav flex-column text-primary-hover ">
-                                <li class="nav-item "><a class="nav-link " href="# ">기획재정부</a></li>
-                                <li class="nav-item "><a class="nav-link " href="# ">국토교통부</a></li>
-                                <li class="nav-item "><a class="nav-link " href="# ">주택도시기금</a></li>
-                                <!-- <li class="nav-item "><a class="nav-link " href="# ">매일경제</a></li> -->
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Footer Widget -->
-                <div class="col-sm-6 col-lg-3 mb-3 ">
-                    <h5 class="mb-4 text-white ">Get Regular Updates</h5>
-                    <ul class="nav flex-column text-primary-hover ">
-                        <li class="nav-item "><a class="nav-link pt-0 " href="# "><i class="fab fa-whatsapp fa-fw me-2 "></i>WhatsApp</a></li>
-                        <li class="nav-item "><a class="nav-link " href="# "><i class="fab fa-youtube fa-fw me-2 "></i>YouTube</a></li>
-                        <li class="nav-item "><a class="nav-link " href="# "><i class="far fa-bell fa-fw me-2 "></i>Website Notifications</a></li>
-                    </ul>
-                </div>
-
-                <!-- Footer Widget -->
-                <div class="col-sm-6 col-lg-3 mb-3 ">
-                    <h5 class="mb-4 text-white ">Our Mobile App</h5>
-                    <p class="text-muted ">FinTouch의 앱을 다운로드하여 최신 속보를 가장 빠르게 확인해보세요! </p>
-                    <div class="row g-2 ">
-                        <div class="col ">
-                            <a href="# "><img class="w-100 " src="assets/images/app-store.svg " alt="app-store "></a>
-                        </div>
-                        <div class="col ">
-                            <a href="# "><img class="w-100 " src="assets/images/google-play.svg " alt="google-play "></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Widgets END -->
-    </footer>
-    <!-- =======================푸터 끝 =======================-->
-
+       </main>
+	<%@ include file="/WEB-INF/views/common/footerDark.jsp" %>
+ 
 
 
     <!-- Back to top -->
