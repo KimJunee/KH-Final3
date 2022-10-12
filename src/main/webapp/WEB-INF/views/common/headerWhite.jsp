@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 
-<style>
+ <style>
     .nav-link-white-sp {
         display: block;
         padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
@@ -31,7 +31,7 @@
         display: -ms-flexbox;
         /* height: 80px; */
     }
-</style>
+</style> 
 
 <head>
     <title>FinTouch | 신속하고 정확한 금융지식전달을 위해 노력합니다. </title>
@@ -58,10 +58,12 @@
     <link rel="stylesheet" type="text/css" href="${path}/resources/resources1b/vendor/plyr/plyr.css">
     <link rel="stylesheet" type="text/css" href="${path}/resources/resources1b/vendor/apexcharts/css/apexcharts.css">
     <link rel="stylesheet" type="text/css" href="${path}/resources/resources1b/vendor/overlay-scrollbar/css/OverlayScrollbars.min.css">
- 
+    
+    <!-- 차트제이에스 chart.js css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
+    
     <!-- Theme CSS -->
     <link id="style-switch" rel="stylesheet" type="text/css" href="${path}/resources/resources1b/css/style.css">
-  
     
 </head>
 
@@ -71,8 +73,9 @@
         <nav class="navbar navbar-expand-sm navbar-nav-sp nav-link-white-sp">
             <div class="container ">
                 <!-- 로고 시작 -->
+                 <a class="navbar-brand navbar-nav-sp nav-link-sp" href="01_main.html" style="margin-top:-5px">
               <img class="navbar-brand-item light-mode-item " src="${path}/resources/resources1b/images/01_main/logo_dark.png" alt="logo ">
-                    <img class="navbar-brand-item dark-mode-item " src="${path}/resources/resources1b/images/01_main/logo_dark.png" alt="logo ">
+              <img class="navbar-brand-item dark-mode-item " src="${path}/resources/resources1b/images/01_main/logo_dark.png" alt="logo ">
                 </a>
                 <!-- 로고 끝-->
                 <!-- 메뉴 시작 -->
