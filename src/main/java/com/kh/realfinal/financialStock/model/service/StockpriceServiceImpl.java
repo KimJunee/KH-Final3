@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.kh.realfinal.financialStock.model.mapper.StockpriceMapper;
+import com.kh.realfinal.financialStock.model.vo.IndexPrice;
 import com.kh.realfinal.financialStock.model.vo.Stockprice;
 
 @Service
@@ -36,6 +37,18 @@ public class StockpriceServiceImpl implements StockpriceService{
 	@Override
 	public List<Stockprice> getKosdaqList() {
 		return mapper.selectKosdaqList();
+	}
+
+
+	@Override
+	public List<IndexPrice> getIndexKospiList() {
+		return mapper.selectIndexKospiList();
+	}
+
+
+	@Override
+	public List<IndexPrice> getIndexKosdaqList() {
+		return mapper.selectIndexKosdaqList();
 	}
 
 }

@@ -59,20 +59,20 @@
     <meta content="Coderthemes" name="author" />
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="resources/resources4h/assets2/images/favicon.ico">
+    <link rel="shortcut icon" href="${path}/resources/resources4h/assets2/images/favicon.ico">
 
     <!-- Theme Config Js -->
-    <script src="resources/resources4h/assets2/js/hyper-config.js"></script>
+    <script src="${path}/resources/resources4h/assets2/js/hyper-config.js"></script>
 
     <!-- Icons css -->
-    <link href="resources/resources4h/assets2/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="${path}/resources/resources4h/assets2/css/icons.min.css" rel="stylesheet" type="text/css" />
 
     <!-- App css -->
-    <link href="resources/resources4h/assets2/css/app-creative.min.css" rel="stylesheet" type="text/css" id="app-style" />
+    <link href="${path}/resources/resources4h/assets2/css/app-creative.min.css" rel="stylesheet" type="text/css" id="app-style" />
 
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="resources/resources4h/assets1/images/favicon.ico">
+    <link rel="shortcut icon" href="${path}/resources/resources4h/assets1/images/favicon.ico">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
 
     <!-- 구글폰트 -->
@@ -82,10 +82,10 @@
 
 
     <!-- Plugins CSS -->
-    <link rel="stylesheet" type="text/css" href="resources/resources4h/assets1/vendor/font-awesome/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="resources/resources4h/assets1/vendor/bootstrap-icons/bootstrap-icons.css">
-    <link rel="stylesheet" type="text/css" href="resources/resources4h/assets1/vendor/tiny-slider/tiny-slider.css">
-    <link rel="stylesheet" type="text/css" href="resources/resources4h/assets1/vendor/plyr/plyr.css">
+    <link rel="stylesheet" type="text/css" href="${path}/resources/resources4h/assets1/vendor/font-awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="${path}/resources/resources4h/assets1/vendor/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="${path}/resources/resources4h/assets1/vendor/tiny-slider/tiny-slider.css">
+    <link rel="stylesheet" type="text/css" href="${path}/resources/resources4h/assets1/vendor/plyr/plyr.css">
 
     <!-- 차트제이에스 chart.js css -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
@@ -95,13 +95,13 @@
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"> -->
 
     <!-- Theme CSS -->
-    <link id="style-switch" rel="stylesheet" type="text/css" href="resources/resources4h/assets1/css/style.css">
+    <link id="style-switch" rel="stylesheet" type="text/css" href="${path}/resources/resources4h/assets1/css/style.css">
 </head>
 
 <body>
 	<%@include file="/WEB-INF/views/common/header.jsp" %>
 	    <div class="mt-100"></div>
-    <section class="bg-dark-overlay-3 position-relative overflow-hidden" style="padding-bottom: 0px; background-image:url(resources/resources4h/assets2/images/01_main/finance.jpeg); background-position: center; background-size: cover;">
+    <section class="bg-dark-overlay-3 position-relative overflow-hidden" style="padding-bottom: 0px; background-image:url(${path}/resources/resources4h/assets2/images/01_main/finance.jpeg); background-position: center; background-size: cover;">
         <div class="bg-overlay bg-transparent opacity-5"></div>
         <!-- SVG decoration for curve -->
         <figure class="position-absolute bottom-0 left-0 w-100 d-md-block mb-n3 z-index-9">
@@ -369,7 +369,7 @@
                                             <path d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
                                             <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
                                           </svg>&nbsp;&nbsp;일자별</span>
-                                        <span style="padding-left:21em; padding-top:0px;">거래량/거래대금 단위(백만원)</span>
+                                        <span style="padding-left:16em; padding-top:0px;">거래량 단위(백) / 거래대금 단위(백만원)</span>
 
 
 
@@ -510,7 +510,7 @@
                             <div class="col-md-6 col-xxl-2">
                                 <div class="card" style="height:413px; width:170px">
                                     <div class="card-body" style="width:190px;">
-                                        <img src="resources/resources4h/assets2/images/financeDetail.png" alt="financeDetailbanner" style="height:400px; width:220px">
+                                        <img src="${path}/resources/resources4h/assets2/images/financeDetail.png" alt="financeDetailbanner" style="height:400px; width:220px">
                                     </div>
                                 </div>
                             </div>
@@ -755,9 +755,9 @@
                                                 <p>Please include following css file at <code>head</code> element</p>
 
                                                 <pre>                                                    <span class="html escape hljs xml "><span class="hljs-comment ">&lt;!-- Datatables css --&gt;</span><br><span class="hljs-tag ">&lt;<span class="hljs-name
-                                                                        ">link</span> <span class="hljs-attr ">href</span>=<span class="hljs-string ">"resources/resources4h/assets2/vendor/datatables.net-bs5/css/dataTables.bootstrap5.min.css "</span> <span class="hljs-attr ">rel</span>=<span class="hljs-string
+                                                                        ">link</span> <span class="hljs-attr ">href</span>=<span class="hljs-string ">"${path}/resources/resources4h/assets2/vendor/datatables.net-bs5/css/dataTables.bootstrap5.min.css "</span> <span class="hljs-attr ">rel</span>=<span class="hljs-string
                                                                         ">"stylesheet "</span> <span class="hljs-attr ">type</span>=<span class="hljs-string ">"text/css "</span> /&gt;</span><br><span class="hljs-tag ">&lt;<span class="hljs-name
-                                                                        ">link</span> <span class="hljs-attr ">href</span>=<span class="hljs-string ">"resources/resources4h/assets2/vendor/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css "</span> <span class="hljs-attr
+                                                                        ">link</span> <span class="hljs-attr ">href</span>=<span class="hljs-string ">"${path}/resources/resources4h/assets2/vendor/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css "</span> <span class="hljs-attr
                                                                         ">rel</span>=<span class="hljs-string ">"stylesheet "</span> <span class="hljs-attr ">type</span>=<span class="hljs-string ">"text/css "</span> /&gt;</span></span>
                                                 </pre>
                                                 <!-- end highlight-->
@@ -765,13 +765,13 @@
                                                 <p>Make sure to include following js files at end of <code>body</code> element</p>
 
                                                 <pre class="mb-0 ">                                                    <span class="html escape hljs xml "><span class="hljs-comment ">&lt;!-- Datatables js --&gt;</span><br><span class="hljs-tag
-                                                                        ">&lt;<span class="hljs-name ">script</span> <span class="hljs-attr ">src</span>=<span class="hljs-string ">"resources/resources4h/assets2/vendor/datatables.net/js/jquery.dataTables.min.js "</span>&gt;</span><span class="hljs-tag
-                                                                        ">&lt;/<span class="hljs-name ">script</span>&gt;</span><br><span class="hljs-tag ">&lt;<span class="hljs-name ">script</span> <span class="hljs-attr ">src</span>=<span class="hljs-string ">"resources/resources4h/assets2/vendor/datatables.net-bs5/js/dataTables.bootstrap5.min.js
+                                                                        ">&lt;<span class="hljs-name ">script</span> <span class="hljs-attr ">src</span>=<span class="hljs-string ">"${path}/resources/resources4h/assets2/vendor/datatables.net/js/jquery.dataTables.min.js "</span>&gt;</span><span class="hljs-tag
+                                                                        ">&lt;/<span class="hljs-name ">script</span>&gt;</span><br><span class="hljs-tag ">&lt;<span class="hljs-name ">script</span> <span class="hljs-attr ">src</span>=<span class="hljs-string ">"${path}/resources/resources4h/assets2/vendor/datatables.net-bs5/js/dataTables.bootstrap5.min.js
                                                                         "</span>&gt;</span><span class="hljs-tag ">&lt;/<span class="hljs-name ">script</span>&gt;</span><br><span class="hljs-tag ">&lt;<span class="hljs-name ">script</span> <span class="hljs-attr
-                                                                        ">src</span>=<span class="hljs-string ">"resources/resources4h/assets2/vendor/datatables.net-responsive/js/dataTables.responsive.min.js "</span>&gt;</span><span class="hljs-tag ">&lt;/<span class="hljs-name
-                                                                        ">script</span>&gt;</span><br><span class="hljs-tag ">&lt;<span class="hljs-name ">script</span> <span class="hljs-attr ">src</span>=<span class="hljs-string ">"resources/resources4h/assets2/vendor/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js
+                                                                        ">src</span>=<span class="hljs-string ">"${path}/resources/resources4h/assets2/vendor/datatables.net-responsive/js/dataTables.responsive.min.js "</span>&gt;</span><span class="hljs-tag ">&lt;/<span class="hljs-name
+                                                                        ">script</span>&gt;</span><br><span class="hljs-tag ">&lt;<span class="hljs-name ">script</span> <span class="hljs-attr ">src</span>=<span class="hljs-string ">"${path}/resources/resources4h/assets2/vendor/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js
                                                                         "</span>&gt;</span><span class="hljs-tag ">&lt;/<span class="hljs-name ">script</span>&gt;</span><br><br><span class="hljs-comment ">&lt;!-- Datatable Init js --&gt;</span><br><span class="hljs-tag
-                                                                        ">&lt;<span class="hljs-name ">script</span> <span class="hljs-attr ">src</span>=<span class="hljs-string ">"resources/resources4h/assets2/js/pages/demo.datatable-init.js "</span>&gt;</span><span class="hljs-tag
+                                                                        ">&lt;<span class="hljs-name ">script</span> <span class="hljs-attr ">src</span>=<span class="hljs-string ">"${path}/resources/resources4h/assets2/js/pages/demo.datatable-init.js "</span>&gt;</span><span class="hljs-tag
                                                                         ">&lt;/<span class="hljs-name ">script</span>&gt;</span></span>
                                                 </pre>
                                                 <!-- end highlight-->

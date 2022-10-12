@@ -18,7 +18,7 @@ public class IndexPrice {          //지수 시세 정보
 	private Double mkp;            //정규시장의 매매시간개시후 형성되는 최초가격(시가)
 	private Double hipr;           //하루 중 지수의 최고치
 	private Double lopr;           //하루 중 지수의 최저치
-	private Long trqu;           //지수에 포함된 종목의 거래량 총합
+	private Long   trqu;           //지수에 포함된 종목의 거래량 총합
 	private Long   trPrc;          //지수에 포함된 종목의 거래대금 총합
 	private Long   lstgMrktTotAmt; //지수에 포함된 종목의 시가총액
 	private Double lsYrEdVsFltRg;  //지수의 전년말대비 등락폭
