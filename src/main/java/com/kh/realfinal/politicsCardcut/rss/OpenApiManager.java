@@ -1,4 +1,4 @@
-package com.kh.realfinal.cardcut.rss;
+package com.kh.realfinal.politicsCardcut.rss;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -10,13 +10,13 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.w3c.dom.NodeList;
+
+import com.kh.realfinal.politicsCardcut.model.vo.CardCutVO;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
-
-import com.kh.realfinal.cardcut.model.vo.CardCutVO;
 
 public class OpenApiManager {
 	public static final String WEEKLY_XML_URL  = "https://www.korea.kr/rss/visual.xml";

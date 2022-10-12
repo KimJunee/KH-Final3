@@ -1,4 +1,4 @@
-package com.kh.realfinal.cardcut.model.vo;
+package com.kh.realfinal.politicsCardcut.model.vo;
 
 import java.util.Date;
 import java.util.List;
