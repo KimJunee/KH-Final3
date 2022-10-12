@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.kh.realfinal.apply.api.ApplyApi;
 import com.kh.realfinal.apply.model.service.RemndrLttotPblancDetailService;
 import com.kh.realfinal.apply.model.vo.RemndrLttotPblancDetail;
+import com.kh.realfinal.apply.model.vo.RemndrMdl;
 
 @Controller
 public class RemndrLttotPblancDetailController {
@@ -19,19 +20,33 @@ public class RemndrLttotPblancDetailController {
 	
 	@RequestMapping("/RemndrLttotPblancDetail/insert.do")
 	public String initRemndrLttotPblancDetailData(Model model) {
-		List<RemndrLttotPblancDetail> list = ApplyApi.RemndrLttotPblancDetailByJSON();
+		List<RemndrLttotPblancDetail> list1 = ApplyApi.callRemndrLttotPblancDetailByJSON();
 		
-		int result = 0;
-		for(RemndrLttotPblancDetail rd : list) {
-			result = service.saveRemndrLttotPblancDetailService(rd);
+		int result1 = 0;
+		int result2 = 0;
+		for(RemndrLttotPblancDetail rd : list1) {
+			result1 = service.saveRemndrLttotPblancDetailService(rd);
+			
+			List<RemndrMdl> list2 = ApplyApi.RemndrMdlByJSON(rd.getHouse_manage_no(), rd.getPblanc_no());
+			for(RemndrMdl rm : list2) {
+				result2 = service.saveRemndrMdlService(rm);
+			}
 		}
 		
 		
-		if(result > 0) {
-			model.addAttribute("msg", "공공서비스 DB 저장성공");
+		if(result1 > 0) {
+			model.addAttribute("msg", "Remndr DB 저장성공");
 			model.addAttribute("location", "/");
 		}else {
-			model.addAttribute("msg", "공공서비스 DB 저장 실패!!!!!!!");
+			model.addAttribute("msg", "Remndr DB 저장 실패!!!!!!!");
+			model.addAttribute("location", "/");
+		}
+		
+		if(result1 > 0) {
+			model.addAttribute("msg", "RemndrMdl DB 저장성공");
+			model.addAttribute("location", "/");
+		}else {
+			model.addAttribute("msg", "RemndrMdl DB 저장 실패!!!!!!!");
 			model.addAttribute("location", "/");
 		}
 		return "/common/msg";

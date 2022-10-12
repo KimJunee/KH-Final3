@@ -3,10 +3,10 @@ package com.kh.realfinal.apply.model.service;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.kh.realfinal.apply.model.mapper.RemndrMdlMapper;
 import com.kh.realfinal.apply.model.mapper.UrbtyMdlMapper;
 import com.kh.realfinal.apply.model.vo.RemndrMdl;
 import com.kh.realfinal.apply.model.vo.UrbtyMdl;

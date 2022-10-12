@@ -4,6 +4,46 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper	namespace="com.kh.realfinal.apply.model.mapper.RemndrLttotPblancDetailMapper">
+	<resultMap type="RemndrLttotPblancDetail" id="RemndrMap">
+		<id property="house_manage_no" column="HOUSE_MANAGE_NO"/>
+		<result property="pblanc_no" column="PBLANC_NO"/>
+		<result property="house_nm" column="HOUSE_NM"/>
+		<result property="house_secd" column="HOUSE_SECD"/>
+		<result property="house_secd_nm" column="HOUSE_SECD_NM"/>
+		<result property="hssply_zip" column="HSSPLY_ZIP"/>
+		<result property="hmpg_adres" column="HMPG_ADRES"/>
+		<result property="tot_suply_hshldco" column="TOT_SUPLY_HSHLDCO"/>
+		<result property="rcrit_pblanc_de" column="RCRIT_PBLANC_DE"/>
+		<result property="subscrpt_rcept_bgnde" column="SUBSCRPT_RCEPT_BGNDE"/>
+		<result property="subscrpt_rcept_endde" column="SUBSCRPT_RCEPT_ENDDE"/>
+		<result property="spsply_rcept_bgnde" column="SPSPLY_RCEPT_BGNDE"/>
+		<result property="spsply_rcept_endde" column="SPSPLY_RCEPT_ENDDE"/>
+		<result property="gnrl_rcept_rcptde" column="GNRL_RCEPT_RCPTDE"/>
+		<result property="gnrl_rcept_endde" column="GNRL_RCEPT_ENDDE"/>
+		<result property="przwner_presnatn_de" column="PRZWNER_PRESNATN_DE"/>
+		<result property="cntrct_cncls_bgnde" column="CNTRCT_CNCLS_BGNDE"/>
+		<result property="cntrct_cncls_endde" column="CNTRCT_CNCLS_ENDDE"/>
+		<result property="hmpg_adres" column="HMPG_ADRES"/>
+		<result property="bsns_mby_nm" column="BSNS_MBY_NM"/>
+		<result property="mdhs_telno" column="MDHS_TELNO"/>
+		<result property="mvn_prearnge_ym" column="MVN_PREARNGE_YM"/>
+	</resultMap>
+	
+	<resultMap type="RemndrLttotPblancDetail" id="RemndrLttotPblancDetailMap" extends="RemndrMap">
+		<collection property="RemndrLttotPblancDetailList" javaType="arrayList" resultMap="RemndrMdlMap"/>
+	</resultMap>
+	
+	<resultMap type="RemndrMdl" id="RemndrMdlMap">
+		<id property="house_manage_no" column="HOUSE_MANAGE_NO"/>
+		<result property="pblanc_no" column="PBLANC_NO"/>
+		<result property="model_no" column="MODEL_NO"/>
+		<result property="house_ty" column="HOUSE_TY"/>
+		<result property="supply_ar" column="SUPPLY_AR"/>
+		<result property="suply_hshldco" column="SUPLY_HSHLDCO"/>
+		<result property="spsply_hshldco" column="SPSPLY_HSHLDCO"/>
+		<result property="lttot_top_amount" column="LTTOT_TOP_AMOUNT"/>
+	</resultMap>
+	
 	<insert id="insertRemndrLttotPblancDetail"
 		parameterType="hashMap">
 	INSERT INTO REMNDRLTTOTPBLANCDETAIL(
@@ -30,15 +70,36 @@
 		MDHS_TELNO,
 		MVN_PREARNGE_YM
 	)
-	VALUES(#{house_manage_no}, #{pblanc_no}, 
-	#{house_nm}, #{house_secd}, #{house_secd_nm}, #{hssply_zip}, 
-	#{hmpg_adres}, #{tot_suply_hshldco}, #{rcrit_pblanc_de},
-	#{subscrpt_rcept_bgnde}, #{subscrpt_rcept_endde},
-	#{spsply_rcept_bgnde}, #{spsply_rcept_endde}, 
-	#{gnrl_rcept_rcptde}, #{gnrl_rcept_endde},
-	#{przwner_presnatn_de}, 
-	#{cntrct_cncls_bgnde}, #{cntrct_cncls_endde}, 
-	#{hmpg_adres}, #{bsns_mby_nm}, 
-	#{mdhs_telno}, #{mvn_prearnge_ym})
+	VALUES(
+		#{house_manage_no}, #{pblanc_no}, 
+		#{house_nm}, #{house_secd}, #{house_secd_nm}, #{hssply_zip}, 
+		#{hmpg_adres}, #{tot_suply_hshldco}, #{rcrit_pblanc_de},
+		#{subscrpt_rcept_bgnde}, #{subscrpt_rcept_endde},
+		#{spsply_rcept_bgnde}, #{spsply_rcept_endde}, 
+		#{gnrl_rcept_rcptde}, #{gnrl_rcept_endde},
+		#{przwner_presnatn_de}, 
+		#{cntrct_cncls_bgnde}, #{cntrct_cncls_endde}, 
+		#{hmpg_adres}, #{bsns_mby_nm}, 
+		#{mdhs_telno}, #{mvn_prearnge_ym}
+	)
+	</insert>
+	
+	<insert id="insertRemndrMdl"
+		parameterType="hashMap">
+	INSERT INTO REMNDRMDL(
+		HOUSE_MANAGE_NO,
+		PBLANC_NO,
+		MODEL_NO,
+		HOUSE_TY,
+		SUPPLY_AR,
+		SUPLY_HSHLDCO,
+		SPSPLY_HSHLDCO,
+		LTTOT_TOP_AMOUNT
+	)
+	VALUES(
+		#{house_manage_no}, #{pblanc_no},
+		#{model_no}, #{house_ty}, #{supply_ar},
+		#{suply_hshldco}, #{spsply_hshldco}, #{lttot_top_amount}
+	)
 	</insert>
 </mapper>
