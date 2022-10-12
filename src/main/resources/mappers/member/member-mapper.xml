@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper
-  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="com.kh.realfinal.member.model.mapper.MemberMapper">
   
@@ -46,7 +44,7 @@
 		    USER_EMAIL, 
 		    USER_STATUS
 		) VALUES(
-		    SEQ_UNO.NEXTVAL, 
+		    SEQ_USER_NO.NEXTVAL, 
 		    #{user_id}, 
 		    #{user_name}, 
 		    #{user_nickname}, 
@@ -65,7 +63,6 @@
 			USER_PASSWORD 	= #{user_password}
 		WHERE USER_NO = #{user_no}
 	</update>
-  
 
 	<update id="deleteMember" parameterType="int">
 		UPDATE USER_T

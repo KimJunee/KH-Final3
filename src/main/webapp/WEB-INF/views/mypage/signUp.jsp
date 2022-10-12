@@ -19,24 +19,12 @@
     <!-- Favicon -->
     <link rel="shortcut icon" href="resources/resources1b/images/favicon.ico">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
-    <!-- Theme mode-->
-    <script>
-        let mode = window.localStorage.getItem('mode'),
-            root = document.getElementsByTagName('html')[0];
-        if (mode !== undefined && mode === 'dark') {
-            root.classList.add('dark-mode');
-        } else {
-            root.classList.remove('dark-mode');
-        }
-    </script>
-
     <!-- Import Google Font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" id="google-font">
-    <!-- Vendor styles-->
     <!-- Main Theme Styles + Bootstrap-->
-    <link rel="stylesheet" media="screen" href="resources/resources2a/assets/css/theme.min.css">
+    <link rel="stylesheet" media="screen" href="${path}/resources/resources2a/assets/css/theme.min.css">
 </head>
 <!-- Body-->
 
@@ -50,42 +38,44 @@
             <div class="d-flex flex-column align-items-center w-lg-50 h-100 px-3 px-lg-5 pt-5">
                 <div class="w-100 mt-auto" style="max-width: 526px;">
                     <h1>Sign up</h1>
-                    <p class="pb-3 mb-3 mb-lg-4">이미 계정이 있으세요?&nbsp;&nbsp;<a href='account-signin.html'>로그인 하러가기</a></p>
-                    <form class="needs-validation" novalidate>
+                    <p class="pb-3 mb-3 mb-lg-4">이미 계정이 있으세요?&nbsp;&nbsp;<a href='${path}/mypage/signIn'>로그인 하러가기</a></p>
+                    <form class="needs-validation" novalidate name="signUp" action="${path}/member/enroll" method="post">
                         <!-- ID / 이름 -->
                         <div class="row row-cols-1 row-cols-sm-2">
                             <div class="col mb-4">
-                                <input class="form-control form-control-lg" type="text" placeholder="ID" required>
+                                <input class="form-control form-control-lg" type="text" name="user_id" id="idcheck" placeholder="ID" required>
                             </div>
                             <div class="col mb-4">
-                                <input class="form-control form-control-lg" type="text" placeholder="Name" required>
+                                <input class="form-control form-control-lg" type="text" name="user_name" placeholder="Name" required>
                             </div>
                         </div>
                         <!-- 닉네임 -->
                         <div class="col mb-4">
-                            <input class="form-control form-control-lg" type="email" placeholder="Nickname" required>
+                            <input class="form-control form-control-lg" type="text" name="user_nickname" id="nicknamecheck" placeholder="Nickname" required>
                         </div>
                         <!-- 전화번호 -->
                         <div class="col mb-4">
-                            <input class="form-control form-control-lg" type="phone" placeholder="Phone" required>
+                            <input class="form-control form-control-lg" type="tel" name="user_phone" placeholder="Phone" required>
                         </div>
                         <!-- 비밀번호 -->
                         <div class="password-toggle mb-4">
-                            <input class="form-control form-control-lg" type="password" placeholder="Password" required>
+                            <input class="form-control form-control-lg" type="password" name="user_password" placeholder="Password" required>
                             <label class="password-toggle-btn" aria-label="Show/hide password">
-                                <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+                                <input class="password-toggle-check" type="checkbox">
+                                <span class="password-toggle-indicator"></span>
                             </label>
                         </div>
                         <!-- 비밀번호 확인 -->
                         <div class="password-toggle mb-4">
                             <input class="form-control form-control-lg" type="password" placeholder="Confirm password" required>
                             <label class="password-toggle-btn" aria-label="Show/hide password">
-                                <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+                                <input class="password-toggle-check" type="checkbox">
+                                <span class="password-toggle-indicator"></span>
                             </label>
                         </div>
                         <!-- E-Mail -->
                         <div class="col mb-4">
-                            <input class="form-control form-control-lg" type="email" placeholder="E-Mail" required>
+                            <input class="form-control form-control-lg" type="email" name="user_email" placeholder="E-Mail" required>
                         </div>
                         <!-- 약관동의 -->
                         <div class="pb-4">
@@ -97,8 +87,9 @@
                         <!-- 회원가입 버튼 -->
                         <button class="btn btn-lg btn-primary w-100 mb-2" type="submit">Sign up</button>
                         <h2 class="h6 text-center pt-3 pt-lg-4 mb-4">Or sign in with your social account</h2>
+                        <!-- 카카오 회원가입 -->
                         <div class="row row-cols-1 row-cols-sm-2 gy-3">
-                            <button class="btn btn-lg btn-kakao w-100" style="background-color: #FEE500; border-color: #FEE500; border-radius: 12px;" type="submit" id="kakaologin"><img src="resources/resources2a/assets/img/account/kakao_logo01.png" width: 50%; height: 50%;>&nbsp Login with Kakao</button>
+                            <button class="btn btn-lg btn-kakao w-100" style="background-color: #FEE500; border-color: #FEE500; border-radius: 12px;" type="submit" id="kakaologin"><img src="${path}/resources/resources2a/assets/img/account/kakao_logo01.png" width: 50%; height: 50%;>&nbsp Login with Kakao</button>
                         </div>
                     </form>
                 </div>
@@ -108,7 +99,7 @@
                 </p>
             </div>
             <!-- Cover image-->
-            <div class="w-50 bg-size-cover bg-repeat-0 bg-position-center" style="background-image: url(resources/resources2a/assets/img/account/login02.png);"></div>
+            <div class="w-50 bg-size-cover bg-repeat-0 bg-position-center" style="background-image: url(${path}/resources/resources2a/assets/img/account/login02.png);"></div>
         </div>
     </main>
     <!-- Back to top button-->
@@ -117,10 +108,10 @@
         <circle cx="20" cy="20" r="19" fill="none" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"></circle>
       </svg><i class="ai-arrow-up"></i></a>
     <!-- Vendor scripts: js libraries and plugins-->
-    <script src="resources/resources2a/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="resources/resources2a/assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="${path}/resources/resources2a/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="${path}/resources/resources2a/assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
     <!-- Main theme script-->
-    <script src="resources/resources2a/assets/js/theme.min.js"></script>
+    <script src="${path}/resources/resources2a/assets/js/theme.min.js"></script>
 </body>
 
 </html>

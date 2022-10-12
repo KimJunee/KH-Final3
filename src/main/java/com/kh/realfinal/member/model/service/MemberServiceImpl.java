@@ -1,18 +1,24 @@
 package com.kh.realfinal.member.model.service;
 
-
-
+import java.util.HashMap;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.kh.realfinal.member.model.mapper.MemberMapper;
 import com.kh.realfinal.member.model.vo.Member;
 
+@Service
 public class MemberServiceImpl implements MemberService{
 	
 	@Autowired
 	private MemberMapper mapper;
 	
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder; // SHA-256 Hash code 알고리즘 활용 객체 (일방향 암호화)
+	
+	// 로그인
 	@Override
 	public Member login(String user_id, String user_password) {
 		Member member = this.findById(user_id);
@@ -40,9 +46,13 @@ public class MemberServiceImpl implements MemberService{
 			member.setUser_password(member.getUser_password());
 			result = mapper.insertMember(member);
 		}
-		
 		return result;	
 		}
+	
+	@Override
+	public boolean validate(String userId) {
+		return this.findById(userId) != null;
+	}
 
 	@Override
 	public Member findById(String user_id) {
@@ -65,4 +75,12 @@ public class MemberServiceImpl implements MemberService{
 		}
 	}
 
+	@Override
+	@Transactional(rollbackFor = Exception.class)
+	public int updatePwd(Member loginMember, String user_password) {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("no", ""+loginMember.getUser_no());
+		map.put("newPwd", passwordEncoder.encode(user_password));
+		return mapper.updatePwd(map);
+	}
 }

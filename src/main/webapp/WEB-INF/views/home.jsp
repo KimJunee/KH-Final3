@@ -49,6 +49,8 @@
 
 <h2><a href="${path}/stockprice/fin_main.do"> 금융메인으로 갑니다</a></h2>
 
+<h2><a href="${path}/mypage/signIn">로그인 페이지 가기</a></h2>
+
 <%-- <h2><a href="${path}/cardcut/insert.do"> 카드한컷 DB INSERT</a></h2>--%>
 
 <%-- <iframe id="ytplayer" type="text/html" width="720" height="405"
