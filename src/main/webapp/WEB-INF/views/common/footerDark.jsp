@@ -102,29 +102,26 @@
 
 
     <!-- Back to top -->
-<<<<<<< HEAD
+
     <div class="back-top"><i class="bi bi-arrow-up-short"></i></div>
     
 	   <!--그래프 관련1 -지수- - 그래프 관련script 순서 맞춘겁니다 이 위치에 두세요 절대 건들지마세요- -->
     <script src="${path}/resources/resources1b/vendor/apexcharts/js/apexcharts.min.js "></script>
-=======
-    <div class="back-top "><i class="bi bi-arrow-up-short "></i></div>
->>>>>>> branch 'master' of https://github.com/KimJunee/KH-Final3.git
 
-<<<<<<< HEAD
-=======
+    <div class="back-top "><i class="bi bi-arrow-up-short "></i></div>
+
     <!-- =======================
 JS libraries, plugins and custom scripts -->
 
     <!--그래프 관련1 -지수- - 그래프 관련script 순서 맞춘겁니다 이 위치에 두세요 절대 건들지마세요- -->
     <script src="assets/vendor/apexcharts/js/apexcharts.min.js "></script>
 
->>>>>>> branch 'master' of https://github.com/KimJunee/KH-Final3.git
+
     <!-- 그래프 관련2 -지수- - 그래프 관련script 순서 맞춘겁니다 이 위치에 두세요 절대 건들지마세요- -->
     <script src="https://apexcharts.com/samples/assets/stock-prices.js "></script>
 
     <!-- Bootstrap JS -->
-<<<<<<< HEAD
+
     <script src="${path}/resources/resources1b/vendor/bootstrap/dist/js/bootstrap.bundle.min.js "></script>
 
     <!-- Vendors -->
@@ -146,7 +143,7 @@ JS libraries, plugins and custom scripts -->
     <script src="${path}/resources/resources1b/js/demo.apex-area4.js "></script>
     <script src="${path}/resources/resources1b/js/demo.crm-dashboard.js "></script>
     <script src="${path}/resources/resources1b/js/vendor.min.js "></script>
-=======
+
     <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js "></script>
 
     <!-- Vendors -->
@@ -168,16 +165,13 @@ JS libraries, plugins and custom scripts -->
     <script src="assets/js/demo.apex-area4.js "></script>
     <script src="assets/js/demo.crm-dashboard.js "></script>
     <script src="assets/js/vendor.min.js "></script>
->>>>>>> branch 'master' of https://github.com/KimJunee/KH-Final3.git
+
 
     <!-- 그래프 관련4 - 그래프 관련script 순서 맞춘겁니다 이 위치에 두세요 절대 건들지마세요- -->
     <script src="https://apexcharts.com/samples/assets/series1000.js "></script>
     <script src="https://apexcharts.com/samples/assets/github-data.js "></script>
     <script src="https://apexcharts.com/samples/assets/irregular-data-series.js "></script>
-<<<<<<< HEAD
-    
-=======
->>>>>>> branch 'master' of https://github.com/KimJunee/KH-Final3.git
+
 
 </body>
 
