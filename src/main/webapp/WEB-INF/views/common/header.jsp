@@ -162,7 +162,7 @@
                     </div>
                     <!-- 로그인 버튼 -->
                     <div class="nav-item d-none d-md-block ">
-                        <a href="08_mp_signin.html" class="btn btn-sm btn-danger mb-0 mx-2 ">Sign In</a>
+                        <a href="${path}/mypage/signIn" class="btn btn-sm btn-danger mb-0 mx-2 ">Sign In</a>
                     </div>
                     <!-- Offcanvas menu toggler -->
                     <div class="nav-item ">
