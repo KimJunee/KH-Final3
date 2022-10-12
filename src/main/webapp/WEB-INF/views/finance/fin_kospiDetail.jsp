@@ -450,213 +450,67 @@
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
-                                                                    <tr class="odd">
-                                                                        <td style="text-align:center">1</td>
-                                                                        <td style="text-align:left">삼성전자</td>
-                                                                        <td style="text-align:right;">53,900</td>
-                                                                        <td style="color:blue; text-align:right;">▼600</td>
-                                                                        <td style="color:blue; text-align:right;">-5.21%</td>
-                                                                        <td style="text-align:center">5,969,782,550</td>
-                                                                        <td style="text-align:center">335,501,779,310,000</td>
-                                                                    </tr>
-                                                                    <tr class="even ">
-                                                                        <td style="text-align:center">2</td>
-                                                                        <td style="text-align:left">LG에너지솔루션</td>
-                                                                        <td style="text-align:right;">446,500</td>
-                                                                        <td style="color:red; text-align:right;">▲1,000</td>
-                                                                        <td style="color:red; text-align:right;">+0.21%</td>
-                                                                        <td style="text-align:center">5,969,782,550</td>
-                                                                        <td style="text-align:center">335,501,779,310,000</td>
-                                                                    </tr>
-                                                                    <tr class="even ">
-                                                                        <td style="text-align:center">3</td>
-                                                                        <td style="text-align:left">SK하이닉스</td>
-                                                                        <td style="text-align:right;">82,500</td>
-                                                                        <td style="color:blue; text-align:right;">▼1,000</td>
-                                                                        <td style="color:blue; text-align:right;">-1.21%</td>
-                                                                        <td style="text-align:center">5,969,782,550</td>
-                                                                        <td style="text-align:center">335,501,779,310,000</td>
-                                                                    </tr>
-                                                                    <tr class="even ">
-                                                                        <td style="text-align:center">4</td>
-                                                                        <td style="text-align:left">삼성바이오로직스</td>
-                                                                        <td style="text-align:right;">758,500</td>
-                                                                        <td style="color:blue; text-align:right;">▼12,000</td>
-                                                                        <td style="color:blue; text-align:right;">-1.51%</td>
-                                                                        <td style="text-align:center">5,969,782,550</td>
-                                                                        <td style="text-align:center">335,501,779,310,000</td>
-                                                                    </tr>
-                                                                    <tr class="even ">
-                                                                        <td style="text-align:center">5</td>
-                                                                        <td style="text-align:left">삼성SDI</td>
-                                                                        <td style="text-align:right;">597,500</td>
-                                                                        <td style="color:red; text-align:right;">▲1,000</td>
-                                                                        <td style="color:red; text-align:right;">+0.18%</td>
-                                                                        <td style="text-align:center">5,969,782,550</td>
-                                                                        <td style="text-align:center">335,501,779,310,000</td>
-                                                                    </tr>
-                                                                    <tr class="even ">
-                                                                        <td style="text-align:center">6</td>
-                                                                        <td style="text-align:left">LG화학</td>
-                                                                        <td style="text-align:right;">571,500</td>
-                                                                        <td style="color:blue; text-align:right;">▼33,000</td>
-                                                                        <td style="color:blue; text-align:right;">-5.51%</td>
-                                                                        <td style="text-align:center">5,969,782,550</td>
-                                                                        <td style="text-align:center">335,501,779,310,000</td>
-                                                                    </tr>
-                                                                    <tr class="even ">
-                                                                        <td style="text-align:center">7</td>
-                                                                        <td style="text-align:left">삼성전자우</td>
-                                                                        <td style="text-align:right;">48,500</td>
-                                                                        <td style="color:blue; text-align:right;">▼1,200</td>
-                                                                        <td style="color:blue; text-align:right;">-2.41%</td>
-                                                                        <td style="text-align:center">5,969,782,550</td>
-                                                                        <td style="text-align:center">335,501,779,310,000</td>
-                                                                    </tr>
-                                                                    <tr class="even ">
-                                                                        <td style="text-align:center">8</td>
-                                                                        <td style="text-align:left">현대차</td>
-                                                                        <td style="text-align:right;">182,500</td>
-                                                                        <td style="color:blue; text-align:right;">▼8,000</td>
-                                                                        <td style="color:blue; text-align:right;">-4.41%</td>
-                                                                        <td style="text-align:center">5,969,782,550</td>
-                                                                        <td style="text-align:center">335,501,779,310,000</td>
-                                                                    </tr>
-                                                                    <tr class="even ">
-                                                                        <td style="text-align:center">9</td>
-                                                                        <td style="text-align:left">NAVER</td>
-                                                                        <td style="text-align:right;">205,500</td>
-                                                                        <td style="color:blue; text-align:right;">▼6,000</td>
-                                                                        <td style="color:blue; text-align:right;">-2.51%</td>
-                                                                        <td style="text-align:center">5,969,782,550</td>
-                                                                        <td style="text-align:center">335,501,779,310,000</td>
-                                                                    </tr>
-                                                                    <tr class="even ">
-                                                                        <td style="text-align:center">10</td>
-                                                                        <td style="text-align:left">기아</td>
-                                                                        <td style="text-align:right;">74,500</td>
-                                                                        <td style="color:red; text-align:right;">▲1,000</td>
-                                                                        <td style="color:red; text-align:right;">+0.18%</td>
-                                                                        <td style="text-align:center">5,969,782,550</td>
-                                                                        <td style="text-align:center">335,501,779,310,000</td>
-                                                                    </tr>
-                                                                    <tr class="odd">
-                                                                        <td style="text-align:center">11</td>
-                                                                        <td style="text-align:left">삼성전자</td>
-                                                                        <td style="text-align:right;">53,900</td>
-                                                                        <td style="color:blue; text-align:right;">▼600</td>
-                                                                        <td style="color:blue; text-align:right;">-5.21%</td>
-                                                                        <td style="text-align:center">5,969,782,550</td>
-                                                                        <td style="text-align:center">335,501,779,310,000</td>
-                                                                    </tr>
-                                                                    <tr class="even ">
-                                                                        <td style="text-align:center">12</td>
-                                                                        <td style="text-align:left;">LG에너지솔루션</td>
-                                                                        <td style="text-align:right;">446,500</td>
-                                                                        <td style="color:red; text-align:right;">▲1,000</td>
-                                                                        <td style="color:red; text-align:right;">+0.21%</td>
-                                                                        <td style="text-align:center">5,969,782,550</td>
-                                                                        <td style="text-align:center">335,501,779,310,000</td>
-                                                                    </tr>
-                                                                    <tr class="even ">
-                                                                        <td style="text-align:center">13</td>
-                                                                        <td style="text-align:left">SK하이닉스</td>
-                                                                        <td style="text-align:right;">82,500</td>
-                                                                        <td style="color:blue; text-align:right;">▼1,000</td>
-                                                                        <td style="color:blue; text-align:right;">-1.21%</td>
-                                                                        <td style="text-align:center">5,969,782,550</td>
-                                                                        <td style="text-align:center">335,501,779,310,000</td>
-                                                                    </tr>
-                                                                    <tr class="even ">
-                                                                        <td style="text-align:center">14</td>
-                                                                        <td style="text-align:left">삼성바이오로직스</td>
-                                                                        <td style="text-align:right;">758,500</td>
-                                                                        <td style="color:blue; text-align:right;">▼12,000</td>
-                                                                        <td style="color:blue; text-align:right;">-1.51%</td>
-                                                                        <td style="text-align:center">5,969,782,550</td>
-                                                                        <td style="text-align:center">335,501,779,310,000</td>
-                                                                    </tr>
-                                                                    <tr class="even ">
-                                                                        <td style="text-align:center">15</td>
-                                                                        <td style="text-align:left">삼성SDI</td>
-                                                                        <td style="text-align:right;">597,500</td>
-                                                                        <td style="color:red; text-align:right;">▲1,000</td>
-                                                                        <td style="color:red; text-align:right;">+0.18%</td>
-                                                                        <td style="text-align:center">5,969,782,550</td>
-                                                                        <td style="text-align:center">335,501,779,310,000</td>
-                                                                    </tr>
-                                                                    <tr class="even ">
-                                                                        <td style="text-align:center">16</td>
-                                                                        <td style="text-align:left">LG화학</td>
-                                                                        <td style="text-align:right;">571,500</td>
-                                                                        <td style="color:blue; text-align:right;">▼33,000</td>
-                                                                        <td style="color:blue; text-align:right;">-5.51%</td>
-                                                                        <td style="text-align:center">5,969,782,550</td>
-                                                                        <td style="text-align:center">335,501,779,310,000</td>
-                                                                    </tr>
-                                                                    <tr class="even ">
-                                                                        <td style="text-align:center">17</td>
-                                                                        <td style="text-align:left">삼성전자우</td>
-                                                                        <td style="text-align:right;">48,500</td>
-                                                                        <td style="color:blue; text-align:right;">▼1,200</td>
-                                                                        <td style="color:blue; text-align:right;">-2.41%</td>
-                                                                        <td style="text-align:center">5,969,782,550</td>
-                                                                        <td style="text-align:center">335,501,779,310,000</td>
-                                                                    </tr>
-                                                                    <tr class="even ">
-                                                                        <td style="text-align:center">18</td>
-                                                                        <td style="text-align:left">현대차</td>
-                                                                        <td style="text-align:right;">182,500</td>
-                                                                        <td style="color:blue; text-align:right;">▼8,000</td>
-                                                                        <td style="color:blue; text-align:right;">-4.41%</td>
-                                                                        <td style="text-align:center">5,969,782,550</td>
-                                                                        <td style="text-align:center">335,501,779,310,000</td>
-                                                                    </tr>
-                                                                    <tr class="even ">
-                                                                        <td style="text-align:center">19</td>
-                                                                        <td style="text-align:left">NAVER</td>
-                                                                        <td style="text-align:right;">205,500</td>
-                                                                        <td style="color:blue; text-align:right;">▼6,000</td>
-                                                                        <td style="color:blue; text-align:right;">-2.51%</td>
-                                                                        <td style="text-align:center">5,969,782,550</td>
-                                                                        <td style="text-align:center">335,501,779,310,000</td>
-                                                                    </tr>
-                                                                    <tr class="even ">
-                                                                        <td style="text-align:center">20</td>
-                                                                        <td style="text-align:left">기아</td>
-                                                                        <td style="text-align:right;">74,500</td>
-                                                                        <td style="color:red; text-align:right;">▲1,000</td>
-                                                                        <td style="color:red; text-align:right;">+0.18%</td>
-                                                                        <td style="text-align:center">5,969,782,550</td>
-                                                                        <td style="text-align:center">335,501,779,310,000</td>
-                                                                    </tr>
-
+                                                                <c:if test="${empty list}">
+							                                      	<tr>
+							                                      		<td colspan="6">조회된 주식이 없습니다.</td>
+							                                      	</tr>
+							                                    </c:if>
+							                                    <c:if test="${!empty list}">
+							                                    
+							                                    <c:forEach var= "stockprice" items="${list}" varStatus="status">
+							                                    	<tr class="odd">
+							                                    		<td style="text-align:center">${status.count}</td>
+							                                    		<td style="text-align:left"><c:out value="${stockprice.itmsNm}" /></td>
+							                                    		<td style="text-align:right;"><fmt:formatNumber value="${stockprice.clpr}"/></td>
+							                                    		<c:if test="${stockprice.fltRt == 0}">
+							                                    			<td>0</td>
+                                                        					<td>0</td>
+							                                    		</c:if>
+							                                    		<c:if test="${stockprice.fltRt < 0}">                                                       
+                                                                   	   		<td style="color:blue">▼<fmt:formatNumber value="${stockprice.vs*-1}" pattern="#,#00"/></td>
+                                                        					<td style="color:blue"><c:out value="${stockprice.fltRt}"/>%</td>
+                                                       					 </c:if>
+				                                                        <c:if test="${stockprice.fltRt > 0}">                                                       
+				                                                        	 <td style="color:red ">▲<fmt:formatNumber value="${stockprice.vs}" pattern="#,#00"/></td>
+				                                                        	 <td style="color:red ">+<c:out value="${stockprice.fltRt}" />%</td>
+				                                                        </c:if>
+                                                                        <td style="text-align:center"><fmt:formatNumber value="${stockprice.lstgStCnt}" pattern="#,#00"/></td>
+                                                                        <td style="text-align:center"><fmt:formatNumber value="${stockprice.mrktTotAmt}" pattern="#,#00"/></td>
+							                                    	</tr>
+							                                    </c:forEach>
+							                                    </c:if>
                                                                 </tbody>
                                                             </table>
                                                         </div>
                                                     </div>
                                                     <div class="row ">
-                                                        <div class="col-sm-12 col-md-4 ">
+                                                        <div class="col-sm-12 col-md-3 ">
 
                                                         </div>
-                                                        <div class="col-sm-12 col-md-8 ">
+                                                        <div class="col-sm-12 col-md-9 ">
                                                             <div class="dataTables_paginate paging_simple_numbers " id="basic-datatable_paginate ">
                                                                 <ul class="pagination pagination-rounded ">
-                                                                    <li class="paginate_button page-item previous disabled " id="basic-datatable_previous "><a href="# " aria-controls="basic-datatable " data-dt-idx="0 " tabindex="0 " class="page-link
-                                                                        "><i class="mdi mdi-chevron-left "></i></a></li>
-                                                                    <li class="paginate_button page-item active "><a href="# " aria-controls="basic-datatable " data-dt-idx="1 " tabindex="0 " class="page-link ">1</a></li>
-                                                                    <li class="paginate_button page-item "><a href="# " aria-controls="basic-datatable " data-dt-idx="2 " tabindex="0 " class="page-link ">2</a></li>
-                                                                    <li class="paginate_button page-item "><a href="# " aria-controls="basic-datatable " data-dt-idx="3 " tabindex="0 " class="page-link ">3</a></li>
-                                                                    <li class="paginate_button page-item "><a href="# " aria-controls="basic-datatable " data-dt-idx="4 " tabindex="0 " class="page-link ">4</a></li>
-                                                                    <li class="paginate_button page-item "><a href="# " aria-controls="basic-datatable " data-dt-idx="5 " tabindex="0 " class="page-link ">5</a></li>
-                                                                    <li class="paginate_button page-item "><a href="# " aria-controls="basic-datatable " data-dt-idx="6 " tabindex="0 " class="page-link ">6</a></li>
-                                                                    <li class="paginate_button page-item next " id="basic-datatable_next "><a href="# " aria-controls="basic-datatable " data-dt-idx="7 " tabindex="0 " class="page-link "><i class="mdi mdi-chevron-right "></i></a></li>
+                                                                    <li class="paginate_button page-item previous"><a class="page-link" onclick="movePage('${path}/stockprice/fin_kospiDetail.do?page=${pageInfo.prevPage}');"><i class="mdi mdi-chevron-left "></i></a></li>
+                                                                     <c:forEach begin="${pageInfo.startPage}" end="${pageInfo.endPage}" step="1" varStatus="status">
+                                                                     <c:if test="${pageInfo.currentPage == status.current}">
+                                                                    	<li class="paginate_button page-item active disabled "><a class="page-link " ><c:out value="${status.current}"/></a></li> 
+                                                                     </c:if>
+                                                                     <c:if test="${pageInfo.currentPage != status.current}">
+                                                                    	<li class="paginate_button page-item "><a  class="page-link" onclick="movePage('${path}/stockprice/fin_kospiDetail.do?page=${status.current}');"><c:out value="${status.current}"/></a></li>
+                                                                     </c:if>
+                                                                     </c:forEach>                       
+                                                                    <li class="paginate_button page-item next " ><a class="page-link" onclick="movePage('${path}/stockprice/fin_kospiDetail.do?page=${pageInfo.nextPage}');"><i class="mdi mdi-chevron-right "></i></a></li>
                                                                 </ul>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                             <script type="text/javascript">
+										    	function movePage(pageUrl) {
+										            location.href = encodeURI(pageUrl);
+										    	}
+										    </script>
                                             <!-- end preview-->
 
                                             <div class="tab-pane " id="basic-datatable-code " role="tabpanel ">

@@ -1,12 +1,15 @@
 package com.kh.realfinal.financialStock.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.kh.realfinal.common.util.PageInfo;
 import com.kh.realfinal.financialStock.api.StockpriceAPI;
 import com.kh.realfinal.financialStock.model.service.StockpriceService;
 import com.kh.realfinal.financialStock.model.vo.IndexPrice;
@@ -48,10 +51,24 @@ public class StockpriceController {
 	}
 	
 	@RequestMapping("/stockprice/fin_kospiDetail.do")
-	public String fin_kospiDetail(Model model) { //코스피 상세로
+	public String fin_kospiDetail(Model model, @RequestParam Map<String, String> param) { //코스피 상세로
+		System.out.println("그대이름은 파람파람파람 : " + param.toString());
+		int page = 1;
+		if(param.containsKey("page") == true) {
+			try {
+				page = Integer.parseInt(param.get("page"));
+				System.out.println("page : " + page);
+			} catch (Exception e) {}
+		}
+		
+		PageInfo pageInfo = new PageInfo(page, 10, service.getKospistockCount(), 20);
+		List<Stockprice> list = service.getKospistockList(pageInfo);
 		List<Stockprice> list1 = service.getKospiList();
 		List<IndexPrice> list2 = service.getIndexKospiList();
 		System.out.println(list2.toString());
+		
+		model.addAttribute("pageInfo",pageInfo);
+		model.addAttribute("list", list);
 		model.addAttribute("list1", list1);
 		model.addAttribute("list2", list2);
 		

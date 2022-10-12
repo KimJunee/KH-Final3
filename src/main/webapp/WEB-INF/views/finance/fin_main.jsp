@@ -480,7 +480,7 @@
                                                 <thead>
                                                     <span class="mice" style="text-align:right; font-weight: bold; font-size: 20px; color: black; ">
                                                        KOSPI <a class="text-danger">TOP6</a></span>
-                                                    <span style="padding-left:13.5em; font-weight: bold; font-size: 15px; color: black;"><a href="02_fin_kospiDetail.html" style="color:black;">View all</a></span>
+                                                    <span style="padding-left:13.5em; font-weight: bold; font-size: 15px; color: black;"><a href="${path}/stockprice/fin_kospiDetail.do" style="color:black;">View all</a></span>
                                                     <tr>
                                                         <th></th>
                                                         <th></th>

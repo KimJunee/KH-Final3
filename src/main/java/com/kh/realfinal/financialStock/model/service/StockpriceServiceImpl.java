@@ -2,11 +2,12 @@ package com.kh.realfinal.financialStock.model.service;
 
 import java.util.List;
 
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.kh.realfinal.common.util.PageInfo;
 import com.kh.realfinal.financialStock.model.mapper.StockpriceMapper;
 import com.kh.realfinal.financialStock.model.vo.IndexPrice;
 import com.kh.realfinal.financialStock.model.vo.Stockprice;
@@ -49,6 +50,21 @@ public class StockpriceServiceImpl implements StockpriceService{
 	@Override
 	public List<IndexPrice> getIndexKosdaqList() {
 		return mapper.selectIndexKosdaqList();
+	}
+
+
+	@Override
+	public int getKospistockCount() {
+		return mapper.selectKospistockCount();
+	}
+
+
+	@Override
+	public List<Stockprice> getKospistockList(PageInfo pageInfo) {
+		int offset = (pageInfo.getCurrentPage() - 1) * pageInfo.getListLimit();
+		RowBounds rowBounds = new RowBounds(offset, pageInfo.getListLimit());
+		
+		return mapper.selectKospistockList(rowBounds);
 	}
 
 }

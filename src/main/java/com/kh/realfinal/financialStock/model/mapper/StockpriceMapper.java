@@ -3,6 +3,7 @@ package com.kh.realfinal.financialStock.model.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.session.RowBounds;
 
 import com.kh.realfinal.financialStock.model.vo.ExchangeRate;
 import com.kh.realfinal.financialStock.model.vo.Financialterm;
@@ -21,5 +22,7 @@ public interface StockpriceMapper {
 	
 	List<IndexPrice> selectIndexKospiList();   //코스피지수 최신날짜부터 9일전까지 
 	List<IndexPrice> selectIndexKosdaqList();   //코스닥지수 최신날짜부터 9일전까지
+	int selectKospistockCount();                 //코스피 주식 갯수 가져오는놈!
+	List<Stockprice> selectKospistockList(RowBounds rowBounds); //코스피 주식가져오는거랑 페이징 같이 하는놈!
 	
 }
