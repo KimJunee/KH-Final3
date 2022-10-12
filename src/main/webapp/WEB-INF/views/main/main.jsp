@@ -18,7 +18,7 @@
     <!-- **************** 메인컨텐츠 시작 **************** -->
     <main>
         <div class="tiny-slider arrow-hover arrow-blur arrow-round position-relative ">
-            <!-- <div class="page bg-dark-overlay-5" style="background-image:url('assets/images/01_main/finance_1.jpg'); background-size: cover;"> -->
+           <div class="page bg-dark-overlay-5" style="background-image:url(${path}/resources/resources1b/images/01_main/finance_1.jpeg); background-size: cover;">
             <!-- <section> -->
             <!-- <div class="container"> -->
             <div class="tiny-slider arrow-hover arrow-blur arrow-round position-relative">
