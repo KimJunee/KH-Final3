@@ -159,15 +159,17 @@
                             <ul class="dropdown-menu text-dark" aria-labelledby="postMenu ">
                                 <!-- dropdown submenu -->
                                 <li class="dropdown-submenu dropend text-dark">
-                                    <a class="dropdown-item text-dark" href="07_com_main.html">커뮤니티메인</a>
-                                </li>
+                                    <a class="dropdown-item text-dark" href="${path}/board/main">커뮤니티메인</a></li>
                                 <li class="dropdown-submenu dropend text-dark">
-                                    <a class="dropdown-item text-dark" href="07_com_politics.html">정치Talk <span class="badge bg-danger smaller me-1">New</span></a>
-                                </li>
-                                <li> <a class="dropdown-item text-dark" href="07_com_finance.html">금융Talk <span class="badge bg-danger smaller me-1">New</span></a> </li>
-                                <li> <a class="dropdown-item text-dark" href="07_com_realestate.html"> 부동산Talk <span class="badge bg-danger smaller me-1">New</span></a> </li>
+                                    <a class="dropdown-item text-dark" href="07_com_politics.html">정치Talk 
+                                    	<span class="badge bg-danger smaller me-1">New</span></a></li>
+                                <li><a class="dropdown-item text-dark" href="07_com_finance.html">금융Talk 
+                                	<span class="badge bg-danger smaller me-1">New</span></a></li>
+                                <li><a class="dropdown-item text-dark" href="07_com_realestate.html">부동산Talk 
+                                	<span class="badge bg-danger smaller me-1">New</span></a></li>
                                 <!-- <li class="dropdown-divider text-dark"></li> -->
-                                <li> <a class="dropdown-item text-dark" href="07_com_free.html"> 자유Talk <span class="badge bg-danger smaller me-1">New</span></a> </li>
+                                <li><a class="dropdown-item text-dark" href="07_com_free.html"> 자유Talk 
+                                	<span class="badge bg-danger smaller me-1">New</span></a></li>
                             </ul>
                         </li>
                         <!-- 커뮤니티메뉴 끝-->
@@ -180,16 +182,26 @@
 
                     <!-- 커뮤니티 글쓰기 아이콘-->
                     <div class="nav-item ">
-                        <a class="nav-link-white-sp" href="07_com_boardPost.html">
+                    	<c:if test="${empty loginMember}">
+                    	<i class="bi bi-pencil-square fs-4 " style="display: none;"></i>
+                    	</c:if>
+                    	<c:if test="${!empty loginMember}">
+                        <a class="nav-link-white-sp" href="${path}/board/writePost">
                             <i class="bi bi-pencil-square fs-4 "></i>
                         </a>
+                        </c:if>
                     </div>
 
                     <!-- 마이페이지 아이콘 -->
                     <div class="nav-item ">
-                        <a class="nav-link-white-sp" href="08_mp_Info.html">
+                    <c:if test="${empty loginMember}">
+                    	<i class="bi bi-person-square fs-4 " style="display: none;"></i>
+                    </c:if>
+                    <c:if test="${!empty loginMember}">
+                        <a class="nav-link-white-sp" href="${path}/member/view">
                             <i class="bi bi-person-square fs-4 "></i>
                         </a>
+                    </c:if>
                     </div>
 
                     <!-- 로그인 버튼 -->
@@ -197,8 +209,8 @@
                     <c:if test="${empty loginMember}">
                         <a href="${path}/mypage/signIn" class="btn btn-sm btn-danger mb-0 mx-2 ">Sign In</a>
                     </c:if>
-                    <c:if test="${not empty loginMember}">
-                    	<a href="${path}/main/main" class="btn btn-sm btn-danger mb-0 mx-2 ">Logout</a>
+                    <c:if test="${!empty loginMember}">
+                    	<a href="${path}/main/main" class="btn btn-sm btn-danger mb-0 mx-2 ">Sign Out</a>
                     </c:if>
                     </div>
                     <!-- Offcanvas menu toggler -->

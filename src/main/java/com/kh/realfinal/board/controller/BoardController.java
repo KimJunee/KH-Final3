@@ -29,7 +29,7 @@ import com.kh.realfinal.member.model.vo.Member;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-@RequestMapping("/community")
+@RequestMapping("/board")
 @Controller
 public class BoardController {
 	
@@ -40,6 +40,12 @@ public class BoardController {
 	private ResourceLoader resourceLoader;
 	
 	// 커뮤니티 메인
+	@GetMapping("/main")
+	public String gocommunity() {
+		log.info("게시판 메인가기!");
+		return "community/communityMain";
+	}
+		
 	@GetMapping("/communityMain")
 	public String list(Model model, @RequestParam Map<String, String> param) {
 		int page = 1;
@@ -57,6 +63,8 @@ public class BoardController {
 		model.addAttribute("pageInfo",pageInfo);
 		return "/community/communityMain";
 	}
+	
+	// 커뮤니티
 	
 	// 게시글 상세보기
 	@GetMapping("/BoardDetail")
@@ -80,14 +88,14 @@ public class BoardController {
 	}
 	
 	// 글 작성 페이지 가기
-	@GetMapping("/board/writePost")
+	@GetMapping("/writePost")
 	public String gowrite() {
 		log.info("게시글 작성 페이지 가기");
 		return "community/communityBoardPost";
 	}
 	
 	// 글 작성
-	@PostMapping("/Post")
+	@PostMapping("/board/Post")
 	public String writeBoard(Model model, HttpServletRequest request,
 			@SessionAttribute(name = "loginMember", required = false) Member loginMember,
 			@ModelAttribute Board board,
@@ -95,11 +103,11 @@ public class BoardController {
 			) {
 		log.info("게시글 작성 요청");
 		
-//		if(loginMember == null || loginMember.getUser_no().equals(board.getWriter_no()) == false) {
-//			model.addAttribute("msg", "잘못된 접근입니다.");
-//			model.addAttribute("location", "/");
-//			return "/common/msg";
-//		}
+		if(loginMember == null || (loginMember.getUser_no() == (board.getWriter_no())) == false) {
+			model.addAttribute("msg", "잘못된 접근입니다.");
+			model.addAttribute("location", "/");
+			return "/common/msg";
+		}
 		board.setWriter_no(loginMember.getUser_no());
 		
 		if(upfile != null && upfile.isEmpty() == false) {
@@ -132,7 +140,7 @@ public class BoardController {
 			) {
 		log.info("리플 작성 요청");
 		
-		if(loginMember.getUser_id().equals(reply.getWriter_id()) == false) {
+		if((loginMember.getUser_no() == (reply.getWriter_no())) == false) {
 			model.addAttribute("msg", "잘못된 접근입니다.");
 			model.addAttribute("location", "/");
 			return "/common/msg";
@@ -213,11 +221,11 @@ public class BoardController {
 			@RequestParam("reloadFile") MultipartFile reloadFile
 			) {
 		log.info("게시글 수정 요청");
-//		if(loginMember.getUser_id().equals(board.getWriter_id()) == false) {
-//			model.addAttribute("msg", "잘못된 접근입니다.");
-//			model.addAttribute("location", "/");
-//			return "/common/msg";
-//		}
+		if(loginMember.getUser_no() == (board.getWriter_no()) == false) {
+			model.addAttribute("msg", "잘못된 접근입니다.");
+			model.addAttribute("location", "/");
+			return "/common/msg";
+		}
 		board.setWriter_no(loginMember.getUser_no());
 		
 		// 파일을 저장하는 로직

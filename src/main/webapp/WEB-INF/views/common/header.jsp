@@ -130,15 +130,17 @@
                             <ul class="dropdown-menu bg-dark text-white" aria-labelledby="postMenu ">
                                 <!-- dropdown submenu -->
                                 <li class="dropdown-submenu dropend text-white">
-                                    <a class="dropdown-item text-white" href="07_com_main.html">커뮤니티메인</a>
-                                </li>
+                                    <a class="dropdown-item text-white" href="${path}/board/main">커뮤니티메인</a></li>
                                 <li class="dropdown-submenu dropend text-white">
-                                    <a class="dropdown-item text-white" href="07_com_politics.html">정치Talk <span class="badge bg-danger smaller me-1">New</span></a>
-                                </li>
-                                <li> <a class="dropdown-item text-white" href="07_com_finance.html">금융Talk <span class="badge bg-danger smaller me-1">New</span></a> </li>
-                                <li> <a class="dropdown-item text-white" href="07_com_realestate.html"> 부동산Talk <span class="badge bg-danger smaller me-1">New</span></a> </li>
+                                    <a class="dropdown-item text-white" href="07_com_politics.html">정치Talk 
+                                    	<span class="badge bg-danger smaller me-1">New</span></a></li>
+                                <li> <a class="dropdown-item text-white" href="07_com_finance.html">금융Talk 
+                                	<span class="badge bg-danger smaller me-1">New</span></a></li>
+                                <li> <a class="dropdown-item text-white" href="07_com_realestate.html">부동산Talk 
+                                	<span class="badge bg-danger smaller me-1">New</span></a></li>
                                 <!-- <li class="dropdown-divider text-white"></li> -->
-                                <li> <a class="dropdown-item text-white" href="07_com_free.html"> 자유Talk <span class="badge bg-danger smaller me-1">New</span></a> </li>
+                                <li> <a class="dropdown-item text-white" href="07_com_free.html"> 자유Talk 
+                                	<span class="badge bg-danger smaller me-1">New</span></a></li>
                             </ul>
                         </li>
                         <!-- 커뮤니티메뉴 끝-->
@@ -178,7 +180,7 @@
                     	<a href="${path}/mypage/signIn" class="btn btn-sm btn-danger mb-0 mx-2 ">Sign In</a>
                     </c:if>
                     <c:if test="${!empty loginMember}">
-                    	<a href="${path}/main/main" class="btn btn-sm btn-danger mb-0 mx-2 ">Logout</a>
+                    	<a href="${path}/main/main" class="btn btn-sm btn-danger mb-0 mx-2 ">Sign Out</a>
                     </c:if>
                     </div>
                     <!-- Offcanvas menu toggler -->
