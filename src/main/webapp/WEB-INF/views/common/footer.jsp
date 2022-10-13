@@ -103,7 +103,7 @@
     <script src="${path}/resources/resources4h/assets2/js/vendor.min.js "></script>
     <!-- 있어야함-->
     
-    <!-- Apex Charts js -->
+    <!-- Apex Charts js 코스피 상세 그래프 맞음-->
     <script src="${path}/resources/resources4h/assets2/vendor/apexcharts/apexcharts.min.js "></script>
     <!-- 있어야함-->
     

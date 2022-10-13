@@ -1,5 +1,6 @@
 package com.kh.realfinal.financialStock.model.mapper;
 
+import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -24,5 +25,7 @@ public interface StockpriceMapper {
 	List<IndexPrice> selectIndexKosdaqList();   //코스닥지수 최신날짜부터 9일전까지
 	int selectKospistockCount();                 //코스피 주식 갯수 가져오는놈!
 	List<Stockprice> selectKospistockList(RowBounds rowBounds); //코스피 주식가져오는거랑 페이징 같이 하는놈!
+	List<String> selectKospiDateList();  //코스피 지수의 날짜를 20200102 ~ 현재날짜까지 들고오는 list
+	List<String> selectKospiClprList();//코스피 지수의 종가를 20200102 ~ 현재날짜까지 들고오는 list
 	
 }
