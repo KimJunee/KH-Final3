@@ -157,7 +157,7 @@
 
                     <!-- 마이페이지 아이콘 -->
                     <div class="nav-item ">
-                        <a class="nav-link-sp " href="08_mp_Info.html">
+                        <a class="nav-link-sp " href="${path}/member/view">
                             <i class="bi bi-person-square fs-4 "></i>
                         </a>
                     </div>
