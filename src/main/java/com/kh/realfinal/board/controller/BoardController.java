@@ -95,11 +95,11 @@ public class BoardController {
 			) {
 		log.info("게시글 작성 요청");
 		
-		if(loginMember == null || loginMember.getUser_id().equals(board.getWriter_id()) == false) {
-			model.addAttribute("msg", "잘못된 접근입니다.");
-			model.addAttribute("location", "/");
-			return "/common/msg";
-		}
+//		if(loginMember == null || loginMember.getUser_no().equals(board.getWriter_no()) == false) {
+//			model.addAttribute("msg", "잘못된 접근입니다.");
+//			model.addAttribute("location", "/");
+//			return "/common/msg";
+//		}
 		board.setWriter_no(loginMember.getUser_no());
 		
 		if(upfile != null && upfile.isEmpty() == false) {
@@ -213,11 +213,11 @@ public class BoardController {
 			@RequestParam("reloadFile") MultipartFile reloadFile
 			) {
 		log.info("게시글 수정 요청");
-		if(loginMember.getUser_id().equals(board.getWriter_id()) == false) {
-			model.addAttribute("msg", "잘못된 접근입니다.");
-			model.addAttribute("location", "/");
-			return "/common/msg";
-		}
+//		if(loginMember.getUser_id().equals(board.getWriter_id()) == false) {
+//			model.addAttribute("msg", "잘못된 접근입니다.");
+//			model.addAttribute("location", "/");
+//			return "/common/msg";
+//		}
 		board.setWriter_no(loginMember.getUser_no());
 		
 		// 파일을 저장하는 로직
