@@ -155,7 +155,7 @@
                                         </td>
                                         <!-- 제목 -->
                                         <td>
-                                            <h6 class="mb-0"><a href="#">고양지축 A-2블록 신혼희망타운(공공분양) 중도금 대출(2회차) 수정게시</a></h6>
+                                            <h6 class="mb-0"><a href="${path}/realEstate/notice-detail">고양지축 A-2블록 신혼희망타운(공공분양) 중도금 대출(2회차) 수정게시</a></h6>
                                         </td>
                                         <!-- 담당부서 -->
                                         <td style="text-align: center;">
@@ -178,7 +178,7 @@
                                         </td>
                                         <!-- 제목 -->
                                         <td>
-                                            <h6 class="mb-0"><a href="#">신흥역 하늘채 코오롱랜더스원 잔여세대 입주자 모집공고 [보유분 10호] 청약접수 결과 게시</a></h6>
+                                            <h6 class="mb-0"><a href="${path}/realEstate/notice-detail">신흥역 하늘채 코오롱랜더스원 잔여세대 입주자 모집공고 [보유분 10호] 청약접수 결과 게시</a></h6>
                                         </td>
                                         <!-- 담당부서 -->
                                         <td style="text-align: center;">
@@ -201,7 +201,7 @@
                                         </td>
                                         <!-- 제목 -->
                                         <td>
-                                            <h6 class="mb-0"><a href="#">창원명곡 A-1블록 신혼희망타운(공공분양) 청약결과('22.09.22 추가입주자모집공고)</a></h6>
+                                            <h6 class="mb-0"><a href="${path}/realEstate/notice-detail">창원명곡 A-1블록 신혼희망타운(공공분양) 청약결과('22.09.22 추가입주자모집공고)</a></h6>
                                         </td>
                                         <!-- 담당부서 -->
                                         <td style="text-align: center;">
@@ -224,7 +224,7 @@
                                         </td>
                                         <!-- 제목 -->
                                         <td>
-                                            <h6 class="mb-0"><a href="#">화성비봉 A-3블록 공공분양 청약접수결과 게시(최종)</a></h6>
+                                            <h6 class="mb-0"><a href="${path}/realEstate/notice-detail">화성비봉 A-3블록 공공분양 청약접수결과 게시(최종)</a></h6>
                                         </td>
                                         <!-- 담당부서 -->
                                         <td style="text-align: center;">
@@ -247,7 +247,7 @@
                                         </td>
                                         <!-- 제목 -->
                                         <td>
-                                            <h6 class="mb-0"><a href="#">여주역세권 3블록 행복주택 일정 연기 안내</a></h6>
+                                            <h6 class="mb-0"><a href="${path}/realEstate/notice-detail">여주역세권 3블록 행복주택 일정 연기 안내</a></h6>
                                         </td>
                                         <!-- 담당부서 -->
                                         <td style="text-align: center;">

@@ -19,5 +19,10 @@ public class ApplyCalAndNotiController {
 		return "realEstate/realEstateNotice";
 	}
 	
+	@RequestMapping("/realEstate/notice-detail")
+	public String applyNoticeDetail() {
+		return "realEstate/realEstateNoticeDetail";
+	}
+	
 	
 }
