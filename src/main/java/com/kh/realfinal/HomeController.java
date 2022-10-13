@@ -30,4 +30,9 @@ public class HomeController {
 		System.out.println("Where am i >> " + url);
 		return url;
 	}
+	
+	@RequestMapping("/main.do")
+	public String mainGo() {
+		return "main/main";
+	}
 }

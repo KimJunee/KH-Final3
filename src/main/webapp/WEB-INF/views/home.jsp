@@ -13,6 +13,10 @@
 	헬로리방구리!!
 </h1>
 
+
+
+<h2><a href="${path}/main.do">리얼 찐 메인으로 드가자</a></h2>
+
 <h2><a href="${path}/financialterm/insert.do">금융용어 DB INSERT</a></h2>
 
 <h2><a href="${path}/stockprice/insert.do">주식시세 DB INSERT</a></h2>
