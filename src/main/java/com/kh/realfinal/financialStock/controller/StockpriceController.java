@@ -50,9 +50,13 @@ public class StockpriceController {
 	public String fin_main(Model model) { //메인으로
 		List<Stockprice> list1 = service.getKospiList();
 		List<Stockprice> list2 = service.getKosdaqList();
+		List<IndexPrice> list3 = service.getIndexKospiList();
+		List<IndexPrice> list4 = service.getIndexKosdaqList();
 		
 		model.addAttribute("list1", list1);
 		model.addAttribute("list2", list2);
+		model.addAttribute("list3", list3);
+		model.addAttribute("list4", list4);
 		return "finance/fin_main";
 	}
 	

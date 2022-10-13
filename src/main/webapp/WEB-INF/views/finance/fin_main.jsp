@@ -168,7 +168,19 @@
                                 <div class="card-body ">
                                     <div class="mice" style="font-weight: bold; font-size: 20px;color:black"><a href="${path}/stockprice/fin_kospiDetail.do" style="color:black;">KOSPI</a>
                                     </div>
-                                    <div style="font-weight: bold; font-size: 25px; color:blue">2,220.94 ▼69.06 -3.02%</div>
+                                    <c:if test="${empty list3}">
+                                    	<div style="font-weight: bold; font-size: 25px; color:blue">조회된 지수가 없습니다.</div>
+                                    </c:if>
+                                    <c:if test="${!empty list3}">
+                                    	<c:forEach var="indexPrice" items="${list3}"  begin="0" end="0" step="1" varStatus="status">    
+                                    		<c:if test="${indexPrice.fltRt < 0}">                                    		
+                                    			<div style="font-weight: bold; font-size: 25px; color:blue"><c:out value="${indexPrice.clpr}" /> ▼<c:out value="${fn:substring(indexPrice.vs,1,5)}" /> <c:out value="${indexPrice.fltRt}"/>%</div>
+                                    		</c:if>
+                                    		<c:if test="${indexPrice.fltRt > 0}">                                    		
+                                    			<div style="font-weight: bold; font-size: 25px; color:red"><c:out value="${indexPrice.clpr}" /> ▲ <c:out value="${fn:substring(indexPrice.vs,1,5)}" /> <c:out value="${indexPrice.fltRt}"/>%</div>
+                                    		</c:if>                                	
+                                    	</c:forEach>                                    
+                                    </c:if>
                                     <!--<h4 class="header-title mb-4">코스피 KOSPI</h4>-->
                                     <div dir="ltr">
                                         <!-- <div id="basic-area1" class="apex-charts" data-colors="#fa6767"></div> -->
@@ -191,8 +203,19 @@
                                         <!-- </svg>&nbsp;&nbsp;<a href="02_fin_kosdaqDetail.html" style="color:black"> -->
                                         <a href="${path}/stockprice/fin_kosdaqDetail.do" style="color:black;">KOSDAQ</a>
                                     </div>
-                                    <div style="font-weight: bold; font-size: 25px; color:blue">692.37 ▼36.99 -5.07%</div>
-                                    <!--<h4 class="header-title mb-4">코스닥 KOSDAQ </h4>-->
+                                    <c:if test="${empty list4}">
+                                    	<div style="font-weight: bold; font-size: 25px; color:blue">조회된 지수가 없습니다.</div>
+                                    </c:if>
+                                    <c:if test="${!empty list4}">
+                                    	<c:forEach var="indexPrice" items="${list4}"  begin="0" end="0" step="1" varStatus="status">    
+                                    		<c:if test="${indexPrice.fltRt < 0}">                                    		
+                                    			<div style="font-weight: bold; font-size: 25px; color:blue"><c:out value="${indexPrice.clpr}" /> ▼<c:out value="${fn:substring(indexPrice.vs,1,5)}" /> <c:out value="${indexPrice.fltRt}"/>%</div>
+                                    		</c:if>
+                                    		<c:if test="${indexPrice.fltRt > 0}">                                    		
+                                    			<div style="font-weight: bold; font-size: 25px; color:red"><c:out value="${indexPrice.clpr}" /> ▲ <c:out value="${fn:substring(indexPrice.vs,1,5)}" /> <c:out value="${indexPrice.fltRt}"/>%</div>
+                                    		</c:if>                                	
+                                    	</c:forEach>                                    
+                                    </c:if>
                                     <div dir="ltr">
                                         <div id="basic-area2" class="apex-charts" data-colors="#236AB9"></div>
                                     </div>
@@ -659,6 +682,5 @@
         <!-- 소피가 손댐 끝-->
     </main>
 	<%@ include file="/WEB-INF/views/common/footer.jsp" %>
-
 </body>
 </html>
