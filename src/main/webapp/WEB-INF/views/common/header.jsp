@@ -45,7 +45,7 @@
         <nav class="navbar navbar-expand-sm navbar-nav-sp nav-link-sp">
             <div class="container ">
                 <!-- 로고 시작 -->
-                <a class="navbar-brand navbar-nav-sp nav-link-sp" href="01_main.html" style="margin-top:-5px">
+                <a class="navbar-brand navbar-nav-sp nav-link-sp" href="${path}/main.do" style="margin-top:-5px">
                     <img class="navbar-brand-item light-mode-item " src="${path}/resources/resources1b/images/01_main/logo_white.png" alt="logo ">
                     <img class="navbar-brand-item dark-mode-item " src="${path}/resources/resources1b/images/01_main/logo_white.png" alt="logo ">
                 </a>
@@ -59,15 +59,15 @@
                 <div class="collapse navbar-collapse  " id="navbarCollapse ">
                     <ul class="navbar-nav navbar-nav-scroll mx-auto ">
                         <!-- <li class="nav-item "> -->
-                        <a class="nav-link-sp active " href="01_main.html" id="homeMenu " data-bs-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">Home</a>
+                        <a class="nav-link-sp active " href="${path}/main.do" id="homeMenu " data-bs-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">Home</a>
 
                         <!-- 금융 메뉴 시작-->
                         <li class="nav-item dropdown ">
-                            <a class="nav-link-sp  " href="02_fin_main.html" id="postMenu " data-bs-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">금융</a>
+                            <a class="nav-link-sp  " href="${path}/stockprice/fin_main.do" id="postMenu " data-bs-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">금융</a>
                             <ul class="dropdown-menu bg-dark text-white" aria-labelledby="postMenu ">
                                 <!-- dropdown submenu -->
                                 <li class="dropdown-submenu dropend text-white">
-                                    <a class="dropdown-item  text-white" href="02_fin_main.html"> 금융메인</a>
+                                    <a class="dropdown-item  text-white" href="${path}/stockprice/fin_main.do"> 금융메인</a>
                                 </li>
                                 <li> <a class="dropdown-item text-white" href="02_fin_kospiDetail.html">오늘의 KOSPI <span class="badge bg-danger smaller me-1">New</span></a>
                                 </li>
