@@ -10,15 +10,16 @@
 <head>
     <title>FinTouch | FinanceProduct | Detail</title>
         <!-- Favicon -->
-    <link rel="shortcut icon" href="resources/resources1b/images/favicon.ico">
+    <link rel="shortcut icon" href="${path}/resources/resources1b/images/favicon.ico">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
 </head>
+<c:set var="searchValue" value="${param.searchValue}" />
 <body>
 	<%@include file="/WEB-INF/views/common/header.jsp" %>
 		    <!-- **************** MAIN CONTENT START **************** -->
 	<main>
         <div class="mt-100"></div>
-        <section class="bg-dark-overlay-2 position-relative overflow-hidden" style="padding-bottom: 0px; background-image:url(resources/resources1b/images/02_fin_financePro/financeMain.jpeg); background-position: center; background-size: cover;">
+        <section class="bg-dark-overlay-2 position-relative overflow-hidden" style="padding-bottom: 0px; background-image:url(${path}/resources/resources1b/images/02_fin_financePro/financeMain.jpeg); background-position: center; background-size: cover;">
             <div class="bg-overlay bg-transparent opacity-5"></div>
             <!-- SVG decoration for curve -->
             <figure class="position-absolute bottom-0 left-0 w-100 d-md-block mb-n3 z-index-9">
@@ -61,7 +62,7 @@
                                 <div class="d-flex align-items-center">
                                     <ul class="avatar-group mb-0">
                                         <li class="avatar avatar-sm">
-                                            <img class="avatar-img rounded-circle" src="resources/resources1b/images/02_fin_financePro/BankDetail.jpg" alt="avatar">
+                                            <img class="avatar-img rounded-circle" src="${path}/resources/resources1b/images/02_fin_financePro/BankDetail.jpg" alt="avatar">
                                         </li>
                                     </ul>
                                     <h4 class="mb-0 ms-3 mice">e-금리우대 예금</h4>
@@ -83,7 +84,7 @@
                                     <!-- 금융사 이미지 -->
                                     <ul class="avatar-group mb-0">
                                         <li class="avatar avatar-xl">
-                                            <img class="avatar-img rounded-circle" src="resources/resources1b/images/02_fin_financePro/nhBank.jpg" alt="avatar">
+                                            <img class="avatar-img rounded-circle" src="${path}/resources/resources1b/images/02_fin_financePro/nhBank.jpg" alt="avatar">
                                         </li>
                                     </ul>
                                 </div>
@@ -105,7 +106,7 @@
                                 <div class="d-flex align-items-center">
                                     <ul class="avatar-group mb-0">
                                         <li class="avatar avatar-sm">
-                                            <img class="avatar-img rounded-circle" src="resources/resources1b/images/02_fin_financePro/BankDetail.jpg" alt="avatar">
+                                            <img class="avatar-img rounded-circle" src="${path}/resources/resources1b/images/02_fin_financePro/BankDetail.jpg" alt="avatar">
                                         </li>
                                     </ul>
                                     <h4 class="mb-0 ms-3 mice">KB Star 정기예금</h4>
@@ -127,7 +128,7 @@
                                     <!-- Avatar group -->
                                     <ul class="avatar-group mb-0">
                                         <li class="avatar avatar-xl">
-                                            <img src="resources/resources1b/images/02_fin_financePro/kbBank.jpg" class="avatar-img" alt="">
+                                            <img src="${path}/resources/resources1b/images/02_fin_financePro/kbBank.jpg" class="avatar-img" alt="">
                                         </li>
                                     </ul>
                                 </div>
@@ -150,7 +151,7 @@
                                 <div class="d-flex align-items-center">
                                     <ul class="avatar-group mb-0">
                                         <li class="avatar avatar-sm">
-                                            <img class="avatar-img rounded-circle" src="resources/resources1b/images/02_fin_financePro/BankDetail.jpg" alt="avatar">
+                                            <img class="avatar-img rounded-circle" src="${path}/resources/resources1b/images/02_fin_financePro/BankDetail.jpg" alt="avatar">
                                         </li>
                                     </ul>
                                     <h4 class="mb-0 ms-3 mice">1석7조통장</h4>
@@ -171,7 +172,7 @@
 
                                     <ul class="avatar-group mb-0">
                                         <li class="avatar avatar-xl">
-                                            <img src="resources/resources1b/images/02_fin_financePro/ibkBank.jpg" alt="">
+                                            <img src="${path}/resources/resources1b/images/02_fin_financePro/ibkBank.jpg" alt="">
                                         </li>
                                     </ul>
                                 </div>
@@ -194,7 +195,7 @@
                                 <div class="d-flex align-items-center">
                                     <ul class="avatar-group mb-0">
                                         <li class="avatar avatar-sm">
-                                            <img class="avatar-img rounded-circle" src="resources/resources1b/images/02_fin_financePro/BankDetail.jpg" alt="avatar">
+                                            <img class="avatar-img rounded-circle" src="${path}/resources/resources1b/images/02_fin_financePro/BankDetail.jpg" alt="avatar">
                                         </li>
                                     </ul>
                                     <h4 class="mb-0 ms-3 mice">쏠편한 정기예금</h4>
@@ -215,7 +216,7 @@
 
                                     <ul class="avatar-group mb-0">
                                         <li class="avatar avatar-xl">
-                                            <img src="resources/resources1b/images/02_fin_financePro/shinhanBank.jpg" alt="">
+                                            <img src="${path}/resources/resources1b/images/02_fin_financePro/shinhanBank.jpg" alt="">
                                         </li>
                                     </ul>
                                 </div>
@@ -259,7 +260,7 @@
                             <div class="bg-primary bg-opacity-10 rounded-3 p-5 h-100 mt-4">
                                 <!-- Image -->
                                 <div>
-                                    <img src="resources/resources1b/images/02_fin_financePro/08.svg" class="h-100px h-sm-200px" alt="">
+                                    <img src="${path}/resources/resources1b/images/02_fin_financePro/08.svg" class="h-100px h-sm-200px" alt="">
                                 </div>
                                 <!-- Content -->
                                 <div class="row">
@@ -282,8 +283,8 @@
                                 <div class="row g-3 align-items-center justify-content-between">
                                     <!-- Search bar -->
                                     <div class="col-md-5">
-                                        <form class="rounded position-relative">
-                                            <input class="form-control bg-transparent" type="search" placeholder="금융회사명을 입력하세요!" aria-label="Search">
+                                        <form action="${path}/finance/productMain" class="rounded position-relative">
+                                            <input id="searchValue" class="form-control bg-transparent" type="search" placeholder="금융회사명을 입력하세요!" aria-label="Search" value="${param.searchValue}">
                                             <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
                                         </form>
                                     </div>
@@ -322,121 +323,25 @@
 
                                                 <!-- Table body START -->
                                                 <tbody class="border-top-0" style="text-align:center;">
+                                                <c:if test="${!empty list}">
+                                                <c:forEach var="intallmentSavings" items="${list}">
                                                     <tr>
                                                         <!-- NO -->
-                                                        <td>1</td>
+                                                        <td>${status.count}</td>
                                                         <td>
                                                             <div class="row">
                                                                 <div class="col-4" style="padding-right: 0px;">
                                                                     <div class="align-items-center">
                                                                         <!-- 금융사 Image -->
                                                                         <div class="avatar avatar-md">
-                                                                            <img src="resources/resources1b/images/02_fin_financePro/shinhanBank.jpg" class="avatar-img" alt="">
+                                                                            <img src="${path}/resources/resources1b/images/02_fin_financePro/shinhanBank.jpg" class="avatar-img" alt="">
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-8" style="text-align: left; padding-left: 0px;">
                                                                     <div class="mb-0 mt-1 ms-2">
                                                                         <!-- 금융상품명 -->
-                                                                        <h5 class="mb-0"><a href="">신한 알.쏠 적금</a></h5>
-                                                                    </div>
-                                                                    <div class="mb-0 mt-1 ms-2">
-                                                                        <!-- <h4 class="mt-5 mb-3 fw-bolder">인기<a href="#!" class="text-primary">정치</a>게시글</h4> -->
-                                                                        <h6 class="mb-0">최고 연 <a href="#!" class="text-primary">4.15%</a></h6>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <!-- 금융기관명 -->
-                                                        <td>신한은행</td>
-                                                        <!-- 가입방법 -->
-                                                        <td>영업점,인터넷,스마트폰</td>
-                                                        <!-- 적립,금리유형 -->
-                                                        <td>자유적립식</td>
-                                                    </tr>
-
-                                                    <!-- Table row -->
-                                                    <tr>
-                                                        <!-- Table data -->
-                                                        <td>2</td>
-                                                        <td>
-                                                            <div class="row">
-                                                                <div class="col-4" style="padding-right: 0px;">
-                                                                    <div class="align-items-center">
-                                                                        <!-- Image -->
-                                                                        <div class="avatar avatar-md">
-                                                                            <img src="resources/resources1b/images/02_fin_financePro/kbBank.jpg" class="avatar-img" alt="">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-8" style="text-align: left; padding-left: 0px;">
-                                                                    <div class="mb-0 mt-1 ms-2">
-                                                                        <!-- 금융상품명 -->
-                                                                        <h5 class="mb-0">
-                                                                            <a href="02_fin_ProductDetail.html">KB내맘대로적금</a></h5>
-                                                                    </div>
-                                                                    <div class="mb-0 mt-1 ms-2">
-                                                                        <h6 class="mb-0">최고 연 <a href="#!" class="text-primary">3.25%</a></h6>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <!-- 금융기관명 -->
-                                                        <td>국민은행</td>
-                                                        <!-- 가입방법 -->
-                                                        <td>인터넷,스마트폰</td>
-                                                        <!-- 적립,금리유형 -->
-                                                        <td>정액적립식</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>3</td>
-                                                        <td>
-                                                            <div class="row">
-                                                                <div class="col-4" style="padding-right: 0px;">
-                                                                    <div class="align-items-center">
-                                                                        <!-- Image -->
-                                                                        <div class="avatar avatar-md">
-                                                                            <img src="resources/resources1b/images/02_fin_financePro/wooriBank.jpg" class="avatar-img" alt="">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-8" style="text-align: left; padding-left: 0px;">
-                                                                    <div class="mb-0 mt-1 ms-2">
-                                                                        <!-- 금융상품명 -->
-                                                                        <h5 class="mb-0">첫급여 우리적금</h5>
-                                                                    </div>
-                                                                    <div class="mb-0 mt-1 ms-2">
-                                                                        <h6 class="mb-0">최고 연 <a href="#!" class="text-primary">3.3%</a></h6>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <!-- 금융기관명 -->
-                                                        <td>우리은행</td>
-                                                        <!-- 가입방법 -->
-                                                        <td>영업점,인터넷,스마트폰</td>
-                                                        <!-- 적립,금리유형 -->
-                                                        <td>자유적립식</td>
-                                                    </tr>
-
-                                                    <!-- Table row -->
-                                                    <tr>
-                                                        <!-- Table data -->
-                                                        <td>4</td>
-                                                        <td>
-                                                            <div class="row">
-                                                                <div class="col-4" style="padding-right: 0px;">
-                                                                    <div class="align-items-center">
-                                                                        <!-- Image -->
-                                                                        <div class="avatar avatar-md">
-                                                                            <img src="resources/resources1b/images/02_fin_financePro/busanBank.png" class="avatar-img" alt="">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-8" style="text-align: left; padding-left: 0px;">
-                                                                    <div class="mb-0 mt-1 ms-2">
-                                                                        <!-- 금융상품명 -->
-                                                                        <h5 class="mb-0">펫 적금</h5>
+                                                                        <h5 class="mb-0"><a href="">${intallmentSavings.finPrdtNm}</a></h5>
                                                                     </div>
                                                                     <div class="mb-0 mt-1 ms-2">
                                                                         <h6 class="mb-0">최고 연 <a href="#!" class="text-primary">4.15%</a></h6>
@@ -445,209 +350,14 @@
                                                             </div>
                                                         </td>
                                                         <!-- 금융기관명 -->
-                                                        <td>부산은행</td>
+                                                        <td>${intallmentSavings.korCoNm}</td>
                                                         <!-- 가입방법 -->
-                                                        <td>영업점,스마트폰</td>
+                                                        <td>${intallmentSavings.joinWay}</td>
                                                         <!-- 적립,금리유형 -->
                                                         <td>자유적립식</td>
-                                                        <!-- 최고 금리 -->
-                                                        <!-- <td>4.15%</td> -->
-                                                    </tr>
-
-                                                    <!-- Table row -->
-                                                    <tr>
-                                                        <!-- Table data -->
-                                                        <td>5</td>
-                                                        <td>
-                                                            <div class="row">
-                                                                <div class="col-4" style="padding-right: 0px;">
-                                                                    <div class="align-items-center">
-                                                                        <!-- Image -->
-                                                                        <div class="avatar avatar-md">
-                                                                            <img src="resources/resources1b/images/02_fin_financePro/deaguBank.jpg" class="avatar-img" alt="">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-8" style="text-align: left; padding-left: 0px;">
-                                                                    <div class="mb-0 mt-1 ms-2">
-                                                                        <!-- 금융상품명 -->
-                                                                        <h5 class="mb-0">영플러스적금</h5>
-                                                                    </div>
-                                                                    <div class="mb-0 mt-1 ms-2">
-                                                                        <h6 class="mb-0">최고 연 <a href="#!" class="text-primary">3.71%</a></h6>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <!-- 금융기관명 -->
-                                                        <td>대구은행</td>
-                                                        <!-- 가입방법 -->
-                                                        <td>영업점,인터넷,스마트폰</td>
-                                                        <!-- 적립,금리유형 -->
-                                                        <td>자유적립식</td>
-                                                    </tr>
-
-                                                    <!-- Table row -->
-                                                    <tr>
-                                                        <!-- Table data -->
-                                                        <td>6</td>
-                                                        <td>
-                                                            <div class="row">
-                                                                <div class="col-4" style="padding-right: 0px;">
-                                                                    <div class="align-items-center">
-                                                                        <!-- Image -->
-                                                                        <div class="avatar avatar-md">
-                                                                            <img src="resources/resources1b/images/02_fin_financePro/scBank.jpg" class="avatar-img" alt="">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-8" style="text-align: left; padding-left: 0px;">
-                                                                    <div class="mb-0 mt-1 ms-2">
-                                                                        <!-- 금융상품명 -->
-                                                                        <h5 class="mb-0">퍼스트가계적금</h5>
-                                                                    </div>
-                                                                    <div class="mb-0 mt-1 ms-2">
-                                                                        <h6 class="mb-0">최고 연 <a href="#!" class="text-primary">2.85%</a></h6>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <!-- 금융기관명 -->
-                                                        <td>한국스탠다드차타드은행</td>
-                                                        <!-- 가입방법 -->
-                                                        <td>영업점,인터넷,스마트폰</td>
-                                                        <!-- 적립,금리유형 -->
-                                                        <td>자유적립식</td>
-                                                    </tr>
-
-                                                    <!-- Table row -->
-                                                    <tr>
-                                                        <!-- Table data -->
-                                                        <td>7</td>
-                                                        <td>
-                                                            <div class="row">
-                                                                <div class="col-4" style="padding-right: 0px;">
-                                                                    <div class="align-items-center">
-                                                                        <!-- Image -->
-                                                                        <div class="avatar avatar-md">
-                                                                            <img src="resources/resources1b/images/02_fin_financePro/gjBank.jpg" class="avatar-img" alt="">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-8" style="text-align: left; padding-left: 0px;">
-                                                                    <div class="mb-0 mt-1 ms-2">
-                                                                        <!-- 금융상품명 -->
-                                                                        <h5 class="mb-0">스마트모아적금</h5>
-                                                                    </div>
-                                                                    <div class="mb-0 mt-1 ms-2">
-                                                                        <h6 class="mb-0">최고 연 <a href="#!" class="text-primary">2.85%</a></h6>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <!-- 금융기관명 -->
-                                                        <td>광주은행</td>
-                                                        <!-- 가입방법 -->
-                                                        <td>인터넷,스마트폰</td>
-                                                        <!-- 적립,금리유형 -->
-                                                        <td>자유적립식</td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <!-- Table data -->
-                                                        <td>8</td>
-                                                        <td>
-                                                            <div class="row">
-                                                                <div class="col-4" style="padding-right: 0px;">
-                                                                    <div class="align-items-center">
-                                                                        <!-- Image -->
-                                                                        <div class="avatar avatar-md">
-                                                                            <img src="resources/resources1b/images/02_fin_financePro/jejuBank.jpg" class="avatar-img" alt="">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-8" style="text-align: left; padding-left: 0px;">
-                                                                    <div class="mb-0 mt-1 ms-2">
-                                                                        <!-- 금융상품명 -->
-                                                                        <h5 class="mb-0">저금통적금</h5>
-                                                                    </div>
-                                                                    <div class="mb-0 mt-1 ms-2">
-                                                                        <h6 class="mb-0">최고 연 <a href="#!" class="text-primary">5.05%</a></h6>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <!-- 금융기관명 -->
-                                                        <td>제주은행</td>
-                                                        <!-- 가입방법 -->
-                                                        <td>인터넷,스마트폰</td>
-                                                        <!-- 적립,금리유형 -->
-                                                        <td>자유적립식</td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <!-- Table data -->
-                                                        <td>9</td>
-                                                        <td>
-                                                            <div class="row">
-                                                                <div class="col-4" style="padding-right: 0px;">
-                                                                    <div class="align-items-center">
-                                                                        <!-- Image -->
-                                                                        <div class="avatar avatar-md">
-                                                                            <img src="resources/resources1b/images/02_fin_financePro/nhBank.jpg" class="avatar-img" alt="">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-8" style="text-align: left; padding-left: 0px;">
-                                                                    <div class="mb-0 mt-1 ms-2">
-                                                                        <!-- 금융상품명 -->
-                                                                        <h5 class="mb-0">올원 5늘도 적금</h5>
-                                                                    </div>
-                                                                    <div class="mb-0 mt-1 ms-2">
-                                                                        <h6 class="mb-0">최고 연 <a href="#!" class="text-primary">3.1%</a></h6>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <!-- 금융기관명 -->
-                                                        <td>농협은행주식회사</td>
-                                                        <!-- 가입방법 -->
-                                                        <td>스마트폰</td>
-                                                        <!-- 적립,금리유형 -->
-                                                        <td>자유적립식</td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <!-- Table data -->
-                                                        <td>10</td>
-                                                        <td>
-                                                            <div class="row">
-                                                                <div class="col-4" style="padding-right: 0px;">
-                                                                    <div class="align-items-center">
-                                                                        <!-- Image -->
-                                                                        <div class="avatar avatar-md">
-                                                                            <img src="resources/resources1b/images/02_fin_financePro/ibkBank.jpg" class="avatar-img" alt="">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-8" style="text-align: left; padding-left: 0px;">
-                                                                    <div class="mb-0 mt-1 ms-2">
-                                                                        <!-- 금융상품명 -->
-                                                                        <h5 class="mb-0">W효도적금</h5>
-                                                                    </div>
-                                                                    <div class="mb-0 mt-1 ms-2">
-                                                                        <h6 class="mb-0">최고 연 <a href="#!" class="text-primary">3.65%</a></h6>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <!-- 금융기관명 -->
-                                                        <td>중소기업은행</td>
-                                                        <!-- 가입방법 -->
-                                                        <td>영업점,인터넷,스마트폰,기타</td>
-                                                        <!-- 적립,금리유형 -->
-                                                        <td>자유적립식</td>
-                                                    </tr>
+                                                    </tr>   
+                                                    </c:forEach>
+                                                    </c:if>                      
                                                 </tbody>
                                             </table>
                                         </div>
@@ -664,20 +374,19 @@
                                     <nav class="mb-sm-0 d-flex justify-content-center mt-2" aria-label="navigation">
                                         <ul class="pagination pagination-sm pagination-bordered mb-0">
                                             <li class="page-item disabled">
-                                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Prev</a>
+                                                <a onclick="movePage('${path}/finance/productMain?page=${pageInfo.prevPage}');" class="page-link" tabindex="-1" aria-disabled="true">Prev</a>
                                             </li>
-                                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">6</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">7</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">8</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">9</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">10</a></li>
+                                            <c:forEach begin="${pageInfo.startPage}" end="${pageInfo.endPage}" step="1" varStatus="status">
+                                            	<c:if test="${pageInfo.currentPage == status.current}">
+		                                            <li class="page-item active"><a class="page-link">${status.current}</a></li>                                    		
+                                            	</c:if>
+                                            	<c:if test="${pageInfo.currentPage != status.current}">
+		                                            <li class="page-item"><a onclick="movePage('${path}/finance/productMain?page=${status.current}');" class="page-link">${status.current}</a></li>                                            	
+                                            	</c:if>
+                                          
+                                            </c:forEach>
                                             <li class="page-item">
-                                                <a class="page-link" href="#">Next</a>
+                                                <a onclick="movePage('${path}/finance/productMain?page=${pageInfo.nextPage}');" class="page-link">Next</a>
                                             </li>
                                         </ul>
                                     </nav>
@@ -688,6 +397,13 @@
                 </div>
             </div>
         </section>
+        <script type="text/javascript">
+			function movePage(pageUrl){
+				var searchValue = document.getElementById("searchValue");
+					pageUrl = pageUrl + '&searchValue=' + searchValue.value; 
+				location.href = encodeURI(pageUrl);	
+			}
+</script>
     </main>	    
 	<%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
