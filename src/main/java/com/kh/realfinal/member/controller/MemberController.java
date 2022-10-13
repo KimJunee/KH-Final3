@@ -88,10 +88,10 @@ public class MemberController {
 	
 	// 아이디 중복확인
 	@GetMapping("/member/idCheck")
-	public ResponseEntity<Map<String,Object>> idCheck(String id){
-		log.info("아이디 중복 확인, user id : "+ id);
+	public ResponseEntity<Map<String,Object>> idCheck(String user_id){
+		log.info("아이디 중복 확인, user id : "+ user_id);
 		
-		boolean result = service.validate(id);
+		boolean result = service.validate(user_id);
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("validate", result);
 		
