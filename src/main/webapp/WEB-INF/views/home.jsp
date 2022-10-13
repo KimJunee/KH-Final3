@@ -31,8 +31,6 @@
 
 <h2><a href="${path}/creditloan/insert.do">금융감독원-개인신용대출API DB INSERT</a></h2>
 
-<h2><a href="${path}/publicService/insert.do">공공 서비스 API DB INSERT</a></h2>
-
 <%-- <h2><a href="${path}/landterm/insert.do">부동산용어 DB INSERT</a></h2> --%>
 
 <h2><a href="${path}/UrbtyOfctlLttotPblancDetail/insert.do">청약 분양상세 : 도시형/오피스텔/민간임대 (UrbtyOfctlLttotPblancDetail)</a></h2>
@@ -51,6 +49,7 @@
 
 <h2><a href="${path}/mypage/signIn">로그인 페이지 가기</a></h2>
 
+<h2><a href="${path}/finance/productMain">금융상품 페이지 가기</a></h2>
 <%-- <h2><a href="${path}/cardcut/insert.do"> 카드한컷 DB INSERT</a></h2>--%>
 
 <%-- <iframe id="ytplayer" type="text/html" width="720" height="405"
