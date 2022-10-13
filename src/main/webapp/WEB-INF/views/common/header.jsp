@@ -69,9 +69,9 @@
                                 <li class="dropdown-submenu dropend text-white">
                                     <a class="dropdown-item  text-white" href="${path}/stockprice/fin_main.do"> 금융메인</a>
                                 </li>
-                                <li> <a class="dropdown-item text-white" href="02_fin_kospiDetail.html">오늘의 KOSPI <span class="badge bg-danger smaller me-1">New</span></a>
+                                <li> <a class="dropdown-item text-white" href="${path}/stockprice/fin_kospiDetail.do">오늘의 KOSPI <span class="badge bg-danger smaller me-1">New</span></a>
                                 </li>
-                                <li> <a class="dropdown-item text-white" href="02_fin_kosdaqDetail.html">오늘의 KOSDAQ  <span class="badge bg-danger smaller me-1">New</span></a>
+                                <li> <a class="dropdown-item text-white" href="${path}/stockprice/fin_kosdaqDetail.do">오늘의 KOSDAQ  <span class="badge bg-danger smaller me-1">New</span></a>
                                 </li>
                                 <li> <a class="dropdown-item text-white" href="02_fin_Product.html">금융상품안내</a> </li>
                                 <li class="dropdown-divider text-white"></li>
