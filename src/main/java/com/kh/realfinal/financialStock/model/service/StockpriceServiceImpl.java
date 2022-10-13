@@ -95,4 +95,19 @@ public class StockpriceServiceImpl implements StockpriceService{
 		return mapper.selectKospiClprList();
 	}
 
+
+	@Override
+	public int getKosdaqstockCount() {
+		return mapper.selectKosdaqstockCount();
+	}
+
+
+	@Override
+	public List<Stockprice> getKosdaqstockList(PageInfo pageInfo) {
+		int offset = (pageInfo.getCurrentPage() - 1) * pageInfo.getListLimit();
+		RowBounds rowBounds = new RowBounds(offset, pageInfo.getListLimit());
+		
+		return mapper.selectKosdaqstockList(rowBounds);
+	}
+
 }

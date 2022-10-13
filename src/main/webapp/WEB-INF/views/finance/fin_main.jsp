@@ -189,7 +189,7 @@
                                         <!-- <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-bar-chart-line" viewBox="0 0 16 16"> -->
                                         <!-- <path d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2zm1 12h2V2h-2v12zm-3 0V7H7v7h2zm-5 0v-3H2v3h2z" /> -->
                                         <!-- </svg>&nbsp;&nbsp;<a href="02_fin_kosdaqDetail.html" style="color:black"> -->
-                                        <a href="02_fin_kosdaqDetail.html" style="color:black;">KOSDAQ</a>
+                                        <a href="${path}/stockprice/fin_kosdaqDetail.do" style="color:black;">KOSDAQ</a>
                                     </div>
                                     <div style="font-weight: bold; font-size: 25px; color:blue">692.37 ▼36.99 -5.07%</div>
                                     <!--<h4 class="header-title mb-4">코스닥 KOSDAQ </h4>-->
@@ -592,7 +592,7 @@
                                             <thead>
                                                 <span class="mice" style="text-align:right; font-weight: bold; font-size: 20px; color: black; ">
                                                     KOSDAQ <a class="text-danger">TOP6</a></span>
-                                                <span style="padding-left:12em; font-weight: bold; font-size: 15px; color: black;"><a href="02_fin_kosdaqDetail.html" style="color:black;">View all</a></span>
+                                                <span style="padding-left:12em; font-weight: bold; font-size: 15px; color: black;"><a href="${path}/stockprice/fin_kosdaqDetail.do" style="color:black;">View all</a></span>
                                                 <tr>
                                                     <tr>
                                                         <th></th>
@@ -659,5 +659,6 @@
         <!-- 소피가 손댐 끝-->
     </main>
 	<%@ include file="/WEB-INF/views/common/footer.jsp" %>
+
 </body>
 </html>

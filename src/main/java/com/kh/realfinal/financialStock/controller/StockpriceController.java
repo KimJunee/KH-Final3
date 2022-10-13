@@ -83,7 +83,7 @@ public class StockpriceController {
 	
 	@ResponseBody //XML이나 JSON 응답할때 사용
 	@RequestMapping(value="/stockprice/fin_kospiDetail/info", produces = "application/json; charset=utf-8")
-	public String fin_kospiDetailForDate(Model model, @RequestParam Map<String, String> param) throws ParseException { //코스피 상세로 가자
+	public String fin_kospiDetailForDate(Model model, @RequestParam Map<String, String> param) throws ParseException { 
 		List<Date> kospiDateList = service.getKospiDateList();  //코스피 날짜 list ex) 20221007
 		List<String> kospiClprList = service.getKospiClprList();//코스피 종가 list ex) 2268.25
 		Map<String, List> map = new HashedMap();
@@ -94,10 +94,23 @@ public class StockpriceController {
 	
 	
 	@RequestMapping("/stockprice/fin_kosdaqDetail.do")
-	public String fin_kosdaqDetail(Model model) { //코스닥 상세로
+	public String fin_kosdaqDetail(Model model, @RequestParam Map<String, String> param) { //코스닥 상세로
+		int page = 1;
+		if(param.containsKey("page") == true) {
+			try {
+				page = Integer.parseInt(param.get("page"));
+				System.out.println("page : " + page);
+			} catch (Exception e) {}
+		}
+		
+		PageInfo pageInfo = new PageInfo(page, 10, service.getKosdaqstockCount(), 20);
+		
+		List<Stockprice> list = service.getKosdaqstockList(pageInfo);
 		List<Stockprice> list1 = service.getKosdaqList();
 		List<IndexPrice> list2 = service.getIndexKosdaqList();
 		
+		model.addAttribute("pageInfo",pageInfo);
+		model.addAttribute("list", list);
 		model.addAttribute("list1", list1);
 		model.addAttribute("list2", list2);
 

@@ -592,5 +592,7 @@
         <!-- END wrapper -->
 
 	<%@ include file="/WEB-INF/views/common/footer.jsp" %>
+	<script src="${path}/resources/resources4h/assets2/js/pages/demo.dashboard-wallet.js "></script>
+	  
 </body>
 </html>
