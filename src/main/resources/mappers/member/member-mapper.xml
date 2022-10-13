@@ -60,9 +60,9 @@
 		UPDATE USER_T
 		SET
 			USER_NICKNAME 	= #{user_nickname},
-			USER_EMAIL 	= #{user_email},
+			USER_EMAIL 		= #{user_email},
 			USER_PASSWORD 	= #{user_password}
-		WHERE USER_NO = #{user_no}
+		WHERE USER_NO 		= #{user_no}
 	</update>
 
 	<update id="deleteMember" parameterType="int">

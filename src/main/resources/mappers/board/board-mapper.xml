@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kh.realfinal.board.model.mapper.BoardMapper">
+
+	<resultMap type="Board" id="boardListResultMap">
+		<id property="board_no" column="BOARD_NO"/>
+		<result property="writer_no" column="WRITER_NO"/>
+		<result property="board_list_no" column="BOARD_LIST_NO"/>
+		<result property="board_hit" column="BOARD_HIT"/>
+		<result property="board_title" column="BOARD_TITLE"/>
+		<result property="board_content" column="BOARD_CONTENT"/>
+		<result property="board_register" column="BOARD_REGISTER"/>
+		<result property="board_originalFileName" column="BOARD_ORIGINALFILENAME"/>
+		<result property="board_renamedFileName" column="BOARD_RENAMEDFILENAME"/>
+	</resultMap>
+	
+	<resultMap type="Board" id="boardDetailResultMap" extends="boardListResultMap">
+		<collection property="replies" javaType="arrayList" columnPrefix="R_" resultMap="boardReplyResultMap"/>
+	</resultMap>
+	
+	<resultMap type="Reply" id="boardReplyResultMap">
+		<id property="reply_no" column="REPLY_NO"/>
+		<result property="reply_content" column="REPLY_CONTENT"/>
+		<result property="user_no" column="USER_NO"/>
+		<result property="board_no" column="BOARD_NO"/>
+		<result property="writer_no" column="WRITER_NO"/>
+		<result property="writer_id" column="WRITER_ID"/>
+		<result property="reply_register" column="REPLY_REGISTER"/>
+		<result property="reply_modify" column="REPLY_MODIFY"/>
+	</resultMap>
+
+	<sql id="selectBoardSql">
+		SELECT
+			BOARD_NO, 
+			WRITER_NO, 
+			BOARD_LIST_NO, 
+			BOARD_HIT, 
+			BOARD_TITLE, 
+			BOARD_CONTENT, 
+			BOARD_REGISTER, 
+			BOARD_MODIFY, 
+			BOARD_ORIGINALFILENAME, 
+			BOARD_RENAMEDFILENAME, 
+			BOARD_STATUS
+		FROM BOARD
+	</sql>
+	
+	<sql id="selectReplySql">
+		SELECT
+			REPLY_NO, 
+			REPLY_CONTENT, 
+			USER_NO, 
+			BOARD_NO, 
+			WRITER_NO, 
+			WRITER_ID, 
+			REPLY_REGISTER, 
+			REPLY_MODIFY
+		FROM REPLY
+	</sql>
+	
+	<!-- 게시판메인 -->
+	<select id="selectBoardList" resultMap="boardListResultMap"  parameterType="map">
+		SELECT  B.BOARD_NO,
+	        B.BOARD_TITLE, 
+	        U.USER_NICKNAME, 
+	        B.BOARD_HIT, 
+	        B.BOARD_LIST_NO, 
+	        B.BOARD_ORIGINALFILENAME, 
+	        B.BOARD_RENAMEDFILENAME, 
+	        B.BOARD_CONTENT,
+	        B.BOARD_REGISTER, 
+	        B.BOARD_MODIFY, 
+	        (SELECT count(1) 
+	        FROM REPLY R 
+	        WHERE R.BOARD_NO = a.BOARD_NO ) as REPLY_CNT
+		FROM BOARD B
+		JOIN USER_T U ON(B.WRITER_NO = U.USER_NO)
+		WHERE B.BOARD_STATUS = 'Y'
+	</select>
+
+
+</mapper>
