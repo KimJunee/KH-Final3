@@ -150,23 +150,34 @@
 
                     <!-- 커뮤니티 글쓰기 아이콘-->
                     <div class="nav-item ">
-                        <a class="nav-link-sp " href="07_com_boardPost.html">
+                        <c:if test="${empty loginMember}">
+                    	<i class="bi bi-person-square fs-4" style="display: none;"></i>
+                    	</c:if>
+                    	<c:if test="${!empty loginMember}">
+                        <a class="nav-link-sp" href="${path}/board/writePost" >
                             <i class="bi bi-pencil-square fs-4 "></i>
                         </a>
+                    </c:if>
                     </div>
-
+                    
                     <!-- 마이페이지 아이콘 -->
                     <div class="nav-item ">
-                        <a class="nav-link-sp " href="${path}/member/view">
+                    <c:if test="${empty loginMember}">
+                    	<i class="bi bi-person-square fs-4" style="display: none;"></i>
+                    </c:if>
+                    <c:if test="${!empty loginMember}">
+                        <a class="nav-link-sp" href="${path}/member/view" >
                             <i class="bi bi-person-square fs-4 "></i>
                         </a>
+                    </c:if>
                     </div>
+                    
                     <!-- 로그인 버튼 -->
                     <div class="nav-item d-none d-md-block ">
                     <c:if test="${empty loginMember}">
                     	<a href="${path}/mypage/signIn" class="btn btn-sm btn-danger mb-0 mx-2 ">Sign In</a>
                     </c:if>
-                    <c:if test="${not empty loginMember}">
+                    <c:if test="${!empty loginMember}">
                     	<a href="${path}/main/main" class="btn btn-sm btn-danger mb-0 mx-2 ">Logout</a>
                     </c:if>
                     </div>
