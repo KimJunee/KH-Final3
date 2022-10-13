@@ -10,7 +10,7 @@
 <head>
     <title>FinTouch | Community</title>
     <!-- Favicon -->
-    <link rel="shortcut icon" href="resources/resources1b/images/favicon.ico">
+    <link rel="shortcut icon" href="${path}/resources/resources1b/images/favicon.ico">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
 </head>
 
@@ -18,7 +18,7 @@
 <%@ include file="/WEB-INF/views/common/headerWhite.jsp" %>
     <main>
         <!-- ============ 메뉴소개 시작 ============ -->
-        <section style="background-image:url('resources/resources1b/images/avatar/fintouch/community04.png'); background-position: center; height:652px; width:99%;">
+        <section style="background-image:url('${path}/resources/resources1b/images/avatar/fintouch/community04.png'); background-position: center; height:652px; width:99%;">
             <div style="margin-left: 370px; margin-top: 520px;">
                 <h5><span style="color:#2163E8;">C&nbsp;O&nbsp;M&nbsp;M&nbsp;U&nbsp;N&nbsp;I&nbsp;T&nbsp;Y</span></h5>
                 <h1>실시간<span style="color:#2163E8">커뮤니티</span>인기글</h1>

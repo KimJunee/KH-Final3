@@ -10,10 +10,10 @@
 <head>
     <title>FinTouch | My Page | Reply</title>
 	<!-- Favicon -->
-    <link rel="shortcut icon" href="resources/resources1b/images/favicon.ico">
+    <link rel="shortcut icon" href="${path}/resources/resources1b/images/favicon.ico">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <!-- 마이페이지 CSS -->
-    <link rel="stylesheet" type="text/css" href="resources/css/mypage.css">
+    <link rel="stylesheet" type="text/css" href="${path}/resources/css/mypage.css">
 </head>
 
 <body>
@@ -33,7 +33,7 @@
                         <aside class="pe-xl-4 mb-5">
                             <!-- 왼쪽 사이드바 -->
                             <div class="card border card-body shadow-sm pb-1 me-lg-1">
-                                <div class="d-flex d-md-block d-lg-flex align-items-start pt-lg-2 mb-2"><img class="" src="resources/resources1b/images/avatar_w2.png" width="48" alt="Annette Black">
+                                <div class="d-flex d-md-block d-lg-flex align-items-start pt-lg-2 mb-2"><img class="" src="${path}/resources/resources1b/images/avatar_w2.png" width="48" alt="Annette Black">
                                     <div class="pt-md-2 pt-lg-0 ps-3 ps-md-0 ps-lg-3">
                                         <h2 class="fs-lg mb-0" style="margin-left: 10px;">탬버리이인</h2>
                                         <ul class="list-unstyled fs-sm mt-1 mb-0">

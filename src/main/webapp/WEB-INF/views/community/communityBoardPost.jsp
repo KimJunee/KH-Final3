@@ -11,17 +11,17 @@
 <head>
     <title>FinTouch | Community | Post</title>
     <!-- Favicon -->
-    <link rel="shortcut icon" href="resources/resources1b/images/favicon.ico">
+    <link rel="shortcut icon" href="${path}/resources/resources1b/images/favicon.ico">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="resources/resources1b/vendor/quill/css/quill.snow.css">
+	<link rel="stylesheet" type="text/css" href="${path}/resources/resources1b/vendor/quill/css/quill.snow.css">
 </head>
 
 <body>
 <%@ include file="/WEB-INF/views/common/headerWhite.jsp" %>
-<script src="resources/resources1b/vendor/quill/js/quill.min.js"></script>
+<script src="${path}/resources/resources1b/vendor/quill/js/quill.min.js"></script>
     <main>
         <!-- ============ 메뉴소개 시작 ============ -->
-        <section style="background-image:url('resources/resources1b/images/avatar/fintouch/community04.png'); background-position: center; height:652px; width:99%;"></section>
+        <section style="background-image:url('${path}/resources/resources1b/images/avatar/fintouch/community04.png'); background-position: center; height:652px; width:99%;"></section>
         <!-- ============ 메뉴소개 끝 ============ -->
         <!-- ======================= Main contain START -->
         <section class="py-4">
