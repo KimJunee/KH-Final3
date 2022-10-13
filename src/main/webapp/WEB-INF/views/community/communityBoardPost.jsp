@@ -41,7 +41,7 @@
                             <!-- Card body -->
                             <div class="card-body">
                                 <!-- Form START -->
-                                <form action="${path}/board/Post" method="post">
+                                <form action="${path}/board/Post" method="post" enctype="multipart/form-data">
                                     <!-- Main form -->
                                     <div class="row">
                                         <div class="col-12">
@@ -140,7 +140,7 @@
                                                     <h6 class="my-2">Upload post image here, or<a href="#!" class="text-primary"> Browse</a></h6>
                                                     <label class="w-100" style="cursor:pointer;">
 														<span> 
-															<input class="form-control stretched-link" type="file" name="my-image" id="image" accept="image/gif, image/jpeg, image/png">
+															<input class="form-control stretched-link" type="file" name="upfile">
 														</span>
 													</label>
                                                 </div>
