@@ -1,4 +1,4 @@
-package com.kh.realfinal.politicsMnaList.api;
+package com.kh.realfinal.politics.api;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -13,7 +13,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import com.kh.realfinal.politicsMnaList.model.vo.MnaList;
+import com.kh.realfinal.politics.model.vo.MnaList;
 
 public class MnaListAPI {
 	

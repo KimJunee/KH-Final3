@@ -1,4 +1,4 @@
-package com.kh.realfinal.politicsMnaList.model.vo;
+package com.kh.realfinal.politics.model.vo;
 
 
 

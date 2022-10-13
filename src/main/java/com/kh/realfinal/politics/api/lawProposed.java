@@ -1,4 +1,4 @@
-package com.kh.realfinal.politicsMnaList.api;
+package com.kh.realfinal.politics.api;
 
 public class lawProposed {
 
