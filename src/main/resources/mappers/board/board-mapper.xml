@@ -78,6 +78,27 @@
 		JOIN USER_T U ON(B.WRITER_NO = U.USER_NO)
 		WHERE B.BOARD_STATUS = 'Y'
 	</select>
+	
+	<!-- 게시판 목록 구분 -->
+	<select id="">
+	
+	</select>
+	
+	<!-- 조회수 증가 -->
+	<update id="updateHit" parameterType="int">
+	UPDATE BOARD 
+	SET BOARD_HIT = BOARD_HIT + 1
+	WHERE BOARD_NO = #{BOARD_NO}
+	</update>
+	
+	<!-- 게시물 수정 -->
+	<update id="BoardUpdate">
+	UPDATE BOARD 
+	SET BOARD_TITLE = #{BOARD_TITLE}, 
+		BOARD_CONTENT = #{BOARD_CONTENT}
+		BOARD_LIST_NO = #{BOARD_LIST_NO}
+	WHERE BOARD_NO = #{BOARD_NO} 
+	</update>
 
 
 </mapper>
