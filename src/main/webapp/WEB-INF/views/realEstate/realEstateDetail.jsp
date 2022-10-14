@@ -12,7 +12,7 @@
 
     <!-- **************** MAIN CONTENT START **************** -->
     <!-- =======================섹션1: 청약 메인 시작 =======================-->
-    <section class="position-relative overflow-hidden mice" style="background-image:url(resources/resources1b/images/02_realEstate/501b249c45892.jpg); background-position: center; background-size: cover;">
+    <section class="position-relative overflow-hidden mice" style="background-image:url(${path}/resources/resources1b/images/02_realEstate/501b249c45892.jpg); background-position: center; background-size: cover;">
         <div class="bg-overlay bg-transparent opacity-5"></div>
         <!-- SVG decoration for curve -->
         <figure class="position-absolute bottom-0 left-0 w-100 d-md-block mb-n3 z-index-9">
@@ -54,7 +54,7 @@
                     <div class="row g-2">
                         <div class="col-12">
                             <div class="bg-white rounded-2 glightbox-bg p-1 position-relative">
-                                <img src="resources/resources1b/images/02_realEstate/pic01.png" style="width:650px; height:455px;" alt="">
+                                <img src="${path}/resources/resources1b/images/02_realEstate/pic01.png" style="width:650px; height:455px;" alt="">
                                 </a>
                             </div>
                         </div>
@@ -253,7 +253,7 @@
                 <div class="col-md-7 text-md-end position-relative">
 
                     <!-- Image -->
-                    <img src="resources/resources1b/images/02_realEstate/istockphoto-917262780-170667a.jpg" class="position-relative" alt="">
+                    <img src="${path}/resources/resources1b/images/02_realEstate/istockphoto-917262780-170667a.jpg" class="position-relative" alt="">
                 </div>
             </div>
         </div>

@@ -24,6 +24,9 @@ public class RealEstateController {
 		return "realEstate/realEstateDetailList";
 	}
 	
-	
+	@RequestMapping("/RealEstate/detail")
+	public String goRealEDetail(Model model){
+		return "realEstate/realEstateDetail";
+	}
 
 }

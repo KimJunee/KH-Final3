@@ -22,11 +22,11 @@
                 <div class="col-lg-3 col-xl-4 col-xxl-3 d-none d-lg-block">
                     <div class="row g-md-5 align-items-center ms-n6">
                         <div class="col-6">
-                            <img src="resources/resources1b/images/02_realEstate/illu.png" class="rounded-3 mt-6 mb-5" alt="">
-                            <img src="resources/resources1b/images/02_realEstate/house_02.png" class="rounded-3" alt="">
+                            <img src="${path}/resources/resources1b/images/02_realEstate/illu.png" class="rounded-3 mt-6 mb-5" alt="">
+                            <img src="${path}/resources/resources1b/images/02_realEstate/house_02.png" class="rounded-3" alt="">
                         </div>
                         <div class="col-6 position-relative">
-                            <img src="resources/resources1b/images/02_realEstate/couple.png" class="rounded-3" alt="">
+                            <img src="${path}/resources/resources1b/images/02_realEstate/couple.png" class="rounded-3" alt="">
                             <!-- Svg element decoration -->
                         </div>
                     </div>
@@ -78,18 +78,18 @@
                     <div class="row g-4 align-items-center me-n4">
                         <!-- Images -->
                         <div class="col-4">
-                            <img src="resources/resources1b/images/02_realEstate/house_01.png" class="rounded-3" alt="">
+                            <img src="${path}/resources/resources1b/images/02_realEstate/house_01.png" class="rounded-3" alt="">
                         </div>
                         <!-- Images -->
                         <div class="col-5 position-relative">
-                            <img src="resources/resources1b/images/02_realEstate/family_03.jpg" class="rounded-3 mb-5" alt="">
-                            <img src="resources/resources1b/images/02_realEstate/house_01" class="rounded-3 mb-n5" alt="">
+                            <img src="${path}/resources/resources1b/images/02_realEstate/family_03.jpg" class="rounded-3 mb-5" alt="">
+                            <img src="${path}/resources/resources1b/images/02_realEstate/house_01" class="rounded-3 mb-n5" alt="">
 
                         </div>
                         <!-- Images -->
                         <div class="col-3">
-                            <img src="resources/resources1b/images/02_realEstate/solo.png" class="rounded-3 mt-7 mb-5" alt="">
-                            <img src="resources/resources1b/images/02_realEstate/family_02.jpg" class="rounded-3 mb-n8" alt="">
+                            <img src="${path}/resources/resources1b/images/02_realEstate/solo.png" class="rounded-3 mt-7 mb-5" alt="">
+                            <img src="${path}/resources/resources1b/images/02_realEstate/family_02.jpg" class="rounded-3 mb-n8" alt="">
                         </div>
                     </div>
                 </div>
@@ -154,7 +154,7 @@
                             <div class="col-12 ">
                                 <div class="d-flex align-items-center">
                                     <div class="avatar avatar-xs">
-                                        <img class="avatar-img rounded-circle" src="resources/resources1b/images/avatar_m1.png" alt="avatar">
+                                        <img class="avatar-img rounded-circle" src="${path}/resources/resources1b/images/avatar_m1.png" alt="avatar">
                                     </div>
                                     <div class="ms-3">
                                         <h6 class="mb-0 "><a href="# " class="stretched-link ">가산점 정확히 계산하는 방법 맞나요? </a></h6>
@@ -170,7 +170,7 @@
                             <div class="col-12 ">
                                 <div class="d-flex align-items-center">
                                     <div class="avatar avatar-xs">
-                                        <img class="avatar-img rounded-circle" src="resources/resources1b/images/avatar_w2.png" alt="avatar">
+                                        <img class="avatar-img rounded-circle" src="${path}/resources/resources1b/images/avatar_w2.png" alt="avatar">
                                     </div>
                                     <div class="ms-3">
                                         <h6 class="mb-0 "><a href="# " class="stretched-link ">서울 아파트 청약 경쟁률 조언해주세요.</a></h6>

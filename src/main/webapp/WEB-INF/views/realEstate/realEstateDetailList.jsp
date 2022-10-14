@@ -15,7 +15,7 @@
     <!-- **************** MAIN CONTENT START **************** -->
 
     <!-- ======================= 섹션1: 청약조회 시작 =========================-->
-    <section class="position-relative overflow-hidden" style="background-image:url('resources/resources1b/images/02_realEstate/501b249c45892.jpg'); background-position: center; background-size: cover;">
+    <section class="position-relative overflow-hidden" style="background-image:url('${path}/resources/resources1b/images/02_realEstate/501b249c45892.jpg'); background-position: center; background-size: cover;">
         <div class="bg-overlay bg-transparent opacity-5"></div>
         <!-- SVG decoration for curve -->
         <figure class="position-absolute bottom-0 left-0 w-100 d-md-block mb-n3 z-index-9">
@@ -321,140 +321,140 @@
                                             <tr>
                                                 <td>1</td>
                                                 <td>서울</td>
-                                                <td><a href="03_reales_detail.html">경산지역 미분양매입 임대주택</a></td>
+                                                <td><a href="${path}/RealEstate/detail">경산지역 미분양매입 임대주택</a></td>
                                                 <td>아파트</td>
                                                 <td>2023-09-02</td>
                                             </tr>
                                             <tr>
                                                 <td>1</td>
                                                 <td>서울</td>
-                                                <td><a href="03_reales_detail.html">힐스테이트 푸르지오 수원</a></td>
+                                                <td><a href="${path}/RealEstate/detail">힐스테이트 푸르지오 수원</a></td>
                                                 <td>아파트</td>
                                                 <td>2023-09-02</td>
                                             </tr>
                                             <tr>
                                                 <td>1</td>
                                                 <td>서울</td>
-                                                <td><a href="03_reales_detail.html">김포마송 B-5블록 행복주택</a></td>
+                                                <td><a href="${path}/RealEstate/detail">김포마송 B-5블록 행복주택</a></td>
                                                 <td>아파트</td>
                                                 <td>2023-09-02</td>
                                             </tr>
                                             <tr>
                                                 <td>1</td>
                                                 <td>서울</td>
-                                                <td><a href="03_reales_detail.html">경산지역 미분양매입 임대주택</a></td>
+                                                <td><a href="${path}/RealEstate/detail">경산지역 미분양매입 임대주택</a></td>
                                                 <td>아파트</td>
                                                 <td>2023-09-02</td>
                                             </tr>
                                             <tr>
                                                 <td>1</td>
                                                 <td>서울</td>
-                                                <td><a href="03_reales_detail.html">힐스테이트 푸르지오 수원</a></td>
+                                                <td><a href="${path}/RealEstate/detail">힐스테이트 푸르지오 수원</a></td>
                                                 <td>아파트</td>
                                                 <td>2023-09-02</td>
                                             </tr>
                                             <tr>
                                                 <td>1</td>
                                                 <td>서울</td>
-                                                <td><a href="03_reales_detail.html">김포마송 B-5블록 행복주택</a></td>
+                                                <td><a href="${path}/RealEstate/detail">김포마송 B-5블록 행복주택</a></td>
                                                 <td>아파트</td>
                                                 <td>2023-09-02</td>
                                             </tr>
                                             <tr>
                                                 <td>1</td>
                                                 <td>서울</td>
-                                                <td><a href="03_reales_detail.html">경산지역 미분양매입 임대주택</a></td>
+                                                <td><a href="${path}/RealEstate/detail">경산지역 미분양매입 임대주택</a></td>
                                                 <td>아파트</td>
                                                 <td>2023-09-02</td>
                                             </tr>
                                             <tr>
                                                 <td>1</td>
                                                 <td>서울</td>
-                                                <td><a href="03_reales_detail.html">힐스테이트 푸르지오 수원</a></td>
+                                                <td><a href="${path}/RealEstate/detail">힐스테이트 푸르지오 수원</a></td>
                                                 <td>아파트</td>
                                                 <td>2023-09-02</td>
                                             </tr>
                                             <tr>
                                                 <td>1</td>
                                                 <td>서울</td>
-                                                <td><a href="03_reales_detail.html">김포마송 B-5블록 행복주택</a></td>
+                                                <td><a href="${path}/RealEstate/detail">김포마송 B-5블록 행복주택</a></td>
                                                 <td>아파트</td>
                                                 <td>2023-09-02</td>
                                             </tr>
                                             <tr>
                                                 <td>1</td>
                                                 <td>서울</td>
-                                                <td><a href="03_reales_detail.html">경산지역 미분양매입 임대주택</a></td>
+                                                <td><a href="${path}/RealEstate/detail">경산지역 미분양매입 임대주택</a></td>
                                                 <td>아파트</td>
                                                 <td>2023-09-02</td>
                                             </tr>
                                             <tr>
                                                 <td>1</td>
                                                 <td>서울</td>
-                                                <td><a href="03_reales_detail.html">힐스테이트 푸르지오 수원</a></td>
+                                                <td><a href="${path}/RealEstate/detail">힐스테이트 푸르지오 수원</a></td>
                                                 <td>아파트</td>
                                                 <td>2023-09-02</td>
                                             </tr>
                                             <tr>
                                                 <td>1</td>
                                                 <td>서울</td>
-                                                <td><a href="03_reales_detail.html">김포마송 B-5블록 행복주택</a></td>
+                                                <td><a href="${path}/RealEstate/detail">김포마송 B-5블록 행복주택</a></td>
                                                 <td>아파트</td>
                                                 <td>2023-09-02</td>
                                             </tr>
                                             <tr>
                                                 <td>1</td>
                                                 <td>서울</td>
-                                                <td><a href="03_reales_detail.html">경산지역 미분양매입 임대주택</a></td>
+                                                <td><a href="${path}/RealEstate/detail">경산지역 미분양매입 임대주택</a></td>
                                                 <td>아파트</td>
                                                 <td>2023-09-02</td>
                                             </tr>
                                             <tr>
                                                 <td>1</td>
                                                 <td>서울</td>
-                                                <td><a href="03_reales_detail.html">힐스테이트 푸르지오 수원</a></td>
+                                                <td><a href="${path}/RealEstate/detail">힐스테이트 푸르지오 수원</a></td>
                                                 <td>아파트</td>
                                                 <td>2023-09-02</td>
                                             </tr>
                                             <tr>
                                                 <td>1</td>
                                                 <td>서울</td>
-                                                <td><a href="03_reales_detail.html">김포마송 B-5블록 행복주택</a></td>
+                                                <td><a href="${path}/RealEstate/detail">김포마송 B-5블록 행복주택</a></td>
                                                 <td>아파트</td>
                                                 <td>2023-09-02</td>
                                             </tr>
                                             <tr>
                                                 <td>1</td>
                                                 <td>서울</td>
-                                                <td><a href="03_reales_detail.html">경산지역 미분양매입 임대주택</a></td>
+                                                <td><a href="${path}/RealEstate/detail">경산지역 미분양매입 임대주택</a></td>
                                                 <td>아파트</td>
                                                 <td>2023-09-02</td>
                                             </tr>
                                             <tr>
                                                 <td>1</td>
                                                 <td>서울</td>
-                                                <td><a href="03_reales_detail.html">힐스테이트 푸르지오 수원</a></td>
+                                                <td><a href="${path}/RealEstate/detail">힐스테이트 푸르지오 수원</a></td>
                                                 <td>아파트</td>
                                                 <td>2023-09-02</td>
                                             </tr>
                                             <tr>
                                                 <td>1</td>
                                                 <td>서울</td>
-                                                <td><a href="03_reales_detail.html">김포마송 B-5블록 행복주택</a></td>
+                                                <td><a href="${path}/RealEstate/detail">김포마송 B-5블록 행복주택</a></td>
                                                 <td>아파트</td>
                                                 <td>2023-09-02</td>
                                             </tr>
                                             <tr>
                                                 <td>1</td>
                                                 <td>서울</td>
-                                                <td><a href="03_reales_detail.html">경산지역 미분양매입 임대주택</a></td>
+                                                <td><a href="${path}/RealEstate/detail">경산지역 미분양매입 임대주택</a></td>
                                                 <td>아파트</td>
                                                 <td>2023-09-02</td>
                                             </tr>
                                             <tr>
                                                 <td>1</td>
                                                 <td>서울</td>
-                                                <td><a href="03_reales_detail.html">힐스테이트 푸르지오 수원</a></td>
+                                                <td><a href="${path}/RealEstate/detail">힐스테이트 푸르지오 수원</a></td>
                                                 <td>아파트</td>
                                                 <td>2023-09-02</td>
                                             </tr>
