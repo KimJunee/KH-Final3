@@ -207,7 +207,7 @@
                                                 <div class="tab-content" id="pills-tabContent">
                                                     <div class="tab-pane fade show active" id="day-status" role="tabpanel" aria-labelledby="day-status-tab">
                                                         <div dir="ltr">
-                                                            <div id="day-balance-chart" class="apex-charts" data-colors="#0acf97"></div>
+                                                            <div id="day-balance-chart1" class="apex-charts" data-colors="#0acf97"></div>
                                                         </div>
                                                     </div>
                                                     <!-- <div class="tab-pane fade" id="week-status" role="tabpanel" aria-labelledby="week-status-tab">
@@ -593,6 +593,6 @@
 
 	<%@ include file="/WEB-INF/views/common/footer.jsp" %>
 	<script src="${path}/resources/resources4h/assets2/js/pages/demo.dashboard-wallet2.js "></script>
-	   
+
 </body>
 </html>

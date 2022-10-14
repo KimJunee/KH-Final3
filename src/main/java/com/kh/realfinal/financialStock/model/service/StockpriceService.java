@@ -23,5 +23,7 @@ public interface StockpriceService {
 	List<String> getKospiClprList();//코스피 지수의 종가를 20200102 ~ 현재날짜까지 들고오는 list
 	int getKosdaqstockCount();         //코스닥 주식갯수 가져오는놈
 	List<Stockprice> getKosdaqstockList(PageInfo pageInfo); //코스닥 주식이랑 페이징 같이
+	List<Date> getKosdaqDateList() throws ParseException;  //코스닥 지수의 날짜를 20200102 ~ 현재날짜까지 들고오는 list
+	List<String> getKosdaqClprList();//코스닥 지수의 종가를 20200102 ~ 현재날짜까지 들고오는 list
 	
 }

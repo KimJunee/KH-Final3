@@ -40,7 +40,7 @@ $.ajax({
                 }, t.prototype.initDayBalance = function() {
                     var t = ["#6c757d"],
                         e = a("#day-balance-chart").data("colors"),
-                        e = { chart: { type: "area", height: 350, toolbar: { show: !1 } }, colors: t = e ? e.split(",") : t, dataLabels: { enabled: !1 }, stroke: { width: 1 }, series: [{ data: this.dayBalanceData }], markers: { size: 0, style: "hollow" }, xaxis: { type: "datetime", tickAmount: 6 }, yaxis: { labels: { formatter: function(t) { return "$" + t } } }, tooltip: { x: { format: "dd MMM yyyy" } }, fill: { type: "gradient", gradient: { shadeIntensity: 1, opacityFrom: .7, opacityTo: 0, stops: [0, 100] } } };
+                        e = { chart: { type: "area", height: 350, toolbar: { show: !1 } }, colors: t = e ? e.split(",") : t, dataLabels: { enabled: !1 }, stroke: { width: 1 }, series: [{ data: this.dayBalanceData }], markers: { size: 0, style: "hollow" }, xaxis: { type: "datetime", tickAmount: 6 }, yaxis: { labels: { formatter: function(t) { return  t } } }, tooltip: { x: { format: "dd MMM yyyy" } }, fill: { type: "gradient", gradient: { shadeIntensity: 1, opacityFrom: .7, opacityTo: 0, stops: [0, 100] } } };
                     new ApexCharts(document.querySelector("#day-balance-chart"), e).render()
                 }, a.DashboardWallet = new t, a.DashboardWallet.Constructor = t, a.DashboardWallet.init()
         }(window.jQuery);

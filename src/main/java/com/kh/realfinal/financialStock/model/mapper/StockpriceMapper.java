@@ -29,5 +29,7 @@ public interface StockpriceMapper {
 	List<String> selectKospiClprList();//코스피 지수의 종가를 20200102 ~ 현재날짜까지 들고오는 list
 	int selectKosdaqstockCount();               //코스닥 주식갯수 가져오는놈
 	List<Stockprice> selectKosdaqstockList(RowBounds rowBounds); //코스피 주식 가져오는 거랑 페이징 같이!
+	List<String> selectKosdaqClprList(); //코스닥 지수의 종가를 20200102 ~ 현재날짜까지 들고오는 list
+	List<String> selectKosdaqDateList(); //코스닥 지수의 날짜를 20200102 ~ 현재날짜까지 들고오는 list
 	
 }

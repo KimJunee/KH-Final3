@@ -74,7 +74,6 @@ public class StockpriceServiceImpl implements StockpriceService{
 
 	@Override
 	public List<Date> getKospiDateList() throws ParseException {
-		String str = "-";
 		List<String> list = mapper.selectKospiDateList();
 		List<Date> list1 = new ArrayList<Date>();
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
@@ -94,6 +93,26 @@ public class StockpriceServiceImpl implements StockpriceService{
 	public List<String> getKospiClprList() {
 		return mapper.selectKospiClprList();
 	}
+	@Override
+	public List<Date> getKosdaqDateList() throws ParseException {
+		List<String> list = mapper.selectKosdaqDateList();
+		List<Date> list1 = new ArrayList<Date>();
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
+		
+		for(int i = 0; i < list.size(); i++) {
+			Date date = formatter.parse(list.get(i));
+			list1.add(date);
+		}
+		
+		
+		return list1;
+	}
+	
+	
+	@Override
+	public List<String> getKosdaqClprList() {
+		return mapper.selectKosdaqClprList();
+	}
 
 
 	@Override
@@ -109,5 +128,7 @@ public class StockpriceServiceImpl implements StockpriceService{
 		
 		return mapper.selectKosdaqstockList(rowBounds);
 	}
+
+
 
 }

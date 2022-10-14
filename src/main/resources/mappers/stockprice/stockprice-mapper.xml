@@ -90,6 +90,13 @@
 	<select id="selectKospiClprList" resultType="String">
 		SELECT CLPR FROM INDEXPRICE WHERE IDXNM = '코스피'  ORDER BY BASDT ASC
 	</select>
+	
+	<select id="selectKosdaqDateList" resultType="String">
+		SELECT BASDT FROM INDEXPRICE WHERE IDXNM = '코스닥'  ORDER BY BASDT ASC
+	</select>
+	<select id="selectKosdaqClprList" resultType="String">
+		SELECT CLPR FROM INDEXPRICE WHERE IDXNM = '코스닥'  ORDER BY BASDT ASC
+	</select>
 
 
 
