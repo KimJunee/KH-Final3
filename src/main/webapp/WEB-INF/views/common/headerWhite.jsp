@@ -87,7 +87,7 @@
                 <div class="collapse navbar-collapse  " id="navbarCollapse ">
                     <ul class="navbar-nav navbar-nav-scroll mx-auto ">
                         <!-- <li class="nav-item "> -->
-                        <a class="nav-link-white-sp active " href="${path}/main.do" id="homeMenu " data-bs-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">Home</a>
+                        <a class="nav-link-white-sp active " href="${path}/main.do" id="homeMenu " data-bs-toggle="dropdown " aria-haspopup="true " aria-expanded="false">Home</a>
 
                         <!-- 금융 메뉴 시작-->
                         <li class="nav-item dropdown ">
@@ -97,11 +97,11 @@
                                 <li class="dropdown-submenu dropend text-dark">
                                     <a class="dropdown-item  text-dark" href="${path}/stockprice/fin_main.do"> 금융메인</a>
                                 </li>
-                                <li> <a class="dropdown-item text-dark" href="02_fin_kospiDetail.html">오늘의 KOSPI <span class="badge bg-danger smaller me-1">New</span></a>
+                                <li> <a class="dropdown-item text-dark" href="${path}/stockprice/fin_kospiDetail.do">오늘의 KOSPI <span class="badge bg-danger smaller me-1">New</span></a>
                                 </li>
-                                <li> <a class="dropdown-item text-dark" href="02_fin_kosdaqDetail.html">오늘의 KOSDAQ  <span class="badge bg-danger smaller me-1">New</span></a>
+                                <li> <a class="dropdown-item text-dark" href="${path}/stockprice/fin_kosdaqDetail.do">오늘의 KOSDAQ  <span class="badge bg-danger smaller me-1">New</span></a>
                                 </li>
-                                <li> <a class="dropdown-item text-dark" href="02_fin_Product.html">금융상품안내</a> </li>
+                                <li> <a class="dropdown-item text-dark" href="${path}/finance/productMain">금융상품안내</a> </li>
                                 <li class="dropdown-divider text-dark"></li>
                                 <li> <a class="dropdown-item text-dark" href="07_com_finance.html">금융Talk  <span class="badge bg-danger smaller me-1">New</span></a> </li>
                             </ul>
