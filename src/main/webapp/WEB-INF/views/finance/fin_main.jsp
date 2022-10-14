@@ -294,7 +294,7 @@
                                         <h3 class="mice" style="font-size: 30px;"><span class="mice">이달의<a class="text-instagram"> 추천금융상품</a></span><span class="text-secondary " style="font-size: 17px; ">&nbsp FinTouch에서 추천하는 금융상품을 확인하여 최고의 금리혜택을 얻으세요!</span></h3>
                                     </div>
                                     <div class="col-md-2 d-lg-flex align-items-center justify-content-end ">
-                                        <a class="btn btn-link fw-normal p-0 " href="02_fin_Product.html" style="margin-left: -5%; ">View all</a></div>
+                                        <a class="btn btn-link fw-normal p-0 " href="${path}/finance/productMain" style="margin-left: -5%; ">View all</a></div>
                                 </div>
                             </div>
 
