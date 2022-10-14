@@ -51,7 +51,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
     
-
     <!-- Plugins CSS -->
     <link rel="stylesheet" type="text/css" href="${path}/resources/resources1b/vendor/font-awesome/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="${path}/resources/resources1b/vendor/bootstrap-icons/bootstrap-icons.css">
@@ -74,7 +73,7 @@
         <nav class="navbar navbar-expand-sm navbar-nav-sp nav-link-white-sp">
             <div class="container ">
                 <!-- 로고 시작 -->
-                 <a class="navbar-brand navbar-nav-sp nav-link-sp" href="01_main.html" style="margin-top:-5px">
+                 <a class="navbar-brand navbar-nav-sp nav-link-sp" href="${path}/main.do" style="margin-top:-5px">
               <img class="navbar-brand-item light-mode-item " src="${path}/resources/resources1b/images/01_main/logo_dark.png" alt="logo ">
               <img class="navbar-brand-item dark-mode-item " src="${path}/resources/resources1b/images/01_main/logo_dark.png" alt="logo ">
                 </a>
@@ -88,15 +87,15 @@
                 <div class="collapse navbar-collapse  " id="navbarCollapse ">
                     <ul class="navbar-nav navbar-nav-scroll mx-auto ">
                         <!-- <li class="nav-item "> -->
-                        <a class="nav-link-white-sp active " href="01_main.html" id="homeMenu " data-bs-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">Home</a>
+                        <a class="nav-link-white-sp active " href="${path}/main.do" id="homeMenu " data-bs-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">Home</a>
 
                         <!-- 금융 메뉴 시작-->
                         <li class="nav-item dropdown ">
-                            <a class="nav-link-white-sp " href="02_fin_main.html" id="postMenu " data-bs-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">금융</a>
+                            <a class="nav-link-white-sp " href="${path}/stockprice/fin_main.do" id="postMenu " data-bs-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">금융</a>
                             <ul class="dropdown-menu  text-dark" aria-labelledby="postMenu ">
                                 <!-- dropdown submenu -->
                                 <li class="dropdown-submenu dropend text-dark">
-                                    <a class="dropdown-item  text-dark" href="02_fin_main.html"> 금융메인</a>
+                                    <a class="dropdown-item  text-dark" href="${path}/stockprice/fin_main.do"> 금융메인</a>
                                 </li>
                                 <li> <a class="dropdown-item text-dark" href="02_fin_kospiDetail.html">오늘의 KOSPI <span class="badge bg-danger smaller me-1">New</span></a>
                                 </li>
@@ -155,19 +154,21 @@
 
                         <!-- 커뮤니티 메뉴 시작 -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link-white-sp" href="07_com_main.html" id="postMenu " data-bs-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">커뮤니티</a>
+                            <a class="nav-link-white-sp" href="${path}/board/main" id="postMenu " data-bs-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">커뮤니티</a>
                             <ul class="dropdown-menu text-dark" aria-labelledby="postMenu ">
                                 <!-- dropdown submenu -->
                                 <li class="dropdown-submenu dropend text-dark">
-                                    <a class="dropdown-item text-dark" href="07_com_main.html">커뮤니티메인</a>
-                                </li>
+                                    <a class="dropdown-item text-dark" href="${path}/board/main">커뮤니티메인</a></li>
                                 <li class="dropdown-submenu dropend text-dark">
-                                    <a class="dropdown-item text-dark" href="07_com_politics.html">정치Talk <span class="badge bg-danger smaller me-1">New</span></a>
-                                </li>
-                                <li> <a class="dropdown-item text-dark" href="07_com_finance.html">금융Talk <span class="badge bg-danger smaller me-1">New</span></a> </li>
-                                <li> <a class="dropdown-item text-dark" href="07_com_realestate.html"> 부동산Talk <span class="badge bg-danger smaller me-1">New</span></a> </li>
+                                    <a class="dropdown-item text-dark" href="07_com_politics.html">정치Talk 
+                                    	<span class="badge bg-danger smaller me-1">New</span></a></li>
+                                <li><a class="dropdown-item text-dark" href="07_com_finance.html">금융Talk 
+                                	<span class="badge bg-danger smaller me-1">New</span></a></li>
+                                <li><a class="dropdown-item text-dark" href="07_com_realestate.html">부동산Talk 
+                                	<span class="badge bg-danger smaller me-1">New</span></a></li>
                                 <!-- <li class="dropdown-divider text-dark"></li> -->
-                                <li> <a class="dropdown-item text-dark" href="07_com_free.html"> 자유Talk <span class="badge bg-danger smaller me-1">New</span></a> </li>
+                                <li><a class="dropdown-item text-dark" href="07_com_free.html"> 자유Talk 
+                                	<span class="badge bg-danger smaller me-1">New</span></a></li>
                             </ul>
                         </li>
                         <!-- 커뮤니티메뉴 끝-->
@@ -180,16 +181,26 @@
 
                     <!-- 커뮤니티 글쓰기 아이콘-->
                     <div class="nav-item ">
-                        <a class="nav-link-white-sp" href="07_com_boardPost.html">
+                    	<c:if test="${empty loginMember}">
+                    	<i class="bi bi-pencil-square fs-4 " style="display: none;"></i>
+                    	</c:if>
+                    	<c:if test="${!empty loginMember}">
+                        <a class="nav-link-white-sp" href="${path}/board/writePost">
                             <i class="bi bi-pencil-square fs-4 "></i>
                         </a>
+                        </c:if>
                     </div>
 
                     <!-- 마이페이지 아이콘 -->
                     <div class="nav-item ">
-                        <a class="nav-link-white-sp" href="08_mp_Info.html">
+                    <c:if test="${empty loginMember}">
+                    	<i class="bi bi-person-square fs-4 " style="display: none;"></i>
+                    </c:if>
+                    <c:if test="${!empty loginMember}">
+                        <a class="nav-link-white-sp" href="${path}/member/view">
                             <i class="bi bi-person-square fs-4 "></i>
                         </a>
+                    </c:if>
                     </div>
 
                     <!-- 로그인 버튼 -->
@@ -197,8 +208,8 @@
                     <c:if test="${empty loginMember}">
                         <a href="${path}/mypage/signIn" class="btn btn-sm btn-danger mb-0 mx-2 ">Sign In</a>
                     </c:if>
-                    <c:if test="${not empty loginMember}">
-                    	<a href="${path}/main/main" class="btn btn-sm btn-danger mb-0 mx-2 ">Logout</a>
+                    <c:if test="${!empty loginMember}">
+                    	<a href="${path}/main/main" class="btn btn-sm btn-danger mb-0 mx-2 ">Sign Out</a>
                     </c:if>
                     </div>
                     <!-- Offcanvas menu toggler -->

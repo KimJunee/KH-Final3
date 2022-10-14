@@ -28,7 +28,7 @@
 <head>
     <title>FinTouch | FinanceProduct | Main</title>
     <!-- Favicon -->
-    <link rel="shortcut icon" href="resources/resources1b/images/favicon.ico">
+    <link rel="shortcut icon" href="${path}/resources/resources1b/images/favicon.ico">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
 </head>
 	<body>
@@ -46,7 +46,7 @@
 		                                <p class="mb-2 pb-1 fs-lg"> &nbsp; - 가입대상 : 실명의 개인 또는 개인사업자<br> &nbsp; - 가입방법 : 인터넷, 스마트폰<br> &nbsp; - 최고한도 : 없음</p>
 		                            </div>
 		                            <div class="col-3">
-		                                <img src="resources/resources1b/images/02_fin_financePro/kbBank.jpg" alt="">
+		                                <img src="${path}/resources/resources1b/images/02_fin_financePro/kbBank.jpg" alt="">
 		                            </div>
 		                        </div>
 		                    </div>
@@ -85,7 +85,7 @@
 		                    <div class="card col-lg-15 p-2 rounded-3 border border-1">
 		                        <div class="card-body">
 		                            <div class="left rounded-circle">
-		                                <img src="resources/resources1b/images/02_fin_financePro/woman.jpg" style="width:300px; height:250px">
+		                                <img src="${path}/resources/resources1b/images/02_fin_financePro/woman.jpg" style="width:300px; height:250px">
 		                            </div>
 		                            <div class="right" style="width:300px; height:250px">
 		                                <p class="mb-4 mt-2"> 자본주의 사회에서 금융에 대해 이해하는 것은 필수입니다. 당장 무엇부터 알아야 할지, 어디부터 시작해야 할지 막막하다면 전문가와의 재무상담을 통해 계획을 세워보시기 바랍니다!</p>
@@ -119,7 +119,7 @@
 		                            </div>
 		                            <div class="col-4">
 		                                <div class="avatar avatar-xl">
-		                                    <img class="mt-2 avatar-img rounded-circle" src="resources/resources1b/images/02_fin_financePro/BankDetail.jpg" alt="avatar" style="margin-left: 20px;">
+		                                    <img class="mt-2 avatar-img rounded-circle" src="${path}/resources/resources1b/images/02_fin_financePro/BankDetail.jpg" alt="avatar" style="margin-left: 20px;">
 		                                </div>
 		                            </div>
 		                        </div>
@@ -170,7 +170,7 @@
 		                                <div class="d-flex align-items-center">
 		                                    <ul class="avatar-group mb-0">
 		                                        <li class="avatar avatar-sm">
-		                                            <img class="avatar-img rounded-circle" src="resources/resources1b/images/02_fin_financePro/nhBank.jpg" alt="avatar">
+		                                            <img class="avatar-img rounded-circle" src="${path}/resources/resources1b/images/02_fin_financePro/nhBank.jpg" alt="avatar">
 		                                        </li>
 		                                    </ul>
 		                                    <h5 class="mb-0 ms-3 mice">NH1934월복리적금</h5>
@@ -205,7 +205,7 @@
 		                                <div class="d-flex align-items-center">
 		                                    <ul class="avatar-group mb-0">
 		                                        <li class="avatar avatar-sm">
-		                                            <img class="avatar-img rounded-circle" src="resources/resources1b/images/02_fin_financePro/wcBank.png" alt="avatar">
+		                                            <img class="avatar-img rounded-circle" src="${path}/resources/resources1b/images/02_fin_financePro/wcBank.png" alt="avatar">
 		                                        </li>
 		                                    </ul>
 		                                    <h5 class="mb-0 ms-3 mice">웰뱅 든든적금</h5>
@@ -239,7 +239,7 @@
 		                                <div class="d-flex align-items-center">
 		                                    <ul class="avatar-group mb-0">
 		                                        <li class="avatar avatar-sm">
-		                                            <img class="avatar-img rounded-circle" src="resources/resources1b/images/02_fin_financePro/kbBank.jpg" alt="avatar">
+		                                            <img class="avatar-img rounded-circle" src="${path}/resources/resources1b/images/02_fin_financePro/kbBank.jpg" alt="avatar">
 		                                        </li>
 		                                    </ul>
 		                                    <h5 class="mb-0 ms-3 mice">KB마이핏적금</h5>
@@ -272,7 +272,7 @@
 		                                <div class="d-flex align-items-center">
 		                                    <ul class="avatar-group mb-0">
 		                                        <li class="avatar avatar-sm">
-		                                            <img class="avatar-img rounded-circle" src="resources/resources1b/images/02_fin_financePro/shinhanBank.jpg" alt="avatar">
+		                                            <img class="avatar-img rounded-circle" src="${path}/resources/resources1b/images/02_fin_financePro/shinhanBank.jpg" alt="avatar">
 		                                        </li>
 		                                    </ul>
 		                                    <h5 class="mb-0 ms-3 mice">신한 안녕,반가워적금</h5>

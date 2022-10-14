@@ -1,3 +1,6 @@
+<%@page import="com.kh.realfinal.member.model.vo.Member" %>
+<%@page import="com.kh.realfinal.board.model.vo.Board" %>
+<%@page import="com.kh.realfinal.board.model.vo.Reply" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
@@ -7,21 +10,20 @@
 <!DOCTYPE html>
 <html lang="ko">
 
-
 <head>
     <title>FinTouch | Community | Post</title>
     <!-- Favicon -->
-    <link rel="shortcut icon" href="resources/resources1b/images/favicon.ico">
+    <link rel="shortcut icon" href="${path}/resources/resources1b/images/favicon.ico">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="resources/resources1b/vendor/quill/css/quill.snow.css">
+	<link rel="stylesheet" type="text/css" href="${path}/resources/resources1b/vendor/quill/css/quill.snow.css">
 </head>
 
 <body>
 <%@ include file="/WEB-INF/views/common/headerWhite.jsp" %>
-<script src="resources/resources1b/vendor/quill/js/quill.min.js"></script>
+<script src="${path}/resources/resources1b/vendor/quill/js/quill.min.js"></script>
     <main>
         <!-- ============ 메뉴소개 시작 ============ -->
-        <section style="background-image:url('resources/resources1b/images/avatar/fintouch/community04.png'); background-position: center; height:652px; width:99%;"></section>
+        <section style="background-image:url('${path}/resources/resources1b/images/avatar/fintouch/community04.png'); background-position: center; height:652px; width:99%;"></section>
         <!-- ============ 메뉴소개 끝 ============ -->
         <!-- ======================= Main contain START -->
         <section class="py-4">
@@ -39,7 +41,7 @@
                             <!-- Card body -->
                             <div class="card-body">
                                 <!-- Form START -->
-                                <form>
+                                <form action="${path}/board/Post" method="post" enctype="multipart/form-data">
                                     <!-- Main form -->
                                     <div class="row">
                                         <div class="col-12">
@@ -138,7 +140,7 @@
                                                     <h6 class="my-2">Upload post image here, or<a href="#!" class="text-primary"> Browse</a></h6>
                                                     <label class="w-100" style="cursor:pointer;">
 														<span> 
-															<input class="form-control stretched-link" type="file" name="my-image" id="image" accept="image/gif, image/jpeg, image/png">
+															<input class="form-control stretched-link" type="file" name="upfile">
 														</span>
 													</label>
                                                 </div>

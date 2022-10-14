@@ -10,7 +10,7 @@
 <head>
     <title>FinTouch | Community | 게시글제목</title>
     <!-- Favicon -->
-    <link rel="shortcut icon" href="resources/resources1b/images/favicon.ico">
+    <link rel="shortcut icon" href="${path}/resources/resources1b/images/favicon.ico">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
 </head>
 
@@ -18,7 +18,7 @@
 <%@ include file="/WEB-INF/views/common/headerWhite.jsp" %>
     <main>
         <!-- ============ 메뉴소개 시작 ============ -->
-        <section style="background-image:url('resources/resources1b/images/avatar/fintouch/community04.png'); background-position: center; height:652px; width:99%;"></section>
+        <section style="background-image:url('${path}/resources/resources1b/images/avatar/fintouch/community04.png'); background-position: center; height:652px; width:99%;"></section>
         <!-- ============ 메뉴소개 끝 ============ -->
         <!-- Divider -->
         <div class="border-primary border-1 opacity-1"></div>
@@ -43,7 +43,7 @@
                             <!-- 작성자 -->
                             <div class="position-relative">
                                 <div class="avatar avatar-xl">
-                                    <img class="avatar-img rounded-circle" src="resources/resources1b/images/avatar_w1.png" alt="avatar">
+                                    <img class="avatar-img rounded-circle" src="${path}/resources/resources1b/images/avatar_w1.png" alt="avatar">
                                 </div>
                                 <a href="#" class="h5 stretched-link mt-2 mb-0 d-block">서현동뒹굴이</a>
                             </div>
@@ -65,8 +65,8 @@
                             더 길어야 해요</p>
                         <!-- Image -->
                         <figure class="figure mt-2">
-                            <a href="resources/resources1b/images/blog/3by2/04.jpg" data-glightbox data-gallery="image-popup">
-                                <img class="rounded" src="resources/resources1b/images/blog/3by2/04.jpg" alt="Image">
+                            <a href="${path}/resources/resources1b/images/blog/3by2/04.jpg" data-glightbox data-gallery="image-popup">
+                                <img class="rounded" src="${path}/resources/resources1b/images/blog/3by2/04.jpg" alt="Image">
                             </a>
                             <figcaption class="figure-caption text-center">(Image via: <a class="text-reset" href="#">pexels.com</a>)</figcaption>
                         </figure>
@@ -77,7 +77,7 @@
                             <h3>2 comments</h3>
                             <!-- Comment level 1-->
                             <div class="my-4 d-flex border-bottom border-1 mb-1" style="color:#a1a1a8">
-                                <img class="avatar avatar-md rounded-circle float-start me-3" src="resources/resources1b/images/avatar_w3.png" alt="avatar">
+                                <img class="avatar avatar-md rounded-circle float-start me-3" src="${path}/resources/resources1b/images/avatar_w3.png" alt="avatar">
                                 <div>
                                     <div class="mb-2">
                                         <h5 class="m-0">쏩쏲쏫쏙쏳쏘</h5>
@@ -90,7 +90,7 @@
                             </div>
                             <!-- Comment level 1 -->
                             <div class="my-4 d-flex">
-                                <img class="avatar avatar-md rounded-circle float-start me-3 pb-1" src="resources/resources1b/images/avatar_m1.png" alt="avatar">
+                                <img class="avatar avatar-md rounded-circle float-start me-3 pb-1" src="${path}/resources/resources1b/images/avatar_m1.png" alt="avatar">
                                 <div>
                                     <div class="mb-2">
                                         <h5 class="m-0">형님들진정하세요</h5>
@@ -218,7 +218,7 @@
                 </div>
                 <!-- image -->
                 <div class="col-4 d-none d-md-block">
-                    <img src="resources/resources1b/images/blog/4by3/05.jpg" alt="Image">
+                    <img src="${path}/resources/resources1b/images/blog/4by3/05.jpg" alt="Image">
                 </div>
             </div>
         </div>

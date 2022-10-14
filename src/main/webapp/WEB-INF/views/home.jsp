@@ -13,6 +13,10 @@
 	헬로리방구리!!
 </h1>
 
+
+
+<h2><a href="${path}/main.do">리얼 찐 메인으로 드가자</a></h2>
+
 <h2><a href="${path}/financialterm/insert.do">금융용어 DB INSERT</a></h2>
 
 <h2><a href="${path}/stockprice/insert.do">주식시세 DB INSERT</a></h2>
@@ -30,8 +34,6 @@
 <h2><a href="${path}/leaseloan/insert.do">금융감독원-전세자금대출API DB INSERT</a></h2>
 
 <h2><a href="${path}/creditloan/insert.do">금융감독원-개인신용대출API DB INSERT</a></h2>
-
-<h2><a href="${path}/publicService/insert.do">공공 서비스 API DB INSERT</a></h2>
 
 <%-- <h2><a href="${path}/landterm/insert.do">부동산용어 DB INSERT</a></h2> --%>
 
@@ -51,6 +53,7 @@
 
 <h2><a href="${path}/mypage/signIn">로그인 페이지 가기</a></h2>
 
+<h2><a href="${path}/finance/productMain">금융상품 페이지 가기</a></h2>
 <%-- <h2><a href="${path}/cardcut/insert.do"> 카드한컷 DB INSERT</a></h2>--%>
 
 <%-- <iframe id="ytplayer" type="text/html" width="720" height="405"

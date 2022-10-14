@@ -7,6 +7,19 @@
 <!DOCTYPE html>
 <html lang="ko">
 
+<style>
+	@font-face {
+	    font-family: 'mice';
+	    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/MICEGothic Bold.woff2') format('woff2');
+	    font-weight: 700;
+	    font-style: normal;
+	}
+
+	.mice {
+    	font-family: 'mice';
+	}
+</style>
+
 <head>
     <meta charset="utf-8">
     <title>FinTouch | Sign Up</title>
@@ -37,7 +50,7 @@
             <!-- Sign up form-->
             <div class="d-flex flex-column align-items-center w-lg-50 h-100 px-3 px-lg-5 pt-5">
                 <div class="w-100 mt-auto" style="max-width: 526px;">
-                    <h1>Sign up</h1>
+                    <h1 calss="mice">Sign up</h1>
                     <p class="pb-3 mb-3 mb-lg-4">이미 계정이 있으세요?&nbsp;&nbsp;<a href='${path}/mypage/signIn'>로그인 하러가기</a></p>
                     <form class="needs-validation" novalidate name="signUp" action="${path}/member/enroll" method="post">
                         <!-- ID / 이름 -->

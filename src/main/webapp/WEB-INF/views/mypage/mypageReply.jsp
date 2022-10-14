@@ -10,10 +10,10 @@
 <head>
     <title>FinTouch | My Page | Reply</title>
 	<!-- Favicon -->
-    <link rel="shortcut icon" href="resources/resources1b/images/favicon.ico">
+    <link rel="shortcut icon" href="${path}/resources/resources1b/images/favicon.ico">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <!-- 마이페이지 CSS -->
-    <link rel="stylesheet" type="text/css" href="resources/css/mypage.css">
+    <link rel="stylesheet" type="text/css" href="${path}/resources/css/mypage.css">
 </head>
 
 <body>
@@ -33,7 +33,7 @@
                         <aside class="pe-xl-4 mb-5">
                             <!-- 왼쪽 사이드바 -->
                             <div class="card border card-body shadow-sm pb-1 me-lg-1">
-                                <div class="d-flex d-md-block d-lg-flex align-items-start pt-lg-2 mb-2"><img class="" src="resources/resources1b/images/avatar_w2.png" width="48" alt="Annette Black">
+                                <div class="d-flex d-md-block d-lg-flex align-items-start pt-lg-2 mb-2"><img class="" src="${path}/resources/resources1b/images/avatar_w2.png" width="48" alt="Annette Black">
                                     <div class="pt-md-2 pt-lg-0 ps-3 ps-md-0 ps-lg-3">
                                         <h2 class="fs-lg mb-0" style="margin-left: 10px;">탬버리이인</h2>
                                         <ul class="list-unstyled fs-sm mt-1 mb-0">
@@ -47,12 +47,12 @@
                                 <a class="btn btn-outline-primary btn-lg w-100 mb-2 fw-bold" style="border-radius: 10px;" href="1community-board-post-lightfooter.html">+ 게시글 작성하기</a>
                                 <div class="collapse d-md-block mt-0 fw-bold" id="account-nav">
                                     <div class="card-nav">
-                                        <a class="card-nav-link" href="1myPageInfo.html"><i class="fa fa-solid fa-user" style="margin-right:10px; margin-left: 10px;"></i>회원정보</a>
+                                        <a class="card-nav-link" href="${path}/member/view"><i class="fa fa-solid fa-user" style="margin-right:10px; margin-left: 10px;"></i>회원정보</a>
                                         <a class="card-nav-link" href="1myPageFinance.html"><i class="fa fa-solid fa-piggy-bank" style="margin-right:10px; margin-left: 6px;"></i>내 금융상품</a>
                                         <a class="card-nav-link" href="1myPageSubscription.html"><i class="fa fa-solid fa-building" style="margin-right:10px; margin-left: 10px;"></i>부동산청약</a>
                                         <a class="card-nav-link" href="1mypage-newsscrap1003.html"><i class="fa fa-solid fa-bookmark" style="margin-right:10px; margin-left: 10px;"></i>뉴스스크랩</a>
-                                        <a class="card-nav-link" href="1myPage-board.html"><i class="fa fa-solid fa-quote-left" style="margin-right:10px; margin-left: 10px;"></i>내 글 목록</a>
-                                        <a class="card-nav-link active" href="1myPage-reply.html"><i class="fa fa-solid fa-comment-dots" style="margin-right:10px; margin-left: 10px;"></i>내 댓글 목록</a>
+                                        <a class="card-nav-link" href="${path}/board/myBoard"><i class="fa fa-solid fa-quote-left" style="margin-right:10px; margin-left: 10px;"></i>내 글 목록</a>
+                                        <a class="card-nav-link active" href="${path}/board/myReply"><i class="fa fa-solid fa-comment-dots" style="margin-right:10px; margin-left: 10px;"></i>내 댓글 목록</a>
                                     </div>
                                 </div>
                             </div>

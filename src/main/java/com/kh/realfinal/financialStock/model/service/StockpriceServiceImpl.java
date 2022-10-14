@@ -1,5 +1,9 @@
 package com.kh.realfinal.financialStock.model.service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.session.RowBounds;
@@ -66,5 +70,65 @@ public class StockpriceServiceImpl implements StockpriceService{
 		
 		return mapper.selectKospistockList(rowBounds);
 	}
+
+
+	@Override
+	public List<Date> getKospiDateList() throws ParseException {
+		List<String> list = mapper.selectKospiDateList();
+		List<Date> list1 = new ArrayList<Date>();
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
+		
+		for(int i = 0; i < list.size(); i++) {
+			Date date = formatter.parse(list.get(i));
+			list1.add(date);
+//			list1.add(list.get(i).substring(0,5) + str + list.get(i).substring(6,8) + str + list.get(i).substring(8,10));
+		}
+		
+		
+		return list1;
+	}
+
+
+	@Override
+	public List<String> getKospiClprList() {
+		return mapper.selectKospiClprList();
+	}
+	@Override
+	public List<Date> getKosdaqDateList() throws ParseException {
+		List<String> list = mapper.selectKosdaqDateList();
+		List<Date> list1 = new ArrayList<Date>();
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
+		
+		for(int i = 0; i < list.size(); i++) {
+			Date date = formatter.parse(list.get(i));
+			list1.add(date);
+		}
+		
+		
+		return list1;
+	}
+	
+	
+	@Override
+	public List<String> getKosdaqClprList() {
+		return mapper.selectKosdaqClprList();
+	}
+
+
+	@Override
+	public int getKosdaqstockCount() {
+		return mapper.selectKosdaqstockCount();
+	}
+
+
+	@Override
+	public List<Stockprice> getKosdaqstockList(PageInfo pageInfo) {
+		int offset = (pageInfo.getCurrentPage() - 1) * pageInfo.getListLimit();
+		RowBounds rowBounds = new RowBounds(offset, pageInfo.getListLimit());
+		
+		return mapper.selectKosdaqstockList(rowBounds);
+	}
+
+
 
 }
