@@ -459,7 +459,7 @@
 							                                    
 							                                    <c:forEach var= "stockprice" items="${list}" varStatus="status">
 							                                    	<tr class="odd">
-							                                    		<td style="text-align:center">${status.count}</td>
+							                                    		<td style="text-align:center">${status.count + (pageInfo.currentPage - 1) * 20}</td>
 							                                    		<td style="text-align:left"><c:out value="${stockprice.itmsNm}" /></td>
 							                                    		<td style="text-align:right;"><fmt:formatNumber value="${stockprice.clpr}"/></td>
 							                                    		<c:if test="${stockprice.fltRt == 0}">

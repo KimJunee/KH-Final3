@@ -179,15 +179,20 @@
                                     		<c:if test="${indexPrice.fltRt > 0}">                                    		
                                     			<div style="font-weight: bold; font-size: 25px; color:red"><c:out value="${indexPrice.clpr}" /> ▲ <c:out value="${fn:substring(indexPrice.vs,1,5)}" /> <c:out value="${indexPrice.fltRt}"/>%</div>
                                     		</c:if>                                	
+                                    <div dir="ltr">
+                                    	<c:if test="${indexPrice.fltRt < 0}">
+	                                        <div id="basic-area1" class="apex-charts" data-colors="#236AB9"></div>                                    	
+                                    	</c:if>
+                                    	<c:if test="${indexPrice.fltRt > 0}">
+                                    		<div id="basic-area1" class="apex-charts" data-colors="#fa6767"></div>
+                                    	</c:if>
+                                        <!-- <div id="basic-area1" class="apex-charts" data-colors="#fa6767"></div> -->
+                                        <!-- 상승장일때-->
+                                        <!-- 하락장일때-->
+                                    </div>
                                     	</c:forEach>                                    
                                     </c:if>
                                     <!--<h4 class="header-title mb-4">코스피 KOSPI</h4>-->
-                                    <div dir="ltr">
-                                        <!-- <div id="basic-area1" class="apex-charts" data-colors="#fa6767"></div> -->
-                                        <!-- 상승장일때-->
-                                        <div id="basic-area1" class="apex-charts" data-colors="#236AB9"></div>
-                                        <!-- 하락장일때-->
-                                    </div>
                                 </div>
                                 <!-- end card body-->
                             </div>
@@ -214,11 +219,18 @@
                                     		<c:if test="${indexPrice.fltRt > 0}">                                    		
                                     			<div style="font-weight: bold; font-size: 25px; color:red"><c:out value="${indexPrice.clpr}" /> ▲ <c:out value="${fn:substring(indexPrice.vs,1,5)}" /> <c:out value="${indexPrice.fltRt}"/>%</div>
                                     		</c:if>                                	
+                                        <c:if test="${indexPrice.fltRt < 0}">
+                    		                <div dir="ltr">
+	                        	                <div id="basic-area2" class="apex-charts" data-colors="#236AB9"></div>                                    	
+                                		    </div>
+                                    	</c:if>
+                                    	<c:if test="${indexPrice.fltRt > 0}">
+	    	                                <div dir="ltr">
+            	                        		<div id="basic-area2" class="apex-charts" data-colors="#fa6767"></div>
+    	        	                        </div>
+                                    	</c:if>
                                     	</c:forEach>                                    
                                     </c:if>
-                                    <div dir="ltr">
-                                        <div id="basic-area2" class="apex-charts" data-colors="#236AB9"></div>
-                                    </div>
                                 </div>
                                 <!-- end card body-->
                             </div>
