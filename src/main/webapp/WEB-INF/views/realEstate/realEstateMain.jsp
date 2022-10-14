@@ -338,7 +338,7 @@
                         </div>
                         <!-- 지역별 청약 footer -->
                         <div class="card-footer border-top text-center p-3 ">
-                            <a href="03_reales_detailList.html">View all details</a>
+                            <a href="${path}/RealEstate/list">View all details</a>
                         </div>
                     </div>
                 </div>

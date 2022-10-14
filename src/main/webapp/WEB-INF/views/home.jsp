@@ -56,6 +56,8 @@
 <h2><a href="${path}/finance/productMain">금융상품 페이지 가기</a></h2>
 <%-- <h2><a href="${path}/cardcut/insert.do"> 카드한컷 DB INSERT</a></h2>--%>
 
+<h2><a href="${path}/RealEstate/main">내집 마련 ***청약*** 메인 페이지</a></h2>
+
 <%-- <iframe id="ytplayer" type="text/html" width="720" height="405"
 src="https://www.youtube.com/embed/qZVTkn2NjS0/default"
 frameborder="0" allowfullscreen></iframe> --%> 

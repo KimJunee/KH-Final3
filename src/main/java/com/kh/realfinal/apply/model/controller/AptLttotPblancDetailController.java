@@ -18,6 +18,11 @@ public class AptLttotPblancDetailController {
 	@Autowired
 	private AptLttotPblancDetailService service;
 	
+//	@RequestMapping("/RealEstate/main")
+//	public String goRealEstateMain(Model model) {
+//		return "realEstate/realEstateMain";
+//	}
+	
 	@RequestMapping("/AptLttot/insert.do")
 	public String initAptLttotPblancDetail(Model model) {
 		List<AptLttotPblancDetail> list1 = AptLttotPblancDetailApi.callSubInfoByJson();
