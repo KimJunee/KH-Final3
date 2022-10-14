@@ -22,11 +22,11 @@
                 <div class="col-lg-3 col-xl-4 col-xxl-3 d-none d-lg-block">
                     <div class="row g-md-5 align-items-center ms-n6">
                         <div class="col-6">
-                            <img src="${path}/resources/resources1b/images/02_realEstate/illu.png" class="rounded-3 mt-6 mb-5" alt="">
-                            <img src="${path}/resources/resources1b/images/02_realEstate/house_02.png" class="rounded-3" alt="">
+                            <img src="${path}/resources/resources1b/images/03_realEstate/illu.png" class="rounded-3 mt-6 mb-5" alt="">
+                            <img src="${path}/resources/resources1b/images/03_realEstate/house_02.png" class="rounded-3" alt="">
                         </div>
                         <div class="col-6 position-relative">
-                            <img src="${path}/resources/resources1b/images/02_realEstate/couple.png" class="rounded-3" alt="">
+                            <img src="${path}/resources/resources1b/images/03_realEstate/couple.png" class="rounded-3" alt="">
                             <!-- Svg element decoration -->
                         </div>
                     </div>
@@ -78,18 +78,18 @@
                     <div class="row g-4 align-items-center me-n4">
                         <!-- Images -->
                         <div class="col-4">
-                            <img src="${path}/resources/resources1b/images/02_realEstate/house_01.png" class="rounded-3" alt="">
+                            <img src="${path}/resources/resources1b/images/03_realEstate/house_01.png" class="rounded-3" alt="">
                         </div>
                         <!-- Images -->
                         <div class="col-5 position-relative">
-                            <img src="${path}/resources/resources1b/images/02_realEstate/family_03.jpg" class="rounded-3 mb-5" alt="">
-                            <img src="${path}/resources/resources1b/images/02_realEstate/house_01" class="rounded-3 mb-n5" alt="">
+                            <img src="${path}/resources/resources1b/images/03_realEstate/family_03.jpg" class="rounded-3 mb-5" alt="">
+                            <img src="${path}/resources/resources1b/images/03_realEstate/house_01" class="rounded-3 mb-n5" alt="">
 
                         </div>
                         <!-- Images -->
                         <div class="col-3">
-                            <img src="${path}/resources/resources1b/images/02_realEstate/solo.png" class="rounded-3 mt-7 mb-5" alt="">
-                            <img src="${path}/resources/resources1b/images/02_realEstate/family_02.jpg" class="rounded-3 mb-n8" alt="">
+                            <img src="${path}/resources/resources1b/images/03_realEstate/solo.png" class="rounded-3 mt-7 mb-5" alt="">
+                            <img src="${path}/resources/resources1b/images/03_realEstate/family_02.jpg" class="rounded-3 mb-n8" alt="">
                         </div>
                     </div>
                 </div>
