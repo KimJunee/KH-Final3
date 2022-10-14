@@ -85,7 +85,7 @@ public class StockpriceController {
 		return "finance/fin_kospiDetail";
 	}
 	
-	@ResponseBody //XML이나 JSON 응답할때 사용
+	@ResponseBody
 	@RequestMapping(value="/stockprice/fin_kospiDetail/info", produces = "application/json; charset=utf-8")
 	public String fin_kospiDetailForDate(Model model, @RequestParam Map<String, String> param) throws ParseException { 
 		List<Date> kospiDateList = service.getKospiDateList();  //코스피 날짜 list ex) 20221007
