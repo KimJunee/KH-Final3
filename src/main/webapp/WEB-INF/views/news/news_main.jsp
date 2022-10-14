@@ -9,36 +9,16 @@
 
 <head>
     <title>FinTouch | News | Main</title>
-    <!-- Meta Tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="author" content="Webestica.com">
-    <meta name="description" content="Bootstrap based News, Magazine and Blog Theme">
-
     <!-- Favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
-
-    <!-- Google Font Noto Sans 노토산스-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
-
-    <!-- Plugins CSS -->
-    <link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
-    <link rel="stylesheet" type="text/css" href="assets/vendor/tiny-slider/tiny-slider.css">
-    <link rel="stylesheet" type="text/css" href="assets/vendor/plyr/plyr.css">
-    <link rel="stylesheet" type="text/css" href="assets/vendor/glightbox/css/glightbox.css">
-
-    <!-- Theme CSS -->
-    <link id="style-switch" rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="shortcut icon" href="resources/resources1b/images/favicon.ico">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>   
 </head>
 
 <body>
 	<%@include file="/WEB-INF/views/common/header.jsp" %>
     <!-- 상단 빈티지 느낌 -->
     <div class="position-absolute start-50 translate-middle-x w-100 opacity-9 z-index-n1">
-        <img src="assets/images/vintage-pattern.png" alt="">
+        <img src="${path}/resources/resources1b/images/vintage-pattern.png" alt="">
     </div>
     <!-- 상단 빈티지 느낌 -->
     <!-- 뉴스테마 상단 -->
@@ -49,8 +29,8 @@
                 </div>
                 <!-- Logo START -->
                 <a class="navbar-brand d-block" href="index.html">
-                    <img class="navbar-brand-item light-mode-item" src="assets/images/logo-2.svg" alt="logo" style="height: 46px;">
-                    <img class="navbar-brand-item dark-mode-item mx-auto" src="assets/images/logo-2-light.svg" alt="logo" style="height: 46px;">
+                    <img class="navbar-brand-item light-mode-item" src="${path}/resources/resources1b/images/logo-2.svg" alt="logo" style="height: 46px;">
+                    <img class="navbar-brand-item dark-mode-item mx-auto" src="${path}/resources/resources1b/images/logo-2-light.svg" alt="logo" style="height: 46px;">
                 </a>
                 <!-- Logo END -->
                 <!-- Adv -->
@@ -125,7 +105,7 @@
                         <div class="card">
                             <!-- Card img -->
                             <div class="position-relative">
-                                <img class="card-img rounded-0 grayscale" src="assets/images/news/newsmain-1.jpg" alt="Card image">
+                                <img class="card-img rounded-0 grayscale" src="${path}/resources/resources1b/images/news/newsmain-1.jpg" alt="Card image">
                                 <div class="card-img-overlay d-flex align-items-start flex-column p-3">
                                     <!-- Card overlay bottom -->
                                     <div class="w-100 mt-auto">
@@ -234,7 +214,7 @@
                     <div class="col-sm-6 col-lg-3">
                         <div class="card bg-transparent">
                             <!-- Card img -->
-                            <img class="card-img rounded-0 grayscale" src="assets/images/news/newsmain-2.jpg" style="width:400px; height:200px;" alt="Card image">
+                            <img class="card-img rounded-0 grayscale" src="${path}/resources/resources1b/images/news/newsmain-2.jpg" style="width:400px; height:200px;" alt="Card image">
                             <div class="card-body px-0 pt-3">
 
                                 <h5 class="card-title"><a href="#" class="btn-link text-reset fw-bold stretched-link">경찰제도발전위원장 “스토킹 피해자 보호 강화를, 무기 규정도 고쳐야”</a></h5>
@@ -247,7 +227,7 @@
                     <div class="col-sm-6 col-lg-3">
                         <div class="card bg-transparent">
                             <!-- Card img -->
-                            <img class="card-img rounded-0 grayscale" src="assets/images/news/newsmain-3.jpg" style="width:400px; height:200px;" alt="Card image">
+                            <img class="card-img rounded-0 grayscale" src="${path}/resources/resources1b/images/news/newsmain-3.jpg" style="width:400px; height:200px;" alt="Card image">
                             <div class="card-body px-0 pt-3">
 
                                 <h5 class="card-title"><a href="#" class="btn-link text-reset fw-bold stretched-link">미친 환율에 수입상가 죄다 울지만…남대문서 웃는 한 사람</a></h5>
@@ -260,7 +240,7 @@
                     <div class="col-sm-6 col-lg-3">
                         <div class="card bg-transparent">
                             <!-- Card img -->
-                            <img class="card-img rounded-0 grayscale" src="assets/images/news/newsmain-4.jpg" style="width:400px; height:200px;" alt="Card image">
+                            <img class="card-img rounded-0 grayscale" src="${path}/resources/resources1b/images/news/newsmain-4.jpg" style="width:400px; height:200px;" alt="Card image">
                             <div class="card-body px-0 pt-3">
 
                                 <h5 class="card-title"><a href="#" class="btn-link text-reset fw-bold stretched-link">돈스파이크, 마약 투약 혐의 체포…필로폰 1천회분 갖고있었다</a></h5>
@@ -273,7 +253,7 @@
                     <div class="col-sm-6 col-lg-3">
                         <div class="card bg-transparent">
                             <!-- Card img -->
-                            <img class="card-img rounded-0 grayscale" src="assets/images/news/newsmain-5.jpg" style="width:400px; height:200px;" alt="Card image">
+                            <img class="card-img rounded-0 grayscale" src="${path}/resources/resources1b/images/news/newsmain-5.jpg" style="width:400px; height:200px;" alt="Card image">
                             <div class="card-body px-0 pt-3">
 
                                 <h5 class="card-title"><a href="#" class="btn-link text-reset fw-bold stretched-link">모친 지인 살해 뒤 7만5000원 훔쳐 달아났다…50대 붙잡혀</a></h5>
@@ -310,7 +290,7 @@
                                         <div class="card bg-transparent overflow-hidden">
                                             <!-- Card img -->
                                             <div class="position-relative rounded-3 overflow-hidden">
-                                                <img class="card-img" class=".graysclae_img_2" src="assets/images/news/newsmain-6.jpg" style="height:200px;" alt="Card image">
+                                                <img class="card-img" class=".graysclae_img_2" src="${path}/resources/resources1b/images/news/newsmain-6.jpg" style="height:200px;" alt="Card image">
                                                 <div class="card-img-overlay d-flex align-items-start flex-column p-3">
                                                     <!-- Card overlay -->
                                                     <div class="w-100 my-auto">
@@ -334,7 +314,7 @@
                                         <div class="card bg-transparent overflow-hidden">
                                             <!-- Card img -->
                                             <div class="position-relative rounded-3 overflow-hidden">
-                                                <img class="card-img" src="assets/images/news/newsmain-7.jpg" style="height:200px;" alt="Card image">
+                                                <img class="card-img" src="${path}/resources/resources1b/images/news/newsmain-7.jpg" style="height:200px;" alt="Card image">
                                                 <div class="card-img-overlay d-flex align-items-start flex-column p-3">
                                                     <!-- Card overlay -->
                                                     <div class="w-100 my-auto">
@@ -358,7 +338,7 @@
                                         <div class="card bg-transparent overflow-hidden">
                                             <!-- Card img -->
                                             <div class="position-relative rounded-3 overflow-hidden">
-                                                <img class="card-img" src="assets/images/news/newsmain-8.jpg" style="height:200px;" alt="Card image">
+                                                <img class="card-img" src="${path}/resources/resources1b/images/news/newsmain-8.jpg" style="height:200px;" alt="Card image">
                                                 <div class="card-img-overlay d-flex align-items-start flex-column p-3">
                                                     <!-- Card overlay -->
                                                     <div class="w-100 my-auto">
@@ -382,7 +362,7 @@
                                         <div class="card bg-transparent overflow-hidden">
                                             <!-- Card img -->
                                             <div class="position-relative rounded-3 overflow-hidden">
-                                                <img class="card-img" src="assets/images/news/newsmain-9.jpg" style="height:200px;" alt="Card image">
+                                                <img class="card-img" src="${path}/resources/resources1b/images/news/newsmain-9.jpg" style="height:200px;" alt="Card image">
                                                 <div class="card-img-overlay d-flex align-items-start flex-column p-3">
                                                     <!-- Card overlay -->
                                                     <div class="w-100 my-auto">
@@ -421,7 +401,7 @@
                                     <h4 class="card-title"><a href="post-single-6.html" class="btn-link stretched-link text-reset">'하루 37명꼴' 코로나로 줄었던 자살 다시 늘어...10대서 10% 급증</a></h4>
                                 </div>
                                 <!-- Card image -->
-                                <img src="assets/images/news/newsmain-10.jpg" class="grayscale rounded-0" alt="Card image">
+                                <img src="${path}/resources/resources1b/images/news/newsmain-10.jpg" class="grayscale rounded-0" alt="Card image">
                             </div>
                             <div class="card card-body bg-light mt-3">
                                 <h6 class="card-title"><a href="post-single-3.html" class="btn-link text-reset stretched-link fw-bold">檢 "이화영, 쌍방울 계열사 주식 차명보유...아들도 취업시켜"</a></h6>
@@ -472,7 +452,7 @@ Sports, most read and Entertainment START -->
                             <div class="row g-3">
                                 <div class="col-4">
                                     <!-- Card image -->
-                                    <img class="rounded-0 grayscale" src="assets/images/news/newsmain-11.jpg" alt="">
+                                    <img class="rounded-0 grayscale" src="${path}/resources/resources1b/images/news/newsmain-11.jpg" alt="">
                                 </div>
                                 <div class="col-8">
                                     <h6><a href="post-single-5.html" class="btn-link stretched-link text-reset">코스피, 2200선 재붕괴 마감…코스닥 4% 폭락</a></h6>
@@ -532,7 +512,7 @@ Sports, most read and Entertainment START -->
                             <div class="row g-3">
                                 <div class="col-4">
                                     <!-- Card image -->
-                                    <img class="rounded-0 grayscale" src="assets/images/news/newsmain-12.jpg" style="width:160px; height:80px;" alt="">
+                                    <img class="rounded-0 grayscale" src="${path}/resources/resources1b/images/news/newsmain-12.jpg" style="width:160px; height:80px;" alt="">
                                 </div>
                                 <div class="col-8">
                                     <h6><a href="post-single-5.html" class="btn-link stretched-link text-reset">외국인, 7년간 아파트 매수 3만건…그 중 중국인 62% 사들여</a></h6>
@@ -590,7 +570,7 @@ Sports, most read and Entertainment START -->
                             <div class="row g-3">
                                 <div class="col-4">
                                     <!-- Card image -->
-                                    <img class="rounded-0 grayscale" src="assets/images/news/newsmain-13.jpg" alt="">
+                                    <img class="rounded-0 grayscale" src="${path}/resources/resources1b/images/news/newsmain-13.jpg" alt="">
                                 </div>
                                 <div class="col-8">
                                     <h6><a href="post-single-5.html" class="btn-link stretched-link text-reset">	

@@ -9,28 +9,9 @@
 
 <head>
     <title>FinTouch | News | Post</title>
-    <!-- Meta Tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="author" content="Webestica.com">
-    <meta name="description" content="Bootstrap based News, Magazine and Blog Theme">
-
     <!-- Favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
-
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
-
-    <!-- Plugins CSS -->
-    <link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
-    <link rel="stylesheet" type="text/css" href="assets/vendor/tiny-slider/tiny-slider.css">
-    <link rel="stylesheet" type="text/css" href="assets/vendor/glightbox/css/glightbox.css">
-
-    <!-- Theme CSS -->
-    <link id="style-switch" rel="stylesheet" type="text/css" href="assets/css/style.css">
-
+    <link rel="shortcut icon" href="resources/resources1b/images/favicon.ico">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
 </head>
 
 <body>
@@ -81,7 +62,6 @@ Main START -->
                                     기사스크랩
                                   </button>
                             </ul>
-                            </ul>
                         </div>
                     </div>
                     <!-- Left sidebar END -->
@@ -124,7 +104,7 @@ Main START -->
                             <h3>5개의 댓글</h3>
                             <!-- Comment level 1-->
                             <div class="my-4 d-flex">
-                                <img class="avatar avatar-md rounded-circle float-start me-3" src="assets/images/avatar/avatar_m1.png" alt="avatar">
+                                <img class="avatar avatar-md rounded-circle float-start me-3" src="${path}/resources/resources1b/images/avatar/avatar_m1.png" alt="avatar">
                                 <div>
                                     <div class="mb-2">
                                         <h5 class="m-0">Allen Smith</h5>
@@ -137,7 +117,7 @@ Main START -->
                             </div>
                             <!-- Comment children level 2 -->
                             <div class="my-4 d-flex">
-                                <img class="avatar avatar-md rounded-circle float-start me-3" src="assets/images/avatar/avatar_w1.png" alt="avatar">
+                                <img class="avatar avatar-md rounded-circle float-start me-3" src="${path}/resources/resources1b/images/avatar/avatar_w1.png" alt="avatar">
                                 <div>
                                     <div class="mb-2">
                                         <h5 class="m-0">Louis Ferguson</h5>
@@ -150,7 +130,7 @@ Main START -->
                             </div>
                             <!-- Comment level 2 -->
                             <div class="my-4 d-flex">
-                                <img class="avatar avatar-md rounded-circle float-start me-3" src="assets/images/avatar/avatar_m2.png" alt="avatar">
+                                <img class="avatar avatar-md rounded-circle float-start me-3" src="${path}/resources/resources1b/images/avatar/avatar_m2.png" alt="avatar">
                                 <div>
                                     <div class="mb-2">
                                         <h5 class="m-0">Frances Guerrero</h5>
@@ -163,7 +143,7 @@ Main START -->
                             </div>
                             <!-- Comment level 1 -->
                             <div class="my-4 d-flex">
-                                <img class="avatar avatar-md rounded-circle float-start me-3" src="assets/images/avatar/avatar_w3.png" alt="avatar">
+                                <img class="avatar avatar-md rounded-circle float-start me-3" src="${path}/resources/resources1b/images/avatar/avatar_w3.png" alt="avatar">
                                 <div>
                                     <div class="mb-2">
                                         <h5 class="m-0">Judy Nguyen</h5>

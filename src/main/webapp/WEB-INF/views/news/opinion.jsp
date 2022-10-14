@@ -9,57 +9,19 @@
 
 <head>
     <title>FinTouch | Opinion</title>
-    <!-- Meta Tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="author" content="Webestica.com">
-    <meta name="description" content="Bootstrap based News, Magazine and Blog Theme">
-
     <!-- Favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
-
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
-
-    <!-- Plugins CSS -->
-    <link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
-    <link rel="stylesheet" type="text/css" href="assets/vendor/tiny-slider/tiny-slider.css">
-
-    <!-- Theme CSS -->
-    <link id="style-switch" rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="shortcut icon" href="resources/resources1b/images/favicon.ico">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
 </head>
 
 <body>
     <%@include file="/WEB-INF/views/common/header.jsp" %>
+    <br><br>
     <!-- **************** MAIN CONTENT START **************** -->
     <main>
-
-        <!-- =======================
-    Inner intro START -->
-        <section class="py-4 pb-3">
-            <div class="container">
-                <!-- Search -->
-                <div class="row">
-                    <div class="col-9 mt-3">
-                        <h3 class="mice"><i class="bi bi-search " style="font-size: 80%;"></i>&nbsp;총 <a href="#!" class="text-primary">6</a>건이 검색되었습니다.</h3>
-                    </div>
-                    <div class="col-3 mt-3">
-                        <form class="rounded position-relative">
-                            <input class="form-control bg-transparent" type="search" placeholder="검색어를 입력하세요." aria-label="Search">
-                            <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- =======================
-Inner intro END -->
-
         <!-- =======================
 Main content START -->
-        <section class="position-relative pt-0">
+        <section class="position-relative">
             <div class="container" data-sticky-container>
                 <div class="row">
                     <!-- Main Post START -->
@@ -67,143 +29,309 @@ Main content START -->
                         <!-- Card item START -->
                         <div class="card mb-4">
                             <div class="row">
-                                <div class="col-md-5">
-                                    <img class="rounded-3" src="assets/images/05_news/news05.jpeg" style="height: 234px;" alt="">
+                                <div class="col-md-3">
+                                    <img class="rounded-3" src="${path}/resources/resources1b/images/news/opinion.jpg" style="width: 300px; height: 250px;" alt="">
                                 </div>
-                                <div class="col-md-7 mt-3 mt-md-0">
-                                    <a href="#" class="badge bg-danger mb-2"><i class="fas fa-circle me-2 small fw-bold"></i> Finance</a>
-                                    <h3><a href="post-single-2.html" class="btn-link stretched-link text-reset">美 실업률 3.5%로 하락…나스닥 -2.7% 출발 [데일리 국제금융시장]</a></h3>
-                                    <p>미국의 9월 실업률이 전달 대비 되레 하락한 것으로 나오면서 뉴욕증시의 주요 지수가 하락 출발했다. 7일(현지 시간) 미 경제 방송 CNBC에 따르면 이날 오전10시14분 현재 뉴욕증권거래소(NYSE)의 다우존스산업평균지수가 전날보다 477.50포인트(-1.60%) 내린 2만9449.44를 기록 중이다.</p>
+                                <div class="col-md-8 mt-4 mt-md-0">
+                                    <h3><a href="post-single-2.html" class="btn-link stretched-link text-reset">“외환 위기 경고” 나온 역환율 전쟁, 범정부 비상체제 가동을</a></h3><br>
+                                    <p>달러 대비 원화 환율이 지난 주 달러당 1400원의 마지노선을 깬 데 이어 26일엔 22원 이상 오르며 1430원을 넘어섰다. 1400원대 환율은 2009년 글로벌 금융 위기 이후 13년여 만의 일이다. 세계 경제를 침체로 몰아간 서브프라임 모기지 사태 때만큼 상황이 심각하다는 의미다. 코스피는 3%, 코스닥은 5%씩 폭락하며 금융시장을 혼란으로 몰아넣었다. 국제 금융가에선 ‘아시아
+                                        외환 위기’ 경고가 나오기 시작했다. 블룸버그 통신은 월가 전문가들을 인용해 “일본 엔과 중국 위안화 폭락으로 아시아에서 외국 자금이 대거 이탈하는 위기로 확대될 수 있다”며 1997년 사태의 재발 가능성을 지적했다.</p>
                                     <!-- Card info -->
                                     <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
-                                        <li class="nav-item">
-                                            <div class="nav-link">
-                                                <div class="d-flex align-items-center position-relative">
-                                                    <span class="ms-3">김영필 기자</span>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="nav-item">2022.10.08</li>
+                                        <li class="nav-item">Jan 22, 2022</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <!-- Card item END -->
-                        <!-- Card item START -->
-                        <div class="card mb-4">
-                            <div class="row">
-                                <div class="col-md-5">
-                                    <img class="rounded-3" src="assets/images/05_news/news06.jpg" style="height: 234px;" alt="">
+                    </div>
+                    <!-- Main Post END -->
+                    <!-- Sidebar START -->
+                    <div class="col-lg-3 mt-lg-0">
+                        <div data-sticky data-margin-top="80" data-sticky-for="767">
+                            <!-- Most read -->
+                            <div>
+                                <h5 class=" mb-3">제일 많이 본 칼럼</h5>
+                                <div class="d-flex position-relative mb-3">
+                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">01</span>
+                                    <h6><a href="#" class="stretched-link text-reset btn-link">尹, 비속어 논란에 “사실과 다른 보도로 동맹 훼손... 진상 밝혀져야”</a></h6>
                                 </div>
-                                <div class="col-md-7 mt-3 mt-md-0">
-                                    <a href="#" class="badge bg-danger mb-2"><i class="fas fa-circle me-2 small fw-bold"></i> Finance</a>
-                                    <h3><a href="post-single-2.html" class="btn-link stretched-link text-reset">코스피, 기관 ‘순매도’...2230선 약보합 마감</a></h3>
-                                    <p>7일 코스피지수는 기관 투자자가 순매도하며 2230선에서 하락 마감했다. 개장 전 발표된 삼성전자 3분기 실적이 시장기대치를 밑돌았고, 간밤 뉴욕증시 약세 영향까지 겹치며 투자심리를 위축시킨 것으로 보인다. 이날 코스피지수는 전일 대비 5.02포인트(0.22%) 떨어진 2232.84로 장을 마쳤다.
-                                    </p>
-                                    <!-- Card info -->
-                                    <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
-                                        <li class="nav-item">
-                                            <div class="nav-link">
-                                                <div class="d-flex align-items-center position-relative">
-                                                    <span class="ms-3">이인아 기자</span>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="nav-item">2022.10.07</li>
-                                    </ul>
+                                <div class="d-flex position-relative mb-3">
+                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">02</span>
+                                    <h6><a href="#" class="stretched-link text-reset btn-link">3500곳 줄폐업... 中 ‘반도체 대약진운동’의 참혹한 실패</a></h6>
+                                </div>
+                                <div class="d-flex position-relative mb-3">
+                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">03</span>
+                                    <h6><a href="#" class="stretched-link text-reset btn-link">“한미 금리역전, 과거와 다른 충격” 5대 위험 한번에 덮쳤다</a></h6>
+                                </div>
+                                <div class="d-flex position-relative mb-3">
+                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">04</span>
+                                    <h6><a href="#" class="stretched-link text-reset btn-link">반도체업계 쇼크 시작됐다…삼성도 마이크론도 3Q 실적 '잿빛'</a></h6>
                                 </div>
                             </div>
                         </div>
-                        <!-- Card item END -->
-                        <!-- Card item START -->
-                        <div class="card mb-4">
-                            <div class="row">
-                                <div class="col-md-5">
-                                    <img class="rounded-3" src="assets/images/05_news/news01.jpg" style="height: 234px;" alt="">
-                                </div>
-                                <div class="col-md-7 mt-3 mt-md-0">
-                                    <a href="#" class="badge bg-primary mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Politics</a>
+                        <!-- Sidebar END -->
+                    </div>
+                    <!-- Row end -->
+                </div>
+        </section>
+        <!-- ======================= Main content END -->
 
-                                    <h3><a href="post-single-2.html" class="btn-link stretched-link text-reset">25일까지 예정부가세 납부…코로나·태풍피해 사업자는 직권제외</a></h3>
-                                    <p>개인사업자와 소규모 법인사업자는 오는 25일까지 올해 하반기(2기) 예정 부가가치세를 납부해야 한다. 국세청은 개인 일반과세자 186만명과 소규모 법인사업자 15만명에 대해 올해 1∼6월 납부세액의 절반에 해당하는 부가세를 예정고지에 따라 납부해야 한다고 7일 안내했다.</p>
-                                    <!-- Card info -->
-                                    <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
-                                        <li class="nav-item">
-                                            <div class="d-flex align-items-center position-relative">
-                                                <span class="ms-3">이지선 기자</span>
-                                            </div>
-                                        </li>
-                                        <li class="nav-item">2022.10.07</li>
-                                    </ul>
+        <!-- ======================= Featured Guests START -->
+        <section class="bg-light" style="margin-top: -50px;">
+            <div class="container">
+                <div class="row g-0">
+                    <div class="col-12 ">
+                        <!-- Title -->
+                        <div class="mb-4">
+                            <h2>논설 위원</h2>
+                        </div>
+                        <!-- Slider -->
+                        <div class="tiny-slider arrow-hover arrow-dark arrow-blur arrow-round">
+                            <div class="tiny-slider-inner" data-autoplay="false" data-hoverpause="true" data-gutter="24" data-arrow="true" data-dots="false" data-items-xl="6" data-items-lg="4" data-items-md="3" data-items-sm="2" data-items-xs="2">
+                                <!-- Guest item -->
+                                <div>
+                                    <div class="card bg-transparent">
+                                        <img class="card-img" src="${path}/resources/resources1b/images/news/opinion1.jpg" alt="card image">
+                                        <div class="card-body ps-0">
+                                            <h5 class="mb-0">김순덕</h5>
+                                            <small>Office Assistant</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Guest item -->
+                                <div>
+                                    <div class="card bg-transparent">
+                                        <img class="card-img" src="${path}/resources/resources1b/images/news/opinion2.jpg" alt="card image">
+                                        <div class="card-body ps-0">
+                                            <h5 class="mb-0">박제균</h5>
+                                            <small>Sales Manager</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Guest item -->
+                                <div>
+                                    <div class="card bg-transparent">
+                                        <img class="card-img" src="${path}/resources/resources1b/images/news/opinion3.jpg" alt="card image">
+                                        <div class="card-body ps-0">
+                                            <h5 class="mb-0">이기홍</h5>
+                                            <small>Software Engineer</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Guest item -->
+                                <div>
+                                    <div class="card bg-transparent">
+                                        <img class="card-img" src="${path}/resources/resources1b/images/news/opinion4.jpg" alt="card image">
+                                        <div class="card-body ps-0">
+                                            <h5 class="mb-0">천광암</h5>
+                                            <small>Nurse Practitioner</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Guest item -->
+                                <div>
+                                    <div class="card bg-transparent">
+                                        <img class="card-img" src="${path}/resources/resources1b/images/news/opinion5.jpg" alt="card image">
+                                        <div class="card-body ps-0">
+                                            <h5 class="mb-0">송평인</h5>
+                                            <small>Marketing Manager</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Guest item -->
+                                <div>
+                                    <div class="card bg-transparent">
+                                        <img class="card-img" src="${path}/resources/resources1b/images/news/opinion6.jpg" alt="card image">
+                                        <div class="card-body ps-0">
+                                            <h5 class="mb-0"> 이현두 </h5>
+                                            <small>Executive Assistant</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Guest item -->
+                                <div>
+                                    <div class="card bg-transparent">
+                                        <img class="card-img" src="${path}/resources/resources1b/images/news/opinion7.jpg" alt="card image">
+                                        <div class="card-body ps-0">
+                                            <h5 class="mb-0">김선미</h5>
+                                            <small>Actor</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slider END -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- =======================
+Featured Guests END -->
+        <br>
+        <!-- =======================
+Main content START -->
+        <section class="position-relative pt-8">
+            <div class="container">
+                <div class="row">
+                    <!-- Main Post START -->
+                    <div class="col-12">
+                        <!-- Card item START -->
+                        <div class="card border rounded-3 up-hover p-4 mb-4">
+                            <div class="row g-3">
+                                <div class="col-lg-5">
+                                    <!-- Title -->
+                                    <h2 class="card-title">
+                                        <a href="post-single.html" class="btn-link text-reset stretched-link">‘청년주간’을 맞아 생각해 본 ‘청년정책’이 가야할 길</a>
+                                    </h2>
+                                    <!-- Author info -->
+                                    <div class="d-flex align-items-center position-relative mt-3">
+                                        <div>
+                                            <h5 class="mb-1"><a href="#" class="stretched-link text-reset btn-link">김희규 한국교원교육학회 회장</a></h5>
+                                            <ul class="nav align-items-center small">
+                                                <li class="nav-item me-3">Mar 07, 2022</li>
+                                                <li class="nav-item"><i class="far fa-clock me-1"></i>5 min read</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Detail -->
+                                <div class="col-md-6 col-lg-4">
+                                    <p>최근 대학 친구가 여자친구와 헤어졌다고 말했다. 이별한 이유는 ‘다름’으로 생긴 의사소통 문제였다. 그 과정에서 본인은 나름 간극을 좁히려고 노력했지만, 자신이 하는 노력만큼 상대가 맞추려하지 않는 것 같아 화가 났다고 한다. 그 화는 얼마 지나지 않아 터져버렸고, 둘은 냉전 상태로 있다가 이별했다고 말했다.</p>
+                                </div>
+                                <!-- Image -->
+                                <div class="col-md-6 col-lg-3">
+                                    <img class="rounded-3" src="${path}/resources/resources1b/images/news/opinion8.jpg" style="width: 170px; height:200px;" alt="Card image">
                                 </div>
                             </div>
                         </div>
                         <!-- Card item END -->
                         <!-- Card item START -->
-                        <div class="card mb-4">
-                            <div class="row">
-                                <div class="col-md-5">
-                                    <img class="rounded-3" src="assets/images/05_news/news02.jpg" style="height: 234px;" alt="">
+                        <div class="card border rounded-3 up-hover p-4 mb-4">
+                            <div class="row g-3">
+                                <div class="col-lg-5">
+                                    <!-- Title -->
+                                    <h2 class="card-title">
+                                        <a href="post-single.html" class="btn-link text-reset stretched-link">음악당이 된 로마제국 초대황제의 영묘</a>
+                                    </h2>
+                                    <!-- Author info -->
+                                    <div class="d-flex align-items-center position-relative mt-3">
+                                        <div>
+                                            <h5 class="mb-1"><a href="#" class="stretched-link text-reset btn-link">김상균 바이올리니스트</a></h5>
+                                            <ul class="nav align-items-center small">
+                                                <li class="nav-item me-3">Jul 15, 2020</li>
+                                                <li class="nav-item"><i class="far fa-clock me-1"></i>9 min read</li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-md-7 mt-3 mt-md-0">
-                                    <a href="#" class="badge bg-primary mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Politics</a>
-                                    <h3><a href="post-single-2.html" class="btn-link stretched-link text-reset">경상수지 체질 개선에 총력…내년 초까지 18개 신규대책 마련</a></h3>
-                                    <p>정부가 경상수지의 체질 개선을 위해 범부처 역량을 결집해 18건의 신규 대책을 마련하는 등 총력 대응하기로 했다. 조선과 디스플레이 등 주력 산업 대책 뿐 아니라 관광산업 진흥책도 함께 내놓기로 했다.</p>
-                                    <!-- Card info -->
-                                    <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
-                                        <li class="nav-item">
-                                            <div class="d-flex align-items-center position-relative">
-                                                <span class="ms-3">김지영 기자</span>
-                                            </div>
-                                        </li>
-                                        <li class="nav-item">2022.10.07</li>
-                                    </ul>
+                                <!-- Detail -->
+                                <div class="col-md-6 col-lg-4">
+                                    <p>‘로마’라는 지명이 들어간 관현악 작품을 꼽으라고 하면 단연 레스피기(O. Respighi 1879-1946)의
+                                        <로마의 분수>,
+                                            <로마의 소나무>,
+                                                <로마의 축제>를 가장 먼저 머리에 떠올리게 된다. 이 ‘로마 3부작’ 중에서
+                                                    <로마의 분수>와
+                                                        <로마의 소나무>는 로마에서 초연되었다.
+
+                                    </p>
                                 </div>
-                            </div>
-                        </div>
-                        <!-- Card item END -->
-                        <!-- Card item START -->
-                        <div class="card mb-4">
-                            <div class="row">
-                                <div class="col-md-5">
-                                    <img class="rounded-3" src="assets/images/05_news/news03.jpg" style="height: 234px;" alt="">
-                                </div>
-                                <div class="col-md-7 mt-3 mt-md-0">
-                                    <a href="#" class="badge bg-warning text-dark mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Real Estate</a>
-                                    <h3><a href="post-single-2.html" class="btn-link stretched-link text-reset">“우선분양 받으려면 3억원 내세요”… 장기민간임대 ‘매매예약금’ 논란</a></h3>
-                                    <p>금리인상 등의 영향으로 장기간 안정적으로 거주할 수 있는 민간임대 아파트에 대한 관심이 커지고 있는 가운데, 한 민간임대 아파트에서 계약자들에게 우선분양을 받으려면 임대보증금 외에 ‘매매예약금’도 내라고 요구해 논란이 되고 있다. </p>
-                                    <!-- Card info -->
-                                    <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
-                                        <li class="nav-item">
-                                            <div class="d-flex align-items-center position-relative">
-                                                <span class="ms-3">김송이 기자</span>
-                                            </div>
-                                        </li>
-                                        <li class="nav-item">2022.10.07</li>
-                                    </ul>
+                                <!-- Image -->
+                                <div class="col-md-6 col-lg-3">
+                                    <img class="rounded-3" src="${path}/resources/resources1b/images/news/opinion9.jpg" style="width: 170px; height:200px;" alt="Card image">
                                 </div>
                             </div>
                         </div>
                         <!-- Card item END -->
                         <!-- Card item START -->
-                        <div class="card mb-4">
-                            <div class="row">
-                                <div class="col-md-5">
-                                    <img class="rounded-3" src="assets/images/05_news/news04.jpg" style="height: 234px;" alt="">
+                        <div class="card border rounded-3 up-hover p-4 mb-4">
+                            <div class="row g-3">
+                                <div class="col-lg-5">
+                                    <!-- Title -->
+                                    <h2 class="card-title">
+                                        <a href="post-single.html" class="btn-link text-reset stretched-link">감정이입을 통해 내면세계로 초대하는 예술가들</a>
+                                    </h2>
+                                    <!-- Author info -->
+                                    <div class="d-flex align-items-center position-relative mt-3">
+                                        <div>
+                                            <h5 class="mb-1"><a href="#" class="stretched-link text-reset btn-link">서은철 원광대학교 교수</a></h5>
+                                            <ul class="nav align-items-center small">
+                                                <li class="nav-item me-3">Dec 18, 2022</li>
+                                                <li class="nav-item"><i class="far fa-clock me-1"></i>2 min read</li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-md-7 mt-3 mt-md-0">
-                                    <a href="#" class="badge bg-warning text-dark mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Real Estate</a>
-                                    <h3><a href="post-single-2.html" class="btn-link stretched-link text-reset">“매매계약 기억 가물”…'5억이 3억대' 노도강 아파트 '거래' 단절</a></h3>
-                                    <p>영끌(영혼까지 끌어 대출) 매수가 활발했던 ‘노도강(서울 노원구·도봉구·강북구)’ 부동산 시장이 차갑게 식었다. 매수세가 급격히 꺾이면서 매매가 하락 현상이 뚜렷해져서다. 실제 일부는 고점 대비 30~40%까지 가격이 하락하면서 2년간 올랐던 상승분을 반납하는 모양새다.</p>
-                                    <!-- Card info -->
-                                    <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
-                                        <li class="nav-item">
-                                            <div class="d-flex align-items-center position-relative">
-                                                <span class="ms-3">김재혁 기자</span>
-                                            </div>
-                                        </li>
-                                        <li class="nav-item">2022.10.07</li>
-                                    </ul>
+                                <!-- Detail -->
+                                <div class="col-md-6 col-lg-4">
+                                    <p>감정의 이입은 우리가 상대를 이해하기 위한 중요한 수단 중 하나다. 우리는 상대방의 입장에서 공감하며 감정에 동화될 때 타인에 대한 진정한 이해와 설득의 폭을 넓힐 수 있다. 실제로 상대방의 감정에 자신을 투영하는 것은 직관을 요하는 문제인데, 상황극처럼 역할 바꾸기는 치료의 목적으로 정신과 등에서도 쓰이고 있다. 한편 철학자 앙리 베르그송(Henri Bergson)은...
+
+                                    </p>
+                                </div>
+                                <!-- Image -->
+                                <div class="col-md-6 col-lg-3">
+                                    <img class="rounded-3" src="${path}/resources/resources1b/images/news/opinion10.jpg" style="width: 170px; height:200px;" alt="Card image">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card item END -->
+                        <!-- Card item START -->
+                        <div class="card border rounded-3 up-hover p-4 mb-4">
+                            <div class="row g-3">
+                                <div class="col-lg-5">
+                                    <!-- Title -->
+                                    <h2 class="card-title">
+                                        <a href="post-single.html" class="btn-link text-reset stretched-link">들리지 않는 대통령 말을 자막으로 보도한 MBC, 근거 밝혀야</a>
+                                    </h2>
+                                    <!-- Author info -->
+                                    <div class="d-flex align-items-center position-relative mt-3">
+                                        <div>
+                                            <h5 class="mb-1"><a href="#" class="stretched-link text-reset btn-link">김형우 한반도문화관광연구원장</a></h5>
+                                            <ul class="nav align-items-center small">
+                                                <li class="nav-item me-3">May 30, 2022</li>
+                                                <li class="nav-item"><i class="far fa-clock me-1"></i>5 min read</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Detail -->
+                                <div class="col-md-6 col-lg-4">
+                                    <p>윤석열 대통령이 미국에서 회의 후 수행원들에게 한 발언을 보도한 MBC가 경찰에 명예훼손 혐의로 고발됐다. 윤 대통령은 “사실과 다른 보도로 동맹을 훼손했다”고 했다. 윤 대통령의 해당 발언은 동영상을 아무리 반복해 들어도 무슨 말인지 알기 어렵다. 불명확한 잡음 끝에 ‘쪽팔린다’는 식의 말만 들린다. 그런데 MBC는 22일 오전 윤 대통령이 “국회에서 이 XX들이... </p>
+                                </div>
+                                <!-- Image -->
+                                <div class="col-md-6 col-lg-3">
+                                    <img class="rounded-3" src="${path}/resources/resources1b/images/news/opinion11.jpg" style="width: 170px; height:200px;" alt="Card image">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card item END -->
+                        <!-- Card item START -->
+                        <div class="card border rounded-3 up-hover p-4 mb-4">
+                            <div class="row g-3">
+                                <div class="col-lg-5">
+                                    <!-- Title -->
+                                    <h2 class="card-title">
+                                        <a href="post-single.html" class="btn-link text-reset stretched-link">전기료 인상 미루면 부작용 커진다</a>
+                                    </h2>
+                                    <!-- Author info -->
+                                    <div class="d-flex align-items-center position-relative mt-3">
+                                        <div>
+                                            <h5 class="mb-1"><a href="#" class="stretched-link text-reset btn-link">이상미 제주한라대학교 특임교수</a></h5>
+                                            <ul class="nav align-items-center small">
+                                                <li class="nav-item me-3">Aug 15, 2022</li>
+                                                <li class="nav-item"><i class="far fa-clock me-1"></i>18 min read</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Detail -->
+                                <div class="col-md-6 col-lg-4">
+                                    <p>우리 경제는 고물가·고금리·고환율의 3고(高)와 함께 우크라이나 전쟁 등으로 인한 국제 에너지 가격 급등으로 에너지 수급 비상이 걸렸다. 이럴 때일수록 에너지 소비 절약과 수입 감축 외에 뚜렷한 방법이 없는데, 경직된 가격 규제로 시장이 왜곡되거나 수급 문제를 심화시키는 문제가 발생하고 있다. 에너지 위기 상황에서 정부는 유류세 인하 및 전기·가스요금 인상 억제 등 대증적 처방에...
+                                    </p>
+                                </div>
+                                <!-- Image -->
+                                <div class="col-md-6 col-lg-3">
+                                    <img class="rounded-3" src="${path}/resources/resources1b/images/news/opinion12.jpg" style="width: 170px; height:200px;" alt="Card image">
                                 </div>
                             </div>
                         </div>
@@ -233,121 +361,6 @@ Main content START -->
                         <!-- Pagination END -->
                     </div>
                     <!-- Main Post END -->
-
-                    <!-- Sidebar START -->
-                    <div class="col-lg-3 mt-5 mt-lg-0">
-                        <div data-sticky data-margin-top="80" data-sticky-for="767">
-                            <h4>Share this article</h4>
-                            <ul class="nav text-white-force">
-                                <li class="nav-item">
-                                    <a class="nav-link icon-md rounded-circle me-2 mb-2 p-0 fs-5 bg-facebook" href="#">
-                                        <i class="fab fa-facebook-square align-middle"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link icon-md rounded-circle me-2 mb-2 p-0 fs-5 bg-twitter" href="#">
-                                        <i class="fab fa-twitter-square align-middle"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link icon-md rounded-circle me-2 mb-2 p-0 fs-5 bg-linkedin" href="#">
-                                        <i class="fab fa-linkedin align-middle"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link icon-md rounded-circle me-2 mb-2 p-0 fs-5 bg-pinterest" href="#">
-                                        <i class="fab fa-pinterest align-middle"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link icon-md rounded-circle me-2 mb-2 p-0 fs-5 bg-primary" href="#">
-                                        <i class="far fa-envelope align-middle"></i>
-                                    </a>
-                                </li>
-                            </ul>
-
-
-                            <div class="row">
-                                <!-- Recent post widget START -->
-                                <div class="col-12 col-sm-6 col-lg-12">
-                                    <h4 class="mt-4 mb-3">Recent post</h4>
-                                    <!-- Recent post item -->
-                                    <div class="card mb-3">
-                                        <div class="row g-3">
-                                            <div class="col-4">
-                                                <img class="rounded" src="assets/images/05_news/news01.jpg" style="height: 65px;" alt="">
-                                            </div>
-                                            <div class="col-8">
-                                                <h6><a href="post-single-2.html" class="btn-link stretched-link text-reset fw-bold">25일까지 예정부가세 납부…코로나·태풍피해 사업자는 직권제외</a></h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Recent post item -->
-                                    <div class="card mb-3">
-                                        <div class="row g-3">
-                                            <div class="col-4">
-                                                <img class="rounded" src="assets/images/05_news/news02.jpg" style="height: 65px;" alt="">
-                                            </div>
-                                            <div class="col-8">
-                                                <h6><a href="post-single-2.html" class="btn-link stretched-link text-reset fw-bold">경상수지 체질 개선에 총력…내년 초까지 18개 신규대책 마련</a></h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Recent post item -->
-                                    <div class="card mb-3">
-                                        <div class="row g-3">
-                                            <div class="col-4">
-                                                <img class="rounded" src="assets/images/05_news/news03.jpg" style="height: 65px;" alt="">
-                                            </div>
-                                            <div class="col-8">
-                                                <h6><a href="post-single-2.html" class="btn-link stretched-link text-reset fw-bold">“우선분양 받으려면 3억원 내세요”… 장기민간임대 ‘매매예약금’ 논란</a></h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Recent post item -->
-                                    <div class="card mb-3">
-                                        <div class="row g-3">
-                                            <div class="col-4">
-                                                <img class="rounded" src="assets/images/05_news/news04.jpg" style="height: 65px;" alt="">
-                                            </div>
-                                            <div class="col-8">
-                                                <h6><a href="post-single-2.html" class="btn-link stretched-link text-reset fw-bold">“매매계약 기억 가물”…'5억이 3억대' 노도강 아파트 '거래' 단절</a></h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Recent post widget END -->
-                                <h4 class="mt-5 mb-3 mice">인기<a href="#!" class="text-primary">오피니언</a></h4>
-                                <div class="d-flex position-relative mb-3">
-                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 fc-custom">01</span>
-                                    <h6><a href="#" class="stretched-link text-reset btn-link">매달 최대 20만원 월세 지원받는 법!</a></h6>
-                                    <br>
-                                </div>
-                                <div class="d-flex position-relative mb-3">
-                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 fc-custom">02</span>
-                                    <h6><a href="#" class="stretched-link text-reset btn-link">한덕수 "강제징용 해결 등 소통 공감"</a></h6>
-                                </div>
-                                <div class="d-flex position-relative mb-3">
-                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 fc-custom">03</span>
-                                    <h6><a href="#" class="stretched-link text-reset btn-link">해군, 5년 만에 日해상자위대와 군사훈련 재개</a></h6>
-                                </div>
-                                <div class="d-flex position-relative mb-3">
-                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 fc-custom">04</span>
-                                    <h6><a href="#" class="stretched-link text-reset btn-link">감귤 선글라스 쓴 이재명 대표</a></h6>
-                                </div>
-                                <div class="d-flex position-relative mb-3">
-                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 fc-custom">05</span>
-                                    <h6><a href="#" class="stretched-link text-reset btn-link">북한, 동해상에 단거리 탄도미사일 2발 발사</a></h6>
-                                </div>
-                                <div class="d-flex position-relative mb-3">
-                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 fc-custom">06</span>
-                                    <h6><a href="#" class="stretched-link text-reset btn-link">정부, 對美 외교에 80억 쏟아<br> 붓고도 IRA 몰랐다</a></h6>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Sidebar END -->
                 </div>
                 <!-- Row end -->
             </div>
@@ -355,11 +368,8 @@ Main content START -->
         <!-- =======================
 Main content END -->
 
-
-
     </main>
     <!-- **************** MAIN CONTENT END **************** -->
 	<%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
-
 </html>

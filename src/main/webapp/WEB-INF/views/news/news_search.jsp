@@ -9,26 +9,9 @@
 
 <head>
     <title>FinTouch | News | Search</title>
-    <!-- Meta Tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="author" content="Webestica.com">
-    <meta name="description" content="Bootstrap based News, Magazine and Blog Theme">
-
     <!-- Favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
-
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
-
-    <!-- Plugins CSS -->
-    <link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
-    <link rel="stylesheet" type="text/css" href="assets/vendor/tiny-slider/tiny-slider.css">
-
-    <!-- Theme CSS -->
-    <link id="style-switch" rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="shortcut icon" href="resources/resources1b/images/favicon.ico">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
 </head>
 
 <body>
@@ -68,7 +51,7 @@ Main content START -->
                         <div class="card mb-4">
                             <div class="row">
                                 <div class="col-md-5">
-                                    <img class="rounded-3" src="assets/images/05_news/news05.jpeg" style="height: 234px;" alt="">
+                                    <img class="rounded-3" src="${path}/resources/resources1b/images/05_news/news05.jpeg" style="height: 234px;" alt="">
                                 </div>
                                 <div class="col-md-7 mt-3 mt-md-0">
                                     <a href="#" class="badge bg-danger mb-2"><i class="fas fa-circle me-2 small fw-bold"></i> Finance</a>
@@ -93,7 +76,7 @@ Main content START -->
                         <div class="card mb-4">
                             <div class="row">
                                 <div class="col-md-5">
-                                    <img class="rounded-3" src="assets/images/05_news/news06.jpg" style="height: 234px;" alt="">
+                                    <img class="rounded-3" src="${path}/resources/resources1b/images/05_news/news06.jpg" style="height: 234px;" alt="">
                                 </div>
                                 <div class="col-md-7 mt-3 mt-md-0">
                                     <a href="#" class="badge bg-danger mb-2"><i class="fas fa-circle me-2 small fw-bold"></i> Finance</a>
@@ -119,7 +102,7 @@ Main content START -->
                         <div class="card mb-4">
                             <div class="row">
                                 <div class="col-md-5">
-                                    <img class="rounded-3" src="assets/images/05_news/news01.jpg" style="height: 234px;" alt="">
+                                    <img class="rounded-3" src="${path}/resources/resources1b/images/05_news/news01.jpg" style="height: 234px;" alt="">
                                 </div>
                                 <div class="col-md-7 mt-3 mt-md-0">
                                     <a href="#" class="badge bg-primary mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Politics</a>
@@ -143,7 +126,7 @@ Main content START -->
                         <div class="card mb-4">
                             <div class="row">
                                 <div class="col-md-5">
-                                    <img class="rounded-3" src="assets/images/05_news/news02.jpg" style="height: 234px;" alt="">
+                                    <img class="rounded-3" src="${path}/resources/resources1b/images/05_news/news02.jpg" style="height: 234px;" alt="">
                                 </div>
                                 <div class="col-md-7 mt-3 mt-md-0">
                                     <a href="#" class="badge bg-primary mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Politics</a>
@@ -166,7 +149,7 @@ Main content START -->
                         <div class="card mb-4">
                             <div class="row">
                                 <div class="col-md-5">
-                                    <img class="rounded-3" src="assets/images/05_news/news03.jpg" style="height: 234px;" alt="">
+                                    <img class="rounded-3" src="${path}/resources/resources1b/images/05_news/news03.jpg" style="height: 234px;" alt="">
                                 </div>
                                 <div class="col-md-7 mt-3 mt-md-0">
                                     <a href="#" class="badge bg-warning text-dark mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Real Estate</a>
@@ -189,7 +172,7 @@ Main content START -->
                         <div class="card mb-4">
                             <div class="row">
                                 <div class="col-md-5">
-                                    <img class="rounded-3" src="assets/images/05_news/news04.jpg" style="height: 234px;" alt="">
+                                    <img class="rounded-3" src="${path}/resources/resources1b/images/05_news/news04.jpg" style="height: 234px;" alt="">
                                 </div>
                                 <div class="col-md-7 mt-3 mt-md-0">
                                     <a href="#" class="badge bg-warning text-dark mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Real Estate</a>
@@ -275,7 +258,7 @@ Main content START -->
                                     <div class="card mb-3">
                                         <div class="row g-3">
                                             <div class="col-4">
-                                                <img class="rounded" src="assets/images/05_news/news01.jpg" style="height: 65px;" alt="">
+                                                <img class="rounded" src="${path}/resources/resources1b/images/05_news/news01.jpg" style="height: 65px;" alt="">
                                             </div>
                                             <div class="col-8">
                                                 <h6><a href="post-single-2.html" class="btn-link stretched-link text-reset fw-bold">25일까지 예정부가세 납부…코로나·태풍피해 사업자는 직권제외</a></h6>
@@ -286,7 +269,7 @@ Main content START -->
                                     <div class="card mb-3">
                                         <div class="row g-3">
                                             <div class="col-4">
-                                                <img class="rounded" src="assets/images/05_news/news02.jpg" style="height: 65px;" alt="">
+                                                <img class="rounded" src="${path}/resources/resources1b/images/05_news/news02.jpg" style="height: 65px;" alt="">
                                             </div>
                                             <div class="col-8">
                                                 <h6><a href="post-single-2.html" class="btn-link stretched-link text-reset fw-bold">경상수지 체질 개선에 총력…내년 초까지 18개 신규대책 마련</a></h6>
@@ -297,7 +280,7 @@ Main content START -->
                                     <div class="card mb-3">
                                         <div class="row g-3">
                                             <div class="col-4">
-                                                <img class="rounded" src="assets/images/05_news/news03.jpg" style="height: 65px;" alt="">
+                                                <img class="rounded" src="${path}/resources/resources1b/images/05_news/news03.jpg" style="height: 65px;" alt="">
                                             </div>
                                             <div class="col-8">
                                                 <h6><a href="post-single-2.html" class="btn-link stretched-link text-reset fw-bold">“우선분양 받으려면 3억원 내세요”… 장기민간임대 ‘매매예약금’ 논란</a></h6>
@@ -308,7 +291,7 @@ Main content START -->
                                     <div class="card mb-3">
                                         <div class="row g-3">
                                             <div class="col-4">
-                                                <img class="rounded" src="assets/images/05_news/news04.jpg" style="height: 65px;" alt="">
+                                                <img class="rounded" src="${path}/resources/resources1b/images/05_news/news04.jpg" style="height: 65px;" alt="">
                                             </div>
                                             <div class="col-8">
                                                 <h6><a href="post-single-2.html" class="btn-link stretched-link text-reset fw-bold">“매매계약 기억 가물”…'5억이 3억대' 노도강 아파트 '거래' 단절</a></h6>
