@@ -13,7 +13,7 @@
     <link rel="shortcut icon" href="${path}/resources/resources1b/images/favicon.ico">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
 </head>
-<c:set var="searchValue" value="${param.searchValue}" />
+
 <body>
 	<%@include file="/WEB-INF/views/common/header.jsp" %>
 		    <!-- **************** MAIN CONTENT START **************** -->
@@ -250,7 +250,6 @@
                                 <div class="nav flex-column nav-pills mt-2 fw-bold" id="v-pills-tab" role="tablist" aria-orientation="vertical" style="text-align: center;">
                                     <a class="nav-link active border-bottom mt-1 mice" style="font-size: 18px;" id="v-pills-home-tab" data-bs-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">적 &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; 금</a>
                                     <a class="nav-link border-bottom mice" style="font-size: 18px;" id="v-pills-profile-tab" data-bs-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">예 &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 금</a>
-                                    <a class="nav-link border-bottom mice" style="font-size: 18px;" id="v-pills-messages-tab" data-bs-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">신 &nbsp;용&nbsp; 대&nbsp; 출</a>
                                     <a class="nav-link border-bottom mice" style="font-size: 18px;" id="v-pills-settings-tab" data-bs-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">주택담보대출</a>
                                     <a class="nav-link mice" style="font-size: 18px;" id="v-pills-settings-tab" data-bs-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">전세자금대출</a>
                                 </div>
@@ -283,8 +282,8 @@
                                 <div class="row g-3 align-items-center justify-content-between">
                                     <!-- Search bar -->
                                     <div class="col-md-5">
-                                        <form action="${path}/finance/productMain" class="rounded position-relative">
-                                            <input id="searchValue" class="form-control bg-transparent" type="search" placeholder="금융회사명을 입력하세요!" aria-label="Search" value="${param.searchValue}">
+                                        <form action="${path}/finance/productMain" method="get" class="rounded position-relative">
+                                            <input id="searchValue" name="searchValue" class="form-control bg-transparent" type="search" placeholder="금융회사명을 입력하세요!" aria-label="Search" value="${param.searchValue}">
                                             <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
                                         </form>
                                     </div>
@@ -312,7 +311,7 @@
                                             <table class="table align-middle p-4 mb-0 table-hover">
                                                 <!-- Table head -->
                                                 <thead class="table-light">
-                                                    <tr style="text-align: center;">
+                                                    <tr style="text-align:center;">
                                                         <th scope="col" class="border-0 rounded-start">NO</th>
                                                         <th scope="col" class="border-0">금융상품</th>
                                                         <th scope="col" class="border-0">금융회사</th>
@@ -324,10 +323,10 @@
                                                 <!-- Table body START -->
                                                 <tbody class="border-top-0" style="text-align:center;">
                                                 <c:if test="${!empty list}">
-                                                <c:forEach var="intallmentSavings" items="${list}">
+                                                <c:forEach var="installmentSavings" items="${list}" step="1" varStatus="status">
                                                     <tr>
                                                         <!-- NO -->
-                                                        <td>${status.count}</td>
+                                                        <td><c:out value="${status.count}"/></td>
                                                         <td>
                                                             <div class="row">
                                                                 <div class="col-4" style="padding-right: 0px;">
@@ -341,18 +340,28 @@
                                                                 <div class="col-8" style="text-align: left; padding-left: 0px;">
                                                                     <div class="mb-0 mt-1 ms-2">
                                                                         <!-- 금융상품명 -->
-                                                                        <h5 class="mb-0"><a href="">${intallmentSavings.finPrdtNm}</a></h5>
+                                                                        <h5 class="mb-0">
+                                                                        	<a href="${path}/finance/productDetail?id=${installmentSavings.inssvnId}">
+                                                                        	<c:out value="${installmentSavings.finPrdtNm}"/>                                                                       	
+                                                                        	</a>
+                                                                        </h5>
                                                                     </div>
                                                                     <div class="mb-0 mt-1 ms-2">
-                                                                        <h6 class="mb-0">최고 연 <a href="#!" class="text-primary">4.15%</a></h6>
+                                                                        <h6 class="mb-0">최고 연
+                                                                        	<a href="#!" class="text-primary">
+                                                                        		<c:forEach var="installOption" items="${installmentSavings.installOptionList}">
+                                                                        			<c:out value="${installOption.intrRate2}"/>%                                                                   			
+                                                                        		</c:forEach>
+                                                                        	</a>
+                                                                        </h6>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </td>
                                                         <!-- 금융기관명 -->
-                                                        <td>${intallmentSavings.korCoNm}</td>
+                                                        <td><c:out value="${installmentSavings.korCoNm}"/></td>
                                                         <!-- 가입방법 -->
-                                                        <td>${intallmentSavings.joinWay}</td>
+                                                        <td><c:out value="${installmentSavings.joinWay}"/></td>
                                                         <!-- 적립,금리유형 -->
                                                         <td>자유적립식</td>
                                                     </tr>   
@@ -373,8 +382,8 @@
                                     <!-- Pagination -->
                                     <nav class="mb-sm-0 d-flex justify-content-center mt-2" aria-label="navigation">
                                         <ul class="pagination pagination-sm pagination-bordered mb-0">
-                                            <li class="page-item disabled">
-                                                <a onclick="movePage('${path}/finance/productMain?page=${pageInfo.prevPage}');" class="page-link" tabindex="-1" aria-disabled="true">Prev</a>
+                                            <li class="page-item">
+                                                <a onclick="movePage('${path}/finance/productMain?page=${pageInfo.prevPage}');" class="page-link">Prev</a>
                                             </li>
                                             <c:forEach begin="${pageInfo.startPage}" end="${pageInfo.endPage}" step="1" varStatus="status">
                                             	<c:if test="${pageInfo.currentPage == status.current}">
@@ -382,8 +391,7 @@
                                             	</c:if>
                                             	<c:if test="${pageInfo.currentPage != status.current}">
 		                                            <li class="page-item"><a onclick="movePage('${path}/finance/productMain?page=${status.current}');" class="page-link">${status.current}</a></li>                                            	
-                                            	</c:if>
-                                          
+                                            	</c:if>                                         
                                             </c:forEach>
                                             <li class="page-item">
                                                 <a onclick="movePage('${path}/finance/productMain?page=${pageInfo.nextPage}');" class="page-link">Next</a>
@@ -402,8 +410,8 @@
 				var searchValue = document.getElementById("searchValue");
 					pageUrl = pageUrl + '&searchValue=' + searchValue.value; 
 				location.href = encodeURI(pageUrl);	
-			}
-</script>
+			}			
+		</script>
     </main>	    
 	<%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>

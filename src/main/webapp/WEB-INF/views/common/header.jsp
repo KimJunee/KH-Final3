@@ -73,7 +73,7 @@
                                 </li>
                                 <li> <a class="dropdown-item text-white" href="${path}/stockprice/fin_kosdaqDetail.do">오늘의 KOSDAQ  <span class="badge bg-danger smaller me-1">New</span></a>
                                 </li>
-                                <li> <a class="dropdown-item text-white" href="02_fin_Product.html">금융상품안내</a> </li>
+                                <li> <a class="dropdown-item text-white" href="${path}/finance/productMain">금융상품안내</a> </li>
                                 <li class="dropdown-divider text-white"></li>
                                 <li> <a class="dropdown-item text-white" href="07_com_finance.html">금융Talk  <span class="badge bg-danger smaller me-1">New</span></a> </li>
                             </ul>

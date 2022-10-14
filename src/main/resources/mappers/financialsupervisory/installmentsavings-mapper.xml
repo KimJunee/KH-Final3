@@ -38,6 +38,67 @@
 		<result property="intrRate" column="INTR_RATE"/>
 		<result property="intrRate2" column="INTR_RATE2"/>
 	</resultMap>
+	
+	<select id="selectInstallList" resultMap="installListResultMap">
+		SELECT I.inssvn_id, I.inssvn_kor_co_nm, I.inssvn_fin_prdt_nm, I.inssvn_join_way, I.inssvn_mtrt_int,
+		I.inssvn_spcl_cnd, I.inssvn_join_member, I.inssvn_etc_note, I.inssvn_max_limit,
+		O.intr_rate_type_nm, O.rsrv_type_nm, O.save_trm, O.intr_rate2
+		FROM INSTLSAVING I
+		JOIN INSSVN_OPTION O ON I.inssvn_id = O.inssvn_id
+		JOIN (SELECT inssvn_id, MAX(intr_rate2) MAX_RATE
+		FROM INSSVN_OPTION
+		GROUP BY inssvn_id) C ON C.inssvn_id = I.inssvn_id
+		AND C.MAX_RATE = O.intr_rate2	
+		<if test="korCoNm != null">
+			WHERE I.inssvn_kor_co_nm LIKE '%'||#{korCoNm}||'%'	
+		</if>
+	</select>
+	
+	<select id="selectInstallCount" parameterType="map" resultType="int">
+		SELECT count(*) from (SELECT I.inssvn_id, I.inssvn_kor_co_nm, I.inssvn_fin_prdt_nm, I.inssvn_join_way, I.inssvn_mtrt_int,
+		I.inssvn_spcl_cnd, I.inssvn_join_member, I.inssvn_etc_note, I.inssvn_max_limit,
+		O.intr_rate_type_nm, O.rsrv_type_nm, O.save_trm, O.intr_rate2
+		FROM INSTLSAVING I
+		JOIN INSSVN_OPTION O ON I.INSSVN_ID = O.INSSVN_ID
+		JOIN (SELECT inssvn_id, MAX(intr_rate2) MAX_RATE
+		FROM INSSVN_OPTION
+		GROUP BY inssvn_id) C ON C.inssvn_id = I.inssvn_id
+		AND C.MAX_RATE = O.intr_rate2
+		<if test="korCoNm != null">
+			WHERE I.inssvn_kor_co_nm LIKE '%'||#{korCoNm}||'%'
+		</if>
+		)
+	</select>
+	
+	<select id="selectByInssvnId" parameterType="int" resultMap="installListResultMap">
+		SELECT I.inssvn_id, I.inssvn_kor_co_nm, I.inssvn_fin_prdt_nm, I.inssvn_join_way, I.inssvn_mtrt_int,
+		I.inssvn_spcl_cnd, I.inssvn_join_member, I.inssvn_etc_note, I.inssvn_max_limit,
+		O.intr_rate_type_nm, O.rsrv_type_nm, O.save_trm, O.intr_rate, O.intr_rate2
+		FROM INSTLSAVING I
+		JOIN INSSVN_OPTION O ON I.inssvn_id = O.inssvn_id
+		JOIN (SELECT inssvn_id, MAX(intr_rate2) MAX_RATE
+		FROM INSSVN_OPTION
+		GROUP BY inssvn_id) C ON C.inssvn_id = I.inssvn_id
+		AND C.MAX_RATE = O.intr_rate2
+		WHERE I.inssvn_id = #{inssvnId}
+	</select>
+	
+<!-- 	<select id="selectByKorCoName" resultMap="installListResultMap" parameterType="map">
+		SELECT I.inssvn_id, I.inssvn_kor_co_nm, I.inssvn_fin_prdt_nm, I.inssvn_join_way, I.inssvn_mtrt_int,
+		I.inssvn_spcl_cnd, I.inssvn_join_member, I.inssvn_etc_note, I.inssvn_max_limit,
+		O.intr_rate_type_nm, O.rsrv_type_nm, O.save_trm, O.intr_rate2
+		FROM INSTLSAVING I
+		JOIN INSSVN_OPTION O ON I.INSSVN_ID = O.INSSVN_ID
+		JOIN (SELECT inssvn_id, MAX(intr_rate2) MAX_RATE
+		FROM INSSVN_OPTION
+		GROUP BY inssvn_id) C ON C.inssvn_id = I.INSSVN_ID
+		AND C.MAX_RATE = O.intr_rate2
+		WHERE 1=1
+		<if test="korCoNm != null">
+			AND WHERE I.inssvn_kor_co_nm LIKE '%'||#{korCoNm}||'%'	
+		</if>
+		ORDER BY I.inssvn_id
+	</select> -->
 
 
 	<insert id="insertInstallmentSavings"

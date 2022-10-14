@@ -42,8 +42,11 @@
 		                        <!-- Page title + Features-->
 		                        <div class="row">
 		                            <div class="col-9">
-		                                <h2 class="mb-2 mice">KB내맘대로적금</h2>
-		                                <p class="mb-2 pb-1 fs-lg"> &nbsp; - 가입대상 : 실명의 개인 또는 개인사업자<br> &nbsp; - 가입방법 : 인터넷, 스마트폰<br> &nbsp; - 최고한도 : 없음</p>
+		                            	<input type="hidden" value="${installment.inssvnId}">
+		                                <h2 class="mb-2 mice">
+		                                	<c:out value="${installment.finPrdtNm}"/>
+		                                </h2>
+		                                <p class="mb-2 pb-1 fs-lg"> &nbsp; - 가입대상 : <c:out value="${installment.joinMember}"/><br> &nbsp; - 가입방법 : <c:out value="${installment.joinWay}"/><br> &nbsp; - 최고한도 : <c:out value=" ${installment.maxLimit}"/></p>
 		                            </div>
 		                            <div class="col-3">
 		                                <img src="${path}/resources/resources1b/images/02_fin_financePro/kbBank.jpg" alt="">
@@ -115,7 +118,9 @@
 		                            <div class="col-8">
 		                                <div><span class="badge bg-success me-2 mb-2">Verified</span><span class="badge bg-info me-2 mb-2">New</span></div>
 		                                <h5 class="mice mb-2">이율</h5>
-		                                <h3 class="mice mb-2 pb-2">최저 1.95 ~ 최고 3.05 </h3>
+		                                <c:forEach var="installOption" items="${installment.installOptionList}">
+			                                <h3 class="mice mb-2 pb-2">최저 ${installOption.intrRate} ~ 최고 ${installOption.intrRate2}</h3>		                                
+		                                </c:forEach>
 		                            </div>
 		                            <div class="col-4">
 		                                <div class="avatar avatar-xl">
@@ -126,27 +131,29 @@
 		                        <div class="card border-0 bg-light mb-4">
 		                            <div class="card-body">
 		                                <h5 class="mice">우대조건</h5>
-		                                <span>우대이율 최고 연1.3%p <br>- 가족사랑 우대이율 : 연0.2%p <br>- 자동이체 우대이율 : 연0.1%p <br>- 아동수당 우대이율 : 연0.1%p <br>- 주택청약종합저축 우대이율 : 최고 연0.4%p <br>- 우리아이 성장축하/지문등록 우대이율 : 연0.5%p</span>
+		                                <span>${installment.spclCnd}</span>
 		                            </div>
 		                        </div>
 		                        <a class="btn btn-lg btn-primary w-100 mb-3" href="#">♥ Like This Financial Product</a>
-		                        <a class="d-inline-block mb-4 pb-2 text-decoration-none" href="02_fin_Product.html">
+		                        <a class="d-inline-block mb-4 pb-2 text-decoration-none" href="${path}/finance/productMain">
 		                            <i class="fi-help me-2 mt-n1 align-middle"></i>목록으로 돌아가기
 		                        </a>
 		                        <div class="card border-0 bg-light mb-4">
 		                            <div class="card-body">
 		                                <h5 class="mice">만기 후 이율</h5>
-		                                <span>- 1개월 이내 : 기본이율 X 50% <br>- 1개월 초과 ~ 3개월 이내 : 기본이율 X 30% <br>- 3개월 초과 : 0.1%</span>
+		                                <span>${installment.mtrtInt}</span>
 		                            </div>
 		                        </div>
 		                        <div class="card border-0 bg-light mb-4">
 		                            <div class="card-body">
 		                                <h5>Others</h5>
-		                                <span>- 금리유형 : 단리</span><br>
-		                                <span>- 적립유형 : 정액적립식</span><br>
-		                                <span>- 저축기간 : 6 ~ 36개월</span><br>
-		                                <span>- 최고우대금리 : 3.05%</span><br>
-		                                <span>- 기타 유의사항 : 인터넷뱅킹/KB스타뱅킹 전용상품</span>
+		                                <c:forEach var="installOption" items="${installment.installOptionList}">			                                		                                
+			                                <span>- 금리유형 : ${installOption.intrRateTypeNm}</span><br>
+			                                <span>- 적립유형 : ${installOption.rsrvTypeNm}</span><br>
+			                                <span>- 저축기간 : ${installOption.saveTrm}개월</span><br>
+			                                <span>- 최고우대금리 : ${installOption.intrRate2}%</span><br>
+		                                </c:forEach>
+		                                <span>- 기타 유의사항 : ${installment.etcNote}</span>
 		                            </div>
 		                        </div>
 		                    </div>
