@@ -349,7 +349,7 @@
                                                                     <div class="mb-0 mt-1 ms-2">
                                                                         <h6 class="mb-0">최고 연
                                                                         	<a href="#!" class="text-primary">
-                                                                        		<c:forEach var="installOption" items="${installmentSavings.installOptionList}">
+                                                                        		<c:forEach var="installOption" items="${installmentSavings.installOptionList}"  begin="0" end="0" step="1">
                                                                         			<c:out value="${installOption.intrRate2}"/>%                                                                   			
                                                                         		</c:forEach>
                                                                         	</a>
