@@ -2,14 +2,14 @@ dateList = [];
 valueList = [];
 e = new Date;
 $.ajax({
-    url: '/realfinal/stockprice/fin_kospi_main/info1',
+    url: '/realfinal/stockprice/fin_kospi_main/info',
     type: 'get',
     success: function(map) {
 		console.log('AJAX 통신 성공!');
         dateList = map.date;
         valueList = map.value;
         list = [];
-        for (let i = 0; t < dateList.length; i++) {
+        for (let i = 0; i < dateList.length; i++) {
             list.push([new Date(dateList[i]), valueList[i]]);
         }
 

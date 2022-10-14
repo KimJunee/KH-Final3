@@ -112,9 +112,9 @@
     <script src="https://apexcharts.com/samples/assets/series1000.js "></script>
     <script src="https://apexcharts.com/samples/assets/github-data.js "></script>
     <script src="https://apexcharts.com/samples/assets/irregular-data-series.js "></script>
-    <script src="${path}/resources/resources4h/assets2/js/pages/demo.apex-area.js "></script>
-    <script src="${path}/resources/resources4h/assets2/js/pages/demo.apex-area2.js "></script>
-    <script src="${path}/resources/resources4h/assets2/js/pages/demo.crm-dashboard.js "></script>
+    <script src="${path}/resources/resources4h/assets2/js/pages/demo.apex-area.js "></script><!-- 금융메인 코스피 그래프 -->
+    <script src="${path}/resources/resources4h/assets2/js/pages/demo.apex-area2.js "></script><!-- 금융메인 코스닥 그래프 -->
+    <script src="${path}/resources/resources4h/assets2/js/pages/demo.crm-dashboard.js "></script><!--  금융메인 환율그래프 -->
     
     
     <!-- 환율그래프-->

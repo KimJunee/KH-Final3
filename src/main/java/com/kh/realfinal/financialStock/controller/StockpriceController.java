@@ -61,10 +61,20 @@ public class StockpriceController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/realfinal/stockprice/fin_kospi_main/info1", produces = "application/json; charset=utf-8")
+	@RequestMapping(value="/stockprice/fin_kospi_main/info", produces = "application/json; charset=utf-8")
 	public String fin_main_kospiDetailForDate(Model model, @RequestParam Map<String, String> param) throws ParseException { 
 		List<Date> kospiDateList = service.getKospiDateList();  //코스피 날짜 list ex) 20221007
 		List<String> kospiClprList = service.getKospiClprList();//코스피 종가 list ex) 2268.25
+		Map<String, List> map = new HashedMap();
+		map.put("date", kospiDateList);
+		map.put("value", kospiClprList);
+		return new Gson().toJson(map);
+	}
+	@ResponseBody
+	@RequestMapping(value="/stockprice/fin_kosdaq_main/info", produces = "application/json; charset=utf-8")
+	public String fin_main_kosdaqDetailForDate(Model model, @RequestParam Map<String, String> param) throws ParseException { 
+		List<Date> kospiDateList = service.getKosdaqDateList();  //코스피 날짜 list ex) 20221007
+		List<String> kospiClprList = service.getKosdaqClprList();//코스피 종가 list ex) 2268.25
 		Map<String, List> map = new HashedMap();
 		map.put("date", kospiDateList);
 		map.put("value", kospiClprList);
