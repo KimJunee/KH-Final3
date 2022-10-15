@@ -61,7 +61,7 @@
                     </div>
                     <!-- 회원정보수정 / 나중에 novalidate(유효성검사) 다 뗄 것 -->
                     <div class="col-8 mb-0">
-                        <form class="needs-validation pb-4 mb-0" action="${path}/member/update" method="post" style="padding-bottom: 0px;" novalidate>
+                        <form class="needs-validation pb-4 mb-0" action="${path}/member/update" method="get" style="padding-bottom: 0px;" novalidate>
                             <!-- Blog list table START -->
                             <div class="border rounded-3 p-3 mb-2" id="personal-info">
                                 <!-- ID -->
@@ -69,11 +69,11 @@
                                     <div class="d-flex align-items-center justify-content-between">
                                         <div class="pe-2">
                                             <label class="form-label fw-bold">ID</label>
-                                            <div type="text" name="user_id" id="user_id">${loginMember.user_id}</div>
+                                            <div type="text" name="user_id"  value="${loginMember.user_id}">${loginMember.user_id}</div>
                                         </div>
                                     </div>
                                     <div class="collapse" id="name-collapse" data-bs-parent="#personal-info">
-                                        <input class="form-control mt-3" type="text" data-bs-binded-element="#name-value" data-bs-unset-value="Not specified" value="Annette Black">
+                                        <input class="form-control mt-3" type="text" data-bs-binded-element="#name-value" data-bs-unset-value="Not specified" name="user_id" value="${loginMember.user_id}">
                                     </div>
                                 </div>
                                 <!-- 닉네임 -->
@@ -89,7 +89,7 @@
                                         </div>
                                     </div>
                                     <div class="collapse" id="nickname-collapse" data-bs-parent="#personal-info">
-                                        <input class="form-control mt-3" type="email" data-bs-binded-element="#nickname-value" data-bs-unset-value="Not specified" value="${loginMember.user_nickname}">
+                                        <input class="form-control mt-3" type="text" data-bs-binded-element="#nickname-value" data-bs-unset-value="Not specified" name="user_nickname" value="${loginMember.user_nickname}">
                                     </div>
                                 </div>
                                 <!-- Email -->
@@ -105,15 +105,15 @@
                                         </div>
                                     </div>
                                     <div class="collapse" id="email-collapse" data-bs-parent="#personal-info">
-                                        <input class="form-control mt-3" type="email" data-bs-binded-element="#email-value" data-bs-unset-value="Not specified" value="${loginMember.user_email}">
+                                        <input class="form-control mt-3" type="email" data-bs-binded-element="#email-value" data-bs-unset-value="Not specified" name="user_email" value="${loginMember.user_email}">
                                     </div>
                                 </div>
                                 <!-- 현재 비밀번호 -->
                                 <div class="border-bottom d-flex align-items-center justify-content-between">
                                     <div class="col-12 mb-3">
-                                        <label class="form-label fw-bold" for="account-password">현재 비밀번호</label><a class="d-inline-block mb-2" href="#">&nbsp;&nbsp;&nbsp;비밀번호를 잊었어요.</a>
+                                        <label class="form-label fw-bold"  for="account-password">현재 비밀번호</label><a class="d-inline-block mb-2" href="#">&nbsp;&nbsp;&nbsp;비밀번호를 잊었어요.</a>
                                         <div class="password-toggle">
-                                            <input class="form-control" type="password" id="account-password" required>
+                                            <input class="form-control" type="password"  id="account-password" required>
                                             <label class="password-toggle-btn" aria-label="Show/hide password">
                                                 <input class="password-toggle-check" type="checkbox">
                                                 <span class="password-toggle-indicator"></span>
@@ -126,7 +126,7 @@
                                     <div class="col-12 mb-3 mt-3">
                                         <label class="form-label fw-bold" for="account-password-new">변경할 비밀번호</label>
                                         <div class="password-toggle">
-                                            <input class="form-control" type="password" id="account-password-new" required>
+                                            <input class="form-control" type="password" name="user_password" id="account-password-new" required>
                                             <label class="password-toggle-btn" aria-label="Show/hide password">
                                                 <input class="password-toggle-check" type="checkbox">
                                                 <span class="password-toggle-indicator"></span>
@@ -147,7 +147,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button class="btn btn-outline-primary mb-0" type="submit">회원정보 변경</button>
+                                <button type="submit" class="btn btn-outline-primary mb-0">회원정보 변경</button>
                             </div>
                         </form>
                         <!-- Blog list table END -->

@@ -2,9 +2,11 @@ package com.kh.realfinal.member.controller;
 
 import java.util.HashMap;
 import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,8 +17,10 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
+
 import com.kh.realfinal.member.model.service.MemberService;
 import com.kh.realfinal.member.model.vo.Member;
+
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j // log용도
@@ -26,6 +30,9 @@ public class MemberController {
 	
 	@Autowired
 	private MemberService service;
+	
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder; // SHA-256 Hash code 알고리즘 활용 객체 (일방향 암호화)
 	
 	// 로그인
 	@PostMapping("/logIn")
@@ -77,10 +84,10 @@ public class MemberController {
 		}
 		if(result > 0) {
 			model.addObject("msg", "회원가입에 성공하였습니다.");
-			model.addObject("location", "/main.do");
+			model.addObject("location", "/mypage/signIn");
 		}else {
 			model.addObject("msg", "회원가입에 실패하였습니다. 다시 한번 확인해주세요.");
-			model.addObject("location", "/main.do");
+			model.addObject("location", "/mypage/signUp");
 		}
 		model.setViewName("common/msg");
 		return model;
@@ -106,14 +113,16 @@ public class MemberController {
 	}
 	
 	// 회원정보수정
-	@PostMapping("/member/update")
+	@GetMapping("/member/update")
 	public String update(Model model,
 				@ModelAttribute Member member,
-				@SessionAttribute(name= "loginMember", required = false) Member loginMember 
+				@SessionAttribute(name= "loginMember", required = false) Member loginMember
 			) {
+		System.out.println(loginMember);
+		System.out.println(member);
 		if(loginMember == null || loginMember.getUser_id().equals(member.getUser_id()) == false) {
 			model.addAttribute("msg", "잘못된 접근입니다.");
-			model.addAttribute("location", "/");
+			model.addAttribute("location", "/main.do");
 			return "common/msg";
 		}
 		
