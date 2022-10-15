@@ -133,13 +133,16 @@ public class MemberController {
 	
 	// 회원탈퇴
 	@GetMapping("/member/delete")
-	public String delete(Model model,
+	public String delete(Model model, SessionStatus status, String user_password,
 			@SessionAttribute(name= "loginMember", required = false) Member loginMember) {
-		int result = service.delete(loginMember.getUser_no(),"", "");
+		int result = service.delete(loginMember.getUser_no(), loginMember.getUser_id(), user_password);
 		
 		if(result > 0 ) {
+			log.info("status : " + status.isComplete());
+			status.setComplete(); // 세션을 종료하는 코드
+			log.info("status : " + status.isComplete());
 			model.addAttribute("msg", "정상적으로 탈퇴 되었습니다.");
-			model.addAttribute("location", "/logout");
+			model.addAttribute("location", "/main.do");
 		}else {
 			model.addAttribute("msg", "회원 탈퇴에 실패하였습니다.");
 			model.addAttribute("location", "/member/view");

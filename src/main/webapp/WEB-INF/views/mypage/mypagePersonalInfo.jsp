@@ -159,7 +159,7 @@
                                 </div>
                             </div>
                             <div class="col-12 mb-0" style="float: right;">
-                                <form class="needs-validation pb-4 mb-0" style="padding-bottom: 0px;" novalidate>
+                                <form class="needs-validation pb-4 mb-0" action="${path}/member/delete" method="get" style="padding-bottom: 0px;" novalidate>
                                     <!-- Blog list table START -->
                                     <div class="border rounded-3 p-3 mb-2" id="personal-info">
                                         <!-- 비밀번호 확인 -->
@@ -167,7 +167,7 @@
                                             <div class="col-12 mb-4 mt-3">
                                                 <label class="form-label fw-bold" for="account-password-confirm">비밀번호 확인</label>
                                                 <div class="password-toggle">
-                                                    <input class="form-control" type="password" id="account-password-confirm" required>
+                                                    <input class="form-control" type="password" name="user_password" id="account-password-confirm" required>
                                                     <label class="password-toggle-btn" aria-label="Show/hide password">
                                                         <input class="password-toggle-check" type="checkbox">
                                                         <span class="password-toggle-indicator"></span>
@@ -175,7 +175,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <button class="btn btn-outline-primary mb-0" type="submit">회원탈퇴</button>
+                                        <button type="submit" class="btn btn-outline-primary mb-0">회원탈퇴</button>
                                     </div>
                                 </form>
                             </div>

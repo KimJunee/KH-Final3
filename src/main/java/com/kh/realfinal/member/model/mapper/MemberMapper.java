@@ -14,5 +14,5 @@ public interface MemberMapper {
 	int insertMember(Member member);
 	int updateMember(Member member);
 	int updatePwd(Map<String, String> map);
-	int deleteMember(@Param("no") int user_no);
+	int deleteMember(int user_no);
 }

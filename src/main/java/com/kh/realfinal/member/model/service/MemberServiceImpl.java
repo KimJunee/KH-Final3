@@ -67,15 +67,20 @@ public class MemberServiceImpl implements MemberService{
 		return mapper.selectMember(user_id);
 	}
 
+	@SuppressWarnings("unused")
 	@Override
 	@Transactional(rollbackFor = Exception.class)
 	public int delete(int user_no, String user_id ,String user_password) {
 		Member member = this.findById(user_id);
+		System.out.println("member : " + member);
+		System.out.println("userpassword : " + passwordEncoder.encode(user_password));
+		System.out.println("member.getUser_password : " + member.getUser_password());
 		if(member == null) { //id로 찾았는데 member가 없을때
 			return -1;
 		}
-		if(member != null && user_password == member.getUser_password()) {
+		if(member != null && passwordEncoder.matches(user_password, member.getUser_password()) == true) {
 			// 인증성공하였을때
+			System.out.println("인증성공 : " + user_no);
 			return mapper.deleteMember(user_no);
 		}else {
 			//인증실패하였을때
