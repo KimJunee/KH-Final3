@@ -180,7 +180,7 @@
                     	<a href="${path}/mypage/signIn" class="btn btn-sm btn-danger mb-0 mx-2 ">Sign In</a>
                     </c:if>
                     <c:if test="${!empty loginMember}">
-                    	<a href="${path}/main/main" class="btn btn-sm btn-danger mb-0 mx-2 ">Sign Out</a>
+                    	<a href="${path}/member/logout" class="btn btn-sm btn-danger mb-0 mx-2 ">Sign Out</a>
                     </c:if>
                     </div>
                     <!-- Offcanvas menu toggler -->

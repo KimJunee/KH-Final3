@@ -28,7 +28,7 @@ public class MemberController {
 	private MemberService service;
 	
 	// 로그인
-	@PostMapping("logIn")
+	@PostMapping("/logIn")
 	public String login(Model model, String user_id, String user_password) {
 		log.info("id : " + user_id + ", pw : " + user_password);
 		Member loginMember = service.login(user_id, user_password);
@@ -38,7 +38,7 @@ public class MemberController {
 			return "main/main";
 		}else {
 			model.addAttribute("msg", "아이디나 패스워드가 잘못되었습니다.");
-			model.addAttribute("location", "/");
+			model.addAttribute("location", "/mypage/signIn");
 			return "common/msg";
 		}
 	}
@@ -50,12 +50,12 @@ public class MemberController {
 	}
 	
 	// 로그아웃
-	@RequestMapping("/logout")
+	@RequestMapping("/member/logout")
 	public String logout(SessionStatus status) {
 		log.info("status : " + status.isComplete());
 		status.setComplete(); // 세션을 종료하는 코드
 		log.info("status : " + status.isComplete());
-		return "redirect:/";
+		return "main/main";
 	}
 	
 	@RequestMapping("/mypage/signUp")
@@ -77,10 +77,10 @@ public class MemberController {
 		}
 		if(result > 0) {
 			model.addObject("msg", "회원가입에 성공하였습니다.");
-			model.addObject("location", "/");
+			model.addObject("location", "/main.do");
 		}else {
 			model.addObject("msg", "회원가입에 실패하였습니다. 다시 한번 확인해주세요.");
-			model.addObject("location", "/");
+			model.addObject("location", "/main.do");
 		}
 		model.setViewName("common/msg");
 		return model;
