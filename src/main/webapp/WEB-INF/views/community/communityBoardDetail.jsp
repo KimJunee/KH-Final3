@@ -8,7 +8,7 @@
 <html lang="ko">
 
 <head>
-    <title>FinTouch | Community | 게시글제목</title>
+    <title>FinTouch | Community | ${board.board_title}</title>
     <!-- Favicon -->
     <link rel="shortcut icon" href="${path}/resources/resources1b/images/favicon.ico">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
@@ -27,7 +27,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h1>제목이 길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게</h1>
+                        <h1>${board.board_title}</h1>
                     </div>
                 </div>
             </div>
@@ -45,24 +45,21 @@
                                 <div class="avatar avatar-xl">
                                     <img class="avatar-img rounded-circle" src="${path}/resources/resources1b/images/avatar_w1.png" alt="avatar">
                                 </div>
-                                <a href="#" class="h5 stretched-link mt-2 mb-0 d-block">서현동뒹굴이</a>
+                                <a href="#" class="h5 stretched-link mt-2 mb-0 d-block">${board.writer_nickName}</a>
                             </div>
                             <hr class="d-none d-lg-block">
                             <!-- 작성일 / 조회수 / 댓글수 -->
                             <ul class="list-inline list-unstyled">
-                                <li class="list-inline-item d-lg-block my-lg-2">2022-09-23 15:49</li>
-                                <li class="list-inline-item d-lg-block my-lg-2"><i class="far fa-eye me-1"></i> 23 Views</li>
-                                <li class="list-inline-item d-lg-block my-lg-2"><i class="bi bi-chat-left-quote-fill me-1"></i> 2 Commenets</li>
+                                <li class="list-inline-item d-lg-block my-lg-2">${board.board_register}</li>
+                                <li class="list-inline-item d-lg-block my-lg-2"><i class="far fa-eye me-1"></i> ${board.board_hit} Views</li>
+                                <li class="list-inline-item d-lg-block my-lg-2"><i class="bi bi-chat-left-quote-fill me-1"></i> ${fn:length(Reply)} Commenets</li>
                             </ul>
                         </div>
                     </div>
                     <!-- 왼쪽 사이드바 끝 -->
                     <!-- 메인 컨텐츠 시작 -->
                     <div class="col-lg-7 mb-5">
-                        <p>어쩌구 저쩌구 쏼라쏼라 암냠냠냠 옴뇽뇽뇽 어쩌구 저쩌구 쏼라쏼라 암냠냠냠 옴뇽뇽뇽 어쩌구 저쩌구 쏼라쏼라 암냠냠냠 옴뇽뇽뇽 어쩌구 저쩌구 쏼라쏼라 암냠냠냠 옴뇽뇽뇽 스크롤을 내려서 확인할라면 더 길어야 해요어쩌구 저쩌구 쏼라쏼라 암냠냠냠 옴뇽뇽뇽 어쩌구 저쩌구 쏼라쏼라 암냠냠냠 옴뇽뇽뇽 어쩌구 저쩌구 쏼라쏼라 암냠냠냠 옴뇽뇽뇽 어쩌구 저쩌구 쏼라쏼라 암냠냠냠 옴뇽뇽뇽 스크롤을 내려서 확인할라면 더 길어야
-                            해요어쩌구 저쩌구 쏼라쏼라 암냠냠냠 옴뇽뇽뇽 어쩌구 저쩌구 쏼라쏼라 암냠냠냠 옴뇽뇽뇽 어쩌구 저쩌구 쏼라쏼라 암냠냠냠 옴뇽뇽뇽 어쩌구 저쩌구 쏼라쏼라 암냠냠냠 옴뇽뇽뇽 스크롤을 내려서 확인할라면 더 길어야 해요어쩌구 저쩌구 쏼라쏼라 암냠냠냠 옴뇽뇽뇽 어쩌구 저쩌구 쏼라쏼라 암냠냠냠 옴뇽뇽뇽 어쩌구 저쩌구 쏼라쏼라 암냠냠냠 옴뇽뇽뇽 어쩌구 저쩌구 쏼라쏼라 암냠냠냠 옴뇽뇽뇽 스크롤을 내려서 확인할라면
-                            더 길어야 해요어쩌구 저쩌구 쏼라쏼라 암냠냠냠 옴뇽뇽뇽 어쩌구 저쩌구 쏼라쏼라 암냠냠냠 옴뇽뇽뇽 어쩌구 저쩌구 쏼라쏼라 암냠냠냠 옴뇽뇽뇽 어쩌구 라쏼라 암냠냠냠 옴뇽뇽뇽 스크롤을 내려서 확인할라면 더 길어야 해요어쩌구 저쩌구 쏼라쏼라 암냠냠냠 옴뇽뇽뇽 어쩌구 저쩌구 쏼라쏼라 암냠냠냠 옴뇽뇽뇽 어쩌구 저쩌구 쏼라쏼라 암냠냠냠 옴뇽뇽뇽 어쩌구 저쩌구 쏼라쏼라 암냠냠냠 옴뇽뇽뇽 스크롤을 내려서 확인할라면
-                            더 길어야 해요</p>
+                        <p>${board.board_content}</p>
                         <!-- Image -->
                         <figure class="figure mt-2">
                             <a href="${path}/resources/resources1b/images/blog/3by2/04.jpg" data-glightbox data-gallery="image-popup">
@@ -70,38 +67,22 @@
                             </a>
                             <figcaption class="figure-caption text-center">(Image via: <a class="text-reset" href="#">pexels.com</a>)</figcaption>
                         </figure>
-
-                        <p>그림 어쩌구 빠밤빠밤 신나는 금요일 정말 신나는게 맞나요 아니요 왜 아니죠 그럴리가요 그럴수도이쬬 그렇군요 쭈꾸미는 정말 맛있다 치즈토핑 최고다 치즈토핑은 너무 비싸요 4천원 진짜 선넘었다 얌마</p>
                         <!-- 댓글 시작 -->
                         <div class="border-bottom border-top border-2 mb-3 pt-3" style="color:#a1a1a8">
-                            <h3>2 comments</h3>
+                            <h3>${fn:length(Reply)} comments</h3>
                             <!-- Comment level 1-->
                             <div class="my-4 d-flex border-bottom border-1 mb-1" style="color:#a1a1a8">
                                 <img class="avatar avatar-md rounded-circle float-start me-3" src="${path}/resources/resources1b/images/avatar_w3.png" alt="avatar">
                                 <div>
                                     <div class="mb-2">
-                                        <h5 class="m-0">쏩쏲쏫쏙쏳쏘</h5>
-                                        <span class="me-3 small">2022-09-23 16:06 </span>
+                                        <h5 class="m-0">${reply.reply_writer_nickname}</h5>
+                                        <span class="me-3 small">${reply.reply_register} </span>
                                     </div>
                                     <div style="color:#191a1f">
-                                        <p>님 이렇게 뻘글 쓰면 신고할거임</p>
+                                        <p>${reply.reply_content}</p>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Comment level 1 -->
-                            <div class="my-4 d-flex">
-                                <img class="avatar avatar-md rounded-circle float-start me-3 pb-1" src="${path}/resources/resources1b/images/avatar_m1.png" alt="avatar">
-                                <div>
-                                    <div class="mb-2">
-                                        <h5 class="m-0">형님들진정하세요</h5>
-                                        <span class="me-3 small">2022-09-24 11:33</span>
-                                    </div>
-                                    <div style="color:#191a1f">
-                                        <p>댓글은 어디까지 허용해야하나 3000자인가 역시 대세는 3000이긴 해 왜 3000이냐 2000은 적고 4000은 많으니까요</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <!-- 댓글 끝 -->
                         <!-- 댓글 작성 시작 -->
                         <div>

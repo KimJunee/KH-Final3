@@ -23,8 +23,13 @@
 	<resultMap type="Reply" id="boardReplyResultMap">
 		<id property="reply_no" column="REPLY_NO"/>
 		<result property="reply_content" column="REPLY_CONTENT"/>
+		<result property="user_no" column="USER_NO"/>
 		<result property="board_no" column="BOARD_NO"/>
-		<result property="writer_no" column="WRITER_NO"/>
+		<result property="board_writer_no" column="BOARD_WRITER_NO"/>
+		<result property="board_writer_id" column="BOARD_WRITER_ID"/>
+		<result property="board_writer_nickName" column="BOARD_WRITER_NICKNAME"/>
+		<result property="reply_writer_no" column="REPLY_WRITER_NO"/>
+		<result property="reply_writer_nickName" column="REPLY_WRITER_NICKNAME"/>
 		<result property="writer_id" column="USER_ID"/>
 		<result property="reply_register" column="REPLY_REGISTER"/>
 		<result property="reply_modify" column="REPLY_MODIFY"/>
@@ -40,8 +45,8 @@
 	
 	<sql id="selectReplySql">
 		SELECT
-			REPLY_NO, REPLY_CONTENT, USER_NO, BOARD_NO, 
-			WRITER_NO, WRITER_ID, REPLY_REGISTER, REPLY_MODIFY
+			REPLY_NO, REPLY_CONTENT, WRITER_NO, 
+			BOARD_NO, REPLY_REGISTER, REPLY_MODIFY
 		FROM REPLY
 	</sql>
 	
@@ -87,18 +92,51 @@
 		ORDER BY B.BOARD_NO DESC
 	</select>
 	
-	<!-- 게시판 목록 구분 -->
+	<!-- 게시글 보기 -->
+	<select id="selectBoardByNo" parameterType="int" resultMap="boardDetailResultMap">
+		SELECT 
+		    B.BOARD_NO, B.BOARD_TITLE, U.USER_NICKNAME, U2.USER_NICKNAME AS REPLY_WRITER_NICKNAME,
+		    B.BOARD_HIT, B.BOARD_ORIGINALFILENAME, B.BOARD_RENAMEDFILENAME, B.BOARD_CONTENT,
+		    B.BOARD_LIST_NO, B.BOARD_REGISTER, B.BOARD_MODIFY, 
+		    R.REPLY_NO AS R_REPLY_NO, R.BOARD_NO AS R_BOARD_NO, R.REPLY_CONTENT AS R_REPLY_CONTENT, 
+		    U2.USER_ID AS R_USER_ID, R.REPLY_REGISTER AS R_REPLY_REGISTER, R.REPLY_MODIFY AS R_REPLY_MODIFY,
+		    (SELECT COUNT(1) 
+		        FROM REPLY R 
+		        WHERE R.BOARD_NO = B.BOARD_NO ) AS REPLY_CNT
+		FROM BOARD B
+		JOIN USER_T U ON(B.WRITER_NO = U.USER_NO)
+		LEFT OUTER JOIN REPLY R ON(B.BOARD_NO = R.BOARD_NO)
+		LEFT OUTER JOIN USER_T U2 ON(R.WRITER_NO = U2.USER_NO)
+		WHERE B.BOARD_STATUS='Y' 
+		AND B.BOARD_NO = #{board_no}
+	</select>
 	
 	<!-- 게시글 등록 -->
 	<insert id="insertBoard" parameterType="Board">
 		INSERT INTO BOARD (
-			BOARD_NO, WRITER_NO, BOARD_LIST_NO, BOARD_HIT, 
-			BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER, BOARD_MODIFY, 
-			BOARD_ORIGINALFILENAME, BOARD_RENAMEDFILENAME, BOARD_STATUS
+			BOARD_NO, 
+			WRITER_NO, 
+			BOARD_LIST_NO, 
+			BOARD_HIT, 
+			BOARD_TITLE, 
+			BOARD_CONTENT, 
+			BOARD_REGISTER, 
+			BOARD_MODIFY, 
+			BOARD_ORIGINALFILENAME, 
+			BOARD_RENAMEDFILENAME, 
+			BOARD_STATUS
 		) VALUES (
-			SEQ_BOARD_NO.NEXTVAL, #{writer_no}, #{board_list_no}, 0, 
-			#{board_title}, #{board_content}, SYSDATE, SYSDATE, 
-			DEFAULT, DEFAULT, DEFAULT
+			SEQ_BOARD_NO.NEXTVAL, 
+			#{writer_no}, 
+			#{board_list_no}, 
+			0, 
+			#{board_title}, 
+			#{board_content}, 
+			SYSDATE, 
+			SYSDATE, 
+			NVL(#{board_originalFileName},''), 
+			NVL(#{board_renamedFileName},''), 
+			DEFAULT
 		)
 	</insert>
 	

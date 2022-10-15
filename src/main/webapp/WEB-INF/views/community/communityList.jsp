@@ -143,7 +143,7 @@
 																<!-- Title -->
 																<td>
 																	<h6 class="course-title mt-2 mt-md-0 mb-0">
-																		<a href="${path}/board/view?no=${board.board_no}" style="text-decoration-line: none; color: #595D69;">
+																		<a href="${path}/board/BoardDetail?board_no=${board.board_no}" style="text-decoration-line: none; color: #595D69;">
 																			<c:out value="${board.board_title}"/>
 																		</a>
 																	</h6>
@@ -158,7 +158,7 @@
 																<td class="text-center"><fmt:formatDate type="date" value="${board.board_register}"/></td>
 																<!-- Hits -->
 																<td class="text-center">
-																	<a href="${path}/board/view?no=${board.board_no}" style="text-decoration-line: none; color: #595D69;">
+																	<a href="${path}/board/BoardDetail?board_no=${board.board_no}" style="text-decoration-line: none; color: #595D69;">
 																		<c:out value="${board.board_hit}"/>
 																	</a>
 																</td>

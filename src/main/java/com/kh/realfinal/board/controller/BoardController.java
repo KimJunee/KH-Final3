@@ -91,6 +91,7 @@ public class BoardController {
 	@GetMapping("/BoardDetail")
 	public String view(Model model, @RequestParam("board_no") int no) {
 		Board board = service.findByNo(no);
+		System.out.println("board : " + board);
 		
 		if(board == null) {
 			return "redirect:error";
@@ -135,11 +136,11 @@ public class BoardController {
 				board.setBoard_renamedFileName(renameFileName);
 			}
 		}
-		log.debug("board : " + board);
+		System.out.println("board : " + board);
 		int result = service.saveBoard(board);
 		if(result > 0) {
 			model.addAttribute("msg", "게시글 작성이 정상적으로 성공하였습니다.");
-			model.addAttribute("location", "/community/communityList");	// 해당 게시글 가기! 우선 임시로 게시글 목록
+			model.addAttribute("location", "/community/communityBoardDetail?board_no=");	// 해당 게시글 가기! 우선 임시로 게시글 목록
 		}else {
 			model.addAttribute("msg", "게시글 작성에 실패하였습니다.");
 			model.addAttribute("location", "/community/communityMain");	// 게시판 메인 가기!
@@ -155,12 +156,12 @@ public class BoardController {
 			) {
 		log.info("리플 작성 요청");
 		
-		if((loginMember.getUser_no() == (reply.getWriter_no())) == false) {
+		if((loginMember.getUser_no() == (reply.getReply_writer_no())) == false) {
 			model.addAttribute("msg", "잘못된 접근입니다.");
 			model.addAttribute("location", "/");
 			return "/common/msg";
 		}
-		reply.setWriter_no(loginMember.getUser_no());
+		reply.setReply_writer_no(loginMember.getUser_no());
 		log.debug("reply : " + reply);
 		int result = service.saveReply(reply);
 		
@@ -263,7 +264,7 @@ public class BoardController {
 		int result = service.saveBoard(board);
 		if(result > 0) {
 			model.addAttribute("msg", "게시글 수정이 정상적으로 성공하였습니다.");
-			model.addAttribute("location", "/board/view?no=" + board.getUser_no());
+			model.addAttribute("location", "/community/communityBoardDetail?board_no=" + board.getUser_no());
 		}else {
 			model.addAttribute("msg", "게시글 수정에 실패하였습니다.");
 			model.addAttribute("location", "/board/update?no=" + board.getUser_no());
