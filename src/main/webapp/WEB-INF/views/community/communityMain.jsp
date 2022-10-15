@@ -20,8 +20,8 @@
         <!-- ============ 메뉴소개 시작 ============ -->
         <section style="background-image:url('${path}/resources/resources1b/images/avatar/fintouch/community04.png'); background-position: center; height:652px; width:99%;">
             <div style="margin-left: 370px; margin-top: 520px;">
-                <h5><span style="color:#2163E8;">C&nbsp;O&nbsp;M&nbsp;M&nbsp;U&nbsp;N&nbsp;I&nbsp;T&nbsp;Y</span></h5>
-                <h1>실시간<span style="color:#2163E8">커뮤니티</span>인기글</h1>
+                <h5 class="mice"><span style="color:#2163E8;">C&nbsp;O&nbsp;M&nbsp;M&nbsp;U&nbsp;N&nbsp;I&nbsp;T&nbsp;Y</span></h5>
+                <h1 class="mice">실시간<span class="mice" style="color:#2163E8;">커뮤니티</span>인기글</h1>
             </div>
         </section>
         <!-- ============ 메뉴소개 끝 ============ -->
@@ -57,7 +57,7 @@
                                                 <thead class="table-dark">
                                                     <tr>
                                                         <th scope="col" class="border-0 text-center rounded-start">Categories</th>
-                                                        <th scope="col" class="border-0">Title</th>
+                                                        <th scope="col" class="border-0">&nbsp;&nbsp;Title</th>
                                                         <th scope="col" class="border-0 text-center">Writer</th>
                                                         <th scope="col" class="border-0 text-center">Date</th>
                                                         <th scope="col" class="border-0 text-center">Hits</th>
@@ -322,14 +322,14 @@
                                     <div class="d-sm-flex justify-content-between align-items-center">
                                         <div>
                                             <div style="float:left;">
-                                                <a href="#" class="badge text-bg-primary mt-2" style="width: 100px;"><i class="fas fa-circle me-2 small fw-bold"></i>Politics</a>
+                                                <a href="${path}/board/list?type=1" class="badge text-bg-primary mt-2" style="width: 100px;"><i class="fas fa-circle me-2 small fw-bold"></i>Politics</a>
                                             </div>
                                             <div style="float:left;">
-                                                <h1>&nbsp;&nbsp;정치</h1>
+                                                <h1 class="mice">&nbsp;&nbsp;정치</h1>
                                             </div>
                                         </div>
                                         <div>
-                                            <a href="# " class="text-body ">
+                                            <a href="${path}/board/list?type=1" class="text-body ">
                                                 <p><b>정치글 더보기&nbsp;&nbsp;</b><i class="bi bi-arrow-right "></i></p>
                                             </a>
                                         </div>
@@ -339,7 +339,7 @@
                                             <!-- Table head -->
                                             <thead class="table-dark ">
                                                 <tr>
-                                                    <th scope="col " class="border-0 rounded-start ">Title</th>
+                                                    <th scope="col " class="border-0 rounded-start ">&nbsp;&nbsp;Title</th>
                                                     <th scope="col " class="border-0 text-center ">Writer</th>
                                                     <th scope="col " class="border-0 text-center rounded-end ">Hits</th>
                                                 </tr>
@@ -428,14 +428,14 @@
                                     <div class="d-sm-flex justify-content-between align-items-center">
                                         <div>
                                             <div style="float:left;">
-                                                <a href="#" class="badge text-bg-warning mt-2" style="width: 100px;"><i class="fas fa-circle me-2 small fw-bold"></i>Real Estate</a>
+                                                <a href="${path}/board/list?type=2" class="badge text-bg-warning mt-2" style="width: 100px;"><i class="fas fa-circle me-2 small fw-bold"></i>Real Estate</a>
                                             </div>
                                             <div style="float:left;">
-                                                <h1>&nbsp;&nbsp;부동산</h1>
+                                                <h1 class="mice">&nbsp;&nbsp;부동산</h1>
                                             </div>
                                         </div>
                                         <div>
-                                            <a href="# " class="text-body ">
+                                            <a href="${path}/board/list?type=2" class="text-body ">
                                                 <p><b>부동산글 더보기&nbsp;&nbsp;</b><i class="bi bi-arrow-right "></i></p>
                                             </a>
                                         </div>
@@ -445,7 +445,7 @@
                                             <!-- Table head -->
                                             <thead class="table-dark ">
                                                 <tr>
-                                                    <th scope="col " class="border-0 rounded-start ">Title</th>
+                                                    <th scope="col " class="border-0 rounded-start ">&nbsp;&nbsp;Title</th>
                                                     <th scope="col " class="border-0 text-center ">Writer</th>
                                                     <th scope="col " class="border-0 text-center rounded-end ">Hits</th>
                                                 </tr>
@@ -534,14 +534,14 @@
                                     <div class="d-sm-flex justify-content-between align-items-center">
                                         <div>
                                             <div style="float:left;">
-                                                <a href="#" class="badge text-bg-danger mt-2" style="width: 100px;"><i class="fas fa-circle me-2 small fw-bold"></i>Finance</a>
+                                                <a href="${path}/board/list?type=3" class="badge text-bg-danger mt-2" style="width: 100px;"><i class="fas fa-circle me-2 small fw-bold"></i>Finance</a>
                                             </div>
                                             <div style="float:left;">
-                                                <h1>&nbsp;&nbsp;금융</h1>
+                                                <h1 class="mice">&nbsp;&nbsp;금융</h1>
                                             </div>
                                         </div>
                                         <div>
-                                            <a href="# " class="text-body ">
+                                            <a href="${path}/board/list?type=3" class="text-body ">
                                                 <p><b>금융글 더보기&nbsp;&nbsp;</b><i class="bi bi-arrow-right "></i></p>
                                             </a>
                                         </div>
@@ -551,7 +551,7 @@
                                             <!-- Table head -->
                                             <thead class="table-dark ">
                                                 <tr>
-                                                    <th scope="col " class="border-0 rounded-start ">Title</th>
+                                                    <th scope="col " class="border-0 rounded-start ">&nbsp;&nbsp;Title</th>
                                                     <th scope="col " class="border-0 text-center ">Writer</th>
                                                     <th scope="col " class="border-0 text-center rounded-end ">Hits</th>
                                                 </tr>
@@ -640,14 +640,14 @@
                                     <div class="d-sm-flex justify-content-between align-items-center">
                                         <div>
                                             <div style="float:left;">
-                                                <a href="#" class="badge text-bg-success mt-2" style="width: 100px;"><i class="fas fa-circle me-2 small fw-bold"></i>Free</a>
+                                                <a href="${path}/board/list?type=4" class="badge text-bg-success mt-2" style="width: 100px;"><i class="fas fa-circle me-2 small fw-bold"></i>Free</a>
                                             </div>
                                             <div style="float:left;">
-                                                <h1>&nbsp;&nbsp;자유</h1>
+                                                <h1 class="mice">&nbsp;&nbsp;자유</h1>
                                             </div>
                                         </div>
                                         <div>
-                                            <a href="# " class="text-body ">
+                                            <a href="${path}/board/list?type=4" class="text-body ">
                                                 <p><b>자유글 더보기&nbsp;&nbsp;</b><i class="bi bi-arrow-right "></i></p>
                                             </a>
                                         </div>
@@ -657,7 +657,7 @@
                                             <!-- Table head -->
                                             <thead class="table-dark ">
                                                 <tr>
-                                                    <th scope="col " class="border-0 rounded-start ">Title</th>
+                                                    <th scope="col " class="border-0 rounded-start ">&nbsp;&nbsp;Title</th>
                                                     <th scope="col " class="border-0 text-center ">Writer</th>
                                                     <th scope="col " class="border-0 text-center rounded-end ">Hits</th>
                                                 </tr>

@@ -39,15 +39,16 @@ public class BoardController {
 	@Autowired
 	private ResourceLoader resourceLoader;
 	
-	// 커뮤니티 메인
+	// 커뮤니티 메인가기
 	@GetMapping("/main")
 	public String gocommunity() {
 		log.info("게시판 메인가기!");
 		return "community/communityMain";
 	}
-		
+	
+	// 커뮤니티 메인
 	@GetMapping("/communityMain")
-	public String list(Model model, @RequestParam Map<String, String> param) {
+	public String communityMain(Model model, @RequestParam Map<String, String> param) {
 		int page = 1;
 		if(param.containsKey("page") == true) {
 			try {
@@ -55,7 +56,7 @@ public class BoardController {
 			} catch (Exception e) {}
 		}
 		
-		PageInfo pageInfo = new PageInfo(page, 10, service.getBoardCount(param), 10);
+		PageInfo pageInfo = new PageInfo(page, 20, service.getBoardCount(param), 10);
 		List<Board> list = service.getBoardList(pageInfo, param);
 		
 		model.addAttribute("list",list);
@@ -64,11 +65,31 @@ public class BoardController {
 		return "/community/communityMain";
 	}
 	
+	// 커뮤니티 타입별 목록
+	@GetMapping("/list")
+	public String list(Model model, @RequestParam Map<String, String> param) {
+		int page = 1;
+		if(param.containsKey("page") == true) {
+			try {
+				page = Integer.parseInt(param.get("page"));
+			} catch (Exception e) {}
+		}
+		
+		PageInfo pageInfo = new PageInfo(page, 20, service.getBoardCount(param), 20);
+		List<Board> list = service.getBoardList(pageInfo, param);
+		
+		model.addAttribute("list",list);
+		model.addAttribute("board_list_no", param.get("type"));
+		model.addAttribute("param",param);
+		model.addAttribute("pageInfo",pageInfo);
+		return "/community/communityList";
+	}
+	
 	// 커뮤니티
 	
 	// 게시글 상세보기
 	@GetMapping("/BoardDetail")
-	public String view(Model model, @RequestParam("no") int no) {
+	public String view(Model model, @RequestParam("board_no") int no) {
 		Board board = service.findByNo(no);
 		
 		if(board == null) {
@@ -77,7 +98,7 @@ public class BoardController {
 		
 		model.addAttribute("board", board);
 		model.addAttribute("replyList", board.getReplies());
-		return "/community/communityBoardDetail";
+		return "community/communityBoardDetail";
 	}
 	
 	// 에러
@@ -95,19 +116,13 @@ public class BoardController {
 	}
 	
 	// 글 작성
-	@PostMapping("/board/Post")
+	@PostMapping("/Post")
 	public String writeBoard(Model model, HttpServletRequest request,
 			@SessionAttribute(name = "loginMember", required = false) Member loginMember,
 			@ModelAttribute Board board,
 			@RequestParam("upfile") MultipartFile upfile
 			) {
-		log.info("게시글 작성 요청");
-		
-		if(loginMember == null || (loginMember.getUser_no() == (board.getWriter_no())) == false) {
-			model.addAttribute("msg", "잘못된 접근입니다.");
-			model.addAttribute("location", "/");
-			return "/common/msg";
-		}
+		System.out.println(board.toString());
 		board.setWriter_no(loginMember.getUser_no());
 		
 		if(upfile != null && upfile.isEmpty() == false) {
@@ -124,10 +139,10 @@ public class BoardController {
 		int result = service.saveBoard(board);
 		if(result > 0) {
 			model.addAttribute("msg", "게시글 작성이 정상적으로 성공하였습니다.");
-			model.addAttribute("location", "/community");	// 해당 게시판 가게 하기!
+			model.addAttribute("location", "/community/communityList");	// 해당 게시글 가기! 우선 임시로 게시글 목록
 		}else {
 			model.addAttribute("msg", "게시글 작성에 실패하였습니다.");
-			model.addAttribute("location", "/community");	// 원래 있었던 곳 가게 하기!
+			model.addAttribute("location", "/community/communityMain");	// 게시판 메인 가기!
 		}
 		return "/common/msg";
 	}

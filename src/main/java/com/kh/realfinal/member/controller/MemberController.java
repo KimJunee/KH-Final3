@@ -35,7 +35,7 @@ public class MemberController {
 		
 		if(loginMember != null) {
 			model.addAttribute("loginMember", loginMember);
-			return "redirect:/";
+			return "main/main";
 		}else {
 			model.addAttribute("msg", "아이디나 패스워드가 잘못되었습니다.");
 			model.addAttribute("location", "/");

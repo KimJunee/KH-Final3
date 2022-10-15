@@ -26,7 +26,7 @@ public class BoardServiceImpl implements BoardService{
 	@Transactional(rollbackFor = Exception.class)
 	public int saveBoard(Board board) {
 		int result = 0;
-		
+		System.out.println(board.toString());
 		if(board.getBoard_no() == 0) {
 			result = mapper.insertBoard(board);
 		}else {
@@ -49,8 +49,8 @@ public class BoardServiceImpl implements BoardService{
 		}
 		
 		String board_originalFileName = upfile.getOriginalFilename();
-		String board_renamedFileName = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd"))
-				+ board_originalFileName.substring(board_originalFileName.lastIndexOf("-"));
+		String board_renamedFileName = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmssSSS"))
+				+ board_originalFileName.substring(board_originalFileName.lastIndexOf("."));
 		String reNamePath = savePath + "/" + board_renamedFileName;
 		
 		try {
@@ -65,6 +65,9 @@ public class BoardServiceImpl implements BoardService{
 	public int getBoardCount(Map<String, String> param) {
 		Map<String, String> searchMap = new HashMap<String, String>();
 		String searchValue = param.get("searchValue");
+		
+		searchMap.put("board_list_no", param.get("type"));
+		
 		if(searchValue != null && searchValue.length() > 0) {
 			String type = param.get("sdarchType");
 			if(type.equals("board_title")) {
@@ -85,6 +88,8 @@ public class BoardServiceImpl implements BoardService{
 		
 		Map<String, String> searchMap = new HashMap<String, String>();
 		String searchValue = param.get("searchValue");
+		searchMap.put("board_list_no", param.get("type"));
+		
 		if(searchValue != null && searchValue.length() > 0) {
 			String type = param.get("searchType");
 			if(type.equals("board_title")) {

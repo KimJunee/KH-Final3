@@ -12,8 +12,10 @@ import lombok.NoArgsConstructor;
 public class Board {
 	private int    board_no;                //게시글번호
 	private int    user_no;                 //사용자번호(외래키)
+	private String user_id;                 //사용자ID
 	private String user_nickName;			//사용자닉네임
-	private int writer_no;					//글쓴이번호
+	private int    writer_no;				//글쓴이번호
+	private String writer_id;				//글쓴이ID
 	private String writer_nickName;			//글쓴이닉네임
 	private int    board_list_no;           //게시판 구분 1은 정치, 2는 부동산, 3은 금융, 4는 자유
 	private int    board_hit;               //조회수

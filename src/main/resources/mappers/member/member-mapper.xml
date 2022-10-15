@@ -5,14 +5,8 @@
   
   <sql id="selectMemberSql">
 		SELECT
-		   	USER_NO,
-		    USER_ID, 
-		    USER_NAME, 
-		    USER_NICKNAME,
-		    USER_PHONE, 
-		    USER_PASSWORD, 
-		    USER_EMAIL, 
-		    USER_STATUS
+		   	USER_NO, USER_ID, USER_NAME, USER_NICKNAME,
+		    USER_PHONE, USER_PASSWORD, USER_EMAIL, USER_STATUS
     	FROM USER_T
 	</sql>
   
@@ -36,23 +30,11 @@
   <insert id="insertMember" parameterType="Member"
 		useGeneratedKeys="true" keyColumn="USER_NO" keyProperty="user_no">
 		INSERT INTO USER_T (
-		    USER_NO, 
-		    USER_ID, 
-		    USER_NAME, 
-		    USER_NICKNAME,
-		    USER_PHONE, 
-		    USER_PASSWORD, 
-		    USER_EMAIL, 
-		    USER_STATUS
+		    USER_NO, USER_ID, USER_NAME, USER_NICKNAME,
+		    USER_PHONE, USER_PASSWORD, USER_EMAIL, USER_STATUS
 		) VALUES(
-		    SEQ_USER_NO.NEXTVAL, 
-		    #{user_id}, 
-		    #{user_name}, 
-		    #{user_nickname}, 
-		    #{user_phone}, 
-		    #{user_password}, 
-		    #{user_email}, 
-		    DEFAULT
+		    SEQ_USER_NO.NEXTVAL, #{user_id}, #{user_name}, #{user_nickname}, 
+		    #{user_phone}, #{user_password}, #{user_email}, DEFAULT
 		)
 	</insert>
 	
