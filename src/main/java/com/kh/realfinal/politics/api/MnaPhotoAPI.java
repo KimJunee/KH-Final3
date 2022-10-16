@@ -34,7 +34,7 @@ public class MnaPhotoAPI {
 	}
 	
 	
-	private static List<MnaPhoto> callListMnaByXML() {
+	public static List<MnaPhoto> callListMnaByXML() {
 		List<MnaPhoto> list = new ArrayList<MnaPhoto>();
 		int pageNo = 1;
 		int numOfRows = 500;

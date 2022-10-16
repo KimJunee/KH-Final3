@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProfileMna {
+	private int no; 			// 번호
 	private String hgNm;        // 이름
 	private String units;       // 대수
 	private String sexGbnNm;    // 성별
@@ -27,6 +28,7 @@ public class ProfileMna {
 	private String secretary2;  // 비서관
 	private String assemAddr;   // 의원실안내
 	private String memTitle;    // 주요약력
+	private String jpglink;    // 주요약력
 	
 	// 경력은 임의로 출력 X 너무 길다.
 	public String toString2() {

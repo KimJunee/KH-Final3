@@ -14,13 +14,13 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import com.kh.realfinal.politics.model.vo.CardCutVO;
+import com.kh.realfinal.politics.model.vo.CardCut;
 
 public class CardCutRss {
 	public static final String WEEKLY_XML_URL  = "https://www.korea.kr/rss/visual.xml";
 	
-		public static List<CardCutVO> callWeeklyNewsListByXML() {
-			List<CardCutVO> list = new ArrayList<>();
+		public static List<CardCut> callWeeklyNewsListByXML() {
+			List<CardCut> list = new ArrayList<>();
 			
 			StringBuffer urlBuffer = new StringBuffer();
 			urlBuffer.append(WEEKLY_XML_URL);
@@ -75,7 +75,7 @@ public class CardCutRss {
 								value = nextValue + 1;
 							}
 							String description = descriptionOrigin.substring(descriptionOrigin.indexOf("<!--cardnewsEnd-->")).replace("<!--cardnewsEnd-->", "");
-							CardCutVO card = new CardCutVO(title, link, descriptionOrigin, imageList, description, pubDate);
+							CardCut card = new CardCut(title, link, descriptionOrigin, imageList, description, pubDate);
 							list.add(card);
 //							System.out.println(card.getDescriptionOrigin()); 
 							System.out.println(card.getImages()); 

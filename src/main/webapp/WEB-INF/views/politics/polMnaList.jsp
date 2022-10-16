@@ -269,326 +269,48 @@ Main START -->
 
                                                     <!-- Table body START -->
                                                     <tbody class="border-top-0">
-                                                        <!-- 국회의원한줄 -->
-                                                        <tr>
-                                                            <!-- Table data -->
-                                                            <td>1</td>
-                                                            <!-- Table data -->
-                                                            <td>21대</td>
-                                                            <!-- Table data -->
-                                                            <td>
-                                                                <div class="d-flex align-items-center position-relative">
-                                                                    <!-- Image -->
-                                                                    <div class="avatar align-middle">
-                                                                        <img src="resources/resources1b/images/avatar/mna_01.jpg" class="avatar-img rounded" alt="">
-                                                                    </div>
-                                                                    <div class="mb-0 ms-2">
-                                                                        <!-- Title -->
-                                                                        <h6 class="mb-0"><a href="04_pol_mna_profile.html" class="stretched-link">전소피아</a></h6>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <!-- Table data -->
-                                                            <td>국민의힘</td>
-                                                            <!-- Table data -->
-                                                            <td>서울 동작구을</td>
-                                                            <!-- Table data -->
-                                                            <td>여</td>
-                                                            <!-- Table data -->
-                                                            <td>
-                                                                <span class="badge bg-warning bg-opacity-10 text-warning mb-2">재선</span>
-                                                            </td>
-                                                            <!-- Table data -->
-                                                            <td>지역구</td>
-                                                        </tr>
-                                                        <!-- 국회의원한줄 -->
-                                                        <tr>
-                                                            <!-- Table data -->
-                                                            <td>1</td>
-                                                            <!-- Table data -->
-                                                            <td>21대</td>
-                                                            <!-- Table data -->
-                                                            <td>
-                                                                <div class="d-flex align-items-center position-relative">
-                                                                    <!-- Image -->
-                                                                    <div class="avatar align-middle">
-                                                                         <img src="resources/resources1b/images/avatar/mna_01.jpg" class="avatar-img rounded" alt="">
-                                                                    </div>
-                                                                    <div class="mb-0 ms-2">
-                                                                        <!-- Title -->
-                                                                        <h6 class="mb-0"><a href="#" class="stretched-link">김주니</a></h6>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <!-- Table data -->
-                                                            <td>더불어민주당</td>
-                                                            <!-- Table data -->
-                                                            <td>서울 송파구을</td>
-                                                            <!-- Table data -->
-                                                            <td>여</td>
-                                                            <!-- Table data -->
-                                                            <td>
-                                                                <span class="badge bg-success bg-opacity-10 text-success mb-2">초선</span>
-                                                            </td>
-                                                            <!-- Table data -->
-                                                            <td>비례대표</td>
-                                                        </tr>
-                                                        <!-- 국회의원한줄 -->
-                                                        <tr>
-                                                            <!-- Table data -->
-                                                            <td>1</td>
-                                                            <!-- Table data -->
-                                                            <td>21대</td>
-                                                            <!-- Table data -->
-                                                            <td>
-                                                                <div class="d-flex align-items-center position-relative">
-                                                                    <!-- Image -->
-                                                                    <div class="avatar align-middle">
-                                                                       <img src="resources/resources1b/images/avatar/mna_01.jpg" class="avatar-img rounded" alt="">
-                                                                    </div>
-                                                                    <div class="mb-0 ms-2">
-                                                                        <!-- Title -->
-                                                                        <h6 class="mb-0"><a href="#" class="stretched-link">이미향</a></h6>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <!-- Table data -->
-                                                            <td>정의당</td>
-                                                            <!-- Table data -->
-                                                            <td>안양 송파구을</td>
-                                                            <!-- Table data -->
-                                                            <td>여</td>
-                                                            <!-- Table data -->
-                                                            <td>
-                                                                <span class="badge bg-success bg-opacity-10 text-success mb-2">초선</span>
-                                                            </td>
-                                                            <!-- Table data -->
-                                                            <td>지역구</td>
-                                                        </tr>
-                                                        <!-- 국회의원한줄 -->
-                                                        <tr>
-                                                            <!-- Table data -->
-                                                            <td>1</td>
-                                                            <!-- Table data -->
-                                                            <td>21대</td>
-                                                            <!-- Table data -->
-                                                            <td>
-                                                                <div class="d-flex align-items-center position-relative">
-                                                                    <!-- Image -->
-                                                                    <div class="avatar align-middle">
-                                                                        <img src="resources/resources1b/images/avatar/mna_01.jpg" class="avatar-img rounded" alt="">
-                                                                    </div>
-                                                                    <div class="mb-0 ms-2">
-                                                                        <!-- Title -->
-                                                                        <h6 class="mb-0"><a href="#" class="stretched-link">배현진</a></h6>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <!-- Table data -->
-                                                            <td>국민의힘</td>
-                                                            <!-- Table data -->
-                                                            <td>서울 송파구을</td>
-                                                            <!-- Table data -->
-                                                            <td>여</td>
-                                                            <!-- Table data -->
-                                                            <td>
-                                                                <span class="badge bg-warning bg-opacity-10 text-warning mb-2">재선</span>
-                                                            </td>
-                                                            <!-- Table data -->
-                                                            <td>지역구</td>
-                                                        </tr>
-                                                        <!-- 국회의원한줄 -->
-                                                        <tr>
-                                                            <!-- Table data -->
-                                                            <td>1</td>
-                                                            <!-- Table data -->
-                                                            <td>21대</td>
-                                                            <!-- Table data -->
-                                                            <td>
-                                                                <div class="d-flex align-items-center position-relative">
-                                                                    <!-- Image -->
-                                                                    <div class="avatar align-middle">
-                                                                         <img src="resources/resources1b/images/avatar/mna_01.jpg" class="avatar-img rounded" alt="">
-                                                                    </div>
-                                                                    <div class="mb-0 ms-2">
-                                                                        <!-- Title -->
-                                                                        <h6 class="mb-0"><a href="#" class="stretched-link">배현진</a></h6>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <!-- Table data -->
-                                                            <td>국민의힘</td>
-                                                            <!-- Table data -->
-                                                            <td>서울 송파구을</td>
-                                                            <!-- Table data -->
-                                                            <td>여</td>
-                                                            <!-- Table data -->
-                                                            <td>
-                                                                <span class="badge bg-success bg-opacity-10 text-success mb-2">초선</span>
-                                                            </td>
-                                                            <!-- Table data -->
-                                                            <td>비례대표</td>
-                                                        </tr>
-                                                        <!-- 국회의원한줄 -->
-                                                        <tr>
-                                                            <!-- Table data -->
-                                                            <td>1</td>
-                                                            <!-- Table data -->
-                                                            <td>21대</td>
-                                                            <!-- Table data -->
-                                                            <td>
-                                                                <div class="d-flex align-items-center position-relative">
-                                                                    <!-- Image -->
-                                                                    <div class="avatar align-middle">
-                                                                         <img src="resources/resources1b/images/avatar/mna_01.jpg" class="avatar-img rounded" alt="">
-                                                                    </div>
-                                                                    <div class="mb-0 ms-2">
-                                                                        <!-- Title -->
-                                                                        <h6 class="mb-0"><a href="#" class="stretched-link">배현진</a></h6>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <!-- Table data -->
-                                                            <td>국민의힘</td>
-                                                            <!-- Table data -->
-                                                            <td>서울 송파구을</td>
-                                                            <!-- Table data -->
-                                                            <td>여</td>
-                                                            <!-- Table data -->
-                                                            <td>
-                                                                <span class="badge bg-success bg-opacity-10 text-success mb-2">초선</span>
-                                                            </td>
-                                                            <!-- Table data -->
-                                                            <td>비례대표</td>
-                                                        </tr>
-                                                        <!-- 국회의원한줄 -->
-                                                        <tr>
-                                                            <!-- Table data -->
-                                                            <td>1</td>
-                                                            <!-- Table data -->
-                                                            <td>21대</td>
-                                                            <!-- Table data -->
-                                                            <td>
-                                                                <div class="d-flex align-items-center position-relative">
-                                                                    <!-- Image -->
-                                                                    <div class="avatar align-middle">
-                                                                        <img src="resources/resources1b/images/avatar/mna_01.jpg" class="avatar-img rounded" alt="">
-                                                                    </div>
-                                                                    <div class="mb-0 ms-2">
-                                                                        <!-- Title -->
-                                                                        <h6 class="mb-0"><a href="#" class="stretched-link">배현진</a></h6>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <!-- Table data -->
-                                                            <td>국민의힘</td>
-                                                            <!-- Table data -->
-                                                            <td>서울 송파구을</td>
-                                                            <!-- Table data -->
-                                                            <td>여</td>
-                                                            <!-- Table data -->
-                                                            <td>
-                                                                <span class="badge bg-warning bg-opacity-10 text-warning mb-2">재선</span>
-                                                            </td>
-                                                            <!-- Table data -->
-                                                            <td>지역구</td>
-                                                        </tr>
-                                                        <!-- 국회의원한줄 -->
-                                                        <tr>
-                                                            <!-- Table data -->
-                                                            <td>1</td>
-                                                            <!-- Table data -->
-                                                            <td>21대</td>
-                                                            <!-- Table data -->
-                                                            <td>
-                                                                <div class="d-flex align-items-center position-relative">
-                                                                    <!-- Image -->
-                                                                    <div class="avatar align-middle">
-                                                                        <img src="resources/resources1b/images/avatar/mna_01.jpg" class="avatar-img rounded" alt="">
-                                                                    </div>
-                                                                    <div class="mb-0 ms-2">
-                                                                        <!-- Title -->
-                                                                        <h6 class="mb-0"><a href="#" class="stretched-link">배현진</a></h6>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <!-- Table data -->
-                                                            <td>국민의힘</td>
-                                                            <!-- Table data -->
-                                                            <td>서울 송파구을</td>
-                                                            <!-- Table data -->
-                                                            <td>여</td>
-                                                            <!-- Table data -->
-                                                            <td>
-                                                                <span class="badge bg-success bg-opacity-10 text-success mb-2">초선</span>
-                                                            </td>
-                                                            <!-- Table data -->
-                                                            <td>지역구</td>
-                                                        </tr>
-                                                        <!-- 국회의원한줄 -->
-                                                        <tr>
-                                                            <!-- Table data -->
-                                                            <td>1</td>
-                                                            <!-- Table data -->
-                                                            <td>21대</td>
-                                                            <!-- Table data -->
-                                                            <td>
-                                                                <div class="d-flex align-items-center position-relative">
-                                                                    <!-- Image -->
-                                                                    <div class="avatar align-middle">
-                                                                         <img src="resources/resources1b/images/avatar/mna_01.jpg" class="avatar-img rounded" alt="">
-                                                                    </div>
-                                                                    <div class="mb-0 ms-2">
-                                                                        <!-- Title -->
-                                                                        <h6 class="mb-0"><a href="#" class="stretched-link">배현진</a></h6>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <!-- Table data -->
-                                                            <td>국민의힘</td>
-                                                            <!-- Table data -->
-                                                            <td>서울 송파구을</td>
-                                                            <!-- Table data -->
-                                                            <td>여</td>
-                                                            <!-- Table data -->
-                                                            <td>
-                                                                <span class="badge bg-success bg-opacity-10 text-success mb-2">초선</span>
-                                                            </td>
-                                                            <!-- Table data -->
-                                                            <td>지역구</td>
-                                                        </tr>
-                                                        <!-- 국회의원한줄 -->
-                                                        <tr>
-                                                            <!-- Table data -->
-                                                            <td>1</td>
-                                                            <!-- Table data -->
-                                                            <td>21대</td>
-                                                            <!-- Table data -->
-                                                            <td>
-                                                                <div class="d-flex align-items-center position-relative">
-                                                                    <!-- Image -->
-                                                                    <div class="avatar align-middle">
-                                                                        <img src="resources/resources1b/images/avatar/mna_01.jpg" class="avatar-img rounded" alt="">
-                                                                    </div>
-                                                                    <div class="mb-0 ms-2">
-                                                                        <!-- Title -->
-                                                                        <h6 class="mb-0"><a href="#" class="stretched-link">배현진</a></h6>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <!-- Table data -->
-                                                            <td>국민의힘</td>
-                                                            <!-- Table data -->
-                                                            <td>서울 송파구을</td>
-                                                            <!-- Table data -->
-                                                            <td>여</td>
-                                                            <!-- Table data -->
-                                                            <td>
-                                                                <span class="badge bg-warning bg-opacity-10 text-warning mb-2">재선</span>
-                                                            </td>
-                                                            <!-- Table data -->
-                                                            <td>지역구</td>
-                                                        </tr>
+                                                    
+                                                    <c:if test="${empty list}">
+														<tr>
+															<td colspan="8">조회된 글이 없습니다.</td>
+														</tr>
+													</c:if>
+													<c:if test="${!empty list}">
+														<c:forEach var="profile" items="${list}">
+	                                                        <!-- 국회의원한줄 -->
+	                                                        <tr>
+	                                                            <!-- Table data -->
+	                                                            <td>${profile.no}</td>
+	                                                            <!-- Table data -->
+	                                                            <td>${profile.units}</td>
+	                                                            <!-- Table data -->
+	                                                            <td>
+	                                                                <div class="d-flex align-items-center position-relative">
+	                                                                    <!-- Image -->
+	                                                                    <div class="avatar align-middle">
+	                                                                        <img src="${profile.jpglink}" class="avatar-img rounded" alt="">
+	                                                                    </div>
+	                                                                    <div class="mb-0 ms-2">
+	                                                                        <!-- Title -->
+	                                                                        <h6 class="mb-0"><a href="04_pol_mna_profile.html" class="stretched-link"><c:out value="${profile.hgNm}"/></a></h6>
+	                                                                    </div>
+	                                                                </div>
+	                                                            </td>
+	                                                            <!-- Table data -->
+	                                                            <td><c:out value="${profile.polyNm}"/></td>
+	                                                            <!-- Table data -->
+	                                                            <td>${profile.origNm}</td>
+	                                                            <!-- Table data -->
+	                                                            <td>${profile.sexGbnNm}</td>
+	                                                            <!-- Table data -->
+	                                                            <td>
+	                                                                <span class="badge bg-warning bg-opacity-10 text-warning mb-2">${profile.reeleGbnNm}</span>
+	                                                            </td>
+	                                                            <!-- Table data -->
+	                                                            <td>${profile.electGbnNm}</td>
+	                                                        </tr>
+                                                        	</c:forEach>
+                                                        </c:if>
                                                     </tbody>
                                                     <!-- Table body END -->
                                                 </table>

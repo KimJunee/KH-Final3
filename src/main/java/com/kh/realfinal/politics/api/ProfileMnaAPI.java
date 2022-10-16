@@ -106,7 +106,7 @@ public class ProfileMnaAPI {
 
 				if (node.getNodeType() == Node.ELEMENT_NODE) {
 					Element eElement = (Element) node;
- 
+					
 					String hgNm = eElement.getElementsByTagName("HG_NM").item(0).getTextContent();
 					String units = eElement.getElementsByTagName("UNITS").item(0).getTextContent();
 					String sexGbnNm = eElement.getElementsByTagName("SEX_GBN_NM").item(0).getTextContent();
@@ -128,9 +128,9 @@ public class ProfileMnaAPI {
 					String memTitle = eElement.getElementsByTagName("MEM_TITLE").item(0).getTextContent();
 //						 
 //						
-					ProfileMna pmna = new ProfileMna(hgNm, units, sexGbnNm, hjNm, engNm, bthDate, polyNm, origNm,
+					ProfileMna pmna = new ProfileMna(0, hgNm, units, sexGbnNm, hjNm, engNm, bthDate, polyNm, origNm,
 							electGbnNm, cmits, reeleGbnNm, telNo, email, homepage, staff, secretary, secretary2,
-							assemAddr, memTitle);
+							assemAddr, memTitle, null);
 					list.add(pmna);
 				}
 			}

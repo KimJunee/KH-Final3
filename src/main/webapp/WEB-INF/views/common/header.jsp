@@ -101,14 +101,14 @@
 
                         <!-- 정치 메뉴 시작-->
                         <li class="nav-item dropdown ">
-                            <a class="nav-link-sp " href="04_pol_cardCut.html" id="pagesMenu " data-bs-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">정치</a>
+                            <a class="nav-link-sp " href="${path}/politics/cardCut" id="pagesMenu " data-bs-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">정치</a>
                             <ul class="dropdown-menu bg-dark" aria-labelledby="pagesMenu ">
                                 <!-- dropdown submenu -->
                                 <li class="dropdown-submenu dropend text-white">
-                                    <a class="dropdown-item text-white" href="04_pol_cardCut.html">카드한컷 <span class="badge bg-danger smaller me-1">New</span></a>
+                                    <a class="dropdown-item text-white" href="${path}/politics/cardCut">카드한컷 <span class="badge bg-danger smaller me-1">New</span></a>
                                 </li>
-                                <li> <a class="dropdown-item text-white" href="04_pol_gov_info.html">정부부처소개</a> </li>
-                                <li> <a class="dropdown-item text-white" href="04_pol-mna_list.html">제21대 국회의원현황</a> </li>
+                                <li> <a class="dropdown-item text-white" href="${path}/politics/polGovInfo">정부부처소개</a> </li>
+                                <li> <a class="dropdown-item text-white" href="${path}/politics/polMnaList">제21대 국회의원현황</a> </li>
                                 <li> <a class="dropdown-item text-white" href="https://www.epeople.go.kr/index.jsp">국민신문고 <i class="bi bi-box-arrow-up-right"></i></a> </li>
                                 <li class="dropdown-divider text-white"></li>
                                 <li> <a class="dropdown-item text-white" href="${path}/board/list?type=1">정치Talk <span class="badge bg-danger smaller me-1">New</span></a> </li>

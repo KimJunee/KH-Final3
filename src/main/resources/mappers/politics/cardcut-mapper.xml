@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper	namespace="com.kh.realfinal.politics.model.mapper.CardCutMapper">
+ 
+	<resultMap type="CardCut" id="CardCutMap">
+		<id property="title" column="TITLE"/>
+		<result property="link" column="LINK"/>
+		<result property="descriptionOrigin" column="DESCRIPTION"/>
+		<result property="pubDate" column="PUBDATE"/>
+	</resultMap>
+
+
+	<insert id="insertCardCut"
+		parameterType="CardCut">
+		INSERT INTO CARDCUT(		
+			TITLE, LINK, DESCRIPTION, PUBDATE
+		) VALUES(
+			#{title}, #{link}, #{descriptionOrigin}, #{pubDate}
+		)
+	</insert>
+	
+</mapper>

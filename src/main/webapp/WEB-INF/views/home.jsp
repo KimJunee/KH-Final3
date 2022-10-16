@@ -57,11 +57,14 @@
 
 <h2><a href="${path}/RealEstate/main">내집 마련 ***청약*** 메인 페이지</a></h2>
 
-<%-- <h2><a href="${path}/politics/lawProposed/insert.do">국회의원별 대표발의법안 DB Insert</a></h2>--%>
+<h2><a href="${path}/politics/lawProposed/insert.do">국회의원별 대표발의법안 DB Insert</a></h2>
 
-<%-- <h2><a href="${path}/politics/profileMna/insert.do">국회의원별 프로필 상세내용 DB Insert</a></h2>--%>
+<h2><a href="${path}/politics/profileMna/insert.do">국회의원별 프로필 상세내용 DB Insert</a></h2>
 
-<%-- <h2><a href="${path}/cardcut/insert.do"> 카드한컷 DB INSERT</a></h2>--%>
+<h2><a href="${path}/politics/cardCut/insert.do"> 카드한컷 DB INSERT</a></h2>
+
+
+
 <%-- <iframe id="ytplayer" type="text/html" width="720" height="405"
 src="https://www.youtube.com/embed/qZVTkn2NjS0/default"
 frameborder="0" allowfullscreen></iframe> --%> 
