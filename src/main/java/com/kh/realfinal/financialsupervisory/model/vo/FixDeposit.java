@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FixDeposit {
-	private int fixdepositId; 
+	private int id; 
 	private String dclsMonth; 
 	private int finCoNo; 
 	private String korCoNm; 

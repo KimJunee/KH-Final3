@@ -17,6 +17,6 @@ public interface InstallmentSavingsMapper {
 	List<InstallmentSavings> selectInstallList(RowBounds rowBounds, Map<String, String> map);
 	List<InstallmentSavings> selectInstallList();
 	int selectInstallCount(Map<String, String> map);
-	InstallmentSavings selectByInssvnId(int inssvnId);
+	InstallmentSavings selectByInssvnId(int id);
 	
 }

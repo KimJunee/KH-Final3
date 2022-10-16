@@ -5,7 +5,7 @@
 <!-- com.kh.realfinal.financialterm.model.mapper.FinancialtermMapper.insertFinancialterm -->
 <mapper	namespace="com.kh.realfinal.financialsupervisory.model.mapper.FixDepositMapper">
 	<resultMap type="FixDeposit" id="fixDepositResultMap">
-		<id property="fixdepositId" column="FIXDEPOSIT_ID"/>
+		<id property="id" column="FIXDEPOSIT_ID"/>
 		<result property="dclsMonth" column="FIXDEPO_DCLS_MONTH"/>
 		<result property="finCoNo" column="FIXDEPO_FIN_CO_NO"/>
 		<result property="korCoNm" column="FIXDEPO_KOR_CO_NM"/>
@@ -46,7 +46,7 @@
 			FIXDEPO_SPCL_CND, FIXDEPO_JOIN_DENY, FIXDEPO_JOIN_MEMBER, FIXDEPO_ETC_NOTE, 
 			FIXDEPO_MAX_LIMIT, FIXDEPO_DCLS_STRT_DAY, FIXDEPO_DCLS_END_DAY, FIXDEPO_FIN_CO_SUBM_DAY
 		) VALUES(
-			#{fixdepositId}, #{dclsMonth}, #{finCoNo}, #{korCoNm}, #{finPrdtCd}, 
+			#{id}, #{dclsMonth}, #{finCoNo}, #{korCoNm}, #{finPrdtCd}, 
 			#{finPrdtNm}, #{joinWay},#{mtrtInt}, #{spclCnd}, #{joinDeny}, #{joinMember}, 
 			#{etcNote}, #{maxLimit}, #{dclsStrtDay}, #{dclsEndDay}, #{finCoSubmDay}
 		)
@@ -62,4 +62,49 @@
 			#{intrRateTypeNm}, #{saveTrm}, #{intrRate}, #{intrRate2}
 		)
 	</insert>
+	
+	<select id="selectDepositList" resultMap="fixDepositListResultMap">
+		SELECT f.fixdeposit_id, f.fixdepo_kor_co_nm, f.fixdepo_fin_prdt_nm, f.fixdepo_join_way, f.fixdepo_mtrt_int,
+		f.fixdepo_spcl_cnd, f.fixdepo_join_member, f.fixdepo_etc_note, f.fixdepo_max_limit,
+		o.intr_rate_type_nm, o.save_trm, o.intr_rate2
+		FROM FIXDEPOSIT f
+		JOIN FIXDEPOSIT_OPTION o on f.fixdeposit_id = o.fixdeposit_id
+		JOIN (SELECT fixdeposit_id, MAX(intr_rate2) MAX_RATE
+		FROM FIXDEPOSIT_OPTION
+		GROUP BY fixdeposit_id) C ON C.fixdeposit_id = f.fixdeposit_id
+		AND C.MAX_RATE = o.intr_rate2
+		<if test="korCoNm != null">
+			WHERE f.fixdepo_kor_co_nm LIKE '%'||#{korCoNm}||'%'			
+		</if>
+	</select>
+	
+	<select id="selectDepositCount" parameterType="map" resultType="int">
+		SELECT COUNT(*) FROM(SELECT f.fixdeposit_id, f.fixdepo_kor_co_nm, f.fixdepo_fin_prdt_nm, f.fixdepo_join_way, f.fixdepo_mtrt_int,
+		f.fixdepo_spcl_cnd, f.fixdepo_join_member, f.fixdepo_etc_note, f.fixdepo_max_limit,
+		o.intr_rate_type_nm, o.save_trm, o.intr_rate2
+		FROM FIXDEPOSIT f
+		JOIN FIXDEPOSIT_OPTION o on f.fixdeposit_id = o.fixdeposit_id
+		JOIN (SELECT fixdeposit_id, MAX(intr_rate2) MAX_RATE
+		FROM FIXDEPOSIT_OPTION
+		GROUP BY fixdeposit_id) C ON C.fixdeposit_id = f.fixdeposit_id
+		AND C.MAX_RATE = o.intr_rate2
+		<if test="korCoNm != null">
+			WHERE f.fixdepo_kor_co_nm LIKE '%'||#{korCoNm}||'%'		
+		</if>
+		)
+	</select>
+	
+	<select id="selectBydepositId" parameterType="int" resultMap="fixDepositListResultMap">
+		SELECT C.fixdeposit_id, f.fixdepo_kor_co_nm, f.fixdepo_fin_prdt_nm, f.fixdepo_join_way, f.fixdepo_mtrt_int,
+		f.fixdepo_spcl_cnd, f.fixdepo_join_member, f.fixdepo_etc_note, f.fixdepo_max_limit,
+		o.intr_rate_type_nm, o.save_trm, o.intr_rate2
+		FROM FIXDEPOSIT f
+		JOIN FIXDEPOSIT_OPTION o on f.fixdeposit_id = o.fixdeposit_id
+		JOIN (SELECT fixdeposit_id, MAX(intr_rate2) MAX_RATE
+		FROM FIXDEPOSIT_OPTION
+		GROUP BY fixdeposit_id) C ON C.fixdeposit_id = f.fixdeposit_id
+		AND C.MAX_RATE = o.intr_rate2
+		WHERE C.fixdeposit_id = #{id}
+	</select>
+	
 </mapper>

@@ -5,7 +5,7 @@
 <!-- com.kh.realfinal.financialterm.model.mapper.FinancialtermMapper.insertFinancialterm -->
 <mapper	namespace="com.kh.realfinal.financialsupervisory.model.mapper.InstallmentSavingsMapper">
 		<resultMap type="InstallmentSavings" id="installmentResultMap">
-		<id property="inssvnId" column="INSSVN_ID"/>
+		<id property="id" column="INSSVN_ID"/>
 		<result property="dclsMonth" column="INSSVN_DCLS_MONTH"/>
 		<result property="finCoNo" column="INSSVN_FIN_CO_NO"/>
 		<result property="korCoNm" column="INSSVN_KOR_CO_NM"/>
@@ -80,27 +80,9 @@
 		FROM INSSVN_OPTION
 		GROUP BY inssvn_id) C ON C.inssvn_id = I.inssvn_id
 		AND C.MAX_RATE = O.intr_rate2
-		WHERE I.inssvn_id = #{inssvnId}
+		WHERE I.inssvn_id = #{id}
 	</select>
 	
-<!-- 	<select id="selectByKorCoName" resultMap="installListResultMap" parameterType="map">
-		SELECT I.inssvn_id, I.inssvn_kor_co_nm, I.inssvn_fin_prdt_nm, I.inssvn_join_way, I.inssvn_mtrt_int,
-		I.inssvn_spcl_cnd, I.inssvn_join_member, I.inssvn_etc_note, I.inssvn_max_limit,
-		O.intr_rate_type_nm, O.rsrv_type_nm, O.save_trm, O.intr_rate2
-		FROM INSTLSAVING I
-		JOIN INSSVN_OPTION O ON I.INSSVN_ID = O.INSSVN_ID
-		JOIN (SELECT inssvn_id, MAX(intr_rate2) MAX_RATE
-		FROM INSSVN_OPTION
-		GROUP BY inssvn_id) C ON C.inssvn_id = I.INSSVN_ID
-		AND C.MAX_RATE = O.intr_rate2
-		WHERE 1=1
-		<if test="korCoNm != null">
-			AND WHERE I.inssvn_kor_co_nm LIKE '%'||#{korCoNm}||'%'	
-		</if>
-		ORDER BY I.inssvn_id
-	</select> -->
-
-
 	<insert id="insertInstallmentSavings"
 		parameterType="InstallmentSavings">
 		INSERT INTO INSTLSAVING(		
@@ -109,7 +91,7 @@
 			INSSVN_MTRT_INT, INSSVN_SPCL_CND, INSSVN_JOIN_DENY, INSSVN_JOIN_MEMBER, INSSVN_ETC_NOTE, INSSVN_MAX_LIMIT, 
 			INSSVN_DCLS_STRT_DAY, INSSVN_DCLS_END_DAY, INSSVN_FIN_CO_SUBM_DAY
 		) VALUES(
-			#{inssvnId}, #{dclsMonth}, #{finCoNo}, #{korCoNm}, #{finPrdtCd}, #{finPrdtNm}, 
+			#{id}, #{dclsMonth}, #{finCoNo}, #{korCoNm}, #{finPrdtCd}, #{finPrdtNm}, 
 			#{joinWay}, #{mtrtInt}, #{spclCnd}, #{joinDeny}, #{joinMember}, #{etcNote}, 
 			#{maxLimit}, #{dclsStrtDay}, #{dclsEndDay}, #{finCoSubmDay}
 		)

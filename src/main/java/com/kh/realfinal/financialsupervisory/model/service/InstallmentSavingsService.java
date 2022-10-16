@@ -13,5 +13,5 @@ public interface InstallmentSavingsService {
 	int getInstallCount(Map<String, String> param) throws Exception;
 	List<InstallmentSavings> getInstallList(PageInfo pageInfo, Map<String, String> param);
 	List<InstallmentSavings> getInstallList();
-	InstallmentSavings findByInssvnId(int inssvnId);
+	InstallmentSavings findByInssvnId(int id);
 }

@@ -1,11 +1,15 @@
 package com.kh.realfinal.financialsupervisory.model.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.kh.realfinal.common.util.PageInfo;
 import com.kh.realfinal.financialsupervisory.model.mapper.FixDepositMapper;
 import com.kh.realfinal.financialsupervisory.model.vo.FixDeposit;
 import com.kh.realfinal.financialsupervisory.model.vo.FixDepositOption;
@@ -33,5 +37,38 @@ public class FixDepositServiceImpl implements FixDepositService{
 			throw new Exception();
 		}
 		return result;
+	}
+
+	@Override
+	public int getDepositCount(Map<String, String> param) throws Exception {
+		Map<String, String> searchMap = new HashMap<String, String>();
+		String searchValue = param.get("searchValue");
+		try {		
+			if(searchValue != null && searchValue.length() > 0) {
+				searchMap.put("korCoNm", searchValue);
+			}
+		} catch (Exception e) {}
+		
+		return mapper.selectDepositCount(searchMap);
+	}
+
+	@Override
+	public List<FixDeposit> getDepositList(PageInfo pageInfo, Map<String, String> param) {
+		int offset = (pageInfo.getCurrentPage() - 1) * pageInfo.getListLimit();
+		RowBounds rowBounds = new RowBounds(offset, pageInfo.getListLimit());
+		
+		Map<String, String> searchMap = new HashMap<String, String>();
+		String searchValue = param.get("searchValue");
+		
+		if(searchValue != null && searchValue.length() > 0) {
+			searchMap.put("korCoNm", searchValue);
+		}
+		return mapper.selectDepositList(rowBounds, searchMap);
+	}
+
+	@Override
+	public FixDeposit findByDepositId(int id) {
+		FixDeposit fixdeposit = mapper.selectByDepositId(id);
+		return fixdeposit;
 	}
 }

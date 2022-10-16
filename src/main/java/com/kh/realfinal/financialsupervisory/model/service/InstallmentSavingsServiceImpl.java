@@ -55,9 +55,7 @@ public class InstallmentSavingsServiceImpl implements InstallmentSavingsService{
 			if(searchValue != null && searchValue.length() > 0) {
 				searchMap.put("korCoNm", searchValue);
 			}
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
+		} catch (Exception e) {}
 		System.out.println("searchValue : " + searchValue);
 		System.out.println("searchMap : " + searchMap);
 		return mapper.selectInstallCount(searchMap);
@@ -85,8 +83,8 @@ public class InstallmentSavingsServiceImpl implements InstallmentSavingsService{
 	}
 
 	@Override
-	public InstallmentSavings findByInssvnId(int inssvnId) {
-		InstallmentSavings installment = mapper.selectByInssvnId(inssvnId);
+	public InstallmentSavings findByInssvnId(int id) {
+		InstallmentSavings installment = mapper.selectByInssvnId(id);
 		return installment;
 	}
 	

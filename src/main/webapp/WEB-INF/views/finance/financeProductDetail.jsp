@@ -42,7 +42,7 @@
 		                        <!-- Page title + Features-->
 		                        <div class="row">
 		                            <div class="col-9">
-		                            	<input type="hidden" value="${installment.inssvnId}">
+		                            	<input type="hidden" value="${installment.id}">
 		                                <h2 class="mb-2 mice">
 		                                	<c:out value="${installment.finPrdtNm}"/>
 		                                </h2>
@@ -118,7 +118,7 @@
 		                            <div class="col-8">
 		                                <div><span class="badge bg-success me-2 mb-2">Verified</span><span class="badge bg-info me-2 mb-2">New</span></div>
 		                                <h5 class="mice mb-2">이율</h5>
-		                                <c:forEach var="installOption" items="${installment.installOptionList}">
+		                                <c:forEach var="installOption" items="${installment.installOptionList}" begin="0" end="0" step="1">
 			                                <h3 class="mice mb-2 pb-2">최저 ${installOption.intrRate} ~ 최고 ${installOption.intrRate2}</h3>		                                
 		                                </c:forEach>
 		                            </div>
@@ -147,7 +147,7 @@
 		                        <div class="card border-0 bg-light mb-4">
 		                            <div class="card-body">
 		                                <h5>Others</h5>
-		                                <c:forEach var="installOption" items="${installment.installOptionList}">			                                		                                
+		                                <c:forEach var="installOption" items="${installment.installOptionList}" begin="0" end="0" step="1">			                                		                                
 			                                <span>- 금리유형 : ${installOption.intrRateTypeNm}</span><br>
 			                                <span>- 적립유형 : ${installOption.rsrvTypeNm}</span><br>
 			                                <span>- 저축기간 : ${installOption.saveTrm}개월</span><br>
