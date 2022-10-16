@@ -45,58 +45,77 @@
                                 <div class="avatar avatar-xl">
                                     <img class="avatar-img rounded-circle" src="${path}/resources/resources1b/images/avatar_w1.png" alt="avatar">
                                 </div>
-                                <a href="#" class="h5 stretched-link mt-2 mb-0 d-block">${board.writer_nickName}</a>
+                                <a href="#" class="h5 stretched-link mt-2 mb-0 d-block">${board.user_nickName}</a>
                             </div>
                             <hr class="d-none d-lg-block">
                             <!-- 작성일 / 조회수 / 댓글수 -->
                             <ul class="list-inline list-unstyled">
-                                <li class="list-inline-item d-lg-block my-lg-2">${board.board_register}</li>
+                                <li class="list-inline-item d-lg-block my-lg-2"><fmt:formatDate type="both" value="${board.board_register}"/></li>
                                 <li class="list-inline-item d-lg-block my-lg-2"><i class="far fa-eye me-1"></i> ${board.board_hit} Views</li>
-                                <li class="list-inline-item d-lg-block my-lg-2"><i class="bi bi-chat-left-quote-fill me-1"></i> ${fn:length(Reply)} Commenets</li>
+                                <li class="list-inline-item d-lg-block my-lg-2"><i class="bi bi-chat-left-quote-fill me-1"></i> ${fn:length(replyList)} Commenets</li>
                             </ul>
                             <!-- 작성자가 본인일 때 수정 삭제 버튼 보이기 -->
-                            <hr class="d-none d-lg-block">
-                            <div class="d-flex gap-2 mt-1" style="justify-content: center;">
-                                <a href="dashboard-post-edit.html" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" style="margin-right: 7px;"><i class="bi bi-pencil-square"></i></a>
-                                <a href="#" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="bi bi-trash"></i></a>
-                            </div>
+                            <c:if test="${empty loginMember || (loginMember.id != board.writer_id)}">
+	                            <hr class="d-none d-lg-block">
+	                            <div class="d-flex gap-2 mt-1" style="justify-content: center; display: none;">
+	                                <a href="dashboard-post-edit.html" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" style="margin-right: 7px;"><i class="bi bi-pencil-square"></i></a>
+	                                <a href="#" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="bi bi-trash"></i></a>
+	                            </div>
+                            </c:if>
+                            <c:if test="${!empty loginMember && (loginMember.id == board.writer_id)}">
+	                            <hr class="d-none d-lg-block">
+	                            <div class="d-flex gap-2 mt-1" style="justify-content: center;">
+	                                <a href="dashboard-post-edit.html" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" style="margin-right: 7px;"><i class="bi bi-pencil-square"></i></a>
+	                                <a href="#" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="bi bi-trash"></i></a>
+	                            </div>
+                            </c:if>
                         </div>
                     </div>
                     <!-- 왼쪽 사이드바 끝 -->
                     <!-- 메인 컨텐츠 시작 -->
                     <div class="col-lg-7 mb-5">
                         <p>${board.board_content}</p>
-                        <!-- Image -->
+                        <!-- 첨부파일 -->
                         <figure class="figure mt-2">
                             <a href="${path}/resources/resources1b/images/blog/3by2/04.jpg" data-glightbox data-gallery="image-popup">
                                 <img class="rounded" src="${path}/resources/resources1b/images/blog/3by2/04.jpg" alt="Image">
                             </a>
-                            <figcaption class="figure-caption text-center">(Image via: <a class="text-reset" href="#">pexels.com</a>)</figcaption>
+                            <figcaption class="figure-caption text-center">${board.board_originalFileName}</figcaption>
                         </figure>
                         <!-- 댓글 시작 -->
                         <div class="border-bottom border-top border-2 mb-3 pt-3" style="color:#a1a1a8">
-                            <h3>${fn:length(Reply)} comments</h3>
-                            <!-- Comment level 1-->
-                            <div class="my-4 d-flex border-bottom border-1 mb-1" style="color:#a1a1a8">
+                        <h3>${fn:length(replyList)} comments</h3>
+                        <c:forEach var="reply" items="${replyList}" varStatus="status">
+                        	<c:choose>
+	                        	<c:when test="${!status.last}">
+	                            	<div class="my-4 d-flex border-bottom border-1 mb-1" style="color:#a1a1a8">
+	                            </c:when>
+	                            <c:otherwise>
+	                            	<div class="my-4 d-flex ">
+	                            </c:otherwise>
+                            </c:choose>
                                 <img class="avatar avatar-md rounded-circle float-start me-3" src="${path}/resources/resources1b/images/avatar_w3.png" alt="avatar">
                                 <div>
                                     <div class="mb-2">
-                                        <h6 class="m-0 mice">${reply.reply_writer_nickname}</h6>
-                                        <span class="me-3 small">${reply.reply_register} </span>
+                                        <h6 class="m-0 mice">${reply.reply_writer_nickName}</h6>
+                                        <span class="me-3 small"><fmt:formatDate type="both" value="${reply.reply_register}"/></span>
                                     </div>
                                     <div style="color:#191a1f">
                                         <p>${reply.reply_content}</p>
                                     </div>
                                 </div>
                             </div>
+                        </c:forEach>
                         </div>
                         <!-- 댓글 끝 -->
                         <!-- 댓글 작성 시작 -->
                         <div>
                             <h3 class="mice">Leave a reply</h3>
-                            <form class="row g-3 mt-1">
+                            <form class="row g-3 mt-1" action="${path}/board/reply" method="post">
+                            	<input type="hidden" name="board_no" value="${board.board_no}"/> 
+    							<input type="hidden" name="reply_writer_id" value="${loginMember.id}"/> 
                                 <div class="col-12">
-                                    <textarea class="form-control" rows="3"></textarea>
+                                    <textarea id="reply_content" class="form-control" rows="3"></textarea>
                                 </div>
                                 <div class="col-12">
                                     <button type="submit" class="btn btn-primary">Post comment</button>
@@ -183,10 +202,6 @@
                                 <div class="d-flex position-relative mb-3">
                                     <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">05</span>
                                     <h6><a href="#" class="stretched-link text-reset btn-link">How did we get here? The history of the business told through tweets</a></h6>
-                                </div>
-                                <div class="d-flex position-relative mb-3">
-                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">06</span>
-                                    <h6><a href="#" class="stretched-link text-reset btn-link">Ten tips about startups that you can't learn from books</a></h6>
                                 </div>
                             </div>
                         </div>

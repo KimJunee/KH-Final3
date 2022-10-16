@@ -17,6 +17,7 @@ public class Reply {
 	private String board_writer_id;		 	//글쓴이ID
 	private String board_writer_nickName;	//글쓴이닉네임
 	private int    reply_writer_no;		 	//댓글쓴이번호
+	private String reply_writer_id;			//댓글쓴이ID
 	private String reply_writer_nickName;	//댓글쓴이닉네임
 	private Date   reply_register;   		//등록날짜
 	private Date   reply_modify;	 		//수정날짜

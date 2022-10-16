@@ -163,7 +163,7 @@
 																	</a>
 																</td>
 																<!-- Comments -->
-																<td class="text-center"><c:out value="${board.board_hit}"/></td>
+																<td class="text-center"><c:out value="${fn:length(replyList)}"/></td>
 															</tr>
 														</c:forEach>
 													</c:if>
