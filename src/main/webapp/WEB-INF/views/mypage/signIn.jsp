@@ -92,11 +92,25 @@
                         <!-- 회원가입 버튼 -->
                         <button class="btn btn-lg btn-primary w-100 mb-2" type="submit">Sign In</button>
                         <h2 class="h6 text-center pt-3 pt-lg-4 mb-4">Or sign in with your social account</h2>
-                        <div class="row row-cols-1 row-cols-sm-2 gy-3">
-                            <button class="btn btn-lg btn-kakao w-100" style="background-color: #FEE500; border-color: #FEE500; border-radius: 12px;" type="submit" id="kakaologin"><img src="${path}/resources/resources2a/assets/img/account/kakao_logo01.png" width: 50%; height: 50%;>&nbsp Login with Kakao</button>
-                        </div>
                     </form>
+                        <div class="row row-cols-1 row-cols-sm-2 gy-3">
+                            <button onclick="location.href='https://kauth.kakao.com/oauth/authorize?client_id=bb1b195fa1cb4272d2535902db3d9984&redirect_uri=http://localhost/realfinal/kakao/callback&response_type=code'" class="btn btn-lg btn-kakao w-100" style="background-color: #FEE500; border-color: #FEE500; border-radius: 12px;" type="button" id="kakaologin"><img src="${path}/resources/resources2a/assets/img/account/kakao_logo01.png" width: 50%; height: 50%;>&nbsp Login with Kakao</button>
+                        </div>
                 </div>
+                <!-- <script type="text/javascript" src="https://developers.kakao.com/sdk/js/kakao.min.js" charset="utf-8"></script>
+                <script type="text/javascript">
+                function loginWithKakao() {
+				 	console.log('접속성공');
+			        Kakao.Auth.authorize({ 
+			        redirectUri: 'http://localhost/fianl3/oauth/kakao?cmd=callback' 
+			        }); // 등록한 리다이렉트uri 입력
+			    }
+				 $(document).ready(function(){
+				     Kakao.init('7cf3fed95e6516545d47cb6e18b46f64');
+				     Kakao.isInitialized();
+				 });
+				 
+				</script> -->
                 <!-- Copyright-->
                 <p class="w-100 fs-sm pt-5 mt-auto mb-5" style="max-width: 526px;"><span class="text-muted"></span>
                     <a class="nav-link d-inline-block p-0 ms-1" href="https://createx.studio/" target="_blank" rel="noopener"></a>

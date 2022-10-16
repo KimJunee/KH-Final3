@@ -16,4 +16,5 @@ public class Member {
 	private String user_password;
 	private String user_email;
 	private String user_status;
+	
 }

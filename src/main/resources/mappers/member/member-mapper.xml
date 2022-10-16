@@ -22,7 +22,6 @@
   </resultMap>
   
   <select id="selectMember" parameterType="string" resultMap="memberResultMap">
-  		/* QueryId : selectMember */
 		<include refid="selectMemberSql"/>
 		WHERE USER_ID = #{user_id} AND USER_STATUS = 'Y'
   </select>
@@ -38,7 +37,9 @@
 		)
 	</insert>
 	
-	<update id="updateMember" parameterType="Member">
+	
+	
+	<update id="updateMember" parameterType="Member" >
 		UPDATE USER_T
 		SET
 			USER_NICKNAME 	= #{user_nickname},
