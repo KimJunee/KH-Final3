@@ -46,7 +46,7 @@ public class KakaoController {
 		System.out.println("카카오로그인 실행");
 		
 		String access_Token = kakaoService.getAccessToken(code);
-		System.out.println("access_Token" + access_Token);
+		System.out.println("access_Token : " + access_Token);
 		Member userInfo = kakaoService.getUserInfo(access_Token);
 		System.out.println("###uNo#### : " + userInfo.getUser_no());
 		System.out.println("###nickname#### : " + userInfo.getUser_name());

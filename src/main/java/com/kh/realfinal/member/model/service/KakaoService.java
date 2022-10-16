@@ -48,8 +48,8 @@ public class KakaoService {
 			StringBuilder sb = new StringBuilder();
 			sb.append("grant_type=authorization_code");
             
-			sb.append("&client_id=cd8b1886f132139b606ba3a3939880a9"); //본인이 발급받은 key
-			sb.append("&redirect_uri=http://localhost:82/kakao/callback"); // 본인이 설정한 주소
+			sb.append("&client_id=bb1b195fa1cb4272d2535902db3d9984"); //본인이 발급받은 key
+			sb.append("&redirect_uri=http://localhost/realfinal/kakao/callback"); // 본인이 설정한 주소
             
 			sb.append("&code=" + authorize_code);
 			bw.write(sb.toString());
@@ -116,7 +116,7 @@ public class KakaoService {
 			JsonObject kakao_account = element.getAsJsonObject().get("kakao_account").getAsJsonObject();
 			String nickname = properties.getAsJsonObject().get("nickname").getAsString();
 			String email = kakao_account.getAsJsonObject().get("email").getAsString();
-			String id = kakao_account.getAsJsonObject().get("id").getAsString();
+			String id = kakao_account.getAsJsonObject().get("email").getAsString();
 			System.out.println("id : " + id);
 			System.out.println("nickname : " + nickname);
 			System.out.println("email : " + email);
