@@ -19,7 +19,7 @@
 	<%@include file="/WEB-INF/views/common/header.jsp" %>
 		<!-- **************** MAIN CONTENT START **************** -->
  <main>
-        <section class="bg-dark-overlay-4" style="background-image:url('resources/resources1b/images/04_politics/02_gov/main_na.jfif'); 
+        <section class="bg-dark-overlay-4" style="background-image:url('${path}/resources/resources1b/images/04_politics/02_gov/main_na.jfif'); 
         background-position: center left; background-size: cover; height: 300px;">
             <div class="container">
                 <div class="row ">

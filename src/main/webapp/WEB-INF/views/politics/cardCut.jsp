@@ -18,18 +18,18 @@
 	<%@include file="/WEB-INF/views/common/header.jsp" %>
 		<!-- **************** MAIN CONTENT START **************** -->
 		<main>
-		    <section class="" style="background-image:url('resources/resources1b/images/04_politics/01_cardcut/bluehouse.jpg'); 
-		        background-position: center left; background-size: cover; height: 600px;">
-		        <div class="container">
-		            <div class="row">
-		                <div class="col-lg-8 py-md-5 my-lg-0">
-		                    <a href="#" class="badge text-bg-primary mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Politics</a>
-		                    <h1 class="text-black fw-bold mb-2">카드/한컷</h1>
-		                    <p class="lead text-black fw-bold mb-0"> 정부에서 직접 제공하는 대한민국 정책뉴스를<br> 간단한 카드 형식을 통해 쉽게 접근하실 수 있습니다.</p>
-		                </div>
-		            </div>
-		        </div>
-		    </section>
+		    <section class="bg-dark-overlay-4" style="background-image:url('${path}/resources/resources1b/images/04_politics/01_cardcut/bluehouse.png'); 
+		        background-position: center left; background-size: cover;  ">
+		          <div class="container ">
+                <div class="row ">
+                    <div class="col-lg-8 py-md-5 my-lg-0 ">
+                        <a href="#" class="badge text-bg-primary mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Politics</a>
+                        <h1 class="mice text-white fw-bold mb-2">카드/한컷</h1>
+                        <p class="mice lead text-white fw-bold mb-0"> 정부에서 직접 제공하는 대한민국 정책뉴스를<br> 간단한 카드 형식을 통해 쉽게 접근하실 수 있습니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 		    <!-- =======================
 		Main START -->
 		    <section class="pt-5 pb-0 mb-0 mt-3">

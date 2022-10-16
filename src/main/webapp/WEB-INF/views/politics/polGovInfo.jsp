@@ -19,7 +19,7 @@
 
     <main>
         <!-- ============ 메뉴소개 시작 ============ -->
-        <section class="bg-dark-overlay-4 " style="background-image:url( 'resources/resources1b/images/04_politics/02_gov/main_gov.jpg'); background-position: center left; background-size: cover; ">
+        <section class="bg-dark-overlay-4 " style="background-image:url('${path}/resources/resources1b/images/04_politics/02_gov/main_gov.jpg'); background-position: center left; background-size: cover; ">
             <div class="container ">
                 <div class="row ">
                     <div class="col-lg-8 py-md-5 my-lg-0">
