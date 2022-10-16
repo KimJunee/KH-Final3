@@ -27,7 +27,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h1>${board.board_title}</h1>
+                        <h1 class="mice">${board.board_title}</h1>
                     </div>
                 </div>
             </div>
@@ -54,6 +54,12 @@
                                 <li class="list-inline-item d-lg-block my-lg-2"><i class="far fa-eye me-1"></i> ${board.board_hit} Views</li>
                                 <li class="list-inline-item d-lg-block my-lg-2"><i class="bi bi-chat-left-quote-fill me-1"></i> ${fn:length(Reply)} Commenets</li>
                             </ul>
+                            <!-- 작성자가 본인일 때 수정 삭제 버튼 보이기 -->
+                            <hr class="d-none d-lg-block">
+                            <div class="d-flex gap-2 mt-1" style="justify-content: center;">
+                                <a href="dashboard-post-edit.html" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" style="margin-right: 7px;"><i class="bi bi-pencil-square"></i></a>
+                                <a href="#" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="bi bi-trash"></i></a>
+                            </div>
                         </div>
                     </div>
                     <!-- 왼쪽 사이드바 끝 -->
@@ -75,7 +81,7 @@
                                 <img class="avatar avatar-md rounded-circle float-start me-3" src="${path}/resources/resources1b/images/avatar_w3.png" alt="avatar">
                                 <div>
                                     <div class="mb-2">
-                                        <h5 class="m-0">${reply.reply_writer_nickname}</h5>
+                                        <h6 class="m-0 mice">${reply.reply_writer_nickname}</h6>
                                         <span class="me-3 small">${reply.reply_register} </span>
                                     </div>
                                     <div style="color:#191a1f">
@@ -83,10 +89,11 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
                         <!-- 댓글 끝 -->
                         <!-- 댓글 작성 시작 -->
                         <div>
-                            <h3>Leave a reply</h3>
+                            <h3 class="mice">Leave a reply</h3>
                             <form class="row g-3 mt-1">
                                 <div class="col-12">
                                     <textarea class="form-control" rows="3"></textarea>
@@ -103,33 +110,33 @@
                     <div class="col-lg-3">
                         <div data-sticky data-margin-top="80" data-sticky-for="991">
                             <h4>Share this article</h4>
-                            <ul class="nav text-white-force">
-                                <li class="nav-item">
-                                    <a class="nav-link icon-md rounded-circle me-2 mb-2 p-0 fs-5 bg-facebook" href="#">
-                                        <i class="fab fa-facebook-square align-middle"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link icon-md rounded-circle me-2 mb-2 p-0 fs-5 bg-twitter" href="#">
-                                        <i class="fab fa-twitter-square align-middle"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link icon-md rounded-circle me-2 mb-2 p-0 fs-5 bg-linkedin" href="#">
-                                        <i class="fab fa-linkedin align-middle"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link icon-md rounded-circle me-2 mb-2 p-0 fs-5 bg-pinterest" href="#">
-                                        <i class="fab fa-pinterest align-middle"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link icon-md rounded-circle me-2 mb-2 p-0 fs-5 bg-primary" href="#">
-                                        <i class="far fa-envelope align-middle"></i>
-                                    </a>
-                                </li>
-                            </ul>
+	                            <ul class="nav text-white-force">
+	                                <li class="nav-item">
+	                                    <a class="nav-link icon-md rounded-circle me-2 mb-2 p-0 fs-5 bg-facebook" href="#">
+	                                        <i class="fab fa-facebook-square align-middle"></i>
+	                                    </a>
+	                                </li>
+	                                <li class="nav-item">
+	                                    <a class="nav-link icon-md rounded-circle me-2 mb-2 p-0 fs-5 bg-twitter" href="#">
+	                                        <i class="fab fa-twitter-square align-middle"></i>
+	                                    </a>
+	                                </li>
+	                                <li class="nav-item">
+	                                    <a class="nav-link icon-md rounded-circle me-2 mb-2 p-0 fs-5 bg-linkedin" href="#">
+	                                        <i class="fab fa-linkedin align-middle"></i>
+	                                    </a>
+	                                </li>
+	                                <li class="nav-item">
+	                                    <a class="nav-link icon-md rounded-circle me-2 mb-2 p-0 fs-5 bg-pinterest" href="#">
+	                                        <i class="fab fa-pinterest align-middle"></i>
+	                                    </a>
+	                                </li>
+	                                <li class="nav-item">
+	                                    <a class="nav-link icon-md rounded-circle me-2 mb-2 p-0 fs-5 bg-primary" href="#">
+	                                        <i class="far fa-envelope align-middle"></i>
+	                                    </a>
+	                                </li>
+	                            </ul>
                             <!-- 인기검색어 -->
                             <div class="row g-2 mt-5">
                                 <h5>인기검색어</h5>
