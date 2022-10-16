@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper	namespace="com.kh.realfinal.politics.model.mapper.LawProposedMapper">
+
+
+
+	<resultMap type="ProfileMna" id="ProfileMnaMap">
+		<id property="hgNm" column="HG_NM"/>
+		<result property="units" column="UNITS"/>
+		<result property="sexGbnNm" column="SEX_GBN_NM"/>
+		<result property="hjNm" column="HJ_NM"/>
+		<result property="engNm" column="ENG_NM"/>
+		<result property="bthDate" column="BTH_DATE"/>
+		<result property="polyNm" column="POLY_NM"/>
+		<result property="origNm" column="ORIG_NM"/>
+		<result property="electGbnNm" column="ELECT_GBN_NM"/>
+		<result property="cmits" column="CMITS"/>
+		<result property="reeleGbnNm" column="REELE_GBN_NM"/>
+		<result property="telNo" column="TEL_NO"/>
+		<result property="email" column="E_MAIL"/>
+		<result property="homepage" column="HOMEPAGE"/>
+		<result property="staff" column="STAFF"/>
+		<result property="secretary" column="SECRETARY"/>
+		<result property="secretary2" column="SECRETARY2"/>
+		<result property="assemAddr" column="ASSEM_ADDR"/>
+		<result property="memTitle" column="MEM_TITLE"/>
+	</resultMap>
+
+
+	<insert id="insertProfileMna"
+		parameterType="ProfileMna">
+		INSERT INTO MNA_PROFILE(		
+			HG_NM, UNITS, SEX_GBN_NM, HJ_NM, 
+			ENG_NM, BTH_DATE, POLY_NM, ORIG_NM, ELECT_GBN_NM,
+			CMITS, REELE_GBN_NM, TEL_NO, E_MAIL, HOMEPAGE,
+			STAFF, SECRETARY, SECRETARY2, ASSEM_ADDR, MEM_TITLE,
+		) VALUES(
+			#{hgNm}, #{units}, #{sexGbnNm}, #{hjNm}, 
+			#{engNm}, #{bthDate}, #{polyNm},#{origNm}, #{electGbnNm},
+			#{cmits}, #{reeleGbnNm}, #{telNo}, #{email}, #{homepage},
+			#{staff}, #{secretary}, #{assemAddr}, #{memTitle}
+		)
+	</insert>
+	
+</mapper>

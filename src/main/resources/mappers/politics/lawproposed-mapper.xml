@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper	namespace="com.kh.realfinal.politics.model.mapper.LawProposedMapper">
+
+
+	<resultMap type="LawProposed" id="LawProposedMap">
+		<id property="billNo" column="BILL_NO"/>
+		<result property="rstProposer" column="RST_PROPOSER"/>
+		<result property="age" column="AGE"/>
+		<result property="billName" column="BILL_NAME"/>
+		<result property="proposer" column="PROPOSER"/>
+		<result property="committee" column="COMMITTEE"/>
+		<result property="proposeDt" column="PROPOSE_DT"/>
+		<result property="procResult" column="PROC_RESULT"/>
+		<result property="detailLink" column="DETAIL_LINK"/>
+	</resultMap>
+
+
+	<insert id="insertLawProposed"
+		parameterType="LawProposed">
+		INSERT INTO MNA_LEGISLATION(		
+			BILL_NO, RST_PROPOSER, AGE, BILL_NAME, 
+			PROPOSER, COMMITTEE, PROPOSE_DT, PROC_RESULT, DETAIL_LINK
+		) VALUES(
+			#{billNo}, #{rstProposer}, #{age}, #{billName}, #{proposer}, 
+			#{committee}, #{proposeDt},#{procResult}, #{detailLink}
+		)
+	</insert>
+	
+</mapper>

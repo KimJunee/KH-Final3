@@ -13,7 +13,6 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import com.kh.realfinal.financialStock.model.vo.Stockprice;
 import com.kh.realfinal.politics.model.vo.ProfileMna;
 
 public class ProfileMnaAPI {
@@ -52,16 +51,16 @@ public class ProfileMnaAPI {
 //		System.out.println(map.get("배현진"));
 	}
 
-	private static List<ProfileMna> callProfileMnaByXML() {
+	public static List<ProfileMna> callProfileMnaByXML() {
 		List<ProfileMna> list = new ArrayList<ProfileMna>();
 
-		int pageNo = 1;
+//		int pageNo = 1;
 		String pIndex = "1"; //
 		String pSize = "300"; //
 		String type = "XML";
 
 		System.out.println();
-		System.out.println("pageNumber : " + pageNo);
+		System.out.println("pageNumber : " + pIndex);
 		StringBuilder urlBuilder = new StringBuilder(ProfileMna_XML_URL);
 		urlBuilder.append("?" + "KEY=" + key);
 		urlBuilder.append("&" + "Type=" + type);
@@ -95,7 +94,7 @@ public class ProfileMnaAPI {
 			doc.getDocumentElement().normalize();
 
 			System.out.println("Root Element : " + doc.getDocumentElement().getNodeName());
-			System.out.println("=======================" + pageNo + "페이지시작=========================");
+			System.out.println("=======================" + pIndex + "페이지시작=========================");
 			// Root element: nwvrqwxyaytdsfvhu
 
 			NodeList nList = doc.getElementsByTagName("row");

@@ -16,7 +16,7 @@ import org.w3c.dom.NodeList;
 
 import com.kh.realfinal.politics.model.vo.CardCutVO;
 
-public class OpenApiManager {
+public class CardCutRss {
 	public static final String WEEKLY_XML_URL  = "https://www.korea.kr/rss/visual.xml";
 	
 		public static List<CardCutVO> callWeeklyNewsListByXML() {
@@ -135,6 +135,6 @@ public class OpenApiManager {
 		}
 		
 		public static void main(String[] args) {
-			OpenApiManager.callWeeklyNewsListByXML();
+			CardCutRss.callWeeklyNewsListByXML();
 		}
 }
