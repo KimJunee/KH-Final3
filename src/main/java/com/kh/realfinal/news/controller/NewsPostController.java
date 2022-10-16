@@ -4,11 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class NewsController {
+public class NewsPostController {
 
-	@RequestMapping("/news/main")
-	String newsMain() {
-		return "/news/news_main";
+	@RequestMapping("/news/post")
+	String newsSearch() {
+		return "/news/news_post";
 	}
 }
-
