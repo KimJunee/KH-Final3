@@ -114,10 +114,10 @@
                             <ul class="dropdown-menu text-dark" aria-labelledby="postMenu ">
                                 <!-- dropdown submenu -->
                                 <li class="dropdown-submenu dropend text-dark">
-                                    <a class="dropdown-item text-dark" href="03_reales_main.html">청약메인</a>
+                                    <a class="dropdown-item text-dark" href="${path}/RealEstate/main">청약메인</a>
                                 </li>
                                 <li> <a class="dropdown-item text-dark" href="03_reales_calendar.html">청약캘린더 <span class="badge bg-danger smaller me-1">New</span></a> </li>
-                                <li> <a class="dropdown-item text-dark" href="03_reales_detailList.html">청약상세조회</a> </li>
+                                <li> <a class="dropdown-item text-dark" href="${path}/RealEstate/list">청약상세조회</a> </li>
                                 <li class="dropdown-submenu dropend text-dark">
                                     <a class="dropdown-item text-dark" href="03_reales_notice.html">청약공지사항</a>
                                 </li>

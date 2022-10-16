@@ -75,7 +75,7 @@
                                 </li>
                                 <li> <a class="dropdown-item text-white" href="${path}/finance/productMain">금융상품안내</a> </li>
                                 <li class="dropdown-divider text-white"></li>
-                                <li> <a class="dropdown-item text-white" href="07_com_finance.html">금융Talk  <span class="badge bg-danger smaller me-1">New</span></a> </li>
+                                <li> <a class="dropdown-item text-white" href="${path}/board/list?type=3">금융Talk  <span class="badge bg-danger smaller me-1">New</span></a> </li>
                             </ul>
                         </li>
                         <!-- 금융 메뉴 끝-->
@@ -94,7 +94,7 @@
                                     <a class="dropdown-item text-white" href="03_reales_notice.html">청약공지사항</a>
                                 </li>
                                 <li class="dropdown-divider text-white"></li>
-                                <li> <a class="dropdown-item text-white" href="07_com_realestate.html">부동산Talk  <span class="badge bg-danger smaller me-1">New</span></a> </li>
+                                <li> <a class="dropdown-item text-white" href="${path}/board/list?type=2">부동산Talk  <span class="badge bg-danger smaller me-1">New</span></a> </li>
                             </ul>
                         </li>
                         <!-- 부동산청약 메뉴 끝 -->
@@ -111,7 +111,7 @@
                                 <li> <a class="dropdown-item text-white" href="04_pol-mna_list.html">제21대 국회의원현황</a> </li>
                                 <li> <a class="dropdown-item text-white" href="https://www.epeople.go.kr/index.jsp">국민신문고 <i class="bi bi-box-arrow-up-right"></i></a> </li>
                                 <li class="dropdown-divider text-white"></li>
-                                <li> <a class="dropdown-item text-white" href="07_com_politics.html">정치Talk <span class="badge bg-danger smaller me-1">New</span></a> </li>
+                                <li> <a class="dropdown-item text-white" href="${path}/board/list?type=1">정치Talk <span class="badge bg-danger smaller me-1">New</span></a> </li>
                             </ul>
                         </li>
                         <!-- 정치 메뉴 끝-->
@@ -132,14 +132,14 @@
                                 <li class="dropdown-submenu dropend text-white">
                                     <a class="dropdown-item text-white" href="${path}/board/main">커뮤니티메인</a></li>
                                 <li class="dropdown-submenu dropend text-white">
-                                    <a class="dropdown-item text-white" href="07_com_politics.html">정치Talk 
+                                    <a class="dropdown-item text-white" href="${path}/board/list?type=1">정치Talk 
                                     	<span class="badge bg-danger smaller me-1">New</span></a></li>
-                                <li> <a class="dropdown-item text-white" href="07_com_finance.html">금융Talk 
+                                <li> <a class="dropdown-item text-white" href="${path}/board/list?type=3">금융Talk 
                                 	<span class="badge bg-danger smaller me-1">New</span></a></li>
-                                <li> <a class="dropdown-item text-white" href="07_com_realestate.html">부동산Talk 
+                                <li> <a class="dropdown-item text-white" href="${path}/board/list?type=2">부동산Talk 
                                 	<span class="badge bg-danger smaller me-1">New</span></a></li>
                                 <!-- <li class="dropdown-divider text-white"></li> -->
-                                <li> <a class="dropdown-item text-white" href="07_com_free.html"> 자유Talk 
+                                <li> <a class="dropdown-item text-white" href="${path}/board/list?type=4"> 자유Talk 
                                 	<span class="badge bg-danger smaller me-1">New</span></a></li>
                             </ul>
                         </li>
