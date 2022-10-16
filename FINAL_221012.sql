@@ -755,4 +755,95 @@ COMMENT ON COLUMN  REPLY.REPLY_CONTENT IS '내용';
 COMMENT ON COLUMN  REPLY.REPLY_REGISTER IS '등록날짜';
 
 -- INSERT INTO REPLY VALUES(SEQ_REPLY_NO.NEXTVAL, 1, 1, '어머나 세상에나', SYSDATE);
+
+------------------------------------------------------------------------------------------------
+-- [정치] 전소피아 
+
+-- 카드한컷
+DROP TABLE CARDCUT;
+CREATE TABLE CARDCUT (
+	TITLE	VARCHAR2(200),		-- 뉴스이름
+    LINK	VARCHAR2(300),		-- 뉴스링크
+	PUBDATE	VARCHAR2(100),		-- 뉴스일자
+	DESCRIPTION	CLOB		    -- 뉴스내용
+);
+
+SELECT * FROM CARDCUT;
+
+-- 댓글
+DROP SEQUENCE CARDCUT_SEQ_REPLY_NO;
+CREATE SEQUENCE SEQ_REPLY_NO;
+
+DROP TABLE CARDCUT_REPLY;
+CREATE TABLE REPLY (
+	REPLY_NO NUMBER PRIMARY KEY,    -- 댓글번호
+    USER_NO NUMBER,		            -- 사용자번호
+    BOARD_NO NUMBER,                -- 게시글번호
+	REPLY_CONTENT VARCHAR2(1000),   -- 내용
+	REPLY_REGISTER	DATE            -- 등록날짜
+);
+
+COMMENT ON TABLE CARDCUT_REPLY IS '댓글';
+COMMENT ON COLUMN  CARDCUT_REPLY.REPLY_NO IS '댓글번호';
+COMMENT ON COLUMN  CARDCUT_REPLY.USER_NO IS '사용자번호';
+COMMENT ON COLUMN  CARDCUT_REPLY.BOARD_NO IS '게시글번호';
+COMMENT ON COLUMN  CARDCUT_REPLY.REPLY_CONTENT IS '내용';
+COMMENT ON COLUMN  CARDCUT_REPLY.REPLY_REGISTER IS '등록날짜';
+
+-- INSERT INTO REPLY VALUES(SEQ_REPLY_NO.NEXTVAL, 1, 1, '소피도 한드아아아아앙', SYSDATE);
+
+
+-- 국회의원 검색_상세내용(사진포함) / 대표발의법안
+
+-- 국회의원별 프로필 상세 내용(사진포함)
+
+DROP SEQUENCE SEQ_MNA_PROFILE_NO;
+CREATE SEQUENCE SEQ_MNA_PROFILE_NO;
+
+DROP TABLE MNA_PROFILE;
+CREATE TABLE MNA_PROFILE (
+        MNA_PROFILE_NO NUMBER PRIMARY KEY, -- 국회의원 번호
+        HG_NM	VARCHAR2(200),	 --	이름
+        UNITS	VARCHAR2(200),	    --	대수
+        SEX_GBN_NM	VARCHAR2(100),	--	성별
+        HJ_NM	VARCHAR2(200),	    --	한자명
+        ENG_NM	VARCHAR2(200),	    --	영문명칭
+        BTH_DATE	DATE,       	--	생년월일
+        POLY_NM	VARCHAR2(200),	    --	정당명
+        ORIG_NM	VARCHAR2(200),	    --	지역
+        ELECT_GBN_NM	VARCHAR2(200),	--	선거구구분
+        CMITS	VARCHAR2(1000),  	--	소속위원회
+        REELE_GBN_NM	VARCHAR2(200),	--	당선횟수
+        TEL_NO	VARCHAR2(200),	    --	전화번호
+        E_MAIL	VARCHAR2(1000), 	--	이메일
+        HOMEPAGE	VARCHAR2(1000),	--	홈페이지
+        STAFF	VARCHAR2(1000), 	--	보좌관
+        SECRETARY	VARCHAR2(1000),	--	선임비서관
+        SECRETARY2	VARCHAR2(1000),	--	비서관
+        ASSEM_ADDR	VARCHAR2(1000),	--	의원실안내
+        MEM_TITLE	CLOB, --	주요약력
+        JPGLINK	    VARCHAR2(2000)	 -- 국회의원 프로필 사진
+);
+ 
+-- select * from MNA_PROFILE where HG_NM = '배현진' ;
+ 
+ 
+-- 국회의원별 대표발의법안
+
+DROP TABLE MNA_LEGISLATION;
+CREATE TABLE MNA_LEGISLATION (
+        BILL_NO	NUMBER PRIMARY KEY,	--	의안번호
+        RST_PROPOSER VARCHAR2(200),	--	이름
+        AGE	VARCHAR2(1000),      	--	대수
+        BILL_NAME	VARCHAR2(1000),	--	의안명
+        PROPOSER	VARCHAR2(1000),	--	제안자
+        COMMITTEE	VARCHAR2(1000),	--	소관위원회
+        PROPOSE_DT	VARCHAR2(1000),	--	제안일
+        PROC_RESULT	VARCHAR2(1000), --	처리상태
+        DETAIL_LINK	VARCHAR2(1000)	--	상세페이지
+);
+
+-- select * from MNA_LEGISLATION;
+
+
 ------------------------------------------------------------------------------------------------
