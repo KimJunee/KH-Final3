@@ -7,6 +7,7 @@
   
 
 
+
 <head>
     <title>FinTouch | RealEstate | Detail</title>
 </head>
@@ -138,27 +139,17 @@
                                             <!-- Checkbox -->
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType12">
-                                                <label class="form-check-label" for="amenitiesType12">충청북도</label>
-                                            </div>
-                                            <!-- Checkbox -->
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType13">
-                                                <label class="form-check-label" for="amenitiesType13">충청남도</label>
+                                                <label class="form-check-label" for="amenitiesType12">충청도</label>
                                             </div>
                                             <!-- Checkbox -->
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType14">
-                                                <label class="form-check-label" for="amenitiesType14">전라북도</label>
-                                            </div>
-                                            <!-- Checkbox -->
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType15">
-                                                <label class="form-check-label" for="amenitiesType15">전라남도</label>
+                                                <label class="form-check-label" for="amenitiesType14">전라도</label>
                                             </div>
                                             <!-- Checkbox -->
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType16">
-                                                <label class="form-check-label" for="amenitiesType16">경상북도</label>
+                                                <label class="form-check-label" for="amenitiesType16">경상도</label>
                                             </div>
                                             <!-- Checkbox -->
                                             <div class="form-check">
@@ -179,26 +170,6 @@
                                 <!------------- filter 2 START ------------->
                                 <div class="card card-body">
                                     <!-- Title -->
-                                    <h6 class="mb-3">분양종류</h6>
-
-                                    <!-- Checkbox -->
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType18">
-                                        <label class="form-check-label" for="amenitiesType18">민영</label>
-                                    </div>
-                                    <!-- Checkbox -->
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType19">
-                                        <label class="form-check-label" for="amenitiesType19">국민</label>
-                                    </div>
-                                </div>
-                                <!------------- filter 2 END ------------->
-                                <hr class="my-0">
-                                <!-- Divider -->
-
-                                <!------------- filter 3 START ------------->
-                                <div class="card card-body">
-                                    <!-- Title -->
                                     <h6 class="mb-3">주택구분</h6>
 
                                     <!-- Checkbox -->
@@ -215,6 +186,26 @@
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType22">
                                         <label class="form-check-label" for="amenitiesType22">무순위/잔여세대</label>
+                                    </div>
+                                </div>
+                                <!------------- filter 2 END ------------->
+                                <hr class="my-0">
+                                <!-- Divider -->
+
+                                <!------------- filter 3 START ------------->
+                                <div class="card card-body">
+                                    <!-- Title -->
+                                    <h6 class="mb-3">아파트분양종류</h6>
+
+                                    <!-- Checkbox -->
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType18">
+                                        <label class="form-check-label" for="amenitiesType18">민영</label>
+                                    </div>
+                                    <!-- Checkbox -->
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType19">
+                                        <label class="form-check-label" for="amenitiesType19">국민</label>
                                     </div>
                                 </div>
                                 <!------------- filter 3 END ------------->
@@ -279,20 +270,20 @@
                             <div class="card-body mb-5">
                                 <!-- Search filter START -->
                                 <form class="row g-2 g-xl-4 mb-4">
+                                	<!-- Select -->
+                                    <div class="col-md-4 col-xl-4">
+                                        <select name ="searchType" class="form-select" aria-label="Default select example">
+                                            <option selected>검색필터</option>
+                                            <option value="content" <c:if test="${searchType == 'content'}">selected</c:if>>주택명</option>
+                                            <option value="sorting" <c:if test="${searchType == 'sorting'}">selected</c:if>>분양종류(민영/국민)</option>
+                                        </select>
+                                    </div>
                                     <!-- Search -->
                                     <div class="col-xl-8">
                                         <div class="rounded position-relative">
-                                            <input class="form-control pe-5" type="search" placeholder="검색어를 입력하세요!" aria-label="Search">
+                                            <input class="form-control pe-5" type="text" id="searchValue" name="searchValue" value="${param.searchValue}" placeholder="검색어를 입력하세요!" aria-label="Search">
                                             <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="bi bi-search fs-5"> </i></button>
                                         </div>
-                                    </div>
-                                    <!-- Select -->
-                                    <div class="col-md-4 col-xl-4">
-                                        <select class="form-select" aria-label="Default select example">
-                                            <option selected>검색필터</option>
-                                            <option value="1">최신순</option>
-                                            <option value="2">오래된순</option>
-                                        </select>
                                     </div>
 
                                     <div class="col-md-4 col-xl-3 d-grid d-xl-none">
@@ -307,157 +298,64 @@
                                 <div class="table-responsive border-0 ">
                                     <table class="table align-middle p-4 mb-0 table-hover table-shrink ">
                                         <!-- Table head -->
+                                        <!-- 테이블 너비 지정 -->
+                                        <colgroup>
+                                        	<col width="10%">
+                                        	<col width="10%">
+                                        	<col width="45%">
+                                        	<col width="10%">
+                                        	<col width="10%">
+                                        	<col width="15%">
+                                        </colgroup>
                                         <thead class="table-dark text-center">
                                             <tr>
                                                 <th scope="col" class="border-0 rounded-start">번호</th>
                                                 <th scope="col" class="border-0">지역</th>
                                                 <th scope="col" class="border-0">주택명</th>
                                                 <th scope="col" class="border-0">주택구분</th>
+                                                <th scope="col" class="border-0">분양종류</th>
                                                 <th scope="col" class="border-0 rounded-end">모집공고일</th>
                                             </tr>
                                         </thead>
                                         <!------------- 청약 전체보기 list ------------->
                                         <tbody class="border-top-0 text-center">
-                                            <tr>
+                                        <tr>
                                                 <td>1</td>
                                                 <td>서울</td>
-                                                <td><a href="${path}/RealEstate/detail">경산지역 미분양매입 임대주택</a></td>
+                                                <td><a href="${path}/RealEstate/detail">강원 춘천시 약사촉진3구역 롯데캐슬 위너클래스 장기민간임대아파트(107동)</a></td>
+                                                <td>아파트</td>
                                                 <td>아파트</td>
                                                 <td>2023-09-02</td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>서울</td>
-                                                <td><a href="${path}/RealEstate/detail">힐스테이트 푸르지오 수원</a></td>
-                                                <td>아파트</td>
-                                                <td>2023-09-02</td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>서울</td>
-                                                <td><a href="${path}/RealEstate/detail">김포마송 B-5블록 행복주택</a></td>
-                                                <td>아파트</td>
-                                                <td>2023-09-02</td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>서울</td>
-                                                <td><a href="${path}/RealEstate/detail">경산지역 미분양매입 임대주택</a></td>
-                                                <td>아파트</td>
-                                                <td>2023-09-02</td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>서울</td>
-                                                <td><a href="${path}/RealEstate/detail">힐스테이트 푸르지오 수원</a></td>
-                                                <td>아파트</td>
-                                                <td>2023-09-02</td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>서울</td>
-                                                <td><a href="${path}/RealEstate/detail">김포마송 B-5블록 행복주택</a></td>
-                                                <td>아파트</td>
-                                                <td>2023-09-02</td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>서울</td>
-                                                <td><a href="${path}/RealEstate/detail">경산지역 미분양매입 임대주택</a></td>
-                                                <td>아파트</td>
-                                                <td>2023-09-02</td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>서울</td>
-                                                <td><a href="${path}/RealEstate/detail">힐스테이트 푸르지오 수원</a></td>
-                                                <td>아파트</td>
-                                                <td>2023-09-02</td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>서울</td>
-                                                <td><a href="${path}/RealEstate/detail">김포마송 B-5블록 행복주택</a></td>
-                                                <td>아파트</td>
-                                                <td>2023-09-02</td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>서울</td>
-                                                <td><a href="${path}/RealEstate/detail">경산지역 미분양매입 임대주택</a></td>
-                                                <td>아파트</td>
-                                                <td>2023-09-02</td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>서울</td>
-                                                <td><a href="${path}/RealEstate/detail">힐스테이트 푸르지오 수원</a></td>
-                                                <td>아파트</td>
-                                                <td>2023-09-02</td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>서울</td>
-                                                <td><a href="${path}/RealEstate/detail">김포마송 B-5블록 행복주택</a></td>
-                                                <td>아파트</td>
-                                                <td>2023-09-02</td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>서울</td>
-                                                <td><a href="${path}/RealEstate/detail">경산지역 미분양매입 임대주택</a></td>
-                                                <td>아파트</td>
-                                                <td>2023-09-02</td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>서울</td>
-                                                <td><a href="${path}/RealEstate/detail">힐스테이트 푸르지오 수원</a></td>
-                                                <td>아파트</td>
-                                                <td>2023-09-02</td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>서울</td>
-                                                <td><a href="${path}/RealEstate/detail">김포마송 B-5블록 행복주택</a></td>
-                                                <td>아파트</td>
-                                                <td>2023-09-02</td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>서울</td>
-                                                <td><a href="${path}/RealEstate/detail">경산지역 미분양매입 임대주택</a></td>
-                                                <td>아파트</td>
-                                                <td>2023-09-02</td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>서울</td>
-                                                <td><a href="${path}/RealEstate/detail">힐스테이트 푸르지오 수원</a></td>
-                                                <td>아파트</td>
-                                                <td>2023-09-02</td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>서울</td>
-                                                <td><a href="${path}/RealEstate/detail">김포마송 B-5블록 행복주택</a></td>
-                                                <td>아파트</td>
-                                                <td>2023-09-02</td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>서울</td>
-                                                <td><a href="${path}/RealEstate/detail">경산지역 미분양매입 임대주택</a></td>
-                                                <td>아파트</td>
-                                                <td>2023-09-02</td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>서울</td>
-                                                <td><a href="${path}/RealEstate/detail">힐스테이트 푸르지오 수원</a></td>
-                                                <td>아파트</td>
-                                                <td>2023-09-02</td>
-                                            </tr>
+                                        </tr>
+                                        <c:if test="${empty remndrlist}">
+											<tr>
+												<td colspan="6">조회된 글이 없습니다.</td>
+											</tr>
+										</c:if>
+										<c:if test="${!empty remndrlist}">
+											<c:forEach var="remndrLttotPblancDetail" items="${remndrlist}">
+												<tr>
+													<td>1</td>
+													<td>
+														<c:out value="${remndrLttotPblancDetail.hssply_zip}"/>
+													</td>
+													<td>
+														<a href="#">
+															<c:out value="${remndrLttotPblancDetail.house_nm}"/>
+														</a>
+													</td>
+													<td>
+														<c:out value="${remndrLttotPblancDetail.house_secd}"/>
+													</td>
+													<td>
+														<c:out value="${remndrLttotPblancDetail.house_secd}"/>
+													</td>
+													<td>
+														<c:out value="${remndrLttotPblancDetail.rcrit_pblanc_de}"/>
+													</td>
+												</tr>
+											</c:forEach>
+										</c:if>
                                         </tbody>
                                         <!------------- 청약 전체보기 list END ------------->
                                     </table>
@@ -471,21 +369,29 @@
                                     <!-- 페이지넘버 시작 -->
                                     <nav class="mb-sm-0 d-flex justify-content-center mt-2" aria-label="navigation">
                                         <ul class="pagination pagination-sm pagination-bordered mb-0">
-                                            <li class="page-item disabled">
-                                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Prev</a>
-                                            </li>
-                                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">6</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">7</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">8</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">9</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">10</a></li>
                                             <li class="page-item">
-                                                <a class="page-link" href="#">Next</a>
+                                                <a class="page-link" onclick="movePage('${path}/RealEstate/list?page=${pageInfo.prevPage}');">Prev</a>
+                                            </li>
+                                            
+                                            
+                                            <c:forEach begin="${pageInfo.startPage}" end="${pageInfo.endPage}" step="1" varStatus="status">
+                                            	<c:if test="${pageInfo.currentPage == status.current}">
+		                                            <li class="page-item active">
+		                                            	<a class="page-link">${status.current}</a>
+		                                            </li>                                    		
+                                            	</c:if>
+                                            	
+                                            	<c:if test="${pageInfo.currentPage != status.current}">
+		                                            <li class="page-item">
+		                                            	<a onclick="movePage('${path}/RealEstate/list?page=${status.current}');" class="page-link">
+			                                            	${status.current}
+		                                            	</a>
+		                                            </li>                                            	
+                                            	</c:if>                                         
+                                            </c:forEach>
+                                            
+                                            <li class="page-item">
+                                                <a class="page-link" onclick="movePage('${path}/RealEstate/list?page=${pageInfo.maxPage}');">End</a>
                                             </li>
                                         </ul>
                                     </nav>
@@ -502,6 +408,15 @@
     </section>
     <!-- ======================= 섹션2: 청약 검색목록 끝 =========================-->
     <!-- **************** MAIN CONTENT END **************** -->
+
+<script type="text/javascript">
+	function movePage(pageUrl){
+		// 자바스크립트 location.href 로 페이지 이동 방법
+		//  location.href = "이동할 페이지 주소";
+		location.href = encodeURI(pageUrl);	
+	}
+</script>
+
 
     <%@ include file="/WEB-INF/views/common/footer.jsp" %>
     
