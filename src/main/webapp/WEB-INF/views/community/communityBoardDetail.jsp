@@ -55,14 +55,14 @@
                                 <li class="list-inline-item d-lg-block my-lg-2"><i class="bi bi-chat-left-quote-fill me-1"></i> ${fn:length(replyList)} Commenets</li>
                             </ul>
                             <!-- 작성자가 본인일 때 수정 삭제 버튼 보이기 -->
-                            <c:if test="${empty loginMember || (loginMember.id != board.writer_id)}">
+                            <c:if test="${empty loginMember || (loginMember.user_id != board.writer_id)}">
 	                            <hr class="d-none d-lg-block">
 	                            <div class="d-flex gap-2 mt-1" style="justify-content: center; display: none;">
 	                                <a href="dashboard-post-edit.html" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" style="margin-right: 7px;"><i class="bi bi-pencil-square"></i></a>
 	                                <a href="#" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="bi bi-trash"></i></a>
 	                            </div>
                             </c:if>
-                            <c:if test="${!empty loginMember && (loginMember.id == board.writer_id)}">
+                            <c:if test="${!empty loginMember && (loginMember.user_id == board.writer_id)}">
 	                            <hr class="d-none d-lg-block">
 	                            <div class="d-flex gap-2 mt-1" style="justify-content: center;">
 	                                <a href="dashboard-post-edit.html" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" style="margin-right: 7px;"><i class="bi bi-pencil-square"></i></a>
@@ -113,7 +113,7 @@
                             <h3 class="mice">Leave a reply</h3>
                             <form class="row g-3 mt-1" action="${path}/board/reply" method="post">
                             	<input type="hidden" name="board_no" value="${board.board_no}"/> 
-    							<input type="hidden" name="reply_writer_id" value="${loginMember.id}"/> 
+    							<input type="hidden" name="reply_writer_id" value="${loginMember.user_id}"/> 
                                 <div class="col-12">
                                     <textarea id="reply_content" class="form-control" rows="3"></textarea>
                                 </div>
