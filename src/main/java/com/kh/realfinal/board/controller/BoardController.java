@@ -156,11 +156,6 @@ public class BoardController {
 			) {
 		log.info("리플 작성 요청");
 		
-		if((loginMember.getUser_no() == (reply.getReply_writer_no())) == false) {
-			model.addAttribute("msg", "잘못된 접근입니다.");
-			model.addAttribute("location", "/");
-			return "/common/msg";
-		}
 		reply.setReply_writer_no(loginMember.getUser_no());
 		log.debug("reply : " + reply);
 		int result = service.saveReply(reply);
@@ -170,7 +165,7 @@ public class BoardController {
 		}else {
 			model.addAttribute("msg", "리플 작성에 실패하였습니다.");
 		}
-		model.addAttribute("location", "/board/view?no="+ reply.getBoard_no());
+		model.addAttribute("location", "/board/BoardDetail?board_no="+ reply.getBoard_no());
 		return "/common/msg";
 	}
 	

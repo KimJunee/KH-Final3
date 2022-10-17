@@ -18,12 +18,12 @@
 <%@ include file="/WEB-INF/views/common/headerWhite.jsp" %>
     <main>
         <!-- ============ 메뉴소개 시작 ============ -->
-        <section style="background-image:url('${path}/resources/resources1b/images/avatar/fintouch/community04.png'); background-position: center; height:652px; width:99%;"></section>
+        <section style="background-image:url('${path}/resources/resources1b/images/avatar/fintouch/community04.png'); background-position: center; height:570px; width:99%;"></section>
         <!-- ============ 메뉴소개 끝 ============ -->
         <!-- Divider -->
         <div class="border-primary border-1 opacity-1"></div>
         <!-- ======================= Inner intro START -->
-        <section class="pb-3 pb-lg-5" style="margin-top:-100px;">
+        <section class="pb-3 pb-lg-5" style="margin-top:-120px;">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -115,10 +115,10 @@
                             	<input type="hidden" name="board_no" value="${board.board_no}"/> 
     							<input type="hidden" name="reply_writer_id" value="${loginMember.user_id}"/> 
                                 <div class="col-12">
-                                    <textarea id="reply_content" class="form-control" rows="3"></textarea>
+                                    <textarea name="reply_content" class="form-control" rows="3"></textarea>
                                 </div>
                                 <div class="col-12">
-                                    <button type="submit" class="btn btn-primary">Post comment</button>
+                                    <button type="submit" class="btn btn-primary" id="btn-insert">Post comment</button>
                                 </div>
                             </form>
                         </div>
@@ -227,6 +227,26 @@
         </div>
         <!-- ======================= Sticky post END -->
     </main>
+    <script>
+	$(document).ready(() => {
+		$("#btnUpdate").on("click", (e) => {
+			location.href = "${path}/board/update?board_no=${board.board_no}";
+		});
+		
+		$("#btnDelete").on("click", (e) => {
+			if(confirm("정말로 게시글을 삭제 하시겠습니까?")) {
+				location.replace("${path}/board/delete?board_no=${board.board_no}");
+			}
+		});
+	});
+	
+	function deleteReply(replyNo){
+		var url = "${path}/board/replydel?reply_no=";
+		var requestURL = url + replyNo;
+		location.replace(requestURL);
+	}
+	
+</script>
 	<%@ include file="/WEB-INF/views/common/footer.jsp" %>
 	</body>
 </html>

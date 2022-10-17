@@ -170,8 +170,8 @@
 	<insert id="insertReply" parameterType="Reply">
 		INSERT INTO REPLY 
 			VALUES(
-				SEQ_REPLY_NO.NEXTVAL, #{REPLY_CONTENT}, #{REPLY_WRITER_NO}, 
-				#{BOARD_NO}, DEFAULT, DEFAULT)
+				SEQ_REPLY_NO.NEXTVAL, #{reply_content}, #{reply_writer_no}, 
+				#{board_no}, DEFAULT, DEFAULT)
 	</insert>
 	
 	<!-- 댓글 삭제 -->
