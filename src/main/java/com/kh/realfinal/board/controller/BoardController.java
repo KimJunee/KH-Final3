@@ -1,6 +1,7 @@
 package com.kh.realfinal.board.controller;
 
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
@@ -48,7 +49,7 @@ public class BoardController {
 	
 	// 커뮤니티 메인
 	@GetMapping("/communityMain")
-	public String communityMain(Model model, @RequestParam Map<String, String> param) {
+	public String communityMain(Model model, @RequestParam Map<String, String> param) { //게시판 메인으로 드가자
 		int page = 1;
 		if(param.containsKey("page") == true) {
 			try {
@@ -56,12 +57,45 @@ public class BoardController {
 			} catch (Exception e) {}
 		}
 		
-		PageInfo pageInfo = new PageInfo(page, 20, service.getBoardCount(param), 10);
-		List<Board> list = service.getBoardList(pageInfo, param);
+//		PageInfo pageInfo = new PageInfo(page, 20, service.getBoardCount(param), 10);
+		List<Board> list = service.getBoardListMain();
+		List<Board> list1 = new ArrayList<Board>();
+		List<Board> list2 = new ArrayList<Board>();
+		List<Board> list3 = new ArrayList<Board>();
+		List<Board> list4 = new ArrayList<Board>();
+		System.out.println("페이지인포 : " + service.getBoardCount(param));
+		System.out.println("리스트 사이즈 : " + list.size());
+		for(int i = 0; i < list.size(); i++) {
+			if(list.get(i).getBoard_list_no() == 1) {
+				list1.add(list.get(i));
+			}
+			else if(list.get(i).getBoard_list_no() == 2) {
+				list2.add(list.get(i));
+			}
+			else if(list.get(i).getBoard_list_no() == 3) {
+				list3.add(list.get(i));
+			}
+			else if(list.get(i).getBoard_list_no() == 4) {
+				list4.add(list.get(i));
+			}
+			
+		}
+		System.out.println("list1 : " + list1);
 		
+		System.out.println("list2 : " + list2);
+		
+		System.out.println("list3 : " + list3);
+		
+		System.out.println("list4 : " + list4);
+		
+//		System.out.println(list);
 		model.addAttribute("list",list);
-		model.addAttribute("param",param);
-		model.addAttribute("pageInfo",pageInfo);
+		model.addAttribute("list1",list1);
+		model.addAttribute("list2",list2);
+		model.addAttribute("list3",list3);
+		model.addAttribute("list4",list4);
+//		model.addAttribute("param",param);
+//		model.addAttribute("pageInfo",pageInfo);
 		return "/community/communityMain";
 	}
 	

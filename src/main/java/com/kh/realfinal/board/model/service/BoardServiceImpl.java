@@ -102,6 +102,11 @@ public class BoardServiceImpl implements BoardService{
 		}
 		return mapper.selectBoardList(rowBounds, searchMap);
 	}
+	
+	@Override
+	public List<Board> getBoardListMain() {
+		return mapper.selectBoardListMain();
+	}
 
 	@Override
 	@Transactional(rollbackFor =  Exception.class)
@@ -134,4 +139,6 @@ public class BoardServiceImpl implements BoardService{
 	public int deleteReply(int no) {
 		return mapper.deleteReply(no);
 	}
+
+	
 }

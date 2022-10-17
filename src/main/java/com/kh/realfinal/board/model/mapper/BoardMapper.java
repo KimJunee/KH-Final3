@@ -41,4 +41,5 @@ public interface BoardMapper {
 	int updateHit(Board board);   //조회수 update
 	int deleteBoard(int no);      //게시글삭제
 	int deleteReply(int no);	  //댓글삭제
+	List<Board> selectBoardListMain(); //전체클 페이징 없이 들고오는놈
 }

@@ -17,4 +17,5 @@ public interface BoardService {
 	void deleteFile(String filePath);
 	int deleteBoard(int no, String rootPath);
 	int deleteReply(int no);
+	List<Board> getBoardListMain();
 }

@@ -66,216 +66,47 @@
                                                 </thead>
                                                 <!-- 인기글 10개 -->
                                                 <tbody class="border-top-0">
-                                                    <!-- 인기글 1 -->
-                                                    <tr>
+                                                <c:if test="${empty list}">
+                                                	<tr>
+														<td colspan="6">조회된 글이 없습니다.</td>
+													</tr>
+                                                </c:if>
+                                                <c:if test="${!empty list}">
+													<c:forEach var="board" items="${list}" begin="0" end="9" step="1" varStatus="status">
+														<tr>
                                                         <!-- Categories -->
                                                         <td>
-                                                            <a href="#" class="badge text-bg-warning mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Real Estate</a>
+                                                        	<c:if test="${board.board_list_no == 1}">                                                    	
+	                                                            <a href="#" class="badge text-bg-primary mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Politics</a>
+                                                        	</c:if>
+                                                        	<c:if test="${board.board_list_no == 2}">                                                    	
+	                                                            <a href="#" class="badge text-bg-warning mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Real Estate</a>
+                                                        	</c:if>
+                                                        	<c:if test="${board.board_list_no == 3}">                                                    	
+	                                                            <a href="#" class="badge text-bg-danger mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Finance</a>
+                                                        	</c:if>
+                                                        	<c:if test="${board.board_list_no == 4}">                                                    	
+	                                                            <a href="#" class="badge text-bg-success mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Free</a>
+                                                        	</c:if>
                                                         </td>
                                                         <!-- Title -->
                                                         <td>
-                                                            <h6 class="course-title mt-2 mt-md-0 mb-0"><a href="#">강남 역세권 청약 일정 어디서 찾아보죠?</a></h6>
+                                                            <h6 class="course-title mt-2 mt-md-0 mb-0"><a href="#"><c:out value="${board.board_title}" /></a></h6>
                                                         </td>
                                                         <!-- Writer -->
                                                         <td class="text-center">
-                                                            <h6 class="mb-0"><a href="#">서현동뒹굴이</a></h6>
+                                                            <h6 class="mb-0"><a href="#"><c:out value="${board.user_nickName}"/></a></h6>
                                                         </td>
                                                         <!-- Posting date -->
-                                                        <td class="text-center">2022-11-01</td>
+                                                        <td class="text-center"><fmt:formatDate value="${board.board_register}"/></td>
                                                         <!-- Hits -->
-                                                        <td class="text-center">2139</td>
+                                                        <td class="text-center"><c:out value="${board.board_hit}" /></td>
                                                         <!-- Comments -->
-                                                        <td class="text-center">42</td>
+                                                        <td class="text-center"><c:out value="${board.reply_cnt}" /></td>
                                                     </tr>
-                                                    <!-- 인기글 2 -->
-                                                    <tr>
-                                                        <!-- Categories -->
-                                                        <td>
-                                                            <a href="#" class="badge text-bg-primary mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Politics</a>
-                                                        </td>
-                                                        <!-- Title -->
-                                                        <td>
-                                                            <h6 class="course-title mt-2 mt-md-0 mb-0"><a href="#">정치정치조정치</a></h6>
-                                                        </td>
-                                                        <!-- Writer -->
-                                                        <td class="text-center">
-                                                            <h6 class="mb-0"><a href="#">탬버리이인</a></h6>
-                                                        </td>
-                                                        <!-- Posting date -->
-                                                        <td class="text-center">2022-10-28</td>
-                                                        <!-- Hits -->
-                                                        <td class="text-center">3189</td>
-                                                        <!-- Comments -->
-                                                        <td class="text-center">58</td>
-                                                    </tr>
-                                                    <!-- 인기글 3 -->
-                                                    <tr>
-                                                        <!-- Categories -->
-                                                        <td>
-                                                            <a href="#" class="badge text-bg-danger mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Finance</a>
-                                                        </td>
-                                                        <!-- Title -->
-                                                        <td>
-                                                            <h6 class="course-title mt-2 mt-md-0 mb-0"><a href="#">누가 삼전이랬냐</a></h6>
-                                                        </td>
-                                                        <!-- Writer -->
-                                                        <td class="text-center">
-                                                            <h6 class="mb-0"><a href="#">김지수투자전략본부장</a></h6>
-                                                        </td>
-                                                        <!-- Posting date -->
-                                                        <td class="text-center">2022-10-16</td>
-                                                        <!-- Hits -->
-                                                        <td class="text-center">2137</td>
-                                                        <!-- Comments -->
-                                                        <td class="text-center">78</td>
-                                                    </tr>
-                                                    <!-- 인기글 4 -->
-                                                    <tr>
-                                                        <!-- Categories -->
-                                                        <td>
-                                                            <a href="#" class="badge text-bg-warning mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Real Estate</a>
-                                                        </td>
-                                                        <!-- Title -->
-                                                        <td>
-                                                            <h6 class="course-title mt-2 mt-md-0 mb-0"><a href="#">청약캘린더 너무 빡쎈데요</a></h6>
-                                                        </td>
-                                                        <!-- Writer -->
-                                                        <td class="text-center">
-                                                            <h6 class="mb-0"><a href="#">미향먕먕</a></h6>
-                                                        </td>
-                                                        <!-- Posting date -->
-                                                        <td class="text-center">2022-10-11</td>
-                                                        <!-- Hits -->
-                                                        <td class="text-center">4355</td>
-                                                        <!-- Comments -->
-                                                        <td class="text-center">65</td>
-                                                    </tr>
-                                                    <!-- 인기글 5 -->
-                                                    <tr>
-                                                        <!-- Categories -->
-                                                        <td>
-                                                            <a href="#" class="badge text-bg-success mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Free</a>
-                                                        </td>
-                                                        <!-- Title -->
-                                                        <td>
-                                                            <h6 class="course-title mt-2 mt-md-0 mb-0"><a href="#">저는 고양이 집사입니다. 부럽죠? ㅎㅎ;;ㅈㅅ..ㅋㅋ!!</a></h6>
-                                                        </td>
-                                                        <!-- Writer -->
-                                                        <td class="text-center">
-                                                            <h6 class="mb-0"><a href="#">솦솝솟솧소</a></h6>
-                                                        </td>
-                                                        <!-- Posting date -->
-                                                        <td class="text-center">2022-10-07</td>
-                                                        <!-- Hits -->
-                                                        <td class="text-center">6756</td>
-                                                        <!-- Comments -->
-                                                        <td class="text-center">212</td>
-                                                    </tr>
-                                                    <!-- 인기글 6 -->
-                                                    <tr>
-                                                        <!-- Categories -->
-                                                        <td>
-                                                            <a href="#" class="badge text-bg-danger mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Finance</a>
-                                                        </td>
-                                                        <!-- Title -->
-                                                        <td>
-                                                            <h6 class="course-title mt-2 mt-md-0 mb-0"><a href="#">상여금을 코인으로 받아서 묵혀놨는데 3만원이 되버렸다</a></h6>
-                                                        </td>
-                                                        <!-- Writer -->
-                                                        <td class="text-center">
-                                                            <h6 class="mb-0"><a href="#">난망했어</a></h6>
-                                                        </td>
-                                                        <!-- Posting date -->
-                                                        <td class="text-center">2022-10-01</td>
-                                                        <!-- Hits -->
-                                                        <td class="text-center">1198</td>
-                                                        <!-- Comments -->
-                                                        <td class="text-center">22</td>
-                                                    </tr>
-                                                    <!-- 인기글 7 -->
-                                                    <tr>
-                                                        <!-- Categories -->
-                                                        <td>
-                                                            <a href="#" class="badge text-bg-danger mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Finance</a>
-                                                        </td>
-                                                        <!-- Title -->
-                                                        <td>
-                                                            <h6 class="course-title mt-2 mt-md-0 mb-0"><a href="#">와 따상!!!!!!!!!!!!!!!!!</a></h6>
-                                                        </td>
-                                                        <!-- Writer -->
-                                                        <td class="text-center">
-                                                            <h6 class="mb-0"><a href="#">큰손옌</a></h6>
-                                                        </td>
-                                                        <!-- Posting date -->
-                                                        <td class="text-center">2022-09-29</td>
-                                                        <!-- Hits -->
-                                                        <td class="text-center">5113</td>
-                                                        <!-- Comments -->
-                                                        <td class="text-center">117</td>
-                                                    </tr>
-                                                    <!-- 인기글 8 -->
-                                                    <tr>
-                                                        <!-- Categories -->
-                                                        <td>
-                                                            <a href="#" class="badge text-bg-primary mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Politics</a>
-                                                        </td>
-                                                        <!-- Title -->
-                                                        <td>
-                                                            <h6 class="course-title mt-2 mt-md-0 mb-0"><a href="#">이번 한미정상회담에서</a></h6>
-                                                        </td>
-                                                        <!-- Writer -->
-                                                        <td class="text-center">
-                                                            <h6 class="mb-0"><a href="#">일상이상일</a></h6>
-                                                        </td>
-                                                        <!-- Posting date -->
-                                                        <td class="text-center">2022-09-22</td>
-                                                        <!-- Hits -->
-                                                        <td class="text-center">4511</td>
-                                                        <!-- Comments -->
-                                                        <td class="text-center">210</td>
-                                                    </tr>
-                                                    <!-- 인기글 9 -->
-                                                    <tr>
-                                                        <!-- Categories -->
-                                                        <td>
-                                                            <a href="#" class="badge text-bg-success mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Free</a>
-                                                        </td>
-                                                        <!-- Title -->
-                                                        <td>
-                                                            <h6 class="course-title mt-2 mt-md-0 mb-0"><a href="#">난 회사식당 때문에 못 때려치고 있다</a></h6>
-                                                        </td>
-                                                        <!-- Writer -->
-                                                        <td class="text-center">
-                                                            <h6 class="mb-0"><a href="#">내일부터다이어트</a></h6>
-                                                        </td>
-                                                        <!-- Posting date -->
-                                                        <td class="text-center">2022-09-20</td>
-                                                        <!-- Hits -->
-                                                        <td class="text-center">3348</td>
-                                                        <!-- Comments -->
-                                                        <td class="text-center">73</td>
-                                                    </tr>
-                                                    <!-- 인기글 10 -->
-                                                    <tr>
-                                                        <!-- Categories -->
-                                                        <td>
-                                                            <a href="#" class="badge text-bg-warning mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Real Estate</a>
-                                                        </td>
-                                                        <!-- Title -->
-                                                        <td>
-                                                            <h6 class="course-title mt-2 mt-md-0 mb-0"><a href="#">나의 작고 소중한 청약통장..귀여워..</a></h6>
-                                                        </td>
-                                                        <!-- Writer -->
-                                                        <td class="text-center">
-                                                            <h6 class="mb-0"><a href="#">건물오우너</a></h6>
-                                                        </td>
-                                                        <!-- Posting date -->
-                                                        <td class="text-center">2022-09-22</td>
-                                                        <!-- Hits -->
-                                                        <td class="text-center">2234</td>
-                                                        <!-- Comments -->
-                                                        <td class="text-center">66</td>
-                                                    </tr>
+													</c:forEach>
+												</c:if>
+                                                    
                                                 </tbody>
                                             </table>
                                         </div>
@@ -324,71 +155,26 @@
                                             </thead>
                                             <!-- 정치 5개 -->
                                             <tbody class="border-top-0 ">
-                                                <!-- 정치 1 -->
-                                                <tr>
-                                                    <!-- Title -->
-                                                    <td>
-                                                        <h6 class="course-title mt-2 mt-md-0 mb-0 "><a href="# ">정치정치조정치</a></h6>
-                                                    </td>
-                                                    <!-- Writer -->
-                                                    <td class="text-center ">
-                                                        <h6 class="mb-0 "><a href="# ">탬버리이인</a></h6>
-                                                    </td>
-                                                    <!-- Hits -->
-                                                    <td class="text-center ">3189</td>
-                                                </tr>
-                                                <!-- 정치 2 -->
-                                                <tr>
-                                                    <!-- Title -->
-                                                    <td>
-                                                        <h6 class="course-title mt-2 mt-md-0 mb-0 "><a href="# ">이번 한미정상회담에서</a></h6>
-                                                    </td>
-                                                    <!-- Writer -->
-                                                    <td class="text-center ">
-                                                        <h6 class="mb-0 "><a href="# ">일상이상일</a></h6>
-                                                    </td>
-                                                    <!-- Hits -->
-                                                    <td class="text-center ">4511</td>
-                                                </tr>
-                                                <!-- 정치 3 -->
-                                                <tr>
-                                                    <!-- Title -->
-                                                    <td>
-                                                        <h6 class="course-title mt-2 mt-md-0 mb-0 "><a href="# ">러시아는 어칼라고</a></h6>
-                                                    </td>
-                                                    <!-- Writer -->
-                                                    <td class="text-center ">
-                                                        <h6 class="mb-0 "><a href="# ">호안에수류탄</a></h6>
-                                                    </td>
-                                                    <!-- Hits -->
-                                                    <td class="text-center ">2217</td>
-                                                </tr>
-                                                <!-- 정치 4 -->
-                                                <tr>
-                                                    <!-- Title -->
-                                                    <td>
-                                                        <h6 class="course-title mt-2 mt-md-0 mb-0 "><a href="# ">개발자노동보호법 입법하라</a></h6>
-                                                    </td>
-                                                    <!-- Writer -->
-                                                    <td class="text-center ">
-                                                        <h6 class="mb-0 "><a href="# ">신입디벨로퍼</a></h6>
-                                                    </td>
-                                                    <!-- Hits -->
-                                                    <td class="text-center ">1171</td>
-                                                </tr>
-                                                <!-- 정치 5 -->
-                                                <tr>
-                                                    <!-- Title -->
-                                                    <td>
-                                                        <h6 class="course-title mt-2 mt-md-0 mb-0 "><a href="# ">중기부가 아기유니콘 사업 심사단 모집하는데</a></h6>
-                                                    </td>
-                                                    <!-- Writer -->
-                                                    <td class="text-center ">
-                                                        <h6 class="mb-0 "><a href="# ">국민심사단</a></h6>
-                                                    </td>
-                                                    <!-- Hits -->
-                                                    <td class="text-center ">3542</td>
-                                                </tr>
+                                            	<c:if test="${empty list1}">
+                                            		<td colspan="6">조회된 글이 없습니다.</td>
+                                            	</c:if>
+                                            	<c:if test="${!empty list1}">
+                                            		<c:forEach var="board" items="${list1}" begin="0" end="4" step="1" varStatus="status">                                        				
+                                            				<tr>
+			                                                    <!-- Title -->
+			                                                    <td>
+			                                                        <h6 class="course-title mt-2 mt-md-0 mb-0 "><a href="# "><c:out value="${board.board_title}" /></a></h6>
+			                                                    </td>
+			                                                    <!-- Writer -->
+			                                                    <td class="text-center ">
+			                                                        <h6 class="mb-0 "><a href="# "><c:out value="${board.user_nickName}"/></a></h6>
+			                                                    </td>
+			                                                    <!-- Hits -->
+			                                                    <td class="text-center "><c:out value="${board.board_hit}" /></td>
+			                                                </tr>                                           		
+                                            		</c:forEach>
+                                            	</c:if>
+                                            
                                             </tbody>
                                         </table>
                                     </div>
@@ -430,71 +216,26 @@
                                             </thead>
                                             <!-- 부동산 5개 -->
                                             <tbody class="border-top-0 ">
-                                                <!-- 부동산 1 -->
-                                                <tr>
-                                                    <!-- Title -->
-                                                    <td>
-                                                        <h6 class="course-title mt-2 mt-md-0 mb-0 "><a href="# ">강남 역세권 청약 일정 어디서 찾아보죠?</a></h6>
-                                                    </td>
-                                                    <!-- Writer -->
-                                                    <td class="text-center ">
-                                                        <h6 class="mb-0 "><a href="# ">서현동뒹굴이</a></h6>
-                                                    </td>
-                                                    <!-- Hits -->
-                                                    <td class="text-center ">2139</td>
-                                                </tr>
-                                                <!-- 부동산 2 -->
-                                                <tr>
-                                                    <!-- Title -->
-                                                    <td>
-                                                        <h6 class="course-title mt-2 mt-md-0 mb-0 "><a href="# ">청약캘린더 너무 빡쎈데요</a></h6>
-                                                    </td>
-                                                    <!-- Writer -->
-                                                    <td class="text-center ">
-                                                        <h6 class="mb-0 "><a href="# ">미향먕먕</a></h6>
-                                                    </td>
-                                                    <!-- Hits -->
-                                                    <td class="text-center ">4355</td>
-                                                </tr>
-                                                <!-- 부동산 3 -->
-                                                <tr>
-                                                    <!-- Title -->
-                                                    <td>
-                                                        <h6 class="course-title mt-2 mt-md-0 mb-0 "><a href="# ">나의 작고 소중한 청약통장..귀여워..</a></h6>
-                                                    </td>
-                                                    <!-- Writer -->
-                                                    <td class="text-center ">
-                                                        <h6 class="mb-0 "><a href="# ">건물오우너</a></h6>
-                                                    </td>
-                                                    <!-- Hits -->
-                                                    <td class="text-center ">2234</td>
-                                                </tr>
-                                                <!-- 부동산 4 -->
-                                                <tr>
-                                                    <!-- Title -->
-                                                    <td>
-                                                        <h6 class="course-title mt-2 mt-md-0 mb-0 "><a href="# ">월세 미쳤다</a></h6>
-                                                    </td>
-                                                    <!-- Writer -->
-                                                    <td class="text-center ">
-                                                        <h6 class="mb-0 "><a href="# ">90평원룸</a></h6>
-                                                    </td>
-                                                    <!-- Hits -->
-                                                    <td class="text-center ">4213</td>
-                                                </tr>
-                                                <!-- 부동산 5 -->
-                                                <tr>
-                                                    <!-- Title -->
-                                                    <td>
-                                                        <h6 class="course-title mt-2 mt-md-0 mb-0 "><a href="# ">그래서 은마아파트는 어쩐다고?</a></h6>
-                                                    </td>
-                                                    <!-- Writer -->
-                                                    <td class="text-center ">
-                                                        <h6 class="mb-0 "><a href="# ">하늘에서지켜볼게</a></h6>
-                                                    </td>
-                                                    <!-- Hits -->
-                                                    <td class="text-center ">3348</td>
-                                                </tr>
+                                            	<c:if test="${empty list2}">
+                                            		<td colspan="6">조회된 글이 없습니다.</td>
+                                            	</c:if>
+                                            	<c:if test="${!empty list2}">
+                                            		<c:forEach var="board2" items="${list2}" begin="0" end="4" step="1" varStatus="status">                                        				
+                                            				<tr>
+			                                                    <!-- Title -->
+			                                                    <td>
+			                                                        <h6 class="course-title mt-2 mt-md-0 mb-0 "><a href="# "><c:out value="${board2.board_title}" /></a></h6>
+			                                                    </td>
+			                                                    <!-- Writer -->
+			                                                    <td class="text-center ">
+			                                                        <h6 class="mb-0 "><a href="# "><c:out value="${board2.user_nickName}"/></a></h6>
+			                                                    </td>
+			                                                    <!-- Hits -->
+			                                                    <td class="text-center "><c:out value="${board2.board_hit}" /></td>
+			                                                </tr>                                           		
+                                            		</c:forEach>
+                                            	</c:if>
+                                            
                                             </tbody>
                                         </table>
                                     </div>
@@ -536,71 +277,27 @@
                                             </thead>
                                             <!-- 금융 5개 -->
                                             <tbody class="border-top-0 ">
-                                                <!-- 금융 1 -->
-                                                <tr>
-                                                    <!-- Title -->
-                                                    <td>
-                                                        <h6 class="course-title mt-2 mt-md-0 mb-0 "><a href="# ">누가 삼전이랬냐</a></h6>
-                                                    </td>
-                                                    <!-- Writer -->
-                                                    <td class="text-center ">
-                                                        <h6 class="mb-0 "><a href="# ">김지수투자전략본부장</a></h6>
-                                                    </td>
-                                                    <!-- Hits -->
-                                                    <td class="text-center ">2137</td>
-                                                </tr>
-                                                <!-- 정치 2 -->
-                                                <tr>
-                                                    <!-- Title -->
-                                                    <td>
-                                                        <h6 class="course-title mt-2 mt-md-0 mb-0 "><a href="# ">상여금을 코인으로 받아서 묵혀놨는데 3만원이 되버렸다</a></h6>
-                                                    </td>
-                                                    <!-- Writer -->
-                                                    <td class="text-center ">
-                                                        <h6 class="mb-0 "><a href="# ">난망했어</a></h6>
-                                                    </td>
-                                                    <!-- Hits -->
-                                                    <td class="text-center ">1198</td>
-                                                </tr>
-                                                <!-- 금융 3 -->
-                                                <tr>
-                                                    <!-- Title -->
-                                                    <td>
-                                                        <h6 class="course-title mt-2 mt-md-0 mb-0 "><a href="# ">와 따상!!!!!!!!!!!!!!!!!</a></h6>
-                                                    </td>
-                                                    <!-- Writer -->
-                                                    <td class="text-center ">
-                                                        <h6 class="mb-0 "><a href="# ">큰손옌</a></h6>
-                                                    </td>
-                                                    <!-- Hits -->
-                                                    <td class="text-center ">5113</td>
-                                                </tr>
-                                                <!-- 금융 4 -->
-                                                <tr>
-                                                    <!-- Title -->
-                                                    <td>
-                                                        <h6 class="course-title mt-2 mt-md-0 mb-0 "><a href="# ">코인시장 망했어요?</a></h6>
-                                                    </td>
-                                                    <!-- Writer -->
-                                                    <td class="text-center ">
-                                                        <h6 class="mb-0 "><a href="# ">수온체크</a></h6>
-                                                    </td>
-                                                    <!-- Hits -->
-                                                    <td class="text-center ">4107</td>
-                                                </tr>
-                                                <!-- 금융 5 -->
-                                                <tr>
-                                                    <!-- Title -->
-                                                    <td>
-                                                        <h6 class="course-title mt-2 mt-md-0 mb-0 "><a href="# ">대출 강화됬다는데</a></h6>
-                                                    </td>
-                                                    <!-- Writer -->
-                                                    <td class="text-center ">
-                                                        <h6 class="mb-0 "><a href="# ">신용천룡인</a></h6>
-                                                    </td>
-                                                    <!-- Hits -->
-                                                    <td class="text-center ">2285</td>
-                                                </tr>
+                                            	<c:if test="${empty list3}">
+                                            		<td colspan="6">조회된 글이 없습니다.</td>
+                                            	</c:if>
+                                            	<c:if test="${!empty list3}">
+                                            		<c:forEach var="board" items="${list3}" begin="0" end="4" step="1" varStatus="status">                                        				
+                                            				<tr>
+			                                                    <!-- Title -->
+			                                                    <td>
+			                                                        <h6 class="course-title mt-2 mt-md-0 mb-0 "><a href="# "><c:out value="${board.board_title}" /></a></h6>
+			                                                    </td>
+			                                                    <!-- Writer -->
+			                                                    <td class="text-center ">
+			                                                        <h6 class="mb-0 "><a href="# "><c:out value="${board.user_nickName}"/></a></h6>
+			                                                    </td>
+			                                                    <!-- Hits -->
+			                                                    <td class="text-center "><c:out value="${board.board_hit}" /></td>
+			                                                </tr>                                           		
+                                            		</c:forEach>
+                                            	</c:if>
+                                            
+                                            </tbody>
                                             </tbody>
                                         </table>
                                     </div>
@@ -641,72 +338,26 @@
                                                 </tr>
                                             </thead>
                                             <!-- 자유 5개 -->
-                                            <tbody class="border-top-0 ">
-                                                <!-- 자유 1 -->
-                                                <tr>
-                                                    <!-- Title -->
-                                                    <td>
-                                                        <h6 class="course-title mt-2 mt-md-0 mb-0 "><a href="# ">저는 고양이 집사입니다. 부럽죠? ㅎㅎ;;ㅈㅅ..ㅋㅋ!!</a></h6>
-                                                    </td>
-                                                    <!-- Writer -->
-                                                    <td class="text-center ">
-                                                        <h6 class="mb-0 "><a href="# ">솦솝솟솧소</a></h6>
-                                                    </td>
-                                                    <!-- Hits -->
-                                                    <td class="text-center ">6756</td>
-                                                </tr>
-                                                <!-- 자유 2 -->
-                                                <tr>
-                                                    <!-- Title -->
-                                                    <td>
-                                                        <h6 class="course-title mt-2 mt-md-0 mb-0 "><a href="# ">난 회사식당 때문에 못 때려치고 있다</a></h6>
-                                                    </td>
-                                                    <!-- Writer -->
-                                                    <td class="text-center ">
-                                                        <h6 class="mb-0 "><a href="# ">내일부터다이어트</a></h6>
-                                                    </td>
-                                                    <!-- Hits -->
-                                                    <td class="text-center ">3348</td>
-                                                </tr>
-                                                <!-- 자유 3 -->
-                                                <tr>
-                                                    <!-- Title -->
-                                                    <td>
-                                                        <h6 class="course-title mt-2 mt-md-0 mb-0 "><a href="# ">월 200만 원 백수 되기(일 하면 절대 안 됨) vs 월 600만 원 직장인(정년까지 일 못 그만둠)</a></h6>
-                                                    </td>
-                                                    <!-- Writer -->
-                                                    <td class="text-center ">
-                                                        <h6 class="mb-0 "><a href="# ">밸런스게임빌런</a></h6>
-                                                    </td>
-                                                    <!-- Hits -->
-                                                    <td class="text-center ">5579</td>
-                                                </tr>
-                                                <!-- 자유 4 -->
-                                                <tr>
-                                                    <!-- Title -->
-                                                    <td>
-                                                        <h6 class="course-title mt-2 mt-md-0 mb-0 "><a href="# ">한국인이 고통받는 순간</a></h6>
-                                                    </td>
-                                                    <!-- Writer -->
-                                                    <td class="text-center ">
-                                                        <h6 class="mb-0 "><a href="# ">크으으주모</a></h6>
-                                                    </td>
-                                                    <!-- Hits -->
-                                                    <td class="text-center ">3471</td>
-                                                </tr>
-                                                <!-- 자유 5 -->
-                                                <tr>
-                                                    <!-- Title -->
-                                                    <td>
-                                                        <h6 class="course-title mt-2 mt-md-0 mb-0 "><a href="# ">RTS 게임 인트로 장면.jpg</a></h6>
-                                                    </td>
-                                                    <!-- Writer -->
-                                                    <td class="text-center ">
-                                                        <h6 class="mb-0 "><a href="# ">핫핫해</a></h6>
-                                                    </td>
-                                                    <!-- Hits -->
-                                                    <td class="text-center ">3114</td>
-                                                </tr>
+                                               <tbody class="border-top-0 ">
+                                            	<c:if test="${empty list4}">
+                                            		<td colspan="6">조회된 글이 없습니다.</td>
+                                            	</c:if>
+                                            	<c:if test="${!empty list4}">
+                                            		<c:forEach var="board" items="${list4}" begin="0" end="4" step="1" varStatus="status">                                        				
+                                            				<tr>
+			                                                    <!-- Title -->
+			                                                    <td>
+			                                                        <h6 class="course-title mt-2 mt-md-0 mb-0 "><a href="# "><c:out value="${board.board_title}" /></a></h6>
+			                                                    </td>
+			                                                    <!-- Writer -->
+			                                                    <td class="text-center ">
+			                                                        <h6 class="mb-0 "><a href="# "><c:out value="${board.user_nickName}"/></a></h6>
+			                                                    </td>
+			                                                    <!-- Hits -->
+			                                                    <td class="text-center "><c:out value="${board.board_hit}" /></td>
+			                                                </tr>                                           		
+                                            		</c:forEach>
+                                            	</c:if>
                                             </tbody>
                                         </table>
                                     </div>

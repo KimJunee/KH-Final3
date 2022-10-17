@@ -16,6 +16,8 @@
 		<result property="board_modify" column="BOARD_MODIFY"/>
 		<result property="board_originalFileName" column="BOARD_ORIGINALFILENAME"/>
 		<result property="board_renamedFileName" column="BOARD_RENAMEDFILENAME"/>
+		<result property="reply_cnt" column="REPLY_CNT"/>
+		
 	</resultMap>
 	
 	<resultMap type="Board" id="boardDetailResultMap" extends="boardListResultMap">
@@ -74,19 +76,42 @@
 	
 	<!-- 카테고리별 게시판 목록  -->
 	<select id="selectBoardList" resultMap="boardListResultMap"  parameterType="map">
-		SELECT  
-			B.BOARD_NO, B.BOARD_TITLE, U.USER_NICKNAME, B.BOARD_HIT, 
-	        B.BOARD_LIST_NO, B.BOARD_ORIGINALFILENAME, B.BOARD_RENAMEDFILENAME, B.BOARD_CONTENT,
-	        B.BOARD_REGISTER, B.BOARD_MODIFY, 
-	        (SELECT COUNT(1) 
+		SELECT  B.BOARD_NO,
+		        B.BOARD_TITLE, 
+		        U.USER_NICKNAME, 
+		        B.BOARD_HIT, 
+		        B.BOARD_LIST_NO, 
+		        B.BOARD_ORIGINALFILENAME, 
+		        B.BOARD_RENAMEDFILENAME, 
+		        B.BOARD_CONTENT,
+		        B.BOARD_REGISTER, 
+		        B.BOARD_MODIFY, 
+		        (SELECT COUNT(1) 
 		        FROM REPLY R 
 		        WHERE R.BOARD_NO = B.BOARD_NO ) AS REPLY_CNT
 		FROM BOARD B
 		JOIN USER_T U ON(B.WRITER_NO = U.USER_NO)
 		WHERE B.BOARD_STATUS = 'Y'
-		<if test="board_list_no != null and !board_list_no.equals('')">
-			AND B.BOARD_LIST_NO = #{board_list_no}
-		</if>
+		ORDER BY B.BOARD_NO DESC
+	</select>
+	
+	<select id="selectBoardListMain" resultMap="boardListResultMap"  parameterType="map">
+		SELECT  B.BOARD_NO,
+		        B.BOARD_TITLE, 
+		        U.USER_NICKNAME, 
+		        B.BOARD_HIT, 
+		        B.BOARD_LIST_NO, 
+		        B.BOARD_ORIGINALFILENAME, 
+		        B.BOARD_RENAMEDFILENAME, 
+		        B.BOARD_CONTENT,
+		        B.BOARD_REGISTER, 
+		        B.BOARD_MODIFY, 
+		        (SELECT COUNT(1) 
+		        FROM REPLY R 
+		        WHERE R.BOARD_NO = B.BOARD_NO ) AS REPLY_CNT
+		FROM BOARD B
+		JOIN USER_T U ON(B.WRITER_NO = U.USER_NO)
+		WHERE B.BOARD_STATUS = 'Y'
 		ORDER BY B.BOARD_NO DESC
 	</select>
 	

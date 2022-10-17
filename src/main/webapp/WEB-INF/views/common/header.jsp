@@ -126,11 +126,11 @@
 
                         <!-- 커뮤니티 메뉴 시작 -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link-sp " href="${path}/board/main" id="postMenu " data-bs-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">커뮤니티</a>
+                            <a class="nav-link-sp " href="${path}/board/communityMain" id="postMenu " data-bs-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">커뮤니티</a>
                             <ul class="dropdown-menu bg-dark text-white" aria-labelledby="postMenu ">
                                 <!-- dropdown submenu -->
                                 <li class="dropdown-submenu dropend text-white">
-                                    <a class="dropdown-item text-white" href="${path}/board/main">커뮤니티메인</a></li>
+                                    <a class="dropdown-item text-white" href="${path}/board/communityMain">커뮤니티메인</a></li>
                                 <li class="dropdown-submenu dropend text-white">
                                     <a class="dropdown-item text-white" href="${path}/board/list?type=1">정치Talk 
                                     	<span class="badge bg-danger smaller me-1">New</span></a></li>
