@@ -42,11 +42,50 @@
 		                        <!-- Page title + Features-->
 		                        <div class="row">
 		                            <div class="col-9">
-		                                <h2 class="mb-2 mice">우리전세론(주택금융보증)</h2>
-		                                <p class="mb-2 pb-1 fs-lg"> &nbsp; - 가입방법 : 영업점, 모집인<br> &nbsp; - 최고한도 : 최대2.2억원</p>
+		                            	<input type="hidden" value="${leaseLoan.id}">
+		                                <h2 class="mb-2 mice">${leaseLoan.finPrdtNm}</h2>
+		                                <p class="mb-2 pb-1 fs-lg"> &nbsp; - 가입방법 : ${leaseLoan.joinWay}<br> &nbsp; - 대출한도 : ${leaseLoan.loanLmt}</p>
 		                            </div>
 		                            <div class="col-3">
-		                                <img src="${path}/resources/resources1b/images/02_fin_financePro/wooriBank.jpg" alt="">
+		                           	<c:set var="coName" value="${leaseLoan.korCoNm}"/>
+                                    <c:choose>
+	                                      <c:when test="${fn:contains(coName, '우리')}">
+	                                          <img src="${path}/resources/resources1b/images/02_fin_financePro/wooriBank.png" alt="">
+	                                      </c:when>
+	                                      <c:when test="${fn:contains(coName, '국민')}">
+	                                          <img src="${path}/resources/resources1b/images/02_fin_financePro/kbBank.png" alt="">
+	                                      </c:when>
+	                                      <c:when test="${fn:contains(coName, '신한')}">
+	                                          <img src="${path}/resources/resources1b/images/02_fin_financePro/shinhanBank.png" alt="">
+	                                      </c:when>
+	                                      <c:when test="${fn:contains(coName, '제주')}">
+	                                          <img src="${path}/resources/resources1b/images/02_fin_financePro/jejuBank.png" alt="">
+	                                      </c:when>
+	                                      <c:when test="${fn:contains(coName, '농협')}">
+	                                          <img src="${path}/resources/resources1b/images/02_fin_financePro/nhBank.png" alt="">
+	                                      </c:when>
+	                                      <c:when test="${fn:contains(coName, '대구')}">
+	                                          <img src="${path}/resources/resources1b/images/02_fin_financePro/deaguBank.png" alt="">
+	                                      </c:when>
+	                                      <c:when test="${fn:contains(coName, '광주')}">
+	                                          <img src="${path}/resources/resources1b/images/02_fin_financePro/gjBank.png" alt="">
+	                                      </c:when>
+	                                      <c:when test="${fn:contains(coName, '기업')}">
+	                                          <img src="${path}/resources/resources1b/images/02_fin_financePro/ibkBank.png" alt="">
+	                                      </c:when>
+				     					  <c:when test="${fn:contains(coName, '부산')}">
+	                                          <img src="${path}/resources/resources1b/images/02_fin_financePro/busanBank.png" alt="">
+	                                      </c:when>	
+	                                      <c:when test="${fn:contains(coName, '스탠다드')}">
+	                                          <img src="${path}/resources/resources1b/images/02_fin_financePro/scBank.png" alt="">
+	                                      </c:when>
+	                                      <c:when test="${fn:contains(coName, '하나')}">
+	                                          <img src="${path}/resources/resources1b/images/02_fin_financePro/kebBank.png" alt="">
+	                                      </c:when>
+	                                      <c:otherwise>
+	                                          <img src="${path}/resources/resources1b/images/02_fin_financePro/iconBank.png" alt="">	                                                                        
+	                                      </c:otherwise>
+                                    </c:choose>
 		                            </div>
 		                        </div>
 		                        <div class="row">
@@ -71,40 +110,19 @@
 		
 		                                                <!-- Table body START -->
 		                                                <tbody class="border-top-0" style="text-align:center;">
-		                                                    <tr>
+		                                                <c:forEach var="leaseLoanOption" items="${leaseLoan.leaseOptionList}">
+		                                                    <tr>		                                                    
 		                                                        <!-- NO -->
-		                                                        <td>분할상환방식</td>
-		                                                        <td>변동금리</td>
+		                                                        <td>${leaseLoanOption.rpayTypeNm}</td>
+		                                                        <td>${leaseLoanOption.lendRateTypeNm}</td>
 		                                                        <!-- 최저금리 -->
-		                                                        <td>4.92%</td>
+		                                                        <td>${leaseLoanOption.lendRateMin}%</td>
 		                                                        <!-- 최고금리 -->
-		                                                        <td>5.32%</td>
+		                                                        <td>${leaseLoanOption.lendRateMax}%</td>
 		                                                        <!-- 전월 평균금리 -->
-		                                                        <td>4.55%</td>
+		                                                        <td>${leaseLoanOption.lendRateAvg}%</td>
 		                                                    </tr>
-		
-		                                                    <!-- Table row -->
-		                                                    <tr>
-		                                                        <!-- Table data -->
-		                                                        <td>만기일시상환방식</td>
-		                                                        <td>변동금리</td>
-		                                                        <!-- 최저금리 -->
-		                                                        <td>4.92%</td>
-		                                                        <!-- 최고금리 -->
-		                                                        <td>5.32%</td>
-		                                                        <!-- 전월 평균금리 -->
-		                                                        <td>4.56%</td>
-		                                                    </tr>
-		                                                    <tr>
-		                                                        <td>만기일시상환방식</td>
-		                                                        <td>고정금리</td>
-		                                                        <!-- 최저금리 -->
-		                                                        <td>-</td>
-		                                                        <!-- 최고금리 -->
-		                                                        <td>-</td>
-		                                                        <!-- 전월 평균금리 -->
-		                                                        <td>5.03%</td>
-		                                                    </tr>
+		                                                </c:forEach>
 		                                                </tbody>
 		                                            </table>
 		                                        </div>
@@ -115,7 +133,7 @@
 		                    </div>
 		
 		                    <h5 class="mice mt-3">유의사항</h5>
-		                    <p class="mb-4 pb-2">&nbsp; ※ 이 금융상품을 가입하시기 전에 상품설명서 및 약관을 읽어보시기 바랍니다.<br>&nbsp; ※ 금융소비자는 해당 상품 또는 서비스에 대하여 설명받을 권리가 있습니다.<br> &nbsp; ※ 만기 전 해지할 경우 계약에서 정한 이율보다 낮은 중도해지이율이 적용됩니다.</p>
+		                    <p class="mb-4 pb-2">&nbsp; ※ 대출신청인이 신용도판단정보 등록자(신용회복지원 또는 배드뱅크 포함)이거나 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;은행의 신용평가 결과 신용등급이 낮은 고객일 경우 대출이 제한될 수 있습니다.<br>&nbsp; ※ 일반금융소비자는 은행이 계약 체결을 권유하는 경우 및 일반금융소비자가<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;설명을 요청하는 경우에도 중요한 사항을 이해할 수 있도록 설명받을 권리가 있습니다.<br> &nbsp; ※ 대출 사실만으로 신용점수는 하락할 수 있습니다.</p>
 		                    <h5 class="mice">은행별 최고 우대금리</h5>
 		                    <div class="card-body col-lg-15 p-4 rounded-3 border border-1 mb-5">
 		                        <div class="card-body">
@@ -151,7 +169,9 @@
 		                            <div class="col-8">
 		                                <div><span class="badge bg-success me-2 mb-2">Verified</span><span class="badge bg-info me-2 mb-2">New</span></div>
 		                                <h5 class="mice mb-2">이율</h5>
-		                                <h3 class="mice mb-2 pb-2">최저 4.92 ~ 최고 5.03 </h3>
+		                                <c:forEach var="leaseLoanOption" items="${leaseLoan.leaseOptionList}" begin="0" end="0" step="1">
+		                                <h3 class="mice mb-2 pb-2">최저 ${leaseLoanOption.lendRateMin} ~ 최고 ${leaseLoanOption.lendRateMax}</h3>
+		                                </c:forEach>
 		                            </div>
 		                            <div class="col-4">
 		                                <div class="avatar avatar-xl">
@@ -162,19 +182,19 @@
 		                        <div class="card border-0 bg-light mb-4">
 		                            <div class="card-body">
 		                                <h5 class="mice">대출부대비용</h5>
-		                                <span>- 인지세 : 해당세액의 50%(대출금액 5천만원 이하시 없음) <br>- 주택신보출연료 : 0.17 ~ 0.21% <br>- 주택신보보증료 : 연 0.12 ~ 연 0.40%</span>
+		                                <span>${leaseLoan.loanInciExpn}</span>
 		                            </div>
 		                        </div>
 		                        <a class="btn btn-lg btn-primary w-100 mb-3" href="#">♥ Like This Financial Product</a>
-		                        <a class="d-inline-block mb-4 pb-2 text-decoration-none" href="02_fin_Product.html">
+		                        <a class="d-inline-block mb-4 pb-2 text-decoration-none" href="${path}/finance/leaseloanMain">
 		                            <i class="fi-help me-2 mt-n1 align-middle"></i>목록으로 돌아가기
 		                        </a>
 		                        <div class="card border-0 bg-light mb-4">
 		                            <div class="card-body">
 		                                <h5 class="mice">중도상환 수수료</h5>
-		                                <span> -고정금리 : 주택상환금액×0.7%×(대출잔액일수÷3년) <br> - 변동금리 : 주택상환금액×0.6%×(대출잔액일수÷3년)</span>
+		                                <span>${leaseLoan.erlyRpayFee}</span>
 		                                <h5 class="mice mt-2">연체 이자율</h5>
-		                                <span>- 적용금리 + 3% (최고연체이자율 : 12%)</span>
+		                                <span>${leaseLoan.dlyRate}</span>
 		                            </div>
 		                        </div>
 		                        <div class="card border border-1 mb-4">
@@ -183,7 +203,7 @@
 		                                    <img src="${path}/resources/resources1b/images/02_fin_financePro/woman.jpg" style="width:300px; height:180px">
 		                                </div>
 		                                <div class="right" style="width:180px; height:100px">
-		                                    <p class="mb-2 mt-2"> 개인별 맞춤 재무상담을 통해 자산관리 방법, 재무설계 솔루션, 재테크 전략, 금융 관련 정보 등을 제공합니다.</p>
+		                                    <p class="mb-2 mt-2"> 개인별 맞춤 재무상담을 통해 자산관리 방법, 재테크 전략, 금융 관련 정보 등을 제공합니다.</p>
 		                                    <div class="d-flex justify-content-between">
 		                                        <div class="pe-3">
 		                                            <h6 class="mb-0">김태임 재무설계사</h6>

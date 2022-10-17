@@ -14,7 +14,6 @@ import com.kh.realfinal.common.util.PageInfo;
 import com.kh.realfinal.financialsupervisory.api.FixDepositAPI;
 import com.kh.realfinal.financialsupervisory.model.service.FixDepositService;
 import com.kh.realfinal.financialsupervisory.model.vo.FixDeposit;
-import com.kh.realfinal.financialsupervisory.model.vo.InstallmentSavings;
 
 import lombok.extern.slf4j.Slf4j;
 

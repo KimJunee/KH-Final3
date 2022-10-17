@@ -84,7 +84,7 @@
                                     <!-- 금융사 이미지 -->
                                     <ul class="avatar-group mb-0">
                                         <li class="avatar avatar-xl">
-                                            <img class="avatar-img rounded-circle" src="${path}/resources/resources1b/images/02_fin_financePro/nhBank.jpg" alt="avatar">
+                                            <img class="avatar-img rounded-circle" src="${path}/resources/resources1b/images/02_fin_financePro/nhBank.png" alt="avatar">
                                         </li>
                                     </ul>
                                 </div>
@@ -116,7 +116,7 @@
                             <!-- Card body START -->
                             <div class="card-body">
                                 <ul style="padding-left: 10px;">
-                                    <li>가입대상 : 개인 또는 개인사업자</li>
+                                    <li>가입대상 : 개인, 개인사업자</li>
                                     <li>저축기간 : 12개월</li>
                                     <li>금리유형 : 단리</li>
                                 </ul>
@@ -128,7 +128,7 @@
                                     <!-- Avatar group -->
                                     <ul class="avatar-group mb-0">
                                         <li class="avatar avatar-xl">
-                                            <img src="${path}/resources/resources1b/images/02_fin_financePro/kbBank.jpg" class="avatar-img" alt="">
+                                            <img src="${path}/resources/resources1b/images/02_fin_financePro/kbBank.png" class="avatar-img" alt="">
                                         </li>
                                     </ul>
                                 </div>
@@ -172,7 +172,7 @@
 
                                     <ul class="avatar-group mb-0">
                                         <li class="avatar avatar-xl">
-                                            <img src="${path}/resources/resources1b/images/02_fin_financePro/ibkBank.jpg" alt="">
+                                            <img src="${path}/resources/resources1b/images/02_fin_financePro/ibkBank.png" alt="">
                                         </li>
                                     </ul>
                                 </div>
@@ -216,7 +216,7 @@
 
                                     <ul class="avatar-group mb-0">
                                         <li class="avatar avatar-xl">
-                                            <img src="${path}/resources/resources1b/images/02_fin_financePro/shinhanBank.jpg" alt="">
+                                            <img src="${path}/resources/resources1b/images/02_fin_financePro/shinhanBank.png" alt="">
                                         </li>
                                     </ul>
                                 </div>
@@ -250,8 +250,8 @@
                                 <div class="nav flex-column nav-pills mt-2 fw-bold" id="v-pills-tab" role="tablist" style="text-align: center;">
                                     <a class="nav-link active border-bottom mt-1 mice" style="font-size: 18px;" id="v-pills-home-tab" href="${path}/finance/productMain" role="tab" aria-selected="true">적 &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; 금</a>
                                     <a class="nav-link border-bottom mice" style="font-size: 18px;" id="v-pills-profile-tab" href="${path}/finance/depositMain" role="tab" aria-selected="false">예 &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 금</a>
-                                    <a class="nav-link border-bottom mice" style="font-size: 18px;" id="v-pills-settings-tab" href="#v-pills-settings" role="tab"  aria-selected="false">주택담보대출</a>
-                                    <a class="nav-link mice" style="font-size: 18px;" id="v-pills-settings-tab" href="#v-pills-settings" role="tab"  aria-selected="false">전세자금대출</a>
+                                    <a class="nav-link border-bottom mice" style="font-size: 18px;" id="v-pills-settings-tab" href="" role="tab"  aria-selected="false">주택담보대출</a>
+                                    <a class="nav-link mice" style="font-size: 18px;" id="v-pills-settings-tab" href="${path}/finance/leaseloanMain" role="tab"  aria-selected="false">전세자금대출</a>
                                 </div>
                             </div>
                         </div>
@@ -265,8 +265,8 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <h3 class="mb-1">To make money</h3>
-                                        <a class="mb-3 h5 fw-light lead">회원님께 안성맞춤인 
-                                        <p>금융정보를 원하시나요?</p></a>
+                                        <h5 class="mb-3 mice">회원님께 안성맞춤인 
+                                        <br>금융정보를 원하시나요?</h5>
                                         <a href="#" class="btn btn-primary mb-0" style="margin-left: 20px;">View Information</a>
                                     </div>
                                 </div>
@@ -283,7 +283,7 @@
                                     <!-- Search bar -->
                                     <div class="col-md-5">
                                         <form action="${path}/finance/productMain" method="get" class="rounded position-relative">
-                                            <input id="searchValue" name="searchValue" class="form-control bg-transparent" type="search" placeholder="금융회사명을 입력하세요!" aria-label="Search" value="${param.searchValue}">
+                                            <input id="searchValue" name="searchValue" class="form-control bg-transparent" type="search" placeholder="금융회사명을 입력하세요!" aria-label="Search" value="${param.searchValue}" />
                                             <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
                                         </form>
                                     </div>
@@ -401,7 +401,10 @@
                                                         <!-- 가입방법 -->
                                                         <td><c:out value="${installmentSavings.joinWay}"/></td>
                                                         <!-- 적립,금리유형 -->
-                                                        <td>자유적립식</td>
+                                                        <td><c:forEach var="installOption" items="${installmentSavings.installOptionList}"  begin="0" end="0" step="1">
+                                                            	<c:out value="${installOption.rsrvTypeNm}"/>                                                              			
+                                                            </c:forEach>
+                                                        </td>
                                                     </tr>   
                                                 </c:forEach>
                                               	</c:if>                    
@@ -448,7 +451,7 @@
 				var searchValue = document.getElementById("searchValue");
 					pageUrl = pageUrl + '&searchValue=' + searchValue.value; 
 				location.href = encodeURI(pageUrl);	
-			}			
+			}		
 		</script>
     </main>	    
 	<%@ include file="/WEB-INF/views/common/footer.jsp" %>

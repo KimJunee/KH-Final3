@@ -49,7 +49,45 @@
 		                                <p class="mb-2 pb-1 fs-lg"> &nbsp; - 가입대상 : <c:out value="${installment.joinMember}"/><br> &nbsp; - 가입방법 : <c:out value="${installment.joinWay}"/><br> &nbsp; - 최고한도 : <c:out value=" ${installment.maxLimit}"/></p>
 		                            </div>
 		                            <div class="col-3">
-		                                <img src="${path}/resources/resources1b/images/02_fin_financePro/kbBank.jpg" alt="">
+                 			        <c:set var="coName" value="${installment.korCoNm}"/>
+                                    <c:choose>
+	                                      <c:when test="${fn:contains(coName, '우리')}">
+	                                          <img src="${path}/resources/resources1b/images/02_fin_financePro/wooriBank.png" alt="">
+	                                      </c:when>
+	                                      <c:when test="${fn:contains(coName, '국민')}">
+	                                          <img src="${path}/resources/resources1b/images/02_fin_financePro/kbBank.png" alt="">
+	                                      </c:when>
+	                                      <c:when test="${fn:contains(coName, '신한')}">
+	                                          <img src="${path}/resources/resources1b/images/02_fin_financePro/shinhanBank.png" alt="">
+	                                      </c:when>
+	                                      <c:when test="${fn:contains(coName, '제주')}">
+	                                          <img src="${path}/resources/resources1b/images/02_fin_financePro/jejuBank.png" alt="">
+	                                      </c:when>
+	                                      <c:when test="${fn:contains(coName, '농협')}">
+	                                          <img src="${path}/resources/resources1b/images/02_fin_financePro/nhBank.png" alt="">
+	                                      </c:when>
+	                                      <c:when test="${fn:contains(coName, '대구')}">
+	                                          <img src="${path}/resources/resources1b/images/02_fin_financePro/deaguBank.png" alt="">
+	                                      </c:when>
+	                                      <c:when test="${fn:contains(coName, '광주')}">
+	                                          <img src="${path}/resources/resources1b/images/02_fin_financePro/gjBank.png" alt="">
+	                                      </c:when>
+	                                      <c:when test="${fn:contains(coName, '기업')}">
+	                                          <img src="${path}/resources/resources1b/images/02_fin_financePro/ibkBank.png" alt="">
+	                                      </c:when>
+				     					  <c:when test="${fn:contains(coName, '부산')}">
+	                                          <img src="${path}/resources/resources1b/images/02_fin_financePro/busanBank.png" alt="">
+	                                      </c:when>	
+	                                      <c:when test="${fn:contains(coName, '스탠다드')}">
+	                                          <img src="${path}/resources/resources1b/images/02_fin_financePro/scBank.png" alt="">
+	                                      </c:when>
+	                                      <c:when test="${fn:contains(coName, '하나')}">
+	                                          <img src="${path}/resources/resources1b/images/02_fin_financePro/kebBank.png" alt="">
+	                                      </c:when>
+	                                      <c:otherwise>
+	                                          <img src="${path}/resources/resources1b/images/02_fin_financePro/iconBank.png" alt="">	                                                                        
+	                                      </c:otherwise>
+                                    </c:choose>
 		                            </div>
 		                        </div>
 		                    </div>

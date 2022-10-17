@@ -5,7 +5,7 @@
 <!-- com.kh.realfinal.financialterm.model.mapper.FinancialtermMapper.insertFinancialterm -->
 <mapper	namespace="com.kh.realfinal.financialsupervisory.model.mapper.LeaseLoanMapper">
 		<resultMap type="LeaseLoan" id="leaseResultMap">
-		<id property="leaseLoanId" column="LEASELOAN_ID"/>
+		<id property="id" column="LEASELOAN_ID"/>
 		<result property="dclsMonth" column="LEASELOAN_DCLS_MONTH"/>
 		<result property="finCoNo" column="LEASELOAN_FIN_CO_NO"/>
 		<result property="korCoNm" column="LEASELOAN_KOR_CO_NM"/>
@@ -25,7 +25,7 @@
 		<collection property="leaseOptionList" javaType="arrayList" resultMap="leaseOptionMap"/>
 	</resultMap>
 	
-	<resultMap type="MortgageLoanOption" id="leaseOptionMap">
+	<resultMap type="LeaseLoanOption" id="leaseOptionMap">
 		<id property="leaseNo" column="LEASELOAN_NO"/>
 		<result property="leaseId" column="LEASELOAN_ID"/>
 		<result property="rpayType" column="LEASELOAN_RPAY_TYPE"/>
@@ -46,7 +46,7 @@
 			LEASELOAN_LOAN_INCI_EXPN, LEASELOAN_ERLY_RPAY_FEE, LEASELOAN_DLY_RATE, LEASELOAN_LOAN_LMT, 
 			LEASELOAN_DCLS_STRT_DAY, LEASELOAN_DCLS_END_DAY, LEASELOAN_FIN_CO_SUBM_DAY
 		) VALUES(
-			#{leaseLoanId}, #{dclsMonth}, #{finCoNo}, #{korCoNm}, 
+			#{id}, #{dclsMonth}, #{finCoNo}, #{korCoNm}, 
 			#{finPrdtCd}, #{finPrdtNm}, #{joinWay},
 			#{loanInciExpn}, #{erlyRpayFee}, #{dlyRate}, #{loanLmt}, 
 			#{dclsStrtDay}, #{dclsEndDay}, #{finCoSubmDay}
@@ -63,4 +63,59 @@
 			#{lendRateTypeNm}, #{lendRateMin}, #{lendRateMax}, #{lendRateAvg}
 		)
 	</insert>
+	
+	<select id="selectLeaseLoanList" resultMap="leaseListResultMap">
+		SELECT l.leaseloan_id, l.leaseloan_kor_co_nm, l.leaseloan_fin_prdt_nm, l.leaseloan_join_way,
+		l.leaseloan_loan_inci_expn, l.leaseloan_erly_rpay_fee, l.leaseloan_dly_rate, l.leaseloan_loan_lmt,
+		o.leaseloan_rpay_type_nm, o.leaseloan_lend_rate_type_nm, o.leaseloan_lend_rate_min,
+		o.leaseloan_lend_rate_max, o.leaseloan_lend_rate_avg
+		FROM LEASELOAN l
+		JOIN LEASELOAN_OPTION o ON l.leaseloan_id = o.leaseloan_id
+		JOIN (SELECT leaseloan_id, MAX(leaseloan_lend_rate_max) MAX_RATE
+		FROM LEASELOAN_OPTION
+		GROUP BY leaseloan_id) C ON C.leaseloan_id = l.leaseloan_id
+		AND c.MAX_RATE = o.leaseloan_lend_rate_max
+		<if test="korCoNm != null">
+			WHERE l.leaseloan_kor_co_nm LIKE '%'||#{korCoNm}||'%'			
+		</if>
+		<if test="sort != null"> ORDER BY
+			<choose>
+				<when test="sort == 'sortBy'">l.leaseloan_id</when>
+				<when test="sort == 'intRate'">o.leaseloan_lend_rate_min</when>
+				<when test="sort == 'coNm'">l.leaseloan_kor_co_nm</when>
+			</choose>
+		</if>
+	</select>
+	
+	<select id="selectLeaseLoanCount" parameterType="map" resultType="int">
+		SELECT COUNT(*) FROM (SELECT l.leaseloan_id, l.leaseloan_kor_co_nm, l.leaseloan_fin_prdt_nm, l.leaseloan_join_way,
+		l.leaseloan_loan_inci_expn, l.leaseloan_erly_rpay_fee, l.leaseloan_dly_rate, l.leaseloan_loan_lmt,
+		o.leaseloan_rpay_type_nm, o.leaseloan_lend_rate_type_nm, o.leaseloan_lend_rate_min,
+		o.leaseloan_lend_rate_max, o.leaseloan_lend_rate_avg
+		FROM LEASELOAN l
+		JOIN LEASELOAN_OPTION o ON l.leaseloan_id = o.leaseloan_id
+		JOIN (SELECT leaseloan_id, MAX(leaseloan_lend_rate_max) MAX_RATE
+		FROM LEASELOAN_OPTION
+		GROUP BY leaseloan_id) C ON C.leaseloan_id = l.leaseloan_id
+		AND c.MAX_RATE = o.leaseloan_lend_rate_max
+		<if test="korCoNm != null">
+			WHERE l.leaseloan_kor_co_nm LIKE '%'||#{korCoNm}||'%'		
+		</if>
+		)
+	</select>
+	
+	<select id="selectByLeaseLoanId" parameterType="int" resultMap="leaseListResultMap">
+		SELECT l.leaseloan_id, l.leaseloan_kor_co_nm, l.leaseloan_fin_prdt_nm, l.leaseloan_join_way,
+		l.leaseloan_loan_inci_expn, l.leaseloan_erly_rpay_fee, l.leaseloan_dly_rate, l.leaseloan_loan_lmt,
+		o.leaseloan_rpay_type_nm, o.leaseloan_lend_rate_type_nm, o.leaseloan_lend_rate_min,
+		o.leaseloan_lend_rate_max, o.leaseloan_lend_rate_avg
+		FROM LEASELOAN l
+		JOIN LEASELOAN_OPTION o ON l.leaseloan_id = o.leaseloan_id
+		JOIN (SELECT leaseloan_id, MAX(leaseloan_lend_rate_max) MAX_RATE
+		FROM LEASELOAN_OPTION
+		GROUP BY leaseloan_id) C ON C.leaseloan_id = l.leaseloan_id
+		AND c.MAX_RATE = o.leaseloan_lend_rate_max
+		WHERE l.leaseloan_id = #{id}
+	</select>
+	
 </mapper>

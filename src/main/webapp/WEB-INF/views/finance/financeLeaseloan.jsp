@@ -249,9 +249,9 @@
                             <div class="card border">
                                 <div class="nav flex-column nav-pills mt-2 fw-bold" id="v-pills-tab" role="tablist" style="text-align: center;">
                                     <a class="nav-link border-bottom mt-1 mice" style="font-size: 18px;" id="v-pills-home-tab" href="${path}/finance/productMain" role="tab" aria-selected="false">적 &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; 금</a>
-                                    <a class="nav-link active border-bottom mice" style="font-size: 18px;" id="v-pills-profile-tab" href="${path}/finance/depositMain" role="tab" aria-selected="true">예 &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 금</a>
+                                    <a class="nav-link border-bottom mice" style="font-size: 18px;" id="v-pills-profile-tab" href="${path}/finance/depositMain" role="tab" aria-selected="true">예 &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 금</a>
                                     <a class="nav-link border-bottom mice" style="font-size: 18px;" id="v-pills-settings-tab" href="#v-pills-settings" role="tab"  aria-selected="false">주택담보대출</a>
-                                    <a class="nav-link mice" style="font-size: 18px;" id="v-pills-settings-tab" href="${path}/finance/leaseloanMain" role="tab"  aria-selected="false">전세자금대출</a>
+                                    <a class="nav-link active mice" style="font-size: 18px;" id="v-pills-settings-tab" href="#v-pills-settings" role="tab"  aria-selected="false">전세자금대출</a>
                                 </div>
                             </div>
                         </div>
@@ -281,23 +281,23 @@
                                 <!-- Search and select START -->
                                 <div class="row g-3 align-items-center justify-content-between">
                                     <!-- Search bar -->
-                                    <div class="col-md-5">
-                                        <form action="${path}/finance/depositMain" method="get" class="rounded position-relative">
-                                            <input id="searchValue" name="searchValue" class="form-control bg-transparent" type="search" placeholder="금융회사명을 입력하세요!" aria-label="Search" value="${param.searchValue}">
-                                            <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
-                                        </form>
+                               	<form action="${path}/finance/leaseloanMain" method="get" class="rounded position-relative">
+                                    <div class="row">
+	                                    <div class="col-2">
+	                                        <!-- Short by filter -->                                     
+		                                    <select id="sort" name="sort" class="form-select z-index-9 bg-transparent" aria-label=".form-select-sm">
+	                                            <option value="sortBy" <c:if test="${param.sort == 'sortBy'}">selected</c:if>>Sort by</option>
+	                                            <option value="intRate" <c:if test="${param.sort == 'intRate'}">selected</c:if>>금리순</option>
+	                                            <option value="coNm" <c:if test="${param.sort == 'coNm'}">selected</c:if>>금융회사순</option>
+		                                    </select>
+	                                    </div>
+	                                    <div class="col-5"></div>
+	                                    <div class="col-5">
+	                                        <input id="searchValue" name="searchValue" class="form-control bg-transparent" type="search" placeholder="금융회사명을 입력하세요!" aria-label="Search" value="${param.searchValue}">
+	                                        <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6"></i></button>                                       
+	                                    </div>
                                     </div>
-                                    <div class="col-md-3"></div>
-                                    <div class="col-md-2">
-                                        <!-- Short by filter -->
-                                        <form>
-                                            <select class="form-select z-index-9 bg-transparent" aria-label=".form-select-sm">
-                                                    <option value="">Sort by</option>
-                                                    <option>금리순</option>
-                                                    <option>금융회사순</option>
-                                            </select>
-                                        </form>
-                                    </div>
+                                </form>
                                 </div>
                             </div>
                             <!-- 금융상품 검색 List START -->
@@ -322,8 +322,8 @@
 
                                                 <!-- Table body START -->
                                                 <tbody class="border-top-0" style="text-align:center;">
-                                                <c:if test="${!empty depositList}">
-                                                <c:forEach var="fixDeposit" items="${depositList}" step="1" varStatus="status">
+                                                <c:if test="${!empty leaseLoanList}">
+                                                <c:forEach var="leaseLoan" items="${leaseLoanList}" step="1" varStatus="status">
                                                     <tr>
                                                         <!-- NO -->
                                                         <td><c:out value="${status.count}"/></td>
@@ -333,7 +333,7 @@
                                                                     <div class="align-items-center">
                                                                         <!-- 금융사 Image -->
                                                                         <div class="avatar avatar-md">
-                                                                        <c:set var="coName" value="${fixDeposit.korCoNm}"/>
+                                                                        <c:set var="coName" value="${leaseLoan.korCoNm}"/>
                                                                         <c:choose>
 	                                                                        <c:when test="${fn:contains(coName, '우리')}">
 	                                                                            <img src="${path}/resources/resources1b/images/02_fin_financePro/wooriBank.png" class="avatar-img" alt="">
@@ -379,16 +379,16 @@
                                                                     <div class="mb-0 mt-1 ms-2">
                                                                         <!-- 금융상품명 -->
                                                                         <h5 class="mb-0">
-                                                                        	<a href="">
-                                                                        	<c:out value="${fixDeposit.finPrdtNm}"/>                                                                       	
+                                                                        	<a href="${path}/finance/leaseLoanDetail?id=${leaseLoan.id}">
+                                                                        	<c:out value="${leaseLoan.finPrdtNm}"/>                                                                       	
                                                                         	</a>
                                                                         </h5>
                                                                     </div>
                                                                     <div class="mb-0 mt-1 ms-2">
-                                                                        <h6 class="mb-0">최고 연
+                                                                        <h6 class="mb-0">최저 연
                                                                         	<a href="#!" class="text-primary">
-                                                                        		<c:forEach var="depositOption" items="${fixDeposit.fixOptionList}"  begin="0" end="0" step="1">
-                                                                        			<c:out value="${depositOption.intrRate2}"/>%                                                                   			
+                                                                        		<c:forEach var="leaseLoanOption" items="${leaseLoan.leaseOptionList}"  begin="0" end="0" step="1">
+                                                                        			<c:out value="${leaseLoanOption.lendRateMin}"/>%                                                                   			
                                                                         		</c:forEach>
                                                                         	</a>
                                                                         </h6>
@@ -397,11 +397,15 @@
                                                             </div>
                                                         </td>
                                                         <!-- 금융기관명 -->
-                                                        <td><c:out value="${fixDeposit.korCoNm}"/></td>
+                                                        <td><c:out value="${leaseLoan.korCoNm}"/></td>
                                                         <!-- 가입방법 -->
-                                                        <td><c:out value="${fixDeposit.joinWay}"/></td>
+                                                        <td><c:out value="${leaseLoan.joinWay}"/></td>
                                                         <!-- 적립,금리유형 -->
-                                                        <td>자유적립식</td>
+                                                        <td>
+                                                        	<c:forEach var="leaseLoanOption" items="${leaseLoan.leaseOptionList}"  begin="0" end="0" step="1">
+                                                            	<c:out value="${leaseLoanOption.lendRateTypeNm}"/>                                                                			
+                                                            </c:forEach>
+														</td>
                                                     </tr>   
                                                 </c:forEach>
                                               	</c:if>                    
@@ -421,18 +425,18 @@
                                     <nav class="mb-sm-0 d-flex justify-content-center mt-2" aria-label="navigation">
                                         <ul class="pagination pagination-sm pagination-bordered mb-0">
                                             <li class="page-item">
-                                                <a onclick="movePage('${path}/finance/depositMain?page=${pageInfo.prevPage}');" class="page-link">Prev</a>
+                                                <a onclick="movePage('${path}/finance/leaseloanMain?page=${pageInfo.prevPage}');" class="page-link">Prev</a>
                                             </li>
                                             <c:forEach begin="${pageInfo.startPage}" end="${pageInfo.endPage}" step="1" varStatus="status">
                                             	<c:if test="${pageInfo.currentPage == status.current}">
 		                                            <li class="page-item active"><a class="page-link">${status.current}</a></li>                                    		
                                             	</c:if>
                                             	<c:if test="${pageInfo.currentPage != status.current}">
-		                                            <li class="page-item"><a onclick="movePage('${path}/finance/depositMain?page=${status.current}');" class="page-link">${status.current}</a></li>                                            	
+		                                            <li class="page-item"><a onclick="movePage('${path}/finance/leaseloanMain?page=${status.current}');" class="page-link">${status.current}</a></li>                                            	
                                             	</c:if>                                         
                                             </c:forEach>
                                             <li class="page-item">
-                                                <a onclick="movePage('${path}/finance/depositMain?page=${pageInfo.nextPage}');" class="page-link">Next</a>
+                                                <a onclick="movePage('${path}/finance/leaseloanMain?page=${pageInfo.nextPage}');" class="page-link">Next</a>
                                             </li>
                                         </ul>
                                     </nav>
@@ -446,7 +450,9 @@
         <script type="text/javascript">
 			function movePage(pageUrl){
 				var searchValue = document.getElementById("searchValue");
-					pageUrl = pageUrl + '&searchValue=' + searchValue.value; 
+				var sort = document.getElementById("sort");
+				var sortValue = sort.options[sort.selectedIndex].value;
+					pageUrl = pageUrl + '&searchValue=' + searchValue.value + '&sort=' + sortValue; 
 				location.href = encodeURI(pageUrl);	
 			}			
 		</script>
