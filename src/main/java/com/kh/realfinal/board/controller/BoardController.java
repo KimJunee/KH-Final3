@@ -80,13 +80,13 @@ public class BoardController {
 			}
 			
 		}
-		System.out.println("list1 : " + list1);
-		
-		System.out.println("list2 : " + list2);
-		
-		System.out.println("list3 : " + list3);
-		
-		System.out.println("list4 : " + list4);
+//		System.out.println("list1 : " + list1);
+//		
+//		System.out.println("list2 : " + list2);
+//		
+//		System.out.println("list3 : " + list3);
+//		
+//		System.out.println("list4 : " + list4);
 		
 //		System.out.println(list);
 		model.addAttribute("list",list);
@@ -111,6 +111,8 @@ public class BoardController {
 		
 		PageInfo pageInfo = new PageInfo(page, 20, service.getBoardCount(param), 20);
 		List<Board> list = service.getBoardList(pageInfo, param);
+		
+		System.out.println("type : " + param.get("type")+ " 입니다 ex)" + "1 정치, 2 부동산, 3 금융, 4 자유");
 		
 		model.addAttribute("list",list);
 		model.addAttribute("board_list_no", param.get("type"));
