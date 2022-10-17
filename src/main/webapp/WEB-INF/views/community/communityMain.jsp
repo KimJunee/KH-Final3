@@ -56,12 +56,12 @@
                                                 <!-- Table head -->
                                                 <thead class="table-dark">
                                                     <tr>
-                                                        <th scope="col" class="border-0 text-center rounded-start">Categories</th>
-                                                        <th scope="col" class="border-0">&nbsp;&nbsp;Title</th>
-                                                        <th scope="col" class="border-0 text-center">Writer</th>
-                                                        <th scope="col" class="border-0 text-center">Date</th>
-                                                        <th scope="col" class="border-0 text-center">Hits</th>
-                                                        <th scope="col" class="border-0 text-center rounded-end">Comments</th>
+                                                        <th scope="col" style="width: 10%;" class="border-0 text-center rounded-start">Categories</th>
+                                                        <th scope="col" style="width: 55%;"class="border-0">&nbsp;&nbsp;Title</th>
+                                                        <th scope="col" style="width: 15%;"class="border-0 text-center">Writer</th>
+                                                        <th scope="col" style="width: 10%;"class="border-0 text-center">Date</th>
+                                                        <th scope="col" style="width: 5%;" class="border-0 text-center">Hits</th>
+                                                        <th scope="col" style="width: 5%;" class="border-0 text-center rounded-end">Comments</th>
                                                     </tr>
                                                 </thead>
                                                 <!-- 인기글 10개 -->
@@ -91,11 +91,13 @@
                                                         </td>
                                                         <!-- Title -->
                                                         <td>
-                                                            <h6 class="course-title mt-2 mt-md-0 mb-0"><a href="#"><c:out value="${board.board_title}" /></a></h6>
+                                                            <h6 class="course-title mt-2 mt-md-0 mb-0">
+                                                            <a href="${path}/board/BoardDetail?board_no=${board.board_no}">
+                                                            <c:out value="${board.board_title}" /></a></h6>
                                                         </td>
                                                         <!-- Writer -->
                                                         <td class="text-center">
-                                                            <h6 class="mb-0"><a href="#"><c:out value="${board.user_nickName}"/></a></h6>
+                                                            <h6 class="mb-0"><c:out value="${board.user_nickName}"/></h6>
                                                         </td>
                                                         <!-- Posting date -->
                                                         <td class="text-center"><fmt:formatDate value="${board.board_register}"/></td>
@@ -106,7 +108,6 @@
                                                     </tr>
 													</c:forEach>
 												</c:if>
-                                                    
                                                 </tbody>
                                             </table>
                                         </div>
@@ -148,9 +149,9 @@
                                             <!-- Table head -->
                                             <thead class="table-dark ">
                                                 <tr>
-                                                    <th scope="col " class="border-0 rounded-start ">&nbsp;&nbsp;Title</th>
-                                                    <th scope="col " class="border-0 text-center ">Writer</th>
-                                                    <th scope="col " class="border-0 text-center rounded-end ">Hits</th>
+                                                    <th style="width: 60%;" class="border-0 rounded-start ">&nbsp;&nbsp;Title</th>
+                                                    <th style="width: 30%;" class="border-0 text-center ">Writer</th>
+                                                    <th style="width: 10%;" class="border-0 text-center rounded-end ">Hits</th>
                                                 </tr>
                                             </thead>
                                             <!-- 정치 5개 -->
@@ -160,21 +161,22 @@
                                             	</c:if>
                                             	<c:if test="${!empty list1}">
                                             		<c:forEach var="board" items="${list1}" begin="0" end="4" step="1" varStatus="status">                                        				
-                                            				<tr>
-			                                                    <!-- Title -->
-			                                                    <td>
-			                                                        <h6 class="course-title mt-2 mt-md-0 mb-0 "><a href="# "><c:out value="${board.board_title}" /></a></h6>
-			                                                    </td>
-			                                                    <!-- Writer -->
-			                                                    <td class="text-center ">
-			                                                        <h6 class="mb-0 "><a href="# "><c:out value="${board.user_nickName}"/></a></h6>
-			                                                    </td>
-			                                                    <!-- Hits -->
-			                                                    <td class="text-center "><c:out value="${board.board_hit}" /></td>
-			                                                </tr>                                           		
+                                           				<tr>
+		                                                    <!-- Title -->
+		                                                    <td>
+		                                                        <h6 class="course-title mt-2 mt-md-0 mb-0">
+		                                                        <a href="${path}/board/BoardDetail?board_no=${board.board_no}">
+		                                                        <c:out value="${board.board_title}" /></a></h6>
+		                                                    </td>
+		                                                    <!-- Writer -->
+		                                                    <td class="text-center">
+		                                                        <h6 class="mb-0 "><c:out value="${board.user_nickName}"/></h6>
+		                                                    </td>
+		                                                    <!-- Hits -->
+		                                                    <td class="text-center"><c:out value="${board.board_hit}"/></td>
+		                                                </tr>                                           		
                                             		</c:forEach>
                                             	</c:if>
-                                            
                                             </tbody>
                                         </table>
                                     </div>
@@ -209,9 +211,9 @@
                                             <!-- Table head -->
                                             <thead class="table-dark ">
                                                 <tr>
-                                                    <th scope="col " class="border-0 rounded-start ">&nbsp;&nbsp;Title</th>
-                                                    <th scope="col " class="border-0 text-center ">Writer</th>
-                                                    <th scope="col " class="border-0 text-center rounded-end ">Hits</th>
+                                                    <th style="width: 60%;" class="border-0 rounded-start ">&nbsp;&nbsp;Title</th>
+                                                    <th style="width: 30%;" class="border-0 text-center ">Writer</th>
+                                                    <th style="width: 10%;" class="border-0 text-center rounded-end ">Hits</th>
                                                 </tr>
                                             </thead>
                                             <!-- 부동산 5개 -->
@@ -221,21 +223,22 @@
                                             	</c:if>
                                             	<c:if test="${!empty list2}">
                                             		<c:forEach var="board2" items="${list2}" begin="0" end="4" step="1" varStatus="status">                                        				
-                                            				<tr>
-			                                                    <!-- Title -->
-			                                                    <td>
-			                                                        <h6 class="course-title mt-2 mt-md-0 mb-0 "><a href="# "><c:out value="${board2.board_title}" /></a></h6>
-			                                                    </td>
-			                                                    <!-- Writer -->
-			                                                    <td class="text-center ">
-			                                                        <h6 class="mb-0 "><a href="# "><c:out value="${board2.user_nickName}"/></a></h6>
-			                                                    </td>
-			                                                    <!-- Hits -->
-			                                                    <td class="text-center "><c:out value="${board2.board_hit}" /></td>
-			                                                </tr>                                           		
+                                           				<tr>
+		                                                    <!-- Title -->
+		                                                    <td>
+		                                                        <h6 class="course-title mt-2 mt-md-0 mb-0 ">
+		                                                        <a href="${path}/board/BoardDetail?board_no=${board.board_no}">
+		                                                        <c:out value="${board2.board_title}" /></a></h6>
+		                                                    </td>
+		                                                    <!-- Writer -->
+		                                                    <td class="text-center ">
+		                                                        <h6 class="mb-0 "><c:out value="${board2.user_nickName}"/></h6>
+		                                                    </td>
+		                                                    <!-- Hits -->
+		                                                    <td class="text-center "><c:out value="${board2.board_hit}" /></td>
+		                                                </tr>                                           		
                                             		</c:forEach>
                                             	</c:if>
-                                            
                                             </tbody>
                                         </table>
                                     </div>
@@ -270,9 +273,9 @@
                                             <!-- Table head -->
                                             <thead class="table-dark ">
                                                 <tr>
-                                                    <th scope="col " class="border-0 rounded-start ">&nbsp;&nbsp;Title</th>
-                                                    <th scope="col " class="border-0 text-center ">Writer</th>
-                                                    <th scope="col " class="border-0 text-center rounded-end ">Hits</th>
+                                                    <th style="width: 60%;" class="border-0 rounded-start ">&nbsp;&nbsp;Title</th>
+                                                    <th style="width: 30%;" class="border-0 text-center ">Writer</th>
+                                                    <th style="width: 10%;" class="border-0 text-center rounded-end ">Hits</th>
                                                 </tr>
                                             </thead>
                                             <!-- 금융 5개 -->
@@ -282,22 +285,22 @@
                                             	</c:if>
                                             	<c:if test="${!empty list3}">
                                             		<c:forEach var="board" items="${list3}" begin="0" end="4" step="1" varStatus="status">                                        				
-                                            				<tr>
-			                                                    <!-- Title -->
-			                                                    <td>
-			                                                        <h6 class="course-title mt-2 mt-md-0 mb-0 "><a href="# "><c:out value="${board.board_title}" /></a></h6>
-			                                                    </td>
-			                                                    <!-- Writer -->
-			                                                    <td class="text-center ">
-			                                                        <h6 class="mb-0 "><a href="# "><c:out value="${board.user_nickName}"/></a></h6>
-			                                                    </td>
-			                                                    <!-- Hits -->
-			                                                    <td class="text-center "><c:out value="${board.board_hit}" /></td>
-			                                                </tr>                                           		
+                                           				<tr>
+		                                                    <!-- Title -->
+		                                                    <td>
+		                                                        <h6 class="course-title mt-2 mt-md-0 mb-0 ">
+		                                                        <a href="${path}/board/BoardDetail?board_no=${board.board_no}">
+		                                                        <c:out value="${board.board_title}" /></a></h6>
+		                                                    </td>
+		                                                    <!-- Writer -->
+		                                                    <td class="text-center ">
+		                                                        <h6 class="mb-0 "><c:out value="${board.user_nickName}"/></h6>
+		                                                    </td>
+		                                                    <!-- Hits -->
+		                                                    <td class="text-center "><c:out value="${board.board_hit}" /></td>
+		                                                </tr>                                           		
                                             		</c:forEach>
                                             	</c:if>
-                                            
-                                            </tbody>
                                             </tbody>
                                         </table>
                                     </div>
@@ -332,9 +335,9 @@
                                             <!-- Table head -->
                                             <thead class="table-dark ">
                                                 <tr>
-                                                    <th scope="col " class="border-0 rounded-start ">&nbsp;&nbsp;Title</th>
-                                                    <th scope="col " class="border-0 text-center ">Writer</th>
-                                                    <th scope="col " class="border-0 text-center rounded-end ">Hits</th>
+                                                    <th style="width: 60%;" class="border-0 rounded-start ">&nbsp;&nbsp;Title</th>
+                                                    <th style="width: 30%;" class="border-0 text-center ">Writer</th>
+                                                    <th style="width: 10%;" class="border-0 text-center rounded-end ">Hits</th>
                                                 </tr>
                                             </thead>
                                             <!-- 자유 5개 -->
@@ -344,18 +347,20 @@
                                             	</c:if>
                                             	<c:if test="${!empty list4}">
                                             		<c:forEach var="board" items="${list4}" begin="0" end="4" step="1" varStatus="status">                                        				
-                                            				<tr>
-			                                                    <!-- Title -->
-			                                                    <td>
-			                                                        <h6 class="course-title mt-2 mt-md-0 mb-0 "><a href="# "><c:out value="${board.board_title}" /></a></h6>
-			                                                    </td>
-			                                                    <!-- Writer -->
-			                                                    <td class="text-center ">
-			                                                        <h6 class="mb-0 "><a href="# "><c:out value="${board.user_nickName}"/></a></h6>
-			                                                    </td>
-			                                                    <!-- Hits -->
-			                                                    <td class="text-center "><c:out value="${board.board_hit}" /></td>
-			                                                </tr>                                           		
+                                           				<tr>
+		                                                    <!-- Title -->
+		                                                    <td>
+		                                                        <h6 class="course-title mt-2 mt-md-0 mb-0 ">
+		                                                        <a href="${path}/board/BoardDetail?board_no=${board.board_no}">
+		                                                        <c:out value="${board.board_title}" /></a></h6>
+		                                                    </td>
+		                                                    <!-- Writer -->
+		                                                    <td class="text-center ">
+		                                                        <h6 class="mb-0 "><a href="# "><c:out value="${board.user_nickName}"/></a></h6>
+		                                                    </td>
+		                                                    <!-- Hits -->
+		                                                    <td class="text-center "><c:out value="${board.board_hit}" /></td>
+		                                                </tr>                                           		
                                             		</c:forEach>
                                             	</c:if>
                                             </tbody>
