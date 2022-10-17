@@ -95,10 +95,22 @@
                         <div class="row">
                             <div class="col-1">
                                 <h5 class="mt-0 text-truncate" style="font-weight: bold; font-size: 15px; color:rgb(71, 103, 231)">KOSPI</h5>
-                                <h3 class="my-2 py-1" style="font-weight: bold; font-size: 30px;">2,215.54</h3>
+                                <c:if test="${empty list1}">
+                                	<h3 class="my-2 py-1" style="font-weight: bold; font-size: 30px;">조회불가</h3>                                
+                                </c:if>
+                                <c:if test="${!empty list1}">
+                                <c:forEach var="indexPrice" items="${list1}"  begin="0" end="0" step="1" varStatus="status">									
+                                <h3 class="my-2 py-1" style="font-weight: bold; font-size: 30px;"><c:out value="${indexPrice.clpr}" /></h3>
                                 <p class="mb-0 text-muted">
-                                    <span class="text-danger me-2"><i class="mdi mdi-arrow-up-bold" style="color:red"></i>-12.24(-3.92%)</span>
-                                </p>
+                                	<c:if  test="${indexPrice.fltRt < 0}">
+	                                    <span class="text-danger me-2"><i class="mdi mdi-arrow-up-bold" style="color:red"></i><c:out value="${indexPrice.vs}" />(<c:out value="${indexPrice.fltRt}"/>%)</span>                                	
+                                	</c:if>
+                                	<c:if  test="${indexPrice.fltRt > 0}">
+	                                    <span style="color:rgb(2, 162, 16)"><i class="mdi mdi-arrow-up-bold" style="color:red"></i>+<c:out value="${indexPrice.vs}" />(+<c:out value="${indexPrice.fltRt}"/>%)</span>                                	
+                                	</c:if>
+                                </p>                             
+                                </c:forEach>
+                                </c:if>
                             </div>
                             <!-- <div class="col-1">
                             <div class="text-end">
@@ -109,24 +121,47 @@
                                 <div dir="ltr" style="padding-left: 30px;">
                                     <!-- <div id="basic-area1" class="apex-charts" data-colors="#fa6767"></div> -->
                                     <!-- 상승장일때-->
-                                    <div id="basic-area1" class="apex-charts" data-colors="#fa6767"></div>
+                                    <c:forEach var="indexPrice" items="${list1}"  begin="0" end="0" step="1" varStatus="status">
+                                    <c:if  test="${indexPrice.fltRt < 0}">
+	                                    <div id="basic-area1" class="apex-charts" data-colors="#fa6767"></div>                                    
+                                    </c:if>
+                                    <c:if  test="${indexPrice.fltRt > 0}">
+	                                    <div id="basic-area1" class="apex-charts" data-colors="#008000"></div>                                    
+                                    </c:if>
+                                    </c:forEach>
                                     <!-- 하락장일때-->
                                 </div>
                             </div>
 
                             <div class="col-1">
                                 <h5 class="mt-0 text-truncate" style="font-weight: bold; font-size: 15px; color:rgb(71, 103, 231)">KOSDAQ</h5>
-                                <h3 class="my-2 py-1" style="font-weight: bold; font-size: 30px;">695.70</h3>
+                                <c:if test="${empty list2}">
+                                	<h3 class="my-2 py-1" style="font-weight: bold; font-size: 30px;">조회불가</h3>                                
+                                </c:if>
+                                <c:if test="${!empty list2}">
+                                <c:forEach var="indexPrice" items="${list2}"  begin="0" end="0" step="1" varStatus="status">									
+                                <h3 class="my-2 py-1" style="font-weight: bold; font-size: 30px;"><c:out value="${indexPrice.clpr}" /></h3>
                                 <p class="mb-0 text-muted">
-                                    <span style="color:rgb(2, 162, 16)"><i class="mdi mdi-arrow-up-bold" style="color:red"></i>+0.29(+0.85%)</span>
-                                </p>
+                                	<c:if  test="${indexPrice.fltRt < 0}">
+	                                    <span class="text-danger me-2"><i class="mdi mdi-arrow-up-bold" style="color:red"></i><c:out value="${indexPrice.vs}" />(<c:out value="${indexPrice.fltRt}"/>%)</span>                                	
+                                	</c:if>
+                                	<c:if  test="${indexPrice.fltRt > 0}">
+	                                    <span style="color:rgb(2, 162, 16)"><i class="mdi mdi-arrow-up-bold" style="color:red"></i>+<c:out value="${indexPrice.vs}" />(+<c:out value="${indexPrice.fltRt}"/>%)</span>                                	
+                                	</c:if>
+                                </p>                             
+                                </c:forEach>
+                                </c:if>
                             </div>
                             <div class="col-2">
                                 <div dir="ltr" style="padding-left: 30px;">
-                                    <!-- <div id="basic-area1" class="apex-charts" data-colors="#fa6767"></div> -->
-                                    <!-- 상승장일때-->
-                                    <div id="basic-area2" class="apex-charts" data-colors="#008000"></div>
-                                    <!-- 하락장일때-->
+                                    <c:forEach var="indexPrice" items="${list1}"  begin="0" end="0" step="1" varStatus="status">
+                                    <c:if  test="${indexPrice.fltRt < 0}">
+	                                    <div id="basic-area2" class="apex-charts" data-colors="#fa6767"></div>                                    
+                                    </c:if>
+                                    <c:if  test="${indexPrice.fltRt > 0}">
+	                                    <div id="basic-area2" class="apex-charts" data-colors="#008000"></div>                                    
+                                    </c:if>
+                                    </c:forEach>
                                 </div>
                             </div>
                             <div class="col-1" style="padding-right: 10px;">
