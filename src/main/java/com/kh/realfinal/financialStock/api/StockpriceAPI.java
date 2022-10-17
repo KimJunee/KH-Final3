@@ -33,7 +33,7 @@ public class StockpriceAPI {
 		int pageNo = 1;
 		int numOfRows = 3000;
 		String beginBasDt= "20221001"; //시작일자 09/01~ 09/07
-		String endBasDt= "20221008"; //끝나는 일자  09/01~09/07 9월8일은 포함안함
+		String endBasDt= "20221014"; //끝나는 일자  09/01~09/07 9월8일은 포함안함
 		
 		while (true) {
 			System.out.println();
