@@ -77,16 +77,16 @@
                                                         <!-- Categories -->
                                                         <td>
                                                         	<c:if test="${board.board_list_no == 1}">                                                    	
-	                                                            <a href="#" class="badge text-bg-primary mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Politics</a>
+	                                                            <a href="${path}/board/list?type=1" class="badge text-bg-primary mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Politics</a>
                                                         	</c:if>
                                                         	<c:if test="${board.board_list_no == 2}">                                                    	
-	                                                            <a href="#" class="badge text-bg-warning mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Real Estate</a>
+	                                                            <a href="${path}/board/list?type=2" class="badge text-bg-warning mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Real Estate</a>
                                                         	</c:if>
                                                         	<c:if test="${board.board_list_no == 3}">                                                    	
-	                                                            <a href="#" class="badge text-bg-danger mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Finance</a>
+	                                                            <a href="${path}/board/list?type=3" class="badge text-bg-danger mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Finance</a>
                                                         	</c:if>
                                                         	<c:if test="${board.board_list_no == 4}">                                                    	
-	                                                            <a href="#" class="badge text-bg-success mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Free</a>
+	                                                            <a href="${path}/board/list?type=4" class="badge text-bg-success mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Free</a>
                                                         	</c:if>
                                                         </td>
                                                         <!-- Title -->
