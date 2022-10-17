@@ -56,28 +56,16 @@
 <%@ include file="/WEB-INF/views/common/headerWhite.jsp" %>
     <main>
         <!-- ============ 메뉴소개 시작 ============ -->
-        <section style="background-image:url('${path}/resources/resources1b/images/avatar/fintouch/community04.png'); background-position: center; height:570px; width:99%;"></section>
+        <section style="background-image:url('${path}/resources/resources1b/images/avatar/fintouch/community04.png'); background-position: center; height:570px; width:99%;">
+            <div style="margin-left: 365px; margin-top: 430px;">
+                <h1 class="mice">검색어 "<span class="mice" style="color:#2163E8;">어쩌구</span>"</h1>
+            </div>
+        </section>
         <!-- ============ 메뉴소개 끝 ============ -->
         <!-- ======================= 커뮤니티 메인 시작 -->
-        <section class="py-4mb-5" style="margin-top: -60px;">
+        <section class="py-4mb-5" style="margin-top: 80px;">
             <div class="container">
                 <div class="row g-4" style="margin-top:-150px;">
-                	<c:if test="${board_list_no == 1}">
-                		<a href="${path}/board/list?type=1" class="badge text-bg-primary" style="width: 100px; margin-left: 15px;"><i class="fas fa-circle me-2 small fw-bold"></i>Politics</a>
-						<h1 class="mice">정치 <span style="color:#2163E8;">커뮤니티</span></h1>
-                	</c:if>
-                	<c:if test="${board_list_no == 2}">
-                		<a href="${path}/board/list?type=2" class="badge text-bg-warning" style="width: 100px; margin-left: 15px;"><i class="fas fa-circle me-2 small fw-bold"></i>Real Estate</a>
-						<h1 class="mice">부동산 <span style="color:#F7C32E;">커뮤니티</span></h1>
-                	</c:if>
-                	<c:if test="${board_list_no == 3}">
-                		<a href="${path}/board/list?type=3" class="badge text-bg-danger" style="width: 100px; margin-left: 15px;"><i class="fas fa-circle me-2 small fw-bold"></i>Finance</a>
-						<h1 class="mice">금융 <span style="color:#D6293E;">커뮤니티</span></h1>
-                	</c:if>
-                	<c:if test="${board_list_no == 4}">
-                		<a href="${path}/board/list?type=4" class="badge text-bg-success" style="width: 100px; margin-left: 15px;"><i class="fas fa-circle me-2 small fw-bold"></i>Free</a>
-						<h1 class="mice">자유 <span style="color:#0CBC87;">광장</span></h1>
-                	</c:if>
                     <div class="col-12">
                         <!-- Counter START -->
                         <div class="row g-4">
@@ -115,8 +103,9 @@
                                                 <!-- Table head -->
                                                 <thead class="table-dark">
                                                     <tr>
-                                                        <th scope="col" style="width: 5%;" class="border-0 text-center rounded-start">No</th>
-                                                        <th scope="col" style="width: 60%;" class="border-0 ">Title</th>
+                                                        <th scope="col" style="width: 10%;" class="border-0 text-center rounded-start">Categories</th>
+                                                        <th scope="col" style="width: 5%;" class="border-0 text-center ">No</th>
+                                                        <th scope="col" style="width: 55%;" class="border-0 ">Title</th>
                                                         <th scope="col" style="width: 15%;" class="border-0 text-center">Writer</th>
                                                         <th scope="col" style="width: 10%;" class="border-0 text-center">Date</th>
                                                         <th scope="col" style="width: 5%;" class="border-0 text-center">Hits</th>
@@ -128,6 +117,7 @@
 	                                                <c:if test="${empty list}">
 														<tr>
 															<td></td>
+															<td></td>
 															<td style="text-align: right;">조회된 글이 없습니다.</td>
 															<td></td>
 															<td></td>
@@ -138,6 +128,21 @@
 													<c:if test="${!empty list}">
 														<c:forEach var="board" items="${list}">
 															<tr>
+																<!-- Categories -->
+																<td>
+		                                                        	<c:if test="${board.board_list_no == 1}">                                                    	
+			                                                            <a href="${path}/board/list?type=1" class="badge text-bg-primary mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Politics</a>
+		                                                        	</c:if>
+		                                                        	<c:if test="${board.board_list_no == 2}">                                                    	
+			                                                            <a href="${path}/board/list?type=2" class="badge text-bg-warning mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Real Estate</a>
+		                                                        	</c:if>
+		                                                        	<c:if test="${board.board_list_no == 3}">                                                    	
+			                                                            <a href="${path}/board/list?type=3" class="badge text-bg-danger mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Finance</a>
+		                                                        	</c:if>
+		                                                        	<c:if test="${board.board_list_no == 4}">                                                    	
+			                                                            <a href="${path}/board/list?type=4" class="badge text-bg-success mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Free</a>
+		                                                        	</c:if>
+		                                                        </td>
 																<!-- No -->
 																<td class="text-center"><c:out value="${board.board_no}"/></td>
 																<!-- Title -->
@@ -190,7 +195,7 @@
 	                                            </li>
 	                                        </ul>
 	                                    </nav>
-	                                        <!-- 페이지넘버 끝 -->
+                                        <!-- 페이지넘버 끝 -->
 	                                </div>
 	                            </div>
 	                        </div>
