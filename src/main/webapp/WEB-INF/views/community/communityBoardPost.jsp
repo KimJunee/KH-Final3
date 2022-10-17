@@ -24,7 +24,7 @@
 <script src="${path}/resources/resources1b/vendor/quill/js/quill.min.js"></script>
     <main>
         <!-- ============ 메뉴소개 시작 ============ -->
-        <section style="background-image:url('${path}/resources/resources1b/images/avatar/fintouch/community04.png'); background-position: center; height:652px; width:99%;"></section>
+        <section style="background-image:url('${path}/resources/resources1b/images/avatar/fintouch/community04.png'); background-position: center; height:570px; width:99%;"></section>
         <!-- ============ 메뉴소개 끝 ============ -->
         <!-- ======================= Main contain START -->
         <section class="py-4">

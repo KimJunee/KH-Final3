@@ -115,7 +115,7 @@
                             	<input type="hidden" name="board_no" value="${board.board_no}"/> 
     							<input type="hidden" name="reply_writer_id" value="${loginMember.user_id}"/> 
                                 <div class="col-12">
-                                    <textarea name="reply_content" class="form-control" rows="3"></textarea>
+                                    <textarea name="reply_content" class="form-control" rows="3" style="resize: none; border-radius: 5px;"></textarea>
                                 </div>
                                 <div class="col-12">
                                     <button type="submit" class="btn btn-primary" id="btn-insert">Post comment</button>

@@ -26,7 +26,7 @@
                     <div class="col-12 d-sm-flex justify-content-between align-items-center" style="margin-bottom:10px;">
                         <div class="col-4"></div>
                         <div class="col-8 mb-1" style="margin-left:20px;">
-                            <h3 class="mb-2 mb-sm-0"><i class="fa fa-solid fa-quote-left"></i></i>&nbsp;Board list</h3>
+                            <h3 class="mb-2 mb-sm-0"><i class="fa fa-solid fa-quote-left"></i>&nbsp;Board list</h3>
                         </div>
                     </div>
                     <div class="col-4 mb-0">
@@ -35,16 +35,15 @@
                             <div class="card border card-body shadow-sm pb-1 me-lg-1">
                                 <div class="d-flex d-md-block d-lg-flex align-items-start pt-lg-2 mb-2"><img class="" src="${path}/resources/resources1b/images/avatar_w2.png" width="48" alt="Annette Black">
                                     <div class="pt-md-2 pt-lg-0 ps-3 ps-md-0 ps-lg-3">
-                                        <h2 class="fs-lg mb-0" style="margin-left: 10px;">탬버리이인</h2>
+                                        <h2 class="fs-lg mb-0" style="margin-left: 10px;">${loginMember.user_nickname}</h2>
                                         <ul class="list-unstyled fs-sm mt-1 mb-0">
                                             <li>
-                                                <a class="nav-link fw-normal p-0" href="mailto:annette_black@email.com">
-                                                    <i class="fi-mail opacity-60 me-2"></i>rlaxodla91@email.com</a>
+                                                <i class="fi-mail opacity-60 me-2"></i>${loginMember.user_email}
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
-                                <a class="btn btn-outline-primary btn-lg w-100 mb-2 fw-bold" style="border-radius: 10px;" href="1community-board-post-lightfooter.html">+ 게시글 작성하기</a>
+                                <a class="btn btn-outline-primary btn-lg w-100 mb-2 fw-bold" style="border-radius: 10px;" href="${path}/board/writePost">+ 게시글 작성하기</a>
                                 <div class="collapse d-md-block mt-0 fw-bold" id="account-nav">
                                     <div class="card-nav">
                                         <a class="card-nav-link" href="${path}/member/view"><i class="fa fa-solid fa-user" style="margin-right:10px; margin-left: 10px;"></i>회원정보</a>
@@ -78,13 +77,13 @@
                                         <!-- Short by filter -->
                                         <form>
                                             <select class="form-select z-index-9 bg-transparent" aria-label=".form-select-sm">
-													<option value="">최근 작성 순</option>
-													<option>오래된 작성 순</option>
-													<option>정치</option>
-													<option>뉴스</option>
-													<option>금융</option>
-													<option>부동산청약</option>
-												</select>
+												<option value="">최근 작성 순</option>
+												<option>오래된 작성 순</option>
+												<option>정치</option>
+												<option>부동산청약</option>
+												<option>금융</option>
+												<option>자유</option>
+											</select>
                                         </form>
                                     </div>
                                 </div>
@@ -95,10 +94,10 @@
                                         <!-- Table head -->
                                         <thead class="table-dark">
                                             <tr>
-                                                <th scope="col" class="border-0 text-center rounded-start ">Categories</th>
-                                                <th scope="col " class="border-0">Title</th>
-                                                <th scope="col " class="border-0 text-center">Date Created</th>
-                                                <th scope=" col " class="border-0 text-center rounded-end" tyle="padding-left:10em;">Action</th>
+                                                <th class="border-0 text-center rounded-start ">Categories</th>
+                                                <th class="border-0">Title</th>
+                                                <th class="border-0 text-center">Date Created</th>
+                                                <th class="border-0 text-center rounded-end" tyle="padding-left:10em;">Action</th>
                                             </tr>
                                         </thead>
                                         <!-- 목록 시작 -->

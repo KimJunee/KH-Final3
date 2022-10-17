@@ -39,13 +39,12 @@
                                         <h2 class="fs-lg mb-0" style="margin-left: 10px;">${loginMember.user_nickname}</h2>
                                         <ul class="list-unstyled fs-sm mt-1 mb-0">
                                             <li>
-                                                <a class="nav-link fw-normal p-0" href="mailto:${loginMember.user_email}">
-                                                    <i class="fi-mail opacity-60 me-2"></i>${loginMember.user_email}</a>
+                                                <i class="fi-mail opacity-60 me-2"></i>${loginMember.user_email}
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
-                                <a class="btn btn-outline-primary btn-lg w-100 mb-2 fw-bold" style="border-radius: 10px;" href="1community-board-post-lightfooter.html">+ 게시글 작성하기</a>
+                                <a class="btn btn-outline-primary btn-lg w-100 mb-2 fw-bold" style="border-radius: 10px;" href="${path}/board/writePost">+ 게시글 작성하기</a>
                                 <div class="collapse d-md-block mt-0 fw-bold" id="account-nav">
                                     <div class="card-nav">
                                         <a class="card-nav-link active" href="${path}/member/view"><i class="fa fa-solid fa-user" style="margin-right:10px; margin-left: 10px;"></i>회원정보</a>
