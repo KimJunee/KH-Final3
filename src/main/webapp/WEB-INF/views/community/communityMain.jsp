@@ -18,15 +18,15 @@
 <%@ include file="/WEB-INF/views/common/headerWhite.jsp" %>
     <main>
         <!-- ============ 메뉴소개 시작 ============ -->
-        <section style="background-image:url('${path}/resources/resources1b/images/avatar/fintouch/community04.png'); background-position: center; height:652px; width:99%;">
-            <div style="margin-left: 370px; margin-top: 520px;">
+        <section style="background-image:url('${path}/resources/resources1b/images/avatar/fintouch/community04.png'); background-position: center; height:570px; width:99%;">
+            <div style="margin-left: 385px; margin-top: 430px;">
                 <h5 class="mice"><span style="color:#2163E8;">C&nbsp;O&nbsp;M&nbsp;M&nbsp;U&nbsp;N&nbsp;I&nbsp;T&nbsp;Y</span></h5>
                 <h1 class="mice">실시간<span class="mice" style="color:#2163E8;">커뮤니티</span>인기글</h1>
             </div>
         </section>
         <!-- ============ 메뉴소개 끝 ============ -->
         <!-- ======================= 커뮤니티 메인 시작 -->
-        <section class="py-4 mb-5">
+        <section class="py-4 mb-5" style="margin-top: -50px;">
             <div class="container">
                 <div class="row g-4">
                     <div class="col-12">
@@ -34,7 +34,7 @@
                         <div class="row g-4">
                             <div class="col-12">
                                 <!-- 인기글 목록 시작 -->
-                                <div class="card border bg-transparent rounded-3">
+                                <div class="card border-0 bg-transparent">
                                     <!-- Card body START -->
                                     <div class="card-body">
                                         <!-- 검색 시작 -->
@@ -280,28 +280,6 @@
                                             </table>
                                         </div>
                                         <!-- 인기글 끝 -->
-                                        <!-- 페이지넘버 시작 -->
-                                        <nav class="mb-sm-0 d-flex justify-content-center mt-2" aria-label="navigation">
-                                            <ul class="pagination pagination-sm pagination-bordered mb-0">
-                                                <li class="page-item disabled">
-                                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Prev</a>
-                                                </li>
-                                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                                <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                                <li class="page-item"><a class="page-link" href="#">6</a></li>
-                                                <li class="page-item"><a class="page-link" href="#">7</a></li>
-                                                <li class="page-item"><a class="page-link" href="#">8</a></li>
-                                                <li class="page-item"><a class="page-link" href="#">9</a></li>
-                                                <li class="page-item"><a class="page-link" href="#">10</a></li>
-                                                <li class="page-item">
-                                                    <a class="page-link" href="#">Next</a>
-                                                </li>
-                                            </ul>
-                                        </nav>
-                                        <!-- 페이지넘버 끝 -->
                                     </div>
                                 </div>
                                 <!-- 인기글 테이블 끝 -->
@@ -315,7 +293,7 @@
                     <!-- 정치 첫번째줄 왼쪽 -->
                     <div class="col-6">
                         <!-- 정치글 목록 시작 -->
-                        <div class="card border bg-transparent rounded-3">
+                        <div class="card border-0 bg-transparent rounded-3">
                             <!-- 테두리 시작 -->
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -421,7 +399,7 @@
                     <!-- 부동산 첫번째줄 오른쪽 -->
                     <div class="col-6">
                         <!-- 부동산글 목록 시작 -->
-                        <div class="card border bg-transparent rounded-3">
+                        <div class="card border-0 bg-transparent rounded-3">
                             <!-- 테두리 시작 -->
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -527,7 +505,7 @@
                     <!-- 금융 두번째줄 왼쪽 -->
                     <div class="col-6">
                         <!-- 금융글 목록 시작 -->
-                        <div class="card border bg-transparent rounded-3">
+                        <div class="card border-0 bg-transparent rounded-3">
                             <!-- 테두리 시작 -->
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -633,7 +611,7 @@
                     <!-- 자유 두번째줄 오른쪽 -->
                     <div class="col-6">
                         <!-- 자유글 목록 시작 -->
-                        <div class="card border bg-transparent rounded-3">
+                        <div class="card border-0 bg-transparent rounded-3">
                             <!-- 테두리 시작 -->
                             <div class="card-body">
                                 <div class="table-responsive">

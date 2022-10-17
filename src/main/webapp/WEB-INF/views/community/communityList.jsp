@@ -56,10 +56,10 @@
 <%@ include file="/WEB-INF/views/common/headerWhite.jsp" %>
     <main>
         <!-- ============ 메뉴소개 시작 ============ -->
-        <section style="background-image:url('${path}/resources/resources1b/images/avatar/fintouch/community04.png'); background-position: center; height:652px; width:99%;"></section>
+        <section style="background-image:url('${path}/resources/resources1b/images/avatar/fintouch/community04.png'); background-position: center; height:570px; width:99%;"></section>
         <!-- ============ 메뉴소개 끝 ============ -->
         <!-- ======================= 커뮤니티 메인 시작 -->
-        <section class="py-4">
+        <section class="py-4mb-5" style="margin-top: -50px;">
             <div class="container">
                 <div class="row g-4" style="margin-top:-150px;">
 	                	<c:if test="${board_list_no == 1}">
