@@ -164,6 +164,9 @@
 			NVL(#{board_renamedFileName},''), 
 			DEFAULT
 		)
+		<selectKey keyProperty="board_no" resultType="int" order="AFTER">
+    		SELECT SEQ_BOARD_NO.CURRVAL FROM DUAL
+    	</selectKey>
 	</insert>
 	
 	<!-- 조회수 증가 -->

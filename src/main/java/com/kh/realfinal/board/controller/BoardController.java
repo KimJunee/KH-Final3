@@ -178,11 +178,11 @@ public class BoardController {
 				board.setBoard_renamedFileName(renameFileName);
 			}
 		}
-		System.out.println("board : " + board);
 		int result = service.saveBoard(board);
+		System.out.println("board : " + board);
 		if(result > 0) {
 			model.addAttribute("msg", "게시글 작성이 정상적으로 성공하였습니다.");
-			model.addAttribute("location", "/community/communityBoardDetail?board_no="); // 해당 게시글 가기! 우선 임시로 게시글 목록
+			model.addAttribute("location", "/board/BoardDetail?board_no="+board.getBoard_no()); // 해당 게시글 가기! 우선 임시로 게시글 목록
 		}else {
 			model.addAttribute("msg", "게시글 작성에 실패하였습니다.");
 			model.addAttribute("location", "/community/communityMain");	// 게시판 메인 가기!
