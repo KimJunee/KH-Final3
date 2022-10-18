@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.kh.realfinal.apply.model.service.RealEstateService;
 import com.kh.realfinal.apply.model.vo.RemndrLttotPblancDetail;
 import com.kh.realfinal.common.util.PageInfo;
-import com.kh.realfinal.financialsupervisory.controller.LeaseLoanController;
 
 import lombok.extern.slf4j.Slf4j;
 
