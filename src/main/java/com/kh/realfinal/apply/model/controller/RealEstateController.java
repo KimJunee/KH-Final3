@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.kh.realfinal.apply.model.service.RealEstateService;
 import com.kh.realfinal.apply.model.vo.RemndrLttotPblancDetail;
 import com.kh.realfinal.common.util.PageInfo;
+import com.kh.realfinal.apply.model.service.ApplyInfoApiService;
 
 @Controller
 public class RealEstateController {
@@ -19,6 +20,9 @@ public class RealEstateController {
 	
 	@Autowired
 	private RealEstateService remndrService;
+	
+	@Autowired
+	private ApplyInfoApiService ApplyService;
 	
 	
 	@RequestMapping("/RealEstate/main")
