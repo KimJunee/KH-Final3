@@ -1,0 +1,9 @@
+첨부파일 저장경로
+
+[ server.xml ]에서
+<Context path="/filepath" reloadable="true" docBase="C:\Final_Dev\workspace-final3\.metadata\.plugins\org.eclipse.wst.server.core\tmp1\wtpwebapps\Final3\resources\upload\board"/>
+복붙하면 되는데 이건 김주니 경로임!! 본인경로 확인해서 붙여야함!
+
+- 프로젝트 클린하면 현재 설정이 날라가기 때문에 클린 이후에 재설정 잡아줘야 함 -> 재설정 이후 당연히 예전글 사진 안보임..ㅜㅜ
+- 안날라가게 하는 방법 1 : 첨부파일을 클라우드 서버에 저장하기 -> 아마존 도커 연결하실 분 계신다면..
+- 안날라가게 하는 방법 2 : 첨부파일 저장방식을 프로젝트 내에 저장하게 하기 -> 이걸 깃으로 관리해야함

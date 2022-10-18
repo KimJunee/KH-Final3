@@ -76,12 +76,20 @@
                     <div class="col-lg-7 mb-5">
                         <p>${board.board_content}</p>
                         <!-- 첨부파일 -->
+                        <c:if test="${!empty board.board_renamedFileName}">
                         <figure class="figure mt-2">
-                            <a href="${path}/resources/resources1b/images/blog/3by2/04.jpg" data-glightbox data-gallery="image-popup">
-                                <img class="rounded" src="${path}/resources/resources1b/images/blog/3by2/04.jpg" alt="Image">
+	                        <a href="<c:out value="/filepath/${board.board_renamedFileName}"/>" data-glightbox="" data-gallery="image-popup">
+	                            <img id="preview" class="rounded" src="<c:out value="/filepath/${board.board_renamedFileName}"/>" alt=""/>
                             </a>
                             <figcaption class="figure-caption text-center">${board.board_originalFileName}</figcaption>
                         </figure>
+                        </c:if>
+                        <c:if test="${empty board.board_renamedFileName}">
+                        <figure class="figure mt-2" style="display: none;">
+                            <img class="rounded" src="${board.board_renamedFileName}" alt="">
+                            <figcaption class="figure-caption text-center">${board.board_originalFileName}</figcaption>
+                        </figure>
+                        </c:if>
                         <!-- 댓글 시작 -->
                         <div class="border-bottom border-top border-2 mb-3 pt-3" style="color:#a1a1a8">
                         <h3>${fn:length(replyList)} comments</h3>
@@ -245,8 +253,8 @@
 		var requestURL = url + replyNo;
 		location.replace(requestURL);
 	}
+	</script>
 	
-</script>
 	<%@ include file="/WEB-INF/views/common/footer.jsp" %>
 	</body>
 </html>

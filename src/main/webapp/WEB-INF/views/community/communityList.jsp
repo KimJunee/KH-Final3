@@ -91,7 +91,7 @@
                                             <!-- Search -->
                                             <div class="col-md-8">
                                                 <form action="${path}/board/list" method="get" class="rounded position-relative">
-                                                    <input class="form-control pe-5 bg-transparent" type="search" placeholder="Search" aria-label="Search">
+                                                    <input class="form-control pe-5 bg-transparent" id="searchValue" type="search" placeholder="Search" aria-label="Search">
                                                     <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
                                                 </form>
                                             </div>
@@ -99,7 +99,7 @@
                                             <div class="col-md-3">
                                                 <!-- Short by filter -->
                                                 <form>
-                                                    <select class="form-select z-index-9 bg-transparent" aria-label=".form-select-sm">
+                                                    <select id="sort" class="form-select z-index-9 bg-transparent" aria-label=".form-select-sm">
 										                <option value="">Sort by</option>
 										                <option>Free</option>
 										                <option>Newest</option>
@@ -163,7 +163,7 @@
 																	</a>
 																</td>
 																<!-- Comments -->
-																<td class="text-center"><c:out value="${fn:length(replyList)}"/></td>
+																<td class="text-center"><c:out value="${board.reply_cnt}"/></td>
 															</tr>
 														</c:forEach>
 													</c:if>
@@ -175,22 +175,22 @@
 	                                    <nav class="mb-sm-0 d-flex justify-content-center mt-2" aria-label="navigation">
 	                                        <ul class="pagination pagination-sm pagination-bordered mb-0">
 	                                            <li class="page-item">
-	                                                <a onclick="movePage('${path}/community/communityMain?page=${pageInfo.prevPage}');" class="page-link">Prev</a>
+	                                                <a onclick="movePage('${path}/board/list?type=${board_list_no}&page=${pageInfo.prevPage}');" class="page-link">Prev</a>
 	                                            </li>
 	                                            <c:forEach begin="${pageInfo.startPage}" end="${pageInfo.endPage}" step="1" varStatus="status">
 	                                            	<c:if test="${pageInfo.currentPage == status.current}">
 			                                            <li class="page-item active"><a class="page-link">${status.current}</a></li>                                    		
 	                                            	</c:if>
 	                                            	<c:if test="${pageInfo.currentPage != status.current}">
-			                                            <li class="page-item"><a onclick="movePage('${path}/community/communityMain?page=${status.current}');" class="page-link">${status.current}</a></li>                                            	
+			                                            <li class="page-item"><a onclick="movePage('${path}/board/list?type=${board_list_no}&page=${status.current}');" class="page-link">${status.current}</a></li>                                            	
 	                                            	</c:if>                                         
 	                                            </c:forEach>
 	                                            <li class="page-item">
-	                                                <a onclick="movePage('${path}/finance/productMain?page=${pageInfo.nextPage}');" class="page-link">Next</a>
+	                                                <a onclick="movePage('${path}/board/list?type=${board_list_no}&page=${pageInfo.nextPage}');" class="page-link">Next</a>
 	                                            </li>
 	                                        </ul>
 	                                    </nav>
-	                                        <!-- 페이지넘버 끝 -->
+                                        <!-- 페이지넘버 끝 -->
 	                                </div>
 	                            </div>
 	                        </div>
@@ -200,12 +200,14 @@
 	        </div>
 	    </section>
 	    <script type="text/javascript">
-			function movePage(pageUrl){
-				var searchValue = document.getElementById("searchValue");
-					pageUrl = pageUrl + '&searchValue=' + searchValue.value; 
-				location.href = encodeURI(pageUrl);	
-			}			
-		</script>
+            function movePage(pageUrl){
+                var searchValue = document.getElementById("searchValue");
+                var sort = document.getElementById("sort");
+                var sortValue = sort.options[sort.selectedIndex].value;
+                    pageUrl = pageUrl + '&searchValue=' + searchValue.value + '&sort=' + sortValue; 
+                location.href = encodeURI(pageUrl);
+            }
+        </script>
 	</main>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>

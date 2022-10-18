@@ -42,23 +42,25 @@ public class BoardServiceImpl implements BoardService{
 
 	@Override
 	public String saveFile(MultipartFile upfile, String savePath) {
-		File folder = new File(savePath);
-		
-		if(folder.exists() == false) {
-			folder.mkdir();
-		}
-		
-		String board_originalFileName = upfile.getOriginalFilename();
-		String board_renamedFileName = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmssSSS"))
-				+ board_originalFileName.substring(board_originalFileName.lastIndexOf("."));
-		String reNamePath = savePath + "/" + board_renamedFileName;
-		
 		try {
+			System.out.println("savePath : "+savePath);
+			File folder = new File(savePath);
+			if(folder.exists() == false) {
+				folder.mkdirs();
+			}
+			
+			String board_originalFileName = upfile.getOriginalFilename();
+			String board_renamedFileName = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmssSSS"))
+					+ board_originalFileName.substring(board_originalFileName.lastIndexOf("."));
+			String reNamePath = savePath + "/" + board_renamedFileName;
+		
+		
 			upfile.transferTo(new File(reNamePath));
+			return board_renamedFileName;
 		} catch (Exception e) {
+			e.printStackTrace();
 			return null;
 		}
-		return board_renamedFileName;
 	}
 
 	@Override
@@ -139,6 +141,4 @@ public class BoardServiceImpl implements BoardService{
 	public int deleteReply(int no) {
 		return mapper.deleteReply(no);
 	}
-
-	
 }

@@ -125,7 +125,7 @@ public class BoardController {
 	
 	// 게시글 상세보기
 	@GetMapping("/BoardDetail")
-	public String view(Model model, @RequestParam("board_no") int no) {
+	public String view(Model model, @RequestParam("board_no") int no, HttpServletRequest request) {
 		Board board = service.findByNo(no);
 		System.out.println("board : " + board);
 		
@@ -133,8 +133,14 @@ public class BoardController {
 			return "redirect:error";
 		}
 		
+		String rootPath = request.getSession().getServletContext().getRealPath("resources");
+		String savePath = rootPath + "\\upload\\board\\";
+		
+		System.out.println(savePath);
+		
 		model.addAttribute("board", board);
 		model.addAttribute("replyList", board.getReplies());
+		model.addAttribute("savepath", savePath);
 		return "community/communityBoardDetail";
 	}
 	
@@ -164,7 +170,7 @@ public class BoardController {
 		
 		if(upfile != null && upfile.isEmpty() == false) {
 			String rootPath = request.getSession().getServletContext().getRealPath("resources");
-			String savePath = rootPath + "/upload/board";
+			String savePath = rootPath + "\\upload\\board";
 			String renameFileName = service.saveFile(upfile, savePath);
 			
 			if(renameFileName != null) {
@@ -278,11 +284,11 @@ public class BoardController {
 		// 파일을 저장하는 로직
 		if(reloadFile != null && reloadFile.isEmpty() == false) {
 			String rootPath = request.getSession().getServletContext().getRealPath("resources");
-			String savePath = rootPath + "/upload/board";
+			String savePath = rootPath + "\\upload\\board";
 			
 			// 기존에 파일이 있는 경우 -> 기존 파일 삭제요청 필요!!
 			if(board.getBoard_renamedFileName() != null) {
-				service.deleteFile(savePath + "/" + board.getBoard_renamedFileName());
+				service.deleteFile(savePath + "\\" + board.getBoard_renamedFileName());
 			}
 			
 			String renameFileName = service.saveFile(reloadFile, savePath); // 실제 파일 저장하는 코드
@@ -332,18 +338,10 @@ public class BoardController {
 		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build(); // 실패했을 경우
 	}
 	
-	// 마이페이지 - 내글목록
-	@GetMapping("/myBoard")
-	public String goMyBoard() {
-		log.info("마이페이지 내 글목록 가기!");
-		return "mypage/mypageBoardList";
-	}
-	
-	// 마이페이지 - 내글목록
+	// 마이페이지 - 내 댓글목록
 	@GetMapping("/myReply")
 	public String goMyReply() {
 		log.info("마이페이지 내 댓글목록 가기!");
 		return "mypage/mypageReply";
 	}
-	
 }
