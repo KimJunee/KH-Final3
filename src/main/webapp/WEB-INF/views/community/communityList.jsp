@@ -3,6 +3,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="path" value="${pageContext.request.contextPath}"/>  
+<c:set var="board_list_no" value="${board_list_no}"/>  
     
 <!DOCTYPE html>
 <html lang="ko">
@@ -90,10 +91,13 @@
                                         <div class="row g-3 align-items-center justify-content-between mb-3">
                                             <!-- Search -->
                                             <div class="col-md-8">
-                                                <form action="${path}/board/list" method="get" class="rounded position-relative">
-                                                    <input class="form-control pe-5 bg-transparent" id="searchValue" type="search" placeholder="Search" aria-label="Search">
-                                                    <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
-                                                </form>
+                                            	<c:forEach var="board" items="${list}" begin="0" end="0" step="1" varStatus="status">
+                                            		<!-- <div><c:out value="${board.board_list_no}"/></div> -->
+	                                                <form action="${path}/board/list?type=${board.board_list_no}" method="get" class="rounded position-relative">
+	                                                    <input class="form-control pe-5 bg-transparent" id="searchValue" name="searchValue" type="${board.board_list_no}" placeholder="Search" aria-label="Search" value="${param.searchValue}" />
+	                                                    <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
+	                                                </form>                                           	
+                                            	</c:forEach>
                                             </div>
                                             <!-- Select option -->
                                             <div class="col-md-3">

@@ -95,6 +95,9 @@
 		<if test="board_list_no != null and !board_list_no.equals('')">
 			AND B.BOARD_LIST_NO = #{board_list_no} 
 		</if>
+		<if test="titleKeyword != null">
+			AND B.BOARD_TITLE LIKE '%'||#{titleKeyword}||'%'
+		</if>
 		ORDER BY B.BOARD_NO DESC
 	</select>
 	

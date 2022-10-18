@@ -67,19 +67,19 @@ public class BoardServiceImpl implements BoardService{
 	public int getBoardCount(Map<String, String> param) {
 		Map<String, String> searchMap = new HashMap<String, String>();
 		String searchValue = param.get("searchValue");
-		
+		searchMap.put("titleKeyword", searchValue);
 		searchMap.put("board_list_no", param.get("type"));
 		
-		if(searchValue != null && searchValue.length() > 0) {
-			String type = param.get("sdarchType");
-			if(type.equals("board_title")) {
-				searchMap.put("titleKeyword", searchValue);
-			} else if(type.equals("board_content")) {
-				searchMap.put("contentKeyword", searchValue);
-			} else if(type.equals("user_NickName")) {
-				searchMap.put("NickNameKeyword", searchValue);
-			}
-		}
+//		if(searchValue != null && searchValue.length() > 0) {
+//			String type = param.get("sdarchType");
+//			if(type.equals("board_title")) {
+//				searchMap.put("titleKeyword", searchValue);
+//			} else if(type.equals("board_content")) {
+//				searchMap.put("contentKeyword", searchValue);
+//			} else if(type.equals("user_NickName")) {
+//				searchMap.put("NickNameKeyword", searchValue);
+//			}
+//		}
 		return mapper.selectBoardCount(searchMap);
 	}
 
@@ -90,23 +90,24 @@ public class BoardServiceImpl implements BoardService{
 		
 		Map<String, String> searchMap = new HashMap<String, String>();
 		String searchValue = param.get("searchValue");
+		searchMap.put("titleKeyword", searchValue);
 		searchMap.put("board_list_no", param.get("type"));
 		
-		if(searchValue != null && searchValue.length() > 0) {
-			String type = param.get("searchType");
-			if(type.equals("board_title")) {
-				searchMap.put("titleKeyword", searchValue);
-			} else if(type.equals("board_content")) {
-				searchMap.put("contentKeyword", searchValue);
-			} else if(type.equals("user_NickName")) {
-				searchMap.put("NickNameKeyword", searchValue);
-			} 
-		}
+//		if(searchValue != null && searchValue.length() > 0) {
+//			String type = param.get("searchType");
+//			if(type.equals("board_title")) {
+//				searchMap.put("titleKeyword", searchValue);
+//			} else if(type.equals("board_content")) {
+//				searchMap.put("contentKeyword", searchValue);
+//			} else if(type.equals("user_NickName")) {
+//				searchMap.put("NickNameKeyword", searchValue);
+//			} 
+//		}
 		return mapper.selectBoardList(rowBounds, searchMap);
 	}
 	
 	@Override
-	public List<Board> getBoardListMain() {
+	public List<Board> getBoardListMain() { //커뮤니티 메인으로 들어갈때 쓰는 코드
 		return mapper.selectBoardListMain();
 	}
 

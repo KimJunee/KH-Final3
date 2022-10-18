@@ -41,7 +41,7 @@
                                         <div class="row g-3 align-items-center justify-content-between mb-3">
                                             <!-- 검색 -->
                                             <div class="col-md-12">
-                                                <form class="rounded position-relative">
+                                                <form class="rounded position-relative" action="${path}/board/list">
                                                     <input class="form-control pe-5 bg-transparent" type="search" placeholder="Search" aria-label="Search">
                                                     <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit">
                                                    		<i class="fas fa-search fs-6"></i>

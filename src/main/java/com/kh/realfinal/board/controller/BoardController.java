@@ -101,7 +101,11 @@ public class BoardController {
 	
 	// 커뮤니티 타입별 목록
 	@GetMapping("/list")
-	public String list(Model model, @RequestParam Map<String, String> param) {
+	public String list(Model model, @RequestParam Map<String, String> param, String board_list_no) {
+		
+	
+		System.out.println("board_list_no : " + board_list_no);
+		System.out.println("param : " + param);
 		int page = 1;
 		if(param.containsKey("page") == true) {
 			try {
