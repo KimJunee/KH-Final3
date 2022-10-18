@@ -58,24 +58,15 @@ public class CardCutRss {
 					if(node.getNodeType() == Node.ELEMENT_NODE) {
 						try {
 							Element eElement = (Element) node;
+							
 							String title = getStrData(eElement,"title");
 							String link = getStrData(eElement,"link");
 							String descriptionOrigin = getStrData(eElement,"description");
 							Date pubDate = getDateData(eElement,"pubDate");
 							
 							// https://codechacha.com/ko/java-string-matches/
-							int value = 0;
-							int nextValue = 0;
-							String pattern = "src=\"";
-							List<String> imageList = new ArrayList<String>();
-							while((value = descriptionOrigin.indexOf(pattern, nextValue)) > 0) {
-								nextValue = descriptionOrigin.indexOf("\"", value + pattern.length());
-								String imageurl = descriptionOrigin.substring(value, nextValue).replace("src=\"", "");
-								imageList.add(imageurl);
-								value = nextValue + 1;
-							}
-							String description = descriptionOrigin.substring(descriptionOrigin.indexOf("<!--cardnewsEnd-->")).replace("<!--cardnewsEnd-->", "");
-							CardCut card = new CardCut(title, link, descriptionOrigin, imageList, description, pubDate);
+
+							CardCut card = new CardCut(0, title, link, descriptionOrigin, null, null, pubDate);
 							list.add(card);
 //							System.out.println(card.getDescriptionOrigin()); 
 							System.out.println(card.getImages()); 

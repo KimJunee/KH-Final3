@@ -19,7 +19,7 @@
 	<%@include file="/WEB-INF/views/common/header.jsp" %>
 		<!-- **************** MAIN CONTENT START **************** -->
  <main>
-        <section class="bg-dark-overlay-4" style="background-image:url('${path}/resources/resources1b/images/04_politics/02_gov/main_na.jfif'); 
+        <section class="bg-dark-overlay-4" style="background-image:url('${path}/resources/resources1b/images/04_politics/02_gov/main_na.png'); 
         background-position: center left; background-size: cover; height: 300px;">
             <div class="container">
                 <div class="row ">
@@ -39,13 +39,13 @@ Main START -->
             <div class="container ">
                 <div class="row ">
                     <!-- Main part START -->
-                    <ul class="nav nav-tabs nav-tabs-dark ">
-                        <li class="nav-item ">
-                            <li class="nav-item "> <a class="nav-link " href="04_pol-mna_list.html">국회의원목록</a>
+                     <ul class="nav nav-tabs nav-tabs-dark ">
+                       <li class="nav-item">
+                            <li class="nav-item "> <a class="nav-link " href="${path}/politics/polMnaList">국회의원목록</a>
                             </li>
-                            <li class="nav-item "> <a class="nav-link active " href="04_pol-mna_profile_empty.html"> 의원상세보기 </a>
+                            <li class="nav-item "> <a class="nav-link active" href="${path}/politics/polMnaProfileEmpty"> 의원상세보기 </a>
                             </li>
-                            <li class="nav-item "> <a class="nav-link " href="04_pol-mna_stats.html"> 의원통계보기 </a>
+                            <li class="nav-item "> <a class="nav-link " href="${path}/politics/polMnaStats"> 의원통계보기 </a>
                             </li>
                     </ul>
                     <div class="tab-content ">
@@ -58,7 +58,7 @@ Main START -->
                             <div class="container text-center">
 
                                 <table class="table align-middle p-4 mb-0 table-hover table-shrink">
-                                    <img src="resources/resources1b/images/04_politics/02_gov/logo_mna.png" style="width: 200px;">
+                                    <img src="${path}/resources/resources1b/images/04_politics/02_gov/logo_mna.png" style="width: 200px;">
                                     <div class="ms-3">
                                         <h5 class="mb-5">
                                             <a style="color:#888a8d;">좌측의</a> <a style="color:#2163e8;">국회의원목록</a> <a style="color:#888a8d;"> 탭에서</a>

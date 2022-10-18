@@ -32,69 +32,41 @@
         </section>
 		    <!-- =======================
 		Main START -->
-		    <section class="pt-5 pb-0 mb-0 mt-3">
-		        <div class="container">
-		            <div class="row">
-		                <div class="col-sm-6 col-lg-4">
-		                    <div class="card mb-4">
-		                        <!-- Card img -->
-		                        <div class="card-fold position-relative">
-		                            <img class="card-img" src="resources/resources1b/images/04_politics/01_cardcut/card01.jpg" alt="Card image" style="height: 280px;">
-		                        </div>
-		                        <div class="card-body px-0 pt-3">
-		                            <h4 class="card-title"><a href="post-single-4.html" class="btn-link text-reset stretched-link fw-bold">안심전환대출 접수 시작... 대상.신청 방법은?</a></h4>
-		                            <!-- Card info -->
-		                            <ul class="nav nav-divider align-items-center text-uppercase small">
-		                                <li class="nav-item">
-		                                    <a href="#" class="nav-link text-reset btn-link">2022.09.16</a>
-		                                </li>
-		                                <li class="nav-item">문화체육관광부 국민소통실</li>
-		                            </ul>
-		                        </div>
-		                    </div>
-		                </div>
-		                <div class="col-sm-6 col-lg-4">
-		                    <div class="card mb-4">
-		                        <!-- Card img -->
-		                        <div class="card-fold position-relative">
-		                            <img class="card-img" src="resources/resources1b/images/04_politics/01_cardcut/card02.jpg" alt="Card image" style="height: 280px;">
-		                        </div>
-		                        <div class="card-body px-0 pt-3">
-		                            <h4 class="card-title"><a href="post-single-4.html" class="btn-link text-reset stretched-link fw-bold">청와대 '장애예술인 특별전' 보러가자!...19일까지</a></h4>
-		                            <!-- Card info -->
-		                            <ul class="nav nav-divider align-items-center text-uppercase small">
-		                                <li class="nav-item">
-		                                    <a href="#" class="nav-link text-reset btn-link">2022.09.16</a>
-		                                </li>
-		                                <li class="nav-item">정책브리핑 이정운</li>
-		                            </ul>
-		                        </div>
-		                    </div>
-		                </div>
-		                <div class="col-sm-6 col-lg-4">
-		                    <div class="card mb-4">
-		                        <!-- Card img -->
-		                        <div class="card-fold position-relative">
-		                            <img class="card-img" src="resources/resources1b/images/04_politics/01_cardcut/card03.jpg" alt="Card image" style="height: 280px;">
-		                        </div>
-		                        <div class="card-body px-0 pt-3">
-		                            <h4 class="card-title"><a href="post-single-4.html" class="btn-link text-reset stretched-link fw-bold">2023년도 교육부 예산안 핵심내용...반도체 등 첨단분야 인재 양성</a></h4>
-		                            <!-- Card info -->
-		                            <ul class="nav nav-divider align-items-center text-uppercase small">
-		                                <li class="nav-item">
-		                                    <a href="#" class="nav-link text-reset btn-link">2022.09.16</a>
-		                                </li>
-		                                <li class="nav-item">교육부</li>
-		                            </ul>
-		                        </div>
-		                    </div>
-		                </div>
-		
-		            </div>
-		        </div>
-		    </section>
-		
-		    <section class="position-relative pt-0 mb-5">
+		<section class="pt-5 pb-0 mb-0 mt-3">
+			<div class="container">
+				<div class="row">
+					<c:if test="${!empty topList}">
+						<c:forEach var="cardcutTop" items="${topList}">
+								<div class="col-sm-6 col-lg-4">
+									<div class="card mb-4">
+										<!-- Card img -->
+											<div class="card-fold position-relative">
+														<img class="card-img"
+															src="${cardcutTop.images[0]}"
+															alt="Card image" style="height: 280px;">
+											</div>
+											<div class="card-body px-0 pt-3">
+												<h4 class="card-title">
+													<a href="post-single-4.html"
+														class="btn-link text-reset stretched-link fw-bold">${cardcutTop.title}</a>
+												</h4>
+												<!-- Card info -->
+												<ul
+													class="nav nav-divider align-items-center text-uppercase small">
+													<li class="nav-item"><a href="#"
+														class="nav-link text-reset btn-link">${cardcutTop.pubDate}</a></li>
+													 
+												</ul> 
+											</div>
+									</div>
+								</div>
+							</c:forEach>
+						</c:if>
+				</div>
+			</div>
+		</section>
+
+		<section class="position-relative pt-0 mb-5">
 		        <div class="container">
 		            <div class="row">
 		                <div class="col-9">
@@ -129,200 +101,63 @@
 		                            </div>
 		                        </div>
 		                    </div>
-		
+						<!-- Card item -->
 		                    <div class="row">
-		                        <div class="col-sm-6 col-lg-4">
-		                            <div class="card mb-4">
-		                                <!-- Card img -->
-		                                <div class="card-fold position-relative">
-		                                    <img class="card-img" src="resources/resources1b/images/04_politics/01_cardcut/card01.jpg" alt="Card image" style="height: 270px;">
-		                                </div>
-		                                <div class="card-body px-0 pt-3">
-		                                    <h6 class="card-title"><a href="post-single-4.html" class="btn-link text-reset stretched-link fw-bold">안심전환대출 접수 시작... 대상.신청 방법은?</a></h6>
-		                                    <!-- Card info -->
-		                                    <ul class="nav nav-divider align-items-center text-uppercase small">
-		                                        <li class="nav-item">
-		                                            <a href="#" class="nav-link text-reset btn-link">2022.09.16</a>
-		                                        </li>
-		                                        <li class="nav-item">문화체육관광부 국민소통실</li>
-		                                    </ul>
-		                                </div>
-		                            </div>
-		                        </div>
-		                        <!-- Card item END -->
-		                        <!-- Card item START -->
-		                        <div class="col-sm-6 col-lg-4">
-		                            <div class="card mb-4">
-		                                <!-- Card img -->
-		                                <div class="card-fold position-relative">
-		                                    <img class="card-img" src="resources/resources1b/images/04_politics/01_cardcut/card02.jpg" alt="Card image">
-		                                </div>
-		                                <div class="card-body px-0 pt-3">
-		                                    <h6 class="card-title"><a href="post-single-4.html" class="btn-link text-reset stretched-link fw-bold">청와대 '장애예술인 특별전' 보러가자!... 19일까지</a></h6>
-		                                    <!-- Card info -->
-		                                    <ul class="nav nav-divider align-items-center text-uppercase small">
-		                                        <li class="nav-item">
-		                                            <a href="#" class="nav-link text-reset btn-link">2022.09.16</a>
-		                                        </li>
-		                                        <li class="nav-item">정책브리핑 이정운</li>
-		                                    </ul>
-		                                </div>
-		                            </div>
-		                        </div>
-		                        <!-- Card item END -->
-		                        <!-- Card item START -->
-		                        <div class="col-sm-6 col-lg-4">
-		                            <div class="card mb-4">
-		                                <!-- Card img -->
-		                                <div class="card-fold position-relative">
-		                                    <img class="card-img" src="resources/resources1b/images/04_politics/01_cardcut/card03.jpg" alt="Card image">
-		                                </div>
-		                                <div class="card-body px-0 pt-3">
-		                                    <h6 class="card-title fs-6"><a href="post-single-4.html" class="btn-link text-reset stretched-link fw-bold">2023년도 교육부 예산안 핵심내용...<br>반도체 등 첨단분야 인재 양성</a></h6>
-		                                    <!-- Card info -->
-		                                    <ul class="nav nav-divider align-items-center text-uppercase small">
-		                                        <li class="nav-item">
-		                                            <a href="#" class="nav-link text-reset btn-link">2022.09.16</a>
-		                                        </li>
-		                                        <li class="nav-item">교육부</li>
-		                                    </ul>
-		                                </div>
-		                            </div>
-		                        </div>
-		                        <!-- Card item END -->
-		                        <!-- Card item START -->
-		                        <div class="col-sm-6 col-lg-4">
-		                            <div class="card mb-4">
-		                                <!-- Card img -->
-		                                <div class="card-fold position-relative">
-		                                    <img class="card-img" src="resources/resources1b/images/04_politics/01_cardcut/card04.jpg" alt="Card image">
-		                                </div>
-		                                <div class="card-body px-0 pt-3">
-		                                    <h6 class="card-title"><a href="post-single-4.html" class="btn-link text-reset stretched-link fw-bold">[딱풀이]'새출발기금'이란?</a></h6>
-		                                    <!-- Card info -->
-		                                    <ul class="nav nav-divider align-items-center text-uppercase small">
-		                                        <li class="nav-item">
-		                                            <a href="#" class="nav-link text-reset btn-link">2022.09.18</a>
-		                                        </li>
-		                                        <li class="nav-item">문화체육관광부 국민소통실</li>
-		                                    </ul>
-		                                </div>
-		                            </div>
-		                        </div>
-		                        <!-- Card item END -->
-		                        <!-- Card item START -->
-		                        <div class="col-sm-6 col-lg-4">
-		                            <div class="card mb-4">
-		                                <!-- Card img -->
-		                                <div class="card-fold position-relative">
-		                                    <img class="card-img" src="resources/resources1b/images/04_politics/01_cardcut/card05.jpg" alt="Card image">
-		                                </div>
-		                                <div class="card-body px-0 pt-3">
-		                                    <h6 class="card-title"><a href="post-single-4.html" class="btn-link text-reset stretched-link fw-bold">슬기로운 여가생활, 공유누리와 함께해요!</a></h6>
-		                                    <!-- Card info -->
-		                                    <ul class="nav nav-divider align-items-center text-uppercase small">
-		                                        <li class="nav-item">
-		                                            <a href="#" class="nav-link text-reset btn-link">2022.09.20</a>
-		                                        </li>
-		                                        <li class="nav-item">행정안정부</li>
-		                                    </ul>
-		                                </div>
-		                            </div>
-		                        </div>
-		                        <!-- Card item END -->
-		                        <!-- Card item START -->
-		                        <div class="col-sm-6 col-lg-4">
-		                            <div class="card mb-4">
-		                                <!-- Card img -->
-		                                <div class="card-fold position-relative">
-		                                    <img class="card-img" src="resources/resources1b/images/04_politics/01_cardcut/card06.jpg" alt="Card image">
-		                                </div>
-		                                <div class="card-body px-0 pt-3">
-		                                    <h6 class="card-title"><a href="post-single-4.html" class="btn-link text-reset stretched-link fw-bold">술도 칼로리 확인이 가능해진다!</a></h6>
-		                                    <!-- Card info -->
-		                                    <ul class="nav nav-divider align-items-center text-uppercase small">
-		                                        <li class="nav-item">
-		                                            <a href="#" class="nav-link text-reset btn-link">2022.09.20</a>
-		                                        </li>
-		                                        <li class="nav-item">식품의약품안전처</li>
-		                                    </ul>
-		                                </div>
-		                            </div>
-		                        </div>
-		                        <!-- Card item END -->
-		                        <!-- Card item START -->
-		                        <div class="col-sm-6 col-lg-4">
-		                            <div class="card mb-4">
-		                                <!-- Card img -->
-		                                <div class="card-fold position-relative">
-		                                    <img class="card-img" src="resources/resources1b/images/04_politics/01_cardcut/card07.jpg" alt="Card image">
-		                                </div>
-		                                <div class="card-body px-0 pt-3">
-		                                    <h6 class="card-title"><a href="post-single-4.html" class="btn-link text-reset stretched-link fw-bold">[2023년 예산안]대상별 맞춤 지원 - 소상공인 등</a></h6>
-		                                    <!-- Card info -->
-		                                    <ul class="nav nav-divider align-items-center text-uppercase small">
-		                                        <li class="nav-item">
-		                                            <a href="#" class="nav-link text-reset btn-link">2022.09.22</a>
-		                                        </li>
-		                                        <li class="nav-item">문화체육관광부 국민소통실</li>
-		                                    </ul>
-		                                </div>
-		                            </div>
-		                        </div>
-		                        <!-- Card item END -->
-		                        <!-- Card item START -->
-		                        <div class="col-sm-6 col-lg-4">
-		                            <div class="card mb-4">
-		                                <!-- Card img -->
-		                                <div class="card-fold position-relative">
-		                                    <img class="card-img" src="resources/resources1b/images/04_politics/01_cardcut/card08.jpg" alt="Card image">
-		                                </div>
-		                                <div class="card-body px-0 pt-3">
-		                                    <h6 class="card-title"><a href="post-single-4.html" class="btn-link text-reset stretched-link fw-bold">내게 맞는 복지서비스 알려준다... 복지멤버십 전 국민 확대</a></h6>
-		                                    <!-- Card info -->
-		                                    <ul class="nav nav-divider align-items-center text-uppercase small">
-		                                        <li class="nav-item">
-		                                            <a href="#" class="nav-link text-reset btn-link">2022.09.22</a>
-		                                        </li>
-		                                        <li class="nav-item">보건복지부</li>
-		                                    </ul>
-		                                </div>
-		                            </div>
-		                        </div>
-		                        <div class="col-sm-6 col-lg-4">
-		                            <div class="card mb-4">
-		                                <!-- Card img -->
-		                                <div class="card-fold position-relative">
-		                                    <img class="card-img" src="resources/resources1b/images/04_politics/01_cardcut/card09.jpg" alt="Card image">
-		                                </div>
-		                                <div class="card-body px-0 pt-3">
-		                                    <h6 class="card-title"><a href="post-single-4.html" class="btn-link text-reset stretched-link fw-bold">'9월 독서의 달' 지역별 독서문화행사 한 눈에!</a></h6>
-		                                    <!-- Card info -->
-		                                    <ul class="nav nav-divider align-items-center text-uppercase small">
-		                                        <li class="nav-item">
-		                                            <a href="#" class="nav-link text-reset btn-link">2022.09.26</a>
-		                                        </li>
-		                                        <li class="nav-item">문화체육관광부</li>
-		                                    </ul>
-		                                </div>
-		                            </div>
-		                        </div>
-		                        <!-- Pagination -->
-		                        <nav class="mb-sm-0 d-flex justify-content-center" aria-label="navigation">
-		                            <ul class="pagination pagination-sm pagination-bordered mb-0">
-		                                <li class="page-item disabled">
-		                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Prev</a>
-		                                </li>
-		                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-		                                <li class="page-item active"><a class="page-link" href="#">2</a></li>
-		                                <li class="page-item disabled"><a class="page-link" href="#">..</a></li>
-		                                <li class="page-item"><a class="page-link" href="#">15</a></li>
-		                                <li class="page-item">
-		                                    <a class="page-link" href="#">Next</a>
-		                                </li>
-		                            </ul>
-		                        </nav>
-		                    </div>
+		                    <!-- Card item START -->
+							<c:if test="${!empty list}">
+								<c:forEach var="cardcut" items="${list}">
+									<div class="col-sm-6 col-lg-4">
+										<div class="card mb-4">
+											<!-- Card img -->
+											<div class="card-fold position-relative">
+												<img class="card-img"
+													src="${cardcut.images[0]}"
+													alt="Card image" style="height: 270px;">
+											</div>
+											<div class="card-body px-0 pt-3">
+												<h6 class="card-title">
+													<a href="post-single-4.html"
+														class="btn-link text-reset stretched-link fw-bold">${cardcut.title}</a>
+												</h6>
+												<!-- Card info -->
+												<ul
+													class="nav nav-divider align-items-center text-uppercase small">
+													<li class="nav-item"><a href="#"
+														class="nav-link text-reset btn-link">${cardcut.pubDate}</a></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<!-- Card item END -->
+									<!-- Card item START -->
+								</c:forEach>
+							</c:if>
+							<!-- Pagination START -->
+											<nav class="mb-sm-0 d-flex justify-content-center mt-2"
+												aria-label="navigation">
+												<ul
+													class="pagination pagination-sm pagination-bordered mb-0">
+													<li class="page-item"><a
+														onclick="movePage('${path}/finance/productMain?page=${pageInfo.prevPage}');"
+														class="page-link">Prev</a></li>
+													<c:forEach begin="${pageInfo.startPage}"
+														end="${pageInfo.endPage}" step="1" varStatus="status">
+														<c:if test="${pageInfo.currentPage == status.current}">
+															<li class="page-item active"><a class="page-link">${status.current}</a></li>
+														</c:if>
+														<c:if test="${pageInfo.currentPage != status.current}">
+															<li class="page-item"><a
+																onclick="movePage('${path}/finance/productMain?page=${status.current}');"
+																class="page-link">${status.current}</a></li>
+														</c:if>
+													</c:forEach>
+													<li class="page-item"><a
+														onclick="movePage('${path}/finance/productMain?page=${pageInfo.nextPage}');"
+														class="page-link">Next</a></li>
+												</ul>
+											</nav>
+										<!-- Pagination END -->
+						</div>
 		                </div>
 		                <div class="col-3">
 		                    <div class="card border ">

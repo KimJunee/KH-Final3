@@ -14,10 +14,33 @@
 	<insert id="insertCardCut"
 		parameterType="CardCut">
 		INSERT INTO CARDCUT(		
-			TITLE, LINK, DESCRIPTION, PUBDATE
+			CARDCUT_NO, TITLE, LINK, DESCRIPTION, PUBDATE
 		) VALUES(
-			#{title}, #{link}, #{descriptionOrigin}, #{pubDate}
+			SEQ_CARDCUT_NO.NEXTVAL, #{title}, #{link}, #{descriptionOrigin}, #{pubDate}
 		)
 	</insert>
+
+	<select id="selectCardCut" resultMap="CardCutMap">
+		SELECT CARDCUT_NO, TITLE, LINK, DESCRIPTION, PUBDATE
+		FROM CARDCUT
+	</select>
+	
+	
+	<select id="selectCardCutCount" resultType="int"  parameterType="map">
+		SELECT COUNT(*)
+		FROM CARDCUT
+	</select>
+	
+	<!-- 검색 후 갯수
+	<select id="selectListCount" resultType="int"  parameterType="map">
+		SELECT COUNT(*)
+		FROM BOARD B
+		JOIN USER_T U ON(B.WRITER_NO = U.USER_NO)
+		WHERE B.BOARD_STATUS = 'Y'
+		<if test="no != null and !board_list_no.equals('')">
+			AND B.BOARD_LIST_NO = #{board_list_no}
+		</if>
+	</select> -->
+	
 	
 </mapper>

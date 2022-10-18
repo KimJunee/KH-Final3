@@ -12,7 +12,7 @@ import com.kh.realfinal.politics.model.vo.ProfileMna;
 public interface ProfileMnaMapper {
 	
 //	List<ProfileMna> selectProfileMna(RowBounds rowBounds, Map<String, String> map); 
-//	int selectProfileMnaCount(Map<String, String> map); 
+	int selectProfileMnaCount(Map<String, String> map); 
 	
 	List<ProfileMna> selectProfileMna(RowBounds rowBounds); 
 	int selectProfileMnaCount(); 

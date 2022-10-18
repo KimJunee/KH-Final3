@@ -1,17 +1,20 @@
 package com.kh.realfinal.politics.model.controller;
 
 import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.kh.realfinal.board.model.vo.Board;
 import com.kh.realfinal.common.util.PageInfo;
+import com.kh.realfinal.financialsupervisory.controller.FixDepositController;
+import com.kh.realfinal.financialsupervisory.model.vo.FixDeposit;
 import com.kh.realfinal.politics.api.LawProposedAPI;
 import com.kh.realfinal.politics.api.MnaPhotoAPI;
 import com.kh.realfinal.politics.api.ProfileMnaAPI;
@@ -21,6 +24,10 @@ import com.kh.realfinal.politics.model.vo.LawProposed;
 import com.kh.realfinal.politics.model.vo.MnaPhoto;
 import com.kh.realfinal.politics.model.vo.ProfileMna;
 
+import lombok.extern.slf4j.Slf4j;
+import oracle.net.ano.Service;
+
+@Slf4j
 @Controller
 public class ProfileMnaController {
 	
@@ -103,27 +110,52 @@ public class ProfileMnaController {
 		
 	}
 	
-
+	// 페이징 처리
 	@RequestMapping("/politics/polMnaList")
 	public String mnaProfileList(Model model, @RequestParam Map<String, String> param) {
 		
-		int page = 1;
+		int page = 1; 
 		if(param.containsKey("page") == true) {
 			try {
 				page = Integer.parseInt(param.get("page"));
 			} catch (Exception e) {}
 		}
 		
-		PageInfo pageInfo = new PageInfo(page, 10, profileMnaService.getProfileCount(), 10);
+		PageInfo pageInfo = new PageInfo(page, 3, profileMnaService.getProfileCount(), 10);
 		List<ProfileMna> list = profileMnaService.getProfileList(pageInfo);
 		
-		model.addAttribute("list",list);
+		int totalSize = profileMnaService.getProfileCount();
+		
+		model.addAttribute("list", list);
+		model.addAttribute("totalSize", totalSize);
+		model.addAttribute("size", list.size());
 		model.addAttribute("param",param);
 		model.addAttribute("pageInfo",pageInfo);
 		return "/politics/polMnaList";
 	} 
 	
- 
+	@RequestMapping("/politics/polMnaProfileEmpty")
+	public String polMnaProfileEmpty(Model model) { //메인으로
+		return "politics/polMnaProfileEmpty";
+	}
 	
+	@RequestMapping("/politics/polMnaStats")
+	public String polMnaStats(Model model) { //메인으로
+		return "politics/polMnaStats";
+	}
 	
+//	
+//	@GetMapping("politics/polMnaProfile")
+//	public String polMnaProfile(Model model, @RequestParam("no") int no) {
+//		List<ProfileMna> pMna = service.findByNo(no);
+//		
+//		if(board == null) {
+//			return "redirect:error";
+//		}
+//		
+//		model.addAttribute("board", board);
+//		model.addAttribute("replyList", board.getReplies());
+//		return "/board/view";
+//	}
+// 
 }
