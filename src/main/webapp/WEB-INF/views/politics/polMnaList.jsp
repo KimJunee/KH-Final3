@@ -309,7 +309,7 @@ Main START -->
 																			<div class="mb-0 ms-2">
 																				<!-- Title -->
 																				<h6 class="mb-0">
-																					<a href="04_pol_mna_profile.html"
+																					<a href="${path}/politics/polMnaProfile?profileNo=${profile.no}"
 																						class="stretched-link"><c:out
 																							value="${profile.hgNm}" /></a>
 																				</h6>
@@ -337,30 +337,25 @@ Main START -->
 											</div>
 											<br>
 											<!-- Pagination START -->
-											<nav class="mb-sm-0 d-flex justify-content-center mt-2"
-												aria-label="navigation">
-												<ul
-													class="pagination pagination-sm pagination-bordered mb-0">
-													<li class="page-item"><a
-														onclick="movePage('${path}/finance/productMain?page=${pageInfo.prevPage}');"
-														class="page-link">Prev</a></li>
-													<c:forEach begin="${pageInfo.startPage}"
-														end="${pageInfo.endPage}" step="1" varStatus="status">
-														<c:if test="${pageInfo.currentPage == status.current}">
-															<li class="page-item active"><a class="page-link">${status.current}</a></li>
-														</c:if>
-														<c:if test="${pageInfo.currentPage != status.current}">
-															<li class="page-item"><a
-																onclick="movePage('${path}/finance/productMain?page=${status.current}');"
-																class="page-link">${status.current}</a></li>
-														</c:if>
-													</c:forEach>
-													<li class="page-item"><a
-														onclick="movePage('${path}/finance/productMain?page=${pageInfo.nextPage}');"
-														class="page-link">Next</a></li>
-												</ul>
-											</nav>
-										<!-- Pagination END -->
+											<nav class="mb-sm-0 d-flex justify-content-center mt-2" aria-label="navigation">
+                                        <ul class="pagination pagination-sm pagination-bordered mb-0">
+                                            <li class="page-item">
+                                                <a onclick="movePage('${path}/politics/polMnaList?page=${pageInfo.prevPage}');" class="page-link">Prev</a>
+                                            </li>
+                                            <c:forEach begin="${pageInfo.startPage}" end="${pageInfo.endPage}" step="1" varStatus="status">
+                                            	<c:if test="${pageInfo.currentPage == status.current}">
+		                                            <li class="page-item active"><a class="page-link">${status.current}</a></li>                                    		
+                                            	</c:if>
+                                            	<c:if test="${pageInfo.currentPage != status.current}">
+		                                            <li class="page-item"><a onclick="movePage('${path}/politics/polMnaList?page=${status.current}');" class="page-link">${status.current}</a></li>                                            	
+                                            	</c:if>                                         
+                                            </c:forEach>
+                                            <li class="page-item">
+                                                <a onclick="movePage('${path}/politics/polMnaList?page=${pageInfo.nextPage}');" class="page-link">Next</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+											<!-- Pagination END -->
 											<br>
 										</div>
 									</div>
@@ -476,14 +471,10 @@ Main START -->
 		</section>
 		<script type="text/javascript">
 			function movePage(pageUrl) {
-				var searchValue = document.getElementById("searchValue");
-				var sort = document.getElementById("sort");
-				var sortValue = sort.options[sort.selectedIndex].value;
-				pageUrl = pageUrl + '&searchValue=' + searchValue.value
-						+ '&sort=' + sortValue;
 				location.href = encodeURI(pageUrl);
 			}
 		</script>
+
 		<!-- =======================
 Main END -->
 	</main>

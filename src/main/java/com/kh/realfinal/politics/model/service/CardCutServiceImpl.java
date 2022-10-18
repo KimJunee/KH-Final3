@@ -15,11 +15,11 @@ import com.kh.realfinal.politics.model.vo.CardCut;
 import com.kh.realfinal.politics.model.vo.CardCutReply;
 
 @Service
-public class CardCutServiceImpl implements CardCutService  {
-	
+public class CardCutServiceImpl implements CardCutService {
+
 	@Autowired
 	private CardCutMapper mapper;
-	
+
 	@Override
 	@Transactional(rollbackFor = Exception.class)
 	public int saveCardCut(CardCut card) {
@@ -34,7 +34,7 @@ public class CardCutServiceImpl implements CardCutService  {
 	}
 
 	@Override
-	@Transactional(rollbackFor =  Exception.class)
+	@Transactional(rollbackFor = Exception.class)
 	public int deleteReply(int no) {
 		return mapper.deleteReply(no);
 	}
@@ -44,22 +44,33 @@ public class CardCutServiceImpl implements CardCutService  {
 		int offset = (pageInfo.getCurrentPage() - 1) * pageInfo.getListLimit();
 		RowBounds rowBounds = new RowBounds(offset, pageInfo.getListLimit());
 		List<CardCut> list = mapper.selectCardCut(rowBounds);
-		
-		for(CardCut item : list) {
-			String descriptionOrigin = item.getDescriptionOrigin();
-			int value = 0;
-			int nextValue = 0;
-			String pattern = "src=\"";
-			List<String> imageList = new ArrayList<String>();
-			while((value = descriptionOrigin.indexOf(pattern, nextValue)) > 0) {
-				nextValue = descriptionOrigin.indexOf("\"", value + pattern.length());
-				String imageurl = descriptionOrigin.substring(value, nextValue).replace("src=\"", "");
-				imageList.add(imageurl);
-				value = nextValue + 1;
+
+		for (CardCut item : list) {
+			try {
+				String descriptionOrigin = item.getDescriptionOrigin();
+				System.out.println(descriptionOrigin);
+				int value = 0;
+				int nextValue = 0;
+				String pattern = "src=\"";
+				List<String> imageList = new ArrayList<String>();
+				while ((value = descriptionOrigin.indexOf(pattern, nextValue)) > 0) {
+					nextValue = descriptionOrigin.indexOf("\"", value + pattern.length());
+					String imageurl = descriptionOrigin.substring(value, nextValue).replace("src=\"", "");
+					imageList.add(imageurl);
+					value = nextValue + 1;
+				}
+				String description = "";
+				if(descriptionOrigin.indexOf("<!--cardnewsEnd-->") > 0) {
+					description = descriptionOrigin.substring(descriptionOrigin.indexOf("<!--cardnewsEnd-->")).replace("<!--cardnewsEnd-->", "");
+				}else {
+					description = descriptionOrigin;
+				}
+
+				item.setContent(description);
+				item.setImages(imageList);
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
-			String description = descriptionOrigin.substring(descriptionOrigin.indexOf("<!--cardnewsEnd-->")).replace("<!--cardnewsEnd-->", "");
-			item.setContent(description);
-			item.setImages(imageList);
 		}
 		return list;
 
@@ -72,21 +83,31 @@ public class CardCutServiceImpl implements CardCutService  {
 		List<CardCut> list = mapper.selectCardCut(rowBounds);
 
 		for (CardCut item : list) {
-			String descriptionOrigin = item.getDescriptionOrigin();
-			int value = 0;
-			int nextValue = 0;
-			String pattern = "src=\"";
-			List<String> imageList = new ArrayList<String>();
-			while ((value = descriptionOrigin.indexOf(pattern, nextValue)) > 0) {
-				nextValue = descriptionOrigin.indexOf("\"", value + pattern.length());
-				String imageurl = descriptionOrigin.substring(value, nextValue).replace("src=\"", "");
-				imageList.add(imageurl);
-				value = nextValue + 1;
+			try {
+				String descriptionOrigin = item.getDescriptionOrigin();
+				System.out.println(descriptionOrigin);
+				int value = 0;
+				int nextValue = 0;
+				String pattern = "src=\"";
+				List<String> imageList = new ArrayList<String>();
+				while ((value = descriptionOrigin.indexOf(pattern, nextValue)) > 0) {
+					nextValue = descriptionOrigin.indexOf("\"", value + pattern.length());
+					String imageurl = descriptionOrigin.substring(value, nextValue).replace("src=\"", "");
+					imageList.add(imageurl);
+					value = nextValue + 1;
+				}
+				String description = "";
+				if(descriptionOrigin.indexOf("<!--cardnewsEnd-->") > 0) {
+					description = descriptionOrigin.substring(descriptionOrigin.indexOf("<!--cardnewsEnd-->")).replace("<!--cardnewsEnd-->", "");
+				}else {
+					description = descriptionOrigin;
+				}
+
+				item.setContent(description);
+				item.setImages(imageList);
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
-			String description = descriptionOrigin.substring(descriptionOrigin.indexOf("<!--cardnewsEnd-->"))
-					.replace("<!--cardnewsEnd-->", "");
-			item.setContent(description);
-			item.setImages(imageList);
 		}
 		return list;
 
@@ -104,5 +125,4 @@ public class CardCutServiceImpl implements CardCutService  {
 		return 0;
 	}
 
- 
 }

@@ -121,7 +121,7 @@ public class ProfileMnaController {
 			} catch (Exception e) {}
 		}
 		
-		PageInfo pageInfo = new PageInfo(page, 3, profileMnaService.getProfileCount(), 10);
+		PageInfo pageInfo = new PageInfo(page, 10, profileMnaService.getProfileCount(), 10);
 		List<ProfileMna> list = profileMnaService.getProfileList(pageInfo);
 		
 		int totalSize = profileMnaService.getProfileCount();
@@ -144,10 +144,11 @@ public class ProfileMnaController {
 		return "politics/polMnaStats";
 	}
 	
+//	/politics/polMnaProfile ? profileNo=${profile.no}
 //	
 //	@GetMapping("politics/polMnaProfile")
-//	public String polMnaProfile(Model model, @RequestParam("no") int no) {
-//		List<ProfileMna> pMna = service.findByNo(no);
+//	public String polMnaProfile(Model model, int profileNo) {
+//		List<ProfileMna> pMna = service.findByNo(profileNo);
 //		
 //		if(board == null) {
 //			return "redirect:error";
@@ -157,5 +158,5 @@ public class ProfileMnaController {
 //		model.addAttribute("replyList", board.getReplies());
 //		return "/board/view";
 //	}
-// 
+ 
 }
