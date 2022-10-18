@@ -337,11 +337,4 @@ public class BoardController {
 		}
 		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build(); // 실패했을 경우
 	}
-	
-	// 마이페이지 - 내 댓글목록
-	@GetMapping("/myReply")
-	public String goMyReply() {
-		log.info("마이페이지 내 댓글목록 가기!");
-		return "mypage/mypageReply";
-	}
 }

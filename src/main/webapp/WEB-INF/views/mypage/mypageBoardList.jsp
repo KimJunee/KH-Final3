@@ -51,7 +51,7 @@
                                         <a class="card-nav-link" href="1myPageSubscription.html"><i class="fa fa-solid fa-building" style="margin-right:10px; margin-left: 10px;"></i>부동산청약</a>
                                         <a class="card-nav-link" href="1mypage-newsscrap1003.html"><i class="fa fa-solid fa-bookmark" style="margin-right:10px; margin-left: 10px;"></i>뉴스스크랩</a>
                                         <a class="card-nav-link active" href="${path}/MypageBoard/myBoard"><i class="fa fa-solid fa-quote-left" style="margin-right:10px; margin-left: 10px;"></i>내 글 목록</a>
-                                        <a class="card-nav-link" href="${path}/board/myReply"><i class="fa fa-solid fa-comment-dots" style="margin-right:10px; margin-left: 10px;"></i>내 댓글 목록</a>
+                                        <a class="card-nav-link" href="${path}/MypageBoard/myReply"><i class="fa fa-solid fa-comment-dots" style="margin-right:10px; margin-left: 10px;"></i>내 댓글 목록</a>
                                     </div>
                                 </div>
                             </div>
@@ -68,7 +68,7 @@
                                     <!-- 상단 검색 -->
                                     <div class="col-md-7">
                                         <form action="${path}/MypageBoard/mylist" method="get" class="rounded position-relative">
-                                            <input class="form-control pe-5 bg-transparent" type="search" placeholder="Search" aria-label="Search">
+                                            <input class="form-control pe-5 bg-transparent" id="searchValue" type="search" placeholder="Search" aria-label="Search">
                                             <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
                                         </form>
                                     </div>
@@ -76,7 +76,7 @@
                                     <div class="col-md-3">
                                         <!-- Short by filter -->
                                         <form>
-                                            <select class="form-select z-index-9 bg-transparent" aria-label=".form-select-sm">
+                                            <select id="sort" class="form-select z-index-9 bg-transparent" aria-label=".form-select-sm">
 												<option value="">최근 작성 순</option>
 												<option>오래된 작성 순</option>
 												<option>정치</option>
@@ -164,18 +164,18 @@
                         <nav class="mb-sm-0 d-flex justify-content-center mt-2" aria-label="navigation">
                             <ul class="pagination pagination-sm pagination-bordered mb-0">
                                 <li class="page-item">
-                                    <a onclick="movePage('${path}/community/communityMain?page=${pageInfo.prevPage}');" class="page-link">Prev</a>
+                                    <a onclick="movePage('${path}/MypageBoard/mylist?page=${pageInfo.prevPage}');" class="page-link">Prev</a>
                                 </li>
                                 <c:forEach begin="${pageInfo.startPage}" end="${pageInfo.endPage}" step="1" varStatus="status">
                                 	<c:if test="${pageInfo.currentPage == status.current}">
                                   <li class="page-item active"><a class="page-link">${status.current}</a></li>                                    		
                                 	</c:if>
                                 	<c:if test="${pageInfo.currentPage != status.current}">
-                                  <li class="page-item"><a onclick="movePage('${path}/community/communityMain?page=${status.current}');" class="page-link">${status.current}</a></li>                                            	
+                                  <li class="page-item"><a onclick="movePage('${path}/MypageBoard/mylist?page=${status.current}');" class="page-link">${status.current}</a></li>                                            	
                                 	</c:if>                                         
                                 </c:forEach>
                                 <li class="page-item">
-                                    <a onclick="movePage('${path}/finance/productMain?page=${pageInfo.nextPage}');" class="page-link">Next</a>
+                                    <a onclick="movePage('${path}/MypageBoard/mylist?page=${pageInfo.nextPage}');" class="page-link">Next</a>
                                 </li>
                             </ul>
                         </nav>
@@ -186,12 +186,14 @@
             <!-- Blog list table END -->
         </section>
         <script type="text/javascript">
-			function movePage(pageUrl){
-				var searchValue = document.getElementById("searchValue");
-					pageUrl = pageUrl + '&searchValue=' + searchValue.value; 
-				location.href = encodeURI(pageUrl);	
-			}			
-		</script>
+            function movePage(pageUrl){
+                var searchValue = document.getElementById("searchValue");
+                var sort = document.getElementById("sort");
+                var sortValue = sort.options[sort.selectedIndex].value;
+                    pageUrl = pageUrl + '&searchValue=' + searchValue.value + '&sort=' + sortValue; 
+                location.href = encodeURI(pageUrl);
+            }
+        </script>
     </main>
     <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>

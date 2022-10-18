@@ -23,7 +23,7 @@ public class MypageBoardController {
 	@Autowired
 	private MypageBoardService service;
 	
-	// 마이페이지 - 내글목록
+	// 마이페이지 - 내글목록 가기
 	@GetMapping("/myBoard")
 	public String goMyBoard() {
 		log.info("마이페이지 내 글목록 가기!");
@@ -43,15 +43,14 @@ public class MypageBoardController {
 		}
 		
 		param.put("user_no",String.valueOf(loginMember.getUser_no()));
-		System.out.println(param.get("user_no"));
 		PageInfo pageInfo = new PageInfo(page, 10, service.getBoardCount(param), 10);
 		List<Board> list = service.getBoardList(pageInfo, param);
 		
-		for (Board board : list) {
-			System.out.println("boardList : "+board.toString());
-		}
-		
-		System.out.println("나 누구 : " + loginMember);
+//		for (Board board : list) {
+//			System.out.println("boardList : "+board.toString());
+//		}
+//		
+//		System.out.println("나 누구 : " + loginMember);
 		
 		model.addAttribute("list",list);
 		model.addAttribute("board_list_no", param.get("type"));
@@ -59,4 +58,14 @@ public class MypageBoardController {
 		model.addAttribute("pageInfo",pageInfo);
 		return "/mypage/mypageBoardList";
 	}
+	
+	// 마이페이지 - 내 댓글목록
+	@GetMapping("/myReply")
+	public String goMyReply() {
+		log.info("마이페이지 내 댓글목록 가기!");
+		return "mypage/mypageReply";
+	}
+	
+	// 마이페이지 - 내가 쓴 댓글 목록
+	
 }
