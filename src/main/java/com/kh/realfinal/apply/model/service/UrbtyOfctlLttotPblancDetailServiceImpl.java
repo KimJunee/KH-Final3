@@ -14,6 +14,8 @@ public class UrbtyOfctlLttotPblancDetailServiceImpl implements UrbtyOfctlLttotPb
 	@Autowired
 	private UrbtyOfctlLttotPblancDetailMapper mapper;
 	
+	// ------------------------------------- 데이터 파싱
+	
 	@Override
 	@Transactional(rollbackFor = Exception.class)
 	public int saveUrbtyOfctlLttotPblancDetailService(UrbtyOfctlLttotPblancDetail ud) {

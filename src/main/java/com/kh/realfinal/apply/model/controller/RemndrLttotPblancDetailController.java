@@ -27,30 +27,6 @@ public class RemndrLttotPblancDetailController {
 	private RemndrLttotPblancDetailService Remndrservice;
 	
 	
-//	@RequestMapping("/RealEstate/list")
-////	@GetMapping("/list")
-//	public String list(Model model) {
-////		log.info("param : " + param.toString());
-////		int page = 1;
-////		if(param.containsKey("page") == true) {
-////			try {
-////				page = Integer.parseInt(param.get("page"));
-////			} catch (Exception e) {}
-////		}
-////		PageInfo pageInfo = new PageInfo(page, 20, 100, 20);
-////		List<RemndrLttotPblancDetail> Remndrlist = Remndrservice.getRemndrList(pageInfo);
-//		List<RemndrLttotPblancDetail> remndrlist = Remndrservice.getRemndrList();
-//		System.out.println(remndrlist);
-//		
-//		model.addAttribute("remndrlist", remndrlist);
-////		model.addAttribute("param", param);
-////		model.addAttribute("pageInfo" ,pageInfo);
-//		return "realEstate/realEstateDetailList";
-//	}
-	
-	
-	
-	
 	// ---------------------------------------- 파싱
 	
 	@RequestMapping("/RemndrLttotPblancDetail/insert.do")

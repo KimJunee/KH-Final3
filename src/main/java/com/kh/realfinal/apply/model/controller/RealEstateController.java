@@ -60,10 +60,6 @@ public class RealEstateController {
 	}
 	
 	
-//	@RequestMapping("/RealEstate/list")
-//	public String goRealEList(Model model){
-//		return "realEstate/realEstateDetailList";
-//	}
 	
 	@RequestMapping("/RealEstate/detail")
 	public String goRealEDetail(Model model){
