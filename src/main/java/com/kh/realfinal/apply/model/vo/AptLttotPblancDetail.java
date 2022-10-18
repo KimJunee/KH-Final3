@@ -1,6 +1,7 @@
 package com.kh.realfinal.apply.model.vo;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -8,8 +9,10 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class AptLttotPblancDetail {
-
+	
+	private int apt_apply_no;
     private String bsns_mby_nm;                   // 사업주체명(시행사)
     private String cnstrct_entrps_nm;             // 건설업체명(시공사)
     private String cntrct_cncls_bgnde;            // 계약 시작일

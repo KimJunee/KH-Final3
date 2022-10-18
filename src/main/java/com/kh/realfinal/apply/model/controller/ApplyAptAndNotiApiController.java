@@ -7,23 +7,22 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.kh.realfinal.apply.api.ApplyNoticeApi;
 import com.kh.realfinal.apply.api.AptLttotPblancDetailApi;
-import com.kh.realfinal.apply.model.service.AptLttotPblancDetailService;
+import com.kh.realfinal.apply.model.service.ApplyInfoApiService;
+import com.kh.realfinal.apply.model.vo.ApplyNotice;
+import com.kh.realfinal.apply.model.vo.ApplyNoticeAttach;
 import com.kh.realfinal.apply.model.vo.AptLttotPblancDetail;
 import com.kh.realfinal.apply.model.vo.AptLttotPblancMdl;
 
 @Controller
-public class AptLttotPblancDetailController {
+public class ApplyAptAndNotiApiController {
 
 	@Autowired
-	private AptLttotPblancDetailService service;
+	private ApplyInfoApiService service;
 	
-//	@RequestMapping("/RealEstate/main")
-//	public String goRealEstateMain(Model model) {
-//		return "realEstate/realEstateMain";
-//	}
 	
-	@RequestMapping("/AptLttot/insert.do")
+	@RequestMapping("/Aptdetail/insert.do")
 	public String initAptLttotPblancDetail(Model model) {
 		List<AptLttotPblancDetail> list1 = AptLttotPblancDetailApi.callSubInfoByJson();
 		
@@ -54,8 +53,45 @@ public class AptLttotPblancDetailController {
 			model.addAttribute("msg", "APT분양정보 주택형별 저장 실패!!");
 			model.addAttribute("location", "/");
 		}
-		
 		return "/common/msg";
 	}
+	
+	
+	@RequestMapping("/applyNotice/insert.do")
+	public String initApplyNotice(Model model) {
+		List<ApplyNotice> list1 = ApplyNoticeApi.callApplyNoticeByJson();
+		
+		int result1 = 0;
+		int result2 = 0;
+		
+		for(ApplyNotice noti : list1) {
+			result1 = service.saveApplyNoticeService(noti);
+			
+			List<ApplyNoticeAttach> list2 = 
+					ApplyNoticeApi.callApplyNoticeAttachByJson(noti.getCcr_cnnt_sys_ds_cd(), noti.getBbs_sn());
+			for(ApplyNoticeAttach attach : list2) {
+				result2 = service.saveApplyNoticeAttachService(attach);
+			}
+		}
+		
+		if(result1 > 0) {
+			model.addAttribute("msg", "청약공지사항 저장 성공");
+			model.addAttribute("location", "/");
+		}else {
+			model.addAttribute("msg", "청약공지사항 저장 실패!!!");
+			model.addAttribute("location", "/");
+		}
+		
+		if(result2 > 0) {
+			model.addAttribute("msg", "청약공지 첨부파일 저장 성공");
+			model.addAttribute("location", "/");
+		}else {
+			model.addAttribute("msg", "청약공지 첨부파일 저장 실패!!!");
+			model.addAttribute("location", "/");
+		}
+		return "/common/msg";
+	}
+	
+	
 	
 }
