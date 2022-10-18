@@ -45,7 +45,9 @@
 
 <!-- <h2><a href="${path}/RemndrMdl/insert.do">청약 주택형별 : APT 무순위/잔여세대 (RemndrMdl)</a></h2>  -->
 
-<h2><a href="${path}/AptLttot/insert.do">청약 - APT분양정보 상세 및 APT 분양정보 주택형별 상세 DB INSERT</a></h2>
+<h2><a href="${path}/Aptdetail/insert.do">청약 - APT분양정보 상세 및 APT 분양정보 주택형별 상세 DB INSERT</a></h2>
+
+<h2><a href="${path}/applyNotice/insert.do">청약 - 청약 공지사항 및 공지사항 상세(첨부파일) DB INSERT</a></h2>
 
 <h2><a href="${path}/mortgage/insert.do"> 주택담보대출 DB INSERT</a></h2>
 

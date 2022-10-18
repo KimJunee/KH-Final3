@@ -1,7 +1,5 @@
 package com.kh.realfinal.apply.api;
 
-import com.fasterxml.jackson.core.JsonParser;
-
 import com.kh.realfinal.apply.model.vo.AptLttotPblancDetail;
 import com.kh.realfinal.apply.model.vo.AptLttotPblancMdl;
 
@@ -44,6 +42,8 @@ public class AptLttotPblancDetailApi {
 
                 URL url = new URL(urlBuilder.toString());
                 
+                System.out.println(url.toString());
+                
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("GET");
                 conn.setRequestProperty("Accept", "application/json");
@@ -58,6 +58,8 @@ public class AptLttotPblancDetailApi {
                 BufferedReader br = new BufferedReader(isr);
                 JSONParser parser = new JSONParser();
                 Object obj = parser.parse(br);
+                System.out.println("obj : " + obj.toString());
+                
                 JSONObject jsonmain = (JSONObject) obj;
                 JSONArray jsonArr = (JSONArray) jsonmain.get("data");
 
@@ -111,14 +113,58 @@ public class AptLttotPblancDetailApi {
                             String subscrpt_area_code_nm = (String) reInfo.get("SUBSCRPT_AREA_CODE_NM");
                             String tot_suply_hshldco = String.valueOf(reInfo.get("TOT_SUPLY_HSHLDCO"));
                             
-                            AptLttotPblancDetail aptLottoDetail = new AptLttotPblancDetail(bsns_mby_nm, cnstrct_entrps_nm,
-                            		cntrct_cncls_bgnde, cntrct_cncls_endde, gnrl_rnk1_crsparea_rcept_pd, gnrl_rnk1_etc_area_rcptde_pd,
-                            		gnrl_rnk1_etc_gg_rcptde_pd, gnrl_rnk2_crsparea_rcept_pd, gnrl_rnk2_etc_area_rcptde_pd, gnrl_rnk2_etc_gg_rcptde_pd,
-                            		hmpg_adres, house_dtl_secd, house_dtl_secd_nm, house_manage_no, house_nm, house_secd, house_secd_nm,
-                            		hssply_adres, hssply_zip, imprmn_bsns_at, lrscl_bldlnd_at, mdat_trget_area_secd, mdhs_telno, mvn_prearnge_ym,
-                            		npln_prvopr_public_house_at, parcprc_uls_at, pblanc_no, przwner_presnatn_de, public_house_earth_at, rcept_bgnde,
-                            		rcept_endde, rcrit_pblanc_de, rent_secd, rent_secd_nm, speclt_rdn_earth_at, spsply_rcept_bgnde, spsply_rcept_endde,
-                            		subscrpt_area_code, subscrpt_area_code_nm, tot_suply_hshldco);
+//                            AptLttotPblancDetail aptLottoDetail = new AptLttotPblancDetail(bsns_mby_nm, cnstrct_entrps_nm,
+//                            		cntrct_cncls_bgnde, cntrct_cncls_endde, gnrl_rnk1_crsparea_rcept_pd, gnrl_rnk1_etc_area_rcptde_pd,
+//                            		gnrl_rnk1_etc_gg_rcptde_pd, gnrl_rnk2_crsparea_rcept_pd, gnrl_rnk2_etc_area_rcptde_pd, gnrl_rnk2_etc_gg_rcptde_pd,
+//                            		hmpg_adres, house_dtl_secd, house_dtl_secd_nm, house_manage_no, house_nm, house_secd, house_secd_nm,
+//                            		hssply_adres, hssply_zip, imprmn_bsns_at, lrscl_bldlnd_at, mdat_trget_area_secd, mdhs_telno, mvn_prearnge_ym,
+//                            		npln_prvopr_public_house_at, parcprc_uls_at, pblanc_no, przwner_presnatn_de, public_house_earth_at, rcept_bgnde,
+//                            		rcept_endde, rcrit_pblanc_de, rent_secd, rent_secd_nm, speclt_rdn_earth_at, spsply_rcept_bgnde, spsply_rcept_endde,
+//                            		subscrpt_area_code, subscrpt_area_code_nm, tot_suply_hshldco);
+                            
+                            AptLttotPblancDetail aptLottoDetail = AptLttotPblancDetail.builder()
+                            		.bsns_mby_nm(bsns_mby_nm)
+                            		.cnstrct_entrps_nm(cnstrct_entrps_nm)
+                            		.cntrct_cncls_bgnde(cntrct_cncls_bgnde)
+                            		.cntrct_cncls_endde(cntrct_cncls_endde)
+                            		.gnrl_rnk1_crsparea_rcept_pd(gnrl_rnk1_crsparea_rcept_pd)
+                            		.gnrl_rnk1_etc_area_rcptde_pd(gnrl_rnk1_etc_area_rcptde_pd)
+                            		.gnrl_rnk1_etc_gg_rcptde_pd(gnrl_rnk1_etc_gg_rcptde_pd)
+                            		.gnrl_rnk2_crsparea_rcept_pd(gnrl_rnk2_crsparea_rcept_pd)
+                            		.gnrl_rnk2_etc_area_rcptde_pd(gnrl_rnk2_etc_area_rcptde_pd)
+                            		.gnrl_rnk2_etc_gg_rcptde_pd(gnrl_rnk2_etc_gg_rcptde_pd)
+                            		.hmpg_adres(hmpg_adres)
+                            		.house_dtl_secd(house_dtl_secd)
+                            		.house_dtl_secd_nm(house_dtl_secd_nm)
+                            		.house_manage_no(house_manage_no)
+                            		.house_nm(house_nm)
+                            		.house_secd(house_secd)
+                            		.house_secd_nm(house_secd_nm)
+                            		.hssply_adres(hssply_adres)
+                            		.hssply_zip(hssply_zip)
+                            		.imprmn_bsns_at(imprmn_bsns_at)
+                            		.lrscl_bldlnd_at(lrscl_bldlnd_at)
+                            		.mdat_trget_area_secd(mdat_trget_area_secd)
+                            		.mdhs_telno(mdhs_telno)
+                            		.mvn_prearnge_ym(mvn_prearnge_ym)
+                            		.npln_prvopr_public_house_at(npln_prvopr_public_house_at)
+                            		.parcprc_uls_at(parcprc_uls_at)
+                            		.pblanc_no(pblanc_no)
+                            		.przwner_presnatn_de(przwner_presnatn_de)
+                            		.public_house_earth_at(public_house_earth_at)
+                            		.rcept_bgnde(rcept_bgnde)
+                            		.rcept_endde(rcept_endde)
+                            		.rcrit_pblanc_de(rcrit_pblanc_de)
+                            		.rent_secd(rent_secd)
+                            		.rent_secd_nm(rent_secd_nm)
+                            		.speclt_rdn_earth_at(speclt_rdn_earth_at)
+                            		.spsply_rcept_bgnde(spsply_rcept_bgnde)
+                            		.spsply_rcept_endde(spsply_rcept_endde)
+                            		.subscrpt_area_code(subscrpt_area_code)
+                            		.subscrpt_area_code_nm(subscrpt_area_code_nm)
+                            		.tot_suply_hshldco(tot_suply_hshldco)
+                            		.build();
+                            		
                             infoList.add(aptLottoDetail);
                             
 						} catch (Exception e) {
