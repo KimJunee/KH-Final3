@@ -50,7 +50,7 @@
                                         <a class="card-nav-link" href="1myPageFinance.html"><i class="fa fa-solid fa-piggy-bank" style="margin-right:10px; margin-left: 6px;"></i>내 금융상품</a>
                                         <a class="card-nav-link" href="1myPageSubscription.html"><i class="fa fa-solid fa-building" style="margin-right:10px; margin-left: 10px;"></i>부동산청약</a>
                                         <a class="card-nav-link" href="1mypage-newsscrap1003.html"><i class="fa fa-solid fa-bookmark" style="margin-right:10px; margin-left: 10px;"></i>뉴스스크랩</a>
-                                        <a class="card-nav-link active" href="${path}/board/myBoard"><i class="fa fa-solid fa-quote-left" style="margin-right:10px; margin-left: 10px;"></i>내 글 목록</a>
+                                        <a class="card-nav-link active" href="${path}/MypageBoard/myBoard"><i class="fa fa-solid fa-quote-left" style="margin-right:10px; margin-left: 10px;"></i>내 글 목록</a>
                                         <a class="card-nav-link" href="${path}/board/myReply"><i class="fa fa-solid fa-comment-dots" style="margin-right:10px; margin-left: 10px;"></i>내 댓글 목록</a>
                                     </div>
                                 </div>
@@ -67,7 +67,7 @@
                                 <div class="row g-3 align-items-center justify-content-between mb-3">
                                     <!-- 상단 검색 -->
                                     <div class="col-md-7">
-                                        <form class="rounded position-relative">
+                                        <form action="${path}/MypageBoard/mylist" method="get" class="rounded position-relative">
                                             <input class="form-control pe-5 bg-transparent" type="search" placeholder="Search" aria-label="Search">
                                             <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
                                         </form>
@@ -94,154 +94,65 @@
                                         <!-- Table head -->
                                         <thead class="table-dark">
                                             <tr>
-                                                <th class="border-0 text-center rounded-start ">Categories</th>
-                                                <th class="border-0">Title</th>
-                                                <th class="border-0 text-center">Date Created</th>
-                                                <th class="border-0 text-center rounded-end" tyle="padding-left:10em;">Action</th>
+                                                <th style="width: 15%;" class="border-0 text-center rounded-start">Categories</th>
+                                                <th style="width: 55%;" class="border-0">Title</th>
+                                                <th style="width: 15%;" class="border-0 text-center">Date</th>
+                                                <th style="width: 15%;" class="border-0 text-center rounded-end">Action</th>
                                             </tr>
                                         </thead>
                                         <!-- 목록 시작 -->
                                         <tbody class="border-top-0">
-                                            <!-- 글 1 -->
-                                            <tr>
-                                                <!-- Categories -->
-                                                <td>
-                                                    <a href="# " class="badge text-bg-warning "><i class="fas fa-circle me-2 small fw-bold"></i>Real Estate</a>
-                                                </td>
-                                                <!-- Title -->
-                                                <td>
-                                                    <h6 class="course-title mt-2 mt-md-0 mb-0 "><a href="# ">강남 역세권 청약 일정 어디서 찾아보죠?</a></h6>
-                                                </td>
-                                                <!-- Date Created -->
-                                                <td class="text-center ">2022-11-02</td>
-                                                <!-- Action -->
-                                                <td style="padding-left: 20px;">
-                                                    <div class=" d-flex gap-2 text-center">
-                                                        <a href="# " class="btn btn-light btn-round mb-0 " data-bs-toggle="tooltip " data-bs-placement="top " title="Delete "><i class="bi bi-trash "></i></a>
-                                                        <a href="dashboard-post-edit.html " class="btn btn-light btn-round mb-0 " data-bs-toggle="tooltip " data-bs-placement="top " title="Edit "><i class="bi bi-pencil-square "></i></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <!-- 글 2 -->
-                                            <tr>
-                                                <!-- Categories -->
-                                                <td>
-                                                    <a href="# " class="badge text-bg-primary "><i class="fas fa-circle me-2 small fw-bold "></i>Politics</a>
-                                                </td>
-                                                <!-- Title -->
-                                                <td>
-                                                    <h6 class="course-title mt-2 mt-md-0 mb-0 "><a href="# ">이번에 새로 개정된 노동법</a></h6>
-                                                </td>
-                                                <!-- Date Created -->
-                                                <td class="text-center ">2022-10-29</td>
-                                                <!-- Action -->
-                                                <td style="padding-left: 20px;">
-                                                    <div class="d-flex gap-2 text-center ">
-                                                        <a href="# " class="btn btn-light btn-round mb-0 " data-bs-toggle="tooltip " data-bs-placement="top " title="Delete "><i class="bi bi-trash "></i></a>
-                                                        <a href="dashboard-post-edit.html " class="btn btn-light btn-round mb-0 " data-bs-toggle="tooltip " data-bs-placement="top " title="Edit "><i class="bi bi-pencil-square "></i></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <!-- 글 3 -->
-                                            <tr>
-                                                <!-- Categories -->
-                                                <td>
-                                                    <a href="# " class="badge text-bg-danger "><i class="fas fa-circle me-2 small fw-bold "></i>Finance</a>
-                                                </td>
-                                                <!-- Title -->
-                                                <td>
-                                                    <h6 class="course-title mt-2 mt-md-0 mb-0 "><a href="# ">삼전아 나를 살려줘</a></h6>
-                                                </td>
-                                                <!-- Date Created -->
-                                                <td class="text-center ">2022-10-22</td>
-                                                <!-- Action -->
-                                                <td style="padding-left: 20px;">
-                                                    <div class="d-flex gap-2 ">
-                                                        <a href="# " class="btn btn-light btn-round mb-0 " data-bs-toggle="tooltip " data-bs-placement="top " title="Delete "><i class="bi bi-trash "></i></a>
-                                                        <a href="dashboard-post-edit.html " class="btn btn-light btn-round mb-0 " data-bs-toggle="tooltip " data-bs-placement="top " title="Edit "><i class="bi bi-pencil-square "></i></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <!-- 글 4 -->
-                                            <tr>
-                                                <!-- Categories -->
-                                                <td>
-                                                    <a href="# " class="badge text-bg-warning "><i class="fas fa-circle me-2 small fw-bold "></i>Real Estate</a>
-                                                </td>
-                                                <!-- Title -->
-                                                <td>
-                                                    <h6 class="course-title mt-2 mt-md-0 mb-0 "><a href="# ">하남쪽 청약 노리는거 메리트가 있을까</a></h6>
-                                                </td>
-                                                <!-- Date Created -->
-                                                <td class="text-center ">2022-10-14</td>
-                                                <!-- Action -->
-                                                <td style="padding-left: 20px;">
-                                                    <div class="d-flex gap-2 text-center ">
-                                                        <a href="# " class="btn btn-light btn-round mb-0 " data-bs-toggle="tooltip " data-bs-placement="top " title="Delete "><i class="bi bi-trash "></i></a>
-                                                        <a href="dashboard-post-edit.html " class="btn btn-light btn-round mb-0 " data-bs-toggle="tooltip " data-bs-placement="top " title="Edit "><i class="bi bi-pencil-square "></i></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <!-- 글 5 -->
-                                            <tr>
-                                                <!-- Categories -->
-                                                <td>
-                                                    <a href="# " class="badge text-bg-success "><i class="fas fa-circle me-2 small fw-bold "></i>Free</a>
-                                                </td>
-                                                <!-- Title -->
-                                                <td>
-                                                    <h6 class="course-title mt-2 mt-md-0 mb-0 "><a href="# ">우리 회사 구내식당 라인업</a></h6>
-                                                </td>
-                                                <!-- Date Created -->
-                                                <td class="text-center ">2022-09-30</td>
-                                                <!-- Action -->
-                                                <td style="padding-left: 20px;">
-                                                    <div class="d-flex gap-2 text-center ">
-                                                        <a href="# " class="btn btn-light btn-round mb-0 " data-bs-toggle="tooltip " data-bs-placement="top " title="Delete "><i class="bi bi-trash "></i></a>
-                                                        <a href="dashboard-post-edit.html " class="btn btn-light btn-round mb-0 " data-bs-toggle="tooltip " data-bs-placement="top " title="Edit "><i class="bi bi-pencil-square "></i></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <!-- 글 6 -->
-                                            <tr>
-                                                <!-- Categories -->
-                                                <td>
-                                                    <a href="# " class="badge text-bg-primary "><i class="fas fa-circle me-2 small fw-bold "></i>Politics</a>
-                                                </td>
-                                                <!-- Title -->
-                                                <td>
-                                                    <h6 class="course-title mt-2 mt-md-0 mb-0 "><a href="# ">개발자보호법 좀 만들어주지</a></h6>
-                                                </td>
-                                                <!-- Date Created -->
-                                                <td class="text-center ">2022-09-23</td>
-                                                <!-- Action -->
-                                                <td style="padding-left: 20px;">
-                                                    <div class="d-flex gap-2 text-center ">
-                                                        <a href="# " class="btn btn-light btn-round mb-0 " data-bs-toggle="tooltip " data-bs-placement="top " title="Delete "><i class="bi bi-trash "></i></a>
-                                                        <a href="dashboard-post-edit.html " class="btn btn-light btn-round mb-0 " data-bs-toggle="tooltip " data-bs-placement="top " title="Edit "><i class="bi bi-pencil-square "></i></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <!-- 글 7 -->
-                                            <tr>
-                                                <!-- Categories -->
-                                                <td>
-                                                    <a href="# " class="badge text-bg-success "><i class="fas fa-circle me-2 small fw-bold "></i>Free</a>
-                                                </td>
-                                                <!-- Title -->
-                                                <td>
-                                                    <h6 class="course-title mt-2 mt-md-0 mb-0 "><a href="# ">고양이 키우고 싶당</a></h6>
-                                                </td>
-                                                <!-- Date Created -->
-                                                <td class="text-center ">2022-09-19</td>
-                                                <!-- Action -->
-                                                <td style="padding-left: 20px;">
-                                                    <div class="d-flex gap-2 text-center ">
-                                                        <a href="# " class="btn btn-light btn-round mb-0 " data-bs-toggle="tooltip " data-bs-placement="top " title="Delete "><i class="bi bi-trash "></i></a>
-                                                        <a href="dashboard-post-edit.html " class="btn btn-light btn-round mb-0 " data-bs-toggle="tooltip " data-bs-placement="top " title="Edit "><i class="bi bi-pencil-square "></i></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
+	                                        <c:if test="${empty list}">
+												<tr>
+													<td></td>
+													<td style="text-align: right;">조회된 글이 없습니다.</td>
+													<td></td>
+													<td></td>
+												</tr>
+											</c:if>
+											<c:if test="${!empty list}">
+												<c:forEach var="board" items="${list}">
+		                                            <!-- 글 1 -->
+		                                            <tr>
+		                                                <!-- Categories -->
+		                                                <c:if test="${board.board_list_no == 1}">
+			                                                <td>
+			                                                    <a href="${path}/board/list?type=1" class="badge text-bg-primary"><i class="fas fa-circle me-2 small fw-bold"></i>Politics</a>
+			                                                </td>
+		                                                </c:if>
+		                                                <c:if test="${board.board_list_no == 2}">
+			                                                <td>
+			                                                    <a href="${path}/board/list?type=2" class="badge text-bg-warning"><i class="fas fa-circle me-2 small fw-bold"></i>Real Estate</a>
+			                                                </td>
+		                                                </c:if>
+		                                                <c:if test="${board.board_list_no == 3}">
+			                                                <td>
+			                                                    <a href="${path}/board/list?type=3" class="badge text-bg-danger"><i class="fas fa-circle me-2 small fw-bold"></i>Finance</a>
+			                                                </td>
+		                                                </c:if>
+		                                                <c:if test="${board.board_list_no == 4}">
+			                                                <td>
+			                                                    <a href="${path}/board/list?type=4" class="badge text-bg-success"><i class="fas fa-circle me-2 small fw-bold"></i>Free</a>
+			                                                </td>
+		                                                </c:if>
+		                                                <!-- Title -->
+		                                                <td>
+		                                                    <h6 class="course-title mt-2 mt-md-0 mb-0 ">
+		                                                    <a href="${path}/board/BoardDetail?board_no=${board.board_no}">
+		                                                    <c:out value="${board.board_title}"/></a></h6>
+		                                                </td>
+		                                                <!-- Date Created -->
+		                                                <td class="text-center "><fmt:formatDate type="date" value="${board.board_register}"/></td>
+		                                                <!-- Action -->
+		                                                <td style="padding-left: 20px;">
+		                                                    <div class=" d-flex gap-2 text-center">
+		                                                        <a href="${path}/board/BoardDetail?board_no=${board.board_no}" class="btn btn-light btn-round mb-0 " data-bs-toggle="tooltip " data-bs-placement="top " title="Delete "><i class="bi bi-trash "></i></a>
+		                                                        <a href="${path}/board/BoardDetail?board_no=${board.board_no}" class="btn btn-light btn-round mb-0 " data-bs-toggle="tooltip " data-bs-placement="top " title="Edit "><i class="bi bi-pencil-square "></i></a>
+		                                                    </div>
+		                                                </td>
+		                                            </tr>
+		                                        </c:forEach>
+											</c:if>
                                         </tbody>
                                         <!-- Table body END -->
                                     </table>
@@ -250,34 +161,37 @@
                             </div>
                         </div>
                         <!-- 페이지넘버 시작 -->
-                        <div class="mt-4" style="margin-bottom:80px;">
-                            <nav class="mb-sm-0 d-flex justify-content-center mt-0 " aria-label="navigation ">
-                                <ul class="pagination pagination-sm pagination-bordered mb-3 ">
-                                    <li class="page-item disabled ">
-                                        <a class="page-link " href="# " tabindex="-1 " aria-disabled="true ">Prev</a>
-                                    </li>
-                                    <li class="page-item active "><a class="page-link " href="# ">1</a></li>
-                                    <li class="page-item "><a class="page-link " href="# ">2</a></li>
-                                    <li class="page-item "><a class="page-link " href="# ">3</a></li>
-                                    <li class="page-item "><a class="page-link " href="# ">4</a></li>
-                                    <li class="page-item "><a class="page-link " href="# ">5</a></li>
-                                    <li class="page-item "><a class="page-link " href="# ">6</a></li>
-                                    <li class="page-item "><a class="page-link " href="# ">7</a></li>
-                                    <li class="page-item "><a class="page-link " href="# ">8</a></li>
-                                    <li class="page-item "><a class="page-link " href="# ">9</a></li>
-                                    <li class="page-item "><a class="page-link " href="# ">10</a></li>
-                                    <li class="page-item ">
-                                        <a class="page-link " href="# ">Next</a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
+                        <nav class="mb-sm-0 d-flex justify-content-center mt-2" aria-label="navigation">
+                            <ul class="pagination pagination-sm pagination-bordered mb-0">
+                                <li class="page-item">
+                                    <a onclick="movePage('${path}/community/communityMain?page=${pageInfo.prevPage}');" class="page-link">Prev</a>
+                                </li>
+                                <c:forEach begin="${pageInfo.startPage}" end="${pageInfo.endPage}" step="1" varStatus="status">
+                                	<c:if test="${pageInfo.currentPage == status.current}">
+                                  <li class="page-item active"><a class="page-link">${status.current}</a></li>                                    		
+                                	</c:if>
+                                	<c:if test="${pageInfo.currentPage != status.current}">
+                                  <li class="page-item"><a onclick="movePage('${path}/community/communityMain?page=${status.current}');" class="page-link">${status.current}</a></li>                                            	
+                                	</c:if>                                         
+                                </c:forEach>
+                                <li class="page-item">
+                                    <a onclick="movePage('${path}/finance/productMain?page=${pageInfo.nextPage}');" class="page-link">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
                         <!-- 페이지넘버 끝 -->
                     </div>
                 </div>
             </div>
             <!-- Blog list table END -->
         </section>
+        <script type="text/javascript">
+			function movePage(pageUrl){
+				var searchValue = document.getElementById("searchValue");
+					pageUrl = pageUrl + '&searchValue=' + searchValue.value; 
+				location.href = encodeURI(pageUrl);	
+			}			
+		</script>
     </main>
     <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>

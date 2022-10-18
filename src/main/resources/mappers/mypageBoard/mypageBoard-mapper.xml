@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kh.realfinal.mypageBoard.model.mapper.MypageBoardMapper">
+
+	<resultMap type="Board" id="mypageBoardListResultMap">
+		<id property="board_no" column="BOARD_NO"/>
+		<result property="writer_id" column="USER_ID"/>
+		<result property="user_nickName" column="USER_NICKNAME"/>
+		<result property="writer_no" column="WRITER_NO"/>
+		<result property="board_list_no" column="BOARD_LIST_NO"/>
+		<result property="board_hit" column="BOARD_HIT"/>
+		<result property="board_title" column="BOARD_TITLE"/>
+		<result property="board_content" column="BOARD_CONTENT"/>
+		<result property="board_register" column="BOARD_REGISTER"/>
+		<result property="board_modify" column="BOARD_MODIFY"/>
+		<result property="board_originalFileName" column="BOARD_ORIGINALFILENAME"/>
+		<result property="board_renamedFileName" column="BOARD_RENAMEDFILENAME"/>
+	</resultMap>
+	
+	<resultMap type="Reply" id="mypageBoardReplyResultMap">
+		<id property="reply_no" column="REPLY_NO"/>
+		<result property="reply_content" column="REPLY_CONTENT"/>
+		<result property="board_no" column="BOARD_NO"/>
+		<result property="reply_writer_no" column="REPLY_WRITER_NO"/>
+		<result property="reply_writer_nickName" column="USER_NICKNAME"/>
+		<result property="reply_writer_id" column="USER_ID"/>
+		<result property="reply_register" column="REPLY_REGISTER"/>
+		<result property="reply_modify" column="REPLY_MODIFY"/>
+	</resultMap>
+	
+	<!-- 갯수 -->
+	<select id="selectMypageBoardCount" resultType="int"  parameterType="map">
+		SELECT COUNT(*)
+		FROM BOARD B
+		JOIN USER_T U ON(B.WRITER_NO = U.USER_NO)
+		WHERE B.BOARD_STATUS = 'Y'
+		AND U.USER_NO = #{user_no}
+		<if test="board_list_no != null and !board_list_no.equals('')">
+			AND B.BOARD_LIST_NO = #{board_list_no}
+		</if>
+		<!-- WHERE 1=1 참인 경우 -->
+		<if test="writerKeyword != null">
+			AND U.USER_NO LIKE '%'||#{writerKeyword}||'%'
+		</if>
+		<if test="titleKeyword != null">
+			AND B.BOARD_TITLE LIKE '%'||#{titleKeyword}||'%'
+		</if>
+		<if test="contentKeyword != null">
+			AND B.BOARD_CONTENT LIKE '%'||#{contentKeyword}||'%'
+		</if>
+		ORDER BY B.BOARD_NO DESC
+	</select>
+
+	<!-- 내가 쓴 글 목록  -->
+	<select id="selectMypageBoardList" resultMap="mypageBoardListResultMap"  parameterType="map">
+		SELECT  
+			B.BOARD_NO, 
+		    U.USER_NO,
+		    B.BOARD_TITLE, 
+		    B.BOARD_LIST_NO, 
+		    B.BOARD_REGISTER, 
+		    B.BOARD_MODIFY
+		FROM BOARD B
+		JOIN USER_T U ON(B.WRITER_NO = U.USER_NO)
+		WHERE B.BOARD_STATUS='Y' 
+		AND U.USER_NO = #{user_no}
+		ORDER BY B.BOARD_NO DESC
+	</select>
+	
+	<!-- 내가 쓴 댓글 목록 -->
+	<select id="selectMypageBoardReplyList" resultMap="mypageBoardReplyResultMap"  parameterType="map">
+		SELECT 
+		    B.BOARD_NO, B.BOARD_TITLE, B.BOARD_LIST_NO, U.USER_NO, 
+		    R.REPLY_NO AS R_REPLY_NO, R.BOARD_NO AS R_BOARD_NO, R.REPLY_CONTENT AS R_REPLY_CONTENT, 
+		    R.REPLY_REGISTER AS R_REPLY_REGISTER, R.REPLY_MODIFY AS R_REPLY_MODIFY
+		FROM BOARD B
+		LEFT OUTER JOIN REPLY R ON(B.BOARD_NO = R.BOARD_NO)
+		JOIN USER_T U ON(R.WRITER_NO = U.USER_NO)
+		WHERE B.BOARD_STATUS='Y' 
+		AND U.USER_NO = #{user_no}
+		ORDER BY R.REPLY_NO DESC
+	</select>
+
+</mapper>
