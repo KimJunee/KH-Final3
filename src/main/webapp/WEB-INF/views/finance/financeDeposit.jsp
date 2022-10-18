@@ -272,7 +272,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                     <div class="col-9">
                         <!-- 상품검색 list START -->
@@ -280,24 +279,23 @@
                             <div class="card-header border-bottom p-3">
                                 <!-- Search and select START -->
                                 <div class="row g-3 align-items-center justify-content-between">
-                                    <!-- Search bar -->
-                                    <div class="col-md-5">
-                                        <form action="${path}/finance/depositMain" method="get" class="rounded position-relative">
-                                            <input id="searchValue" name="searchValue" class="form-control bg-transparent" type="search" placeholder="금융회사명을 입력하세요!" aria-label="Search" value="${param.searchValue}">
-                                            <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
-                                        </form>
-                                    </div>
-                                    <div class="col-md-3"></div>
-                                    <div class="col-md-2">
+								<form action="${path}/finance/depositMain" method="get" class="rounded position-relative">
+                                	<div class="row">
+                                		<div class="col-2">
                                         <!-- Short by filter -->
-                                        <form>
-                                            <select class="form-select z-index-9 bg-transparent" aria-label=".form-select-sm">
-                                                    <option value="">Sort by</option>
-                                                    <option>금리순</option>
-                                                    <option>금융회사순</option>
+                                            <select id="sort" name="sort" class="form-select z-index-9 bg-transparent" aria-label=".form-select-sm">
+	                                            <option value="sortBy" <c:if test="${param.sort == 'sortBy'}">selected</c:if>>Sort by</option>
+	                                            <option value="intRate" <c:if test="${param.sort == 'intRate'}">selected</c:if>>금리순</option>
+	                                            <option value="prtNm" <c:if test="${param.sort == 'prtNm'}">selected</c:if>>금융상품순</option>
                                             </select>
-                                        </form>
-                                    </div>
+                                    	</div>
+                                    	<div class="col-5"></div>         
+                                    	<div class="col-5">
+                                            <input id="searchValue" name="searchValue" class="form-control bg-transparent" type="search" placeholder="금융회사명을 입력하세요!" aria-label="Search" value="${param.searchValue}" />
+                                            <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
+                                    	</div>                      		
+                                	</div>
+                                </form>
                                 </div>
                             </div>
                             <!-- 금융상품 검색 List START -->
@@ -446,7 +444,9 @@
         <script type="text/javascript">
 			function movePage(pageUrl){
 				var searchValue = document.getElementById("searchValue");
-					pageUrl = pageUrl + '&searchValue=' + searchValue.value; 
+				var sort = document.getElementById("sort");
+				var sortValue = sort.options[sort.selectedIndex].value;
+					pageUrl = pageUrl + '&searchValue=' + searchValue.value + '&sort=' + sortValue; 
 				location.href = encodeURI(pageUrl);	
 			}			
 		</script>

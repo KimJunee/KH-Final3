@@ -248,9 +248,9 @@
                         <div class="row">
                             <div class="card border">
                                 <div class="nav flex-column nav-pills mt-2 fw-bold" id="v-pills-tab" role="tablist" style="text-align: center;">
-                                    <a class="nav-link active border-bottom mt-1 mice" style="font-size: 18px;" id="v-pills-home-tab" href="${path}/finance/productMain" role="tab" aria-selected="true">적 &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; 금</a>
-                                    <a class="nav-link border-bottom mice" style="font-size: 18px;" id="v-pills-profile-tab" href="${path}/finance/depositMain" role="tab" aria-selected="false">예 &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 금</a>
-                                    <a class="nav-link border-bottom mice" style="font-size: 18px;" id="v-pills-settings-tab" href="${path}/finance/mortgageMain" role="tab"  aria-selected="false">주택담보대출</a>
+                                    <a class="nav-link border-bottom mt-1 mice" style="font-size: 18px;" id="v-pills-home-tab" href="${path}/finance/productMain" role="tab" aria-selected="false">적 &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; 금</a>
+                                    <a class="nav-link border-bottom mice" style="font-size: 18px;" id="v-pills-profile-tab" href="${path}/finance/depositMain" role="tab" aria-selected="true">예 &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 금</a>
+                                    <a class="nav-link active border-bottom mice" style="font-size: 18px;" id="v-pills-settings-tab" href="#v-pills-settings" role="tab"  aria-selected="false">주택담보대출</a>
                                     <a class="nav-link mice" style="font-size: 18px;" id="v-pills-settings-tab" href="${path}/finance/leaseloanMain" role="tab"  aria-selected="false">전세자금대출</a>
                                 </div>
                             </div>
@@ -265,8 +265,8 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <h3 class="mb-1">To make money</h3>
-                                        <h5 class="mb-3 mice">회원님께 안성맞춤인 
-                                        <br>금융정보를 원하시나요?</h5>
+                                        <a class="mb-3 h5 fw-light lead">회원님께 안성맞춤인 
+                                        <p>금융정보를 원하시나요?</p></a>
                                         <a href="#" class="btn btn-primary mb-0" style="margin-left: 20px;">View Information</a>
                                     </div>
                                 </div>
@@ -274,28 +274,29 @@
                         </div>
 
                     </div>
-                    <div id="v-pills-settings" class="col-9">
+                    <div class="col-9">
                         <!-- 상품검색 list START -->
                         <div class="card border">
                             <div class="card-header border-bottom p-3">
                                 <!-- Search and select START -->
                                 <div class="row g-3 align-items-center justify-content-between">
-                                <form action="${path}/finance/productMain" method="get" class="rounded position-relative">
-                                	<div class="row">
-                                		<div class="col-2">
-                                        <!-- Short by filter -->
-                                            <select id="sort" name="sort" class="form-select z-index-9 bg-transparent" aria-label=".form-select-sm">
+                                    <!-- Search bar -->
+                               	<form action="${path}/finance/mortgageMain" method="get" class="rounded position-relative">
+                                    <div class="row">
+	                                    <div class="col-2">
+	                                        <!-- Short by filter -->                                     
+		                                    <select id="sort" name="sort" class="form-select z-index-9 bg-transparent" aria-label=".form-select-sm">
 	                                            <option value="sortBy" <c:if test="${param.sort == 'sortBy'}">selected</c:if>>Sort by</option>
 	                                            <option value="intRate" <c:if test="${param.sort == 'intRate'}">selected</c:if>>금리순</option>
 	                                            <option value="prtNm" <c:if test="${param.sort == 'prtNm'}">selected</c:if>>금융상품순</option>
-                                            </select>
-                                    	</div>
-                                    	<div class="col-5"></div>         
-                                    	<div class="col-5">
-                                            <input id="searchValue" name="searchValue" class="form-control bg-transparent" type="search" placeholder="금융회사명을 입력하세요!" aria-label="Search" value="${param.searchValue}" />
-                                            <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
-                                    	</div>                      		
-                                	</div>
+		                                    </select>
+	                                    </div>
+	                                    <div class="col-5"></div>
+	                                    <div class="col-5">
+	                                        <input id="searchValue" name="searchValue" class="form-control bg-transparent" type="search" placeholder="금융회사명을 입력하세요!" aria-label="Search" value="${param.searchValue}">
+	                                        <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6"></i></button>                                       
+	                                    </div>
+                                    </div>
                                 </form>
                                 </div>
                             </div>
@@ -321,8 +322,8 @@
 
                                                 <!-- Table body START -->
                                                 <tbody class="border-top-0" style="text-align:center;">
-                                                <c:if test="${!empty list}">
-                                                <c:forEach var="installmentSavings" items="${list}" step="1" varStatus="status">
+                                                <c:if test="${!empty mortgageList}">
+                                                <c:forEach var="mortgage" items="${mortgageList}" step="1" varStatus="status">
                                                     <tr>
                                                         <!-- NO -->
                                                         <td><c:out value="${status.count}"/></td>
@@ -332,7 +333,7 @@
                                                                     <div class="align-items-center">
                                                                         <!-- 금융사 Image -->
                                                                         <div class="avatar avatar-md">
-                                                                        <c:set var="coName" value="${installmentSavings.korCoNm}"/>
+                                                                        <c:set var="coName" value="${mortgage.korCoNm}"/>
                                                                         <c:choose>
 	                                                                        <c:when test="${fn:contains(coName, '우리')}">
 	                                                                            <img src="${path}/resources/resources1b/images/02_fin_financePro/wooriBank.png" class="avatar-img" alt="">
@@ -378,16 +379,16 @@
                                                                     <div class="mb-0 mt-1 ms-2">
                                                                         <!-- 금융상품명 -->
                                                                         <h5 class="mb-0">
-                                                                        	<a href="${path}/finance/productDetail?id=${installmentSavings.id}">
-                                                                        	<c:out value="${installmentSavings.finPrdtNm}"/>                                                                       	
+                                                                        	<a href="${path}/finance/mortgageDetail?id=${mortgage.id}">
+                                                                        	<c:out value="${mortgage.finPrdtNm}"/>                                                                       	
                                                                         	</a>
                                                                         </h5>
                                                                     </div>
                                                                     <div class="mb-0 mt-1 ms-2">
-                                                                        <h6 class="mb-0">최고 연
+                                                                        <h6 class="mb-0">최저 연
                                                                         	<a href="#!" class="text-primary">
-                                                                        		<c:forEach var="installOption" items="${installmentSavings.installOptionList}"  begin="0" end="0" step="1">
-                                                                        			<c:out value="${installOption.intrRate2}"/>%                                                                   			
+                                                                        		<c:forEach var="mortgageOption" items="${mortgage.mortgageOptionList}" begin="0" end="0" step="1">
+                                                                        			<c:out value="${mortgageOption.lendRateMin}"/>%                                                                   			
                                                                         		</c:forEach>
                                                                         	</a>
                                                                         </h6>
@@ -396,14 +397,15 @@
                                                             </div>
                                                         </td>
                                                         <!-- 금융기관명 -->
-                                                        <td><c:out value="${installmentSavings.korCoNm}"/></td>
+                                                        <td><c:out value="${mortgage.korCoNm}"/></td>
                                                         <!-- 가입방법 -->
-                                                        <td><c:out value="${installmentSavings.joinWay}"/></td>
+                                                        <td><c:out value="${mortgage.joinWay}"/></td>
                                                         <!-- 적립,금리유형 -->
-                                                        <td><c:forEach var="installOption" items="${installmentSavings.installOptionList}"  begin="0" end="0" step="1">
-                                                            	<c:out value="${installOption.rsrvTypeNm}"/>                                                              			
+                                                        <td>
+                                                        	<c:forEach var="mortgageOption" items="${mortgage.mortgageOptionList}" begin="0" end="0" step="1">
+                                                            	<c:out value="${mortgageOption.lendRateTypeNm}"/>                                                                			
                                                             </c:forEach>
-                                                        </td>
+														</td>
                                                     </tr>   
                                                 </c:forEach>
                                               	</c:if>                    
@@ -423,18 +425,18 @@
                                     <nav class="mb-sm-0 d-flex justify-content-center mt-2" aria-label="navigation">
                                         <ul class="pagination pagination-sm pagination-bordered mb-0">
                                             <li class="page-item">
-                                                <a onclick="movePage('${path}/finance/productMain?page=${pageInfo.prevPage}');" class="page-link">Prev</a>
+                                                <a onclick="movePage('${path}/finance/mortgageMain?page=${pageInfo.prevPage}');" class="page-link">Prev</a>
                                             </li>
                                             <c:forEach begin="${pageInfo.startPage}" end="${pageInfo.endPage}" step="1" varStatus="status">
                                             	<c:if test="${pageInfo.currentPage == status.current}">
 		                                            <li class="page-item active"><a class="page-link">${status.current}</a></li>                                    		
                                             	</c:if>
                                             	<c:if test="${pageInfo.currentPage != status.current}">
-		                                            <li class="page-item"><a onclick="movePage('${path}/finance/productMain?page=${status.current}');" class="page-link">${status.current}</a></li>                                            	
+		                                            <li class="page-item"><a onclick="movePage('${path}/finance/mortgageMain?page=${status.current}');" class="page-link">${status.current}</a></li>                                            	
                                             	</c:if>                                         
                                             </c:forEach>
                                             <li class="page-item">
-                                                <a onclick="movePage('${path}/finance/productMain?page=${pageInfo.nextPage}');" class="page-link">Next</a>
+                                                <a onclick="movePage('${path}/finance/mortgageMain?page=${pageInfo.nextPage}');" class="page-link">Next</a>
                                             </li>
                                         </ul>
                                     </nav>
@@ -452,7 +454,7 @@
 				var sortValue = sort.options[sort.selectedIndex].value;
 					pageUrl = pageUrl + '&searchValue=' + searchValue.value + '&sort=' + sortValue; 
 				location.href = encodeURI(pageUrl);	
-			}		
+			}			
 		</script>
     </main>	    
 	<%@ include file="/WEB-INF/views/common/footer.jsp" %>

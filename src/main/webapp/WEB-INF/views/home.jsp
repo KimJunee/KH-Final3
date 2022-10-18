@@ -33,7 +33,7 @@
 
 <h2><a href="${path}/leaseloan/insert.do">금융감독원-전세자금대출API DB INSERT</a></h2>
 
-<h2><a href="${path}/creditloan/insert.do">금융감독원-개인신용대출API DB INSERT</a></h2>
+<h2><a href="${path}/mortgage/insert.do"> 주택담보대출 DB INSERT</a></h2>
 
 <%-- <h2><a href="${path}/landterm/insert.do">부동산용어 DB INSERT</a></h2> --%>
 
@@ -48,8 +48,6 @@
 <h2><a href="${path}/Aptdetail/insert.do">청약 - APT분양정보 상세 및 APT 분양정보 주택형별 상세 DB INSERT</a></h2>
 
 <h2><a href="${path}/applyNotice/insert.do">청약 - 청약 공지사항 및 공지사항 상세(첨부파일) DB INSERT</a></h2>
-
-<h2><a href="${path}/mortgage/insert.do"> 주택담보대출 DB INSERT</a></h2>
 
 <h2><a href="${path}/stockprice/fin_main.do"> 금융메인으로 갑니다</a></h2>
 

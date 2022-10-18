@@ -250,8 +250,8 @@
                                 <div class="nav flex-column nav-pills mt-2 fw-bold" id="v-pills-tab" role="tablist" style="text-align: center;">
                                     <a class="nav-link border-bottom mt-1 mice" style="font-size: 18px;" id="v-pills-home-tab" href="${path}/finance/productMain" role="tab" aria-selected="false">적 &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; 금</a>
                                     <a class="nav-link border-bottom mice" style="font-size: 18px;" id="v-pills-profile-tab" href="${path}/finance/depositMain" role="tab" aria-selected="true">예 &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 금</a>
-                                    <a class="nav-link border-bottom mice" style="font-size: 18px;" id="v-pills-settings-tab" href="#v-pills-settings" role="tab"  aria-selected="false">주택담보대출</a>
-                                    <a class="nav-link active mice" style="font-size: 18px;" id="v-pills-settings-tab" href="#v-pills-settings" role="tab"  aria-selected="false">전세자금대출</a>
+                                    <a class="nav-link border-bottom mice" style="font-size: 18px;" id="v-pills-settings-tab" href="${path}/finance/mortgageMain" role="tab"  aria-selected="false">주택담보대출</a>
+                                    <a class="nav-link active mice" style="font-size: 18px;" id="v-pills-settings-tab" href="${path}/finance/leaseloanMain" role="tab"  aria-selected="false">전세자금대출</a>
                                 </div>
                             </div>
                         </div>
@@ -288,7 +288,7 @@
 		                                    <select id="sort" name="sort" class="form-select z-index-9 bg-transparent" aria-label=".form-select-sm">
 	                                            <option value="sortBy" <c:if test="${param.sort == 'sortBy'}">selected</c:if>>Sort by</option>
 	                                            <option value="intRate" <c:if test="${param.sort == 'intRate'}">selected</c:if>>금리순</option>
-	                                            <option value="coNm" <c:if test="${param.sort == 'coNm'}">selected</c:if>>금융회사순</option>
+	                                            <option value="prtNm" <c:if test="${param.sort == 'prtNm'}">selected</c:if>>금융상품순</option>
 		                                    </select>
 	                                    </div>
 	                                    <div class="col-5"></div>

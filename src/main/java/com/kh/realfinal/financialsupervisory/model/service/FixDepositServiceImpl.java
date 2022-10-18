@@ -59,9 +59,11 @@ public class FixDepositServiceImpl implements FixDepositService{
 		
 		Map<String, String> searchMap = new HashMap<String, String>();
 		String searchValue = param.get("searchValue");
+		String sort = param.get("sort");
 		
 		if(searchValue != null && searchValue.length() > 0) {
 			searchMap.put("korCoNm", searchValue);
+			searchMap.put("sort", sort);
 		}
 		return mapper.selectDepositList(rowBounds, searchMap);
 	}

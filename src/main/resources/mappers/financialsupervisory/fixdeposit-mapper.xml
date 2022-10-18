@@ -76,6 +76,13 @@
 		<if test="korCoNm != null">
 			WHERE f.fixdepo_kor_co_nm LIKE '%'||#{korCoNm}||'%'			
 		</if>
+		<if test="sort != null"> ORDER BY
+			<choose>
+				<when test="sort == 'sortBy'">f.fixdeposit_id</when>
+				<when test="sort == 'intRate'">o.intr_rate2 DESC</when>
+				<when test="sort == 'prtNm'">f.fixdepo_fin_prdt_nm</when>
+			</choose>
+		</if>
 	</select>
 	
 	<select id="selectDepositCount" parameterType="map" resultType="int">

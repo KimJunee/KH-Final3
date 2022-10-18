@@ -56,8 +56,6 @@ public class InstallmentSavingsServiceImpl implements InstallmentSavingsService{
 				searchMap.put("korCoNm", searchValue);
 			}
 		} catch (Exception e) {}
-		System.out.println("searchValue : " + searchValue);
-		System.out.println("searchMap : " + searchMap);
 		return mapper.selectInstallCount(searchMap);
 	}
 
@@ -68,11 +66,12 @@ public class InstallmentSavingsServiceImpl implements InstallmentSavingsService{
 		
 		Map<String, String> searchMap = new HashMap<String, String>();
 		String searchValue = param.get("searchValue");
+		String sort = param.get("sort");
 		
 		if(searchValue != null && searchValue.length() > 0) {
 			searchMap.put("korCoNm", searchValue);
+			searchMap.put("sort", sort);
 		}
-		System.out.println(searchValue);
 		return mapper.selectInstallList(rowBounds, searchMap);
 	}
 

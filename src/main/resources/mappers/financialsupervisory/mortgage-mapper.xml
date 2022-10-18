@@ -3,7 +3,7 @@
 
 <mapper namespace="com.kh.realfinal.financialsupervisory.model.mapper.MortgageMapper">
 	<resultMap type="MortgageLoan" id="mortgageResultMap">
-		<id property="mortgageId" column="MORTGAGE_ID"/>
+		<id property="id" column="MORTGAGE_ID"/>
 		<result property="dclsMonth" column="MORTGAGE_DCLS_MONTH"/>
 		<result property="finCoNo" column="MORTGAGE_FIN_CO_NO"/>
 		<result property="korCoNm" column="MORTGAGE_KOR_CO_NM"/>
@@ -20,7 +20,7 @@
 	</resultMap>
 	
 	<resultMap type="MortgageLoan" id="mortgageListResultMap" extends="mortgageResultMap">
-		<collection property="mortgageList" javaType="arrayList" columnPrefix="MO_" resultMap="mortgageOptionMap"/>
+		<collection property="mortgageOptionList" javaType="arrayList" resultMap="mortgageOptionMap"/>
 	</resultMap>
 	
 	<resultMap type="MortgageLoanOption" id="mortgageOptionMap">
@@ -44,7 +44,7 @@
 	        MORTGAGE_ERLY_RPAY_FEE, MORTGAGE_DLY_RATE, MORTGAGE_LOAN_LMT, MORTGAGE_DCLS_STRT_DAY,
 	        MORTGAGE_DCLS_END_DAY, MORTGAGE_FIN_CO_SUBM_DAY)
 		VALUES(
-			#{mortgageId}, #{dclsMonth}, #{finCoNo}, #{korCoNm}, #{finPrdtCd}, #{finPrdtNm}, #{joinWay},
+			#{id}, #{dclsMonth}, #{finCoNo}, #{korCoNm}, #{finPrdtCd}, #{finPrdtNm}, #{joinWay},
 			#{loanInciExpn}, #{erlyRpayFee}, #{dlyRate}, #{loanLmt}, #{dclsStrtDay}, #{dclsEndDay}, #{finCoSubmDay}		
 		) 	
 	</insert>
@@ -58,6 +58,61 @@
 			#{lendRateType}, #{lendRateTypeNm}, #{lendRateMin}, #{lendRateMax}, #{lendRateAvg}		
 		) 	
 	</insert>
+	
+	<select id="selectMortgageList" resultMap="mortgageListResultMap">
+		SELECT m.mortgage_id, m.mortgage_kor_co_nm, m.mortgage_fin_prdt_nm, m.mortgage_join_way, 
+		m.mortgage_loan_inci_expn, m.mortgage_erly_rpay_fee, m.mortgage_dly_rate, m.mortgage_loan_lmt,
+		o.mortgage_mrtg_type_nm, o.mortgage_rpay_type_nm, o.mortgage_lend_rate_type_nm,
+		o.mortgage_lend_rate_min, o.mortgage_lend_rate_max, o.mortgage_lend_rate_avg
+		FROM MORTGAGELOAN m
+		JOIN MORTGAGELOAN_OPTION o ON m.mortgage_id = o.mortgage_id
+		JOIN (SELECT mortgage_id, MAX(mortgage_lend_rate_max) MAX_RATE
+		FROM MORTGAGELOAN_OPTION
+		GROUP BY mortgage_id) c on c.mortgage_id = m.mortgage_id
+		AND c.max_rate = O.mortgage_lend_rate_max
+		<if test="korCoNm != null">
+			WHERE m.mortgage_kor_co_nm LIKE '%'||#{korCoNm}||'%'			
+		</if>
+		<if test="sort != null"> ORDER BY
+			<choose>
+				<when test="sort == 'sortBy'">m.mortgage_id</when>
+				<when test="sort == 'intRate'">o.mortgage_lend_rate_min</when>
+				<when test="sort == 'prtNm'">m.mortgage_fin_prdt_nm</when>
+			</choose>
+		</if>
+	</select>
+	
+	<select id="selectMortgageCount" parameterType="map" resultType="int">
+		SELECT COUNT(*) FROM (SELECT m.mortgage_id, m.mortgage_kor_co_nm, m.mortgage_fin_prdt_nm, 
+		m.mortgage_join_way, m.mortgage_loan_inci_expn,m.mortgage_erly_rpay_fee, 
+		m.mortgage_dly_rate, m.mortgage_loan_lmt,
+		o.mortgage_mrtg_type_nm, o.mortgage_rpay_type_nm, o.mortgage_lend_rate_type_nm,
+		o.mortgage_lend_rate_min, o.mortgage_lend_rate_max, o.mortgage_lend_rate_avg
+		FROM mortgageloan m
+		JOIN mortgageloan_option o ON m.mortgage_id = o.mortgage_id
+		JOIN (SELECT mortgage_id, MAX(mortgage_lend_rate_max) MAX_RATE
+		FROM mortgageloan_option
+		GROUP BY mortgage_id) c on c.mortgage_id = m.mortgage_id
+		AND c.max_rate = O.mortgage_lend_rate_max
+		<if test="korCoNm != null">
+			WHERE m.mortgage_kor_co_nm LIKE '%'||#{korCoNm}||'%'		
+		</if>
+		)
+	</select>
+	
+	<select id="selectByMortgageId" parameterType="int" resultMap="mortgageListResultMap">
+		SELECT m.mortgage_id, m.mortgage_kor_co_nm, m.mortgage_fin_prdt_nm, m.mortgage_join_way, 
+		m.mortgage_loan_inci_expn, m.mortgage_erly_rpay_fee, m.mortgage_dly_rate, m.mortgage_loan_lmt,
+		o.mortgage_mrtg_type_nm, o.mortgage_rpay_type_nm, o.mortgage_lend_rate_type_nm,
+		o.mortgage_lend_rate_min, o.mortgage_lend_rate_max, o.mortgage_lend_rate_avg
+		FROM mortgageloan m
+		JOIN mortgageloan_option o ON m.mortgage_id = o.mortgage_id
+		JOIN (SELECT mortgage_id, MAX(mortgage_lend_rate_max) MAX_RATE
+		FROM mortgageloan_option
+		GROUP BY mortgage_id) c on c.mortgage_id = m.mortgage_id
+		AND c.max_rate = O.mortgage_lend_rate_max
+		WHERE m.mortgage_id = #{id}
+	</select>
 
 
 </mapper>

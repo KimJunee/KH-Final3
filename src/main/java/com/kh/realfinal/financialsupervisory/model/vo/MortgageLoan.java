@@ -14,7 +14,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MortgageLoan {
-	private int mortgageId; // 주키 
+	private int id; // 주키 
 	private int dclsMonth; // 공시 제출월 [YYYYMM]
 	private int finCoNo; // 금융회사 코드
 	private String korCoNm; // 금융회사 명
@@ -29,5 +29,5 @@ public class MortgageLoan {
 	private String dclsStrtDay; // 공시 시작일
 	private String dclsEndDay; // 공시 종료일
 	private String finCoSubmDay; // 금융회사 제출일 [YYYYMMDDHH24MI]
-	private List<MortgageLoanOption> mortgageList;
+	private List<MortgageLoanOption> mortgageOptionList;
 }

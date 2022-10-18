@@ -71,7 +71,7 @@ public class LeaseLoanController {
 		LeaseLoan leaseLoan = service.findByLeaseLoanId(id);
 		
 		model.addAttribute("leaseLoan", leaseLoan);
-		return "finance/financeProductDetailLoan";
+		return "finance/financeLeaseloanDetail";
 	}
 }
 

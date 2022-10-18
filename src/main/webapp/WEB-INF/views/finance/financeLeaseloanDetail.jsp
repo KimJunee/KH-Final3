@@ -132,7 +132,7 @@
 		                        </div>
 		                    </div>
 		
-		                    <h5 class="mice mt-3">유의사항</h5>
+		                    <h5 class="mice mt-5">유의사항</h5>
 		                    <p class="mb-4 pb-2">&nbsp; ※ 대출신청인이 신용도판단정보 등록자(신용회복지원 또는 배드뱅크 포함)이거나 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;은행의 신용평가 결과 신용등급이 낮은 고객일 경우 대출이 제한될 수 있습니다.<br>&nbsp; ※ 일반금융소비자는 은행이 계약 체결을 권유하는 경우 및 일반금융소비자가<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;설명을 요청하는 경우에도 중요한 사항을 이해할 수 있도록 설명받을 권리가 있습니다.<br> &nbsp; ※ 대출 사실만으로 신용점수는 하락할 수 있습니다.</p>
 		                    <h5 class="mice">은행별 최고 우대금리</h5>
 		                    <div class="card-body col-lg-15 p-4 rounded-3 border border-1 mb-5">
