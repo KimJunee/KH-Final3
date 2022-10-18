@@ -57,12 +57,17 @@
 <%@ include file="/WEB-INF/views/common/headerWhite.jsp" %>
     <main>
         <!-- ============ 메뉴소개 시작 ============ -->
-        <section style="background-image:url('${path}/resources/resources1b/images/avatar/fintouch/community04.png'); background-position: center; height:570px; width:99%;"></section>
+        <section style="background-image:url('${path}/resources/resources1b/images/avatar/fintouch/community04.png'); background-position: center; height:570px; width:99%;">
+        
+        </section>
         <!-- ============ 메뉴소개 끝 ============ -->
         <!-- ======================= 커뮤니티 메인 시작 -->
         <section class="py-4mb-5" style="margin-top: -60px;">
             <div class="container">
                 <div class="row g-4" style="margin-top:-150px;">
+	                <c:if test="${empty board_list_no}">		        	
+			                <h1 class="mice">검색하신 "<span class="mice" style="color:#2163E8;"><c:out value="${param.searchValue}" /></span>" 에 대한 인기글 결과 입니다.</h1>
+           			</c:if>
                 	<c:if test="${board_list_no == 1}">
                 		<a href="${path}/board/list?type=1" class="badge text-bg-primary" style="width: 100px; margin-left: 15px;"><i class="fas fa-circle me-2 small fw-bold"></i>Politics</a>
 						<h1 class="mice">정치 <span style="color:#2163E8;">커뮤니티</span></h1>
