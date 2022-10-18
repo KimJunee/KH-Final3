@@ -269,13 +269,13 @@
                             <!-- Card body START -->
                             <div class="card-body mb-5">
                                 <!-- Search filter START -->
-                                <form class="row g-2 g-xl-4 mb-4">
+                                <form action="${path}//RealEstate/list" class="row g-2 g-xl-4 mb-4">
                                 	<!-- Select -->
                                     <div class="col-md-4 col-xl-4">
-                                        <select name ="searchType" class="form-select" aria-label="Default select example">
-                                            <option selected>검색필터</option>
-                                            <option value="content" <c:if test="${searchType == 'content'}">selected</c:if>>주택명</option>
-                                            <option value="sorting" <c:if test="${searchType == 'sorting'}">selected</c:if>>분양종류(민영/국민)</option>
+                                        <select id="searchType" name ="searchType" class="form-select" aria-label="Default select example">
+                                            <option selected disabled>검색필터</option>
+                                            <option value="content" <c:if test="${param.searchType == 'content'}"> selected </c:if>>주택명</option>
+                                            <option value="sorting" <c:if test="${param.searchType == 'sorting'}"> selected </c:if>>분양종류(민영/국민)</option>
                                         </select>
                                     </div>
                                     <!-- Search -->
@@ -383,7 +383,7 @@
                                             	
                                             	<c:if test="${pageInfo.currentPage != status.current}">
 		                                            <li class="page-item">
-		                                            	<a onclick="movePage('${path}/RealEstate/list?page=${status.current}');" class="page-link">
+		                                            	<a class="page-link" onclick="movePage('${path}/RealEstate/list?page=${status.current}');">
 			                                            	${status.current}
 		                                            	</a>
 		                                            </li>                                            	
@@ -410,11 +410,16 @@
     <!-- **************** MAIN CONTENT END **************** -->
 
 <script type="text/javascript">
-	function movePage(pageUrl){
-		// 자바스크립트 location.href 로 페이지 이동 방법
-		//  location.href = "이동할 페이지 주소";
-		location.href = encodeURI(pageUrl);	
-	}
+            function movePage(pageUrl){
+                var searchValue = document.getElementById("searchValue");
+                var searchTypes = document.getElementById("searchType");
+                var searchTypeValue = searchTypes.options[searchTypes.selectedIndex].value;
+					pageUrl = pageUrl + '&searchValue=' + searchValue.value + '&searchType=' + searchTypeValue; 
+        		
+                // 자바스크립트 location.href 로 페이지 이동 방법
+            	//  location.href = "이동할 페이지 주소";
+                location.href = encodeURI(pageUrl);
+            }
 </script>
 
 
