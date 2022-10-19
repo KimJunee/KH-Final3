@@ -190,7 +190,7 @@
                             </div>
                             <!-- 인기정치게시글 -->
                             <div>
-                                <h5 class="mt-5 mb-3">인기<span style="color:#2163E8">정치</span>게시글</h5>
+                                <h5 class="mt-5 mb-3">실시간<span style="color:#2163E8">커뮤니티</span>인기글</h5>
                                 <div class="d-flex position-relative mb-3">
                                     <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">01</span>
                                     <h6><a href="#" class="stretched-link text-reset btn-link">정치정치조정치</a></h6>
@@ -219,22 +219,8 @@
             </div>
         </section>
         <!-- ======================= Main END -->
-        <!-- ======================= Sticky post START -->
-        <div class="sticky-post bg-light border p-4 mb-5 text-sm-end rounded d-none d-xxl-block">
-            <div class="d-flex align-items-center">
-                <!-- Title -->
-                <div class="me-3">
-                    <span>다음 게시글 보기<i class="bi bi-arrow-right ms-3 rtl-flip"></i></span>
-                    <h6 class="m-0"> <a href="javascript:void(0)" class="stretched-link btn-link text-reset">오늘 너무 재미난 일이 있었는데 무슨일이었냐면</a></h6>
-                </div>
-                <!-- image -->
-                <div class="col-4 d-none d-md-block">
-                    <img src="${path}/resources/resources1b/images/blog/4by3/05.jpg" alt="Image">
-                </div>
-            </div>
-        </div>
-        <!-- ======================= Sticky post END -->
     </main>
+    
     <script>
 	$(document).ready(() => {
 		$("#btnUpdate").on("click", (e) => {

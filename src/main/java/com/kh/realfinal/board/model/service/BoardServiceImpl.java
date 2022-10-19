@@ -110,6 +110,12 @@ public class BoardServiceImpl implements BoardService{
 	public List<Board> getBoardListMain() { //커뮤니티 메인으로 들어갈때 쓰는 코드
 		return mapper.selectBoardListMain();
 	}
+	
+	@Override
+	public List<Board> getSideBoardForEstate(Map<String, Object> param) {
+		return mapper.sideBoardForEstate(param);
+		
+	}
 
 	@Override
 	@Transactional(rollbackFor =  Exception.class)

@@ -72,8 +72,6 @@
 		ORDER BY B.BOARD_NO DESC
 	</select>
 	
-	<!-- 메인인기글 목록 : 현재시간 기준 2일 미만의 글, 최다 조회수 -->
-	
 	<!-- 카테고리별 게시판 목록  -->
 	<select id="selectBoardList" resultMap="boardListResultMap"  parameterType="map">
 		SELECT  B.BOARD_NO,
@@ -101,6 +99,8 @@
 		ORDER BY B.BOARD_NO DESC
 	</select>
 	
+	<!-- 메인인기글 목록 : 현재시간 기준 2일 미만의 글, 최다 조회수 -->
+	<!-- 메인 인기글 -->
 	<select id="selectBoardListMain" resultMap="boardListResultMap"  parameterType="map">
 		SELECT  B.BOARD_NO,
 		        B.BOARD_TITLE, 
@@ -120,6 +120,26 @@
 		WHERE B.BOARD_STATUS = 'Y'
 		ORDER BY B.BOARD_NO DESC
 	</select>
+	
+	<!-- 사이드 커뮤니티 인기글 -->
+	<!-- 부동산메인 2개 -->
+	<select id="sideBoardForEstate" resultMap="boardListResultMap"  parameterType="map">
+		SELECT REALESTATE.*
+		FROM (
+		    SELECT
+		        B.BOARD_TITLE,
+		        B.WRITER_NO,
+		        B.BOARD_REGISTER,
+		        U.USER_NICKNAME
+		    FROM BOARD B
+		    JOIN USER_T U ON(B.WRITER_NO = U.USER_NO)
+		    WHERE B.BOARD_STATUS='Y'
+		    AND B.BOARD_LIST_NO = 2
+		    ORDER BY B.BOARD_REGISTER DESC
+		    ) REALESTATE
+		WHERE ROWNUM <![CDATA[<=]]> 2
+	</select>
+	<!-- 메인, 정치 국회의원현황 6개 / 커뮤니티상세 5개 -->
 	
 	<!-- 게시글 보기 -->
 	<select id="selectBoardByNo" parameterType="int" resultMap="boardDetailResultMap">

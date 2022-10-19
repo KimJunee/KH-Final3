@@ -151,42 +151,42 @@
                     <div class="card border h-75">
                         <div class="card-body p-3">
                             <!-- 게시글 -->
-                            <div class="col-12 ">
-                                <div class="d-flex align-items-center">
-                                    <div class="avatar avatar-xs">
-                                        <img class="avatar-img rounded-circle" src="${path}/resources/resources1b/images/avatar_m1.png" alt="avatar">
-                                    </div>
-                                    <div class="ms-3">
-                                        <h6 class="mb-0 "><a href="# " class="stretched-link ">가산점 정확히 계산하는 방법 맞나요? </a></h6>
-                                        <div class="d-flex align-items-center"></div>
-                                        <span class="ms-0">by <a href="#" class="stretched-link text-reset btn-link">Samuel</a></span>
-                                        <p class="small mb-0 ">2022. 09. 26</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- 구분선 -->
-                            <hr class="my-3 ">
-                            <!-- 게시글 -->
-                            <div class="col-12 ">
-                                <div class="d-flex align-items-center">
-                                    <div class="avatar avatar-xs">
-                                        <img class="avatar-img rounded-circle" src="${path}/resources/resources1b/images/avatar_w2.png" alt="avatar">
-                                    </div>
-                                    <div class="ms-3">
-                                        <h6 class="mb-0 "><a href="# " class="stretched-link ">서울 아파트 청약 경쟁률 조언해주세요.</a></h6>
-                                        <div class="d-flex align-items-center"></div>
-                                        <span class="ms-0">by <a href="#" class="stretched-link text-reset btn-link">Samuel</a></span>
-                                        <p class="small mb-0 ">2022. 09. 26</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 커뮤니티 footer -->
-                        <div class="card-footer border-top text-center p-3 ">
-                            <a href="07_com_realestate.html">View all details</a>
-                        </div>
-                    </div>
-                </div>
+                            <c:if test="${empty estateList}">
+                          		<div class="ms-3">
+                          			<h6>조회된 글이 없습니다.</h6>
+                          		</div>
+                          	</c:if>
+                          	<c:if test="${not empty estateList}">
+               				<c:forEach var="board" items="${estateList}" varStatus="status">
+	                            <div class="col-12 ">
+	                                <div class="d-flex align-items-center">
+	                                    <div class="avatar avatar-xs">
+	                                        <img class="avatar-img rounded-circle" src="${path}/resources/resources1b/images/avatar_m1.png" alt="avatar">
+	                                    </div>
+	                                    <div class="ms-3">
+	                                    	<!-- 제목 -->
+	                                        <h6 class="mb-0"><a href="${path}/board/BoardDetail?board_no=${board.board_no}" class="stretched-link"><c:out value="${board.board_title}"/></a></h6>
+	                                        <div class="d-flex align-items-center"></div>
+	                                        <!-- 글쓴이 닉네임 -->
+	                                        <span class="ms-0"><c:out value="${board.user_nickName}"/></span>
+	                                        <!-- 작성일 -->
+	                                        <p class="small mb-0"><fmt:formatDate type="date" value="${board.board_register}"/></p>
+	                                    </div>
+	                                </div>
+	                            </div>
+		                        <!-- 구분선 -->
+	                        	<c:if test="${!status.last}">
+	                            	<hr class="my-3 ">
+	                            </c:if>
+	                		</c:forEach>
+                            </c:if>
+	                        <!-- 커뮤니티 footer -->
+	                        <div class="card-footer border-top text-center p-3 ">
+	                            <a href="${path}/board/list?type=2">View all details</a>
+	                        </div>
+	                    </div>
+	                </div>
+            	</div>
                 <!-- 커뮤니티 끝-->
 
                 <!-- 오늘 마감 청약 시작 -->

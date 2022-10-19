@@ -18,4 +18,5 @@ public interface BoardService {
 	int deleteBoard(int no, String rootPath);
 	int deleteReply(int no);
 	List<Board> getBoardListMain();
+	List<Board> getSideBoardForEstate(Map<String, Object> param);
 }

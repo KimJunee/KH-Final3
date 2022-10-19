@@ -99,7 +99,7 @@ public class BoardController {
 		return "/community/communityMain";
 	}
 	
-	// 커뮤니티 타입별 목록
+	// 커뮤니티 전체검색 목록
 	@GetMapping("/searchList")
 	public String searchList(Model model, @RequestParam Map<String, String> param, String board_list_no) {
 		
@@ -150,8 +150,6 @@ public class BoardController {
 		model.addAttribute("pageInfo",pageInfo);
 		return "/community/communityList";
 	}
-	
-	// 커뮤니티
 	
 	// 게시글 상세보기
 	@GetMapping("/BoardDetail")

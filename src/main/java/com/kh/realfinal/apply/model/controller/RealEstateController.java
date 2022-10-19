@@ -1,6 +1,7 @@
 package com.kh.realfinal.apply.model.controller;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kh.realfinal.apply.model.service.RealEstateService;
 import com.kh.realfinal.apply.model.vo.RealEstateList;
+import com.kh.realfinal.board.model.service.BoardService;
+import com.kh.realfinal.board.model.vo.Board;
 import com.kh.realfinal.common.util.PageInfo;
 
 import lombok.extern.slf4j.Slf4j;
@@ -30,12 +33,23 @@ public class RealEstateController {
 	@Autowired
 	private ApplyInfoApiService ApplyService;
 	
-	
+	@Autowired
+	private BoardService boardService;
+
+	private final int RealEstate = 2;
+
 	@RequestMapping("/RealEstate/main")
 	public String goRealEMain(Model model) {
-		return "realEstate/realEstateMain";
+	Map<String, Object> param = new HashMap<String,Object>();
+
+	param.put("board_list_no",RealEstate);
+
+	List<Board> list = boardService.getSideBoardForEstate(param);
+
+	model.addAttribute("estateList", list);
+
+	return "realEstate/realEstateMain";
 	}
-	
 	
 	@GetMapping("/RealEstate/list")
 	public String list(Model model,
