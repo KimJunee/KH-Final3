@@ -172,20 +172,5 @@ public class ProfileMnaController {
 	public String polMnaStats(Model model) { // 메인으로
 		return "politics/polMnaStats";
 	}
-
-//	/politics/polMnaProfile ? profileNo=${profile.no}
-//	
-//	@GetMapping("politics/polMnaProfile")
-//	public String polMnaProfile(Model model, int profileNo) {
-//		List<ProfileMna> pMna = service.findByNo(profileNo);
-//		
-//		if(board == null) {
-//			return "redirect:error";
-//		}
-//		
-//		model.addAttribute("board", board);
-//		model.addAttribute("replyList", board.getReplies());
-//		return "/board/view";
-//	}
-
+ 
 }

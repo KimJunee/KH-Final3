@@ -15,6 +15,8 @@ public interface CardCutMapper {
 	int deleteReply(int no);
 	int insertReply(CardCutReply reply);
 	List<CardCut> selectCardCut(RowBounds rowBounds);
+
+	CardCut selectCardCutList(int cardCutNo);
 }
 
 

@@ -110,9 +110,7 @@ public class CardCutServiceImpl implements CardCutService {
 			}
 		}
 		return list;
-
 	}
-
 	@Override
 	public int getCardCutList() {
 		// TODO Auto-generated method stub
@@ -125,4 +123,20 @@ public class CardCutServiceImpl implements CardCutService {
 		return 0;
 	}
 
+	@Override
+	public int getCardCutList(int page) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	public CardCut getCardCutContent(int cardCutNo) {
+		CardCut list = mapper.selectCardCutList(cardCutNo);
+		return list;
+	}
+
+	@Override
+	public CardCut getCardCut(int cardContent) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+ 
 }
