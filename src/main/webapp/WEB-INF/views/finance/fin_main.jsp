@@ -320,7 +320,7 @@
                                                         </div>
                                                         <h5 class="mice" style="color:black;">신한은행</h5>
                                                         <h3 class="mt-3 mb-3 mice" style="color:black;">
-                                                            <a href="02_fin_ProductDetail.html" style="color:black;">신한 알.쏠 적금</a></h3>
+                                                            <a href="${path}/finance/productDetail?id=40" style="color:black;">신한 알.쏠 적금</a></h3>
                                                         <p class="mb-0 text-muted">
                                                             <span class="text-danger me-2">4.15%</span>
                                                             <span class="text-nowrap" style="color:black">자유적립식</span>
@@ -337,7 +337,7 @@
                                                             <img src="${path}/resources/resources4h/assets2/images/05_financeProduct/deaguBank.png" alt="Stockbanner" height="60" width="70">
                                                         </div>
                                                         <h5 class="mice" style="color:black;">대구은행</h5>
-                                                        <h3 class="mt-3 mb-3 mice" style="color:black;"><a href="02_fin_ProductDetail.html" style="color:black;">영플러스 적금</a></h3>
+                                                        <h3 class="mt-3 mb-3 mice" style="color:black;"><a href="${path}/finance/productDetail?id=5" style="color:black;">영플러스 적금</a></h3>
                                                         <p class="mb-0 text-muted">
                                                             <span class="text-danger me-2"></i>3.71%</span>
                                                             <span class="text-nowrap" style="color:black;">자유적립식</span>
@@ -354,7 +354,7 @@
                                                             <img src="${path}/resources/resources4h/assets2/images/05_financeProduct/ibkBank.png" alt="ibk은행" height="60" width="70">
                                                         </div>
                                                         <h5 class="mice" style="color:black;">중소기업은행</h5>
-                                                        <h3 class="mt-3 mb-3 mice" style="color:black;"><a href="02_fin_ProductDetail.html" style="color:black;">W효도적금</a></h3>
+                                                        <h3 class="mt-3 mb-3 mice" style="color:black;"><a href="${path}/finance/productDetail?id=30" style="color:black;">IBK탄소제로적금</a></h3>
                                                         <p class="mb-0 text-muted">
                                                             <span class="text-danger me-2">3.65%</span>
                                                             <span class="text-nowrap" style="color:black;">자유적립식</span>
@@ -387,10 +387,10 @@
                                         <img src="${path}/resources/resources4h/assets2/images/05_financeProduct/wooriBank.jpg" alt="우리은행" height="60" width="70">
                                     </div> -->
                                                     <h5 class="mice" style="color:black;">우리은행</h5>
-                                                    <h3 class="mt-3 mb-3 mice" style="color:black;"><a href="02_fin_ProductDetail.html" style="color:black;">첫급여 우리적금</a></h3>
+                                                    <h3 class="mt-3 mb-3 mice" style="color:black;"><a href="${path}/finance/productDetail?id=0" style="color:black;">우리SUPER적금</a></h3>
                                                     <p class="mb-0 text-muted">
-                                                        <span class="text-danger me-2">3.3%</span>
-                                                        <span class="text-nowrap" style="color:black;">자유적립식</span>
+                                                        <span class="text-danger me-2">4.25%</span>
+                                                        <span class="text-nowrap" style="color:black;">정액적립식</span>
                                                     </p>
                                                 </div>
                                             </div>
@@ -402,9 +402,9 @@
                                         <img src="${path}/resources/resources4h/assets2/images/05_financeProduct/kbBank.jpg" alt="국민은행" height="60" width="70">
                                     </div> -->
                                                     <h5 class="mice" style="color:black;">국민은행</h5>
-                                                    <h3 class="mt-3 mb-3 mice" style="color:black;"><a href="02_fin_ProductDetail.html" style="color:black;">KB내맘대로적금</a></h3>
+                                                    <h3 class="mt-3 mb-3 mice" style="color:black;"><a href="${path}/finance/productDetail?id=36" style="color:black;">KB내맘대로적금</a></h3>
                                                     <p class="mb-0 text-muted">
-                                                        <span class="text-danger me-2"><i class="mdi mdi-arrow-down-bold"></i>3.25%</span>
+                                                        <span class="text-danger me-2">3.25%</span>
                                                         <span class="text-nowrap" style="color:black;">정액적립식</span>
                                                     </p>
                                                 </div>
@@ -420,7 +420,7 @@
                                         <img src="${path}/resources/resources4h/assets2/images/05_financeProduct/nhBank.jpg" alt="농협은행" height="60" width="70">
                                     </div> -->
                                                     <h5 class="mice" style="color:black;">농협은행</h5>
-                                                    <h3 class="mt-3 mb-3 mice" style="color:black;"><a href="02_fin_ProductDetail.html" style="color:black;">올원 5늘도 적금</a></h3>
+                                                    <h3 class="mt-3 mb-3 mice" style="color:black;"><a href="${path}/finance/productDetail?id=45" style="color:black;">올원 5늘도 적금</a></h3>
                                                     <p class="mb-0 text-muted">
                                                         <span class="text-danger me-2">3.5%</span>
                                                         <span class="text-nowrap" style="color:black;">자유적립식</span>
@@ -436,11 +436,11 @@
                                                     <!-- <div class="float-end">
                                         <img src="${path}/resources/resources4h/assets2/images/05_financeProduct/nhBank.jpg" alt="농협은행" height="60" width="70">
                                     </div> -->
-                                                    <h5 class="mice" style="color:black;">농협은행</h5>
-                                                    <h3 class="mt-3 mb-3 mice" style="color:black;"><a href="02_fin_ProductDetail.html" style="color:black;">늘 든든한 행복적금</a></h3>
+                                                    <h5 class="mice" style="color:black;">한국스탠다드차타드은행</h5>
+                                                    <h3 class="mt-3 mb-3 mice" style="color:black;"><a href="${path}/finance/productDetail?id=2" style="color:black;">퍼스트가계적금</a></h3>
                                                     <p class="mb-0 text-muted">
-                                                        <span class="text-danger me-2">10.5%</span>
-                                                        <span class="text-nowrap" style="color:black;">자유적립식</span>
+                                                        <span class="text-danger me-2">3.1%</span>
+                                                        <span class="text-nowrap" style="color:black;">정액적립식</span>
                                                     </p>
                                                 </div>
                                                 <!-- end card-body-->

@@ -169,7 +169,8 @@
 		                        <div class="card border-0 bg-light mb-4">
 		                            <div class="card-body">
 		                                <h5 class="mice">우대조건</h5>
-		                                <span>${installment.spclCnd}</span>
+		                                <c:set var="spcl" value="${installment.spclCnd}"></c:set>
+		                                <span>${fn:replace(spcl, '-', '<br>-')}</span>
 		                            </div>
 		                        </div>
 		                        <a class="btn btn-lg btn-primary w-100 mb-3" href="#">♥ Like This Financial Product</a>
@@ -179,7 +180,8 @@
 		                        <div class="card border-0 bg-light mb-4">
 		                            <div class="card-body">
 		                                <h5 class="mice">만기 후 이율</h5>
-		                                <span>${installment.mtrtInt}</span>
+		                                <c:set var="rate" value="${installment.mtrtInt}"/>
+		                                <span>${fn:replace(rate, '-', '<br>-')}</span>
 		                            </div>
 		                        </div>
 		                        <div class="card border-0 bg-light mb-4">
@@ -191,7 +193,8 @@
 			                                <span>- 저축기간 : ${installOption.saveTrm}개월</span><br>
 			                                <span>- 최고우대금리 : ${installOption.intrRate2}%</span><br>
 		                                </c:forEach>
-		                                <span>- 기타 유의사항 : ${installment.etcNote}</span>
+		                                <c:set var="etc" value="${installment.etcNote}"></c:set>
+		                                <span>※ 기타 유의사항 : ${fn:replace(etc, '-', '<br>-')}</span>
 		                            </div>
 		                        </div>
 		                    </div>
@@ -215,7 +218,7 @@
 		                                <div class="d-flex align-items-center">
 		                                    <ul class="avatar-group mb-0">
 		                                        <li class="avatar avatar-sm">
-		                                            <img class="avatar-img rounded-circle" src="${path}/resources/resources1b/images/02_fin_financePro/nhBank.jpg" alt="avatar">
+		                                            <img class="avatar-img rounded-circle" src="${path}/resources/resources1b/images/02_fin_financePro/nhBank.png" alt="avatar">
 		                                        </li>
 		                                    </ul>
 		                                    <h5 class="mb-0 ms-3 mice">NH1934월복리적금</h5>
@@ -236,7 +239,7 @@
 		                                </div>
 		                            </div>
 		                            <div class="card-footer border-top text-center p-3">
-		                                <a href="#" class="btn btn-primary-soft w-100 mb-0 fw-bold">상세보기</a>
+		                                <a href="${path}/finance/productDetail?id=46" class="btn btn-primary-soft w-100 mb-0 fw-bold">상세보기</a>
 		                            </div>
 		                        </div>
 		                        <!-- Category item END -->
@@ -271,7 +274,7 @@
 		                                </div>
 		                            </div>
 		                            <div class="card-footer border-top text-center p-3">
-		                                <a href="#" class="btn btn-primary-soft w-100 mb-0 fw-bold">상세보기</a>
+		                                <a href="${path}/finance/productDetail?id=292" class="btn btn-primary-soft w-100 mb-0 fw-bold">상세보기</a>
 		                            </div>
 		                        </div>
 		                    </div>
@@ -284,7 +287,7 @@
 		                                <div class="d-flex align-items-center">
 		                                    <ul class="avatar-group mb-0">
 		                                        <li class="avatar avatar-sm">
-		                                            <img class="avatar-img rounded-circle" src="${path}/resources/resources1b/images/02_fin_financePro/kbBank.jpg" alt="avatar">
+		                                            <img class="avatar-img rounded-circle" src="${path}/resources/resources1b/images/02_fin_financePro/kbBank.png" alt="avatar">
 		                                        </li>
 		                                    </ul>
 		                                    <h5 class="mb-0 ms-3 mice">KB마이핏적금</h5>
@@ -303,7 +306,7 @@
 		                                </div>
 		                            </div>
 		                            <div class="card-footer border-top text-center p-3">
-		                                <a href="#" class="btn btn-primary-soft w-100 mb-0 fw-bold">상세보기</a>
+		                                <a href="${path}/finance/productDetail?id=37" class="btn btn-primary-soft w-100 mb-0 fw-bold">상세보기</a>
 		                            </div>
 		                        </div>
 		                        <!-- Category item END -->
@@ -317,7 +320,7 @@
 		                                <div class="d-flex align-items-center">
 		                                    <ul class="avatar-group mb-0">
 		                                        <li class="avatar avatar-sm">
-		                                            <img class="avatar-img rounded-circle" src="${path}/resources/resources1b/images/02_fin_financePro/shinhanBank.jpg" alt="avatar">
+		                                            <img class="avatar-img" src="${path}/resources/resources1b/images/02_fin_financePro/shinhanBank.png" alt="avatar">
 		                                        </li>
 		                                    </ul>
 		                                    <h5 class="mb-0 ms-3 mice">신한 안녕,반가워적금</h5>
@@ -336,7 +339,7 @@
 		                                </div>
 		                            </div>
 		                            <div class="card-footer border-top text-center p-3">
-		                                <a href="#" class="btn btn-primary-soft w-100 mb-0 fw-bold">상세보기</a>
+		                                <a href="${path}/finance/productDetail?id=41" class="btn btn-primary-soft w-100 mb-0 fw-bold">상세보기</a>
 		                            </div>
 		                        </div>
 		                        <!-- Category item END -->

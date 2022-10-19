@@ -93,7 +93,7 @@
 
                             <!-- Card footer -->
                             <div class="card-footer border-top text-center p-3">
-                                <a href="#" class="btn btn-primary-soft w-100 mb-0 fw-bold mice">상세보기</a>
+                                <a href="${path}/finance/depositDetail?id=35" class="btn btn-primary-soft w-100 mb-0 fw-bold mice">상세보기</a>
                             </div>
                         </div>
                     </div>
@@ -137,7 +137,7 @@
 
                             <!-- Card footer -->
                             <div class="card-footer border-top text-center p-3">
-                                <a href="#" class="btn btn-primary-soft w-100 mb-0 fw-bold mice">상세보기</a>
+                                <a href="${path}/finance/depositDetail?id=32" class="btn btn-primary-soft w-100 mb-0 fw-bold mice">상세보기</a>
                             </div>
                         </div>
                         <!-- Category item END -->
@@ -181,7 +181,7 @@
 
                             <!-- Card footer -->
                             <div class="card-footer border-top text-center p-3">
-                                <a href="#" class="btn btn-primary-soft w-100 mb-0 fw-bold mice">상세보기</a>
+                                <a href="${path}/finance/depositDetail?id=27" class="btn btn-primary-soft w-100 mb-0 fw-bold mice">상세보기</a>
                             </div>
                         </div>
                         <!-- Category item END -->
@@ -225,7 +225,7 @@
 
                             <!-- Card footer -->
                             <div class="card-footer border-top text-center p-3">
-                                <a href="#" class="btn btn-primary-soft w-100 mb-0 fw-bold mice">상세보기</a>
+                                <a href="${path}/finance/depositDetail?id=33" class="btn btn-primary-soft w-100 mb-0 fw-bold mice">상세보기</a>
                             </div>
                         </div>
                         <!-- Category item END -->

@@ -8,7 +8,7 @@
 <html lang="ko">
 
 <head>
-    <title>FinTouch | FinanceProduct | Detail</title>
+    <title>FinTouch | FinanceProduct</title>
         <!-- Favicon -->
     <link rel="shortcut icon" href="${path}/resources/resources1b/images/favicon.ico">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
@@ -93,7 +93,7 @@
 
                             <!-- Card footer -->
                             <div class="card-footer border-top text-center p-3">
-                                <a href="#" class="btn btn-primary-soft w-100 mb-0 fw-bold mice">상세보기</a>
+                                <a href="${path}/finance/depositDetail?id=35" class" class="btn btn-primary-soft w-100 mb-0 fw-bold mice">상세보기</a>
                             </div>
                         </div>
                     </div>
@@ -137,7 +137,7 @@
 
                             <!-- Card footer -->
                             <div class="card-footer border-top text-center p-3">
-                                <a href="#" class="btn btn-primary-soft w-100 mb-0 fw-bold mice">상세보기</a>
+                                <a href="${path}/finance/depositDetail?id=32" class="btn btn-primary-soft w-100 mb-0 fw-bold mice">상세보기</a>
                             </div>
                         </div>
                         <!-- Category item END -->
@@ -181,7 +181,7 @@
 
                             <!-- Card footer -->
                             <div class="card-footer border-top text-center p-3">
-                                <a href="#" class="btn btn-primary-soft w-100 mb-0 fw-bold mice">상세보기</a>
+                                <a href="${path}/finance/depositDetail?id=27" class="btn btn-primary-soft w-100 mb-0 fw-bold mice">상세보기</a>
                             </div>
                         </div>
                         <!-- Category item END -->
@@ -225,7 +225,7 @@
 
                             <!-- Card footer -->
                             <div class="card-footer border-top text-center p-3">
-                                <a href="#" class="btn btn-primary-soft w-100 mb-0 fw-bold mice">상세보기</a>
+                                <a href="${path}/finance/depositDetail?id=33" class="btn btn-primary-soft w-100 mb-0 fw-bold mice">상세보기</a>
                             </div>
                         </div>
                         <!-- Category item END -->
@@ -250,7 +250,7 @@
                                 <div class="nav flex-column nav-pills mt-2 fw-bold" id="v-pills-tab" role="tablist" style="text-align: center;">
                                     <a class="nav-link border-bottom mt-1 mice" style="font-size: 18px;" id="v-pills-home-tab" href="${path}/finance/productMain" role="tab" aria-selected="false">적 &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; 금</a>
                                     <a class="nav-link border-bottom mice" style="font-size: 18px;" id="v-pills-profile-tab" href="${path}/finance/depositMain" role="tab" aria-selected="true">예 &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 금</a>
-                                    <a class="nav-link active border-bottom mice" style="font-size: 18px;" id="v-pills-settings-tab" href="#v-pills-settings" role="tab"  aria-selected="false">주택담보대출</a>
+                                    <a class="nav-link active border-bottom mice" style="font-size: 18px;" id="v-pills-settings-tab" href="${path}/finance/mortgageMain" role="tab"  aria-selected="false">주택담보대출</a>
                                     <a class="nav-link mice" style="font-size: 18px;" id="v-pills-settings-tab" href="${path}/finance/leaseloanMain" role="tab"  aria-selected="false">전세자금대출</a>
                                 </div>
                             </div>
