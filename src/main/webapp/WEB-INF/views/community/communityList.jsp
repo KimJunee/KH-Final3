@@ -3,6 +3,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="path" value="${pageContext.request.contextPath}"/>  
+<c:set var="board_list_no" value="${board_list_no}"/>  
     
 <!DOCTYPE html>
 <html lang="ko">
@@ -56,12 +57,17 @@
 <%@ include file="/WEB-INF/views/common/headerWhite.jsp" %>
     <main>
         <!-- ============ 메뉴소개 시작 ============ -->
-        <section style="background-image:url('${path}/resources/resources1b/images/avatar/fintouch/community04.png'); background-position: center; height:570px; width:99%;"></section>
+        <section style="background-image:url('${path}/resources/resources1b/images/avatar/fintouch/community04.png'); background-position: center; height:570px; width:99%;">
+        
+        </section>
         <!-- ============ 메뉴소개 끝 ============ -->
         <!-- ======================= 커뮤니티 메인 시작 -->
         <section class="py-4mb-5" style="margin-top: -60px;">
             <div class="container">
                 <div class="row g-4" style="margin-top:-150px;">
+	                <c:if test="${empty board_list_no}">		        	
+			                <h1 class="mice">검색하신 "<span class="mice" style="color:#2163E8;"><c:out value="${param.searchValue}" /></span>" 에 대한 인기글 결과 입니다.</h1>
+           			</c:if>
                 	<c:if test="${board_list_no == 1}">
                 		<a href="${path}/board/list?type=1" class="badge text-bg-primary" style="width: 100px; margin-left: 15px;"><i class="fas fa-circle me-2 small fw-bold"></i>Politics</a>
 						<h1 class="mice">정치 <span style="color:#2163E8;">커뮤니티</span></h1>
@@ -90,10 +96,14 @@
                                         <div class="row g-3 align-items-center justify-content-between mb-3">
                                             <!-- Search -->
                                             <div class="col-md-8">
-                                                <form action="${path}/board/list" method="get" class="rounded position-relative">
-                                                    <input class="form-control pe-5 bg-transparent" id="searchValue" type="search" placeholder="Search" aria-label="Search">
-                                                    <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
-                                                </form>
+                                            	<c:forEach var="board" items="${list}" begin="0" end="0" step="1" varStatus="status">
+                                            		<!-- <div><c:out value="${board.board_list_no}"/></div> -->
+	                                                <form action="${path}/board/list" method="get" class="rounded position-relative">
+	                                                	<input type="hidden" id="type" name="type" value="${board.board_list_no}" />
+	                                                    <input class="form-control pe-5 bg-transparent" id="searchValue" name="searchValue" type="${board.board_list_no}" placeholder="Search" aria-label="Search" value="${param.searchValue}" />
+	                                                    <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
+	                                                </form>                                           	
+                                            	</c:forEach>
                                             </div>
                                             <!-- Select option -->
                                             <div class="col-md-3">

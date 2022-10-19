@@ -2,12 +2,15 @@ package com.kh.realfinal.politics.model.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.kh.realfinal.common.util.PageInfo;
 import com.kh.realfinal.politics.api.CardCutRss;
 import com.kh.realfinal.politics.model.service.CardCutService;
 import com.kh.realfinal.politics.model.vo.CardCut;
@@ -51,10 +54,37 @@ public class CardCutController {
 		
 	}
 	
+	// 페이징 처리
 	@RequestMapping("/politics/cardCut")
-	public String cardCutMain(Model model) {
+	public String cardCutList(Model model, @RequestParam Map<String, String> param) {
+		
+		int page = 1; 
+		if(param.containsKey("page") == true) {
+			try {
+				page = Integer.parseInt(param.get("page"));
+			} catch (Exception e) {}
+		}
+		
+		PageInfo pageInfoTop = new PageInfo(page, 3, CardCutService.getCardCutCount(), 3);
+		List<CardCut> topList = CardCutService.getCardCutList(pageInfoTop);
+ 
+		PageInfo pageInfo = new PageInfo(page, 9, CardCutService.getCardCutCount(), 9);
+		List<CardCut> list = CardCutService.getCardCutList(pageInfo);
+		
+		int totalSize = CardCutService.getCardCutList();
+		
+		System.out.println(list.get(0).getImages());
+		System.out.println(list.get(0).getContent());
+
+		
+		model.addAttribute("topList", topList);
+		model.addAttribute("list", list);
+		model.addAttribute("totalSize", totalSize);
+		model.addAttribute("size", list.size());
+		model.addAttribute("param",param);
+		model.addAttribute("pageInfo",pageInfo);
 		return "/politics/cardCut";
-	}
+	} 
 	
 	
 	@RequestMapping("/politics/cardCut/detail")

@@ -40,12 +40,12 @@ Main START -->
                 <div class="row ">
                     <!-- Main part START -->
                     <ul class="nav nav-tabs nav-tabs-dark ">
-                        <li class="nav-item ">
-                            <li class="nav-item "> <a class="nav-link " href="04_pol-mna_list.html">국회의원목록</a>
+                       <li class="nav-item">
+                            <li class="nav-item "> <a class="nav-link " href="${path}/politics/polMnaList">국회의원목록</a>
                             </li>
-                            <li class="nav-item "> <a class="nav-link active " href="04_pol-mna_profile_empty.html"> 의원상세보기 </a>
+                            <li class="nav-item "> <a class="nav-link active" href="${path}/politics/polMnaProfileEmpty"> 의원상세보기 </a>
                             </li>
-                            <li class="nav-item "> <a class="nav-link " href="04_pol-mna_stats.html"> 의원통계보기 </a>
+                            <li class="nav-item "> <a class="nav-link " href="${path}/politics/polMnaStats"> 의원통계보기 </a>
                             </li>
                     </ul>
                     <div class="tab-content ">
