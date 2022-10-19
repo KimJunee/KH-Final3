@@ -18,6 +18,6 @@ public interface RealEstateService {
 	List<UrbtyOfctlLttotPblancDetail> getUrbtyList(PageInfo pageInfo, Map<String, String> param);
 	int getUrbtyListCount(Map<String, String> param);
 	
-	List<RealEstateList> getRealBoardList(PageInfo pageInfo, Map<String, String> param);
-	int getRealBoardListCount(Map<String, String> param);
+	List<RealEstateList> getRealBoardList(PageInfo pageInfo, Map<String, String> param, String[] locationType, String[] houseType, String[] APTsupplyType, String[] scheType);
+	int getRealBoardListCount(Map<String, String> param, String[] locationType, String[] houseType, String[] APTsupplyType, String[] scheType);
 }

@@ -1,5 +1,6 @@
 package com.kh.realfinal.apply.model.controller;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -41,15 +42,39 @@ public class RealEstateController {
 	@GetMapping("/RealEstate/list")
 	public String list(Model model,
 			@RequestParam Map<String, String> param,
-			@RequestParam(value = "locationType" , required = false) String[] locationType) {
+			@RequestParam(value = "locationType" , required = false) String[] locationType,
+			@RequestParam(value = "houseType" , required = false) String[] houseType,
+			@RequestParam(value = "APTsupplyType" , required = false) String[] APTsupplyType,
+			@RequestParam(value = "scheType" , required = false) String[] scheType) {
 		log.info("param : " + param.toString());
 		if(locationType == null) {
 			System.out.println("locationType null");
 		}else {
 			
-			System.out.println("checkbox locationType list : " + locationType);
+			System.out.println("checkbox locationType list : " + Arrays.toString(locationType));
 		}
-		System.out.println("param : " + param.toString());
+		if(houseType == null) {
+			System.out.println("houseType null");
+		}else {
+			
+			System.out.println("checkbox houseType list : " + Arrays.toString(houseType));
+		}if(APTsupplyType == null) {
+			System.out.println("APTsupplyType null");
+		}else {
+			
+			System.out.println("checkbox APTsupplyType list : " + Arrays.toString(APTsupplyType));
+		}if(scheType == null) {
+			System.out.println("scheType null");
+		}else {
+			
+			System.out.println("checkbox scheType list : " + Arrays.toString(scheType));
+		}
+				
+//		System.out.println("param : " + param.toString());
+//		for(String key : param.keySet()) {
+//			String value = (String)param.get(key);
+//			System.out.println("나와라 " + key + " : " + value);
+//		}
 //		System.out.println(param.get("locationType").toString());
 //		System.out.println(param.get("houseType").toString());
 //		System.out.println(param.get("APTsupplyType").toString());
@@ -65,8 +90,9 @@ public class RealEstateController {
 		 * 
 		현재 페이지 , 한 페이지에 보여질 페이지의 수 , 전체 리스트의 수 , 한 페이지에 표시될 리스트의 수
 		 */
-		PageInfo pageInfo = new PageInfo(page, 10, service.getRemndrListCount(param), 20);
-		List<RealEstateList> reallist = service.getRealBoardList(pageInfo, param);
+		PageInfo pageInfo = new PageInfo(page, 10, service.getRealBoardListCount(param, locationType, houseType, APTsupplyType, scheType), 20);
+		System.out.println("getRemndrListCount : " + service.getRealBoardListCount(param, locationType, houseType, APTsupplyType, scheType));
+		List<RealEstateList> reallist = service.getRealBoardList(pageInfo, param, locationType, houseType, APTsupplyType, scheType);
 		System.out.println("Controller reallist : " + reallist);
 		
 		model.addAttribute("reallist", reallist);

@@ -14,7 +14,7 @@ import com.kh.realfinal.apply.model.vo.RemndrMdl;
 public interface RealEstateListMapper {
 	
 	// 청약리스트 조회
-	List<RealEstateList> RealboardList(RowBounds rowBounds, Map<String, String> map);
-	int RealboardListCount(Map<String, String> map);
+	List<RealEstateList> RealboardList(RowBounds rowBounds, Map<String, Object> map);
+	int RealboardListCount(Map<String, Object> map);
 
 }

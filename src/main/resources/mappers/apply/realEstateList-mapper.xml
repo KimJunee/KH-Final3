@@ -30,6 +30,26 @@
     				RCRIT_PBLANC_DE, 'R' AS TYPE  FROM REMNDRLTTOTPBLANCDETAIL
     	)
 		<where> 
+		<if test="locationType != null">
+			<foreach collection="locationType" item="list1">
+				AND LOCAL_NM LIKE '%'||#{list1}||'%'
+			</foreach>
+		</if>
+		<if test="houseType != null">
+			<foreach collection="houseType" item="list2">
+				AND ###	LIKE '%'||#{list2}||'%'
+			</foreach>
+		</if>
+		<if test="APTsupplyType != null">
+			<foreach collection="APTsupplyType" item="list3">
+				AND ### LIKE '%'||#{list3}||'%'
+			</foreach>
+		</if>
+		<if test="locationType != null">
+			<foreach collection="locationType" item="list4">
+				AND ###	LIKE '%'||#{list4}||'%'
+			</foreach>
+		</if>
 		<if test="contentKeyword != null">
 			AND HOUSE_NM LIKE '%'||#{contentKeyword}||'%'
 		</if>
@@ -54,6 +74,26 @@
     				RCRIT_PBLANC_DE, 'R' AS TYPE  FROM REMNDRLTTOTPBLANCDETAIL
     		)
 		<where> 
+		<if test="locationType != null">
+			<foreach collection="locationType" item="list1">
+				AND LOCAL_NM LIKE '%'||#{list1}||'%'
+			</foreach>
+		</if>
+		<if test="houseType != null">
+			<foreach collection="houseType" item="list2">
+				AND HOUSE_SECD_NM	LIKE '%'||#{list2}||'%'
+			</foreach>
+		</if>
+		<if test="APTsupplyType != null">
+			<foreach collection="APTsupplyType" item="list3">
+				AND HOUSE_DTL_SECD LIKE '%'||#{list3}||'%'
+			</foreach>
+		</if>
+		<if test="locationType != null">
+			<foreach collection="locationType" item="list4">
+				AND HOUSE_SECD_NM	LIKE '%'||#{list4}||'%'
+			</foreach>
+		</if>
 		<if test="contentKeyword != null">
 			AND HOUSE_NM LIKE '%'||#{contentKeyword}||'%'
 		</if>

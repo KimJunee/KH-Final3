@@ -1,6 +1,7 @@
 package com.kh.realfinal.apply.model.service;
 
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import java.util.List;
@@ -36,12 +37,26 @@ public class RealEstateServiceImpl implements RealEstateService{
 	
 	
 	@Override
-	public List<RealEstateList> getRealBoardList(PageInfo pageInfo, Map<String, String> param) {
+	public List<RealEstateList> getRealBoardList(PageInfo pageInfo, Map<String, String> param, String[] locationType, String[] houseType, String[] APTsupplyType, String[] scheType) {
 		// paging 처리를 위한 RowBounds 코드 셋팅
 		int offset = (pageInfo.getCurrentPage() - 1) * pageInfo.getListLimit();
 		RowBounds rowBounds = new RowBounds(offset, pageInfo.getListLimit());
-				
-		Map<String, String> searchMap = new HashMap<String, String>();
+		Map<String, Object> searchMap = new HashMap<String, Object>();
+		
+		if(locationType != null) {
+			searchMap.put("locationType", locationType);
+		}
+		if(houseType != null) {
+			searchMap.put("houseType", houseType);
+		}
+		if(APTsupplyType != null) {
+			searchMap.put("APTsupplyType", APTsupplyType);
+		}
+		if(scheType != null) {
+			searchMap.put("scheType", scheType);
+		}
+		
+		
 		String searchValue = param.get("searchValue");
 		if(searchValue != null && searchValue.length() > 0) {
 			String type = param.get("searchType");
@@ -51,14 +66,28 @@ public class RealEstateServiceImpl implements RealEstateService{
 				searchMap.put("localNameType", searchValue);
 			}
 		}		
-		System.out.println("searchMap : " + searchMap);
+		System.out.println("getRealBoardList searchMap service단: " + searchMap);
 		
 		return realmapper.RealboardList(rowBounds, searchMap);
 	}
 	
 	@Override
-	public int getRealBoardListCount(Map<String, String> param) {
-		Map<String, String> searchMap = new HashMap<String, String>();
+	public int getRealBoardListCount(Map<String, String> param, String[] locationType, String[] houseType, String[] APTsupplyType, String[] scheType) {
+		Map<String, Object> searchMap = new HashMap<String, Object>();
+		
+		if(locationType != null) {
+			searchMap.put("locationType", locationType);
+		}
+		if(houseType != null) {
+			searchMap.put("houseType", houseType);
+		}
+		if(APTsupplyType != null) {
+			searchMap.put("APTsupplyType", APTsupplyType);
+		}
+		if(scheType != null) {
+			searchMap.put("scheType", scheType);
+		}
+		
 		String searchValue = param.get("searchValue");
 		if(searchValue != null && searchValue.length() > 0) {
 			String type = param.get("searchType");
@@ -102,6 +131,7 @@ public class RealEstateServiceImpl implements RealEstateService{
 	public int getRemndrListCount(Map<String, String> param) {
 		Map<String, String> searchMap = new HashMap<String, String>();
 		String searchValue = param.get("searchValue");
+		
 		if(searchValue != null && searchValue.length() > 0) {
 			String type = param.get("searchType");
 			if(type.equals("content")) {
@@ -111,7 +141,7 @@ public class RealEstateServiceImpl implements RealEstateService{
 			}
 		}
 		
-		System.out.println(searchMap);
+		System.out.println("getRemndrListCount 서비스Ipli : " + searchMap);
 		return remndrmapper.RemndrListCount(searchMap);
 	}
 
@@ -127,6 +157,10 @@ public class RealEstateServiceImpl implements RealEstateService{
 		
 		Map<String, String> searchMap = new HashMap<String, String>();
 		String searchValue = param.get("searchValue");
+		
+	
+		
+		
 		if(searchValue != null && searchValue.length() > 0) {
 			String type = param.get("searchType");
 			if(type.equals("content")) {
@@ -136,7 +170,7 @@ public class RealEstateServiceImpl implements RealEstateService{
 			}
 		}
 		
-		System.out.println(searchMap);
+//		System.out.println(searchMap);
 		return urbtymapper.UrbtyList(rowBounds, searchMap);
 	}
 	

@@ -29,9 +29,8 @@ public class RemndrLttotPblancDetail {
 	private String	hmpg_adres	            ; // 홈페이지주소
 	private String	bsns_mby_nm	            ; // 사업주체명
 	private String	mdhs_telno		        ; // 문의처
-	private String	mvn_prearnge_ym	        ; // 입주예정월
-	
-	private String local_nm;	// 지역명
+	private String	mvn_prearnge_ym	        ; // 입주예정월	
+ 	private String local_nm;	// 지역명
 }
 
 		
