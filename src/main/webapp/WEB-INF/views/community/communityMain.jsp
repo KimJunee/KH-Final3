@@ -42,7 +42,7 @@
                                             <!-- 검색 -->
                                             <div class="col-md-12">
                                             <c:forEach var="board" items="${list}" begin="0" end="0" step="1" varStatus="status">
-                                                <form class="rounded position-relative" action="${path}/board/list">
+                                                <form class="rounded position-relative" action="${path}/board/searchList">
                                                 	<%-- <input type="hidden" id="type" name="type" value="${board.board_list_no}" /> --%>
                                                     <input id="searchValue" name="searchValue" class="form-control pe-5 bg-transparent" type="search" placeholder="Search" aria-label="Search" value="${param.searchValue}">
                                                     <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit" >
@@ -79,18 +79,20 @@
 														<tr>
                                                         <!-- Categories -->
                                                         <td>
-                                                        	<c:if test="${board.board_list_no == 1}">                                                    	
-	                                                            <a href="${path}/board/list?type=1" class="badge text-bg-primary mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Politics</a>
-                                                        	</c:if>
-                                                        	<c:if test="${board.board_list_no == 2}">                                                    	
-	                                                            <a href="${path}/board/list?type=2" class="badge text-bg-warning mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Real Estate</a>
-                                                        	</c:if>
-                                                        	<c:if test="${board.board_list_no == 3}">                                                    	
-	                                                            <a href="${path}/board/list?type=3" class="badge text-bg-danger mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Finance</a>
-                                                        	</c:if>
-                                                        	<c:if test="${board.board_list_no == 4}">                                                    	
-	                                                            <a href="${path}/board/list?type=4" class="badge text-bg-success mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Free</a>
-                                                        	</c:if>
+                                                        	<c:choose>
+                                                        		<c:when test="${board.board_list_no == 1}">                                                    	
+	                                                            	<a href="${path}/board/list?type=1" class="badge text-bg-primary mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Politics</a>
+	                                                        	</c:when>
+	                                                        	<c:when test="${board.board_list_no == 2}">                                                    	
+		                                                            <a href="${path}/board/list?type=2" class="badge text-bg-warning mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Real Estate</a>
+	                                                        	</c:when>
+	                                                        	<c:when test="${board.board_list_no == 3}">                                                    	
+		                                                            <a href="${path}/board/list?type=3" class="badge text-bg-danger mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Finance</a>
+	                                                        	</c:when>
+	                                                        	<c:when test="${board.board_list_no == 4}">                                                    	
+		                                                            <a href="${path}/board/list?type=4" class="badge text-bg-success mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Free</a>
+	                                                        	</c:when>
+                                                        	</c:choose>
                                                         </td>
                                                         <!-- Title -->
                                                         <td>

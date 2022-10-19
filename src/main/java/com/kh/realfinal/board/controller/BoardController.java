@@ -100,6 +100,32 @@ public class BoardController {
 	}
 	
 	// 커뮤니티 타입별 목록
+	@GetMapping("/searchList")
+	public String searchList(Model model, @RequestParam Map<String, String> param, String board_list_no) {
+		
+	
+		System.out.println("board_list_no : " + board_list_no);
+		System.out.println("param : " + param);
+		int page = 1;
+		if(param.containsKey("page") == true) {
+			try {
+				page = Integer.parseInt(param.get("page"));
+			} catch (Exception e) {}
+		}
+		
+		PageInfo pageInfo = new PageInfo(page, 20, service.getBoardCount(param), 20);
+		List<Board> list = service.getBoardList(pageInfo, param);
+		
+		System.out.println("type : " + param.get("type")+ " 입니다 ex)" + "1 정치, 2 부동산, 3 금융, 4 자유");
+		
+		model.addAttribute("list",list);
+		model.addAttribute("board_list_no", param.get("type"));
+		model.addAttribute("param",param);
+		model.addAttribute("pageInfo",pageInfo);
+		return "/community/communitySearchList";
+	}
+	
+	// 커뮤니티 타입별 목록
 	@GetMapping("/list")
 	public String list(Model model, @RequestParam Map<String, String> param, String board_list_no) {
 		
