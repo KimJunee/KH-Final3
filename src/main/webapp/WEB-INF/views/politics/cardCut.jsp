@@ -116,7 +116,7 @@
 											</div>
 											<div class="card-body px-0 pt-3">
 												<h6 class="card-title">
-													<a href="post-single-4.html"
+													<a href="politics/cardCutDetail"
 														class="btn-link text-reset stretched-link fw-bold">${cardcut.title}</a>
 												</h6>
 												<!-- Card info -->
@@ -138,7 +138,7 @@
 												<ul
 													class="pagination pagination-sm pagination-bordered mb-0">
 													<li class="page-item"><a
-														onclick="movePage('${path}/finance/productMain?page=${pageInfo.prevPage}');"
+														onclick="movePage('${path}/politics/cardCut?page=${pageInfo.prevPage}');"
 														class="page-link">Prev</a></li>
 													<c:forEach begin="${pageInfo.startPage}"
 														end="${pageInfo.endPage}" step="1" varStatus="status">
@@ -147,12 +147,12 @@
 														</c:if>
 														<c:if test="${pageInfo.currentPage != status.current}">
 															<li class="page-item"><a
-																onclick="movePage('${path}/finance/productMain?page=${status.current}');"
+																onclick="movePage('${path}/politics/cardCut?page=${status.current}');"
 																class="page-link">${status.current}</a></li>
 														</c:if>
 													</c:forEach>
 													<li class="page-item"><a
-														onclick="movePage('${path}/finance/productMain?page=${pageInfo.nextPage}');"
+														onclick="movePage('${path}/politics/cardCut?page=${pageInfo.nextPage}');"
 														class="page-link">Next</a></li>
 												</ul>
 											</nav>
@@ -247,6 +247,11 @@
 		        </div>
 		    </section>
 		</main>
+		<script type="text/javascript">
+			function movePage(pageUrl) {
+				location.href = encodeURI(pageUrl);
+			}
+		</script>
 		<%@ include file="/WEB-INF/views/common/footer.jsp" %>
 	</body>
 </html>

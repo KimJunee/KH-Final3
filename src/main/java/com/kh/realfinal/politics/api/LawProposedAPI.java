@@ -13,9 +13,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import com.kh.realfinal.financialStock.model.vo.Financialterm;
 import com.kh.realfinal.politics.model.vo.LawProposed;
-import com.kh.realfinal.politics.model.vo.ProfileMna;
 
 public class LawProposedAPI {
 
@@ -27,7 +25,7 @@ public class LawProposedAPI {
 	
 	public static void main(String[] args) {
 		List<LawProposed> list = new ArrayList<LawProposed>();
-		for(int i = 1; i< 18; i++) {
+		for(int i = 1; i< 20; i++) {
 			List<LawProposed> templist = LawProposedAPI.callLawProposedByXML(i);
 			list.addAll(templist);
 		}
@@ -97,8 +95,8 @@ public class LawProposedAPI {
  
 //					System.out.println("rstProposer : "  + eElement.getElementsByTagName("RST_PROPOSER").item(0).getTextContent());
 					
-//					int lowNo = i;
-					int lowNo = Integer.parseInt(eElement.getElementsByTagName("BILL_NO").item(0).getTextContent());
+//					int no = i;
+					int billNo = Integer.parseInt(eElement.getElementsByTagName("BILL_NO").item(0).getTextContent());
 					String rstProposer = eElement.getElementsByTagName("RST_PROPOSER").item(0).getTextContent();
 					int age = Integer.parseInt(eElement.getElementsByTagName("AGE").item(0).getTextContent());
 					String billName = eElement.getElementsByTagName("BILL_NAME").item(0).getTextContent();
@@ -109,7 +107,7 @@ public class LawProposedAPI {
 					String detailLink = eElement.getElementsByTagName("DETAIL_LINK").item(0).getTextContent();
 
 					LawProposed law = new LawProposed
-							(lowNo, rstProposer, age, billName, proposer, 
+							(0, billNo, rstProposer, age, billName, proposer, 
 									committee, proposeDt, procResult, detailLink);
 					list.add(law);
 				}

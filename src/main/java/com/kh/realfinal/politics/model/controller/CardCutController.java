@@ -87,7 +87,7 @@ public class CardCutController {
 	} 
 	
 	
-	@RequestMapping("/politics/cardCut/detail")
+	@RequestMapping("/politics/cardCutDetail")
 	public String cardCutDetail(Model model) {
 		return "/politics/cardCutDetail";
 	}

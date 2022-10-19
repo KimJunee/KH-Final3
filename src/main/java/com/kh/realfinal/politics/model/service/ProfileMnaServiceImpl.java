@@ -41,4 +41,18 @@ public class ProfileMnaServiceImpl implements ProfileMnaService  {
 	public List<ProfileMna> getProfileList(PageInfo pageInfo, Map<String, String> param) {
 		return null;
 	}
+
+	@Override
+	public ProfileMna getProfile(int profileNo) {
+		ProfileMna profile = mapper.selectProfileOne(profileNo);
+		String newTitle = profile.getMemTitle().replace("\n", "<br>");
+		profile.setMemTitle(newTitle);
+		return profile;
+	}
+
+	@Override
+	public List<ProfileMna> getProfileList(PageInfo pageInfo, String hgNm) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

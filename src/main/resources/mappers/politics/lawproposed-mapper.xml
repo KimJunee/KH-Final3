@@ -17,15 +17,38 @@
 	</resultMap>
 
 
-	<insert id="insertLawProposed"
-		parameterType="LawProposed">
+	<insert id="insertLawProposed" parameterType="LawProposed">
 		INSERT INTO MNA_LEGISLATION(		
-			BILL_NO, RST_PROPOSER, AGE, BILL_NAME, 
+			MNA_LEGISLATION_NO, BILL_NO, RST_PROPOSER, AGE, BILL_NAME,
 			PROPOSER, COMMITTEE, PROPOSE_DT, PROC_RESULT, DETAIL_LINK
 		) VALUES(
-			#{billNo}, #{rstProposer}, #{age}, #{billName}, #{proposer}, 
-			#{committee}, #{proposeDt},#{procResult}, #{detailLink}
+			SEQ_MNA_LEGISLATION_NO.NEXTVAL, #{billNo}, #{rstProposer}, #{age}, #{billName},
+			#{proposer}, #{committee}, #{proposeDt}, #{procResult}, #{detailLink}
 		)
 	</insert>
 	
+	
+	<select id="selectLawProposed" resultMap="LawProposedMap" parameterType="string">
+		SELECT MNA_LEGISLATION_NO, BILL_NO, RST_PROPOSER, AGE, BILL_NAME,
+		PROPOSER, COMMITTEE, PROPOSE_DT, PROC_RESULT, DETAIL_LINK
+		FROM MNA_LEGISLATION WHERE  RST_PROPOSER = #{name}
+	</select>
+	
+  <select id="selectLawProposedList" resultMap="LawProposedMap" parameterType="string">
+		SELECT MNA_LEGISLATION_NO, BILL_NO, RST_PROPOSER, AGE, BILL_NAME,
+		PROPOSER, COMMITTEE, PROPOSE_DT, PROC_RESULT, DETAIL_LINK
+		FROM MNA_LEGISLATION ORDER BY MNA_LEGISLATION_NO
+	</select> 
+	 
+	<!-- 검색 후 갯수 
+	<select id="selectLawProposedCount" resultType="int"  parameterType="map">
+		SELECT COUNT(*)
+		FROM BOARD B
+		JOIN USER_T U ON(B.WRITER_NO = U.USER_NO)
+		WHERE B.BOARD_STATUS = 'Y'
+		<if test="no != null and !board_list_no.equals('')">
+			AND B.BOARD_LIST_NO = #{board_list_no}
+		</if>
+	</select>
+	-->
 </mapper>

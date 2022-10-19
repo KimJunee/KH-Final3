@@ -11,13 +11,14 @@ import com.kh.realfinal.politics.model.vo.ProfileMna;
 @Mapper
 public interface ProfileMnaMapper {
 	
-//	List<ProfileMna> selectProfileMna(RowBounds rowBounds, Map<String, String> map); 
+	List<ProfileMna> selectProfileMna(RowBounds rowBounds, Map<String, String> map); 
 	int selectProfileMnaCount(Map<String, String> map); 
 	
 	List<ProfileMna> selectProfileMna(RowBounds rowBounds); 
 	int selectProfileMnaCount(); 
 	
 	int insertProfileMna(ProfileMna profile);
+	ProfileMna selectProfileOne(int no);
 }
 
 

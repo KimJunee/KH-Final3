@@ -12,5 +12,7 @@ public interface ProfileMnaService {
 	public List<ProfileMna> getProfileList(PageInfo pageInfo, Map<String, String> param);
 	public List<ProfileMna> getProfileList(PageInfo pageInfo);
 	public int getProfileCount();
+	public ProfileMna getProfile(int profileNo);
+	public List<ProfileMna> getProfileList(PageInfo pageInfo, String hgNm);
 
 }

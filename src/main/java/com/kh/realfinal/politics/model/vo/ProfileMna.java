@@ -28,7 +28,7 @@ public class ProfileMna {
 	private String secretary2;  // 비서관
 	private String assemAddr;   // 의원실안내
 	private String memTitle;    // 주요약력
-	private String jpglink;    // 주요약력
+	private String jpglink;    // 사진
 	
 	// 경력은 임의로 출력 X 너무 길다.
 	public String toString2() {
