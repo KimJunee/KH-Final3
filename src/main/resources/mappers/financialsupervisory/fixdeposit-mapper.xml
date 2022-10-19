@@ -101,7 +101,7 @@
 		)
 	</select>
 	
-	<select id="selectBydepositId" parameterType="int" resultMap="fixDepositListResultMap">
+	<select id="selectByDepositId" parameterType="int" resultMap="fixDepositListResultMap">
 		SELECT C.fixdeposit_id, f.fixdepo_kor_co_nm, f.fixdepo_fin_prdt_nm, f.fixdepo_join_way, f.fixdepo_mtrt_int,
 		f.fixdepo_spcl_cnd, f.fixdepo_join_member, f.fixdepo_etc_note, f.fixdepo_max_limit,
 		o.intr_rate_type_nm, o.save_trm, o.intr_rate2

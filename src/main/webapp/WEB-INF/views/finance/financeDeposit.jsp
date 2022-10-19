@@ -377,7 +377,7 @@
                                                                     <div class="mb-0 mt-1 ms-2">
                                                                         <!-- 금융상품명 -->
                                                                         <h5 class="mb-0">
-                                                                        	<a href="">
+                                                                        	<a href="${path}/finance/depositDetail?id=${fixDeposit.id}">
                                                                         	<c:out value="${fixDeposit.finPrdtNm}"/>                                                                       	
                                                                         	</a>
                                                                         </h5>

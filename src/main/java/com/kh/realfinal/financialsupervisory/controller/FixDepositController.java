@@ -70,6 +70,6 @@ public class FixDepositController {
 		FixDeposit fixDeposit = service.findByDepositId(id);
 		
 		model.addAttribute("fixDeposit", fixDeposit);
-		return "finance/financeProductDetail";
+		return "finance/financeDepositDetail";
 	}
 }
