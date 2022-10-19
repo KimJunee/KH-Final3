@@ -32,12 +32,12 @@
 		<where> 
 		<if test="locationType != null">
 			<foreach collection="locationType" item="list1">
-				AND SUBSCRPT_AREA_CODE_NM LIKE '%'||#{list1}||'%'
+				OR SUBSCRPT_AREA_CODE_NM LIKE '%'||#{list1}||'%'
 			</foreach>
 		</if>
 		<if test="houseType != null">
 			<foreach collection="houseType" item="list2">
-				AND HOUSE_SECD_NM	LIKE '%'||#{list2}||'%'
+				OR HOUSE_SECD_NM	LIKE '%'||#{list2}||'%'
 			</foreach>
 		</if>
 		<if test="contentKeyword != null">
@@ -66,12 +66,12 @@
 		<where> 
 		<if test="locationType != null">
 			<foreach collection="locationType" item="list1">
-				AND SUBSCRPT_AREA_CODE_NM LIKE '%'||#{list1}||'%'
+				OR SUBSCRPT_AREA_CODE_NM LIKE '%'||#{list1}||'%'
 			</foreach>
 		</if>
 		<if test="houseType != null">
 			<foreach collection="houseType" item="list2">
-				AND HOUSE_SECD_NM	LIKE '%'||#{list2}||'%'
+				OR HOUSE_SECD_NM	LIKE '%'||#{list2}||'%'
 			</foreach>
 		</if>
 		<if test="contentKeyword != null">
