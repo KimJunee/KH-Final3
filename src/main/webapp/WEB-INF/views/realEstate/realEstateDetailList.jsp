@@ -58,7 +58,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasSidebar" aria-label="Close"></button>
                         </div>
                         <div class="offcanvas-body flex-column p-3 p-xl-0">
-                            <form class="border rounded-2">
+                            <form class="border rounded-2" action="${path}/RealEstate/list" >
                                 <!-- Availability START -->
                                 <div class="card card-body">
                                     <!-- Title -->
@@ -81,80 +81,80 @@
                                     <div class="col-12">
                                         <!-- Checkbox -->
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType1">
+                                            <input class="form-check-input" type="checkbox" name="locationType" id="amenitiesType1">
                                             <label class="form-check-label" for="amenitiesType1">전국</label>
                                         </div>
                                         <!-- Checkbox -->
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType2">
-                                            <label class="form-check-label" for="amenitiesType2">서울특별시</label>
+                                            <input class="form-check-input" type="checkbox" name="locationType" id="amenitiesType2">
+                                            <label class="form-check-label" for="amenitiesType2">서울</label>
                                         </div>
                                         <!-- Checkbox -->
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType3">
-                                            <label class="form-check-label" for="amenitiesType3">부산광역시</label>
+                                            <input class="form-check-input" type="checkbox" name="locationType" id="amenitiesType3">
+                                            <label class="form-check-label" for="amenitiesType3">부산</label>
                                         </div>
                                         <!-- Checkbox -->
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType4">
-                                            <label class="form-check-label" for="amenitiesType4">대구광역시</label>
+                                            <input class="form-check-input" type="checkbox" name="locationType" id="amenitiesType4">
+                                            <label class="form-check-label" for="amenitiesType4">대구</label>
                                         </div>
                                         <!-- Collapse body -->
                                         <div class="multi-collapse collapse" id="amenitiesCollapes">
                                             <!-- Checkbox -->
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType5">
-                                                <label class="form-check-label" for="amenitiesType5">인천광역시</label>
+                                                <input class="form-check-input" type="checkbox" name="locationType" id="amenitiesType5">
+                                                <label class="form-check-label" for="amenitiesType5">인천</label>
                                             </div>
                                             <!-- Checkbox -->
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType6">
-                                                <label class="form-check-label" for="amenitiesType6">광주광역시</label>
+                                                <input class="form-check-input" type="checkbox" name="locationType" id="amenitiesType6">
+                                                <label class="form-check-label" for="amenitiesType6">광주</label>
                                             </div>
                                             <!-- Checkbox -->
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType7">
-                                                <label class="form-check-label" for="amenitiesType7">대전광역시</label>
+                                                <input class="form-check-input" type="checkbox" name="locationType" id="amenitiesType7">
+                                                <label class="form-check-label" for="amenitiesType7">대전</label>
                                             </div>
                                             <!-- Checkbox -->
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType8">
-                                                <label class="form-check-label" for="amenitiesType8">울산광역시</label>
+                                                <input class="form-check-input" type="checkbox" name="locationType" id="amenitiesType8">
+                                                <label class="form-check-label" for="amenitiesType8">울산</label>
                                             </div>
                                             <!-- Checkbox -->
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType9">
-                                                <label class="form-check-label" for="amenitiesType9">세종특별자치시</label>
+                                                <input class="form-check-input" type="checkbox" name="locationType" id="amenitiesType9">
+                                                <label class="form-check-label" for="amenitiesType9">세종</label>
                                             </div>
                                             <!-- Checkbox -->
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType10">
-                                                <label class="form-check-label" for="amenitiesType10">경기도</label>
+                                                <input class="form-check-input" type="checkbox" name="locationType" id="amenitiesType10">
+                                                <label class="form-check-label" for="amenitiesType10">경기</label>
                                             </div>
                                             <!-- Checkbox -->
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType11">
-                                                <label class="form-check-label" for="amenitiesType11">강원도</label>
+                                                <input class="form-check-input" type="checkbox" name="locationType" id="amenitiesType11">
+                                                <label class="form-check-label" for="amenitiesType11">강원</label>
                                             </div>
                                             <!-- Checkbox -->
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType12">
-                                                <label class="form-check-label" for="amenitiesType12">충청도</label>
+                                                <input class="form-check-input" type="checkbox" name="locationType" id="amenitiesType12">
+                                                <label class="form-check-label" for="amenitiesType12">충청</label>
                                             </div>
                                             <!-- Checkbox -->
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType14">
-                                                <label class="form-check-label" for="amenitiesType14">전라도</label>
+                                                <input class="form-check-input" type="checkbox" name="locationType" id="amenitiesType14">
+                                                <label class="form-check-label" for="amenitiesType14">전라</label>
                                             </div>
                                             <!-- Checkbox -->
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType16">
-                                                <label class="form-check-label" for="amenitiesType16">경상도</label>
+                                                <input class="form-check-input" type="checkbox" name="locationType" id="amenitiesType16">
+                                                <label class="form-check-label" for="amenitiesType16">경상</label>
                                             </div>
                                             <!-- Checkbox -->
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType17">
-                                                <label class="form-check-label" for="amenitiesType17">제주특별자치도</label>
+                                                <input class="form-check-input" type="checkbox" name="locationType" id="amenitiesType17">
+                                                <label class="form-check-label" for="amenitiesType17">제주</label>
                                             </div>
                                         </div>
                                         <!-- Collapse button -->
@@ -174,17 +174,17 @@
 
                                     <!-- Checkbox -->
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType20">
+                                        <input class="form-check-input" type="checkbox" name="houseType" id="amenitiesType20">
                                         <label class="form-check-label" for="amenitiesType20">아파트</label>
                                     </div>
                                     <!-- Checkbox -->
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType21">
+                                        <input class="form-check-input" type="checkbox" name="houseType" id="amenitiesType21">
                                         <label class="form-check-label" for="amenitiesType21">도시형/오피스텔/민간임대</label>
                                     </div>
                                     <!-- Checkbox -->
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType22">
+                                        <input class="form-check-input" type="checkbox" name="houseType" id="amenitiesType22">
                                         <label class="form-check-label" for="amenitiesType22">무순위/잔여세대</label>
                                     </div>
                                 </div>
@@ -199,12 +199,12 @@
 
                                     <!-- Checkbox -->
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType18">
+                                        <input class="form-check-input" type="checkbox" name="APTsupplyType" id="amenitiesType18">
                                         <label class="form-check-label" for="amenitiesType18">민영</label>
                                     </div>
                                     <!-- Checkbox -->
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType19">
+                                        <input class="form-check-input" type="checkbox" name="APTsupplyType" id="amenitiesType19">
                                         <label class="form-check-label" for="amenitiesType19">국민</label>
                                     </div>
                                 </div>
@@ -220,17 +220,17 @@
 
                                     <!-- Checkbox -->
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="amenitiesType23" name="type[]">
+                                        <input class="form-check-input" type="checkbox" id="amenitiesType23" name="scheType">
                                         <label class="form-check-label" for="amenitiesType23">분양중</label>
                                     </div>
                                     <!-- Checkbox -->
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="amenitiesType24" name="type[]">
+                                        <input class="form-check-input" type="checkbox" id="amenitiesType24" name="scheType">
                                         <label class="form-check-label" for="amenitiesType24">분양예정</label>
                                     </div>
                                     <!-- Checkbox -->
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="amenitiesType25" name="type[]">
+                                        <input class="form-check-input" type="checkbox" id="amenitiesType25" name="scheType">
                                         <label class="form-check-label" for="amenitiesType25">분양완료</label>
                                     </div>
                                 </div>
@@ -240,21 +240,21 @@
                                 <!-- Divider -->
 
                                 <!-- Form End -->
-                        </div>
                         <!-- Buttons -->
                         <div class="d-flex justify-content-between p-2 p-xl-0 mt-xl-3">
                             <button onclick="deselect()" type="button" class="btn btn-link p-0 mb-0">초기화</button>
-                            <button class="btn btn-primary mb-0">검색</button>
+                            <button class="btn btn-primary mb-0" type="submit">검색</button>
                             <script>
                                 function deselect() {
                                     $('.form-check-input').prop('checked', false);
                                 }
                             </script>
                         </div>
+                </form>
+                        </div>
                     </div>
                     <!-- Responsive offcanvas body END -->
                 </aside>
-                </form>
                 <!------------- 검색 엔진 END ------------->
 
                 <!------------- Main part START ------------->
@@ -269,7 +269,7 @@
                             <!-- Card body START -->
                             <div class="card-body mb-5">
                                 <!-- Search filter START -->
-                                <form action="${path}//RealEstate/list" class="row g-2 g-xl-4 mb-4">
+                                <form action="${path}/RealEstate/list" method="get" class="row g-2 g-xl-4 mb-4">
                                 	<!-- Select -->
                                     <div class="col-md-4 col-xl-4">
                                         <select id="searchType" name ="searchType" class="form-select" aria-label="Default select example">

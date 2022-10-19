@@ -39,9 +39,22 @@ public class RealEstateController {
 	
 	
 	@GetMapping("/RealEstate/list")
-	public String list(Model model, @RequestParam Map<String, String> param) {
+	public String list(Model model,
+			@RequestParam Map<String, String> param,
+			@RequestParam(value = "locationType" , required = false) String[] locationType) {
 		log.info("param : " + param.toString());
+		if(locationType == null) {
+			System.out.println("locationType null");
+		}else {
+			
+			System.out.println("checkbox locationType list : " + locationType);
+		}
 		System.out.println("param : " + param.toString());
+//		System.out.println(param.get("locationType").toString());
+//		System.out.println(param.get("houseType").toString());
+//		System.out.println(param.get("APTsupplyType").toString());
+//		System.out.println(param.get("scheType").toString());
+		
 		int page = 1;
 		if(param.containsKey("page") == true) {
 			try {
