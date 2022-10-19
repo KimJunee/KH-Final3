@@ -2,6 +2,7 @@ package com.kh.realfinal.mypageBoard.model.controller;
 
 import java.util.List;
 import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,10 +10,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
+
 import com.kh.realfinal.board.model.vo.Board;
+import com.kh.realfinal.board.model.vo.Reply;
 import com.kh.realfinal.common.util.PageInfo;
 import com.kh.realfinal.member.model.vo.Member;
 import com.kh.realfinal.mypageBoard.model.service.MypageBoardService;
+
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -61,7 +65,30 @@ public class MypageBoardController {
 	
 	// 마이페이지 - 내 댓글목록
 	@GetMapping("/myReply")
-	public String goMyReply() {
+	public String goMyReply(Model model, @RequestParam Map<String, String> param,
+			@SessionAttribute(name = "loginMember", required = false) Member loginMember)  {
+		
+		int page = 1;
+		if(param.containsKey("page") == true) {
+			try {
+				page = Integer.parseInt(param.get("page"));
+			} catch (Exception e) {}
+		}
+		
+		param.put("user_no",String.valueOf(loginMember.getUser_no()));
+		PageInfo pageInfo = new PageInfo(page, 10, service.getReplyCount(param), 10);
+		List<Reply> list = service.getReplyList(pageInfo, param);
+		
+//		for (Board board : list) {
+//			System.out.println("boardList : "+board.toString());
+//		}
+//		
+//		System.out.println("나 누구 : " + loginMember);
+		
+		model.addAttribute("list",list);
+		model.addAttribute("board_list_no", param.get("type"));
+		model.addAttribute("param",param);
+		model.addAttribute("pageInfo",pageInfo);
 		log.info("마이페이지 내 댓글목록 가기!");
 		return "mypage/mypageReply";
 	}

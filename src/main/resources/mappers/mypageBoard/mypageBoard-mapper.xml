@@ -27,6 +27,7 @@
 		<result property="reply_writer_id" column="USER_ID"/>
 		<result property="reply_register" column="REPLY_REGISTER"/>
 		<result property="reply_modify" column="REPLY_MODIFY"/>
+		<result property="board_title" column="BOARD_TITLE"/>
 	</resultMap>
 	
 	<!-- 글 갯수 -->
@@ -69,22 +70,21 @@
 	</select>
 	
 	<!-- 댓글 갯수 -->
-	<select id="selectMypageBoardReplyCount" resultType="int"  parameterType="map">
+	<select id="selectMypageReplyCount" resultType="int"  parameterType="map">
 		SELECT COUNT(1)
 	    FROM REPLY R
 	    	JOIN USER_T U ON (R.WRITER_NO = U.USER_NO)
 	    	JOIN BOARD B ON (B.BOARD_NO = R.BOARD_NO)
 	    WHERE B.BOARD_STATUS = 'Y'
 	        AND U.USER_NO = #{user_no}
-		ORDER BY B.BOARD_NO DESC
 	</select>
 	
 	<!-- 내가 쓴 댓글 목록 -->
-	<select id="selectMypageBoardReplyList" resultMap="mypageBoardReplyResultMap"  parameterType="map">
+	<select id="selectMypageReplyList" resultMap="mypageBoardReplyResultMap"  parameterType="map">
 		SELECT 
-		    B.BOARD_NO, B.BOARD_TITLE, B.BOARD_LIST_NO, U.USER_NO, 
-		    R.REPLY_NO AS R_REPLY_NO, R.BOARD_NO AS R_BOARD_NO, R.REPLY_CONTENT AS R_REPLY_CONTENT, 
-		    R.REPLY_REGISTER AS R_REPLY_REGISTER, R.REPLY_MODIFY AS R_REPLY_MODIFY
+		    B.BOARD_NO, B.BOARD_TITLE as BOARD_TITLE, B.BOARD_LIST_NO, U.USER_NO, 
+		    R.REPLY_NO AS REPLY_NO, R.BOARD_NO AS BOARD_NO, R.REPLY_CONTENT AS REPLY_CONTENT, 
+		    R.REPLY_REGISTER AS REPLY_REGISTER, R.REPLY_MODIFY AS REPLY_MODIFY
 		FROM BOARD B
 			LEFT OUTER JOIN REPLY R ON(B.BOARD_NO = R.BOARD_NO)
 			JOIN USER_T U ON(R.WRITER_NO = U.USER_NO)
@@ -92,5 +92,4 @@
 			AND U.USER_NO = #{user_no}
 		ORDER BY R.REPLY_NO DESC
 	</select>
-
 </mapper>

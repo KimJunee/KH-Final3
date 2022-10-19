@@ -13,6 +13,8 @@ public class Reply {
 	private String reply_content;    		//댓글내용 
 	private int    user_no;          		//사용자번호(외래키)
 	private int    board_no;         		//게시글번호(외래키)
+	private int	   board_list_no;
+	private String board_title;
 	private int    board_writer_no;		 	//글쓴이번호
 	private String board_writer_id;		 	//글쓴이ID
 	private String board_writer_nickName;	//글쓴이닉네임

@@ -112,7 +112,7 @@
 											</c:if>
 											<c:if test="${!empty list}">
 												<c:forEach var="board" items="${list}">
-		                                            <!-- 글 1 -->
+		                                            <!-- 글 목록 -->
 		                                            <tr>
 		                                                <!-- Categories -->
 		                                                <c:if test="${board.board_list_no == 1}">
