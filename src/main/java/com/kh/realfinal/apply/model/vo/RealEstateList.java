@@ -9,11 +9,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class RealEstateList {
 	private int		house_manage_no	        ; // 주택관리번호
-	private String 	house_secd_nm			; // 주택구분코드명
+	private String 	house_secd_nm			; // 주택구분코드명, 아파트, 도시형/오피스텔/민간임대, 무순위/잔여세대
 	private String 	house_nm				; // 주택명
 	private String	hssply_adres	        ; // 주소
 	private String	rcrit_pblanc_de	        ; // 모집공고일
-	private String  local_nm				; // 지역명
+	private String  subscrpt_area_code_nm	; // 지역명
 	private String  type                    ; //??
 }
    

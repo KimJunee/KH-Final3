@@ -7,8 +7,6 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.session.RowBounds;
 
 import com.kh.realfinal.apply.model.vo.RealEstateList;
-import com.kh.realfinal.apply.model.vo.RemndrLttotPblancDetail;
-import com.kh.realfinal.apply.model.vo.RemndrMdl;
 
 @Mapper
 public interface RealEstateListMapper {

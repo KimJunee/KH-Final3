@@ -334,7 +334,7 @@
 												<tr>
 													<td>1</td>
 													<td>
-														<c:out value="${RealEstateList.local_nm}"/>
+														<c:out value="${RealEstateList.subscrpt_area_code_nm}"/>
 													</td>
 													<td>
 														<a href="#">
