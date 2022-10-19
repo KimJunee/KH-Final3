@@ -31,6 +31,7 @@ public class CardCutController {
 		}
 		
 		int count = 0;
+		if(list.size() != 0) {
 		for(int i = 0; i <list.size(); i++) {
 			CardCut card = list.get(i);
 			try {
@@ -42,7 +43,7 @@ public class CardCutController {
 				e.printStackTrace();
 			}
 		}
-		
+		}
 		if(count > 0) {
 			model.addAttribute("msg", "카드뉴스 " +count +"개를 DB에 넣었습니다.");
 			model.addAttribute("location", "/");
@@ -73,8 +74,8 @@ public class CardCutController {
 		
 		int totalSize = CardCutService.getCardCutList();
 		
-		System.out.println(list.get(0).getImages());
-		System.out.println(list.get(0).getContent());
+//		System.out.println(list.get(0).getImages());
+//		System.out.println(list.get(0).getContent());
 
 		
 		model.addAttribute("topList", topList);

@@ -13,5 +13,7 @@ public interface LawProposedService  {
 
 	public LawProposed getLawProposed(int lawNo);
 
-	public int getLawCount(int lawNo);
+
+	public int getLawCount(int page);
+ 
 }

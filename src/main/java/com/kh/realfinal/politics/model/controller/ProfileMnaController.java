@@ -131,7 +131,7 @@ public class ProfileMnaController {
 		return "/politics/polMnaList";
 	}
 
-//	<a href="${path}/politics/polMnaProfile?profileNo=${profile.no}"
+ 
 	// 페이징 처리
 	@RequestMapping("/politics/polMnaProfile")
 	public String polMnaProfile(Model model, @RequestParam Map<String, String> param) {
