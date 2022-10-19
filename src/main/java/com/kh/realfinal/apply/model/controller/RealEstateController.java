@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kh.realfinal.apply.model.service.RealEstateService;
+import com.kh.realfinal.apply.model.vo.RealEstateList;
 import com.kh.realfinal.apply.model.vo.RemndrLttotPblancDetail;
+import com.kh.realfinal.apply.model.vo.UrbtyOfctlLttotPblancDetail;
 import com.kh.realfinal.common.util.PageInfo;
 
 import lombok.extern.slf4j.Slf4j;
@@ -22,9 +24,9 @@ import com.kh.realfinal.apply.model.service.ApplyInfoApiService;
 @Controller
 public class RealEstateController {
 	
-	
+
 	@Autowired
-	private RealEstateService remndrService;
+	private RealEstateService service;
 	
 	@Autowired
 	private ApplyInfoApiService ApplyService;
@@ -39,6 +41,7 @@ public class RealEstateController {
 	@GetMapping("/RealEstate/list")
 	public String list(Model model, @RequestParam Map<String, String> param) {
 		log.info("param : " + param.toString());
+		System.out.println("param : " + param.toString());
 		int page = 1;
 		if(param.containsKey("page") == true) {
 			try {
@@ -49,11 +52,11 @@ public class RealEstateController {
 		 * 
 		현재 페이지 , 한 페이지에 보여질 페이지의 수 , 전체 리스트의 수 , 한 페이지에 표시될 리스트의 수
 		 */
-		PageInfo pageInfo = new PageInfo(page, 10, remndrService.getRemndrListCount(param), 10);
-		List<RemndrLttotPblancDetail> remndrlist = remndrService.getRemndrList(pageInfo, param);
-		System.out.println(remndrlist);
+		PageInfo pageInfo = new PageInfo(page, 10, service.getRemndrListCount(param), 20);
+		List<RealEstateList> reallist = service.getRealBoardList(pageInfo, param);
+		System.out.println("Controller reallist : " + reallist);
 		
-		model.addAttribute("remndrlist", remndrlist);
+		model.addAttribute("reallist", reallist);
 		model.addAttribute("param", param);
 		model.addAttribute("pageInfo" ,pageInfo);
 		return "realEstate/realEstateDetailList";

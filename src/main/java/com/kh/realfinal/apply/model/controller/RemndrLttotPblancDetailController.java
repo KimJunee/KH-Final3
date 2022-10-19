@@ -24,7 +24,7 @@ public class RemndrLttotPblancDetailController {
 	
 	
 	@Autowired
-	private RemndrLttotPblancDetailService Remndrservice;
+	private RemndrLttotPblancDetailService remndrservice;
 	
 	
 	// ---------------------------------------- 파싱
@@ -36,11 +36,11 @@ public class RemndrLttotPblancDetailController {
 		int result1 = 0;
 		int result2 = 0;
 		for(RemndrLttotPblancDetail rd : list1) {
-			result1 = Remndrservice.saveRemndrLttotPblancDetailService(rd);
+			result1 = remndrservice.saveRemndrLttotPblancDetailService(rd);
 			
 			List<RemndrMdl> list2 = ApplyApi.RemndrMdlByJSON(rd.getHouse_manage_no(), rd.getPblanc_no());
 			for(RemndrMdl rm : list2) {
-				result2 = Remndrservice.saveRemndrMdlService(rm);
+				result2 = remndrservice.saveRemndrMdlService(rm);
 			}
 		}
 		

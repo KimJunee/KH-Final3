@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+  <mapper namespace="com.kh.realfinal.apply.model.mapper.RealEstateListMapper">
+  
+  
+  
+  <resultMap type="RealEstateList" id="RealEstateListMap">
+  	<id property="house_manage_no" column="HOUSE_MANAGE_NO"/>
+  	<result property="house_secd_nm" column="HOUSE_SECD_NM"/>
+  	<result property="house_nm" column="HOUSE_NM"/>
+  	<result property="hssply_adres" column="HSSPLY_ADRES"/>
+  	<result property="rcrit_pblanc_de" column="RCRIT_PBLANC_DE"/>
+  	<result property="local_nm" column="LOCAL_NM"/>
+  	<result property="type" column="TYPE"/>
+  </resultMap>
+  
+  <select id="RealboardList" resultMap="RealEstateListMap">
+		SELECT 
+			HOUSE_MANAGE_NO, HOUSE_SECD_NM, HOUSE_NM, 
+			HSSPLY_ADRES, RCRIT_PBLANC_DE, LOCAL_NM, TYPE
+		FROM (
+			SELECT HOUSE_MANAGE_NO,HOUSE_SECD_NM, HOUSE_NM, HSSPLY_ADRES, LOCAL_NM, 
+					RCRIT_PBLANC_DE, 'U' AS TYPE FROM URBTYOFCTLLTTOTPBLANCDETAIL
+    		UNION 
+    		SELECT HOUSE_MANAGE_NO, HOUSE_SECD_NM, HOUSE_NM, HSSPLY_ADRES, LOCAL_NM, 
+    				RCRIT_PBLANC_DE, 'R' AS TYPE  FROM REMNDRLTTOTPBLANCDETAIL
+    	)
+		<where> 
+		<if test="contentKeyword != null">
+			AND HOUSE_NM LIKE '%'||#{contentKeyword}||'%'
+		</if>
+		<if test="localNameType != null">
+			AND LOCAL_NM LIKE '%'||#{localNameType}||'%'
+		</if>
+		</where>
+		ORDER BY RCRIT_PBLANC_DE DESC
+	</select>
+  
+  <select id="RealboardListCount" resultType="int" parameterType="map">
+		SELECT COUNT(*)	
+		FROM (
+			SELECT 
+				HOUSE_MANAGE_NO, HOUSE_SECD_NM, HOUSE_NM, 
+				HSSPLY_ADRES, RCRIT_PBLANC_DE, LOCAL_NM, TYPE
+			FROM (
+				SELECT HOUSE_MANAGE_NO,HOUSE_SECD_NM, HOUSE_NM, HSSPLY_ADRES, LOCAL_NM, 
+				RCRIT_PBLANC_DE, 'U' AS TYPE FROM URBTYOFCTLLTTOTPBLANCDETAIL
+    		UNION 
+    		SELECT HOUSE_MANAGE_NO, HOUSE_SECD_NM, HOUSE_NM, HSSPLY_ADRES, LOCAL_NM, 
+    				RCRIT_PBLANC_DE, 'R' AS TYPE  FROM REMNDRLTTOTPBLANCDETAIL
+    		)
+		<where> 
+		<if test="contentKeyword != null">
+			AND HOUSE_NM LIKE '%'||#{contentKeyword}||'%'
+		</if>
+		<if test="localNameType != null">
+			AND LOCAL_NM LIKE '%'||#{localNameType}||'%'
+		</if>
+		</where>
+		ORDER BY RCRIT_PBLANC_DE DESC)
+	</select>
+  
+  
+  </mapper>

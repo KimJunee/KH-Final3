@@ -15,7 +15,7 @@ import com.kh.realfinal.apply.model.vo.UrbtyOfctlLttotPblancDetail;
 @Controller
 public class UrbtyOfctlLttotPblancDetailController {
 	@Autowired
-	private UrbtyOfctlLttotPblancDetailService Urbtyservice;
+	private UrbtyOfctlLttotPblancDetailService urbtyservice;
 	
 	// ---------------------------------------- 파싱
 	
@@ -26,11 +26,11 @@ public class UrbtyOfctlLttotPblancDetailController {
 		int result1 = 0;
 		int result2 = 0;
 		for(UrbtyOfctlLttotPblancDetail ud : list1) {
-			result1 = Urbtyservice.saveUrbtyOfctlLttotPblancDetailService(ud);
+			result1 = urbtyservice.saveUrbtyOfctlLttotPblancDetailService(ud);
 			
 			List<UrbtyMdl> list2 = ApplyApi.UrbtyMdlByJSON(ud.getHouse_manage_no(), ud.getPblanc_no());
 			for(UrbtyMdl um : list2) {
-				result2 = Urbtyservice.saveUrbtyMdlService(um);
+				result2 = urbtyservice.saveUrbtyMdlService(um);
 			}
 		}
 		

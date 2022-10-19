@@ -180,7 +180,7 @@
                                     <!-- Checkbox -->
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" name="type[]" id="amenitiesType21">
-                                        <label class="form-check-label" for="amenitiesType21">오피스텔/도시형/민간임대</label>
+                                        <label class="form-check-label" for="amenitiesType21">도시형/오피스텔/민간임대</label>
                                     </div>
                                     <!-- Checkbox -->
                                     <div class="form-check">
@@ -275,7 +275,7 @@
                                         <select id="searchType" name ="searchType" class="form-select" aria-label="Default select example">
                                             <option selected disabled>검색필터</option>
                                             <option value="content" <c:if test="${param.searchType == 'content'}"> selected </c:if>>주택명</option>
-                                            <option value="sorting" <c:if test="${param.searchType == 'sorting'}"> selected </c:if>>분양종류(민영/국민)</option>
+                                            <option value="localName" <c:if test="${param.searchType == 'localName'}"> selected </c:if>>지역명</option>
                                         </select>
                                     </div>
                                     <!-- Search -->
@@ -303,8 +303,7 @@
                                         	<col width="10%">
                                         	<col width="10%">
                                         	<col width="45%">
-                                        	<col width="10%">
-                                        	<col width="10%">
+                                        	<col width="20%">
                                         	<col width="15%">
                                         </colgroup>
                                         <thead class="table-dark text-center">
@@ -313,7 +312,6 @@
                                                 <th scope="col" class="border-0">지역</th>
                                                 <th scope="col" class="border-0">주택명</th>
                                                 <th scope="col" class="border-0">주택구분</th>
-                                                <th scope="col" class="border-0">분양종류</th>
                                                 <th scope="col" class="border-0 rounded-end">모집공고일</th>
                                             </tr>
                                         </thead>
@@ -323,35 +321,31 @@
                                                 <td>1</td>
                                                 <td>서울</td>
                                                 <td><a href="${path}/RealEstate/detail">강원 춘천시 약사촉진3구역 롯데캐슬 위너클래스 장기민간임대아파트(107동)</a></td>
-                                                <td>아파트</td>
-                                                <td>아파트</td>
+                                                <td>도시형/오피스텔/민간임대</td>
                                                 <td>2023-09-02</td>
                                         </tr>
-                                        <c:if test="${empty remndrlist}">
+                                        <c:if test="${empty reallist}">
 											<tr>
 												<td colspan="6">조회된 글이 없습니다.</td>
 											</tr>
 										</c:if>
-										<c:if test="${!empty remndrlist}">
-											<c:forEach var="remndrLttotPblancDetail" items="${remndrlist}">
+										<c:if test="${!empty reallist}">
+											<c:forEach var="RealEstateList" items="${reallist}">
 												<tr>
 													<td>1</td>
 													<td>
-														<c:out value="${remndrLttotPblancDetail.hssply_zip}"/>
+														<c:out value="${RealEstateList.local_nm}"/>
 													</td>
 													<td>
 														<a href="#">
-															<c:out value="${remndrLttotPblancDetail.house_nm}"/>
+															<c:out value="${RealEstateList.house_nm}"/>
 														</a>
 													</td>
 													<td>
-														<c:out value="${remndrLttotPblancDetail.house_secd}"/>
+														<c:out value="${RealEstateList.house_secd_nm}"/>
 													</td>
 													<td>
-														<c:out value="${remndrLttotPblancDetail.house_secd}"/>
-													</td>
-													<td>
-														<c:out value="${remndrLttotPblancDetail.rcrit_pblanc_de}"/>
+														<c:out value="${RealEstateList.rcrit_pblanc_de}"/>
 													</td>
 												</tr>
 											</c:forEach>
@@ -391,7 +385,7 @@
                                             </c:forEach>
                                             
                                             <li class="page-item">
-                                                <a class="page-link" onclick="movePage('${path}/RealEstate/list?page=${pageInfo.maxPage}');">End</a>
+                                                <a class="page-link" onclick="movePage('${path}/RealEstate/list?page=${pageInfo.nextPage}');">Next</a>
                                             </li>
                                         </ul>
                                     </nav>

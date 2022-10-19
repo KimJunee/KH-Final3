@@ -15,7 +15,7 @@
 			R.PRZWNER_PRESNATN_DE,	R.CNTRCT_CNCLS_BGNDE,
 			R.CNTRCT_CNCLS_ENDDE,	R.HMPG_ADRES,
 			R.BSNS_MBY_NM,			R.MDHS_TELNO,
-			R.MVN_PREARNGE_YM	
+			R.MVN_PREARNGE_YM,		R.LOCAL_NM	
 	FROM REMNDRLTTOTPBLANCDETAIL R
 	</sql>
 	
@@ -28,7 +28,7 @@
 		<result property="house_secd" column="HOUSE_SECD"/>
 		<result property="house_secd_nm" column="HOUSE_SECD_NM"/>
 		<result property="hssply_zip" column="HSSPLY_ZIP"/>
-		<result property="hmpg_adres" column="HMPG_ADRES"/>
+		<result property="hssply_adres" column="HSSPLY_ADRES"/>
 		<result property="tot_suply_hshldco" column="TOT_SUPLY_HSHLDCO"/>
 		<result property="rcrit_pblanc_de" column="RCRIT_PBLANC_DE"/>
 		<result property="subscrpt_rcept_bgnde" column="SUBSCRPT_RCEPT_BGNDE"/>
@@ -44,6 +44,7 @@
 		<result property="bsns_mby_nm" column="BSNS_MBY_NM"/>
 		<result property="mdhs_telno" column="MDHS_TELNO"/>
 		<result property="mvn_prearnge_ym" column="MVN_PREARNGE_YM"/>
+		<result property="local_nm" column="LOCAL_NM"/>
 	</resultMap>
 	
 	<resultMap type="RemndrLttotPblancDetail" id="RemndrLttotPblancDetailMap" extends="RemndrMap">
@@ -67,8 +68,8 @@
 		<if test="contentKeyword != null">
 			AND R.HOUSE_NM LIKE '%'||#{contentKeyword}||'%'
 		</if>
-		<if test="sortingType != null">
-			AND R.HOUSE_SECD LIKE '%'||#{sortingType}||'%'
+		<if test="localNameType != null">
+			AND R.LOCAL_NM LIKE '%'||#{localNameType}||'%'
 		</if>
 		</where>
 	</select>
@@ -79,8 +80,8 @@
 		<if test="contentKeyword != null">
 			AND R.HOUSE_NM LIKE '%'||#{contentKeyword}||'%'
 		</if>
-		<if test="sortingType != null">
-			AND R.HOUSE_SECD LIKE '%'||#{sortingType}||'%'
+		<if test="localNameType != null">
+			AND R.LOCAL_NM LIKE '%'||#{localNameType}||'%'
 		</if>
 		</where>
 	</select>
@@ -118,7 +119,7 @@
 	VALUES(
 		#{house_manage_no}, #{pblanc_no}, 
 		#{house_nm}, #{house_secd}, #{house_secd_nm}, #{hssply_zip}, 
-		#{hmpg_adres}, #{tot_suply_hshldco}, #{rcrit_pblanc_de},
+		#{hssply_adres}, #{tot_suply_hshldco}, #{rcrit_pblanc_de},
 		#{subscrpt_rcept_bgnde}, #{subscrpt_rcept_endde},
 		#{spsply_rcept_bgnde}, #{spsply_rcept_endde}, 
 		#{gnrl_rcept_rcptde}, #{gnrl_rcept_endde},
