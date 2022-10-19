@@ -19,68 +19,62 @@
   </resultMap>
   
   <select id="RealboardList" resultMap="RealEstateListMap">
-		SELECT 
-			HOUSE_MANAGE_NO, HOUSE_SECD_NM, HOUSE_NM, 
-			HSSPLY_ADRES, RCRIT_PBLANC_DE, SUBSCRPT_AREA_CODE_NM, TYPE
-		FROM (
-			SELECT HOUSE_MANAGE_NO,HOUSE_SECD_NM, HOUSE_NM, HSSPLY_ADRES, SUBSCRPT_AREA_CODE_NM, 
-					RCRIT_PBLANC_DE, 'U' AS TYPE FROM URBTYOFCTLLTTOTPBLANCDETAIL
-    		UNION 
-    		SELECT HOUSE_MANAGE_NO, HOUSE_SECD_NM, HOUSE_NM, HSSPLY_ADRES, SUBSCRPT_AREA_CODE_NM, 
-    				RCRIT_PBLANC_DE, 'R' AS TYPE  FROM REMNDRLTTOTPBLANCDETAIL
-    	)
-		<where> 
+		SELECT HOUSE_MANAGE_NO, HOUSE_SECD_NM, HOUSE_NM, HSSPLY_ADRES, RCRIT_PBLANC_DE, SUBSCRPT_AREA_CODE_NM, 
+		TYPE FROM (SELECT HOUSE_MANAGE_NO, HOUSE_SECD_NM, HOUSE_NM, HSSPLY_ADRES, RCRIT_PBLANC_DE, SUBSCRPT_AREA_CODE_NM, 
+		TYPE FROM (SELECT HOUSE_MANAGE_NO, HOUSE_SECD_NM, HOUSE_NM, HSSPLY_ADRES, RCRIT_PBLANC_DE, SUBSCRPT_AREA_CODE_NM, 
+		TYPE FROM (SELECT HOUSE_MANAGE_NO,HOUSE_SECD_NM, HOUSE_NM, HSSPLY_ADRES, SUBSCRPT_AREA_CODE_NM, RCRIT_PBLANC_DE, 'U' AS TYPE FROM URBTYOFCTLLTTOTPBLANCDETAIL 
+		UNION SELECT HOUSE_MANAGE_NO, HOUSE_SECD_NM, HOUSE_NM, HSSPLY_ADRES, SUBSCRPT_AREA_CODE_NM, RCRIT_PBLANC_DE, 'R' AS TYPE FROM REMNDRLTTOTPBLANCDETAIL)
 		<if test="locationType != null">
-			<foreach collection="locationType" item="list1">
-				OR SUBSCRPT_AREA_CODE_NM LIKE '%'||#{list1}||'%'
+		WHERE SUBSCRPT_AREA_CODE_NM IN 
+			<foreach collection="locationType" item="list1" open="(" close=")" separator=",">
+				#{list1}
 			</foreach>
 		</if>
+		)
 		<if test="houseType != null">
-			<foreach collection="houseType" item="list2">
-				OR HOUSE_SECD_NM	LIKE '%'||#{list2}||'%'
+		WHERE HOUSE_SECD_NM	IN 
+			<foreach collection="houseType" item="list2" open="(" close=")" separator=",">
+				#{list2}
 			</foreach>
 		</if>
+		)
 		<if test="contentKeyword != null">
-			AND HOUSE_NM LIKE '%'||#{contentKeyword}||'%'
+			WHERE HOUSE_NM LIKE '%'||#{contentKeyword}||'%'
 		</if>
 		<if test="localNameType != null">
-			AND SUBSCRPT_AREA_CODE_NM LIKE '%'||#{localNameType}||'%'
+			WHERE SUBSCRPT_AREA_CODE_NM LIKE '%'||#{localNameType}||'%' 
 		</if>
-		</where>
 		ORDER BY RCRIT_PBLANC_DE DESC
 	</select>
   
   <select id="RealboardListCount" resultType="int" parameterType="map">
 		SELECT COUNT(*)	
 		FROM (
-			SELECT 
-				HOUSE_MANAGE_NO, HOUSE_SECD_NM, HOUSE_NM, 
-				HSSPLY_ADRES, RCRIT_PBLANC_DE, SUBSCRPT_AREA_CODE_NM, TYPE
-			FROM (
-				SELECT HOUSE_MANAGE_NO,HOUSE_SECD_NM, HOUSE_NM, HSSPLY_ADRES, SUBSCRPT_AREA_CODE_NM, 
-				RCRIT_PBLANC_DE, 'U' AS TYPE FROM URBTYOFCTLLTTOTPBLANCDETAIL
-    		UNION 
-    		SELECT HOUSE_MANAGE_NO, HOUSE_SECD_NM, HOUSE_NM, HSSPLY_ADRES, SUBSCRPT_AREA_CODE_NM, 
-    				RCRIT_PBLANC_DE, 'R' AS TYPE  FROM REMNDRLTTOTPBLANCDETAIL
-    		)
-		<where> 
+		SELECT HOUSE_MANAGE_NO, HOUSE_SECD_NM, HOUSE_NM, HSSPLY_ADRES, RCRIT_PBLANC_DE, SUBSCRPT_AREA_CODE_NM, 
+		TYPE FROM (SELECT HOUSE_MANAGE_NO, HOUSE_SECD_NM, HOUSE_NM, HSSPLY_ADRES, RCRIT_PBLANC_DE, SUBSCRPT_AREA_CODE_NM, 
+		TYPE FROM (SELECT HOUSE_MANAGE_NO, HOUSE_SECD_NM, HOUSE_NM, HSSPLY_ADRES, RCRIT_PBLANC_DE, SUBSCRPT_AREA_CODE_NM, 
+		TYPE FROM (SELECT HOUSE_MANAGE_NO,HOUSE_SECD_NM, HOUSE_NM, HSSPLY_ADRES, SUBSCRPT_AREA_CODE_NM, RCRIT_PBLANC_DE, 'U' AS TYPE FROM URBTYOFCTLLTTOTPBLANCDETAIL 
+		UNION SELECT HOUSE_MANAGE_NO, HOUSE_SECD_NM, HOUSE_NM, HSSPLY_ADRES, SUBSCRPT_AREA_CODE_NM, RCRIT_PBLANC_DE, 'R' AS TYPE FROM REMNDRLTTOTPBLANCDETAIL)
 		<if test="locationType != null">
-			<foreach collection="locationType" item="list1">
-				OR SUBSCRPT_AREA_CODE_NM LIKE '%'||#{list1}||'%'
+		WHERE SUBSCRPT_AREA_CODE_NM IN 
+			<foreach collection="locationType" item="list1" open="(" close=")" separator=",">
+				#{list1}
 			</foreach>
 		</if>
+		)
 		<if test="houseType != null">
-			<foreach collection="houseType" item="list2">
-				OR HOUSE_SECD_NM	LIKE '%'||#{list2}||'%'
+		WHERE HOUSE_SECD_NM	IN 
+			<foreach collection="houseType" item="list2" open="(" close=")" separator=",">
+				#{list2}
 			</foreach>
 		</if>
+		)
 		<if test="contentKeyword != null">
-			AND HOUSE_NM LIKE '%'||#{contentKeyword}||'%'
+			WHERE HOUSE_NM LIKE '%'||#{contentKeyword}||'%'
 		</if>
 		<if test="localNameType != null">
-			AND SUBSCRPT_AREA_CODE_NM LIKE '%'||#{localNameType}||'%'
+			WHERE SUBSCRPT_AREA_CODE_NM LIKE '%'||#{localNameType}||'%' 
 		</if>
-		</where>
 		ORDER BY RCRIT_PBLANC_DE DESC)
 	</select>
   
