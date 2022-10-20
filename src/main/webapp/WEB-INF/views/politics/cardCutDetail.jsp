@@ -78,7 +78,7 @@
 		            <div class="row">
 		                <div class="col-12">
 		                    <a href="#" class="badge text-bg-primary mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Politics</a>
-		                    <h1>해양환경 '지식나눔' 온라인 무료 특강 신청하세요!</h1>
+		                    <h1>${cardCut.title}</h1>
 		                </div>
 		                <p class="lead">2022.09.16 정책브리핑 이정운</p>
 		            </div>
@@ -96,8 +96,7 @@
 		                                <div class="ps-1"><span class="tns-current-slide fs-5 fw-bold"></span><span class="fs-5 fw-bold">/</span><span class="tns-total-slides fs-5 fw-bold"></span></div>
 		                            </div>
 		                            <div class="tns-carousel-inner" data-carousel-options="{&quot;navAsThumbnails&quot;: true, &quot;navContainer&quot;: &quot;#thumbnails&quot;, &quot;gutter&quot;: 12, &quot;responsive&quot;: {&quot;0&quot;:{&quot;controls&quot;: false},&quot;500&quot;:{&quot;controls&quot;: true}}}">
-		                                <div><img style="width:900px; height:550px;" class="rounded-3" src="resources/resources1b/images/04_politics/01_cardcut/08.jpg" alt="Image"></div>
-		                                <div><img style="width:900px; height:550px;" class="rounded-3" src="resources/resources1b/images/04_politics/01_cardcut/09.jpg" alt="Image"></div>
+		                                <div><img style="width:900px; height:550px;" class="rounded-3" src="${cardCut.images[0]}" alt="Image"></div>
 		                                <div><img style="width:900px; height:550px;" class="rounded-3" src="resources/resources1b/images/04_politics/01_cardcut/10.jpg" alt="Image"></div>
 		                                <div><img style="width:900px; height:550px;" class="rounded-3" src="resources/resources1b/images/04_politics/01_cardcut/11.jpg" alt="Image"></div>
 		                                <div><img style="width:900px; height:550px;" class="rounded-3" src="resources/resources1b/images/04_politics/01_cardcut/12.jpg" alt="Image"></div>
@@ -114,19 +113,7 @@
 		                    </div>
 		
 		                    <div class="row">
-		                        <p><span class="h5">온라인 특강으로 어디서든 쉽고 편하게 ‘해양환경’에 대해 배울 수 있어요! </span></p>
-		                        <p>▶ 해양환경 ‘지식나눔’ 온라인 라이브 특강 <br> - 강좌 내용 : 해양환경 전반 <br> - 강좌 유형 : 스튜디오 및 플랫폼 화상강의시스템을 활용한 실시간 강좌<br> * 해양환경 분야별 전문가, 교수 등을 초빙해 강의영상 촬영, 플랫폼을 통한 실시간 송출
-		                        </p>
-		
-		                        <p>▶ 기간 및 횟수 2022년 9월 ~ 12월(4개월), 총 7회</p>
-		
-		                        <p>▶ 소요 시간 회당 1시간 내외(Q&A 포함)</p>
-		                        <p>▶ 수강 대상 해양환경에 관심 있는 누구나 수강 가능 * 특강 수준은 고등학생 이상의 일반인 대상으로 설정</p>
-		                        <p>
-		                            ▶ 강좌 주제 해양환경 최신 이슈 등 해양환경 전반 - 9/12(목), 오후 8시 유근제 교수(한국해양대 환경공학 교수) 기후위기와 탄소중립 ‘탄소중립, 기후위기의 돌파구’ - 10/6(목), 오후 8시 심원준 박사(한국해양과학기술원)
-		                        </p>
-		                        <p>자료: 해양수산부</p>
-		                        <p>[출처] 대한민국 정책브리핑(www.korea.kr)</p>
+		                        <p><span class="h5">${cardCut.content}</p>
 		                    </div>
 		                    <!-- Divider -->
 		                    <hr>

@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CardCut {
+
 	private int cardCutNo;
 	private String title; // 뉴스 제목
 	private String link; // 뉴스 실제 링크

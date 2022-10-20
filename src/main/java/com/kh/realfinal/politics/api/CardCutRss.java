@@ -69,7 +69,7 @@ public class CardCutRss {
 							CardCut card = new CardCut(0, title, link, descriptionOrigin, null, null, pubDate);
 							list.add(card);
 //							System.out.println(card.getDescriptionOrigin()); 
-							System.out.println(card.getImages()); 
+//							System.out.println(card.getImages()); 
 //							System.out.println(card.getContent()); 
 							System.out.println("----------------------------------------------------");
 						} catch (Exception e){

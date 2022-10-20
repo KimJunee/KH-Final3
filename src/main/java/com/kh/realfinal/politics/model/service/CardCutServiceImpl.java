@@ -13,6 +13,7 @@ import com.kh.realfinal.common.util.PageInfo;
 import com.kh.realfinal.politics.model.mapper.CardCutMapper;
 import com.kh.realfinal.politics.model.vo.CardCut;
 import com.kh.realfinal.politics.model.vo.CardCutReply;
+import com.kh.realfinal.politics.model.vo.ProfileMna;
 
 @Service
 public class CardCutServiceImpl implements CardCutService {
@@ -43,100 +44,50 @@ public class CardCutServiceImpl implements CardCutService {
 	public List<CardCut> getCardCutList(PageInfo pageInfo, Map<String, String> param) {
 		int offset = (pageInfo.getCurrentPage() - 1) * pageInfo.getListLimit();
 		RowBounds rowBounds = new RowBounds(offset, pageInfo.getListLimit());
-		List<CardCut> list = mapper.selectCardCut(rowBounds);
-
+		List<CardCut> list = mapper.selectCardCut(rowBounds, param);
 		for (CardCut item : list) {
-			try {
-				String descriptionOrigin = item.getDescriptionOrigin();
-				System.out.println(descriptionOrigin);
-				int value = 0;
-				int nextValue = 0;
-				String pattern = "src=\"";
-				List<String> imageList = new ArrayList<String>();
-				while ((value = descriptionOrigin.indexOf(pattern, nextValue)) > 0) {
-					nextValue = descriptionOrigin.indexOf("\"", value + pattern.length());
-					String imageurl = descriptionOrigin.substring(value, nextValue).replace("src=\"", "");
-					imageList.add(imageurl);
-					value = nextValue + 1;
-				}
-				String description = "";
-				if(descriptionOrigin.indexOf("<!--cardnewsEnd-->") > 0) {
-					description = descriptionOrigin.substring(descriptionOrigin.indexOf("<!--cardnewsEnd-->")).replace("<!--cardnewsEnd-->", "");
-				}else {
-					description = descriptionOrigin;
-				}
-
-				item.setContent(description);
-				item.setImages(imageList);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			parsingImageUrl(item);
 		}
-		return list;
 
-	}
-
-	@Override
-	public List<CardCut> getCardCutList(PageInfo pageInfo) {
-		int offset = (pageInfo.getCurrentPage() - 1) * pageInfo.getListLimit();
-		RowBounds rowBounds = new RowBounds(offset, pageInfo.getListLimit());
-		List<CardCut> list = mapper.selectCardCut(rowBounds);
-
-		for (CardCut item : list) {
-			try {
-				String descriptionOrigin = item.getDescriptionOrigin();
-				System.out.println(descriptionOrigin);
-				int value = 0;
-				int nextValue = 0;
-				String pattern = "src=\"";
-				List<String> imageList = new ArrayList<String>();
-				while ((value = descriptionOrigin.indexOf(pattern, nextValue)) > 0) {
-					nextValue = descriptionOrigin.indexOf("\"", value + pattern.length());
-					String imageurl = descriptionOrigin.substring(value, nextValue).replace("src=\"", "");
-					imageList.add(imageurl);
-					value = nextValue + 1;
-				}
-				String description = "";
-				if(descriptionOrigin.indexOf("<!--cardnewsEnd-->") > 0) {
-					description = descriptionOrigin.substring(descriptionOrigin.indexOf("<!--cardnewsEnd-->")).replace("<!--cardnewsEnd-->", "");
-				}else {
-					description = descriptionOrigin;
-				}
-
-				item.setContent(description);
-				item.setImages(imageList);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
 		return list;
 	}
+	
 	@Override
-	public int getCardCutList() {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getCardCutCount(Map<String, String> param) {
+		return mapper.selectCardCutCount(param);
 	}
-
-	@Override
-	public int getCardCutCount() {
-		// TODO Auto-generated method stub
-		return 0;
+	
+	private void parsingImageUrl(CardCut item) {
+		try {
+			String descriptionOrigin = item.getDescriptionOrigin();
+			int value = 0;
+			int nextValue = 0;
+			String pattern = "src=\"";
+			List<String> imageList = new ArrayList<String>();
+			while ((value = descriptionOrigin.indexOf(pattern, nextValue)) > 0) {
+				nextValue = descriptionOrigin.indexOf("\"", value + pattern.length());
+				String imageurl = descriptionOrigin.substring(value, nextValue).replace("src=\"", "");
+				imageList.add(imageurl);
+				value = nextValue + 1;
+			}
+			String description = "";
+			if(descriptionOrigin.indexOf("<!--cardnewsEnd-->") > 0) {
+				description = descriptionOrigin.substring(descriptionOrigin.indexOf("<!--cardnewsEnd-->")).replace("<!--cardnewsEnd-->", "");
+			}else {
+				description = descriptionOrigin;
+			}
+			item.setContent(description);
+			item.setImages(imageList);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
-
-	@Override
-	public int getCardCutList(int page) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	
 	public CardCut getCardCutContent(int cardCutNo) {
-		CardCut list = mapper.selectCardCutList(cardCutNo);
-		return list;
+		CardCut carcut = mapper.selectCardCutOne(cardCutNo);
+		parsingImageUrl(carcut);
+		return carcut;
 	}
 
-	@Override
-	public CardCut getCardCut(int cardContent) {
-		// TODO Auto-generated method stub
-		return null;
-	}
  
 }
