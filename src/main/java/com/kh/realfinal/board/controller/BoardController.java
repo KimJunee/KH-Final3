@@ -286,7 +286,7 @@ public class BoardController {
 		
 		if(loginMember.getUser_no() == board.getWriter_no()) {
 			model.addAttribute("board",board);
-			return "board/update";
+			return "community/communityBoardUpdate";
 		}else {
 			model.addAttribute("msg", "잘못된 접근입니다.");
 			model.addAttribute("location", "/board/list");
@@ -295,11 +295,11 @@ public class BoardController {
 	}
 		
 	// 게시글 수정
-	@PostMapping("/update")
+	@PostMapping("/update_action")
 	public String updateBoard(Model model, HttpServletRequest request,
 			@SessionAttribute(name = "loginMember", required = false) Member loginMember,
 			@ModelAttribute Board board,
-			@RequestParam("reloadFile") MultipartFile reloadFile
+			@RequestParam("upfile") MultipartFile reloadFile
 			) {
 		log.info("게시글 수정 요청");
 		if(loginMember.getUser_no() == (board.getWriter_no()) == false) {
@@ -326,10 +326,10 @@ public class BoardController {
 			}
 		}
 		log.debug("board : " + board);
-		int result = service.saveBoard(board);
+		int result = service.saveBoard(board); //이미 같이 쓰고있음 		
 		if(result > 0) {
 			model.addAttribute("msg", "게시글 수정이 정상적으로 성공하였습니다.");
-			model.addAttribute("location", "/community/communityBoardDetail?board_no=" + board.getUser_no());
+			model.addAttribute("location", "/board/BoardDetail?board_no=" + board.getBoard_no());
 		}else {
 			model.addAttribute("msg", "게시글 수정에 실패하였습니다.");
 			model.addAttribute("location", "/board/update?no=" + board.getUser_no());

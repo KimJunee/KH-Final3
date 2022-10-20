@@ -54,7 +54,6 @@ public class BoardServiceImpl implements BoardService{
 					+ board_originalFileName.substring(board_originalFileName.lastIndexOf("."));
 			String reNamePath = savePath + "/" + board_renamedFileName;
 		
-		
 			upfile.transferTo(new File(reNamePath));
 			return board_renamedFileName;
 		} catch (Exception e) {
@@ -106,17 +105,29 @@ public class BoardServiceImpl implements BoardService{
 		return mapper.selectBoardList(rowBounds, searchMap);
 	}
 	
+	// 커뮤니티 메인으로 들어갈때 쓰는 코드
 	@Override
-	public List<Board> getBoardListMain() { //커뮤니티 메인으로 들어갈때 쓰는 코드
+	public List<Board> getBoardListMain() { 
 		return mapper.selectBoardListMain();
 	}
 	
+	// 사이드 커뮤니티 인기글 : 부동산메인 2개
 	@Override
 	public List<Board> getSideBoardForEstate(Map<String, Object> param) {
 		return mapper.sideBoardForEstate(param);
-		
 	}
 
+	// 사이드 커뮤니티 인기글 : 국회의원현황 6개
+	@Override
+	public List<Board> getSideBoardForPolitics(Map<String, Object> param) {
+		return mapper.sideBoardForPolitics(param);
+	}
+	
+	// 사이드 커뮤니티 인기글 : 메인, 커뮤니티상세 6개
+	public List<Board> getSideBoard(Map<String, Object> param) {
+		return mapper.sideBoard(param);
+	}
+	
 	@Override
 	@Transactional(rollbackFor =  Exception.class)
 	public Board findByNo(int boardNo) {
@@ -148,4 +159,5 @@ public class BoardServiceImpl implements BoardService{
 	public int deleteReply(int no) {
 		return mapper.deleteReply(no);
 	}
+
 }

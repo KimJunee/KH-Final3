@@ -45,7 +45,7 @@
                                 <div class="avatar avatar-xl">
                                     <img class="avatar-img rounded-circle" src="${path}/resources/resources1b/images/avatar_w1.png" alt="avatar">
                                 </div>
-                                <a href="#" class="h5 stretched-link mt-2 mb-0 d-block">${board.user_nickName}</a>
+                                <h5 class=" stretched-link mt-2 mb-0 d-block">${board.user_nickName}</h5>
                             </div>
                             <hr class="d-none d-lg-block">
                             <!-- 작성일 / 조회수 / 댓글수 -->
@@ -55,18 +55,11 @@
                                 <li class="list-inline-item d-lg-block my-lg-2"><i class="bi bi-chat-left-quote-fill me-1"></i> ${fn:length(replyList)} Commenets</li>
                             </ul>
                             <!-- 작성자가 본인일 때 수정 삭제 버튼 보이기 -->
-                            <c:if test="${empty loginMember || (loginMember.user_id != board.writer_id)}">
-	                            <hr class="d-none d-lg-block">
-	                            <div class="d-flex gap-2 mt-1" style="justify-content: center; display: none;">
-	                                <a href="dashboard-post-edit.html" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" style="margin-right: 7px;"><i class="bi bi-pencil-square"></i></a>
-	                                <a href="#" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="bi bi-trash"></i></a>
-	                            </div>
-                            </c:if>
-                            <c:if test="${!empty loginMember && (loginMember.user_id == board.writer_id)}">
+                            <c:if test="${not empty loginMember && (loginMember.user_id == board.writer_id)}">
 	                            <hr class="d-none d-lg-block">
 	                            <div class="d-flex gap-2 mt-1" style="justify-content: center;">
-	                                <a href="dashboard-post-edit.html" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" style="margin-right: 7px;"><i class="bi bi-pencil-square"></i></a>
-	                                <a href="#" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="bi bi-trash"></i></a>
+	                                <a href="${path}/board/update?no=${board.board_no}" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" style="margin-right: 7px;"><i class="bi bi-pencil-square"></i></a>
+	                                <a href="${path}/board/delete?no=${board.board_no}" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="bi bi-trash"></i></a>
 	                            </div>
                             </c:if>
                         </div>
@@ -209,6 +202,10 @@
                                 </div>
                                 <div class="d-flex position-relative mb-3">
                                     <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">05</span>
+                                    <h6><a href="#" class="stretched-link text-reset btn-link">How did we get here? The history of the business told through tweets</a></h6>
+                                </div>
+                                <div class="d-flex position-relative mb-3">
+                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">06</span>
                                     <h6><a href="#" class="stretched-link text-reset btn-link">How did we get here? The history of the business told through tweets</a></h6>
                                 </div>
                             </div>

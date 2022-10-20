@@ -19,4 +19,6 @@ public interface BoardService {
 	int deleteReply(int no);
 	List<Board> getBoardListMain();
 	List<Board> getSideBoardForEstate(Map<String, Object> param);
+	List<Board> getSideBoardForPolitics(Map<String, Object> param);
+	List<Board> getSideBoard(Map<String, Object> param);
 }

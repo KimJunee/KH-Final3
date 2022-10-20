@@ -32,7 +32,7 @@
                 <div class="row pb-4" style="margin-top:-100px;">
                     <div class="col-12">
                         <!-- Title -->
-                        <h1 class="mb-0 h2">Create a post</h1>
+                        <h1 class="mb-0 h2">Update a post</h1>
                     </div>
                 </div>
                 <div class="row">
@@ -42,14 +42,16 @@
                             <!-- Card body -->
                             <div class="card-body">
                                 <!-- Form START -->
-                                <form action="${path}/board/Post" method="post" enctype="multipart/form-data">
+                                <form action="${path}/board/update_action" method="post" enctype="multipart/form-data">
+                                	<input type="hidden" name="writer_no"  value="${board.writer_no}"/>
+                                	<input type="hidden" name="board_no"  value="${board.board_no}"/>
                                     <!-- Main form -->
                                     <div class="row">
                                         <div class="col-12">
                                             <!-- 제목 -->
                                             <div class="mb-3">
                                                 <label class="form-label">Post Title</label>
-                                                <input required id="con-name" name="board_title" type="text" class="form-control" placeholder="제목을 입력해주세요.">
+                                                <input required id="con-name" name="board_title" type="text" class="form-control" placeholder="제목을 입력해주세요." value="${board.board_title }">
                                             </div>
                                         </div>
                                         <!-- 카테고리 선택 (게시판 구분) -->
@@ -59,7 +61,7 @@
                                                 <div class="d-flex flex-wrap gap-3">
                                                     <!-- 자유 -->
                                                     <div class="flex-fill">
-                                                        <input type="radio" class="btn-check" name="board_list_no" id="option4" value="4"checked>
+                                                        <input type="radio" class="btn-check" name="board_list_no" id="option4" value="4"<c:if test="${board.board_list_no == 4}">checked</c:if>>
                                                         <label class="btn btn-outline-success w-100" for="option4">
 															<i class="bi bi-balloon fs-1"></i>
 															<span class="d-block"> Free </span>
@@ -67,7 +69,7 @@
                                                     </div>
                                                     <!-- 정치 -->
                                                     <div class="flex-fill">
-                                                        <input type="radio" class="btn-check" name="board_list_no" id="option" value="1">
+                                                        <input type="radio" class="btn-check" name="board_list_no" id="option" value="1" <c:if test="${board.board_list_no == 1}">checked</c:if>>
                                                         <label class="btn btn-outline-primary w-100" for="option">
                           									<i i class="bi bi-bank2 fs-1"></i>
                           									<span class="d-block"> Politics </span>
@@ -75,7 +77,7 @@
                                                     </div>
                                                     <!-- 부동산 -->
                                                     <div class="flex-fill">
-                                                        <input type="radio" class="btn-check" name="board_list_no" id="option2" value="2">
+                                                        <input type="radio" class="btn-check" name="board_list_no" id="option2" value="2" <c:if test="${board.board_list_no == 2}">checked</c:if>>
                                                         <label class="btn btn-outline-warning w-100" for="option2">
 															<i class="bi bi-building fs-1"></i>
 															<span class="d-block"> Real Estate </span>
@@ -83,7 +85,7 @@
                                                     </div>
                                                     <!-- 금융 -->
                                                     <div class="flex-fill">
-                                                        <input type="radio" class="btn-check" name="board_list_no" id="option3" value="3">
+                                                        <input type="radio" class="btn-check" name="board_list_no" id="option3" value="3" <c:if test="${board.board_list_no == 3}">checked</c:if>>
                                                         <label class="btn btn-outline-danger w-100" for="option3">
 															<i class="bi bi-coin fs-1"></i>
 															<span class="d-block"> Finance </span>
@@ -99,7 +101,7 @@
                                             <div class="mb-3">
                                                 <label class="form-label">Post body</label>
                                                 <div class="rounded-top">
-                                                	<textarea class="bg-body border" name="board_content" id="board_content" style="height: 500px; width: 100%; resize: none; border-radius: 5px;"></textarea>
+                                                	<textarea class="bg-body border" name="board_content" id="board_content" style="height: 500px; width: 100%; resize: none; border-radius: 5px;">${board.board_content}</textarea>
                                             	</div>
                                         	</div>
                                         </div>
@@ -110,7 +112,8 @@
                                                     <h6 class="my-2">Upload post image here, or<a href="#!" class="text-primary"> Browse</a></h6>
                                                     <label class="w-100" style="cursor:pointer;">
 														<span> 
-															<input class="form-control stretched-link" type="file" name="upfile">
+															<input class="form-control stretched-link" type="file" name="upfile" id="upfile" style="display:none">
+															<label class="form-control stretched-link" for="upfile" id="upfile_label" >${board.board_originalFileName ne null ? board.board_originalFileName : '&nbsp;'} </label>
 														</span>
 													</label>
                                                 </div>
@@ -132,6 +135,19 @@
             </div>
         </section>
     </main>
+    <script>
+	$(document).ready(() => {
+		$("#upfile").on("change",function(){
+			var filename = this.files[0].name;
+			$("#upfile_label").text(filename);
+		})	
+		
+		
+	});
+	
+	
+	</script>
+    
 	<%@ include file="/WEB-INF/views/common/footer.jsp" %>
     </body>
 </html>

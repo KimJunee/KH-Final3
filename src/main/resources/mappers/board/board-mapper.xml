@@ -121,8 +121,7 @@
 		ORDER BY B.BOARD_NO DESC
 	</select>
 	
-	<!-- 사이드 커뮤니티 인기글 -->
-	<!-- 부동산메인 2개 -->
+	<!-- 사이드 커뮤니티 인기글 : 부동산메인 2개 -->
 	<select id="sideBoardForEstate" resultMap="boardListResultMap"  parameterType="map">
 		SELECT REALESTATE.*
 		FROM (
@@ -140,12 +139,48 @@
 		    ) REALESTATE
 		WHERE ROWNUM <![CDATA[<=]]> 2
 	</select>
-	<!-- 메인, 정치 국회의원현황 6개 / 커뮤니티상세 5개 -->
+	
+	<!-- 사이드 커뮤니티 인기글 : 국회의원현황 6개 -->
+	<select id="sideBoardForPolitics" resultMap="boardListResultMap"  parameterType="map">
+		SELECT POLITICS.*
+		FROM (
+		    SELECT
+		    	B.BOARD_NO,
+		        B.BOARD_TITLE,
+		        B.WRITER_NO,
+		        B.BOARD_REGISTER,
+		        U.USER_NICKNAME
+		    FROM BOARD B
+		    JOIN USER_T U ON(B.WRITER_NO = U.USER_NO)
+		    WHERE B.BOARD_STATUS='Y'
+		    AND B.BOARD_LIST_NO = 1
+		    ORDER BY B.BOARD_REGISTER DESC
+		    ) POLITICS
+		WHERE ROWNUM <![CDATA[<=]]> 6
+	</select>
+	
+	<!-- 사이드 커뮤니티 인기글 : 메인, 커뮤니티상세 6개 -->
+	<select id="sideBoard" resultMap="boardListResultMap"  parameterType="map">
+		SELECT SIDEBOARD.*
+		FROM (
+		    SELECT
+		    	B.BOARD_NO,
+		        B.BOARD_TITLE,
+		        B.WRITER_NO,
+		        B.BOARD_REGISTER,
+		        U.USER_NICKNAME
+		    FROM BOARD B
+		    JOIN USER_T U ON(B.WRITER_NO = U.USER_NO)
+		    WHERE B.BOARD_STATUS='Y'
+		    ORDER BY B.BOARD_REGISTER DESC
+		    ) SIDEBOARD
+		WHERE ROWNUM <![CDATA[<=]]> 6
+	</select>
 	
 	<!-- 게시글 보기 -->
 	<select id="selectBoardByNo" parameterType="int" resultMap="boardDetailResultMap">
 		SELECT 
-		    B.BOARD_NO, B.BOARD_TITLE, U.USER_NICKNAME, U2.USER_NICKNAME AS R_USER_NICKNAME,
+		    B.BOARD_NO, B.BOARD_TITLE, B.WRITER_NO, U.USER_ID, U.USER_NICKNAME, U2.USER_NICKNAME AS R_USER_NICKNAME,
 		    B.BOARD_HIT, B.BOARD_ORIGINALFILENAME, B.BOARD_RENAMEDFILENAME, B.BOARD_CONTENT,
 		    B.BOARD_LIST_NO, B.BOARD_REGISTER, B.BOARD_MODIFY, 
 		    R.REPLY_NO AS R_REPLY_NO, R.BOARD_NO AS R_BOARD_NO, R.REPLY_CONTENT AS R_REPLY_CONTENT, 
@@ -202,15 +237,15 @@
 	</update>
 	
 	<!-- 게시글 수정 -->
-	<update id="BoardUpdate">
+	<update id="updateBoard" parameterType="Board">
 		UPDATE BOARD 
 		SET BOARD_TITLE = #{board_title}, 
 			BOARD_CONTENT = #{board_content}, 
 			BOARD_LIST_NO = #{board_list_no}, 
-			<if test="board_originalFileName != null">
+			<if test="board_originalFileName != null and !board_originalFileName.equals('')">
 			BOARD_ORIGINALFILENAME = #{board_originalFileName}, 
 			</if>
-			<if test="board_renamedFileName != null">
+			<if test="board_renamedFileName != null and !board_renamedFileName.equals('')">
 			BOARD_RENAMEDFILENAME = #{board_renamedFileName},
 			</if>
 			BOARD_MODIFY = SYSDATE
