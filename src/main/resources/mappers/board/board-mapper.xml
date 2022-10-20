@@ -142,7 +142,7 @@
 	
 	<!-- 사이드 커뮤니티 인기글 : 국회의원현황 6개 -->
 	<select id="sideBoardForPolitics" resultMap="boardListResultMap" parameterType="map">
-		SELECT POLITICS.*
+		SELECT ROWNUM, POLITICS.*
 		FROM (
 		    SELECT
 		    	B.BOARD_NO,

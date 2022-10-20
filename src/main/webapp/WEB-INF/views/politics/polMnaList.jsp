@@ -405,54 +405,27 @@ Main START -->
 								</div>
 								<!-- 오피니언 끝 -->
 								<!-- 실시간정치커뮤니티 시작-->
-								<div class="right-community  ">
+								<div class="right-community">
 									<div class="container">
-										<h4 class="mt-5 mb-3 mice " style="font-weight: bold">
-											실시간<a class="text-primary">정치</a>커뮤니티
-										</h4>
-										<div class="d-flex position-relative mb-2">
-											<span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">01</span>
-											<h6>
-												<a href="#" class="stretched-link text-reset btn-link">친분과
-													정치생명은 구분해야죠</a>
-											</h6>
-										</div>
-										<div class="d-flex position-relative mb-2">
-											<span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">02</span>
-											<h6>
-												<a href="#" class="stretched-link text-reset btn-link">자신이
-													윤석열이라면 이 이후에 기분이 어땠을거 같냐요?</a>
-											</h6>
-										</div>
-										<div class="d-flex position-relative mb-2 ">
-											<span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">03</span>
-											<h6>
-												<a href="#" class="stretched-link text-reset btn-link">정동영
-													어제 윤석열 깠는데 옆에 이해찬 앉아 있네요 ㅋ</a>
-											</h6>
-										</div>
-										<div class="d-flex position-relative mb-2 ">
-											<span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">04</span>
-											<h6>
-												<a href="#" class="stretched-link text-reset btn-link">한일관계
-													개선되면 이득보는 쪽은 어딜까요?</a>
-											</h6>
-										</div>
-										<div class="d-flex position-relative mb-2 ">
-											<span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">05</span>
-											<h6>
-												<a href="#" class="stretched-link text-reset btn-link">
-													검찰의 민낯을 깨달은 중도층이 과연......</a>
-											</h6>
-										</div>
-										<div class="d-flex position-relative mb-2 ">
-											<span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">06</span>
-											<h6>
-												<a href="#" class="stretched-link text-reset btn-link">변희재
-													태블릿 열흘안에 끝날겁니다 ㅋㅋㅋㅋㅋㅋ </a>
-											</h6>
-										</div>
-									</div>
+	                            		<c:if test="${empty politicsList}">
+											<div class="d-flex position-relative mb-3">
+												<div class="container">
+													<h6>조회된 글이 없습니다.</h6>
+												</div>
+											</div>
+										</c:if>
+										<c:if test="${not empty politicsList}">
+			                                <h5 class="mt-5 mb-3">실시간<span style="color:#2163E8">정치</span>커뮤니티</h5>
+												<c:forEach var="board" items="${politicsList}" varStatus="status">
+					                                <div class="d-flex position-relative mb-3">
+					                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">
+					                                    <fmt:formatNumber type="number" pattern="##" minIntegerDigits="2" value="${board.rownum}"/></span>
+					                                    <h6><a href="${path}/board/BoardDetail?board_no=${board.board_no}" class="stretched-link text-reset btn-link"><c:out value="${board.board_title}"/></a></h6>
+					                                </div>
+			                                	</c:forEach>
+			                               </c:if>
+		                                </div>
+	                            	</div>
 									<!-- 실시간정치커뮤니티 끝-->
 								</div>
 								<!-- 사이드바 right 끝 -->

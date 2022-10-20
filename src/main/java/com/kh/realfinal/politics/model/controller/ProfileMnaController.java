@@ -1,7 +1,7 @@
 package com.kh.realfinal.politics.model.controller;
 
 import java.util.ArrayList;
-
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.kh.realfinal.board.model.service.BoardService;
+import com.kh.realfinal.board.model.vo.Board;
 import com.kh.realfinal.common.util.PageInfo;
 import com.kh.realfinal.politics.api.LawProposedAPI;
 import com.kh.realfinal.politics.api.MnaPhotoAPI;
@@ -28,6 +30,10 @@ import oracle.net.ano.Service;
 @Slf4j
 @Controller
 public class ProfileMnaController {
+	
+	@Autowired
+	private BoardService boardService;
+	private final int RealEstate = 1;
 
 	@Autowired
 	ProfileMnaService profileMnaService;
@@ -109,6 +115,11 @@ public class ProfileMnaController {
 	// 페이징 처리
 	@RequestMapping("/politics/polMnaList")
 	public String mnaProfileList(Model model, @RequestParam Map<String, String> param) {
+		// 인기정치게시글
+		Map<String, Object> paramBoard = new HashMap<String,Object>();
+		paramBoard.put("board_list_no",RealEstate);
+		List<Board> listBoard = boardService.getSideBoardForPolitics(paramBoard);
+		// 인기정치게시글 끝
 
 		int page = 1;
 		if (param.containsKey("page") == true) {
@@ -123,6 +134,7 @@ public class ProfileMnaController {
 
 		int totalSize = profileMnaService.getProfileCount();
 
+		model.addAttribute("politicsList", listBoard); // 인기정치게시글
 		model.addAttribute("list", list);
 		model.addAttribute("totalSize", totalSize);
 		model.addAttribute("size", list.size());

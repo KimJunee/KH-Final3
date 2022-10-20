@@ -59,7 +59,7 @@
 	                            <hr class="d-none d-lg-block">
 	                            <div class="d-flex gap-2 mt-1" style="justify-content: center;">
 	                                <a href="${path}/board/update?no=${board.board_no}" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" style="margin-right: 7px;"><i class="bi bi-pencil-square"></i></a>
-	                                <a href="${path}/board/delete?no=${board.board_no}" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="bi bi-trash"></i></a>
+	                                <a href="${path}/board/delete?boardNo=${board.board_no}" id="btnDelete" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="bi bi-trash"></i></a>
 	                            </div>
                             </c:if>
                         </div>

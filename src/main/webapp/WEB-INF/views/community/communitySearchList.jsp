@@ -105,9 +105,9 @@
                                                     <tr>
                                                         <th scope="col" style="width: 10%;" class="border-0 text-center rounded-start">Categories</th>
                                                         <th scope="col" style="width: 5%;" class="border-0 text-center ">No</th>
-                                                        <th scope="col" style="width: 55%;" class="border-0 ">Title</th>
+                                                        <th scope="col" style="width: 54%;" class="border-0 ">Title</th>
                                                         <th scope="col" style="width: 15%;" class="border-0 text-center">Writer</th>
-                                                        <th scope="col" style="width: 10%;" class="border-0 text-center">Date</th>
+                                                        <th scope="col" style="width: 11%;" class="border-0 text-center">Date</th>
                                                         <th scope="col" style="width: 5%;" class="border-0 text-center">Hits</th>
                                                         <th scope="col" style="width: 5%;" class="border-0 text-center rounded-end">Comments</th>
                                                     </tr>
