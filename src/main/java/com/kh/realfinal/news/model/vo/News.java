@@ -9,11 +9,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class News {
 	private int newsNo;
-	private String title; 		// Á¦¸ñ
-	private String link;  		// ´º½º ¸µÅ©
-	private String pubdate;		// ÀÛ¼ºÀÏ
-	private String description;	// ±â»ç ¿ä¾à
-	private String image;		// ´º½º ½æ³×ÀÏ
-	private String category;
+	private String title; 		// ì œëª©
+	private String link;  		// ê¸°ì‚¬ ë§í¬
+	private String pubdate;		// ì‘ì„±ì¼
+	private String description;	// ê¸°ì‚¬ ìš”ì•½
+	private String image;		// ê¸°ì‚¬ ì´ë¯¸ì§€
+	private String category;	// ê¸°ì‚¬ ë¶„ë¥˜
 }
 

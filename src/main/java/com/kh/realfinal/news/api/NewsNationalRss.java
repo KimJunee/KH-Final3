@@ -56,7 +56,7 @@ public class NewsNationalRss {
 			System.out.println("Root Element : " + doc.getDocumentElement().getNodeName());
 
 			NodeList nList = doc.getElementsByTagName("item");
-			System.out.println("new 수 : " + nList.getLength());
+			System.out.println("news 수 : " + nList.getLength());
 
 			for (int i = 1; i < nList.getLength(); i++) {
 				Node node = nList.item(i);
