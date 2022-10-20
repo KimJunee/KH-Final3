@@ -1,4 +1,4 @@
-package com.kh.realfinal.opinion.controller;
+package com.kh.realfinal.news.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
