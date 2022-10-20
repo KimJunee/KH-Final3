@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="com.kh.realfinal.apply.model.mapper.ApplyInfoApiMapper">
+<mapper namespace="com.kh.realfinal.apply.model.mapper.ApplyInfoMapper">
 
 	<!-- APT 분양정보 주택형별 상세조회 insert -->
 	<insert id="insertAptLtto" parameterType="AptLttotPblancDetail"
@@ -61,6 +61,56 @@
 			#{spsply_rcept_bgnde},#{spsply_rcept_endde},#{subscrpt_area_code},#{subscrpt_area_code_nm},#{tot_suply_hshldco}
 		)
 	</insert>
+	
+	<select id="selectAptLttotList" resultMap="AptLttotPblancDetailMap" parameterType="map">
+		SELECT
+			apt_apply_no,
+	  		bsns_mby_nm,
+	  		cnstrct_entrps_nm,
+	  		cntrct_cncls_bgnde,
+	  		cntrct_cncls_endde,
+	  		gnrl_rnk1_crsparea_rcept_pd,
+	  		gnrl_rnk1_etc_area_rcptde_pd,
+	  		gnrl_rnk1_etc_gg_rcptde_pd,
+	  		gnrl_rnk2_crsparea_rcept_pd,
+	  		gnrl_rnk2_etc_area_rcptde_pd,
+	  		gnrl_rnk2_etc_gg_rcptde_pd,
+	  		hmpg_adres,
+	  		house_dtl_secd,
+	  		house_dtl_secd_nm,
+	  		house_manage_no,
+	  		house_nm,
+	  		house_secd,
+	  		house_secd_nm,
+	  		hssply_adres,
+	  		hssply_zip,
+	  		imprmn_bsns_at,
+	  		lrscl_bldlnd_at,
+	  		mdat_trget_area_secd,
+	  		mdhs_telno,
+	  		mvn_prearnge_ym,
+	  		npln_prvopr_public_house_at, 
+	  		parcprc_uls_at,
+	  		pblanc_no,
+	  		przwner_presnatn_de,
+	  		public_house_earth_at,
+	  		rcept_bgnde,
+	  		rcept_endde,
+	  		rcrit_pblanc_de,
+	  		rent_secd,
+	  		rent_secd_nm,
+	  		speclt_rdn_earth_at,
+	  		spsply_rcept_bgnde,
+	  		spsply_rcept_endde,
+	  		subscrpt_area_code,
+	  		subscrpt_area_code_nm,
+	  		tot_suply_hshldco
+  		FROM APT_LTTOT_PBLANC_DETAIL
+  		WHERE 1 = 1
+  		<if test="category != null">
+			AND ais_tp_cd_nm LIKE '%'||#{category}||'%'
+		</if>
+	</select>
 	
 	<resultMap type="AptLttotPblancDetail" id="AptLttotPblancDetailMap">
 		<id property="apt_apply_no" column="APT_APPLY_NO"/>
@@ -174,7 +224,7 @@
 		)
 	</insert>
 	
-	<resultMap type="ApplyNotice" id="ApplyNoticeResultMap">
+	<resultMap type="ApplyNotice" id="applyNoticeResultMap">
 		<id property="rnum" column="RNUM"/>
 		<result property="bbs_sn" column="BBS_SN"/>
 		<result property="ccr_cnnt_sys_ds_cd" column="CCR_CNNT_SYS_DS_CD"/>
@@ -186,6 +236,43 @@
 		<result property="bbs_dtl_cts" column="BBS_DTL_CTS"/>
 	</resultMap>
 	
+	<select id="selectNoticeList" resultMap="applyNoticeResultMap" parameterType="map">
+		SELECT
+			RNUM, 
+			BBS_SN, 
+			CCR_CNNT_SYS_DS_CD, 
+			AIS_TP_CD_NM, BBS_TL, 
+			DEP_NM, 
+			BBS_WOU_DTTM, 
+			LINK_URL, 
+			BBS_DTL_CTS
+		FROM APPLY_NOTICE 
+		WHERE 1=1
+		<if test="category != null">
+			AND ais_tp_cd_nm LIKE '%'||#{category}||'%'
+		</if>
+		
+		ORDER BY RNUM ASC
+	</select>
+	
+	<select id="selectNoticeCount" resultType="int" parameterType="map">
+		SELECT COUNT(*) FROM APPLY_NOTICE ORDER BY RNUM ASC
+		
+	</select>
+	
+	<select id="selectNoticeByRnum" resultMap="applyNoticeResultMap" parameterType="int">
+		SELECT
+			RNUM, 
+			BBS_SN, 
+			CCR_CNNT_SYS_DS_CD, 
+			AIS_TP_CD_NM, BBS_TL, 
+			DEP_NM, 
+			BBS_WOU_DTTM, 
+			LINK_URL, 
+			BBS_DTL_CTS
+		FROM APPLY_NOTICE
+		where RNUM like #{rnum}
+	</select>
 	
 	<insert id="insertApplyNoticeAttach" parameterType="ApplyNoticeAttach">
 		INSERT INTO APPLY_NOTICE_ATTACH (
@@ -199,6 +286,18 @@
 		)
 	</insert>
 	
+	<!-- <select id="selectApplyNotiAttach" resultMap="ApplyNoticeAttachResultMap" parameterType="map"> -->
+	<select id="selectNoticeAttach" resultMap="ApplyNoticeAttachResultMap" parameterType="String">
+		SELECT 
+		    BBS_SN, 
+		    CCR_CNNT_SYS_DS_CD, 
+		    CMN_AHFL_NM,
+		    AHFL_URL
+		FROM APPLY_NOTICE_ATTACH
+		WHERE BBS_SN = #{bbs_sn}
+		
+	</select>
+	
 	<resultMap type="ApplyNoticeAttach" id="ApplyNoticeAttachResultMap">
 		<id property="bbs_sn" column="BBS_SN"/>
 		<id property="ccr_cnnt_sys_ds_cd" column="CCR_CNNT_SYS_DS_CD"/>
@@ -207,3 +306,4 @@
 	</resultMap>
 	
 </mapper>
+

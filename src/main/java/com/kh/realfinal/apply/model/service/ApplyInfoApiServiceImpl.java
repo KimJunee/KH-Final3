@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.kh.realfinal.apply.model.mapper.ApplyInfoApiMapper;
+import com.kh.realfinal.apply.model.mapper.ApplyInfoMapper;
 import com.kh.realfinal.apply.model.vo.ApplyNotice;
 import com.kh.realfinal.apply.model.vo.ApplyNoticeAttach;
 import com.kh.realfinal.apply.model.vo.AptLttotPblancDetail;
@@ -14,7 +14,7 @@ import com.kh.realfinal.apply.model.vo.AptLttotPblancMdl;
 public class ApplyInfoApiServiceImpl implements ApplyInfoApiService {
 
 	@Autowired
-	private ApplyInfoApiMapper mapper;
+	private ApplyInfoMapper mapper;
 	
 	@Override
 	@Transactional(rollbackFor = Exception.class)

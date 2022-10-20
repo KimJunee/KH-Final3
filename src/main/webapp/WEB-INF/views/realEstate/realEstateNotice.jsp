@@ -7,10 +7,25 @@
   
 <%@include file="/WEB-INF/views/common/header.jsp" %>
 
+
 <head>
     <title>FinTouch | FinanceProduct | Detail</title>
 </head>
 
+<c:set var="searchType" value="${param.searchType}" />
+<c:if test="${empty searchType}">
+	<c:set var="searchType" value="${'title'}"/>
+</c:if>
+
+<style>
+	.etc {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		/* width:100%; */
+		max-width: 600px;
+	}
+</style>
 
 <body>
 	<!-- **************** MAIN CONTENT START **************** -->
@@ -136,473 +151,50 @@
                                     <tr>
                                         <th scope="col" style="width: 5%; text-align: center;" class="border-0 rounded-start">번호</th>
                                         <th scope="col" style="width: 15%; text-align: center;">유형</th>
-                                        <th scope="col" style="width: 57%;" class="border-0">제목</th>
-                                        <th scope="col" style="width: 10%; text-align: center;" class="border-0">담당부서</th>
-                                        <th scope="col" style="width: 20%; text-align: center;" class="border-0 rounded-end">공지일</th>
+                                        <th scope="col" style="width: 50%; text-align: center; class="border-0">제목</th>
+                                        <th scope="col" style="width: 15%; text-align: center;" class="border-0">담당부서</th>
+                                        <th scope="col" style="width: 15%; text-align: center;" class="border-0 rounded-end">공지일</th>
                                     </tr>
                                 </thead>
                                 <!-- Table body START -->
                                 <tbody class="border-top-0">
                                     <!-- Table item -->
-                                    <tr>
-                                        <!-- 번호 -->
-                                        <td style="text-align: center;">
-                                            808
-                                        </td>
-                                        <!-- 유형 -->
-                                        <td style="text-align: center;">
-                                            공공분양(신혼희망)
-                                        </td>
-                                        <!-- 제목 -->
-                                        <td>
-                                            <h6 class="mb-0"><a href="${path}/realEstate/notice-detail">고양지축 A-2블록 신혼희망타운(공공분양) 중도금 대출(2회차) 수정게시</a></h6>
-                                        </td>
-                                        <!-- 담당부서 -->
-                                        <td style="text-align: center;">
-                                            인천지역본부
-                                        </td>
-                                        <!-- 공지일 -->
-                                        <td style="text-align: center;">
-                                            2022-10-11
-                                        </td>
-                                    </tr>
-                                    <!-- Table item -->
-                                    <tr>
-                                        <!-- 번호 -->
-                                        <td style="text-align: center;">
-                                            807
-                                        </td>
-                                        <!-- 유형 -->
-                                        <td style="text-align: center;">
-                                            분양주택
-                                        </td>
-                                        <!-- 제목 -->
-                                        <td>
-                                            <h6 class="mb-0"><a href="${path}/realEstate/notice-detail">신흥역 하늘채 코오롱랜더스원 잔여세대 입주자 모집공고 [보유분 10호] 청약접수 결과 게시</a></h6>
-                                        </td>
-                                        <!-- 담당부서 -->
-                                        <td style="text-align: center;">
-                                            경기지역본부
-                                        </td>
-                                        <!-- 게시일 -->
-                                        <td style="text-align: center;">
-                                            2022-10-10
-                                        </td>
-                                    </tr>
-                                    <!-- Table item -->
-                                    <tr>
-                                        <!-- 번호 -->
-                                        <td style="text-align: center;">
-                                            806
-                                        </td>
-                                        <!-- 유형 -->
-                                        <td style="text-align: center;">
-                                            공공분양(신혼희망)
-                                        </td>
-                                        <!-- 제목 -->
-                                        <td>
-                                            <h6 class="mb-0"><a href="${path}/realEstate/notice-detail">창원명곡 A-1블록 신혼희망타운(공공분양) 청약결과('22.09.22 추가입주자모집공고)</a></h6>
-                                        </td>
-                                        <!-- 담당부서 -->
-                                        <td style="text-align: center;">
-                                            경남지역본부
-                                        </td>
-                                        <!-- 게시일 -->
-                                        <td style="text-align: center;">
-                                            2022-10-07
-                                        </td>
-                                    </tr>
-                                    <!-- Table item -->
-                                    <tr>
-                                        <!-- 번호 -->
-                                        <td style="text-align: center;">
-                                            805
-                                        </td>
-                                        <!-- 유형 -->
-                                        <td style="text-align: center;">
-                                            분양주택
-                                        </td>
-                                        <!-- 제목 -->
-                                        <td>
-                                            <h6 class="mb-0"><a href="${path}/realEstate/notice-detail">화성비봉 A-3블록 공공분양 청약접수결과 게시(최종)</a></h6>
-                                        </td>
-                                        <!-- 담당부서 -->
-                                        <td style="text-align: center;">
-                                            경기지역본부
-                                        </td>
-                                        <!-- 게시일 -->
-                                        <td style="text-align: center;">
-                                            2022-10-07
-                                        </td>
-                                    </tr>
-                                    <!-- Table item -->
-                                    <tr>
-                                        <!-- 번호 -->
-                                        <td style="text-align: center;">
-                                            804
-                                        </td>
-                                        <!-- 유형 -->
-                                        <td style="text-align: center;">
-                                            행복주택
-                                        </td>
-                                        <!-- 제목 -->
-                                        <td>
-                                            <h6 class="mb-0"><a href="${path}/realEstate/notice-detail">여주역세권 3블록 행복주택 일정 연기 안내</a></h6>
-                                        </td>
-                                        <!-- 담당부서 -->
-                                        <td style="text-align: center;">
-                                            경기지역본부
-                                        </td>
-                                        <!-- 게시일 -->
-                                        <td style="text-align: center;">
-                                            2022-10-07
-                                        </td>
-                                    </tr>
-                                    <!-- Table item -->
-                                    <tr>
-                                        <!-- 번호 -->
-                                        <td style="text-align: center;">
-                                            803
-                                        </td>
-                                        <!-- 유형 -->
-                                        <td style="text-align: center;">
-                                            행복주택
-                                        </td>
-                                        <!-- 제목 -->
-                                        <td>
-                                            <h6 class="mb-0"><a href="#">[발표연기] 수원당수 A-3블록 신홍희망타운 행복주택일정 연기 안내</a></h6>
-                                        </td>
-                                        <!-- 담당부서 -->
-                                        <td style="text-align: center;">
-                                            경기지역본부
-                                        </td>
-                                        <!-- 게시일 -->
-                                        <td style="text-align: center;">
-                                            2022-10-07
-                                        </td>
-                                    </tr>
-                                    <!-- Table item -->
-                                    <tr>
-                                        <!-- 번호 -->
-                                        <td style="text-align: center;">
-                                            802
-                                        </td>
-                                        <!-- 유형 -->
-                                        <td style="text-align: center;">
-                                            행복주택
-                                        </td>
-                                        <!-- 제목 -->
-                                        <td>
-                                            <h6 class="mb-0"><a href="#">[발표연기] 화성동탄 A-53블록 중소기업근로자전용 행복주택 공급일정 연기 안내</a></h6>
-                                        </td>
-                                        <!-- 담당부서 -->
-                                        <td style="text-align: center;">
-                                            경기지역본부
-                                        </td>
-                                        <!-- 게시일 -->
-                                        <td style="text-align: center;">
-                                            2022-10-07
-                                        </td>
-                                    </tr>
-                                    <!-- Table item -->
-                                    <tr>
-                                        <!-- 번호 -->
-                                        <td style="text-align: center;">
-                                            801
-                                        </td>
-                                        <!-- 유형 -->
-                                        <td style="text-align: center;">
-                                            행복주택
-                                        </td>
-                                        <!-- 제목 -->
-                                        <td>
-                                            <h6 class="mb-0"><a href="#">[당첨자발표] 시흥장현 A-6블록 영구임대주택 예비입주자(2022.06.17 모집공고) 명단 게시</a></h6>
-                                        </td>
-                                        <!-- 담당부서 -->
-                                        <td style="text-align: center;">
-
-                                        </td>
-                                        <!-- 게시일 -->
-                                        <td style="text-align: center;">
-                                            2022-10-07
-                                        </td>
-                                    </tr>
-                                    <!-- Table item -->
-                                    <tr>
-                                        <!-- 번호 -->
-                                        <td style="text-align: center;">
-                                            800
-                                        </td>
-                                        <!-- 유형 -->
-                                        <td style="text-align: center;">
-                                            행복주택
-                                        </td>
-                                        <!-- 제목 -->
-                                        <td>
-                                            <h6 class="mb-0"><a href="#">강릉유천 행복주택 계약체결 일정 변경 안내</a></h6>
-                                        </td>
-                                        <!-- 담당부서 -->
-                                        <td style="text-align: center;">
-                                            강원지역본부
-                                        </td>
-                                        <!-- 게시일 -->
-                                        <td style="text-align: center;">
-                                            2022-10-07
-                                        </td>
-                                    </tr>
-                                    <!-- Table item -->
-                                    <tr>
-                                        <!-- 번호 -->
-                                        <td style="text-align: center;">
-                                            799
-                                        </td>
-                                        <!-- 유형 -->
-                                        <td style="text-align: center;">
-                                            공공임대
-                                        </td>
-                                        <!-- 제목 -->
-                                        <td>
-                                            <h6 class="mb-0"><a href="#">김포한강 Ac-05(센트럴블루힐) 10년공공임대리츠 예비자 모집 청약접수 결과 게시</a></h6>
-                                        </td>
-                                        <!-- 담당부서 -->
-                                        <td style="text-align: center;">
-                                            인천지역본부
-                                        </td>
-                                        <!-- 게시일 -->
-                                        <td style="text-align: center;">
-                                            2022-10-07
-                                        </td>
-                                    </tr>
-                                    <!-- Table item -->
-                                    <tr>
-                                        <!-- 번호 -->
-                                        <td style="text-align: center;">
-                                            798
-                                        </td>
-                                        <!-- 유형 -->
-                                        <td style="text-align: center;">
-                                            매입임대
-                                        </td>
-                                        <!-- 제목 -->
-                                        <td>
-                                            <h6 class="mb-0"><a href="#">2022년 지하층주택 매입사업 설명회 일정 안내</a></h6>
-                                        </td>
-                                        <!-- 담당부서 -->
-                                        <td style="text-align: center;">
-                                            본사
-                                        </td>
-                                        <!-- 게시일 -->
-                                        <td style="text-align: center;">
-                                            2022-10-07
-                                        </td>
-                                    </tr>
-                                    <!-- Table item -->
-                                    <tr>
-                                        <!-- 번호 -->
-                                        <td style="text-align: center;">
-                                            797
-                                        </td>
-                                        <!-- 유형 -->
-                                        <td style="text-align: center;">
-                                            공공임대
-                                        </td>
-                                        <!-- 제목 -->
-                                        <td>
-                                            <h6 class="mb-0"><a href="#">[서류제출안내]김포한강 Ac-05(센트럴블루힐) 10년공공임대리츠 예비자 모집 서류제출안내</a></h6>
-                                        </td>
-                                        <!-- 담당부서 -->
-                                        <td style="text-align: center;">
-                                            인천지역본부
-                                        </td>
-                                        <!-- 게시일 -->
-                                        <td style="text-align: center;">
-                                            2022-10-07
-                                        </td>
-                                    </tr>
-                                    <!-- Table item -->
-                                    <tr>
-                                        <!-- 번호 -->
-                                        <td style="text-align: center;">
-                                            796
-                                        </td>
-                                        <!-- 유형 -->
-                                        <td style="text-align: center;">
-                                            행복주택
-                                        </td>
-                                        <!-- 제목 -->
-                                        <td>
-                                            <h6 class="mb-0"><a href="#">[기타][당첨자발표 연기] 파주교하A-16블록 행복주택 추가 및 예비입주자 모집공고('22.06.30)</a></h6>
-                                        </td>
-                                        <!-- 담당부서 -->
-                                        <td style="text-align: center;">
-
-                                        </td>
-                                        <!-- 게시일 -->
-                                        <td style="text-align: center;">
-                                            2022-10-07
-                                        </td>
-                                    </tr>
-                                    <!-- Table item -->
-                                    <tr>
-                                        <!-- 번호 -->
-                                        <td style="text-align: center;">
-                                            795
-                                        </td>
-                                        <!-- 유형 -->
-                                        <td style="text-align: center;">
-                                            임대주택
-                                        </td>
-                                        <!-- 제목 -->
-                                        <td>
-                                            <h6 class="mb-0"><a href="#">[서류제출대상자발표]인천옹진백령 영구임대[행복마을] 입주자격완화 입주자 모집 서류제출대상자 발표</a></h6>
-                                        </td>
-                                        <!-- 담당부서 -->
-                                        <td style="text-align: center;">
-
-                                        </td>
-                                        <!-- 게시일 -->
-                                        <td style="text-align: center;">
-                                            2022-10-07
-                                        </td>
-                                    </tr>
-                                    <!-- Table item -->
-                                    <tr>
-                                        <!-- 번호 -->
-                                        <td style="text-align: center;">
-                                            794
-                                        </td>
-                                        <!-- 유형 -->
-                                        <td style="text-align: center;">
-                                            국민임대
-                                        </td>
-                                        <!-- 제목 -->
-                                        <td>
-                                            <h6 class="mb-0"><a href="#">[서류제출대상자발표] 진해청안그린빌 서류제출대상자 발표</a></h6>
-                                        </td>
-                                        <!-- 담당부서 -->
-                                        <td style="text-align: center;">
-
-                                        </td>
-                                        <!-- 게시일 -->
-                                        <td style="text-align: center;">
-                                            2022-10-07
-                                        </td>
-                                    </tr>
-                                    <!-- Table item -->
-                                    <tr>
-                                        <!-- 번호 -->
-                                        <td style="text-align: center;">
-                                            793
-                                        </td>
-                                        <!-- 유형 -->
-                                        <td style="text-align: center;">
-                                            임대주택
-                                        </td>
-                                        <!-- 제목 -->
-                                        <td>
-                                            <h6 class="mb-0"><a href="#">[당첨자발표] 아산탕정2-A5 영구임대 예비자 당첨 안내</a></h6>
-                                        </td>
-                                        <!-- 담당부서 -->
-                                        <td style="text-align: center;">
-
-                                        </td>
-                                        <!-- 게시일 -->
-                                        <td style="text-align: center;">
-                                            2022-10-07
-                                        </td>
-                                    </tr>
-                                    <!-- Table item -->
-                                    <tr>
-                                        <!-- 번호 -->
-                                        <td style="text-align: center;">
-                                            792
-                                        </td>
-                                        <!-- 유형 -->
-                                        <td style="text-align: center;">
-                                            행복주택
-                                        </td>
-                                        <!-- 제목 -->
-                                        <td>
-                                            <h6 class="mb-0"><a href="#">[발표연기] 평택시, 안성시 지역 행복주택 예비입주자 당첨자발표 연기 안내('22.05.30)</a></h6>
-                                        </td>
-                                        <!-- 담당부서 -->
-                                        <td style="text-align: center;">
-                                            경기지역본부
-                                        </td>
-                                        <!-- 게시일 -->
-                                        <td style="text-align: center;">
-                                            2022-10-07
-                                        </td>
-                                    </tr>
-                                    <!-- Table item -->
-                                    <tr>
-                                        <!-- 번호 -->
-                                        <td style="text-align: center;">
-                                            791
-                                        </td>
-                                        <!-- 유형 -->
-                                        <td style="text-align: center;">
-                                            국민임대
-                                        </td>
-                                        <!-- 제목 -->
-                                        <td>
-                                            <h6 class="mb-0"><a href="#">[서류제출대상자발표] 진해청안해오름 국민임대주택 예비입주자 모집 서류제출 안내(2022.09.15.공고분)</a></h6>
-                                        </td>
-                                        <!-- 담당부서 -->
-                                        <td style="text-align: center;">
-
-                                        </td>
-                                        <!-- 게시일 -->
-                                        <td style="text-align: center;">
-                                            2022-10-07
-                                        </td>
-                                    </tr>
-                                    <!-- Table item -->
-                                    <tr>
-                                        <!-- 번호 -->
-                                        <td style="text-align: center;">
-                                            790
-                                        </td>
-                                        <!-- 유형 -->
-                                        <td style="text-align: center;">
-                                            주택용지
-                                        </td>
-                                        <!-- 제목 -->
-                                        <td>
-                                            <h6 class="mb-0"><a href="#">성남금토 공동주택용지(A-6BL)공급공고(1순위, 2순위) 관련 안내</a></h6>
-                                        </td>
-                                        <!-- 담당부서 -->
-                                        <td style="text-align: center;">
-                                            경기지역본부
-                                        </td>
-                                        <!-- 게시일 -->
-                                        <td style="text-align: center;">
-                                            2022-10-07
-                                        </td>
-                                    </tr>
-                                    <!-- Table item -->
-                                    <tr>
-                                        <!-- 번호 -->
-                                        <td style="text-align: center;">
-                                            789
-                                        </td>
-                                        <!-- 유형 -->
-                                        <td style="text-align: center;">
-                                            임대주택
-                                        </td>
-                                        <!-- 제목 -->
-                                        <td>
-                                            <h6 class="mb-0"><a href="#">[서류제출대상자발표] 인천옹진백령 영구임대[공공실버] 입주자격완화 입주자 모집 서류제출대상자발표</a></h6>
-                                        </td>
-                                        <!-- 담당부서 -->
-                                        <td style="text-align: center;">
-
-                                        </td>
-                                        <!-- 게시일 -->
-                                        <td style="text-align: center;">
-                                            2022-10-07
-                                        </td>
-                                    </tr>
+                                    
+                                    <c:if test="${!empty list}">
+                                    	<c:forEach var="notice" items="${list}">
+                                    		<tr>
+		                                        <!-- 번호 -->
+		                                        <td style="text-align: center;">
+		                                            <c:out value="${pageInfo.listCount - notice.rnum +1}"/>
+		                                        </td>
+		                                        <!-- 유형 -->
+		                                        <td style="text-align: center;">
+		                                            <c:out value="${notice.ais_tp_cd_nm}"/>
+		                                        </td>
+		                                        <!-- 제목 -->
+		                                        <td>
+		                                        	<div class="etc">
+			                                            <h6 class="mb-0">
+				                                            <a href="${path}/realEstate/notice/view?no=${notice.rnum}">
+				                                            	<c:out value="${notice.bbs_tl}"/>
+				                                            </a>
+			                                            </h6>
+		                                        	</div>
+		                                        </td>
+		                                        <!-- 담당부서 -->
+		                                        <td style="text-align: center;">
+		                                            <c:out value="${notice.dep_nm}"/>
+		                                        </td>
+		                                        <!-- 공지일 -->
+		                                        <td style="text-align: center;">
+		                                            <c:out value="${notice.bbs_wou_dttm}"/>
+		                                        </td>
+		                                    </tr>
+                                    	
+                                    	</c:forEach>
+                                    	
+                                    </c:if>
+                                    
                                 </tbody>
                                 <!-- Table body END -->
                             </table>
