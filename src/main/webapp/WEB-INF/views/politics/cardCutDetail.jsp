@@ -92,24 +92,36 @@
 		                    <!-- 기사 사진 -->
 		                    <div class="order-lg-1 order-2">
 		                        <div class="tns-carousel-wrapper">
-		                            <div class="tns-slides-count text-light"><i class="fi-image fs-lg me-2"></i>
+		                             <!-- <div class="tns-slides-count text-light"><i class="fi-image fs-lg me-2"></i>
 		                                <div class="ps-1"><span class="tns-current-slide fs-5 fw-bold"></span><span class="fs-5 fw-bold">/</span><span class="tns-total-slides fs-5 fw-bold"></span></div>
-		                            </div>
-		                            <div class="tns-carousel-inner" data-carousel-options="{&quot;navAsThumbnails&quot;: true, &quot;navContainer&quot;: &quot;#thumbnails&quot;, &quot;gutter&quot;: 12, &quot;responsive&quot;: {&quot;0&quot;:{&quot;controls&quot;: false},&quot;500&quot;:{&quot;controls&quot;: true}}}">
-		                                <div><img style="width:900px; height:550px;" class="rounded-3" src="${cardCut.images[0]}" alt="Image"></div>
-		                                <div><img style="width:900px; height:550px;" class="rounded-3" src="resources/resources1b/images/04_politics/01_cardcut/10.jpg" alt="Image"></div>
+		                            </div>-->
+		                            
+		                          <div class="tns-carousel-inner" data-carousel-options="{&quot;navAsThumbnails&quot;: true, &quot;navContainer&quot;: &quot;#thumbnails&quot;, &quot;gutter&quot;: 12, &quot;responsive&quot;: {&quot;0&quot;:{&quot;controls&quot;: false},&quot;500&quot;:{&quot;controls&quot;: true}}}">
+		                                <c:if test="${empty list}">
+															<tr>
+																<td colspan="8">조회된 글이 없습니다.</td>
+															</tr>
+														</c:if>
+														<c:if test="${!empty list}">
+															<c:forEach var="cardCut" items="${list}">
+		                                
+		                              <div><img style="width:900px; height:550px;" class="rounded-3" src="${cardCut.images[0]}" alt="Image"></div>
+		                             <!--    <div><img style="width:900px; height:550px;" class="rounded-3" src="resources/resources1b/images/04_politics/01_cardcut/10.jpg" alt="Image"></div>
 		                                <div><img style="width:900px; height:550px;" class="rounded-3" src="resources/resources1b/images/04_politics/01_cardcut/11.jpg" alt="Image"></div>
 		                                <div><img style="width:900px; height:550px;" class="rounded-3" src="resources/resources1b/images/04_politics/01_cardcut/12.jpg" alt="Image"></div>
-		                            </div>
-		                        </div>
+		                            </div> -->
+		                             </c:forEach>
+								</c:if>
+		                        </div> 
+		                       
 		                        <!-- Thumbnails image-->
-		                        <ul class="tns-thumbnails mb-4" id="thumbnails">
+		                       <!--   <ul class="tns-thumbnails mb-4" id="thumbnails">
 		                            <li class="tns-thumbnail"><img style="height:125px;" src="resources/resources1b/images/04_politics/01_cardcut/08.jpg" alt="Thumbnail"></li>
 		                            <li class="tns-thumbnail"><img style="height:125px;" src="resources/resources1b/images/04_politics/01_cardcut/09.jpg" alt="Thumbnail"></li>
 		                            <li class="tns-thumbnail"><img style="height:125px;" src="resources/resources1b/images/04_politics/01_cardcut/10.jpg" alt="Thumbnail"></li>
 		                            <li class="tns-thumbnail"><img style="height:125px;" src="resources/resources1b/images/04_politics/01_cardcut/11.jpg" alt="Thumbnail"></li>
 		                            <li class="tns-thumbnail"><img style="height:125px;" src="resources/resources1b/images/04_politics/01_cardcut/12.jpg" alt="Thumbnail"></li>
-		                        </ul>
+		                        </ul>  -->
 		                    </div>
 		
 		                    <div class="row">

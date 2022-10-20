@@ -19,6 +19,11 @@ import com.kh.realfinal.politics.model.vo.CardCut;
 public class CardCutRss {
 	public static final String WEEKLY_XML_URL  = "https://www.korea.kr/rss/visual.xml";
 	
+	public static void main(String[] args) {
+		CardCutRss.callWeeklyNewsListByXML();
+		 
+	}
+	 
 		public static List<CardCut> callWeeklyNewsListByXML() {
 			List<CardCut> list = new ArrayList<>();
 			
@@ -124,8 +129,5 @@ public class CardCutRss {
 				return null;
 			}
 		}
-		
-		public static void main(String[] args) {
-			CardCutRss.callWeeklyNewsListByXML();
-		}
+		 
 }

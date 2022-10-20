@@ -33,8 +33,7 @@
 	<select id="selectCardCutOne" resultMap="CardCutMap">
 		SELECT CARDCUT_NO,
 		TITLE, LINK, DESCRIPTION, PUBDATE
-		FROM CARDCUT WHERE CARDCUT_NO =
-		#{cardCutNo}
+		FROM CARDCUT WHERE CARDCUT_NO = #{cardCutNo}
 	</select>
 	 
 </mapper>
