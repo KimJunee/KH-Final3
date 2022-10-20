@@ -16,7 +16,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kh.realfinal.apply.model.service.RealEstateService;
+import com.kh.realfinal.apply.model.service.RemndrLttotPblancDetailService;
+import com.kh.realfinal.apply.model.service.UrbtyOfctlLttotPblancDetailService;
 import com.kh.realfinal.apply.model.vo.RealEstateList;
+import com.kh.realfinal.apply.model.vo.RemndrLttotPblancDetail;
+import com.kh.realfinal.apply.model.vo.RemndrMdl;
+import com.kh.realfinal.apply.model.vo.UrbtyMdl;
+import com.kh.realfinal.apply.model.vo.UrbtyOfctlLttotPblancDetail;
 import com.kh.realfinal.board.model.service.BoardService;
 import com.kh.realfinal.board.model.vo.Board;
 import com.kh.realfinal.common.util.PageInfo;
@@ -30,6 +36,12 @@ public class RealEstateController {
 
 	@Autowired
 	private RealEstateService realEstateService;
+	
+	@Autowired
+	private RemndrLttotPblancDetailService remndrservice;
+	
+	@Autowired
+	private UrbtyOfctlLttotPblancDetailService urbtyservice;
 	
 	
 	@Autowired
@@ -118,17 +130,34 @@ public class RealEstateController {
 	
 	
 	@RequestMapping("/RealEstate/detail")
-	public String goRealEDetail(Model model, String type, String no){
+	public String goRealEDetail(Model model, @RequestParam("type") String type, @RequestParam("no") String no){
 		if(type.equals("R")) {
+			RemndrLttotPblancDetail remndr = remndrservice.getSelectRemndrNo(no);
+			RemndrMdl remndrMdl = remndrservice.getSelectRemndrMdlNo(no);
 			
-			return "realEstate/realEstateDetailForT";
-		} else {
+			if(remndr == null) {
+				System.out.println("값이 없습니다.");
+			}
 			
-			return "realEstate/realEstateDetailForR";
+			model.addAttribute("remndr", remndr);
+			model.addAttribute("remndrMdl", remndrMdl);
+			
+			return "realEstate/realEstateDetailRemndr";
+		} else if (type.equals("U")) {
+			UrbtyOfctlLttotPblancDetail urbty = urbtyservice.getSelectUrbtyNo(no);
+			UrbtyMdl urbtyMdl = urbtyservice.getSelectUrbtyMdlNo(no);
+
+			if (urbty == null) {
+				System.out.println("값이 없습니다.");
+			}
+
+			model.addAttribute("urbty", urbty);
+			model.addAttribute("urbtyMdl", urbtyMdl);
+
+			return "realEstate/realEstateDetailUrbty";
+
 		}
-		
+		return "realEstate/realEstateDetailRemndr"; 
 	}
-	
-	
 
 }

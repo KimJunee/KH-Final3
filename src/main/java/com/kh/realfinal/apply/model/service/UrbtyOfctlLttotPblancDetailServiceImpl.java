@@ -12,7 +12,20 @@ import com.kh.realfinal.apply.model.vo.UrbtyOfctlLttotPblancDetail;
 public class UrbtyOfctlLttotPblancDetailServiceImpl implements UrbtyOfctlLttotPblancDetailService{
 
 	@Autowired
-	private UrbtyOfctlLttotPblancDetailMapper mapper;
+	private UrbtyOfctlLttotPblancDetailMapper urbtymapper;
+	
+	// 상세페이지에서 공고번호로 객체 가져오기
+	@Override
+	public UrbtyOfctlLttotPblancDetail getSelectUrbtyNo(String no) {
+		UrbtyOfctlLttotPblancDetail urbty = urbtymapper.selectUrbtyNo(no);
+		return urbty;
+	}
+
+	@Override
+	public UrbtyMdl getSelectUrbtyMdlNo(String no) {
+		UrbtyMdl urbtyMdl = urbtymapper.selectUrbtyMdlNo(no);
+		return urbtyMdl;
+	}
 	
 	// ------------------------------------- 데이터 파싱
 	
@@ -20,7 +33,7 @@ public class UrbtyOfctlLttotPblancDetailServiceImpl implements UrbtyOfctlLttotPb
 	@Transactional(rollbackFor = Exception.class)
 	public int saveUrbtyOfctlLttotPblancDetailService(UrbtyOfctlLttotPblancDetail ud) {
 		int result = 0;
-		result = mapper.insertUrbtyOfctlLttotPblancDetail(ud);
+		result = urbtymapper.insertUrbtyOfctlLttotPblancDetail(ud);
 		return result;
 	}
 
@@ -28,8 +41,10 @@ public class UrbtyOfctlLttotPblancDetailServiceImpl implements UrbtyOfctlLttotPb
 	@Transactional(rollbackFor = Exception.class)
 	public int saveUrbtyMdlService(UrbtyMdl um) {
 		int result = 0;
-		result = mapper.insertUrbtyMdl(um);
+		result = urbtymapper.insertUrbtyMdl(um);
 		return result;
 	}
+
+
 
 }

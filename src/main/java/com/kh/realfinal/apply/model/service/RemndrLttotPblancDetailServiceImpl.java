@@ -13,18 +13,18 @@ import com.kh.realfinal.apply.model.vo.RemndrMdl;
 public class RemndrLttotPblancDetailServiceImpl implements RemndrLttotPblancDetailService{
 
 	@Autowired
-	private RemndrLttotPblancDetailMapper Remndrmapper;
+	private RemndrLttotPblancDetailMapper remndrmapper;
 	
 	// 상세페이지에서 공고번호로 객체 가져오기
 	@Override
 	public RemndrLttotPblancDetail getSelectRemndrNo(String no) {
-		RemndrLttotPblancDetail remndr = Remndrmapper.selectRemndrNo(no);
+		RemndrLttotPblancDetail remndr = remndrmapper.selectRemndrNo(no);
 		return remndr;
 	}
 	
 	@Override
 	public RemndrMdl getSelectRemndrMdlNo(String no) {
-		RemndrMdl remndrMdl = Remndrmapper.selectRemndrMdlNo(no);
+		RemndrMdl remndrMdl = remndrmapper.selectRemndrMdlNo(no);
 		return remndrMdl;
 	}
 
@@ -36,14 +36,14 @@ public class RemndrLttotPblancDetailServiceImpl implements RemndrLttotPblancDeta
 	@Transactional(rollbackFor = Exception.class)
 	public int saveRemndrLttotPblancDetailService(RemndrLttotPblancDetail rd) {
 		int result = 0;
-		result = Remndrmapper.insertRemndrLttotPblancDetail(rd);
+		result = remndrmapper.insertRemndrLttotPblancDetail(rd);
 		return result;
 	}
 	@Override
 	@Transactional(rollbackFor = Exception.class)
 	public int saveRemndrMdlService(RemndrMdl rm) {
 		int result = 0;
-		result = Remndrmapper.insertRemndrMdl(rm);
+		result = remndrmapper.insertRemndrMdl(rm);
 		return result;
 	}
 

@@ -333,7 +333,7 @@
 														<c:out value="${RealEstateList.subscrpt_area_code_nm}"/>
 													</td>
 													<td>
-														<a href="${path}/RealEstate/remndr?no=${RealEstateList.house_manage_no}" style="color:black"><c:out value="${RealEstateList.house_nm}"/></a>
+														<a href="${path}/RealEstate/detail?type=${RealEstateList.type}&no=${RealEstateList.house_manage_no}" style="color:black"><c:out value="${RealEstateList.house_nm}"/></a>
 													</td>
 													<td>
 														<c:out value="${RealEstateList.house_secd_nm}"/>

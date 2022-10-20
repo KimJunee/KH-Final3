@@ -64,19 +64,29 @@
 	</resultMap>
 	
 	
-	<select id="UrbtyList" resultMap="UrbtyMap">
-		SELECT *
-		FROM URBTYOFCTLLTTOTPBLANCDETAIL U
-		JOIN URBTYMDL UD ON U.HOUSE_MANAGE_NO = UD.HOUSE_MANAGE_NO
+	<select id="urbtyList" resultMap="UrbtyMap">
+		SELECT * FROM URBTYOFCTLLTTOTPBLANCDETAIL
 	</select>
 	
 	
-	<select id="UrbtyListCount" resultType="int" parameterType="map">
+	<select id="urbtyListCount" resultType="int" parameterType="map">
 		SELECT COUNT(*)	FROM URBTYOFCTLLTTOTPBLANCDETAIL
 	</select>
 	
+	<select id="selectUrbtyNo" parameterType="String" resultMap="UrbtyMap">
+		SELECT * FROM URBTYOFCTLLTTOTPBLANCDETAIL
+		WHERE HOUSE_MANAGE_NO = #{house_manage_no}
+	</select>
 	
+	<select id="selectUrbtyMdlNo" resultType="String" resultMap="UrbtyMdlMap">
+		SELECT * FROM URBTYMDL
+		WHERE HOUSE_MANAGE_NO = #{house_manage_no}
+	</select>
 	
+
+
+
+
 
 	<insert id="insertUrbtyOfctlLttotPblancDetail"
 		parameterType="hashMap">

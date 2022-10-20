@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class UrbtyMdl {
 	private String	pblanc_no	            ; // 공고번호
-	private String		house_manage_no	        ; // 주택관리번호
+	private String	house_manage_no	        ; // 주택관리번호
 	private String 	model_no				; // 모델번호
 	private String 	gp						; // 군
 	private String 	tp						; // 타입

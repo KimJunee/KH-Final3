@@ -39,7 +39,7 @@ public class RemndrLttotPblancDetailController {
 		model.addAttribute("remndr", remndr);
 		model.addAttribute("remndrMdl", remndrMdl);
 		
-		return "/realEstate/realEstateDetail";
+		return "/realEstate/realEstateDetailRemndr";
 	}
 	
 	

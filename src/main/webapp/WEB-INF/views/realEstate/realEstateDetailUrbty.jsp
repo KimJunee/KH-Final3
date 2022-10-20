@@ -43,14 +43,14 @@
 
 
     <!-- =======================섹션2: 분양단지 상세 정보 시작 =======================-->
-<c:if test="${empty remndr}">
+<c:if test="${empty urbty}">
 	            <p>해당 분양 단지의 상세정보가 없습니다.</p>
 </c:if>
-<c:if test="${!empty remndr}">
+<c:if test="${!empty urbty}">
     <section>
     
         <div class="container">
-            <h2 class="m-0 mice"><i class="bi bi-building me-2"></i>${remndr.house_nm}</h2>
+            <h2 class="m-0 mice"><i class="bi bi-building me-2"></i>${urbty.house_nm}</h2>
             <p>해당 분양 단지의 상세정보입니다</p>
             <div class="row g-4">
                 <!-- Image -->
@@ -79,24 +79,24 @@
                     <div class="card-body p-3">
                         <table class="table text-sm mb-0 ">
                             <tr>
-                                <th class="p-3 h5 text-center" style="width: 150px">공급위치</th>
-                                <td class="p-3 h5 text-center">${remndr.hssply_adres}</td>
+                                <th class="p-3 h5 text-center" style="width: 30%">공급위치</th>
+                                <td class="p-3 h5 text-center">${urbty.hssply_adres}</td>
                             </tr>
                             <tr>
-                                <th class="p-3 h5 text-center" style="width: 150px">모집 공고일</th>
-                                <td class="p-3 h5 text-center">${remndr.rcrit_pblanc_de}</td>
+                                <th class="p-3 h5 text-center" >모집공고일</th>
+                                <td class="p-3 h5 text-center">${urbty.rcrit_pblanc_de}</td>
                             </tr>
                             <tr>
                                 <th class="p-3 h5 text-center">공급규모</th>
-                                <td class="p-3 h5 text-center">${remndr.tot_suply_hshldco}</td>
+                                <td class="p-3 h5 text-center">${urbty.tot_suply_hshldco}</td>
                             </tr>
                             <tr>
-                                <th class="p-3 h5 text-center" style="width: 150px;">입주예정월</th>
-                                <td class="p-3 h5 text-center">${remndr.tot_suply_hshldco}</td>
+                                <th class="p-3 h5 text-center" >입주예정월</th>
+                                <td class="p-3 h5 text-center">${urbty.mvn_prearnge_ym}(월)</td>
                             </tr>
                             <tr>
                                 <th class="p-3 h5 text-center pb-4" style="border-bottom: none">문의처</th>
-                                <td class="p-3 h5 text-center pb-4" style="border-bottom: none"><i class="bi bi-telephone-fill me-2"></i>${remndr.mdhs_telno}</td>
+                                <td class="p-3 h5 text-center pb-4" style="border-bottom: none"><i class="bi bi-telephone-fill me-2"></i>${urbty.mdhs_telno}</td>
                             </tr>
                         </table>
                         <a class="btn btn-lg btn-warning w-100 mb-3" href="#">♥ Like This Information</a>
@@ -137,32 +137,32 @@
 								<div class="card-body  pb-5">
 									<table class="table mb-0 m-2">
 										<tr>
-											<th class="ps-2 ">공고번호</th>
-											<td class="pe-2 ">${remndr.pblanc_no}</td>
+											<th class="ps-2 " style="width: 30%">공고번호</th>
+											<td class="pe-2 ">${urbty.pblanc_no}</td>
 										</tr>
 										<tr>
 											<th class="ps-2 ">주택명</th>
-											<td class="pe-2 ">${remndr.house_nm}</td>
+											<td class="pe-2 ">${urbty.house_nm}</td>
 										</tr>
 										<tr>
 											<th class="ps-2 ">공급위치</th>
-											<td class="pe-2 ">${remndr.hssply_adres}</td>
+											<td class="pe-2 ">${urbty.hssply_adres}</td>
 										</tr>
 										<tr>
-											<th class="ps-2 ">우편번호</th>
-											<td class="pe-2 ">${remndr.hssply_zip}</td>
+											<th class="ps-2 ">신청금</th>
+											<td class="pe-2 ">${urbtyMdl.subscrpt_reqst_amount}(단위:만원)</td>
 										</tr>
 										<tr>
 											<th class="ps-2 ">주택구분</th>
-											<td class="pe-2 ">${remndr.house_secd_nm}</td>
+											<td class="pe-2 ">${urbty.house_secd_nm}</td>
 										</tr>
 										<tr>
-											<th class="ps-2 ">공급면적(㎡)</th>
-											<td class="pe-2 ">${remndrMdl.supply_ar}</td>
+											<th class="ps-2 ">전용면적</th>
+											<td class="pe-2 ">${urbtyMdl.excluse_ar}(㎡)</td>
 										</tr>
 										<tr>
 											<th class="ps-2 ">사업주체명</th>
-											<td class="pe-2 ">${remndr.bsns_mby_nm}</td>
+											<td class="pe-2 ">${urbty.bsns_mby_nm}</td>
 										</tr>
 									</table>
 								</div>
@@ -180,32 +180,32 @@
                                 <div class="card-body  pb-5">
                                     <table class="table mb-0 m-2">
                                         <tr>
-                                            <th class="ps-2 text-danger">분양최고금액(단위:만원)</th>
-                                            <td class="pe-2 ">${remndrMdl.lttot_top_amount}</td>
+                                            <th class="ps-2 text-danger" style="width: 50%">분양최고금액</th>
+                                            <td class="pe-2 ">${urbtyMdl.suply_amount}(단위:만원)</td>
                                         </tr>
                                         <tr>
                                             <th class="ps-2 ">청약접수 시작일</th>
-                                            <td class="pe-2 ">${remndr.subscrpt_rcept_bgnde}</td>
+                                            <td class="pe-2 ">${urbty.subscrpt_rcept_bgnde}</td>
                                         </tr>
                                         <tr>
                                             <th class="ps-2 ">청약접수 종료일</th>
-                                            <td class="pe-2 ">${remndr.subscrpt_rcept_endde}</td>
+                                            <td class="pe-2 ">${urbty.subscrpt_rcept_endde}</td>
                                         </tr>
                                         <tr>
                                             <th class="ps-2 text-danger">당첨자 발표일</th>
-                                            <td class="pe-2 ">${remndr.przwner_presnatn_de}</td>
+                                            <td class="pe-2 ">${urbty.przwner_presnatn_de}</td>
                                         </tr>
                                         <tr>
                                             <th class="ps-2 ">계약 시작일</th>
-                                            <td class="pe-2 ">${remndr.cntrct_cncls_bgnde}</td>
+                                            <td class="pe-2 ">${urbty.cntrct_cncls_bgnde}</td>
                                         </tr>
                                         <tr>
                                             <th class="ps-2 ">계약 종료일</th>
-                                            <td class="pe-2 ">${remndr.cntrct_cncls_endde}</td>
+                                            <td class="pe-2 ">${urbty.cntrct_cncls_endde}</td>
                                         </tr>
                                         <tr>
                                             <th class="ps-2 ">모집공고 확인 홈페이지</th>
-                                            <td class="ps-2 p-1"><a href="${remndr.hmpg_adres}" class="badge bg-secondary bg-opacity-75 text-white mb-2"><i class="bi bi-house-door-fill me-2 fw-bold "></i>${remndr.hmpg_adres}</a></td>
+                                            <td class="ps-2 p-1"><a href="${urbty.hmpg_adres}" class="badge bg-secondary bg-opacity-75 text-white mb-2"><i class="bi bi-house-door-fill me-2 fw-bold "></i>${urbty.hmpg_adres}</a></td>
                                         </tr>
                                     </table>
                                 </div>
