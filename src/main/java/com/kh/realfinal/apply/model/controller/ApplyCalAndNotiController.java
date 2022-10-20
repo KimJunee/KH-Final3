@@ -9,15 +9,15 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 public class ApplyCalAndNotiController {
 	
-	@RequestMapping("/realEstate/calendar")
-	public String applyCalendar() {
-		return "realEstate/realEstateCalendar";
-	}
+//	@RequestMapping("/realEstate/calendar")
+//	public String applyCalendar() {
+//		return "realEstate/realEstateCalendar";
+//	}
 	
-	@RequestMapping("/realEstate/notice")
-	public String applyNotice() {
-		return "realEstate/realEstateNotice";
-	}
+//	@RequestMapping("/realEstate/notice")
+//	public String applyNotice() {
+//		return "realEstate/realEstateNotice";
+//	}
 	
 	@RequestMapping("/realEstate/notice-detail")
 	public String applyNoticeDetail() {

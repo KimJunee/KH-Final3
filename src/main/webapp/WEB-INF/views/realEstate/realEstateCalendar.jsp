@@ -14,6 +14,10 @@
     <!-- calendar -->
     <link href='${path}/resources/resources1b/fullcalendar/lib/main.css' rel='stylesheet' />
     <script src='${path}/resources/resources1b/fullcalendar/lib/main.js'></script>
+    
+    <!-- fullcalendar css JS -->
+
+
 
 </head>
 
@@ -39,11 +43,13 @@
     }
 </style>
 
+
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
 
         var calendar = new FullCalendar.Calendar(calendarEl, {
+        	
             headerToolbar: {
                 left: 'prevYear,prev',
                 center: 'title',
@@ -59,12 +65,23 @@
             selectable: true,
             selectMirror: true,
             hiddenDays: [6, 0],
-            navLinks: true, // can click day/week names to navigate views
+            navLinks: false, // can click day/week names to navigate views
             editable: true,
 
-            dayMaxEvents: true, // allow "more" link when too many events
+            /* dayMaxEvents: true, // allow "more" link when too many events */
+            dayMaxEvents: 6, // allow "more" link when too many events
             // 이벤트 객체 필드 document : https://fullcalendar.io/docs/event-object
-            events: [{
+            events: [
+           		<c:forEach var="apt" items="${apt}">
+	    			{
+	    				title: '<c:out value="${apt.house_nm}"/>' ,
+    					start: '<c:out value="${apt.gnrl_rnk1_crsparea_rcept_pd}"/>' ,
+    					color: '#E378A6'
+    					
+	    			},
+   				</c:forEach>
+            
+            /* 	{
                 title: '강릉 더리브 퍼스티지 아파트',
                 start: '2022-10-03',
                 color: '#BEABCC',
@@ -94,8 +111,10 @@
                 start: '2022-10-11',
                 color: '#E3A9C2',
                 url: '03_reales_calendar_detail.html'
-            }, {
-                title: '남양주 진접지구 4블록 유승한내들 더테라스 연립주택',
+            } */
+            
+            {
+                title: 'test용!',
                 start: '2022-10-10',
                 color: '#E378A6',
                 url: '03_reales_calendar_detail.html'
@@ -104,8 +123,7 @@
         });
         calendar.render();
     });
-</script>
-
+</script> 
 
 
 <body>
@@ -256,6 +274,12 @@
 					<!-- tabEnd -->
 
 					<div id='calendar'></div>
+					
+					
+					<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+					
+					
+					
 
 					<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 				</div>

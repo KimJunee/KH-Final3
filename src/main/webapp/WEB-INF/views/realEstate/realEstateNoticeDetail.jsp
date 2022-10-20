@@ -56,9 +56,9 @@
 					<div class="row">
 						<div class="col-12" style="position: relative;">
 							<!-- Podcast title -->
-							<a href="#" class="badge text-bg-danger mb-2">국민임대</a><br>
-							<h2 class="mice" style="display: inline;">사전청약 공공분양주택 입주자 모집공고</h2>
-							<div>2022-09-25</div>
+							<a href="#" class="badge text-bg-danger mb-2">${notice.ais_tp_cd_nm}</a><br>
+							<h2 class="mice" style="display: inline;">${notice.bbs_tl}</h2>
+							<div>${notice.bbs_wou_dttm}</div>
 							<hr>
 						</div>
 					</div>
@@ -68,11 +68,12 @@
 							<!-- <h4 class="mb-3">본문</h4> -->
 							<br>
 							<p>
-								2022.06.28 모집공고한 [행정중심복합도시 4-2생활권 M3블록 신혼희망타운 행복주택] 당첨자발표일정이
+								${notice.bbs_dtl_cts}
+								<!-- 2022.06.28 모집공고한 [행정중심복합도시 4-2생활권 M3블록 신혼희망타운 행복주택] 당첨자발표일정이
 								차세대사회보장시스템(범정부) 개편에 따라 입주자격 검증결과 회신이 지연되어 부득이하게 연기되었음을 알려드립니다.<br>
 								<br> - 당초 : 2022.10.06(목) 17시 이후<br> - 변경 :
 								2022.10.27(목) 17시 이후 * 차세대사회보장시스템(범정부) 개편 상황에 따라 당첨자 발표일자 변동<br>
-								<br> 가능 접수하신 고객님들의 많은 양해 부탁드립니다. 감사합니다.
+								<br> 가능 접수하신 고객님들의 많은 양해 부탁드립니다. 감사합니다. -->
 							</p>
 
 
@@ -86,16 +87,23 @@
 									<table class="table text-sm mb-0">
 										<tr>
 											<th class="ps-0 mice">본 문 보 기</th>
-											<td class="pe-0 "><a href="#">페이지 바로가기</a></td>
+											<td class="pe-0 "><a href="${notice.link_url}">페이지 바로가기</a></td>
 										</tr>
 										<tr>
 											<th class="ps-0 mice" style="width: 100px">담 당 부 서</th>
-											<td class="pe-0">서울지역본부</td>
+											<td class="pe-0">${notice.dep_nm}</td>
 										</tr>
 										<tr>
-											<th class="ps-0 mice" style="border-bottom: none">첨 부 파
-												일</th>
-											<td class="pe-0" style="border-bottom: none">공지사항첨부1.pdf<br>공지사항첨부2.pdf
+											<th class="ps-0 mice" style="border-bottom: none">첨 부 파 일</th>
+											<!-- <td class="pe-0" style="border-bottom: none">공지사항첨부1.pdf<br>공지사항첨부2.pdf
+											</td> -->
+											<td class="pe-0" style="border-bottom: none">
+												<c:if test="${!empty attach}">
+													<c:forEach var="attach" items="${attach}">
+															<a href="${attach.ahfl_url}"><c:out value="${attach.cmn_ahfl_nm}"/></a><br>
+															
+													</c:forEach>
+												</c:if>
 											</td>
 										</tr>
 									</table>

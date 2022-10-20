@@ -16,6 +16,11 @@ import com.kh.realfinal.apply.model.mapper.RealEstateListMapper;
 import com.kh.realfinal.apply.model.mapper.RemndrLttotPblancDetailMapper;
 import com.kh.realfinal.apply.model.mapper.UrbtyOfctlLttotPblancDetailMapper;
 import com.kh.realfinal.apply.model.vo.RealEstateList;
+import com.kh.realfinal.apply.model.mapper.ApplyInfoMapper;
+import com.kh.realfinal.apply.model.mapper.RemndrLttotPblancDetailMapper;
+import com.kh.realfinal.apply.model.vo.ApplyNotice;
+import com.kh.realfinal.apply.model.vo.ApplyNoticeAttach;
+import com.kh.realfinal.apply.model.vo.AptLttotPblancDetail;
 import com.kh.realfinal.apply.model.vo.RemndrLttotPblancDetail;
 import com.kh.realfinal.apply.model.vo.UrbtyOfctlLttotPblancDetail;
 import com.kh.realfinal.common.util.PageInfo;
@@ -32,8 +37,13 @@ public class RealEstateServiceImpl implements RealEstateService{
 	@Autowired
 	private UrbtyOfctlLttotPblancDetailMapper urbtymapper;
 	
-	//----------------------------------------------------------------------------------
+	@Autowired
+	private RemndrLttotPblancDetailMapper Remndrmapper;
+	
+	@Autowired
+	private ApplyInfoMapper applyInfoMapper;
 
+	//----------------------------------------------------------------------------------
 	
 	
 	@Override
@@ -146,7 +156,6 @@ public class RealEstateServiceImpl implements RealEstateService{
 	}
 
 	
-	
 	//----------------------------------------------------------------------------------
 	
 	@Override
@@ -190,8 +199,52 @@ public class RealEstateServiceImpl implements RealEstateService{
 		System.out.println(searchMap);
 		return urbtymapper.UrbtyListCount(searchMap);
 	}
+	
+	
+	
+	
+	//----------------------↓mh작업 (제 코드 밑에 덧붙이지 말고 이 선 위로 작업 부탁드려요ㅜㅜ)
+	
+	@Override
+	public List<ApplyNotice> getApplyNoticeList(PageInfo pageInfo, Map<String, String> param) {
+		int offset = (pageInfo.getCurrentPage() - 1) * pageInfo.getListLimit();
+		RowBounds rb = new RowBounds(offset, pageInfo.getListLimit());
+		
+		
+		
+		return applyInfoMapper.selectNoticeList(rb, param);
+	}
+
+
+	@Override
+	public int getApplyNoticeCount(Map<String, String> param) {
+		Map<String, String> serchMap = new HashMap<String, String>();
+		
+		
+		return applyInfoMapper.selectNoticeCount(serchMap);
+	}
+
+
+	@Override
+	public ApplyNotice findNoticeByRnum(int rnum) {
+		ApplyNotice an = applyInfoMapper.selectNoticeByRnum(rnum);
+		return an;
+	}
+
+
+	@Override
+	public List<ApplyNoticeAttach> findApplyAttach(String bbs_sn) {
+		return applyInfoMapper.selectNoticeAttach(bbs_sn);
+	}
+
+
+	@Override
+	public List<AptLttotPblancDetail> getAptLttotList(Map<String, String> param) {
+		return applyInfoMapper.selectAptLttotList(param);
+	}
 
 
 	
 
+	
 }
