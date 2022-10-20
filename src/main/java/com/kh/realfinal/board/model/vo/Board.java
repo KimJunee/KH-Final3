@@ -33,4 +33,5 @@ public class Board {
 	private String board_status;			//상태값
 	private List<Reply> replies;            //댓글리스트 가져오기? 수업코드에 있어서 가져옴
 	private int reply_cnt;            //댓글리스트 가져오기? 수업코드에 있어서 가져옴
+	private int rownum;						// 사이드 넘버링
 }

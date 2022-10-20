@@ -17,7 +17,7 @@
 		<result property="board_originalFileName" column="BOARD_ORIGINALFILENAME"/>
 		<result property="board_renamedFileName" column="BOARD_RENAMEDFILENAME"/>
 		<result property="reply_cnt" column="REPLY_CNT"/>
-		
+		<result property="rownum" column="ROWNUM"/>
 	</resultMap>
 	
 	<resultMap type="Board" id="boardDetailResultMap" extends="boardListResultMap">
@@ -141,7 +141,7 @@
 	</select>
 	
 	<!-- 사이드 커뮤니티 인기글 : 국회의원현황 6개 -->
-	<select id="sideBoardForPolitics" resultMap="boardListResultMap"  parameterType="map">
+	<select id="sideBoardForPolitics" resultMap="boardListResultMap" parameterType="map">
 		SELECT POLITICS.*
 		FROM (
 		    SELECT
@@ -160,8 +160,8 @@
 	</select>
 	
 	<!-- 사이드 커뮤니티 인기글 : 메인, 커뮤니티상세 6개 -->
-	<select id="sideBoard" resultMap="boardListResultMap"  parameterType="map">
-		SELECT SIDEBOARD.*
+	<select id="sideBoard" resultMap="boardListResultMap" parameterType="map">
+		SELECT ROWNUM, SIDEBOARD.*
 		FROM (
 		    SELECT
 		    	B.BOARD_NO,

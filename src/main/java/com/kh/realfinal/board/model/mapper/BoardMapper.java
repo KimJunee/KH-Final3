@@ -44,5 +44,5 @@ public interface BoardMapper {
 	List<Board> selectBoardListMain(); //전체클 페이징 없이 들고오는놈
 	public List<Board> sideBoardForEstate(Map<String, Object> param);	// 부동산메인 - 부동산게시글 출력
 	public List<Board> sideBoardForPolitics(Map<String, Object> param);	// 정치 국회의원현황 - 정치게시글 출력
-	public List<Board> sideBoard(Map<String, Object> param);	// 메인, 커뮤니티상세 - 인기게시글 출력
+	public List<Board> sideBoard();	// 메인, 커뮤니티상세 - 인기게시글 출력
 }

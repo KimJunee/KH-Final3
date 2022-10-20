@@ -461,32 +461,22 @@
                                 </div>
                                 <!-- 커뮤니티 실시간 -->
                                 <div>
-                                    <h4 class="mt-5 mb-3 mice ">커뮤니티 실시간&nbsp;<a class="badge text-bg-danger mb-3 " style="font-size: 70%; ">HOT</a></h4>
-                                    <div class="d-flex position-relative mb-3 ">
-                                        <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5 ">01</span>
-                                        <h6><a href="# " class="stretched-link text-reset btn-link ">강남 역세권 청약 일정 어디서 찾아보죠?</a></h6>
-                                    </div>
-                                    <div class="d-flex position-relative mb-3 ">
-                                        <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5 ">02</span>
-                                        <h6><a href="# " class="stretched-link text-reset btn-link ">나는솔로 보면서, 영철님 같은 분들 많으시죠? 저만 그런가.. </a></h6>
-                                    </div>
-                                    <div class="d-flex position-relative mb-3 ">
-                                        <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5 ">03</span>
-                                        <h6><a href="# " class="stretched-link text-reset btn-link ">삼전은 지금 끝물이죠.. 지금 왜 들어갑니까?</a></h6>
-                                    </div>
-                                    <div class="d-flex position-relative mb-3 ">
-                                        <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5 ">04</span>
-                                        <h6><a href="# " class="stretched-link text-reset btn-link ">코스피 연말에 2400갈겁니다. 두고보세요. </a></h6>
-                                    </div>
-                                    <div class="d-flex position-relative mb-3 ">
-                                        <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5 ">05</span>
-                                        <h6><a href="# " class="stretched-link text-reset btn-link ">저희집 고양이 좀 보고가세요. </a></h6>
-                                    </div>
-                                    <div class="d-flex position-relative mb-3 ">
-                                        <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5 ">06</span>
-                                        <h6><a href="# " class="stretched-link text-reset btn-link ">상여금을 코인으로 받아서 묵혀놨는데 3만원이 되버렸는데 어쩌죠?</a></h6>
-                                    </div>
-                                </div>
+	                            <c:if test="${empty sideList}">
+									<div class="d-flex position-relative mb-3">
+										<h6>조회된 글이 없습니다.</h6>
+									</div>
+								</c:if>
+								<c:if test="${not empty sideList}">
+	                                <h5 class="mt-5 mb-3">실시간<span style="color:#2163E8">커뮤니티</span>인기글</h5>
+										<c:forEach var="board" items="${sideList}" varStatus="status">
+		                                <div class="d-flex position-relative mb-3">
+		                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">
+		                                    <fmt:formatNumber type="number" pattern="##" minIntegerDigits="2" value="${board.rownum}"/></span>
+		                                    <h6><a href="${path}/board/BoardDetail?board_no=${board.board_no}" class="stretched-link text-reset btn-link"><c:out value="${board.board_title}"/></a></h6>
+		                                </div>
+	                                	</c:forEach>
+	                               </c:if>
+	                            </div>
                             </div>
                         </div>
                         <!-- Sidebar END -->

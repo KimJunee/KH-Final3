@@ -18,11 +18,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
+import com.kh.realfinal.board.model.service.BoardService;
+import com.kh.realfinal.board.model.vo.Board;
 import com.kh.realfinal.financialStock.model.service.StockpriceService;
 import com.kh.realfinal.financialStock.model.vo.IndexPrice;
 
 @Controller
 public class HomeController {
+	
+	@Autowired
+	private BoardService boardService;
 	
 	@Autowired
 	private StockpriceService service;
@@ -51,8 +56,10 @@ public class HomeController {
 	public String mainGo(Model model) {
 		List<IndexPrice> list1 = service.getIndexKospiList();
 		List<IndexPrice> list2 = service.getIndexKosdaqList();
+		List<Board> list3 = boardService.getSideBoard();
 		model.addAttribute("list1", list1);
 		model.addAttribute("list2", list2);
+		model.addAttribute("sideList", list3);
 		
 		
 		return "main/main";

@@ -232,7 +232,7 @@
 		                                                    <!-- Title -->
 		                                                    <td>
 		                                                        <h6 class="course-title mt-2 mt-md-0 mb-0 ">
-		                                                        <a href="${path}/board/BoardDetail?board_no=${board.board_no}">
+		                                                        <a href="${path}/board/BoardDetail?board_no=${board2.board_no}">
 		                                                        <c:out value="${board2.board_title}" /></a></h6>
 		                                                    </td>
 		                                                    <!-- Writer -->

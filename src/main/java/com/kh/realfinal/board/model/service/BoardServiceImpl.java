@@ -124,8 +124,8 @@ public class BoardServiceImpl implements BoardService{
 	}
 	
 	// 사이드 커뮤니티 인기글 : 메인, 커뮤니티상세 6개
-	public List<Board> getSideBoard(Map<String, Object> param) {
-		return mapper.sideBoard(param);
+	public List<Board> getSideBoard() {
+		return mapper.sideBoard();
 	}
 	
 	@Override

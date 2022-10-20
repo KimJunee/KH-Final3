@@ -2,6 +2,7 @@ package com.kh.realfinal.board.controller;
 
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
@@ -155,7 +156,9 @@ public class BoardController {
 	@GetMapping("/BoardDetail")
 	public String view(Model model, @RequestParam("board_no") int no, HttpServletRequest request) {
 		Board board = service.findByNo(no);
-		System.out.println("board : " + board);
+		List<Board> list = service.getSideBoard();
+		
+//		System.out.println("board : " + board);
 		
 		if(board == null) {
 			return "redirect:error";
@@ -164,11 +167,12 @@ public class BoardController {
 		String rootPath = request.getSession().getServletContext().getRealPath("resources");
 		String savePath = rootPath + "\\upload\\board\\";
 		
-		System.out.println(savePath);
+//		System.out.println(savePath);
 		
 		model.addAttribute("board", board);
 		model.addAttribute("replyList", board.getReplies());
 		model.addAttribute("savepath", savePath);
+		model.addAttribute("sideList", list);
 		return "community/communityBoardDetail";
 	}
 	

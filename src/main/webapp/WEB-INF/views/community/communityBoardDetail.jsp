@@ -181,33 +181,23 @@
                                     <a href="#" class="badge bg-success stretched-link">35</a>
                                 </div>
                             </div>
-                            <!-- 인기정치게시글 -->
+                            <!-- 실시간 커뮤니티 인기글 -->
                             <div>
+                            <c:if test="${empty sideList}">
+								<div class="d-flex position-relative mb-3">
+									<h6>조회된 글이 없습니다.</h6>
+								</div>
+							</c:if>
+							<c:if test="${not empty sideList}">
                                 <h5 class="mt-5 mb-3">실시간<span style="color:#2163E8">커뮤니티</span>인기글</h5>
-                                <div class="d-flex position-relative mb-3">
-                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">01</span>
-                                    <h6><a href="#" class="stretched-link text-reset btn-link">정치정치조정치</a></h6>
-                                </div>
-                                <div class="d-flex position-relative mb-3">
-                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">02</span>
-                                    <h6><a href="#" class="stretched-link text-reset btn-link">큰일이다 이게 한줄밖에 안되면 저렇게 보이네 어떡하지 제목을 보이게 하면 짧을텐데</a></h6>
-                                </div>
-                                <div class="d-flex position-relative mb-3">
-                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">03</span>
-                                    <h6><a href="#" class="stretched-link text-reset btn-link">영어는 좋겠다 별거 안써도 길어보이고 한글만세 세종대왕 만만세</a></h6>
-                                </div>
-                                <div class="d-flex position-relative mb-3">
-                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">04</span>
-                                    <h6><a href="#" class="stretched-link text-reset btn-link">10 facts about business that will instantly put you in a good mood</a></h6>
-                                </div>
-                                <div class="d-flex position-relative mb-3">
-                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">05</span>
-                                    <h6><a href="#" class="stretched-link text-reset btn-link">How did we get here? The history of the business told through tweets</a></h6>
-                                </div>
-                                <div class="d-flex position-relative mb-3">
-                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">06</span>
-                                    <h6><a href="#" class="stretched-link text-reset btn-link">How did we get here? The history of the business told through tweets</a></h6>
-                                </div>
+									<c:forEach var="board" items="${sideList}" varStatus="status">
+	                                <div class="d-flex position-relative mb-3">
+	                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">
+	                                    <fmt:formatNumber type="number" pattern="##" minIntegerDigits="2" value="${board.rownum}"/></span>
+	                                    <h6><a href="${path}/board/BoardDetail?board_no=${board.board_no}" class="stretched-link text-reset btn-link"><c:out value="${board.board_title}"/></a></h6>
+	                                </div>
+                                	</c:forEach>
+                               </c:if>
                             </div>
                         </div>
                     </div>
