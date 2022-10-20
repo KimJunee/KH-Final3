@@ -116,10 +116,10 @@
                                 <li class="dropdown-submenu dropend text-dark">
                                     <a class="dropdown-item text-dark" href="${path}/RealEstate/main">청약메인</a>
                                 </li>
-                                <li> <a class="dropdown-item text-dark" href="03_reales_calendar.html">청약캘린더 <span class="badge bg-danger smaller me-1">New</span></a> </li>
+                                <li> <a class="dropdown-item text-dark" href="${path}/realEstate/calendar">청약캘린더 <span class="badge bg-danger smaller me-1">New</span></a> </li>
                                 <li> <a class="dropdown-item text-dark" href="${path}/RealEstate/list">청약상세조회</a> </li>
                                 <li class="dropdown-submenu dropend text-dark">
-                                    <a class="dropdown-item text-dark" href="03_reales_notice.html">청약공지사항</a>
+                                    <a class="dropdown-item text-dark" href="${path}/realEstate/notice">청약공지사항</a>
                                 </li>
                                 <li class="dropdown-divider text-dark"></li>
                                 <li> <a class="dropdown-item text-dark" href="${path}/board/list?type=2">부동산Talk  <span class="badge bg-danger smaller me-1">New</span></a> </li>
