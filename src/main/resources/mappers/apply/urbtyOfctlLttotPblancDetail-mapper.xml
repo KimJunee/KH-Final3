@@ -65,30 +65,15 @@
 	
 	
 	<select id="UrbtyList" resultMap="UrbtyMap">
-		SELECT * FROM URBTYOFCTLLTTOTPBLANCDETAIL U
-		<where> 
-		<if test="contentKeyword != null">
-			AND R.HOUSE_NM LIKE '%'||#{contentKeyword}||'%'
-		</if>
-		<if test="localNameType != null">
-			AND R.LOCAL_NM LIKE '%'||#{localNameType}||'%'
-		</if>
-		</where>
+		SELECT *
+		FROM URBTYOFCTLLTTOTPBLANCDETAIL U
+		JOIN URBTYMDL UD ON U.HOUSE_MANAGE_NO = UD.HOUSE_MANAGE_NO
 	</select>
 	
 	
 	<select id="UrbtyListCount" resultType="int" parameterType="map">
-		SELECT COUNT(*)	FROM URBTYOFCTLLTTOTPBLANCDETAIL U
-		<where> 
-		<if test="contentKeyword != null">
-			AND R.HOUSE_NM LIKE '%'||#{contentKeyword}||'%'
-		</if>
-		<if test="localNameType != null">
-			AND R.LOCAL_NM LIKE '%'||#{localNameType}||'%'
-		</if>
-		</where>
+		SELECT COUNT(*)	FROM URBTYOFCTLLTTOTPBLANCDETAIL
 	</select>
-	
 	
 	
 	

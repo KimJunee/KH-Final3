@@ -62,29 +62,24 @@
 		<result property="lttot_top_amount" column="LTTOT_TOP_AMOUNT"/>
 	</resultMap>
 	
-	<select id="RemndrList" resultMap="RemndrMap">
-		SELECT * FROM REMNDRLTTOTPBLANCDETAIL R
-		<where> 
-		<if test="contentKeyword != null">
-			AND R.HOUSE_NM LIKE '%'||#{contentKeyword}||'%'
-		</if>
-		<if test="localNameType != null">
-			AND R.LOCAL_NM LIKE '%'||#{localNameType}||'%'
-		</if>
-		</where>
+	<select id="remndrList" resultMap="RemndrMap">
+		SELECT * FROM REMNDRLTTOTPBLANCDETAIL
 	</select>
 	
-	<select id="RemndrListCount" resultType="int" parameterType="map">
-		SELECT COUNT(*)	FROM REMNDRLTTOTPBLANCDETAIL R
-		<where> 
-		<if test="contentKeyword != null">
-			AND R.HOUSE_NM LIKE '%'||#{contentKeyword}||'%'
-		</if>
-		<if test="localNameType != null">
-			AND R.LOCAL_NM LIKE '%'||#{localNameType}||'%'
-		</if>
-		</where>
+	<select id="remndrListCount" resultType="int" parameterType="map">
+		SELECT COUNT(*)	FROM REMNDRLTTOTPBLANCDETAIL
 	</select>
+	
+	<select id="selectRemndrNo" parameterType="String" resultMap="RemndrMap">
+		SELECT * FROM REMNDRLTTOTPBLANCDETAIL
+		WHERE HOUSE_MANAGE_NO = #{house_manage_no}
+	</select>
+	
+	<select id="selectRemndrMdlNo" resultType="String" resultMap="RemndrMdlMap">
+		SELECT * FROM REMNDRMDL
+		WHERE HOUSE_MANAGE_NO = #{house_manage_no}
+	</select>
+	
 	
 	
 	

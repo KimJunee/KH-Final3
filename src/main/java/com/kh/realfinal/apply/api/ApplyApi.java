@@ -85,14 +85,14 @@ public class ApplyApi {
 
 							JSONObject obj = (JSONObject) RemndrDetailArray.get(i);
 
-							int house_manage_no = Integer.parseInt(String.valueOf(obj.get("HOUSE_MANAGE_NO")));
+							String house_manage_no = String.valueOf(obj.get("HOUSE_MANAGE_NO"));
 							String pblanc_no = String.valueOf(obj.get("PBLANC_NO"));
 							String house_nm = String.valueOf(obj.get("HOUSE_NM"));
-							int house_secd = Integer.parseInt(String.valueOf(obj.get("HOUSE_SECD")));
+							String house_secd = String.valueOf(obj.get("HOUSE_SECD"));
 							String house_secd_nm = String.valueOf(obj.get("HOUSE_SECD_NM"));
-							int hssply_zip = Integer.parseInt(String.valueOf(obj.get("HSSPLY_ZIP")));
+							String hssply_zip = String.valueOf(obj.get("HSSPLY_ZIP"));
 							String hssply_adres = String.valueOf(obj.get("HSSPLY_ADRES"));
-							int tot_suply_hshldco = Integer.parseInt(String.valueOf(obj.get("TOT_SUPLY_HSHLDCO")));
+							String tot_suply_hshldco = String.valueOf(obj.get("TOT_SUPLY_HSHLDCO"));
 							String rcrit_pblanc_de = String.valueOf(obj.get("RCRIT_PBLANC_DE"));
 							String subscrpt_rcept_bgnde = String.valueOf(obj.get("SUBSCRPT_RCEPT_BGNDE"));
 							String subscrpt_rcept_endde = String.valueOf(obj.get("SUBSCRPT_RCEPT_ENDDE"));
@@ -107,13 +107,9 @@ public class ApplyApi {
 							String bsns_mby_nm = String.valueOf(obj.get("BSNS_MBY_NM"));
 							String mdhs_telno = String.valueOf(obj.get("MDHS_TELNO"));
 							String mvn_prearnge_ym = String.valueOf(obj.get("MVN_PREARNGE_YM"));
+							String subscrpt_area_code_nm = String.valueOf(obj.get("SUBSCRPT_AREA_CODE_NM"));
 
-							RemndrLttotPblancDetail rd = new RemndrLttotPblancDetail(house_manage_no, pblanc_no,
-									house_nm, house_secd, house_secd_nm, hssply_zip, hssply_adres, tot_suply_hshldco,
-									rcrit_pblanc_de, subscrpt_rcept_bgnde, subscrpt_rcept_endde, spsply_rcept_bgnde,
-									spsply_rcept_endde, gnrl_rcept_rcptde, gnrl_rcept_endde, przwner_presnatn_de,
-									cntrct_cncls_bgnde, cntrct_cncls_endde, hmpg_adres, bsns_mby_nm, mdhs_telno,
-									mvn_prearnge_ym);
+							RemndrLttotPblancDetail rd = new RemndrLttotPblancDetail(house_manage_no, pblanc_no, house_nm, house_secd, house_secd_nm, hssply_zip, hssply_adres, tot_suply_hshldco, rcrit_pblanc_de, subscrpt_rcept_bgnde, subscrpt_rcept_endde, spsply_rcept_bgnde, spsply_rcept_endde, gnrl_rcept_rcptde, gnrl_rcept_endde, przwner_presnatn_de, cntrct_cncls_bgnde, cntrct_cncls_endde, hmpg_adres, bsns_mby_nm, mdhs_telno, mvn_prearnge_ym, subscrpt_area_code_nm);
 							list.add(rd);
 
 //					System.out.println(house_secd);
@@ -130,7 +126,7 @@ public class ApplyApi {
 		return list;
 	}
 
-	public static List<RemndrMdl> RemndrMdlByJSON(int house_manage_no, String pblanc_no) {
+	public static List<RemndrMdl> RemndrMdlByJSON(String string, String pblanc_no) {
 		List<RemndrMdl> list = new ArrayList<>();
 
 		try {
@@ -138,7 +134,7 @@ public class ApplyApi {
 			urlBuilder.append("?" + "page=1");
 			urlBuilder.append("&" + "perPage=100");
 			urlBuilder.append("&" + "returnType=JSON");
-			urlBuilder.append("&cond%5B" + "HOUSE_MANAGE_NO%3A%3AEQ%5D=" + house_manage_no);
+			urlBuilder.append("&cond%5B" + "HOUSE_MANAGE_NO%3A%3AEQ%5D=" + string);
 			urlBuilder.append("&cond%5B" + "PBLANC_NO%3A%3AEQ%5D=" + pblanc_no);
 			urlBuilder.append("&" + "serviceKey=" + serviceKey);
 
@@ -174,15 +170,14 @@ public class ApplyApi {
 					try {
 						JSONObject obj = (JSONObject) RemndrMdlArray.get(i);
 
-						int model_no = Integer.parseInt(String.valueOf(obj.get("MODEL_NO")));
+						String model_no = String.valueOf(obj.get("MODEL_NO"));
 						String house_ty = String.valueOf(obj.get("HOUSE_TY"));
 						String supply_ar = String.valueOf(obj.get("SUPPLY_AR"));
 						String suply_hshldco = String.valueOf(obj.get("SUPLY_HSHLDCO"));
 						String spsply_hshldco = String.valueOf(obj.get("SPSPLY_HSHLDCO"));
 						String lttot_top_amount = String.valueOf(obj.get("LTTOT_TOP_AMOUNT"));
 
-						RemndrMdl rm = new RemndrMdl(pblanc_no, house_manage_no, model_no, house_ty, supply_ar,
-								suply_hshldco, spsply_hshldco, lttot_top_amount);
+						RemndrMdl rm = new RemndrMdl(pblanc_no, house_ty, model_no, house_ty, supply_ar, suply_hshldco, spsply_hshldco, lttot_top_amount);
 						list.add(rm);
 
 //					System.out.println(lttot_top_amount);
@@ -243,17 +238,17 @@ public class ApplyApi {
 
 							JSONObject obj = (JSONObject) UDetailArray.get(i);
 
-							int house_manage_no = Integer.parseInt(String.valueOf(obj.get("HOUSE_MANAGE_NO")));
+							String house_manage_no = String.valueOf(obj.get("HOUSE_MANAGE_NO"));
 							String pblanc_no = String.valueOf(obj.get("PBLANC_NO"));
 							String house_nm = String.valueOf(obj.get("HOUSE_NM"));
-							int house_secd = Integer.parseInt(String.valueOf(obj.get("HOUSE_SECD")));
+							String house_secd = String.valueOf(obj.get("HOUSE_SECD"));
 							String house_secd_nm = String.valueOf(obj.get("HOUSE_SECD_NM"));
-							int house_dtl_secd = Integer.parseInt(String.valueOf(obj.get("HOUSE_DTL_SECD")));
+							String house_dtl_secd = String.valueOf(obj.get("HOUSE_DTL_SECD"));
 							String house_dtl_secd_nm = String.valueOf(obj.get("HOUSE_DTL_SECD_NM"));
-							int search_house_secd = Integer.parseInt(String.valueOf(obj.get("SEARCH_HOUSE_SECD")));
-							int hssply_zip = Integer.parseInt(String.valueOf(obj.get("HSSPLY_ZIP")));
+							String search_house_secd = String.valueOf(obj.get("SEARCH_HOUSE_SECD"));
+							String hssply_zip = String.valueOf(obj.get("HSSPLY_ZIP"));
 							String hssply_adres = String.valueOf(obj.get("HSSPLY_ADRES"));
-							int tot_suply_hshldco = Integer.parseInt(String.valueOf(obj.get("TOT_SUPLY_HSHLDCO")));
+							String tot_suply_hshldco = String.valueOf(obj.get("TOT_SUPLY_HSHLDCO"));
 							String rcrit_pblanc_de = String.valueOf(obj.get("RCRIT_PBLANC_DE"));
 							String subscrpt_rcept_bgnde = String.valueOf(obj.get("SUBSCRPT_RCEPT_BGNDE"));
 							String subscrpt_rcept_endde = String.valueOf(obj.get("SUBSCRPT_RCEPT_ENDDE"));
@@ -264,12 +259,9 @@ public class ApplyApi {
 							String bsns_mby_nm = String.valueOf(obj.get("BSNS_MBY_NM"));
 							String mdhs_telno = String.valueOf(obj.get("MDHS_TELNO"));
 							String mvn_prearnge_ym = String.valueOf(obj.get("MVN_PREARNGE_YM"));
+							String subscrpt_area_code_nm = String.valueOf(obj.get("SUBSCRPT_AREA_CODE_NM"));
 
-							UrbtyOfctlLttotPblancDetail ud = new UrbtyOfctlLttotPblancDetail(house_manage_no, pblanc_no,
-									house_nm, house_secd, house_secd_nm, house_dtl_secd, house_dtl_secd_nm,
-									search_house_secd, hssply_zip, hssply_adres, tot_suply_hshldco, rcrit_pblanc_de,
-									subscrpt_rcept_bgnde, subscrpt_rcept_endde, przwner_presnatn_de, cntrct_cncls_bgnde,
-									cntrct_cncls_endde, hmpg_adres, bsns_mby_nm, mdhs_telno, mvn_prearnge_ym);
+							UrbtyOfctlLttotPblancDetail ud = new UrbtyOfctlLttotPblancDetail(house_manage_no, pblanc_no, house_nm, house_secd, house_secd_nm, house_dtl_secd, house_dtl_secd_nm, search_house_secd, hssply_zip, hssply_adres, tot_suply_hshldco, rcrit_pblanc_de, subscrpt_rcept_bgnde, subscrpt_rcept_endde, przwner_presnatn_de, cntrct_cncls_bgnde, cntrct_cncls_endde, hmpg_adres, bsns_mby_nm, mdhs_telno, mvn_prearnge_ym, subscrpt_area_code_nm);
 							list.add(ud);
 
 //					System.out.println(house_manage_no);
@@ -288,7 +280,7 @@ public class ApplyApi {
 		return list;
 	}
 
-	public static List<UrbtyMdl> UrbtyMdlByJSON(int house_manage_no, String pblanc_no) {
+	public static List<UrbtyMdl> UrbtyMdlByJSON(String string, String pblanc_no) {
 		List<UrbtyMdl> list = new ArrayList<>();
 
 		try {
@@ -298,7 +290,7 @@ public class ApplyApi {
 			urlBuilder.append("?" + "page=1");
 			urlBuilder.append("&" + "perPage=100");
 			urlBuilder.append("&" + "returnType=JSON");
-			urlBuilder.append("&cond%5B" + "HOUSE_MANAGE_NO%3A%3AEQ%5D=" + house_manage_no);
+			urlBuilder.append("&cond%5B" + "HOUSE_MANAGE_NO%3A%3AEQ%5D=" + string);
 			urlBuilder.append("&cond%5B" + "PBLANC_NO%3A%3AEQ%5D=" + pblanc_no);
 			urlBuilder.append("&" + "serviceKey=" + serviceKey);
 
@@ -335,16 +327,15 @@ public class ApplyApi {
 
 						JSONObject obj = (JSONObject) UrbtyMdlArray.get(i);
 
-						int model_no = Integer.parseInt(String.valueOf(obj.get("MODEL_NO")));
+						String model_no = String.valueOf(obj.get("MODEL_NO"));
 						String gp = String.valueOf(obj.get("GP"));
 						String tp = String.valueOf(obj.get("TP"));
-						int excluse_ar = Integer.parseInt(String.valueOf(obj.get("EXCLUSE_AR")));
-						int suply_hshldco = Integer.parseInt(String.valueOf(obj.get("SUPLY_HSHLDCO")));
+						String excluse_ar = String.valueOf(obj.get("EXCLUSE_AR"));
+						String suply_hshldco = String.valueOf(obj.get("SUPLY_HSHLDCO"));
 						String suply_amount = String.valueOf(obj.get("SUPLY_AMOUNT"));
 						String subscrpt_reqst_amount = String.valueOf(obj.get("SUBSCRPT_REQST_AMOUNT"));
 
-						UrbtyMdl um = new UrbtyMdl(pblanc_no, house_manage_no, model_no, gp, tp, excluse_ar,
-								suply_hshldco, suply_amount, subscrpt_reqst_amount);
+						UrbtyMdl um = new UrbtyMdl(pblanc_no, pblanc_no, model_no, gp, tp, excluse_ar, suply_hshldco, suply_amount, subscrpt_reqst_amount);
 						list.add(um);
 
 //					System.out.println(subscrpt_reqst_amount);

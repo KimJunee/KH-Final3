@@ -174,8 +174,8 @@
 
                                     <!-- Checkbox -->
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="houseType" id="amenitiesType20" value="아파트">
-                                        <label class="form-check-label" for="amenitiesType20">아파트</label>
+                                        <input class="form-check-input" type="checkbox" name="houseType" id="amenitiesType20" value="APT">
+                                        <label class="form-check-label" for="amenitiesType20">APT</label>
                                     </div>
                                     <!-- Checkbox -->
                                     <div class="form-check">
@@ -317,29 +317,23 @@
                                         </thead>
                                         <!------------- 청약 전체보기 list ------------->
                                         <tbody class="border-top-0 text-center">
-                                        <tr>
-                                                <td>1</td>
-                                                <td>서울</td>
-                                                <td><a href="${path}/RealEstate/detail">강원 춘천시 약사촉진3구역 롯데캐슬 위너클래스 장기민간임대아파트(107동)</a></td>
-                                                <td>도시형/오피스텔/민간임대</td>
-                                                <td>2023-09-02</td>
-                                        </tr>
+                                        
                                         <c:if test="${empty reallist}">
 											<tr>
 												<td colspan="6">조회된 글이 없습니다.</td>
 											</tr>
 										</c:if>
 										<c:if test="${!empty reallist}">
-											<c:forEach var="RealEstateList" items="${reallist}">
+											<c:forEach var="RealEstateList" items="${reallist}" varStatus="status">
 												<tr>
-													<td>1</td>
+													<td>
+														${status.count + (pageInfo.currentPage - 1) * 20}
+													</td>
 													<td>
 														<c:out value="${RealEstateList.subscrpt_area_code_nm}"/>
 													</td>
 													<td>
-														<a href="#">
-															<c:out value="${RealEstateList.house_nm}"/>
-														</a>
+														<a href="${path}/RealEstate/remndr?no=${RealEstateList.house_manage_no}" style="color:black"><c:out value="${RealEstateList.house_nm}"/></a>
 													</td>
 													<td>
 														<c:out value="${RealEstateList.house_secd_nm}"/>
@@ -397,7 +391,6 @@
                     </div>
                 </div>
             </div>
-        </div>
         </div>
     </section>
     <!-- ======================= 섹션2: 청약 검색목록 끝 =========================-->

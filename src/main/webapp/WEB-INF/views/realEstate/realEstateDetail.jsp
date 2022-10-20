@@ -43,9 +43,14 @@
 
 
     <!-- =======================섹션2: 분양단지 상세 정보 시작 =======================-->
+<c:if test="${empty remndr}">
+	            <p>해당 분양 단지의 상세정보가 없습니다.</p>
+</c:if>
+<c:if test="${!empty remndr}">
     <section>
+    
         <div class="container">
-            <h2 class="m-0 mice"><i class="bi bi-building me-2"></i>성남 금토지구 A-3블록 중흥S-클래스</h2>
+            <h2 class="m-0 mice"><i class="bi bi-building me-2"></i>${remndr.house_nm}</h2>
             <p>해당 분양 단지의 상세정보입니다</p>
             <div class="row g-4">
                 <!-- Image -->
@@ -75,23 +80,23 @@
                         <table class="table text-sm mb-0 ">
                             <tr>
                                 <th class="p-3 h5 text-center" style="width: 150px">공급위치</th>
-                                <td class="p-3 h5 text-center">경기도 성남시 수정구 금토로 44-5(금토동)</td>
+                                <td class="p-3 h5 text-center">${remndr.hssply_adres}</td>
                             </tr>
                             <tr>
                                 <th class="p-3 h5 text-center" style="width: 150px">모집 공고일</th>
-                                <td class="p-3 h5 text-center">2023-02-10</td>
+                                <td class="p-3 h5 text-center">${remndr.rcrit_pblanc_de}</td>
                             </tr>
                             <tr>
                                 <th class="p-3 h5 text-center">공급규모</th>
-                                <td class="p-3 h5 text-center">229세대</td>
+                                <td class="p-3 h5 text-center">${remndr.tot_suply_hshldco}</td>
                             </tr>
                             <tr>
                                 <th class="p-3 h5 text-center" style="width: 150px;">입주예정월</th>
-                                <td class="p-3 h5 text-center">2023-03월</td>
+                                <td class="p-3 h5 text-center">${remndr.tot_suply_hshldco}</td>
                             </tr>
                             <tr>
                                 <th class="p-3 h5 text-center pb-4" style="border-bottom: none">문의처</th>
-                                <td class="p-3 h5 text-center pb-4" style="border-bottom: none"><i class="bi bi-telephone-fill me-2"></i>031-214-9565</td>
+                                <td class="p-3 h5 text-center pb-4" style="border-bottom: none"><i class="bi bi-telephone-fill me-2"></i>${remndr.mdhs_telno}</td>
                             </tr>
                         </table>
                         <a class="btn btn-lg btn-warning w-100 mb-3" href="#">♥ Like This Information</a>
@@ -124,44 +129,44 @@
                         <!-- Card body -->
                         <div class="col-md-6">
                             <div class="card border-0 shadow mb-5 ">
-                                <div class="card-header py-4 border-0 ">
-                                    <tr>
-                                        <h3 class="mice">단지정보</h3>
-                                    </tr>
-                                </div>
-                                <div class="card-body  pb-5">
-                                    <table class="table mb-0 m-2">
-                                        <tr>
-                                            <th class="ps-2 ">공고번호</th>
-                                            <td class="pe-2 ">2022000248</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="ps-2 ">주택명</th>
-                                            <td class="pe-2 ">성남 금토지구 A-3블록 중흥S-클래스</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="ps-2 ">공급위치</th>
-                                            <td class="pe-2 ">경기도 성남시 수정구 금토로 44-5(금토동)</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="ps-2 ">주택구분</th>
-                                            <td class="pe-2 ">아파트</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="ps-2 ">분양종류(구분)</th>
-                                            <td class="pe-2 ">민영</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="ps-2 ">공급면적(㎡)</th>
-                                            <td class="pe-2 ">89</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="ps-2 ">사업주체명</th>
-                                            <td class="pe-2 ">주식회사 하나자산신탁</td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
+								<div class="card-header py-4 border-0 ">
+									<tr>
+										<h3 class="mice">단지정보</h3>
+									</tr>
+								</div>
+								<div class="card-body  pb-5">
+									<table class="table mb-0 m-2">
+										<tr>
+											<th class="ps-2 ">공고번호</th>
+											<td class="pe-2 ">${remndr.pblanc_no}</td>
+										</tr>
+										<tr>
+											<th class="ps-2 ">주택명</th>
+											<td class="pe-2 ">${remndr.house_nm}</td>
+										</tr>
+										<tr>
+											<th class="ps-2 ">공급위치</th>
+											<td class="pe-2 ">${remndr.hssply_adres}</td>
+										</tr>
+										<tr>
+											<th class="ps-2 ">우편번호</th>
+											<td class="pe-2 ">${remndr.hssply_zip}</td>
+										</tr>
+										<tr>
+											<th class="ps-2 ">주택구분</th>
+											<td class="pe-2 ">${remndr.house_secd_nm}</td>
+										</tr>
+										<tr>
+											<th class="ps-2 ">공급면적(㎡)</th>
+											<td class="pe-2 ">${remndrMdl.supply_ar}</td>
+										</tr>
+										<tr>
+											<th class="ps-2 ">사업주체명</th>
+											<td class="pe-2 ">${remndr.bsns_mby_nm}</td>
+										</tr>
+									</table>
+								</div>
+							</div>
                             <div class="card border-0 shadow mb-5 ">
                             </div>
                         </div>
@@ -176,31 +181,31 @@
                                     <table class="table mb-0 m-2">
                                         <tr>
                                             <th class="ps-2 text-danger">분양최고금액(단위:만원)</th>
-                                            <td class="pe-2 ">53,740</td>
+                                            <td class="pe-2 ">${remndrMdl.lttot_top_amount}</td>
                                         </tr>
                                         <tr>
                                             <th class="ps-2 ">청약접수 시작일</th>
-                                            <td class="pe-2 ">2023-02-21</td>
+                                            <td class="pe-2 ">${remndr.subscrpt_rcept_bgnde}</td>
                                         </tr>
                                         <tr>
                                             <th class="ps-2 ">청약접수 종료일</th>
-                                            <td class="pe-2 ">2023-02-22</td>
+                                            <td class="pe-2 ">${remndr.subscrpt_rcept_endde}</td>
                                         </tr>
                                         <tr>
                                             <th class="ps-2 text-danger">당첨자 발표일</th>
-                                            <td class="pe-2 ">2023-03-02</td>
+                                            <td class="pe-2 ">${remndr.przwner_presnatn_de}</td>
                                         </tr>
                                         <tr>
                                             <th class="ps-2 ">계약 시작일</th>
-                                            <td class="pe-2 ">2023-03-03</td>
+                                            <td class="pe-2 ">${remndr.cntrct_cncls_bgnde}</td>
                                         </tr>
                                         <tr>
                                             <th class="ps-2 ">계약 종료일</th>
-                                            <td class="pe-2 ">2023-03-04</td>
+                                            <td class="pe-2 ">${remndr.cntrct_cncls_endde}</td>
                                         </tr>
                                         <tr>
                                             <th class="ps-2 ">모집공고 확인 홈페이지</th>
-                                            <td class="ps-2 p-1"><a href="# " class="badge bg-secondary bg-opacity-75 text-white mb-2"><i class="bi bi-house-door-fill me-2 fw-bold "></i>http://www.dawartriche.com/</a></td>
+                                            <td class="ps-2 p-1"><a href="${remndr.hmpg_adres}" class="badge bg-secondary bg-opacity-75 text-white mb-2"><i class="bi bi-house-door-fill me-2 fw-bold "></i>${remndr.hmpg_adres}</a></td>
                                         </tr>
                                     </table>
                                 </div>
@@ -305,7 +310,7 @@
 	    });
 	</script>
 	<!-- ======================= script 끝 =======================-->
-	
+	</c:if>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 
 </body>

@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class RemndrMdl {
 	private String	pblanc_no	            ; // 공고번호
-	private int		house_manage_no	        ; // 주택관리번호
-	private int 	model_no				; // 모델번호
+	private String	house_manage_no	        ; // 주택관리번호
+	private String 	model_no				; // 모델번호
 	private String 	house_ty				; // 모델타입
 	private String 	supply_ar				; // 공급면적
 	private String 	suply_hshldco			; // 일반공급세대수

@@ -27,6 +27,23 @@ public class RemndrLttotPblancDetailController {
 	private RemndrLttotPblancDetailService remndrservice;
 	
 	
+	@GetMapping("/RealEstate/remndr")
+	public String view(Model model, @RequestParam("no") String no) {
+		RemndrLttotPblancDetail remndr = remndrservice.getSelectRemndrNo(no);
+		RemndrMdl remndrMdl = remndrservice.getSelectRemndrMdlNo(no);
+		
+		if(remndr == null) {
+			System.out.println("값이 없습니다.");
+		}
+		
+		model.addAttribute("remndr", remndr);
+		model.addAttribute("remndrMdl", remndrMdl);
+		
+		return "/realEstate/realEstateDetail";
+	}
+	
+	
+	
 	// ---------------------------------------- 파싱
 	
 	@RequestMapping("/RemndrLttotPblancDetail/insert.do")
