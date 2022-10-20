@@ -110,7 +110,7 @@
 
                         <!-- 부동산청약 메뉴 시작 -->
                         <li class="nav-item dropdown ">
-                            <a class="nav-link-white-sp" href="03_reales_main.html" id="postMenu " data-bs-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">부동산청약</a>
+                            <a class="nav-link-white-sp" href="${path}/RealEstate/main" id="postMenu " data-bs-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">부동산청약</a>
                             <ul class="dropdown-menu text-dark" aria-labelledby="postMenu ">
                                 <!-- dropdown submenu -->
                                 <li class="dropdown-submenu dropend text-dark">
@@ -145,11 +145,11 @@
                         <!-- 정치 메뉴 끝-->
 
                         <!-- 뉴스 메뉴 시작 -->
-                        <li class="nav-item "> <a class="nav-link-white-sp" href="05_news-main.html">뉴스</a></li>
+                        <li class="nav-item "> <a class="nav-link-white-sp" href="${path}/news/main">뉴스</a></li>
                         <!-- 뉴스 메뉴 끝  -->
 
                         <!-- 오피니언 메뉴 시작 -->
-                        <li class="nav-item "> <a class="nav-link-white-sp" href="06_opinion.html">오피니언</a></li>
+                        <li class="nav-item "> <a class="nav-link-white-sp" href="${path}/opinion">오피니언</a></li>
                         <!-- 오피니언 메뉴 끝 -->
 
                         <!-- 커뮤니티 메뉴 시작 -->

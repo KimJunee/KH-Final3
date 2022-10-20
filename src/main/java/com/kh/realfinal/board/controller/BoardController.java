@@ -113,7 +113,7 @@ public class BoardController {
 			} catch (Exception e) {}
 		}
 		
-		PageInfo pageInfo = new PageInfo(page, 20, service.getBoardCount(param), 20);
+		PageInfo pageInfo = new PageInfo(page, 10, service.getBoardCount(param), 20);
 		List<Board> list = service.getBoardList(pageInfo, param);
 		
 		System.out.println("type : " + param.get("type")+ " 입니다 ex)" + "1 정치, 2 부동산, 3 금융, 4 자유");

@@ -127,6 +127,7 @@
 		SELECT REALESTATE.*
 		FROM (
 		    SELECT
+		    	B.BOARD_NO,
 		        B.BOARD_TITLE,
 		        B.WRITER_NO,
 		        B.BOARD_REGISTER,
