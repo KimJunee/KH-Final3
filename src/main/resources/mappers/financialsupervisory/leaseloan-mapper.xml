@@ -6,6 +6,7 @@
 <mapper	namespace="com.kh.realfinal.financialsupervisory.model.mapper.LeaseLoanMapper">
 		<resultMap type="LeaseLoan" id="leaseResultMap">
 		<id property="id" column="LEASELOAN_ID"/>
+		<result property="finType" column="FINTYPE"/>
 		<result property="dclsMonth" column="LEASELOAN_DCLS_MONTH"/>
 		<result property="finCoNo" column="LEASELOAN_FIN_CO_NO"/>
 		<result property="korCoNm" column="LEASELOAN_KOR_CO_NM"/>
@@ -65,7 +66,7 @@
 	</insert>
 	
 	<select id="selectLeaseLoanList" resultMap="leaseListResultMap">
-		SELECT l.leaseloan_id, l.leaseloan_kor_co_nm, l.leaseloan_fin_prdt_nm, l.leaseloan_join_way,
+		SELECT l.fintype, l.leaseloan_id, l.leaseloan_kor_co_nm, l.leaseloan_fin_prdt_nm, l.leaseloan_join_way,
 		l.leaseloan_loan_inci_expn, l.leaseloan_erly_rpay_fee, l.leaseloan_dly_rate, l.leaseloan_loan_lmt,
 		o.leaseloan_rpay_type_nm, o.leaseloan_lend_rate_type_nm, o.leaseloan_lend_rate_min,
 		o.leaseloan_lend_rate_max, o.leaseloan_lend_rate_avg
@@ -105,7 +106,7 @@
 	</select>
 	
 	<select id="selectByLeaseLoanId" parameterType="int" resultMap="leaseListResultMap">
-		SELECT l.leaseloan_id, l.leaseloan_kor_co_nm, l.leaseloan_fin_prdt_nm, l.leaseloan_join_way,
+		SELECT l.fintype, l.leaseloan_id, l.leaseloan_kor_co_nm, l.leaseloan_fin_prdt_nm, l.leaseloan_join_way,
 		l.leaseloan_loan_inci_expn, l.leaseloan_erly_rpay_fee, l.leaseloan_dly_rate, l.leaseloan_loan_lmt,
 		o.leaseloan_rpay_type_nm, o.leaseloan_lend_rate_type_nm, o.leaseloan_lend_rate_min,
 		o.leaseloan_lend_rate_max, o.leaseloan_lend_rate_avg

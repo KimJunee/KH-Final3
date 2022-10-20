@@ -324,7 +324,7 @@
                                                 <c:forEach var="fixDeposit" items="${depositList}" step="1" varStatus="status">
                                                     <tr>
                                                         <!-- NO -->
-                                                        <td><c:out value="${status.count}"/></td>
+                                                        <td><c:out value="${status.count  + (pageInfo.currentPage - 1) * 10}"/></td>
                                                         <td>
                                                             <div class="row">
                                                                 <div class="col-4" style="padding-right: 0px;">

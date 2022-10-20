@@ -80,7 +80,7 @@ public class MortgageLoanAPI {
 						
 						if (node.getNodeType() == Node.ELEMENT_NODE) {
 							Element eElement = (Element) node;
-							
+							String fintype = "3";
 							int mortgageId = j;
 							int dclsMonth = getIntData(eElement, "dcls_month");
 							int finCoNo = getIntData(eElement, "fin_co_no");
@@ -123,7 +123,7 @@ public class MortgageLoanAPI {
 								optionList.add(mortgageOption);
 							}
 							System.out.println("옵션리스트!!!!!! : " + optionList.toString());
-							MortgageLoan mortgage = new MortgageLoan(mortgageId, dclsMonth, finCoNo, korCoNm, finPrdtCd, finPrdtNm, joinWay, loanInciExpn, erlyRpayFee, dlyRate, loanLmt, dclsStrtDay, dclsEndDay, finCoSubmDay, optionList);
+							MortgageLoan mortgage = new MortgageLoan(fintype, mortgageId, dclsMonth, finCoNo, korCoNm, finPrdtCd, finPrdtNm, joinWay, loanInciExpn, erlyRpayFee, dlyRate, loanLmt, dclsStrtDay, dclsEndDay, finCoSubmDay, optionList);
 							list.add(mortgage);
 							if(j == count + nList.getLength() - 1 ) {
 								count = j+1;

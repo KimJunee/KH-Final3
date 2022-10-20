@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class InstallmentSavings {
+	private String finType;
 	private int id; // 주키 
 	private String dclsMonth; // 공시 제출월 [YYYYMM]
 	private int finCoNo; // 금융회사 코드

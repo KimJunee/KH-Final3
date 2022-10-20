@@ -83,7 +83,7 @@ public class InstallmentSavingsAPI {
 	
 						if (node.getNodeType() == Node.ELEMENT_NODE) {
 							Element eElement = (Element) node;
-							
+							String finType = "1";
 							int inssvnId = j;
 							String dclsMonth = getStrData(eElement, "dcls_month");
 							int finCoNo = getIntData(eElement, "fin_co_no");
@@ -126,7 +126,7 @@ public class InstallmentSavingsAPI {
 								optionList.add(installmentOption);
 							}
 							System.out.println("옵션리스트!!!!!! : " + optionList.toString());
-							InstallmentSavings installment = new InstallmentSavings(inssvnId, dclsMonth, finCoNo, korCoNm, finPrdtCd, finPrdtNm, joinWay, mtrtInt, spclCnd, joinDeny, joinMember, etcNote, maxLimit, dclsStrtDay, dclsEndDay, finCoSubmDay, optionList);
+							InstallmentSavings installment = new InstallmentSavings(finType, inssvnId, dclsMonth, finCoNo, korCoNm, finPrdtCd, finPrdtNm, joinWay, mtrtInt, spclCnd, joinDeny, joinMember, etcNote, maxLimit, dclsStrtDay, dclsEndDay, finCoSubmDay, optionList);
 							list.add(installment);
 							if(j == count + nList.getLength() - 1 ) {
 								count = j+1;

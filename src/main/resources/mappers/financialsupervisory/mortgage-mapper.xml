@@ -4,6 +4,7 @@
 <mapper namespace="com.kh.realfinal.financialsupervisory.model.mapper.MortgageMapper">
 	<resultMap type="MortgageLoan" id="mortgageResultMap">
 		<id property="id" column="MORTGAGE_ID"/>
+		<result property="finType" column="FINTYPE"/>
 		<result property="dclsMonth" column="MORTGAGE_DCLS_MONTH"/>
 		<result property="finCoNo" column="MORTGAGE_FIN_CO_NO"/>
 		<result property="korCoNm" column="MORTGAGE_KOR_CO_NM"/>
@@ -60,7 +61,7 @@
 	</insert>
 	
 	<select id="selectMortgageList" resultMap="mortgageListResultMap">
-		SELECT m.mortgage_id, m.mortgage_kor_co_nm, m.mortgage_fin_prdt_nm, m.mortgage_join_way, 
+		SELECT m.fintype, m.mortgage_id, m.mortgage_kor_co_nm, m.mortgage_fin_prdt_nm, m.mortgage_join_way, 
 		m.mortgage_loan_inci_expn, m.mortgage_erly_rpay_fee, m.mortgage_dly_rate, m.mortgage_loan_lmt,
 		o.mortgage_mrtg_type_nm, o.mortgage_rpay_type_nm, o.mortgage_lend_rate_type_nm,
 		o.mortgage_lend_rate_min, o.mortgage_lend_rate_max, o.mortgage_lend_rate_avg
@@ -88,7 +89,7 @@
 		m.mortgage_dly_rate, m.mortgage_loan_lmt,
 		o.mortgage_mrtg_type_nm, o.mortgage_rpay_type_nm, o.mortgage_lend_rate_type_nm,
 		o.mortgage_lend_rate_min, o.mortgage_lend_rate_max, o.mortgage_lend_rate_avg
-		FROM mortgageloan m
+		FROM MORTGAGELOAN m
 		JOIN mortgageloan_option o ON m.mortgage_id = o.mortgage_id
 		JOIN (SELECT mortgage_id, MAX(mortgage_lend_rate_max) MAX_RATE
 		FROM mortgageloan_option
@@ -101,11 +102,11 @@
 	</select>
 	
 	<select id="selectByMortgageId" parameterType="int" resultMap="mortgageListResultMap">
-		SELECT m.mortgage_id, m.mortgage_kor_co_nm, m.mortgage_fin_prdt_nm, m.mortgage_join_way, 
+		SELECT m.fintype, m.mortgage_id, m.mortgage_kor_co_nm, m.mortgage_fin_prdt_nm, m.mortgage_join_way, 
 		m.mortgage_loan_inci_expn, m.mortgage_erly_rpay_fee, m.mortgage_dly_rate, m.mortgage_loan_lmt,
 		o.mortgage_mrtg_type_nm, o.mortgage_rpay_type_nm, o.mortgage_lend_rate_type_nm,
 		o.mortgage_lend_rate_min, o.mortgage_lend_rate_max, o.mortgage_lend_rate_avg
-		FROM mortgageloan m
+		FROM MORTGAGELOAN m
 		JOIN mortgageloan_option o ON m.mortgage_id = o.mortgage_id
 		JOIN (SELECT mortgage_id, MAX(mortgage_lend_rate_max) MAX_RATE
 		FROM mortgageloan_option

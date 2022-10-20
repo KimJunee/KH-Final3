@@ -82,7 +82,7 @@ public class FixDepositAPI {
 	
 						if (node.getNodeType() == Node.ELEMENT_NODE) {
 							Element eElement = (Element) node;
-							
+							String finType = "2";
 							int fixdepositId = j;
 							String dclsMonth = getStrData(eElement, "dcls_month"); 
 							int finCoNo = getIntData(eElement, "fin_co_no"); 
@@ -122,7 +122,7 @@ public class FixDepositAPI {
 								no++;
 								optionList.add(fixDepositOption);
 							}
-							FixDeposit fixDeposit = new FixDeposit(fixdepositId, dclsMonth, finCoNo, korCoNm, finPrdtCd, finPrdtNm, joinWay, mtrtInt, spclCnd, joinDeny, joinMember, etcNote, maxLimit, dclsStrtDay, dclsEndDay, finCoSubmDay, optionList);
+							FixDeposit fixDeposit = new FixDeposit(finType, fixdepositId, dclsMonth, finCoNo, korCoNm, finPrdtCd, finPrdtNm, joinWay, mtrtInt, spclCnd, joinDeny, joinMember, etcNote, maxLimit, dclsStrtDay, dclsEndDay, finCoSubmDay, optionList);
 							list.add(fixDeposit);
 							if(j == count + nList.getLength() - 1 ) {
 								count = j+1;

@@ -82,7 +82,7 @@ public class LeaseLoanAPI {
 	
 						if (node.getNodeType() == Node.ELEMENT_NODE) {
 							Element eElement = (Element) node;
-							
+							String fintype = "4";
 							int leaseLoanId = j;
 							String dclsMonth = getStrData(eElement, "dcls_month");
 							int finCoNo = getIntData(eElement, "fin_co_no");
@@ -122,7 +122,7 @@ public class LeaseLoanAPI {
 								no++;
 								optionList.add(leaseLoanOption);
 							}
-							LeaseLoan leaseLoan = new LeaseLoan(leaseLoanId, dclsMonth, finCoNo, korCoNm, finPrdtCd, finPrdtNm, joinWay, loanInciExpn, erlyRpayFee, dlyRate, loanLmt, dclsStrtDay, dclsEndDay, finCoSubmDay, optionList);
+							LeaseLoan leaseLoan = new LeaseLoan(fintype, leaseLoanId, dclsMonth, finCoNo, korCoNm, finPrdtCd, finPrdtNm, joinWay, loanInciExpn, erlyRpayFee, dlyRate, loanLmt, dclsStrtDay, dclsEndDay, finCoSubmDay, optionList);
 							list.add(leaseLoan);
 							if(j == count + nList.getLength() - 1 ) {
 								count = j+1;

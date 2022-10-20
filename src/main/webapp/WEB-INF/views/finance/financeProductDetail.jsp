@@ -201,6 +201,10 @@
 		                </aside>
 		            </div>
 		        </section>
+		        
+		        <script type="text/javascript">
+		        	let userno = ${}
+		        </script>
 		
 		        <section class="py-1 mb-5">
 		            <div class="container">

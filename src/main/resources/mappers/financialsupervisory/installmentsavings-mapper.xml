@@ -6,6 +6,7 @@
 <mapper	namespace="com.kh.realfinal.financialsupervisory.model.mapper.InstallmentSavingsMapper">
 		<resultMap type="InstallmentSavings" id="installmentResultMap">
 		<id property="id" column="INSSVN_ID"/>
+		<result property="finType" column="FINTYPE"/>
 		<result property="dclsMonth" column="INSSVN_DCLS_MONTH"/>
 		<result property="finCoNo" column="INSSVN_FIN_CO_NO"/>
 		<result property="korCoNm" column="INSSVN_KOR_CO_NM"/>
@@ -40,7 +41,7 @@
 	</resultMap>
 	
 	<select id="selectInstallList" resultMap="installListResultMap">
-		SELECT I.inssvn_id, I.inssvn_kor_co_nm, I.inssvn_fin_prdt_nm, I.inssvn_join_way, I.inssvn_mtrt_int,
+		SELECT I.fintype, I.inssvn_id, I.inssvn_kor_co_nm, I.inssvn_fin_prdt_nm, I.inssvn_join_way, I.inssvn_mtrt_int,
 		I.inssvn_spcl_cnd, I.inssvn_join_member, I.inssvn_etc_note, I.inssvn_max_limit,
 		O.intr_rate_type_nm, O.rsrv_type_nm, O.save_trm, O.intr_rate2
 		FROM INSTLSAVING I
@@ -78,7 +79,7 @@
 	</select>
 	
 	<select id="selectByInssvnId" parameterType="int" resultMap="installListResultMap">
-		SELECT I.inssvn_id, I.inssvn_kor_co_nm, I.inssvn_fin_prdt_nm, I.inssvn_join_way, I.inssvn_mtrt_int,
+		SELECT I.fintype, I.inssvn_id, I.inssvn_kor_co_nm, I.inssvn_fin_prdt_nm, I.inssvn_join_way, I.inssvn_mtrt_int,
 		I.inssvn_spcl_cnd, I.inssvn_join_member, I.inssvn_etc_note, I.inssvn_max_limit,
 		O.intr_rate_type_nm, O.rsrv_type_nm, O.save_trm, O.intr_rate, O.intr_rate2
 		FROM INSTLSAVING I
