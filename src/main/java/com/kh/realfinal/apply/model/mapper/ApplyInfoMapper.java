@@ -29,4 +29,9 @@ public interface ApplyInfoMapper {
 	List<ApplyNoticeAttach> selectNoticeAttach(@Param("bbs_sn") String bbs_sn);
 	List<AptLttotPblancDetail> selectAptLttotList(Map<String, String> map);
 	
+	
+	// 청약상세페이지 - apt
+	AptLttotPblancDetail selectAptNo(String no);
+	AptLttotPblancMdl selectAptMdlNo(String no);
+
 }

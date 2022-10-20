@@ -21,21 +21,21 @@ public class UrbtyOfctlLttotPblancDetailController {
 	private UrbtyOfctlLttotPblancDetailService urbtyservice;
 	
 	
-	@GetMapping("/RealEstate/urbty")
-	public String view(Model model, @RequestParam("no") String no) {
-		UrbtyOfctlLttotPblancDetail urbty = urbtyservice.getSelectUrbtyNo(no);
-		UrbtyMdl urbtyMdl = urbtyservice.getSelectUrbtyMdlNo(no);
-		
-		if(urbty == null) {
-			System.out.println("값이 없습니다.");
-		}
-		
-		model.addAttribute("urbty", urbty);
-		model.addAttribute("urbtyMdl", urbtyMdl);
-		
-		return "/realEstate/realEstateDetailUrbty";
-	}
-	
+//	@GetMapping("/RealEstate/urbty")
+//	public String view(Model model, @RequestParam("no") String no) {
+//		UrbtyOfctlLttotPblancDetail urbty = urbtyservice.getSelectUrbtyNo(no);
+//		UrbtyMdl urbtyMdl = urbtyservice.getSelectUrbtyMdlNo(no);
+//		
+//		if(urbty == null) {
+//			System.out.println("값이 없습니다.");
+//		}
+//		
+//		model.addAttribute("urbty", urbty);
+//		model.addAttribute("urbtyMdl", urbtyMdl);
+//		
+//		return "/realEstate/realEstateDetailUrbty";
+//	}
+//	
 	
 	
 	

@@ -79,8 +79,9 @@
 	</select>
 	
 	<select id="selectUrbtyMdlNo" resultType="String" resultMap="UrbtyMdlMap">
-		SELECT * FROM URBTYMDL
+		SELECT ROWNUM, URBTYMDL.* FROM (SELECT * FROM URBTYMDL
 		WHERE HOUSE_MANAGE_NO = #{house_manage_no}
+        ORDER BY SUPLY_AMOUNT DESC) URBTYMDL WHERE ROWNUM = 1
 	</select>
 	
 

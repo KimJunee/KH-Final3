@@ -88,7 +88,7 @@
                             </tr>
                             <tr>
                                 <th class="p-3 h5 text-center">공급규모</th>
-                                <td class="p-3 h5 text-center">${urbty.tot_suply_hshldco}</td>
+                                <td class="p-3 h5 text-center">${urbty.tot_suply_hshldco}세대</td>
                             </tr>
                             <tr>
                                 <th class="p-3 h5 text-center" >입주예정월</th>

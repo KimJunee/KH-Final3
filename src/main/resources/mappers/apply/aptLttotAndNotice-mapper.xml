@@ -3,6 +3,146 @@
   
 <mapper namespace="com.kh.realfinal.apply.model.mapper.ApplyInfoMapper">
 
+	<resultMap type="AptLttotPblancDetail" id="AptLttotPblancDetailMap">
+		<id property="apt_apply_no" column="APT_APPLY_NO"/>
+		<result property="bsns_mby_nm" column="BSNS_MBY_NM"/>
+		<result property="cnstrct_entrps_nm" column="CNSTRCT_ENTRPS_NM"/>
+		<result property="cntrct_cncls_bgnde" column="CNTRCT_CNCLS_BGNDE"/>
+		<result property="cntrct_cncls_endde" column="CNTRCT_CNCLS_ENDDE"/>
+		<result property="gnrl_rnk1_crsparea_rcept_pd" column="GNRL_RNK1_CRSPAREA_RCEPT_PD"/>
+		<result property="gnrl_rnk1_etc_area_rcptde_pd" column="GNRL_RNK1_ETC_AREA_RCPTDE_PD"/>
+		<result property="gnrl_rnk1_etc_gg_rcptde_pd" column="GNRL_RNK1_ETC_GG_RCPTDE_PD"/>
+		<result property="gnrl_rnk2_crsparea_rcept_pd" column="GNRL_RNK2_CRSPAREA_RCEPT_PD"/>
+		<result property="gnrl_rnk2_etc_area_rcptde_pd" column="GNRL_RNK2_ETC_AREA_RCPTDE_PD"/>
+		<result property="gnrl_rnk2_etc_gg_rcptde_pd" column="GNRL_RNK2_ETC_GG_RCPTDE_PD"/>
+		<result property="hmpg_adres" column="HMPG_ADRES"/>
+		<result property="house_dtl_secd" column="HOUSE_DTL_SECD"/>
+		<result property="house_dtl_secd_nm" column="HOUSE_DTL_SECD_NM"/>
+		<result property="house_manage_no" column="HOUSE_MANAGE_NO"/>
+		<result property="house_nm" column="HOUSE_NM"/>
+		<result property="house_secd" column="HOUSE_SECD"/>
+		<result property="house_secd_nm" column="HOUSE_SECD_NM"/>
+		<result property="hssply_adres" column="HSSPLY_ADRES"/>
+		<result property="hssply_zip" column="HSSPLY_ZIP"/>
+		<result property="imprmn_bsns_at" column="IMPRMN_BSNS_AT"/>
+		<result property="lrscl_bldlnd_at" column="LRSCL_BLDLND_AT"/>
+		<result property="mdat_trget_area_secd" column="MDAT_TRGET_AREA_SECD"/>
+		<result property="mdhs_telno" column="MDHS_TELNO"/>
+		<result property="mvn_prearnge_ym" column="MVN_PREARNGE_YM"/>
+		<result property="npln_prvopr_public_house_at" column="NPLN_PRVOPR_PUBLIC_HOUSE_AT"/>
+		<result property="parcprc_uls_at" column="PARCPRC_ULS_AT"/>
+		<result property="pblanc_no" column="PBLANC_NO"/>
+		<result property="przwner_presnatn_de" column="PRZWNER_PRESNATN_DE"/>
+		<result property="public_house_earth_at" column="PUBLIC_HOUSE_EARTH_AT"/>
+		<result property="rcept_bgnde" column="RCEPT_BGNDE"/>
+		<result property="rcept_endde" column="RCEPT_ENDDE"/>
+		<result property="rcrit_pblanc_de" column="RCRIT_PBLANC_DE"/>
+		<result property="rent_secd" column="RENT_SECD"/>
+		<result property="rent_secd_nm" column="RENT_SECD_NM"/>
+		<result property="speclt_rdn_earth_at" column="SPECLT_RDN_EARTH_AT"/>
+		<result property="spsply_rcept_bgnde" column="SPSPLY_RCEPT_BGNDE"/>
+		<result property="spsply_rcept_endde" column="SPSPLY_RCEPT_ENDDE"/>
+		<result property="subscrpt_area_code" column="SUBSCRPT_AREA_CODE"/>
+		<result property="subscrpt_area_code_nm" column="SUBSCRPT_AREA_CODE_NM"/>
+		<result property="tot_suply_hshldco" column="TOT_SUPLY_HSHLDCO"/>
+	</resultMap>
+	
+	<resultMap type="AptLttotPblancDetail" id="AptLttotPblancDetailListMap" extends="AptLttotPblancDetailMap">
+		<collection property="AptLttotPblancDetailList" javaType="arrayList" resultMap="AptLttotPblancMdlMap"/>
+	</resultMap>
+	
+	
+	<resultMap type="AptLttotPblancMdl" id="AptLttotPblancMdlMap">
+		<id property="house_manage_no" column="HOUSE_MANAGE_NO"/>
+		<result property="etc_hshldco" column="ETC_HSHLDCO"/>
+		<result property="house_ty" column="HOUSE_TY"/>
+		<result property="instt_recomend_hshldco" column="INSTT_RECOMEND_HSHLDCO"/>
+		<result property="lfe_frst_hshldco" column="LFE_FRST_HSHLDCO"/>
+		<result property="lttot_top_amount" column="LTTOT_TOP_AMOUNT"/>
+		<result property="mnych_hshldco" column="MNYCH_HSHLDCO"/>
+		<result property="model_no" column="MODEL_NO"/>
+		<result property="nwwds_hshldco" column="NWWDS_HSHLDCO"/>
+		<result property="old_parnts_suport_hshldco" column="OLD_PARNTS_SUPORT_HSHLDCO"/>
+		<result property="pblanc_no" column="PBLANC_NO"/>
+		<result property="spsply_hshldco" column="SPSPLY_HSHLDCO"/>
+		<result property="suply_ar" column="SUPLY_AR"/>
+		<result property="suply_hshldco" column="SUPLY_HSHLDCO"/>
+		<result property="transr_instt_enfsn_hshldco" column="TRANSR_INSTT_ENFSN_HSHLDCO"/>
+	</resultMap>
+	
+	
+	<select id="selectAptLttotList" resultMap="AptLttotPblancDetailMap" parameterType="map">
+		SELECT
+			apt_apply_no,
+	  		bsns_mby_nm,
+	  		cnstrct_entrps_nm,
+	  		cntrct_cncls_bgnde,
+	  		cntrct_cncls_endde,
+	  		gnrl_rnk1_crsparea_rcept_pd,
+	  		gnrl_rnk1_etc_area_rcptde_pd,
+	  		gnrl_rnk1_etc_gg_rcptde_pd,
+	  		gnrl_rnk2_crsparea_rcept_pd,
+	  		gnrl_rnk2_etc_area_rcptde_pd,
+	  		gnrl_rnk2_etc_gg_rcptde_pd,
+	  		hmpg_adres,
+	  		house_dtl_secd,
+	  		house_dtl_secd_nm,
+	  		house_manage_no,
+	  		house_nm,
+	  		house_secd,
+	  		house_secd_nm,
+	  		hssply_adres,
+	  		hssply_zip,
+	  		imprmn_bsns_at,
+	  		lrscl_bldlnd_at,
+	  		mdat_trget_area_secd,
+	  		mdhs_telno,
+	  		mvn_prearnge_ym,
+	  		npln_prvopr_public_house_at, 
+	  		parcprc_uls_at,
+	  		pblanc_no,
+	  		przwner_presnatn_de,
+	  		public_house_earth_at,
+	  		rcept_bgnde,
+	  		rcept_endde,
+	  		rcrit_pblanc_de,
+	  		rent_secd,
+	  		rent_secd_nm,
+	  		speclt_rdn_earth_at,
+	  		spsply_rcept_bgnde,
+	  		spsply_rcept_endde,
+	  		subscrpt_area_code,
+	  		subscrpt_area_code_nm,
+	  		tot_suply_hshldco
+  		FROM APT_LTTOT_PBLANC_DETAIL
+  		WHERE 1 = 1
+  		<if test="category != null">
+			AND ais_tp_cd_nm LIKE '%'||#{category}||'%'
+		</if>
+	</select>
+	
+	
+	
+	<select id="aptLttotList" resultMap="AptLttotPblancDetailMap">
+		SELECT * FROM APT_LTTOT_PBLANC_DETAIL
+	</select>
+	
+	<select id="aptLttotCount" resultType="int" parameterType="map">
+		SELECT COUNT(*)	FROM APT_LTTOT_PBLANC_DETAIL
+	</select>
+	
+	<select id="selectAptNo" parameterType="String" resultMap="AptLttotPblancDetailMap">
+		SELECT * FROM APT_LTTOT_PBLANC_DETAIL
+		WHERE HOUSE_MANAGE_NO = #{house_manage_no}
+	</select>
+	
+	<select id="selectAptMdlNo" resultType="String" resultMap="AptLttotPblancMdlMap">
+		SELECT ROWNUM, APT_LTTOT_PBLANC_MDL.* FROM (SELECT * FROM APT_LTTOT_PBLANC_MDL
+		WHERE HOUSE_MANAGE_NO = #{house_manage_no}
+        ORDER BY LTTOT_TOP_AMOUNT DESC) APT_LTTOT_PBLANC_MDL WHERE ROWNUM = 1
+	</select>
+	
+	
 	<!-- APT 분양정보 주택형별 상세조회 insert -->
 	<insert id="insertAptLtto" parameterType="AptLttotPblancDetail"
 		useGeneratedKeys="true" keyColumn="APT_APPLY_NO" keyProperty="apt_apply_no">
@@ -62,103 +202,7 @@
 		)
 	</insert>
 	
-	<select id="selectAptLttotList" resultMap="AptLttotPblancDetailMap" parameterType="map">
-		SELECT
-			apt_apply_no,
-	  		bsns_mby_nm,
-	  		cnstrct_entrps_nm,
-	  		cntrct_cncls_bgnde,
-	  		cntrct_cncls_endde,
-	  		gnrl_rnk1_crsparea_rcept_pd,
-	  		gnrl_rnk1_etc_area_rcptde_pd,
-	  		gnrl_rnk1_etc_gg_rcptde_pd,
-	  		gnrl_rnk2_crsparea_rcept_pd,
-	  		gnrl_rnk2_etc_area_rcptde_pd,
-	  		gnrl_rnk2_etc_gg_rcptde_pd,
-	  		hmpg_adres,
-	  		house_dtl_secd,
-	  		house_dtl_secd_nm,
-	  		house_manage_no,
-	  		house_nm,
-	  		house_secd,
-	  		house_secd_nm,
-	  		hssply_adres,
-	  		hssply_zip,
-	  		imprmn_bsns_at,
-	  		lrscl_bldlnd_at,
-	  		mdat_trget_area_secd,
-	  		mdhs_telno,
-	  		mvn_prearnge_ym,
-	  		npln_prvopr_public_house_at, 
-	  		parcprc_uls_at,
-	  		pblanc_no,
-	  		przwner_presnatn_de,
-	  		public_house_earth_at,
-	  		rcept_bgnde,
-	  		rcept_endde,
-	  		rcrit_pblanc_de,
-	  		rent_secd,
-	  		rent_secd_nm,
-	  		speclt_rdn_earth_at,
-	  		spsply_rcept_bgnde,
-	  		spsply_rcept_endde,
-	  		subscrpt_area_code,
-	  		subscrpt_area_code_nm,
-	  		tot_suply_hshldco
-  		FROM APT_LTTOT_PBLANC_DETAIL
-  		WHERE 1 = 1
-  		<if test="category != null">
-			AND ais_tp_cd_nm LIKE '%'||#{category}||'%'
-		</if>
-	</select>
 	
-	<resultMap type="AptLttotPblancDetail" id="AptLttotPblancDetailMap">
-		<id property="apt_apply_no" column="APT_APPLY_NO"/>
-		<result property="bsns_mby_nm" column="BSNS_MBY_NM"/>
-		<result property="cnstrct_entrps_nm" column="CNSTRCT_ENTRPS_NM"/>
-		<result property="cntrct_cncls_bgnde" column="CNTRCT_CNCLS_BGNDE"/>
-		<result property="cntrct_cncls_endde" column="CNTRCT_CNCLS_ENDDE"/>
-		<result property="gnrl_rnk1_crsparea_rcept_pd" column="GNRL_RNK1_CRSPAREA_RCEPT_PD"/>
-		<result property="gnrl_rnk1_etc_area_rcptde_pd" column="GNRL_RNK1_ETC_AREA_RCPTDE_PD"/>
-		<result property="gnrl_rnk1_etc_gg_rcptde_pd" column="GNRL_RNK1_ETC_GG_RCPTDE_PD"/>
-		<result property="gnrl_rnk2_crsparea_rcept_pd" column="GNRL_RNK2_CRSPAREA_RCEPT_PD"/>
-		<result property="gnrl_rnk2_etc_area_rcptde_pd" column="GNRL_RNK2_ETC_AREA_RCPTDE_PD"/>
-		<result property="gnrl_rnk2_etc_gg_rcptde_pd" column="GNRL_RNK2_ETC_GG_RCPTDE_PD"/>
-		<result property="hmpg_adres" column="HMPG_ADRES"/>
-		<result property="house_dtl_secd" column="HOUSE_DTL_SECD"/>
-		<result property="house_dtl_secd_nm" column="HOUSE_DTL_SECD_NM"/>
-		<result property="house_manage_no" column="HOUSE_MANAGE_NO"/>
-		<result property="house_nm" column="HOUSE_NM"/>
-		<result property="house_secd" column="HOUSE_SECD"/>
-		<result property="house_secd_nm" column="HOUSE_SECD_NM"/>
-		<result property="hssply_adres" column="HSSPLY_ADRES"/>
-		<result property="hssply_zip" column="HSSPLY_ZIP"/>
-		<result property="imprmn_bsns_at" column="IMPRMN_BSNS_AT"/>
-		<result property="lrscl_bldlnd_at" column="LRSCL_BLDLND_AT"/>
-		<result property="mdat_trget_area_secd" column="MDAT_TRGET_AREA_SECD"/>
-		<result property="mdhs_telno" column="MDHS_TELNO"/>
-		<result property="mvn_prearnge_ym" column="MVN_PREARNGE_YM"/>
-		<result property="npln_prvopr_public_house_at" column="NPLN_PRVOPR_PUBLIC_HOUSE_AT"/>
-		<result property="parcprc_uls_at" column="PARCPRC_ULS_AT"/>
-		<result property="pblanc_no" column="PBLANC_NO"/>
-		<result property="przwner_presnatn_de" column="PRZWNER_PRESNATN_DE"/>
-		<result property="public_house_earth_at" column="PUBLIC_HOUSE_EARTH_AT"/>
-		<result property="rcept_bgnde" column="RCEPT_BGNDE"/>
-		<result property="rcept_endde" column="RCEPT_ENDDE"/>
-		<result property="rcrit_pblanc_de" column="RCRIT_PBLANC_DE"/>
-		<result property="rent_secd" column="RENT_SECD"/>
-		<result property="rent_secd_nm" column="RENT_SECD_NM"/>
-		<result property="speclt_rdn_earth_at" column="SPECLT_RDN_EARTH_AT"/>
-		<result property="spsply_rcept_bgnde" column="SPSPLY_RCEPT_BGNDE"/>
-		<result property="spsply_rcept_endde" column="SPSPLY_RCEPT_ENDDE"/>
-		<result property="subscrpt_area_code" column="SUBSCRPT_AREA_CODE"/>
-		<result property="subscrpt_area_code_nm" column="SUBSCRPT_AREA_CODE_NM"/>
-		<result property="tot_suply_hshldco" column="TOT_SUPLY_HSHLDCO"/>
-	</resultMap>
-	
-	<resultMap type="AptLttotPblancDetail" id="AptLttotPblancDetailListMap" extends="AptLttotPblancDetailMap">
-		<collection property="AptLttotPblancDetailList" javaType="arrayList" resultMap="AptLttotPblancMdlMap"/>
-	</resultMap>
 	
 	<insert id="insertAptLttoMdl" parameterType="AptLttotPblancMdl">
 	  	INSERT INTO APT_LTTOT_PBLANC_MDL (
@@ -185,24 +229,7 @@
 		)
 	</insert>
 	
-	<resultMap type="AptLttotPblancMdl" id="AptLttotPblancMdlMap">
-		<id property="house_manage_no" column="HOUSE_MANAGE_NO"/>
-		<result property="etc_hshldco" column="ETC_HSHLDCO"/>
-		<result property="house_ty" column="HOUSE_TY"/>
-		<result property="instt_recomend_hshldco" column="INSTT_RECOMEND_HSHLDCO"/>
-		<result property="lfe_frst_hshldco" column="LFE_FRST_HSHLDCO"/>
-		<result property="lttot_top_amount" column="LTTOT_TOP_AMOUNT"/>
-		<result property="mnych_hshldco" column="MNYCH_HSHLDCO"/>
-		<result property="model_no" column="MODEL_NO"/>
-		<result property="nwwds_hshldco" column="NWWDS_HSHLDCO"/>
-		<result property="old_parnts_suport_hshldco" column="OLD_PARNTS_SUPORT_HSHLDCO"/>
-		<result property="pblanc_no" column="PBLANC_NO"/>
-		<result property="spsply_hshldco" column="SPSPLY_HSHLDCO"/>
-		<result property="suply_ar" column="SUPLY_AR"/>
-		<result property="suply_hshldco" column="SUPLY_HSHLDCO"/>
-		<result property="transr_instt_enfsn_hshldco" column="TRANSR_INSTT_ENFSN_HSHLDCO"/>
-	</resultMap>
-	
+
 	
 
 	<!-- 청약 공지사항 & 청약 공지사항 상세 api insert -->

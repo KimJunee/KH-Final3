@@ -76,8 +76,9 @@
 	</select>
 	
 	<select id="selectRemndrMdlNo" resultType="String" resultMap="RemndrMdlMap">
-		SELECT * FROM REMNDRMDL
+		SELECT ROWNUM, REMNDRMDL.* FROM (SELECT * FROM REMNDRMDL
 		WHERE HOUSE_MANAGE_NO = #{house_manage_no}
+        ORDER BY LTTOT_TOP_AMOUNT DESC) REMNDRMDL WHERE ROWNUM = 1
 	</select>
 	
 	

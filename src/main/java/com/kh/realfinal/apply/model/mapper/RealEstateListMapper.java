@@ -7,13 +7,16 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.session.RowBounds;
 
+import com.kh.realfinal.apply.model.vo.AptLttotPblancDetail;
+import com.kh.realfinal.apply.model.vo.AptLttotPblancMdl;
 import com.kh.realfinal.apply.model.vo.RealEstateList;
 
 @Mapper
 public interface RealEstateListMapper {
 	
-	// 청약리스트 조회
+	// 청약상세조회페이지
 	List<RealEstateList> RealboardList(RowBounds rowBounds, Map<String, Object> map);
 	int RealboardListCount(Map<String, Object> map);
 
+		
 }

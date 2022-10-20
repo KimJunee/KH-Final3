@@ -10,7 +10,7 @@ public interface RemndrLttotPblancDetailService {
 	RemndrMdl getSelectRemndrMdlNo(String no);
 	
 	
-	// 청약 파싱
+	// 청약파싱
 	int saveRemndrLttotPblancDetailService(RemndrLttotPblancDetail rd);
 	int saveRemndrMdlService(RemndrMdl rm);
 }

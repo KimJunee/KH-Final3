@@ -15,7 +15,7 @@ public class RemndrLttotPblancDetailServiceImpl implements RemndrLttotPblancDeta
 	@Autowired
 	private RemndrLttotPblancDetailMapper remndrmapper;
 	
-	// 상세페이지에서 공고번호로 객체 가져오기
+	// 청약상세페이지에서 공고번호로 객체 가져오기
 	@Override
 	public RemndrLttotPblancDetail getSelectRemndrNo(String no) {
 		RemndrLttotPblancDetail remndr = remndrmapper.selectRemndrNo(no);

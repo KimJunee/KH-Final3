@@ -5,7 +5,7 @@ import com.kh.realfinal.apply.model.vo.UrbtyOfctlLttotPblancDetail;
 
 public interface UrbtyOfctlLttotPblancDetailService {
 	
-	// 청약상세페이지
+	// 청약상세 페이지
 	UrbtyOfctlLttotPblancDetail getSelectUrbtyNo(String no);
 	UrbtyMdl getSelectUrbtyMdlNo(String no);
 	

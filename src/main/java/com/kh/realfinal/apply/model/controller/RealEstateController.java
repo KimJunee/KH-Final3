@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.kh.realfinal.apply.model.service.RealEstateService;
 import com.kh.realfinal.apply.model.service.RemndrLttotPblancDetailService;
 import com.kh.realfinal.apply.model.service.UrbtyOfctlLttotPblancDetailService;
+import com.kh.realfinal.apply.model.vo.AptLttotPblancDetail;
+import com.kh.realfinal.apply.model.vo.AptLttotPblancMdl;
 import com.kh.realfinal.apply.model.vo.RealEstateList;
 import com.kh.realfinal.apply.model.vo.RemndrLttotPblancDetail;
 import com.kh.realfinal.apply.model.vo.RemndrMdl;
@@ -155,9 +157,18 @@ public class RealEstateController {
 			model.addAttribute("urbtyMdl", urbtyMdl);
 
 			return "realEstate/realEstateDetailUrbty";
+		} else {
+			AptLttotPblancDetail aptLtto = realEstateService.getSelectAptNo(no);
+			AptLttotPblancMdl aptLttoMdl = realEstateService.getSelectAptMdlNo(no);
 
+			if (aptLtto == null) {
+				System.out.println("값이 없습니다.");
+			}
+
+			model.addAttribute("aptLtto", aptLtto);
+			model.addAttribute("aptLttoMdl", aptLttoMdl);
+			return "realEstate/realEstateDetailAptLtto"; 
 		}
-		return "realEstate/realEstateDetailRemndr"; 
 	}
 
 }

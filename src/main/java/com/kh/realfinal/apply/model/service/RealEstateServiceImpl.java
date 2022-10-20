@@ -13,7 +13,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
 
+import com.kh.realfinal.apply.model.mapper.ApplyInfoMapper;
 import com.kh.realfinal.apply.model.mapper.RealEstateListMapper;
+import com.kh.realfinal.apply.model.vo.AptLttotPblancDetail;
+import com.kh.realfinal.apply.model.vo.AptLttotPblancMdl;
 import com.kh.realfinal.apply.model.vo.RealEstateList;
 import com.kh.realfinal.common.util.PageInfo;
 
@@ -23,10 +26,13 @@ public class RealEstateServiceImpl implements RealEstateService{
 	@Autowired
 	private RealEstateListMapper realmapper;
 	
+	@Autowired
+	private ApplyInfoMapper applyInfomapper;
+	
 	//----------------------------------------------------------------------------------
 
 	
-	
+	// ------------------------------------- 청약상세페이지
 	@Override
 	public List<RealEstateList> getRealBoardList(PageInfo pageInfo, Map<String, String> param, String[] locationType, String[] houseType, String[] APTsupplyType, String[] scheType) {
 		// paging 처리를 위한 RowBounds 코드 셋팅
@@ -91,6 +97,21 @@ public class RealEstateServiceImpl implements RealEstateService{
 		
 		System.out.println("searchMap : " + searchMap);
 		return realmapper.RealboardListCount(searchMap);
+	}
+	
+	
+	// 청약상세페이지에서 공고번호로 객체 가져오기
+	@Override
+	public AptLttotPblancDetail getSelectAptNo(String no) {
+		AptLttotPblancDetail aptLtto = applyInfomapper.selectAptNo(no);
+		System.out.println(aptLtto);
+		return aptLtto;
+	}
+
+	@Override
+	public AptLttotPblancMdl getSelectAptMdlNo(String no) {
+		AptLttotPblancMdl aptLttoMdl = applyInfomapper.selectAptMdlNo(no);
+		return aptLttoMdl;
 	}
 
 

@@ -43,14 +43,14 @@
 
 
     <!-- =======================섹션2: 분양단지 상세 정보 시작 =======================-->
-<c:if test="${empty remndr}">
+<c:if test="${empty aptLtto}">
 	            <p>해당 분양 단지의 상세정보가 없습니다.</p>
 </c:if>
-<c:if test="${!empty remndr}">
+<c:if test="${!empty aptLtto}">
     <section>
     
         <div class="container">
-            <h2 class="m-0 mice"><i class="bi bi-building me-2"></i>${remndr.house_nm}</h2>
+            <h2 class="m-0 mice"><i class="bi bi-building me-2"></i>${aptLtto.house_nm}</h2>
             <p>해당 분양 단지의 상세정보입니다</p>
             <div class="row g-4">
                 <!-- Image -->
@@ -80,23 +80,23 @@
                         <table class="table text-sm mb-0 ">
                             <tr>
                                 <th class="p-3 h5 text-center" style="width: 30%">공급위치</th>
-                                <td class="p-3 h5 text-center">${remndr.hssply_adres}</td>
+                                <td class="p-3 h5 text-center">${aptLtto.hssply_adres}</td>
                             </tr>
                             <tr>
                                 <th class="p-3 h5 text-center" >모집공고일</th>
-                                <td class="p-3 h5 text-center">${remndr.rcrit_pblanc_de}</td>
+                                <td class="p-3 h5 text-center">${aptLtto.rcrit_pblanc_de}</td>
                             </tr>
                             <tr>
                                 <th class="p-3 h5 text-center">공급규모</th>
-                                <td class="p-3 h5 text-center">${remndr.tot_suply_hshldco}세대</td>
+                                <td class="p-3 h5 text-center">${aptLtto.tot_suply_hshldco}세대</td>
                             </tr>
                             <tr>
                                 <th class="p-3 h5 text-center" >입주예정월</th>
-                                <td class="p-3 h5 text-center">${remndr.tot_suply_hshldco}(월)</td>
+                                <td class="p-3 h5 text-center">${aptLtto.mvn_prearnge_ym}(월)</td>
                             </tr>
                             <tr>
                                 <th class="p-3 h5 text-center pb-4" style="border-bottom: none">문의처</th>
-                                <td class="p-3 h5 text-center pb-4" style="border-bottom: none"><i class="bi bi-telephone-fill me-2"></i>${remndr.mdhs_telno}</td>
+                                <td class="p-3 h5 text-center pb-4" style="border-bottom: none"><i class="bi bi-telephone-fill me-2"></i>${aptLtto.mdhs_telno}</td>
                             </tr>
                         </table>
                         <a class="btn btn-lg btn-warning w-100 mb-3" href="#">♥ Like This Information</a>
@@ -138,31 +138,31 @@
 									<table class="table mb-0 m-2">
 										<tr>
 											<th class="ps-2 " style="width: 30%">공고번호</th>
-											<td class="pe-2 ">${remndr.pblanc_no}</td>
+											<td class="pe-2 ">${aptLtto.pblanc_no}</td>
 										</tr>
 										<tr>
 											<th class="ps-2 ">주택명</th>
-											<td class="pe-2 ">${remndr.house_nm}</td>
+											<td class="pe-2 ">${aptLtto.house_nm}</td>
 										</tr>
 										<tr>
 											<th class="ps-2 ">공급위치</th>
-											<td class="pe-2 ">${remndr.hssply_adres}</td>
-										</tr>
-										<tr>
-											<th class="ps-2 ">우편번호</th>
-											<td class="pe-2 ">${remndr.hssply_zip}</td>
+											<td class="pe-2 ">${aptLtto.hssply_adres}</td>
 										</tr>
 										<tr>
 											<th class="ps-2 ">주택구분</th>
-											<td class="pe-2 ">${remndr.house_secd_nm}</td>
+											<td class="pe-2 ">${aptLtto.house_secd_nm}</td>
+										</tr>
+										<tr>
+											<th class="ps-2 ">분양종류</th>
+											<td class="pe-2 ">${aptLtto.house_dtl_secd}</td>
 										</tr>
 										<tr>
 											<th class="ps-2 ">공급면적</th>
-											<td class="pe-2 ">${remndrMdl.supply_ar}(㎡)</td>
+											<td class="pe-2 ">${aptLttoMdl.suply_ar}(㎡)</td>
 										</tr>
 										<tr>
 											<th class="ps-2 ">사업주체명</th>
-											<td class="pe-2 ">${remndr.bsns_mby_nm}</td>
+											<td class="pe-2 ">${aptLtto.bsns_mby_nm}</td>
 										</tr>
 									</table>
 								</div>
@@ -181,31 +181,31 @@
                                     <table class="table mb-0 m-2">
                                         <tr>
                                             <th class="ps-2 text-danger" style="width: 50%">분양최고금액</th>
-                                            <td class="pe-2 ">${remndrMdl.lttot_top_amount}(단위:만원)</td>
+                                            <td class="pe-2 ">${aptLttoMdl.lttot_top_amount}(단위:만원)</td>
                                         </tr>
                                         <tr>
                                             <th class="ps-2 ">청약접수 시작일</th>
-                                            <td class="pe-2 ">${remndr.subscrpt_rcept_bgnde}</td>
+                                            <td class="pe-2 ">${aptLtto.rcept_bgnde}</td>
                                         </tr>
                                         <tr>
                                             <th class="ps-2 ">청약접수 종료일</th>
-                                            <td class="pe-2 ">${remndr.subscrpt_rcept_endde}</td>
+                                            <td class="pe-2 ">${aptLtto.rcept_endde}</td>
                                         </tr>
                                         <tr>
                                             <th class="ps-2 text-danger">당첨자 발표일</th>
-                                            <td class="pe-2 ">${remndr.przwner_presnatn_de}</td>
+                                            <td class="pe-2 ">${aptLtto.przwner_presnatn_de}</td>
                                         </tr>
                                         <tr>
                                             <th class="ps-2 ">계약 시작일</th>
-                                            <td class="pe-2 ">${remndr.cntrct_cncls_bgnde}</td>
+                                            <td class="pe-2 ">${aptLtto.cntrct_cncls_bgnde}</td>
                                         </tr>
                                         <tr>
                                             <th class="ps-2 ">계약 종료일</th>
-                                            <td class="pe-2 ">${remndr.cntrct_cncls_endde}</td>
+                                            <td class="pe-2 ">${aptLtto.cntrct_cncls_endde}</td>
                                         </tr>
                                         <tr>
                                             <th class="ps-2 ">모집공고 확인 홈페이지</th>
-                                            <td class="ps-2 p-1"><a href="${remndr.hmpg_adres}" class="badge bg-secondary bg-opacity-75 text-white mb-2"><i class="bi bi-house-door-fill me-2 fw-bold "></i>${remndr.hmpg_adres}</a></td>
+                                            <td class="ps-2 p-1"><a href="${aptLtto.hmpg_adres}" class="badge bg-secondary bg-opacity-75 text-white mb-2"><i class="bi bi-house-door-fill me-2 fw-bold "></i>${aptLtto.hmpg_adres}</a></td>
                                         </tr>
                                     </table>
                                 </div>
