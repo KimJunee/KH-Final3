@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class OpinionController {
 
-	@RequestMapping("/opinion")
+	@RequestMapping("/news/opinion")
 	String newsSearch() {
 		return "/news/opinion";
 	}
