@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.RowBounds;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -68,9 +67,22 @@ public class ApplyInfoApiServiceImpl implements ApplyInfoApiService {
 		int offset = (pageInfo.getCurrentPage() - 1) * pageInfo.getListLimit();
 		RowBounds rb = new RowBounds(offset, pageInfo.getListLimit());
 		
+		Map<String, String> searchMap = new HashMap<String, String>();
+		String searchValue = param.get("searchValue");
+		if(searchValue != null && searchValue.length() > 0) {
+			String type = param.get("searchType");
+			if(type.equals("category")) {
+				searchMap.put("categoryKeyword", searchValue);
+			} else if(type.equals("title")) {
+				searchMap.put("titleKeyword", searchValue);
+			} else if(type.equals("department")) {
+				searchMap.put("departmentKeyword", searchValue);
+			} 
+		}
 		
 		
-		return mapper.selectNoticeList(rb, param);
+		
+		return mapper.selectNoticeList(rb, searchMap);
 	}
 
 
@@ -114,6 +126,11 @@ public class ApplyInfoApiServiceImpl implements ApplyInfoApiService {
 	@Override
 	public List<AptLttotPblancDetail> getAptLttotList(Map<String, String> param) {
 		return mapper.selectAptLttotList(param);
+	}
+
+	@Override
+	public int getApplyNotiTotalCount() {
+		return mapper.selectNoticeTotalCount();
 	}
 
 }

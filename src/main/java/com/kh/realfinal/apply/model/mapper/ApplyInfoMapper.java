@@ -25,6 +25,7 @@ public interface ApplyInfoMapper {
 	//-------------------------------------------청약 공지사항
 	List<ApplyNotice> selectNoticeList(RowBounds rowBounds, Map<String, String> map);
 	int selectNoticeCount(Map<String, String> map);
+	int selectNoticeTotalCount();
 	ApplyNotice selectNoticeByRnum(int rnum);
 	List<ApplyNoticeAttach> selectNoticeAttach(@Param("bbs_sn") String bbs_sn);
 	List<AptLttotPblancDetail> selectAptLttotList(Map<String, String> map);

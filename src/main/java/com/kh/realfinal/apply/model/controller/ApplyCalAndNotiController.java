@@ -43,14 +43,15 @@ public class ApplyCalAndNotiController {
 			} catch (Exception e) {}
 		}
 		
-		int noticeListCount = reService.getApplyNoticeCount(param);
+		int notiTotalCount = reService.getApplyNotiTotalCount();
 		
-		PageInfo pageInfo = new PageInfo(page, 10, noticeListCount, 20);
+		PageInfo pageInfo = new PageInfo(page, 10, reService.getApplyNoticeCount(param), 20);
 		List<ApplyNotice> list = reService.getApplyNoticeList(pageInfo, param);
 		
 		model.addAttribute("list", list);
 		model.addAttribute("param", param);
 		model.addAttribute("pageInfo", pageInfo);
+		model.addAttribute("totalCount", notiTotalCount);
 		
 		System.out.println("param!! " + param.toString());
 		return "realEstate/realEstateNotice";

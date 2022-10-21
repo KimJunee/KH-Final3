@@ -303,6 +303,12 @@
 		ORDER BY RNUM ASC
 	</select>
 	
+	<select id="selectNoticeTotalCount" resultType="int">
+	<!-- <select id="selectNoticeTotalCount" resultType="int" parameterType="map"> -->
+		SELECT COUNT(*) 
+		FROM APPLY_NOTICE 
+	</select>
+	
 	<select id="selectNoticeByRnum" resultMap="applyNoticeResultMap" parameterType="int">
 		SELECT
 			RNUM, 

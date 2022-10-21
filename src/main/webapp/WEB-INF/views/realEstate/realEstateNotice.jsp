@@ -165,7 +165,7 @@
                                     		<tr>
 		                                        <!-- 번호 -->
 		                                        <td style="text-align: center;">
-		                                            <c:out value="${pageInfo.listCount - notice.rnum +1}"/>
+		                                            <c:out value="${totalCount - notice.rnum +1}"/>
 		                                        </td>
 		                                        <!-- 유형 -->
 		                                        <td style="text-align: center;">

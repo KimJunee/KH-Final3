@@ -20,6 +20,7 @@ public interface ApplyInfoApiService {
 		
 		List<ApplyNotice> getApplyNoticeList(PageInfo pageInfo, Map<String, String> param);
 		int getApplyNoticeCount(Map<String, String> param);
+		int getApplyNotiTotalCount();
 		ApplyNotice findNoticeByRnum(int rnum);
 		List<ApplyNoticeAttach> findApplyAttach(String bbs_sn);
 		List<AptLttotPblancDetail> getAptLttotList(Map<String, String> param);
