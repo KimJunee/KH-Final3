@@ -760,7 +760,7 @@ path:hover {
         var confirmed = ${json};
         
 
-
+		var json1 = ${json1};
         [].forEach.call(document.querySelectorAll('path.land'), function(item) {
             item.addEventListener('mouseenter', function() {
                 $('#info-box').css('display', 'block');
@@ -773,16 +773,20 @@ path:hover {
         })
         $(document).mousemove(function(e) {
             $('#info-box').css('top', e.pageY - $('#info-box').height() - 1100);
-            $('#info-box').css('left', e.pageX - ($('#info-box').width()) / 2 - 350);
+            $('#info-box').css('left', e.pageX - ($('#info-box').width()) / 2 - 750);
         }).mouseover();
         
 
         [].forEach.call(document.querySelectorAll('path.land'), function(item) {
             item.addEventListener('click', function() {
-            	alert('test : ' + this.getAttribute("title").toLowerCase());
+            	alert('지역이름 : ' + this.getAttribute("title").toLowerCase());
+            	
+        	var json1 = ${json1};
+       		$.each( json1, function( key, value ){ 
+            console.log( 'key:' + key + ' / ' + 'value:' + JSON.stringify(value)); 
+        });
             });
         })
-        
         
     </script>
 
