@@ -186,8 +186,12 @@
 		                                <span>${fn:replace(loanExpn, '-', '<br>-')}</span>
 		                            </div>
 		                        </div>
-		                        <a class="btn btn-lg btn-primary w-100 mb-3" href="#">♥ Like This Financial Product</a>
-		                        <a class="d-inline-block mb-4 pb-2 text-decoration-none" href="${path}/finance/leaseloanMain">
+		                        <form action="${path}/mypage/finProLikeMort" method="post">
+		                        	<input type="hidden" name="finType" value="${mortgage.finType}">
+		                        	<input type="hidden" name="prtId" value="${mortgage.id}">		                        	
+		                        	<button class="btn btn-lg btn-primary w-100 mb-3" type="submit">♥ Like This Financial Product</button>
+		                        </form>
+		                        <a class="d-inline-block mb-4 pb-2 text-decoration-none" href="${path}/finance/mortgageMain">
 		                            <i class="fi-help me-2 mt-n1 align-middle"></i>목록으로 돌아가기
 		                        </a>
 		                        <div class="card border-0 bg-light mb-4">

@@ -173,7 +173,11 @@
 		                                <span>${fn:replace(spcl, '-', '<br>-')}</span>
 		                            </div>
 		                        </div>
-		                        <a class="btn btn-lg btn-primary w-100 mb-3" href="#">♥ Like This Financial Product</a>
+		                        <form action="${path}/mypage/finProLikeIns" method="post">
+		                        	<input type="hidden" name="finType" value="${installment.finType}">
+		                        	<input type="hidden" name="prtId" value="${installment.id}">		                        	
+		                        	<button class="btn btn-lg btn-primary w-100 mb-3" type="submit">♥ Like This Financial Product</button>
+		                        </form>
 		                        <a class="d-inline-block mb-4 pb-2 text-decoration-none" href="${path}/finance/productMain">
 		                            <i class="fi-help me-2 mt-n1 align-middle"></i>목록으로 돌아가기
 		                        </a>
@@ -201,10 +205,6 @@
 		                </aside>
 		            </div>
 		        </section>
-		        
-		        <script type="text/javascript">
-		        	let userno = ${}
-		        </script>
 		
 		        <section class="py-1 mb-5">
 		            <div class="container">

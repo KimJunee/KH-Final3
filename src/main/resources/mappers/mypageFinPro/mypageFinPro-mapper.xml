@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kh.realfinal.mypageFinPro.model.mapper.MypageFinProMapper">
+	<resultMap type="MypageFinance" id="mypageFinProResultMap">
+		<result property="likeNo" column="LIKENO"/>
+		<result property="userNo" column="USERNO"/>
+		<result property="finType" column="FINTYPE"/>
+		<result property="prtId" column="PRTID"/>
+	</resultMap>	
+	
+	<insert id="insertMypageFin" parameterType="map">
+		INSERT INTO MYPAGEFINANCE(LIKENO, USERNO, FINTYPE, PRTID)
+		VALUES(LIKENO.NEXTVAL, ${userNo}, ${finType}, ${prtId})
+	</insert>
+	
+	<select id="selectFinLike">
+		SELECT inssvn_fin_prdt_nm, inssvn_kor_co_nm, intr_rate, intr_rate2
+		FROM MYPAGEFINANCE
+		JOIN INSTLSAVING I ON I.INSSVN_ID = PRTID
+		JOIN INSSVN_OPTION O ON O.INSSVN_ID = PRTID
+		WHERE USERNO = ${userNo} AND PRTID = ${prtId}
+	</select>
+	
+	
+
+</mapper>
