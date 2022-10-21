@@ -1,5 +1,6 @@
 package com.kh.realfinal.apply.model.controller;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 
@@ -74,26 +75,32 @@ public class RealEstateController {
 			@ModelAttribute RealEstateList realEstateList
 			) {
 		log.info("param : " + param.toString());
+		
+		 List<String> locationTypeList = new ArrayList<String>();
+		 List<String> houseTypeList = new ArrayList<String>();
+		 List<String> APTsupplyTypeList = new ArrayList<String>();
+		 List<String> scheTypeList = new ArrayList<String>();
+		
 		if(locationType == null) {
 			System.out.println("locationType null");
 		}else {
-			
+			locationTypeList = Arrays.asList(locationType);
 			System.out.println("checkbox locationType list : " + Arrays.toString(locationType));
 		}
 		if(houseType == null) {
 			System.out.println("houseType null");
 		}else {
-			
+			houseTypeList = Arrays.asList(houseType);
 			System.out.println("checkbox houseType list : " + Arrays.toString(houseType));
 		}if(APTsupplyType == null) {
 			System.out.println("APTsupplyType null");
 		}else {
-			
+			APTsupplyTypeList = Arrays.asList(APTsupplyType);
 			System.out.println("checkbox APTsupplyType list : " + Arrays.toString(APTsupplyType));
 		}if(scheType == null) {
 			System.out.println("scheType null");
 		}else {
-			
+			scheTypeList = Arrays.asList(scheType);
 			System.out.println("checkbox scheType list : " + Arrays.toString(scheType));
 		}
 				
@@ -113,6 +120,8 @@ public class RealEstateController {
 				page = Integer.parseInt(param.get("page"));
 			} catch (Exception e) {}
 		}
+		
+		
 		/**
 		 * 
 		현재 페이지 , 한 페이지에 보여질 페이지의 수 , 전체 리스트의 수 , 한 페이지에 표시될 리스트의 수
@@ -121,6 +130,11 @@ public class RealEstateController {
 		System.out.println("getRealBoardListCount : " + realEstateService.getRealBoardListCount(param, locationType, houseType, APTsupplyType, scheType));
 		List<RealEstateList> reallist = realEstateService.getRealBoardList(pageInfo, param, locationType, houseType, APTsupplyType, scheType);
 		System.out.println("Controller reallist : " + reallist);
+		
+		model.addAttribute("locationTypeList" ,locationTypeList);
+		model.addAttribute("houseTypeList" ,houseTypeList);
+		model.addAttribute("APTsupplyTypeList" ,APTsupplyTypeList);
+		model.addAttribute("scheTypeList" ,scheTypeList);
 		
 		model.addAttribute("reallist", reallist);
 		model.addAttribute("param", param);
