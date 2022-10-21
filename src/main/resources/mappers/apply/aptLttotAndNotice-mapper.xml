@@ -275,16 +275,32 @@
 			BBS_DTL_CTS
 		FROM APPLY_NOTICE 
 		WHERE 1=1
-		<if test="category != null">
-			AND ais_tp_cd_nm LIKE '%'||#{category}||'%'
+		<if test="categoryKeyword != null">
+			AND ais_tp_cd_nm LIKE '%'||#{categoryKeyword}||'%'
 		</if>
-		
+		<if test="titleKeyword != null">
+			AND bbs_tl LIKE '%'||#{titleKeyword}||'%'
+		</if>
+		<if test="departmentKeyword != null">
+			AND dep_nm LIKE '%'||#{departmentKeyword}||'%'
+		</if>
 		ORDER BY RNUM ASC
 	</select>
 	
 	<select id="selectNoticeCount" resultType="int" parameterType="map">
-		SELECT COUNT(*) FROM APPLY_NOTICE ORDER BY RNUM ASC
-		
+		SELECT COUNT(*) 
+		FROM APPLY_NOTICE 
+		WHERE 1=1
+		<if test="categoryKeyword != null">
+			AND ais_tp_cd_nm LIKE '%'||#{categoryKeyword}||'%'
+		</if>
+		<if test="titleKeyword != null">
+			AND bbs_tl LIKE '%'||#{titleKeyword}||'%'
+		</if>
+		<if test="departmentKeyword != null">
+			AND dep_nm LIKE '%'||#{departmentKeyword}||'%'
+		</if>
+		ORDER BY RNUM ASC
 	</select>
 	
 	<select id="selectNoticeByRnum" resultMap="applyNoticeResultMap" parameterType="int">
@@ -322,7 +338,6 @@
 		    AHFL_URL
 		FROM APPLY_NOTICE_ATTACH
 		WHERE BBS_SN = #{bbs_sn}
-		
 	</select>
 	
 	<resultMap type="ApplyNoticeAttach" id="ApplyNoticeAttachResultMap">
