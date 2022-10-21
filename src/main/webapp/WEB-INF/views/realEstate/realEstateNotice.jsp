@@ -205,10 +205,26 @@
                 <!-- 페이지넘버 시작 -->
                 <nav class="mb-sm-0 d-flex justify-content-center mt-2" aria-label="navigation">
                     <ul class="pagination pagination-sm pagination-bordered mb-0">
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Prev</a>
+                        <li class="page-item">
+                            <a class="page-link" href="javascript:movePage('${path}/realEstate/notice?page=${pageInfo.prevPage}');" tabindex="-1" aria-disabled="true">
+                            	Prev
+                            </a>
                         </li>
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        
+                        <c:forEach begin="${pageInfo.startPage}" end="${pageInfo.endPage}" step="1" varStatus="status">
+							<c:if test="${pageInfo.currentPage == status.current}">
+								<li class="page-item active"><a class="page-link" href="javascript:void(0);"><c:out value="${status.current}"/></a></li>
+							</c:if>
+							<c:if test="${pageInfo.currentPage != status.current}">
+								<li class="page-item">
+									<a class="page-link" href="javascript:movePage('${path}/realEstate/notice?page=${status.current}');">
+										<c:out value="${status.current}"/>
+									</a>
+								</li>
+							</c:if>
+						</c:forEach>
+                        
+                        <!-- <li class="page-item active"><a class="page-link" href="#">1</a></li>
                         <li class="page-item"><a class="page-link" href="#">2</a></li>
                         <li class="page-item"><a class="page-link" href="#">3</a></li>
                         <li class="page-item"><a class="page-link" href="#">4</a></li>
@@ -217,9 +233,9 @@
                         <li class="page-item"><a class="page-link" href="#">7</a></li>
                         <li class="page-item"><a class="page-link" href="#">8</a></li>
                         <li class="page-item"><a class="page-link" href="#">9</a></li>
-                        <li class="page-item"><a class="page-link" href="#">10</a></li>
+                        <li class="page-item"><a class="page-link" href="#">10</a></li> -->
                         <li class="page-item">
-                            <a class="page-link" href="#">Next</a>
+                            <a class="page-link" href="javascript:movePage('${path}/realEstate/notice?page=${pageInfo.nextPage}');" onclick="movePage('${path}/realEstate/notice/view?page=${pageInfo.nextPage}');">Next</a>
                         </li>
                     </ul>
                 </nav>
@@ -227,7 +243,23 @@
                 <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
             </div>
         </section>
-
+        
+		<script type="text/javascript">
+			function movePage(pageUrl){
+				var searchValue = document.getElementById("searchValue");
+				var searchTypes = document.getElementsByName("searchType");
+				var searchType = 'title';
+				/* if(searchValue.value.length > 0){
+					for(var i = 0; i <searchTypes.length; i++){
+						if(searchTypes[i].checked == true){
+							searchType = searchTypes[i].value;
+						}
+					}
+					pageUrl = pageUrl + '&searchType=' + searchType + '&searchValue=' + searchValue.value; 
+				} */
+				location.href = encodeURI(pageUrl);
+			}
+		</script>
 
 	<%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
