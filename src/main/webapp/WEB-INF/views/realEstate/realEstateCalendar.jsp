@@ -130,7 +130,7 @@
 	
 	<!-- **************** MAIN CONTENT START **************** -->
     <!-- <section class="position-relative overflow-hidden" style="background-image:url(re/images/03_reales_/03_reales_calendar.jpeg); background-position: center; background-size: cover;"> -->
-    <section class="position-relative overflow-hidden" style="background-image:url(${path}/resources/resources1b/images/02_realEstate/03_reales_calendar.jpeg); background-position: center; background-size: cover;">
+    <section class="position-relative overflow-hidden" style="background-image:url(${path}/resources/resources1b/images/03_realEstate/03_reales_calendar.jpeg); background-position: center; background-size: cover;">
         <div class="bg-overlay bg-transparent opacity-5"></div>
         <!-- SVG decoration for curve -->
         <figure class="position-absolute bottom-0 left-0 w-100 d-md-block mb-n3 z-index-9">

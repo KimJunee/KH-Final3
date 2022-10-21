@@ -29,7 +29,7 @@
 
 <body>
 	<!-- **************** MAIN CONTENT START **************** -->
-    <section class="position-relative overflow-hidden" style="background-image:url(${path}/resources/resources1b/images/02_realEstate/03_reales_notice.jpeg); background-position: center; background-size: cover;">
+    <section class="position-relative overflow-hidden" style="background-image:url(${path}/resources/resources1b/images/03_realEstate/03_reales_notice.jpeg); background-position: center; background-size: cover;">
         <!-- <section class="position-relative overflow-hidden" style="background-image:url(assets/images/03_reales_/03_reales_house.jpg); background-position: center; background-size: cover;"> -->
         <!-- <section class="position-relative overflow-hidden" style="background-image:url(assets/images/03_reales_/03_reales_etc.jpg); background-position: center; background-size: cover;"> -->
         <div class="bg-overlay bg-transparent opacity-5"></div>
