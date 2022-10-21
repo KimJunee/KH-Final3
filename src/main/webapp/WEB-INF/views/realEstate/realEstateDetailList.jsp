@@ -58,199 +58,254 @@
                             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasSidebar" aria-label="Close"></button>
                         </div>
                         <div class="offcanvas-body flex-column p-3 p-xl-0">
-                            <div class="border rounded-2">
-                                <!-- Availability START -->
-                                <div class="card card-body">
-                                    <!-- Title -->
-                                    <h6 class="mb-3">검색 목록</h6>
-                                    <!-- Availability group -->
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" value="전체" id="flexRadioDefault1" checked>
-                                        <label class="form-check-label" for="flexRadioDefault1">전체</label>
-                                    </div>
-                                </div>
-                                <!-- Availability END -->
-                                <hr class="my-0">
-                                <!-- Divider -->
+							<div class="border rounded-2">
+								<!-- Availability START -->
+								<div class="card card-body">
+									<!-- Title -->
+									<h6 class="mb-3">검색 목록</h6>
+									<!-- Availability group -->
+									<div class="form-check">
+										<input class="form-check-input" type="radio"
+											name="flexRadioDefault" value="전체" id="flexRadioDefault1"
+											checked> <label class="form-check-label"
+											for="flexRadioDefault1">전체</label>
+									</div>
+								</div>
+								<!-- Availability END -->
+								<hr class="my-0">
+								<!-- Divider -->
 
-                                <!------------- filter 1 START ------------->
-                                <div class="card card-body">
-                                    <!-- Title -->
-                                    <h6 class="mb-2">지역선택</h6>
-                                    <!-- Amenities group -->
-                                    <div class="col-12">
-                                        <!-- Checkbox -->
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" ${fn:contains(locationTypeList, '전국') ? 'checked' : ''} name="locationType" id="amenitiesType1" value="전국"  />
-                                            <label class="form-check-label" for="amenitiesType1">전국</label>
-                                        </div>
-                                        <!-- Checkbox -->
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" ${fn:contains(locationTypeList, '서울') ? 'checked' : ''} name="locationType" id="amenitiesType2" value="서울" />
-                                            <label class="form-check-label" for="amenitiesType2">서울</label>
-                                        </div>
-                                        <!-- Checkbox -->
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" ${fn:contains(locationTypeList, '부산') ? 'checked' : ''} name="locationType" id="amenitiesType3" value="부산" />
-                                            <label class="form-check-label" for="amenitiesType3">부산</label>
-                                        </div>
-                                        <!-- Checkbox -->
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" ${fn:contains(locationTypeList, '대구') ? 'checked' : ''} name="locationType" id="amenitiesType4" value="대구" />
-                                            <label class="form-check-label" for="amenitiesType4">대구</label>
-                                        </div>
-                                        <!-- Collapse body -->
-                                        <div class="multi-collapse collapse" id="amenitiesCollapes">
-                                            <!-- Checkbox -->
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" ${fn:contains(locationTypeList, '인천') ? 'checked' : ''} name="locationType" id="amenitiesType5" value="인천" />
-                                                <label class="form-check-label" for="amenitiesType5">인천</label>
-                                            </div>
-                                            <!-- Checkbox -->
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" ${fn:contains(locationTypeList, '광주') ? 'checked' : ''} name="locationType" id="amenitiesType6" value="광주" />
-                                                <label class="form-check-label" for="amenitiesType6">광주</label>
-                                            </div>
-                                            <!-- Checkbox -->
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" ${fn:contains(locationTypeList, '대전') ? 'checked' : ''} name="locationType" id="amenitiesType7" value="대전" />
-                                                <label class="form-check-label" for="amenitiesType7">대전</label>
-                                            </div>
-                                            <!-- Checkbox -->
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" ${fn:contains(locationTypeList, '울산') ? 'checked' : ''} name="locationType" id="amenitiesType8" value="울산" />
-                                                <label class="form-check-label" for="amenitiesType8">울산</label>
-                                            </div>
-                                            <!-- Checkbox -->
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" ${fn:contains(locationTypeList, '세종') ? 'checked' : ''} name="locationType" id="amenitiesType9" value="세종" />
-                                                <label class="form-check-label" for="amenitiesType9">세종</label>
-                                            </div>
-                                            <!-- Checkbox -->
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" ${fn:contains(locationTypeList, '경기') ? 'checked' : ''} name="locationType" id="amenitiesType10" value="경기" />
-                                                <label class="form-check-label" for="amenitiesType10">경기</label>
-                                            </div>
-                                            <!-- Checkbox -->
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" ${fn:contains(locationTypeList, '강원') ? 'checked' : ''} name="locationType" id="amenitiesType11" value="강원" />
-                                                <label class="form-check-label" for="amenitiesType11">강원</label>
-                                            </div>
-                                            <!-- Checkbox -->
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" ${fn:contains(locationTypeList, '충청') ? 'checked' : ''} name="locationType" id="amenitiesType12" value="충청" />
-                                                <label class="form-check-label" for="amenitiesType12">충청</label>
-                                            </div>
-                                            <!-- Checkbox -->
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" ${fn:contains(locationTypeList, '전라') ? 'checked' : ''} name="locationType" id="amenitiesType14" value="전라" />
-                                                <label class="form-check-label" for="amenitiesType14">전라</label>
-                                            </div>
-                                            <!-- Checkbox -->
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" ${fn:contains(locationTypeList, '경상') ? 'checked' : ''} name="locationType" id="amenitiesType16" value="경상" />
-                                                <label class="form-check-label" for="amenitiesType16">경상</label>
-                                            </div>
-                                            <!-- Checkbox -->
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" ${fn:contains(locationTypeList, '제주') ? 'checked' : ''} name="locationType" id="amenitiesType17" value="제주" />
-                                                <label class="form-check-label" for="amenitiesType17">제주</label>
-                                            </div>
-                                        </div>
-                                        <!-- Collapse button -->
-                                        <a class="p-0 mb-0 mt-2 btn-more d-flex align-items-center collapsed" data-bs-toggle="collapse" href="#amenitiesCollapes" role="button" aria-expanded="false" aria-controls="amenitiesCollapes">
-                                                See <span class="see-more ms-1">more</span><span class="see-less ms-1">less</span><i class="fas fa-angle-down ms-2"></i>
-                                            </a>
-                                    </div>
-                                </div>
-                                <!------------- filter 1 END ------------->
+								<!------------- filter 1 START ------------->
+								<div class="card card-body">
+									<!-- Title -->
+									<h6 class="mb-2">지역선택</h6>
+									<!-- Amenities group -->
+									<div class="col-12">
+										<!-- Checkbox -->
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox"
+												${fn:contains(locationTypeList, '전국') ? 'checked' : ''}
+												name="locationType" id="amenitiesType1" value="전국" /> <label
+												class="form-check-label" for="amenitiesType1">전국</label>
+										</div>
+										<!-- Checkbox -->
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox"
+												${fn:contains(locationTypeList, '서울') ? 'checked' : ''}
+												name="locationType" id="amenitiesType2" value="서울" /> <label
+												class="form-check-label" for="amenitiesType2">서울</label>
+										</div>
+										<!-- Checkbox -->
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox"
+												${fn:contains(locationTypeList, '부산') ? 'checked' : ''}
+												name="locationType" id="amenitiesType3" value="부산" /> <label
+												class="form-check-label" for="amenitiesType3">부산</label>
+										</div>
+										<!-- Checkbox -->
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox"
+												${fn:contains(locationTypeList, '대구') ? 'checked' : ''}
+												name="locationType" id="amenitiesType4" value="대구" /> <label
+												class="form-check-label" for="amenitiesType4">대구</label>
+										</div>
+										<!-- Collapse body -->
+										<div class="multi-collapse collapse" id="amenitiesCollapes">
+											<!-- Checkbox -->
+											<div class="form-check">
+												<input class="form-check-input" type="checkbox"
+													${fn:contains(locationTypeList, '인천') ? 'checked' : ''}
+													name="locationType" id="amenitiesType5" value="인천" /> <label
+													class="form-check-label" for="amenitiesType5">인천</label>
+											</div>
+											<!-- Checkbox -->
+											<div class="form-check">
+												<input class="form-check-input" type="checkbox"
+													${fn:contains(locationTypeList, '광주') ? 'checked' : ''}
+													name="locationType" id="amenitiesType6" value="광주" /> <label
+													class="form-check-label" for="amenitiesType6">광주</label>
+											</div>
+											<!-- Checkbox -->
+											<div class="form-check">
+												<input class="form-check-input" type="checkbox"
+													${fn:contains(locationTypeList, '대전') ? 'checked' : ''}
+													name="locationType" id="amenitiesType7" value="대전" /> <label
+													class="form-check-label" for="amenitiesType7">대전</label>
+											</div>
+											<!-- Checkbox -->
+											<div class="form-check">
+												<input class="form-check-input" type="checkbox"
+													${fn:contains(locationTypeList, '울산') ? 'checked' : ''}
+													name="locationType" id="amenitiesType8" value="울산" /> <label
+													class="form-check-label" for="amenitiesType8">울산</label>
+											</div>
+											<!-- Checkbox -->
+											<div class="form-check">
+												<input class="form-check-input" type="checkbox"
+													${fn:contains(locationTypeList, '세종') ? 'checked' : ''}
+													name="locationType" id="amenitiesType9" value="세종" /> <label
+													class="form-check-label" for="amenitiesType9">세종</label>
+											</div>
+											<!-- Checkbox -->
+											<div class="form-check">
+												<input class="form-check-input" type="checkbox"
+													${fn:contains(locationTypeList, '경기') ? 'checked' : ''}
+													name="locationType" id="amenitiesType10" value="경기" /> <label
+													class="form-check-label" for="amenitiesType10">경기</label>
+											</div>
+											<!-- Checkbox -->
+											<div class="form-check">
+												<input class="form-check-input" type="checkbox"
+													${fn:contains(locationTypeList, '강원') ? 'checked' : ''}
+													name="locationType" id="amenitiesType11" value="강원" /> <label
+													class="form-check-label" for="amenitiesType11">강원</label>
+											</div>
+											<!-- Checkbox -->
+											<div class="form-check">
+												<input class="form-check-input" type="checkbox"
+													${fn:contains(locationTypeList, '충청') ? 'checked' : ''}
+													name="locationType" id="amenitiesType12" value="충청" /> <label
+													class="form-check-label" for="amenitiesType12">충청</label>
+											</div>
+											<!-- Checkbox -->
+											<div class="form-check">
+												<input class="form-check-input" type="checkbox"
+													${fn:contains(locationTypeList, '전라') ? 'checked' : ''}
+													name="locationType" id="amenitiesType14" value="전라" /> <label
+													class="form-check-label" for="amenitiesType14">전라</label>
+											</div>
+											<!-- Checkbox -->
+											<div class="form-check">
+												<input class="form-check-input" type="checkbox"
+													${fn:contains(locationTypeList, '경상') ? 'checked' : ''}
+													name="locationType" id="amenitiesType16" value="경상" /> <label
+													class="form-check-label" for="amenitiesType16">경상</label>
+											</div>
+											<!-- Checkbox -->
+											<div class="form-check">
+												<input class="form-check-input" type="checkbox"
+													${fn:contains(locationTypeList, '제주') ? 'checked' : ''}
+													name="locationType" id="amenitiesType17" value="제주" /> <label
+													class="form-check-label" for="amenitiesType17">제주</label>
+											</div>
+										</div>
+										<!-- Collapse button -->
+										<a
+											class="p-0 mb-0 mt-2 btn-more d-flex align-items-center collapsed"
+											data-bs-toggle="collapse" href="#amenitiesCollapes"
+											role="button" aria-expanded="false"
+											aria-controls="amenitiesCollapes"> See <span
+											class="see-more ms-1">more</span><span class="see-less ms-1">less</span><i
+											class="fas fa-angle-down ms-2"></i>
+										</a>
+									</div>
+								</div>
+								<!------------- filter 1 END ------------->
 
-                                <hr class="my-0">
-                                <!-- Divider -->
-                                <!------------- filter 2 START ------------->
-                                <div class="card card-body">
-                                    <!-- Title -->
-                                    <h6 class="mb-3">주택구분</h6>
+								<hr class="my-0">
+								<!-- Divider -->
+								<!------------- filter 2 START ------------->
+								<div class="card card-body">
+									<!-- Title -->
+									<h6 class="mb-3">주택구분</h6>
 
-                                    <!-- Checkbox -->
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" ${fn:contains(houseTypeList, 'APT') ? 'checked' : ''} name="houseType" id="amenitiesType20" value="APT" />
-                                        <label class="form-check-label" for="amenitiesType20">APT</label>
-                                    </div>
-                                    <!-- Checkbox -->
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" ${fn:contains(houseTypeList, '도시형/오피스텔/민간임대') ? 'checked' : ''} name="houseType" id="amenitiesType21" value="도시형/오피스텔/민간임대" />
-                                        <label class="form-check-label" for="amenitiesType21">도시형/오피스텔/민간임대</label>
-                                    </div>
-                                    <!-- Checkbox -->
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" ${fn:contains(houseTypeList, '무순위/잔여세대') ? 'checked' : ''} name="houseType" id="amenitiesType22" value="무순위/잔여세대" />
-                                        <label class="form-check-label" for="amenitiesType22">무순위/잔여세대</label>
-                                    </div>
-                                </div>
-                                <!------------- filter 2 END ------------->
-                                <hr class="my-0">
-                                <!-- Divider -->
+									<!-- Checkbox -->
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox"
+											${fn:contains(houseTypeList, 'APT') ? 'checked' : ''}
+											name="houseType" id="amenitiesType20" value="APT" /> <label
+											class="form-check-label" for="amenitiesType20">APT</label>
+									</div>
+									<!-- Checkbox -->
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox"
+											${fn:contains(houseTypeList, '도시형/오피스텔/민간임대') ? 'checked' : ''}
+											name="houseType" id="amenitiesType21" value="도시형/오피스텔/민간임대" />
+										<label class="form-check-label" for="amenitiesType21">도시형/오피스텔/민간임대</label>
+									</div>
+									<!-- Checkbox -->
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox"
+											${fn:contains(houseTypeList, '무순위/잔여세대') ? 'checked' : ''}
+											name="houseType" id="amenitiesType22" value="무순위/잔여세대" /> <label
+											class="form-check-label" for="amenitiesType22">무순위/잔여세대</label>
+									</div>
+								</div>
+								<!------------- filter 2 END ------------->
+								<hr class="my-0">
+								<!-- Divider -->
 
-                                <!------------- filter 3 START ------------->
-                                <div class="card card-body">
-                                    <!-- Title -->
-                                    <h6 class="mb-3">아파트분양종류</h6>
+								<!------------- filter 3 START ------------->
+								<div class="card card-body">
+									<!-- Title -->
+									<h6 class="mb-3">아파트분양종류</h6>
 
-                                    <!-- Checkbox -->
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" ${fn:contains(APTsupplyTypeList, '민영') ? 'checked' : ''} name="APTsupplyType" id="amenitiesType18" value="민영" />
-                                        <label class="form-check-label" for="amenitiesType18">민영</label>
-                                    </div>
-                                    <!-- Checkbox -->
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" ${fn:contains(APTsupplyTypeList, '국민') ? 'checked' : ''} name="APTsupplyType" id="amenitiesType19" value="국민" />
-                                        <label class="form-check-label" for="amenitiesType19">국민</label>
-                                    </div>
-                                </div>
-                                <!------------- filter 3 END ------------->
+									<!-- Checkbox -->
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox"
+											${fn:contains(APTsupplyTypeList, '민영') ? 'checked' : ''}
+											name="APTsupplyType" id="amenitiesType18" value="민영" /> <label
+											class="form-check-label" for="amenitiesType18">민영</label>
+									</div>
+									<!-- Checkbox -->
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox"
+											${fn:contains(APTsupplyTypeList, '국민') ? 'checked' : ''}
+											name="APTsupplyType" id="amenitiesType19" value="국민" /> <label
+											class="form-check-label" for="amenitiesType19">국민</label>
+									</div>
+								</div>
+								<!------------- filter 3 END ------------->
 
-                                <hr class="my-0">
-                                <!-- Divider -->
+								<hr class="my-0">
+								<!-- Divider -->
 
-                                <!------------- filter 4 START ------------->
-                                <div class="card card-body">
-                                    <!-- Title -->
-                                    <h6 class="mb-3">청약일정</h6>
+								<!------------- filter 4 START ------------->
+								<div class="card card-body">
+									<!-- Title -->
+									<h6 class="mb-3">청약일정</h6>
 
-                                    <!-- Checkbox -->
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" ${fn:contains(scheTypeList, '분양중') ? 'checked' : ''} id="amenitiesType23" name="scheType" value="분양중">
-                                        <label class="form-check-label" for="amenitiesType23">분양중</label>
-                                    </div>
-                                    <!-- Checkbox -->
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" ${fn:contains(scheTypeList, '분양예정') ? 'checked' : ''} id="amenitiesType24" name="scheType" value="분양예정">
-                                        <label class="form-check-label" for="amenitiesType24">분양예정</label>
-                                    </div>
-                                    <!-- Checkbox -->
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" ${fn:contains(scheTypeList, '분양완료') ? 'checked' : ''} id="amenitiesType25" name="scheType" value="분양완료">
-                                        <label class="form-check-label" for="amenitiesType25">분양완료</label>
-                                    </div>
-                                </div>
-                                <!------------- filter 4 END ------------->
+									<!-- Checkbox -->
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox"
+											${fn:contains(scheTypeList, '분양중') ? 'checked' : ''}
+											id="amenitiesType23" name="scheType" value="분양중"> <label
+											class="form-check-label" for="amenitiesType23">분양중</label>
+									</div>
+									<!-- Checkbox -->
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox"
+											${fn:contains(scheTypeList, '분양예정') ? 'checked' : ''}
+											id="amenitiesType24" name="scheType" value="분양예정"> <label
+											class="form-check-label" for="amenitiesType24">분양예정</label>
+									</div>
+									<!-- Checkbox -->
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox"
+											${fn:contains(scheTypeList, '분양완료') ? 'checked' : ''}
+											id="amenitiesType25" name="scheType" value="분양완료"> <label
+											class="form-check-label" for="amenitiesType25">분양완료</label>
+									</div>
+								</div>
+								<!------------- filter 4 END ------------->
 
-                                <hr class="my-0">
-                                <!-- Divider -->
+								<hr class="my-0">
+								<!-- Divider -->
 
-                                <!-- Form End -->
-                        <!-- Buttons -->
-                        <div class="d-flex justify-content-between p-2 p-xl-0 mt-xl-3">
-                            <button onclick="deselect()" type="button" class="btn btn-link p-0 mb-0">초기화</button>
-                            <button class="btn btn-primary mb-0" type="submit">검색</button>
-                            <script>
+								<!-- Form End -->
+							</div>
+							<!-- Buttons -->
+							<div class="d-flex justify-content-between p-2 p-xl-0 mt-xl-3">
+								<button onclick="deselect()" type="button"
+									class="btn btn-link p-0 mb-0">초기화</button>
+								<button class="btn btn-primary mb-0" type="submit">검색</button>
+								<script>
                                 function deselect() {
                                     $('.form-check-input').prop('checked', false);
                                 }
                             </script>
-                        </div>
-                </div><!-- </form> -->
+							</div>
+							<!-- </form> -->
                         </div>
                     </div>
                     <!-- Responsive offcanvas body END -->
@@ -396,62 +451,65 @@
     <!-- ======================= 섹션2: 청약 검색목록 끝 =========================-->
     <!-- **************** MAIN CONTENT END **************** -->
 
-<script type="text/javascript">
-            function movePage(pageUrl){
-            	var locationTypes = document.getElementsByName("locationType");
-                if (locationTypes.length != null) {
-      			for (var i = 0; i < locationTypes.length; i++) {
-                        if (locationTypes[i].checked == true) {
-                            locationType = locationTypes[i].value;
-                            pageUrl += '&locationType=' + locationType;
-                        }
-                    }
-      		  }
-                
-       var houseTypes = document.getElementsByName("houseType");
-                if (houseTypes.length != null) {
-      			for (var i = 0; i < houseTypes.length; i++) {
-                        if (houseTypes[i].checked == true) {
-                            houseType = houseTypes[i].value;
-                            pageUrl += '&houseType=' + houseType;
-                        }
-                    }
-      		  }
-                
-      var APTsupplyTypes = document.getElementsByName("APTsupplyType");
-      		  if (APTsupplyTypes.length != null) {
-      			for (var i = 0; i < APTsupplyTypes.length; i++) {
-                        if (APTsupplyTypes[i].checked == true) {
-      		APTsupplyType = APTsupplyTypes[i].value;
-                            pageUrl += '&APTsupplyType=' + APTsupplyType;
-                        }
-                    }
-      		  }
-      		
-       var scheTypes = document.getElementsByName("scheType");
-                if (scheTypes.length != null) {
-      	for (var i = 0; i < scheTypes.length; i++) {
-                        if (scheTypes[i].checked == true) {
-                            scheType = scheTypes[i].value;
-                            pageUrl += '&scheType=' + scheType;
-                        }
-                    }
-      		  }
-                
-      	   var searchValue = document.getElementById("searchValue");
-                      var searchTypes = document.getElementById("searchType");
-                      var searchTypeValue = searchTypes.options[searchTypes.selectedIndex].value;
-      					pageUrl = pageUrl + '&searchValue=' + searchValue.value + '&searchType=' + searchTypeValue; 
-              		
-                      // 자바스크립트 location.href 로 페이지 이동 방법
-                  	//  location.href = "이동할 페이지 주소";
-                      location.href = encodeURI(pageUrl);
-            }
-</script>
+	<script type="text/javascript">
+		function movePage(pageUrl) {
+			var locationTypes = document.getElementsByName("locationType");
+			if (locationTypes.length != null) {
+				for (var i = 0; i < locationTypes.length; i++) {
+					if (locationTypes[i].checked == true) {
+						locationType = locationTypes[i].value;
+						pageUrl += '&locationType=' + locationType;
+					}
+				}
+			}
+
+			var houseTypes = document.getElementsByName("houseType");
+			if (houseTypes.length != null) {
+				for (var i = 0; i < houseTypes.length; i++) {
+					if (houseTypes[i].checked == true) {
+						houseType = houseTypes[i].value;
+						pageUrl += '&houseType=' + houseType;
+					}
+				}
+			}
+
+			var APTsupplyTypes = document.getElementsByName("APTsupplyType");
+
+			if (APTsupplyTypes.length != null) {
+				for (var i = 0; i < APTsupplyTypes.length; i++) {
+					if (APTsupplyTypes[i].checked == true) {
+						APTsupplyType = APTsupplyTypes[i].value;
+						pageUrl += '&APTsupplyType=' + APTsupplyType;
+					}
+				}
+			}
+
+			var scheTypes = document.getElementsByName("scheType");
+
+			if (scheTypes.length != null) {
+				for (var i = 0; i < scheTypes.length; i++) {
+					if (scheTypes[i].checked == true) {
+						scheType = scheTypes[i].value;
+						pageUrl += '&scheType=' + scheType;
+					}
+				}
+			}
+
+			var searchValue = document.getElementById("searchValue");
+			var searchTypes = document.getElementById("searchType");
+			var searchTypeValue = searchTypes.options[searchTypes.selectedIndex].value;
+			pageUrl = pageUrl + '&searchValue=' + searchValue.value
+					+ '&searchType=' + searchTypeValue;
+
+			// 자바스크립트 location.href 로 페이지 이동 방법
+			//  location.href = "이동할 페이지 주소";
+			location.href = encodeURI(pageUrl);
+		}
+	</script>
 
 
-    <%@ include file="/WEB-INF/views/common/footer.jsp" %>
-    </form>
+	<%@ include file="/WEB-INF/views/common/footer.jsp"%>
+</form>
     </body>
 
 </html>

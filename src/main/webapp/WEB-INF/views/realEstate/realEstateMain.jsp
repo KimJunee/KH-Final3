@@ -798,7 +798,7 @@ path:hover {
         }).mouseover();
     </script>
 
-<!-- 지도 : 청약 일정 상세 -->
+<!-- 지도 : 청약 일정 상세 
 <script>
         var todayDate = new Date().toISOString().slice(5, 10);
         // var tooltip = document.querySelector('.map-tooltip');
@@ -813,6 +813,7 @@ path:hover {
             document.getElementById(k).innerHTML = confirmed[k];
         }
     </script>
+    -->
 
 
 <!-- ======================= script 끝 =======================-->
