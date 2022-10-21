@@ -984,53 +984,48 @@ ORDER BY R.REPLY_REGISTER DESC
  where REPLY_REGISTER is null
  ;
  
- commit;
-
-------------------------------------------------------------------------------------------------
--- [정치] 전소피아 
-
--- 카드한컷
+--------------------------------------------------------------------------------
+-- [정치] 전소피아 총 4개의 TABLE
+--------------------------------------------------------------------------------
+-- 1. 카드한컷
 DROP SEQUENCE SEQ_CARDCUT_NO;
 CREATE SEQUENCE SEQ_CARDCUT_NO;
 
 DROP TABLE CARDCUT;
 CREATE TABLE CARDCUT (
     CARDCUT_NO NUMBER PRIMARY KEY,  -- 뉴스 번호
-	TITLE	VARCHAR2(1000),	    	-- 뉴스이름
+	TITLE	VARCHAR2(1000),	        -- 뉴스이름
     LINK	VARCHAR2(1000),	    	-- 뉴스링크
-	PUBDATE	DATE,	    	-- 뉴스일자
-	DESCRIPTION	CLOB		        -- 뉴스내용
+	PUBDATE	DATE,	    	        -- 뉴스일자
+	DESCRIPTION	CLOB	            -- 뉴스내용
 );
 
 SELECT * FROM CARDCUT;
-
--- 댓글
-DROP SEQUENCE CARDCUT_SEQ_REPLY_NO;
-CREATE SEQUENCE SEQ_REPLY_NO;
+--------------------------------------------------------------------------------
+-- 2. 카드한컷_댓글작성
+DROP SEQUENCE SEQ_C_REPLY_NO;
+CREATE SEQUENCE SEQ_C_REPLY_NO;
 
 DROP TABLE CARDCUT_REPLY;
-CREATE TABLE REPLY (
-	REPLY_NO NUMBER PRIMARY KEY,    -- 댓글번호
-    USER_NO NUMBER,		            -- 사용자번호
-    BOARD_NO NUMBER,                -- 게시글번호
-	REPLY_CONTENT VARCHAR2(1000),   -- 내용
-	REPLY_REGISTER	DATE            -- 등록날짜
+CREATE TABLE CARDCUT_REPLY (
+	C_REPLY_NO NUMBER PRIMARY KEY,    -- 댓글번호
+    C_USER_NO NUMBER,		          -- 사용자번호
+    C_BOARD_NO NUMBER,                -- 게시글번호
+	C_REPLY_CONTENT VARCHAR2(1000),   -- 내용
+	C_REPLY_REGISTER DATE             -- 등록날짜
 );
 
 COMMENT ON TABLE CARDCUT_REPLY IS '댓글';
-COMMENT ON COLUMN  CARDCUT_REPLY.REPLY_NO IS '댓글번호';
-COMMENT ON COLUMN  CARDCUT_REPLY.USER_NO IS '사용자번호';
-COMMENT ON COLUMN  CARDCUT_REPLY.BOARD_NO IS '게시글번호';
-COMMENT ON COLUMN  CARDCUT_REPLY.REPLY_CONTENT IS '내용';
-COMMENT ON COLUMN  CARDCUT_REPLY.REPLY_REGISTER IS '등록날짜';
+COMMENT ON COLUMN  CARDCUT_REPLY.C_REPLY_NO IS '댓글번호';
+COMMENT ON COLUMN  CARDCUT_REPLY.C_USER_NO IS '사용자번호';
+COMMENT ON COLUMN  CARDCUT_REPLY.C_BOARD_NO IS '게시글번호';
+COMMENT ON COLUMN  CARDCUT_REPLY.C_REPLY_CONTENT IS '내용';
+COMMENT ON COLUMN  CARDCUT_REPLY.C_REPLY_REGISTER IS '등록날짜';
 
--- INSERT INTO REPLY VALUES(SEQ_REPLY_NO.NEXTVAL, 1, 1, '소피도 한드아아아아앙', SYSDATE);
-
-
-
--- 국회의원 검색_상세내용(사진포함) / 대표발의법안
-
--- 국회의원별 프로필 상세 내용(사진포함)
+-- INSERT INTO CARDCUT_REPLY VALUES(SEQ_C_REPLY_NO.NEXTVAL, 1, 1, '소피도 한드아아아아앙', SYSDATE);
+SELECT * FROM CARDCUT_REPLY;
+-------------------------------------------------------------------------------- 
+-- 3. 국회의원별 프로필 상세 내용(사진포함)
 
 DROP SEQUENCE SEQ_MNA_PROFILE_NO;
 CREATE SEQUENCE SEQ_MNA_PROFILE_NO;
@@ -1056,17 +1051,24 @@ CREATE TABLE MNA_PROFILE (
         SECRETARY	VARCHAR2(1000),	--	선임비서관
         SECRETARY2	VARCHAR2(1000),	--	비서관
         ASSEM_ADDR	VARCHAR2(1000),	--	의원실안내
-        MEM_TITLE	CLOB, --	주요약력
+        MEM_TITLE	CLOB,           --	주요약력
         JPGLINK	    VARCHAR2(2000)	 -- 국회의원 프로필 사진
 );
- 
 
 -- 모든 국회의원 검색
--- SELECT MNA_PROFILE_NO, HG_NM, UNITS, SEX_GBN_NM, HJ_NM, ENG_NM, BTH_DATE, POLY_NM, ORIG_NM, ELECT_GBN_NM,CMITS, REELE_GBN_NM, TEL_NO, E_MAIL, HOMEPAGE, STAFF, SECRETARY, SECRETARY2, ASSEM_ADDR, MEM_TITLE, JPGLINK FROM MNA_PROFILE ORDER BY MNA_PROFILE_NO;
+SELECT * FROM MNA_PROFILE;
+
 -- 개별 국회의원 검색 
 -- select * from MNA_PROFILE where HG_NM = '배현진' ;
- 
--- 국회의원별 대표발의법안
+
+/* 1번째 국회의원 검색
+SELECT MNA_PROFILE_NO, HG_NM, UNITS, SEX_GBN_NM, HJ_NM, ENG_NM, BTH_DATE, 
+POLY_NM, ORIG_NM, ELECT_GBN_NM, CMITS, REELE_GBN_NM, TEL_NO, E_MAIL, 
+HOMEPAGE, STAFF, SECRETARY, SECRETARY2, ASSEM_ADDR, MEM_TITLE, 
+JPGLINK FROM MNA_PROFILE WHERE  MNA_PROFILE_NO = 1;
+*/
+--------------------------------------------------------------------------------
+-- 4. 국회의원별 대표발의법안
 
 DROP SEQUENCE SEQ_MNA_LEGISLATION_NO;
 CREATE SEQUENCE SEQ_MNA_LEGISLATION_NO;
@@ -1085,12 +1087,7 @@ CREATE TABLE MNA_LEGISLATION (
         DETAIL_LINK	VARCHAR2(1000)	--	상세페이지
 );
 
-select * from MNA_LEGISLATION;
-
--- 1번째 국회의원 검색
--- SELECT MNA_PROFILE_NO, HG_NM, UNITS, SEX_GBN_NM, HJ_NM, ENG_NM, BTH_DATE, POLY_NM, ORIG_NM, ELECT_GBN_NM, CMITS, REELE_GBN_NM, TEL_NO, E_MAIL, HOMEPAGE, STAFF, SECRETARY, SECRETARY2, ASSEM_ADDR, MEM_TITLE, JPGLINK FROM MNA_PROFILE WHERE  MNA_PROFILE_NO = 1;
-
 -- 대표발의법안 전체 검색
--- SELECT MNA_LEGISLATION_NO, BILL_NO, RST_PROPOSER, AGE, BILL_NAME,PROPOSER, COMMITTEE, PROPOSE_DT, PROC_RESULT, DETAIL_LINK FROM MNA_LEGISLATION ORDER BY MNA_LEGISLATION_NO;
-
-------------------------------------------------------------------------------------------------
+SELECT * FROM MNA_LEGISLATION;
+--------------------------------------------------------------------------------
+COMMIT;
