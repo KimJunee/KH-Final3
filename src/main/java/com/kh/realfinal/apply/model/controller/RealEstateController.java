@@ -26,6 +26,7 @@ import com.kh.realfinal.apply.model.service.UrbtyOfctlLttotPblancDetailService;
 import com.kh.realfinal.apply.model.vo.AptLttotPblancDetail;
 import com.kh.realfinal.apply.model.vo.AptLttotPblancMdl;
 import com.kh.realfinal.apply.model.vo.RealEstateList;
+import com.kh.realfinal.apply.model.vo.RealMainMapList;
 import com.kh.realfinal.apply.model.vo.RemndrLttotPblancDetail;
 import com.kh.realfinal.apply.model.vo.RemndrMdl;
 import com.kh.realfinal.apply.model.vo.UrbtyMdl;
@@ -102,17 +103,30 @@ public class RealEstateController {
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("board_list_no", RealEstate);
 		List<Board> list = boardService.getSideBoardForEstate(param);
-		model.addAttribute("estateList", list);
-		Map<String, String> map = new HashMap<String, String>();
+		model.addAttribute("estateList", list);//주니님꺼!
+		
+		Map<String, String> map = new HashMap<String, String>(); //지도에 숫자 가져올려고 쓰는놈
+		Map<String, List<RealMainMapList>> map1 = new HashMap<String, List<RealMainMapList>>(); //오른쪽에 지역별청약정보 리스트
+		
+		List<RealMainMapList> mainMapList = new ArrayList<RealMainMapList>();
 		Iterator<String> iter = locationMap.values().iterator();
 		while(iter.hasNext()) {
 			String key = iter.next();
 			int value = realEstateService.getSelectCountForMainMap(key);
+			mainMapList = realEstateService.getListForMainMap(key);
+			
 			map.put(locationReversMap.get(key), "" + value);
+			map1.put(locationReversMap.get(key), mainMapList);
 		}
+		
+		
 		String json = new Gson().toJson(map);
+		String json1 = new Gson().toJson(map1);
+		
 		System.out.println(json);
+//		System.out.println(json1);
 		model.addAttribute("json", json);
+		model.addAttribute("json1", json1);
 		return "realEstate/realEstateMain";
 	}
 	
