@@ -121,27 +121,30 @@
                     <!-- Card body START -->
                     <div class="card-body p-3" style="margin-top: 20px; margin-bottom: 20px;">
                         <!-- Search and select START -->
-                        <div class="row g-3 align-items-center justify-content-between mb-3" style="padding-bottom: 20px;">
-                            <!-- Select option -->
-                            <div class="col-md-3">
-                                <!-- Short by filter -->
-                                <form>
-                                    <select class="form-select z-index-9 bg-transparent" aria-label=".form-select-sm">
-                                        <option value="">검색옵션</option>
-                                        <option>유형</option>
-                                        <option>제목</option>
-                                        <option>담당부서</option>
-                                    </select>
-                                </form>
-                            </div>
-                            <!-- Search -->
-                            <div class="col-md-9">
-                                <form class="rounded position-relative">
-                                    <input class="form-control pe-5 bg-transparent" type="search" placeholder="Search" aria-label="Search">
-                                    <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
-                                </form>
-                            </div>
-                        </div>
+                        <form action="${path}/realEstate/notice" method="get" class="rounded position-relative">
+	                        <div class="row g-3 align-items-center justify-content-between mb-3" style="padding-bottom: 20px;">
+	                            <!-- Select option -->
+	                            <div class="col-md-3">
+	                                <!-- Short by filter -->
+	                                <%-- <form action="${path}/realEstate/notice" method="get"> --%>
+	                                    <select class="form-select z-index-9 bg-transparent" name="searchType" aria-label=".form-select-sm">
+	                                        <option value="" disabled selected>검색옵션</option>
+	                                        <option value="category" <c:if test="${searchType eq '유형'}">selected</c:if>>유형</option>
+	                                        <option value="title" <c:if test="${searchType eq '제목'}">selected</c:if>>제목</option>
+	                                        <option value="department" <c:if test="${searchType eq '담당부서'}">selected</c:if>>담당부서</option>
+	                                    </select>
+	                                <!-- </form> -->
+	                            </div>
+	                            <!-- Search -->
+	                            <div class="col-md-9">
+	                                <!-- <form class="rounded position-relative"> -->
+	                                    <!-- <input class="form-control pe-5 bg-transparent" type="search" placeholder="Search" aria-label="Search"> -->
+	                                    <input class="form-control pe-5 bg-transparent" type="text" placeholder="Search" aria-label="Search" id="searchValue" name="searchValue" value="${param.searchValue}">
+	                                    <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
+	                                <!-- </form> -->
+	                            </div>
+	                        </div>
+                        </form>
                         <!-- Search and select END -->
                         <!-- Post list table START -->
                         <div class="table-responsive border-0">
@@ -249,16 +252,17 @@
 				var searchValue = document.getElementById("searchValue");
 				var searchTypes = document.getElementsByName("searchType");
 				var searchType = 'title';
-				/* if(searchValue.value.length > 0){
+				if(searchValue.value.length > 0){
 					for(var i = 0; i <searchTypes.length; i++){
 						if(searchTypes[i].checked == true){
 							searchType = searchTypes[i].value;
 						}
 					}
 					pageUrl = pageUrl + '&searchType=' + searchType + '&searchValue=' + searchValue.value; 
-				} */
+				} 
 				location.href = encodeURI(pageUrl);
 			}
 		</script>
+
 	<%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
