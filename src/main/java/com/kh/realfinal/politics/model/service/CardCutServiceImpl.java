@@ -13,7 +13,6 @@ import com.kh.realfinal.common.util.PageInfo;
 import com.kh.realfinal.politics.model.mapper.CardCutMapper;
 import com.kh.realfinal.politics.model.vo.CardCut;
 import com.kh.realfinal.politics.model.vo.CardCutReply;
-import com.kh.realfinal.politics.model.vo.ProfileMna;
 
 @Service
 public class CardCutServiceImpl implements CardCutService {
