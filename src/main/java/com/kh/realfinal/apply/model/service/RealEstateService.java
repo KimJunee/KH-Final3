@@ -9,6 +9,7 @@ import java.util.Map;
 import com.kh.realfinal.apply.model.vo.AptLttotPblancDetail;
 import com.kh.realfinal.apply.model.vo.AptLttotPblancMdl;
 import com.kh.realfinal.apply.model.vo.RealEstateList;
+import com.kh.realfinal.apply.model.vo.RealMainMapList;
 import com.kh.realfinal.common.util.PageInfo;
 
 public interface RealEstateService {
@@ -22,5 +23,9 @@ public interface RealEstateService {
 	AptLttotPblancDetail getSelectAptNo(String no);
 	AptLttotPblancMdl getSelectAptMdlNo(String no);
 
+	
+	// 청약메인 지도 count
+	List<RealMainMapList> getListForMainMap(String localName);
+	int getSelectCountForMainMap(String localName);
 
 }

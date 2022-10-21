@@ -15,9 +15,11 @@ import org.springframework.stereotype.Service;
 
 import com.kh.realfinal.apply.model.mapper.ApplyInfoMapper;
 import com.kh.realfinal.apply.model.mapper.RealEstateListMapper;
+import com.kh.realfinal.apply.model.mapper.RealEstateMapMapper;
 import com.kh.realfinal.apply.model.vo.AptLttotPblancDetail;
 import com.kh.realfinal.apply.model.vo.AptLttotPblancMdl;
 import com.kh.realfinal.apply.model.vo.RealEstateList;
+import com.kh.realfinal.apply.model.vo.RealMainMapList;
 import com.kh.realfinal.common.util.PageInfo;
 
 @Service
@@ -29,10 +31,13 @@ public class RealEstateServiceImpl implements RealEstateService{
 	@Autowired
 	private ApplyInfoMapper applyInfomapper;
 	
+	@Autowired
+	private RealEstateMapMapper realMapmapper;
+
 	//----------------------------------------------------------------------------------
 
 	
-	// ------------------------------------- 청약상세페이지
+	// 청약상세페이지 ------------------------------------- 
 	@Override
 	public List<RealEstateList> getRealBoardList(PageInfo pageInfo, Map<String, String> param, String[] locationType, String[] houseType, String[] APTsupplyType, String[] scheType) {
 		// paging 처리를 위한 RowBounds 코드 셋팅
@@ -100,7 +105,7 @@ public class RealEstateServiceImpl implements RealEstateService{
 	}
 	
 	
-	// 청약상세페이지에서 공고번호로 객체 가져오기
+	// 청약상세페이지에서 공고번호로 객체 가져오기 ----------------------------------
 	@Override
 	public AptLttotPblancDetail getSelectAptNo(String no) {
 		AptLttotPblancDetail aptLtto = applyInfomapper.selectAptNo(no);
@@ -114,6 +119,20 @@ public class RealEstateServiceImpl implements RealEstateService{
 		return aptLttoMdl;
 	}
 
+	
+
+	// 청약메인 지도 count ---------------------------------------------------
+	@Override
+	public List<RealMainMapList> getListForMainMap(String localName) {
+		List<RealMainMapList> mainMapList = realMapmapper.listForMainMap(localName);
+		return mainMapList;
+	}
+
+	@Override
+	public int getSelectCountForMainMap(String localName) {
+		int selectCountMapList = realMapmapper.selectCountForMainMap(localName);
+		return selectCountMapList;
+	}
 
 	
 

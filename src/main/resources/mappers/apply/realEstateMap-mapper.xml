@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.kh.realfinal.apply.model.mapper.RealEstateMapMapper">
+  
+  
+  <resultMap type="RealMainMapList" id="RealMainListCountMap">
+   	<id property="house_manage_no" column="HOUSE_MANAGE_NO"/>
+   	<result property="house_nm" column="HOUSE_NM"/>
+   	<result property="hssply_adres" column="HSSPLY_ADRES"/>
+   	<result property="rcept_bgnde" column="RCEPT_BGNDE"/>
+	<result property="rcept_endde" column="RCEPT_ENDDE"/>
+   	<result property="subscrpt_rcept_bgnde" column="SUBSCRPT_RCEPT_BGNDE"/>
+	<result property="subscrpt_rcept_endde" column="SUBSCRPT_RCEPT_ENDDE"/>
+   </resultMap>
+   
+   
+   
+   <select id="listForMainMap" parameterType="String" resultMap="RealMainListCountMap">
+	   	SELECT HOUSE_MANAGE_NO, HOUSE_NM, HSSPLY_ADRES, RCEPT_BGNDE, RCEPT_ENDDE
+		FROM APT_LTTOT_PBLANC_DETAIL
+		WHERE HSSPLY_ADRES LIKE '%'||#{localName}||'%'
+		UNION
+		SELECT HOUSE_MANAGE_NO, HOUSE_NM, HSSPLY_ADRES, SUBSCRPT_RCEPT_BGNDE, SUBSCRPT_RCEPT_ENDDE
+		FROM REMNDRLTTOTPBLANCDETAIL
+		WHERE HSSPLY_ADRES LIKE '%'||#{localName}||'%'
+		UNION
+		SELECT HOUSE_MANAGE_NO, HOUSE_NM, HSSPLY_ADRES, SUBSCRPT_RCEPT_BGNDE, SUBSCRPT_RCEPT_ENDDE
+		FROM URBTYOFCTLLTTOTPBLANCDETAIL
+		WHERE HSSPLY_ADRES LIKE '%'||#{localName}||'%'
+		ORDER BY HOUSE_MANAGE_NO DESC
+   
+   </select>
+   
+   <select id="selectCountForMainMap" resultType="int" parameterType="map">
+		SELECT SUM(COUNT)
+		FROM
+		(
+		SELECT COUNT(*) AS COUNT
+		FROM
+		(SELECT HOUSE_MANAGE_NO, HOUSE_NM, HSSPLY_ADRES, rcept_bgnde, rcept_endde
+		FROM APT_LTTOT_PBLANC_DETAIL
+		WHERE HSSPLY_ADRES LIKE '%'||#{localName}||'%'
+		ORDER BY HOUSE_MANAGE_NO DESC)
+		UNION
+		SELECT COUNT(*) AS COUNT
+		FROM
+		(SELECT HOUSE_MANAGE_NO, HOUSE_NM, HSSPLY_ADRES, SUBSCRPT_RCEPT_BGNDE, SUBSCRPT_RCEPT_ENDDE
+		FROM REMNDRLTTOTPBLANCDETAIL
+		WHERE HSSPLY_ADRES LIKE '%'||#{localName}||'%'
+		ORDER BY HOUSE_MANAGE_NO DESC)
+		UNION
+		SELECT COUNT(*)  AS COUNT
+		FROM
+		(SELECT HOUSE_MANAGE_NO, HOUSE_NM, HSSPLY_ADRES, SUBSCRPT_RCEPT_BGNDE, SUBSCRPT_RCEPT_ENDDE
+		FROM URBTYOFCTLLTTOTPBLANCDETAIL
+		WHERE HSSPLY_ADRES LIKE '%'||#{localName}||'%'
+		ORDER BY HOUSE_MANAGE_NO DESC)
+		)
+   </select>
+   
+   
+</mapper>

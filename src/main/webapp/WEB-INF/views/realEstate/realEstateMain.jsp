@@ -704,10 +704,11 @@
 
 <!-- ======================= script 시작 =======================-->
 
-<!-- 지도 : 청약 일정 박스 -->
+<!-- 지도 : 청약 일정 박스 
 <script>
         document.addEventListener('contextmenu', event => event.preventDefault());
     </script>
+    -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <style>
@@ -755,38 +756,16 @@ path:hover {
             'south gyeongsang': '경상남도',
             'jeju': '제주특별자치도'
         }
-        var confirmed = {
-            'seoul': 56,
-            'busan': 61,
-            'daegu': 1132,
-            'incheon': 50,
-            'gwangju': 9,
-            'daejeon': 9,
-            'ulsan': 11,
-            'sejong': 1,
-            'gyeonggi': 62,
-            'gangwon': 6,
-            'north chungcheong': 8,
-            'south chungcheong': 12,
-            'north jeolla': 5,
-            'south jeolla': 1,
-            'north gyeongsang': 345,
-            'south gyeongsang': 43,
-            'jeju': 2
-        };
+
+        var confirmed = ${json};
+        
 
 
         [].forEach.call(document.querySelectorAll('path.land'), function(item) {
-            // item.addEventListener('click', function(){
-            //   var sel =this
-            //   });
             item.addEventListener('mouseenter', function() {
-
                 $('#info-box').css('display', 'block');
                 document.getElementById('info-box').innerHTML = k_name[this.getAttribute("title").toLowerCase()] + "<br />" + "청약: " + confirmed[(this.getAttribute("title")).toLowerCase()]
-
                 document.getElementById('tooltip').innerHTML = k_name[this.getAttribute("title").toLowerCase()] + "<br />" + "청약: " + confirmed[(this.getAttribute("title")).toLowerCase()]
-
             });
             item.addEventListener('mouseleave', function() {
                 $('#info-box').css('display', 'none');
@@ -796,8 +775,18 @@ path:hover {
             $('#info-box').css('top', e.pageY - $('#info-box').height() - 1100);
             $('#info-box').css('left', e.pageX - ($('#info-box').width()) / 2 - 350);
         }).mouseover();
+        
+
+        [].forEach.call(document.querySelectorAll('path.land'), function(item) {
+            item.addEventListener('click', function() {
+            	alert('test : ' + this.getAttribute("title").toLowerCase());
+            });
+        })
+        
+        
     </script>
 
+ <!-- ${json} -->
 <!-- 지도 : 청약 일정 상세 
 <script>
         var todayDate = new Date().toISOString().slice(5, 10);

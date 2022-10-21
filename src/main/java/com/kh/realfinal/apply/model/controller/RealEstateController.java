@@ -1,13 +1,15 @@
 package com.kh.realfinal.apply.model.controller;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
-
-
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.collections.map.HashedMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +17,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.google.gson.Gson;
 import com.kh.realfinal.apply.model.service.RealEstateService;
 import com.kh.realfinal.apply.model.service.RemndrLttotPblancDetailService;
 import com.kh.realfinal.apply.model.service.UrbtyOfctlLttotPblancDetailService;
@@ -52,17 +56,64 @@ public class RealEstateController {
 
 	private final int RealEstate = 2;
 
+	static HashMap<String, String> locationMap = new HashMap<String, String>();
+	static HashMap<String, String> locationReversMap = new HashMap<String, String>();
+	static {
+		locationMap.put("seoul", "서울특별시");
+		locationMap.put("busan", "부산광역시");
+		locationMap.put("daegu", "대구광역시");
+		locationMap.put("incheon", "인천광역시");
+		locationMap.put("gwangju", "광주광역시");
+		locationMap.put("daejeon", "대전광역시");
+		locationMap.put("ulsan", "울산광역시");
+		locationMap.put("sejong", "세종특별자치시");
+		locationMap.put("gyeonggi", "경기도");
+		locationMap.put("gangwon", "강원도");
+		locationMap.put("north chungcheong", "충청북도");
+		locationMap.put("south chungcheong", "충청남도");
+		locationMap.put("north jeolla", "전라북도");
+		locationMap.put("south jeolla", "전라남도");
+		locationMap.put("north gyeongsang", "경상북도");
+		locationMap.put("south gyeongsang", "경상남도");
+		locationMap.put("jeju", "제주특별자치도");
+
+		locationReversMap.put("서울특별시", "seoul");
+		locationReversMap.put("부산광역시", "busan");
+		locationReversMap.put("대구광역시", "daegu");
+		locationReversMap.put("인천광역시", "incheon");
+		locationReversMap.put("광주광역시", "gwangju");
+		locationReversMap.put("대전광역시", "daejeon");
+		locationReversMap.put("울산광역시", "ulsan");
+		locationReversMap.put("세종특별자치시", "sejong");
+		locationReversMap.put("경기도", "gyeonggi");
+		locationReversMap.put("강원도", "gangwon");
+		locationReversMap.put("충청북도", "north chungcheong");
+		locationReversMap.put("충청남도", "south chungcheong");
+		locationReversMap.put("전라북도", "north jeolla");
+		locationReversMap.put("전라남도", "south jeolla");
+		locationReversMap.put("경상북도", "north gyeongsang");
+		locationReversMap.put("경상남도", "south gyeongsang");
+		locationReversMap.put("제주특별자치도", "jeju");	
+		
+	}
+	
 	@RequestMapping("/RealEstate/main")
 	public String goRealEMain(Model model) {
-	Map<String, Object> param = new HashMap<String,Object>();
-
-	param.put("board_list_no",RealEstate);
-
-	List<Board> list = boardService.getSideBoardForEstate(param);
-
-	model.addAttribute("estateList", list);
-
-	return "realEstate/realEstateMain";
+		Map<String, Object> param = new HashMap<String, Object>();
+		param.put("board_list_no", RealEstate);
+		List<Board> list = boardService.getSideBoardForEstate(param);
+		model.addAttribute("estateList", list);
+		Map<String, String> map = new HashMap<String, String>();
+		Iterator<String> iter = locationMap.values().iterator();
+		while(iter.hasNext()) {
+			String key = iter.next();
+			int value = realEstateService.getSelectCountForMainMap(key);
+			map.put(locationReversMap.get(key), "" + value);
+		}
+		String json = new Gson().toJson(map);
+		System.out.println(json);
+		model.addAttribute("json", json);
+		return "realEstate/realEstateMain";
 	}
 	
 	@GetMapping("/RealEstate/list")
@@ -184,5 +235,8 @@ public class RealEstateController {
 			return "realEstate/realEstateDetailAptLtto"; 
 		}
 	}
+	
+
+	
 
 }
