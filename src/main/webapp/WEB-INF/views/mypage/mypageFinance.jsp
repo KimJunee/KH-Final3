@@ -102,19 +102,21 @@
                                         <!-- Table body START -->
                                         <tbody class="border-top-0">
                                             <!-- Table item -->
+                                            <c:if test="${!empty list}">
+                                            <c:forEach var="finLikeList" items="${list}">
                                             <tr>
                                                 <!-- 금융샹품명 -->
                                                 <td>
-                                                    <h6 class="course-title mt-2 mt-md-0 mb-0"><a href="#">우리SUPER주거래적금</a></h6>
+                                                    <h6 class="course-title mt-2 mt-md-0 mb-0"><a href="#">${finLikeList.finPrdtNm}</a></h6>
                                                 </td>
                                                 <!-- 금융사명 -->
                                                 <td>
-                                                    <h6 class="mb-0"><a href="#">우리은행</a></h6>
+                                                    <h6 class="mb-0"><a href="#">${finLikeList.korCoNm}</a></h6>
                                                 </td>
                                                 <!-- 최저금리 -->
-                                                <td class="text-center">1.5%</td>
+                                                <td class="text-center">${finLikeList.minRate}%</td>
                                                 <!-- 최고금리 -->
-                                                <td class="text-center">3.0%</td>
+                                                <td class="text-center">${finLikeList.maxRate}%</td>
                                                 <!-- delete -->
                                                 <td>
                                                     <div class="d-flex gap-2">
@@ -122,111 +124,8 @@
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <!-- Table item -->
-                                            <tr>
-                                                <!-- 금융상풍명 -->
-                                                <td>
-                                                    <h6 class="course-title mt-2 mt-md-0 mb-0"><a href="#">퍼스트가계적금</a></h6>
-                                                </td>
-                                                <!-- 금융사명 -->
-                                                <td>
-                                                    <h6 class="mb-0"><a href="#">신한은행</a></h6>
-                                                </td>
-                                                <!-- 최저금리 -->
-                                                <td class="text-center">1.8%</td>
-                                                <!-- 최고금리 -->
-                                                <td class="text-center">4.0%</td>
-                                                <!-- delete -->
-                                                <td>
-                                                    <div class="d-flex gap-2">
-                                                        <a href="#" style="margin-left: 5px;" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="bi bi-trash"></i></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <!-- Table item -->
-                                            <tr>
-                                                <!-- 금융상품명 -->
-                                                <td>
-                                                    <h6 class="course-title mt-2 mt-md-0 mb-0"><a href="#">자유적금 (내가 만든 보너스적금)</a></h6>
-                                                </td>
-                                                <!-- 금융사명 -->
-                                                <td>
-                                                    <h6 class="mb-0"><a href="#">국민은행</a></h6>
-                                                </td>
-                                                <!-- 최저금리 -->
-                                                <td class="text-center">1.8%</td>
-                                                <!-- 최고금리 -->
-                                                <td class="text-center">4.0%</td>
-                                                <!-- delete -->
-                                                <td>
-                                                    <div class="d-flex gap-2">
-                                                        <a href="#" style="margin-left: 5px;" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="bi bi-trash"></i></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <!-- Table item -->
-                                            <tr>
-                                                <!-- 금융상품명 -->
-                                                <td>
-                                                    <h6 class="course-title mt-2 mt-md-0 mb-0"><a href="#">마이(my)적금</a></h6>
-                                                </td>
-                                                <!-- 금융사명 -->
-                                                <td>
-                                                    <h6 class="mb-0"><a href="#">우리은행</a></h6>
-                                                </td>
-                                                <!-- 최저금리 -->
-                                                <td class="text-center">1.8%</td>
-                                                <!-- 최고금리 -->
-                                                <td class="text-center">4.0%</td>
-                                                <!-- delete -->
-                                                <td>
-                                                    <div class="d-flex gap-2">
-                                                        <a href="#" style="margin-left: 5px;" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="bi bi-trash"></i></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <!-- Table item -->
-                                            <tr>
-                                                <!-- 금융상품명 -->
-                                                <td>
-                                                    <h6 class="course-title mt-2 mt-md-0 mb-0"><a href="#">영플러스적금</a></h6>
-                                                </td>
-                                                <!-- 금융사명 -->
-                                                <td>
-                                                    <h6 class="mb-0"><a href="#">신한은행</a></h6>
-                                                </td>
-                                                <!-- 최저금리 -->
-                                                <td class="text-center">1.8%</td>
-                                                <!-- 최고금리 -->
-                                                <td class="text-center">4.0%</td>
-                                                <!-- delete -->
-                                                <td>
-                                                    <div class="d-flex gap-2">
-                                                        <a href="#" style="margin-left: 5px;" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="bi bi-trash"></i></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <!-- Table item -->
-                                            <tr>
-                                                <!-- 금융상품명 -->
-                                                <td>
-                                                    <h6 class="course-title mt-2 mt-md-0 mb-0"><a href="#">내가만든 보너스적금</a></h6>
-                                                </td>
-                                                <!-- 금융사명 -->
-                                                <td>
-                                                    <h6 class="mb-0"><a href="#">우리은행</a></h6>
-                                                </td>
-                                                <!-- 최저금리 -->
-                                                <td class="text-center">1.8%</td>
-                                                <!-- 최고금리 -->
-                                                <td class="text-center">4.0%</td>
-                                                <!-- delete -->
-                                                <td>
-                                                    <div class="d-flex gap-2">
-                                                        <a href="#" style="margin-left: 5px;" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="bi bi-trash"></i></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                            </c:forEach>
+                                            </c:if>
                                         </tbody>
                                         <!-- Table body END -->
                                     </table>

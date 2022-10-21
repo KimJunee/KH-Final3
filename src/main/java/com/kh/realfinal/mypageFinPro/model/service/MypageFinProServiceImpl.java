@@ -1,5 +1,7 @@
 package com.kh.realfinal.mypageFinPro.model.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,12 @@ public class MypageFinProServiceImpl implements MypageFinProService{
 		
 		result = mapper.insertMypageFin(mypageFinance);
 		return result;
+	}
+
+	@Override
+	public List<MypageFinance> getMypageFinList(int userNo) {
+		List<MypageFinance> list = mapper.selectFinLikeList(userNo);
+		return list;
 	}
 
 }

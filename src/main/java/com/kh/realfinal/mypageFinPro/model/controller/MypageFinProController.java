@@ -1,6 +1,8 @@
 package com.kh.realfinal.mypageFinPro.model.controller;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -127,8 +129,18 @@ public class MypageFinProController {
 		return "common/msg";
 	}
 	
-//	@RequestMapping("/mypage/finPro")
-//	public String findFinProLike()
+	@RequestMapping("/mypage/finPro")
+	public String findFinProLike(Model model, @ModelAttribute MypageFinance mypageFinance,
+			@SessionAttribute(name= "loginMember", required = false) Member loginMember) {
+		
+		int userNo = loginMember.getUser_no();
+		List<MypageFinance> list = service.getMypageFinList(userNo);
+		String finType = mypageFinance.getFinType();
+		
+		model.addAttribute("finType", finType);
+		model.addAttribute("list", list);
+		return "mypage/mypageFinance";
+	}
 	
 	
 }

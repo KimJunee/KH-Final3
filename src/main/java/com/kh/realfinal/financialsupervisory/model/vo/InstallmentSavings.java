@@ -2,6 +2,8 @@ package com.kh.realfinal.financialsupervisory.model.vo;
 
 import java.util.List;
 
+import com.kh.realfinal.mypageFinPro.model.vo.MypageFinance;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,5 +31,6 @@ public class InstallmentSavings {
 	private String dclsEndDay; // 공시 종료일
 	private String finCoSubmDay; // 금융회사 제출일 [YYYYMMDDHH24MI]
 	private List<InstallmentSavingsOption> installOptionList;
+	private MypageFinance mypageFin;
 
 }

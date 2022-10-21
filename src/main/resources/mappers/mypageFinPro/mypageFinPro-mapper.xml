@@ -7,20 +7,49 @@
 		<result property="userNo" column="USERNO"/>
 		<result property="finType" column="FINTYPE"/>
 		<result property="prtId" column="PRTID"/>
-	</resultMap>	
+		<result property="finPrdtNm" column="FINPRDTNM"/>
+		<result property="korCoNm" column="KORCONM"/>
+		<result property="minRate" column="MINRATE"/>
+		<result property="maxRate" column="MAXRATE"/>
+	</resultMap>
 	
 	<insert id="insertMypageFin" parameterType="map">
 		INSERT INTO MYPAGEFINANCE(LIKENO, USERNO, FINTYPE, PRTID)
-		VALUES(LIKENO.NEXTVAL, ${userNo}, ${finType}, ${prtId})
+		VALUES(LIKENO.NEXTVAL, #{userNo}, #{finType}, #{prtId})
 	</insert>
 	
-	<select id="selectFinLike">
-		SELECT inssvn_fin_prdt_nm, inssvn_kor_co_nm, intr_rate, intr_rate2
+	<select id="selectFinLikeList" resultMap="mypageFinProResultMap">
+		SELECT DISTINCT FINLIKE.* FROM(SELECT inssvn_fin_prdt_nm AS FINPRDTNM, inssvn_kor_co_nm AS KORCONM,
+		intr_rate AS MINRATE, intr_rate2 AS MAXRATE
 		FROM MYPAGEFINANCE
 		JOIN INSTLSAVING I ON I.INSSVN_ID = PRTID
 		JOIN INSSVN_OPTION O ON O.INSSVN_ID = PRTID
-		WHERE USERNO = ${userNo} AND PRTID = ${prtId}
+		WHERE USERNO = #{userNo}  
+		UNION ALL
+		SELECT MORTGAGE_FIN_PRDT_NM AS FINPRDTNM, MORTGAGE_KOR_CO_NM AS KORCONM,
+		MORTGAGE_LEND_RATE_MIN AS MINRATE, MORTGAGE_LEND_RATE_MAX AS MAXRATE
+		FROM MYPAGEFINANCE
+		JOIN MORTGAGELOAN M ON M.MORTGAGE_ID = PRTID
+		JOIN MORTGAGELOAN_OPTION O ON O.MORTGAGE_ID = PRTID
+		WHERE USERNO = #{userNo}
+		UNION ALL
+		SELECT FIXDEPO_FIN_PRDT_NM AS FINPRDTNM, FIXDEPO_KOR_CO_NM AS KORCONM,
+		INTR_RATE AS MINRATE, INTR_RATE2 AS MAXRATE
+		FROM MYPAGEFINANCE
+		JOIN FIXDEPOSIT D ON D.FIXDEPOSIT_ID = PRTID
+		JOIN FIXDEPOSIT_OPTION O ON O.FIXDEPOSIT_NO = PRTID
+		WHERE USERNO = #{userNo}
+		UNION ALL
+		SELECT LEASELOAN_FIN_PRDT_NM AS FINPRDTNM, LEASELOAN_KOR_CO_NM AS KORCONM,
+		LEASELOAN_LEND_RATE_MIN AS MINRATE, LEASELOAN_LEND_RATE_MAX AS MAXRATE
+		FROM MYPAGEFINANCE
+		JOIN LEASELOAN L ON L.LEASELOAN_ID = PRTID
+		JOIN LEASELOAN_OPTION O ON O.LEASELOAN_ID = PRTID
+		WHERE USERNO = #{userNo}) FINLIKE
+		ORDER BY FINLIKE.MAXRATE DESC
 	</select>
+	
+	
 	
 	
 
