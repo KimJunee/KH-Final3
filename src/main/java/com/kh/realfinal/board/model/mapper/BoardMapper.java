@@ -45,4 +45,5 @@ public interface BoardMapper {
 	public List<Board> sideBoardForEstate(Map<String, Object> param);	// 부동산메인 - 부동산게시글 출력
 	public List<Board> sideBoardForPolitics(Map<String, Object> param);	// 정치 국회의원현황 - 정치게시글 출력
 	public List<Board> sideBoard();	// 메인, 커뮤니티상세 - 인기게시글 출력
+	int editReply(Reply reply);
 }

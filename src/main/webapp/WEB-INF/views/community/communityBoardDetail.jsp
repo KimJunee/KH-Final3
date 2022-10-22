@@ -59,7 +59,7 @@
 	                            <hr class="d-none d-lg-block">
 	                            <div class="d-flex gap-2 mt-1" style="justify-content: center;">
 	                                <a href="${path}/board/update?no=${board.board_no}" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" style="margin-right: 7px;"><i class="bi bi-pencil-square"></i></a>
-	                                <a href="${path}/board/delete?boardNo=${board.board_no}" id="btnDelete" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="bi bi-trash"></i></a>
+	                                <a href="${path}/board/delete?boardNo=${board.board_no}" id="delete_reply_btn" class="btn btn-light btn-round mb-0 delete_reply_btn" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="bi bi-trash"></i></a>
 	                            </div>
                             </c:if>
                         </div>
@@ -89,22 +89,34 @@
                         <c:forEach var="reply" items="${replyList}" varStatus="status">
                         	<c:choose>
 	                        	<c:when test="${!status.last}">
-	                            	<div class="my-4 d-flex border-bottom border-1 mb-1" style="color:#a1a1a8">
+	                            	<div class="my-4 d-flex border-bottom border-1 mb-1 reply" id="reply${reply.reply_no}" style="color:#a1a1a8">
 	                            </c:when>
 	                            <c:otherwise>
-	                            	<div class="my-4 d-flex ">
+	                            	<div class="my-4 d-flex reply" id="reply${reply.reply_no}">
 	                            </c:otherwise>
                             </c:choose>
                                 <img class="avatar avatar-md rounded-circle float-start me-3" src="${path}/resources/resources1b/images/avatar_w3.png" alt="avatar">
-                                <div>
-                                    <div class="mb-2">
+                        		<div style="width: 100%;">
+                                <div style="flex-container: space-between;">
+                                    <div class="mb-2" style="display:inline-block">
                                         <h6 class="m-0 mice">${reply.reply_writer_nickName}</h6>
                                         <span class="me-3 small"><fmt:formatDate type="both" value="${reply.reply_register}"/></span>
                                     </div>
+                                    <c:if test="${not empty loginMember && (loginMember.user_id == reply.reply_writer_id)}">
+	                                    <div style="display: inline-block; flex-container: space-between; float: right;">
+		                                    <button id="reply_edit${reply.reply_no}" onclick="editReply(${reply.reply_no})" class="btn btn-outline-primary mb-0" style="font-size:13px; padding:3px 5px">수정</button>
+		                                    <button style="display:none;font-size:13px; padding:3px 5px" class="btn btn-outline-primary mb-0" id="do_reply_edit${reply.reply_no}" onclick="doEditReply(${reply.reply_no})">저장</button>
+		                                    <button style="display:none;font-size:13px; padding:3px 5px" class="btn btn-outline-primary mb-0" id="cancel_reply_edit${reply.reply_no}" onclick="cancelEditReply(${reply.reply_no})">취소</button>
+		                                    <button id="delete_reply_btn${reply.reply_no}" onclick="deleteReply(${reply.reply_no})" class="btn btn-outline-primary mb-0" style="font-size:13px; padding:3px 5px">삭제</button>
+	                                    </div>
+                                    </c:if>
                                     <div style="color:#191a1f">
-                                        <p>${reply.reply_content}</p>
+                                        <p id="reply_content${reply.reply_no}">${reply.reply_content}</p>
+                                        <textarea style="display:none;" id="edit_reply_content${reply.reply_no}">${reply.reply_content}</textarea>
                                     </div>
+                                    
                                 </div>
+                            </div>
                             </div>
                         </c:forEach>
                         </div>
@@ -209,6 +221,7 @@
     </main>
     
     <script>
+    // 게시글 수정, 삭제
 	$(document).ready(() => {
 		$("#btnUpdate").on("click", (e) => {
 			location.href = "${path}/board/update?board_no=${board.board_no}";
@@ -221,10 +234,92 @@
 		});
 	});
 	
-	function deleteReply(replyNo){
-		var url = "${path}/board/replydel?reply_no=";
-		var requestURL = url + replyNo;
-		location.replace(requestURL);
+	// 댓글 삭제
+	$(document).on("click", ".delete_reply_btn", function(e){
+		e.preventDefault();
+		let reply_no = $(this).attr("href");
+		
+		$.ajax({
+			data : {
+				reply_no : reply_no,
+				board_no : "${board.board_no}"
+			},
+			url : "/board/replydel",
+			type : "POST",
+			success : function(result){
+				alert("댓글이 삭제되었습니다.");
+			}
+		});
+	});
+	
+	function editReply(idx){
+		console.log(idx);
+		$("#reply_content"+idx).hide();
+		$("#edit_reply_content"+idx).show();
+		
+		$("#reply_edit"+idx).hide();
+		$("#do_reply_edit"+idx).show();
+		$("#cancel_reply_edit"+idx).show();
+	}
+	
+	function cancelEditReply(idx){
+		console.log("cancel Edit Reply");
+		
+		$("#edit_reply_content"+idx).val($("#reply_content"+idx).text()); //내용 원복
+		
+		$("#reply_content"+idx).show();
+		$("#edit_reply_content"+idx).hide();
+		
+		$("#reply_edit"+idx).show();
+		$("#do_reply_edit"+idx).hide();
+		$("#cancel_reply_edit"+idx).hide();
+	}
+	
+	function doEditReply(idx){
+		$.ajax({
+			data : JSON.stringify({
+				reply_no : idx,
+				board_no : "${board.board_no}",
+				reply_content:$("#edit_reply_content"+idx).val()
+			}),
+			url : "/realfinal/board/replyedit",
+			type : "POST",
+			contentType: 'application/json',
+			success : function(result){
+				alert("댓글이 수정되었습니다.");
+				
+				$("#reply_content"+idx).text($("#edit_reply_content"+idx).val());
+				
+				$("#reply_content"+idx).show();
+				$("#edit_reply_content"+idx).hide();
+				
+				$("#reply_edit"+idx).show();
+				$("#do_reply_edit"+idx).hide();
+				$("#cancel_reply_edit"+idx).hide();
+			}
+		});
+	}
+	
+	function deleteReply(idx){
+		$.ajax({
+			data : JSON.stringify({
+				reply_no : idx,
+				board_no : "${board.board_no}",
+				reply_content:$("#edit_reply_content"+idx).val()
+			}),
+			url : "/realfinal/board/replydel",
+			type : "POST",
+			contentType: 'application/json',
+			success : function(result){
+				alert("댓글이 삭제되었습니다.");
+
+				$("#reply"+idx).remove();
+				
+				var last_reply = $(".reply").last();
+				
+				last_reply.removeClass("border-bottom border-1 mb-1");
+			}
+		});
 	}
 	</script>
 	

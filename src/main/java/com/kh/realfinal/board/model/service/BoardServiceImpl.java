@@ -6,11 +6,13 @@ import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
+
 import com.kh.realfinal.board.model.mapper.BoardMapper;
 import com.kh.realfinal.board.model.vo.Board;
 import com.kh.realfinal.board.model.vo.Reply;
@@ -158,6 +160,11 @@ public class BoardServiceImpl implements BoardService{
 	@Transactional(rollbackFor =  Exception.class)
 	public int deleteReply(int no) {
 		return mapper.deleteReply(no);
+	}
+
+	@Override
+	public int editReply(Reply reply) {
+		return mapper.editReply(reply);
 	}
 
 }

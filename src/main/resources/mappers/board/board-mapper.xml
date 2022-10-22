@@ -16,6 +16,7 @@
 		<result property="board_modify" column="BOARD_MODIFY"/>
 		<result property="board_originalFileName" column="BOARD_ORIGINALFILENAME"/>
 		<result property="board_renamedFileName" column="BOARD_RENAMEDFILENAME"/>
+		<result property="board_status" column="BOARD_STATUS"/>
 		<result property="reply_cnt" column="REPLY_CNT"/>
 		<result property="rownum" column="ROWNUM"/>
 	</resultMap>
@@ -254,7 +255,7 @@
 	
 	<!-- 게시글 삭제 -->
 	<update id="deleteBoard" parameterType="int">
-		UPDATE BOARD SET STATUS='N' WHERE BOARD_NO = #{board_no}
+		UPDATE BOARD SET BOARD_STATUS='N' WHERE BOARD_NO = #{board_no}
 	</update>
 	
 	<!-- 댓글 등록 -->
@@ -266,9 +267,15 @@
 				#{board_no}, SYSDATE, SYSDATE)
 	</insert>
 	
+	<!-- 댓글 수정 -->
+	<update id="editReply" parameterType="Reply">
+		UPDATE REPLY SET REPLY_CONTENT = #{reply_content}
+		WHERE REPLY_NO = #{reply_no}
+	</update>
+	
 	<!-- 댓글 삭제 -->
 	<delete id="deleteReply" parameterType="int">
-		DELETE REPLY WHERE BOARD_NO = #{board_no} 
+		DELETE REPLY WHERE REPLY_NO = #{reply_no} 
 	</delete>
 
 </mapper>

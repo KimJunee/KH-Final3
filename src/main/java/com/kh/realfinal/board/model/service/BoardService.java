@@ -21,4 +21,5 @@ public interface BoardService {
 	List<Board> getSideBoardForEstate(Map<String, Object> param);
 	List<Board> getSideBoardForPolitics(Map<String, Object> param);
 	List<Board> getSideBoard();
+	int editReply(Reply reply);
 }

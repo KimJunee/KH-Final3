@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
@@ -18,16 +20,20 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.multipart.MultipartFile;
+
 import com.kh.realfinal.board.model.service.BoardService;
 import com.kh.realfinal.board.model.vo.Board;
 import com.kh.realfinal.board.model.vo.Reply;
 import com.kh.realfinal.common.util.PageInfo;
 import com.kh.realfinal.member.model.vo.Member;
+
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -79,34 +85,19 @@ public class BoardController {
 			else if(list.get(i).getBoard_list_no() == 4) {
 				list4.add(list.get(i));
 			}
-			
 		}
-//		System.out.println("list1 : " + list1);
-//		
-//		System.out.println("list2 : " + list2);
-//		
-//		System.out.println("list3 : " + list3);
-//		
-//		System.out.println("list4 : " + list4);
-		
-//		System.out.println(list);
+
 		model.addAttribute("list",list);
 		model.addAttribute("list1",list1);
 		model.addAttribute("list2",list2);
 		model.addAttribute("list3",list3);
 		model.addAttribute("list4",list4);
-//		model.addAttribute("param",param);
-//		model.addAttribute("pageInfo",pageInfo);
 		return "/community/communityMain";
 	}
 	
 	// 커뮤니티 전체검색 목록
 	@GetMapping("/searchList")
 	public String searchList(Model model, @RequestParam Map<String, String> param, String board_list_no) {
-		
-	
-		System.out.println("board_list_no : " + board_list_no);
-		System.out.println("param : " + param);
 		int page = 1;
 		if(param.containsKey("page") == true) {
 			try {
@@ -116,8 +107,6 @@ public class BoardController {
 		
 		PageInfo pageInfo = new PageInfo(page, 10, service.getBoardCount(param), 20);
 		List<Board> list = service.getBoardList(pageInfo, param);
-		
-		System.out.println("type : " + param.get("type")+ " 입니다 ex)" + "1 정치, 2 부동산, 3 금융, 4 자유");
 		
 		model.addAttribute("list",list);
 		model.addAttribute("board_list_no", param.get("type"));
@@ -129,10 +118,7 @@ public class BoardController {
 	// 커뮤니티 타입별 목록
 	@GetMapping("/list")
 	public String list(Model model, @RequestParam Map<String, String> param, String board_list_no) {
-		
 	
-		System.out.println("board_list_no : " + board_list_no);
-		System.out.println("param : " + param);
 		int page = 1;
 		if(param.containsKey("page") == true) {
 			try {
@@ -142,8 +128,6 @@ public class BoardController {
 		
 		PageInfo pageInfo = new PageInfo(page, 20, service.getBoardCount(param), 20);
 		List<Board> list = service.getBoardList(pageInfo, param);
-		
-		System.out.println("type : " + param.get("type")+ " 입니다 ex)" + "1 정치, 2 부동산, 3 금융, 4 자유");
 		
 		model.addAttribute("list",list);
 		model.addAttribute("board_list_no", param.get("type"));
@@ -158,16 +142,12 @@ public class BoardController {
 		Board board = service.findByNo(no);
 		List<Board> list = service.getSideBoard();
 		
-//		System.out.println("board : " + board);
-		
 		if(board == null) {
 			return "redirect:error";
 		}
 		
 		String rootPath = request.getSession().getServletContext().getRealPath("resources");
 		String savePath = rootPath + "\\upload\\board\\";
-		
-//		System.out.println(savePath);
 		
 		model.addAttribute("board", board);
 		model.addAttribute("replyList", board.getReplies());
@@ -197,7 +177,6 @@ public class BoardController {
 			@ModelAttribute Board board,
 			@RequestParam("upfile") MultipartFile upfile
 			) {
-		System.out.println(board.toString());
 		board.setWriter_no(loginMember.getUser_no());
 		
 		if(upfile != null && upfile.isEmpty() == false) {
@@ -211,7 +190,6 @@ public class BoardController {
 			}
 		}
 		int result = service.saveBoard(board);
-		System.out.println("board : " + board);
 		if(result > 0) {
 			model.addAttribute("msg", "게시글 작성이 정상적으로 성공하였습니다.");
 			model.addAttribute("location", "/board/BoardDetail?board_no="+board.getBoard_no()); // 해당 게시글 가기! 우선 임시로 게시글 목록
@@ -243,61 +221,6 @@ public class BoardController {
 		return "/common/msg";
 	}
 	
-	// 게시글 삭제
-	@RequestMapping("/delete")
-	public String deleteBoardReply(Model model, HttpServletRequest request,
-			@SessionAttribute(name = "loginMember", required = false) Member loginMember,
-			int boardNo
-			) {
-		log.debug("글삭제 요청");
-		String rootPath = request.getSession().getServletContext().getRealPath("resources");
-		rootPath = rootPath + "/upload/board"; 
-		int result = service.deleteBoard(boardNo, rootPath);
-		
-		if(result > 0) {
-			model.addAttribute("msg", "게시글 삭제에 성공하였습니다.");
-		}else {
-			model.addAttribute("msg", "게시글 삭제 실패하였습니다.");
-		}
-		model.addAttribute("location", "/board/list");
-		return "/common/msg";
-	}
-	
-	// 댓글 삭제
-	@RequestMapping("/replydel")
-	public String deleteReply(Model model, 
-			@SessionAttribute(name = "loginMember", required = false) Member loginMember,
-			int replyNo, int boardNo
-			) {
-		log.debug("댓글 삭제 요청");
-		int result = service.deleteReply(replyNo);
-		
-		if(result > 0) {
-			model.addAttribute("msg", "댓글 삭제에 성공하였습니다.");
-		}else {
-			model.addAttribute("msg", "댓글 삭제 실패하였습니다.");
-		}
-		model.addAttribute("location", "/board/view?no=" + boardNo);
-		return "/common/msg";
-	}
-	
-	// update 화면 보여주는 기능
-	@GetMapping("/update")
-	public String updateView(Model model, 
-			@SessionAttribute(name = "loginMember", required = false) Member loginMember,
-			@RequestParam("no") int boardNo) {
-		Board board = service.findByNo(boardNo);
-		
-		if(loginMember.getUser_no() == board.getWriter_no()) {
-			model.addAttribute("board",board);
-			return "community/communityBoardUpdate";
-		}else {
-			model.addAttribute("msg", "잘못된 접근입니다.");
-			model.addAttribute("location", "/board/list");
-			return "/common/msg";
-		}
-	}
-		
 	// 게시글 수정
 	@PostMapping("/update_action")
 	public String updateBoard(Model model, HttpServletRequest request,
@@ -353,7 +276,7 @@ public class BoardController {
 			
 			// 인터넷 익스플로러 인 경우
 			boolean isMSIE = userAgent.indexOf("MSIE") != -1 || userAgent.indexOf("Trident") != -1;
-
+			
 			if (isMSIE) { // 익스플로러 처리하는 방법
 				downName = URLEncoder.encode(oriname, "UTF-8").replaceAll("\\+", "%20");
 			} else {    		
@@ -368,5 +291,87 @@ public class BoardController {
 			e.printStackTrace();
 		}
 		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build(); // 실패했을 경우
+	}
+	
+	// update 화면 보여주는 기능
+	@GetMapping("/update")
+	public String updateView(Model model, 
+			@SessionAttribute(name = "loginMember", required = false) Member loginMember,
+			@RequestParam("no") int boardNo) {
+		Board board = service.findByNo(boardNo);
+		
+		if(loginMember.getUser_no() == board.getWriter_no()) {
+			model.addAttribute("board",board);
+			return "community/communityBoardUpdate";
+		}else {
+			model.addAttribute("msg", "잘못된 접근입니다.");
+			model.addAttribute("location", "/board/list");
+			return "/common/msg";
+		}
+	}
+	
+	// 게시글 삭제
+	@RequestMapping("/delete")
+	public String deleteBoardAction(Model model, HttpServletRequest request,
+			@SessionAttribute(name = "loginMember", required = false) Member loginMember,
+			int boardNo
+			) {
+		log.debug("글삭제 요청");
+		String rootPath = request.getSession().getServletContext().getRealPath("resources");
+		rootPath = rootPath + "/upload/board"; 
+		int result = service.deleteBoard(boardNo, rootPath);
+		
+		if(result > 0) {
+			model.addAttribute("msg", "게시글 삭제에 성공하였습니다.");
+		}else {
+			model.addAttribute("msg", "게시글 삭제 실패하였습니다.");
+		}
+		model.addAttribute("location", "/board/list");
+		return "/common/msg";
+	}
+	
+	// 댓글 삭제
+	@RequestMapping("/replydel")
+	@ResponseBody
+	public Map<String,Object> deleteReply(Model model, 
+			@SessionAttribute(name = "loginMember", required = false) Member loginMember,
+			@RequestBody Reply reply
+			) {
+		Map<String,Object> resultMap = new HashMap<String,Object>();
+		
+		log.debug("댓글 삭제 요청");
+		int result = service.deleteReply(reply.getReply_no());
+		
+		if(result > 0) {
+			resultMap.put("msg", "댓글 삭제에 성공하였습니다.");
+			resultMap.put("result", "success");
+		}else {
+			resultMap.put("msg", "댓글 삭제 실패하였습니다.");
+			resultMap.put("result", "fail");
+		}
+		return resultMap;
+	}
+	
+	// 댓글 수정
+	@RequestMapping("/replyedit")
+	@ResponseBody
+	public Map<String,Object> editReply(Model model, 
+			@SessionAttribute(name = "loginMember", required = false) Member loginMember,
+			@RequestBody Reply reply
+			) {
+		
+		Map<String,Object> resultMap = new HashMap<String,Object>();
+		
+		log.debug("댓글 수정 요청");
+		int result = service.editReply(reply);
+		
+		if(result > 0) {
+			resultMap.put("msg", "댓글 삭제에 성공하였습니다.");
+			resultMap.put("result", "success");
+		}else {
+			resultMap.put("msg", "댓글 삭제 실패하였습니다.");
+			resultMap.put("result", "fail");
+		}
+		return resultMap;
 	}
 }
