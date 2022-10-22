@@ -78,20 +78,20 @@
                                         <div class="row g-3 align-items-center justify-content-between mb-3">
                                             <!-- Search -->
                                             <div class="col-md-8">
-                                                <form action="${path}/board/searchList" method="get" class="rounded position-relative">
-                                                    <input class="form-control pe-5 bg-transparent" type="search" id="searchValue" placeholder="Search" aria-label="Search" value="<c:out value="${param.searchValue}"/>">
-                                                    <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
-                                                </form>
+	                                            <c:forEach var="board" items="${list}" begin="0" end="0" step="1" varStatus="status">
+	                                                <form action="${path}/board/searchList" method="get" class="rounded position-relative">
+	                                                    <input class="form-control pe-5 bg-transparent" type="search" id="searchValue" placeholder="Search" aria-label="Search" value="<c:out value="${param.searchValue}"/>">
+	                                                    <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
+	                                                </form>
+                                                </c:forEach>
                                             </div>
                                             <!-- Select option -->
                                             <div class="col-md-3">
                                                 <!-- Short by filter -->
                                                 <form>
                                                     <select id="sort" class="form-select z-index-9 bg-transparent" aria-label=".form-select-sm">
-										                <option value="">Sort by</option>
-										                <option>Free</option>
-										                <option>Newest</option>
-										                <option>Oldest</option>
+										                <option value="">최근 순 정렬</option>
+										                <option>오래된 순 정렬</option>
 									                </select>
                                                 </form>
                                             </div>

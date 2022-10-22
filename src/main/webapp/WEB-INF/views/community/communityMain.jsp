@@ -41,15 +41,15 @@
                                         <div class="row g-3 align-items-center justify-content-between mb-3">
                                             <!-- 검색 -->
                                             <div class="col-md-12">
-                                            <c:forEach var="board" items="${list}" begin="0" end="0" step="1" varStatus="status">
-                                                <form class="rounded position-relative" action="${path}/board/searchList">
-                                                	<%-- <input type="hidden" id="type" name="type" value="${board.board_list_no}" /> --%>
-                                                    <input id="searchValue" name="searchValue" class="form-control pe-5 bg-transparent" type="search" placeholder="Search" aria-label="Search" value="${param.searchValue}">
-                                                    <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit" >
-                                                   		<i class="fas fa-search fs-6"></i>
-                                                    </button>
-                                                </form>
-                                            </c:forEach>
+	                                            <c:forEach var="board" items="${list}" begin="0" end="0" step="1" varStatus="status">
+	                                                <form class="rounded position-relative" action="${path}/board/searchList">
+	                                                	<%-- <input type="hidden" id="type" name="type" value="${board.board_list_no}" /> --%>
+	                                                    <input id="searchValue" name="searchValue" class="form-control pe-5 bg-transparent" type="search" placeholder="Search" aria-label="Search" value="${param.searchValue}">
+	                                                    <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit" >
+	                                                   		<i class="fas fa-search fs-6"></i>
+	                                                    </button>
+	                                                </form>
+	                                            </c:forEach>
                                             </div>
                                         </div>
                                         <!-- 검색 끝 -->
@@ -69,11 +69,11 @@
                                                 </thead>
                                                 <!-- 인기글 10개 -->
                                                 <tbody class="border-top-0">
-                                                <c:if test="${empty list}">
-                                                	<tr>
-														<td colspan="6">조회된 글이 없습니다.</td>
-													</tr>
-                                                </c:if>
+	                                                <c:if test="${empty list}">
+	                                                	<tr>
+															<td colspan="6">조회된 글이 없습니다.</td>
+														</tr>
+	                                                </c:if>
                                                 <c:if test="${!empty list}">
 													<c:forEach var="board" items="${list}" begin="0" end="9" step="1" varStatus="status">
 														<tr>
@@ -98,7 +98,7 @@
                                                         <td>
                                                             <h6 class="course-title mt-2 mt-md-0 mb-0">
                                                             <a href="${path}/board/BoardDetail?board_no=${board.board_no}">
-                                                            <c:out value="${board.board_title}" /></a></h6>
+                                                            <c:out value="${board.board_title}"/></a></h6>
                                                         </td>
                                                         <!-- Writer -->
                                                         <td class="text-center">
@@ -107,9 +107,9 @@
                                                         <!-- Posting date -->
                                                         <td class="text-center"><fmt:formatDate value="${board.board_register}"/></td>
                                                         <!-- Hits -->
-                                                        <td class="text-center"><c:out value="${board.board_hit}" /></td>
+                                                        <td class="text-center"><c:out value="${board.board_hit}"/></td>
                                                         <!-- Comments -->
-                                                        <td class="text-center"><c:out value="${board.reply_cnt}" /></td>
+                                                        <td class="text-center"><c:out value="${board.reply_cnt}"/></td>
                                                     </tr>
 													</c:forEach>
 												</c:if>

@@ -110,11 +110,10 @@
 		                                    <button id="delete_reply_btn${reply.reply_no}" onclick="deleteReply(${reply.reply_no})" class="btn btn-outline-primary mb-0" style="font-size:13px; padding:3px 5px">삭제</button>
 	                                    </div>
                                     </c:if>
-                                    <div style="color:#191a1f">
+                                    <div class="mb-2" style="color:#191a1f">
                                         <p id="reply_content${reply.reply_no}">${reply.reply_content}</p>
-                                        <textarea style="display:none;" id="edit_reply_content${reply.reply_no}">${reply.reply_content}</textarea>
+                                        <textarea class="form-control" style="display:none; resize: none;" id="edit_reply_content${reply.reply_no}">${reply.reply_content}</textarea>
                                     </div>
-                                    
                                 </div>
                             </div>
                             </div>
@@ -173,23 +172,23 @@
                             <div class="row g-2 mt-5">
                                 <h5>인기검색어</h5>
                                 <div class="d-flex justify-content-between align-items-center bg-warning bg-opacity-15 rounded p-2 position-relative">
-                                    <h6 class="m-0 text-warning">쭈꾸미</h6>
+                                    <h6 class="m-0 text-warning">디지털 경쟁력</h6>
                                     <a href="#" class="badge bg-warning text-dark stretched-link">09</a>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center bg-info bg-opacity-10 rounded p-2 position-relative">
-                                    <h6 class="m-0 text-info">코로나</h6>
+                                    <h6 class="m-0 text-info">소상공인 대출</h6>
                                     <a href="#" class="badge bg-info stretched-link">25</a>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center bg-danger bg-opacity-10 rounded p-2 position-relative">
-                                    <h6 class="m-0 text-danger">환율</h6>
+                                    <h6 class="m-0 text-danger">전세피해지원센터</h6>
                                     <a href="#" class="badge bg-danger stretched-link">75</a>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center bg-primary bg-opacity-10 rounded p-2 position-relative">
-                                    <h6 class="m-0 text-primary">개발자노동보호법</h6>
+                                    <h6 class="m-0 text-primary">세계 전기차 점유율</h6>
                                     <a href="#" class="badge bg-primary stretched-link">19</a>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center bg-success bg-opacity-10 rounded p-2 position-relative">
-                                    <h6 class="m-0 text-success">로또</h6>
+                                    <h6 class="m-0 text-success">복지멤버십</h6>
                                     <a href="#" class="badge bg-success stretched-link">35</a>
                                 </div>
                             </div>
