@@ -4,6 +4,7 @@
 <mapper	namespace="com.kh.realfinal.politics.model.mapper.CardCutMapper">
  
 	<resultMap type="CardCut" id="CardCutMap">
+		<id property="cardCutNo" column="CARDCUT_NO"/>
 		<id property="title" column="TITLE"/>
 		<result property="link" column="LINK"/>
 		<result property="descriptionOrigin" column="DESCRIPTION"/>

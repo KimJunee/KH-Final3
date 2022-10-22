@@ -27,28 +27,31 @@
 		)
 	</insert>
 	
-	
-	<select id="selectLawProposed" resultMap="LawProposedMap" parameterType="string">
-		SELECT MNA_LEGISLATION_NO, BILL_NO, RST_PROPOSER, AGE, BILL_NAME,
-		PROPOSER, COMMITTEE, PROPOSE_DT, PROC_RESULT, DETAIL_LINK
-		FROM MNA_LEGISLATION WHERE  RST_PROPOSER = #{name}
-	</select>
-	
-  <select id="selectLawProposedList" resultMap="LawProposedMap" parameterType="string">
+  <select id="selectLawProposed" resultMap="LawProposedMap" parameterType="int">
 		SELECT MNA_LEGISLATION_NO, BILL_NO, RST_PROPOSER, AGE, BILL_NAME,
 		PROPOSER, COMMITTEE, PROPOSE_DT, PROC_RESULT, DETAIL_LINK
 		FROM MNA_LEGISLATION ORDER BY MNA_LEGISLATION_NO
+		WHERE MNA_LEGISLATION_NO = #{lawNo}
 	</select> 
+	
+	<select id="selectLawProposedList" resultMap="LawProposedMap" parameterType="map">
+		SELECT MNA_LEGISLATION_NO, BILL_NO, RST_PROPOSER, AGE, BILL_NAME,
+		PROPOSER, COMMITTEE, PROPOSE_DT, PROC_RESULT, DETAIL_LINK
+		FROM MNA_LEGISLATION 
+		WHERE 1=1
+		<if test="name != null">
+			 AND RST_PROPOSER = #{name}
+		</if>
+		
+	</select>
+	
 	 
-	<!-- 검색 후 갯수 
 	<select id="selectLawProposedCount" resultType="int"  parameterType="map">
 		SELECT COUNT(*)
-		FROM BOARD B
-		JOIN USER_T U ON(B.WRITER_NO = U.USER_NO)
-		WHERE B.BOARD_STATUS = 'Y'
-		<if test="no != null and !board_list_no.equals('')">
-			AND B.BOARD_LIST_NO = #{board_list_no}
-		</if>
+		FROM MNA_LEGISLATION
+		WHERE 1=1 
+			<if test="name != null">
+				 AND  RST_PROPOSER = #{name}
+			</if>
 	</select>
-	-->
 </mapper>

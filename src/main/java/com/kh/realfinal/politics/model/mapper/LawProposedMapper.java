@@ -11,13 +11,9 @@ import com.kh.realfinal.politics.model.vo.LawProposed;
 @Mapper
 public interface LawProposedMapper {
 	int insertLawProposed(LawProposed proposed);
-
-	List<LawProposed> selectLawProposed(String name, RowBounds rowBounds);
-	
-	int selectLawProposedCount(RowBounds rowBounds);
-
-	LawProposed selectLawProposedCount(int lawNo);
-
+	LawProposed selectLawProposed(int lawNo);
+	List<LawProposed> selectLawProposedList(RowBounds rowBounds, Map<String, String> map);
+	int selectLawProposedCount(Map<String, String> map);
 	
 }
 

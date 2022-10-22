@@ -26,20 +26,15 @@ public class ProfileMnaServiceImpl implements ProfileMnaService  {
 	}
 
 	@Override
-	public List<ProfileMna> getProfileList(PageInfo pageInfo) {
-		int offset = (pageInfo.getCurrentPage() - 1) * pageInfo.getListLimit();
-		RowBounds rowBounds = new RowBounds(offset, pageInfo.getListLimit());
-		return mapper.selectProfileMna(rowBounds);
-	}
-
-	@Override
-	public int getProfileCount() {
-		return mapper.selectProfileMnaCount();
+	public int getProfileCount(Map<String, String> param) {
+		return mapper.selectProfileMnaCount(param);
 	}
 
 	@Override
 	public List<ProfileMna> getProfileList(PageInfo pageInfo, Map<String, String> param) {
-		return null;
+		int offset = (pageInfo.getCurrentPage() - 1) * pageInfo.getListLimit();
+		RowBounds rowBounds = new RowBounds(offset, pageInfo.getListLimit());
+		return mapper.selectProfileMnaList(rowBounds, param);
 	}
 
 	@Override
@@ -50,9 +45,4 @@ public class ProfileMnaServiceImpl implements ProfileMnaService  {
 		return profile;
 	}
 
-	@Override
-	public List<ProfileMna> getProfileList(PageInfo pageInfo, String hgNm) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

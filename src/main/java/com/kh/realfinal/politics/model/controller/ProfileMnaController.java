@@ -8,7 +8,6 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -25,7 +24,6 @@ import com.kh.realfinal.politics.model.vo.MnaPhoto;
 import com.kh.realfinal.politics.model.vo.ProfileMna;
 
 import lombok.extern.slf4j.Slf4j;
-import oracle.net.ano.Service;
 
 @Slf4j
 @Controller
@@ -113,6 +111,7 @@ public class ProfileMnaController {
 	}
 
 	// 페이징 처리
+	// 국회의원 리스트
 	@RequestMapping("/politics/polMnaList")
 	public String mnaProfileList(Model model, @RequestParam Map<String, String> param) {
 		// 인기정치게시글
@@ -128,11 +127,12 @@ public class ProfileMnaController {
 			} catch (Exception e) {
 			}
 		}
+		
+		Map<String, String> map = new HashMap<String, String>();
+		PageInfo pageInfo = new PageInfo(page, 10, profileMnaService.getProfileCount(map), 10);
+		List<ProfileMna> list = profileMnaService.getProfileList(pageInfo, map);
 
-		PageInfo pageInfo = new PageInfo(page, 10, profileMnaService.getProfileCount(), 10);
-		List<ProfileMna> list = profileMnaService.getProfileList(pageInfo);
-
-		int totalSize = profileMnaService.getProfileCount();
+		int totalSize = profileMnaService.getProfileCount(map);
 
 		model.addAttribute("politicsList", listBoard); // 인기정치게시글
 		model.addAttribute("list", list);
@@ -144,7 +144,7 @@ public class ProfileMnaController {
 	}
 
  
-	// 페이징 처리
+	// 국회의원 상세프로필 + 대표발의법안
 	@RequestMapping("/politics/polMnaProfile")
 	public String polMnaProfile(Model model, @RequestParam Map<String, String> param) {
 
@@ -158,14 +158,19 @@ public class ProfileMnaController {
 		
 		int profileNo = Integer.parseInt(param.get("profileNo"));
 
+		// 국회의원 상세프로필
 		ProfileMna profile = profileMnaService.getProfile(profileNo);
-
-		PageInfo pageInfo = new PageInfo(page, 10, profileMnaService.getProfileCount(), 10);
-		List<ProfileMna> lawList = profileMnaService.getProfileList(pageInfo, profile.getHgNm());
-
 		
-		int totalSize = lawProposedService.getLawCount(page);
-
+		// 국회의원 대표발의법안
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("name", profile.getHgNm());
+		System.out.println(profile);
+		System.out.println(map);
+		int totalSize = lawProposedService.getLawCount(map);
+		PageInfo pageInfo = new PageInfo(page, 10, totalSize, 10);
+		List<LawProposed> lawList = lawProposedService.getlawProposed(pageInfo, param);
+		System.out.println(lawList);
+		
 		model.addAttribute("profile", profile);
 		model.addAttribute("lawList", lawList);
 		model.addAttribute("totalSize", totalSize);

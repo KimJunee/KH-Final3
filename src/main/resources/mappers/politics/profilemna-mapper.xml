@@ -43,17 +43,7 @@
 			#{staff}, #{secretary}, #{secretary2},#{assemAddr}, #{memTitle}, #{jpglink}
 		)
 	</insert>
-	
-	
-	
-	<select id="selectProfileMna" resultMap="ProfileMnaMap">
-		SELECT MNA_PROFILE_NO, HG_NM, UNITS, SEX_GBN_NM, HJ_NM, 
-			ENG_NM, BTH_DATE, POLY_NM, ORIG_NM, ELECT_GBN_NM,
-			CMITS, REELE_GBN_NM, TEL_NO, E_MAIL, HOMEPAGE,
-			STAFF, SECRETARY, SECRETARY2, ASSEM_ADDR, MEM_TITLE, JPGLINK
-		FROM MNA_PROFILE ORDER BY MNA_PROFILE_NO
-	</select>
-	
+
 	
 	<select id="selectProfileOne" resultMap="ProfileMnaMap">
 		SELECT MNA_PROFILE_NO, HG_NM, UNITS, SEX_GBN_NM, HJ_NM, 
@@ -61,25 +51,20 @@
 			CMITS, REELE_GBN_NM, TEL_NO, E_MAIL, HOMEPAGE,
 			STAFF, SECRETARY, SECRETARY2, ASSEM_ADDR, MEM_TITLE, JPGLINK
 		FROM MNA_PROFILE WHERE  MNA_PROFILE_NO = #{no} 
-	</select>
+	</select>	
 	
+	<select id="selectProfileMnaList" resultMap="ProfileMnaMap">
+		SELECT MNA_PROFILE_NO, HG_NM, UNITS, SEX_GBN_NM, HJ_NM, 
+			ENG_NM, BTH_DATE, POLY_NM, ORIG_NM, ELECT_GBN_NM,
+			CMITS, REELE_GBN_NM, TEL_NO, E_MAIL, HOMEPAGE,
+			STAFF, SECRETARY, SECRETARY2, ASSEM_ADDR, MEM_TITLE, JPGLINK
+		FROM MNA_PROFILE ORDER BY MNA_PROFILE_NO
+	</select>
 	
 	<select id="selectProfileMnaCount" resultType="int"  parameterType="map">
 		SELECT COUNT(*)
 		FROM MNA_PROFILE
 	</select>
-	
-	<!-- 검색 후 갯수 -->
-	<select id="selectListCount" resultType="int"  parameterType="map">
-		SELECT COUNT(*)
-		FROM BOARD B
-		JOIN USER_T U ON(B.WRITER_NO = U.USER_NO)
-		WHERE B.BOARD_STATUS = 'Y'
-		<if test="no != null and !board_list_no.equals('')">
-			AND B.BOARD_LIST_NO = #{board_list_no}
-		</if>
-	</select>
-	
 	
 	
 	

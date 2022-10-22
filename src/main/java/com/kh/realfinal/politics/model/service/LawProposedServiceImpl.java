@@ -1,6 +1,7 @@
 package com.kh.realfinal.politics.model.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,25 +25,22 @@ public class LawProposedServiceImpl implements LawProposedService  {
 		return result;
 	}
  
-
-	@Override
-	public List<LawProposed> getlawProposed(PageInfo pageInfolaw, String name) {
-		int offset = (pageInfolaw.getCurrentPage() - 1) * pageInfolaw.getListLimit();
-		RowBounds rowBounds = new RowBounds(offset, pageInfolaw.getListLimit());
-		return mapper.selectLawProposed(name, rowBounds);
-	}
- 
-	@Override
-	public int getLawCount(int lawNo) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-
 	@Override
 	public LawProposed getLawProposed(int lawNo) {
-		// TODO Auto-generated method stub
-		return null;
+		return mapper.selectLawProposed(lawNo);
+	}
+
+
+	@Override
+	public List<LawProposed> getlawProposed(PageInfo pageInfolaw, Map<String, String> map) {
+		int offset = (pageInfolaw.getCurrentPage() - 1) * pageInfolaw.getListLimit();
+		RowBounds rowBounds = new RowBounds(offset, pageInfolaw.getListLimit());
+		return mapper.selectLawProposedList(rowBounds, map);
+	}
+
+	@Override
+	public int getLawCount(Map<String, String> map) {
+		return mapper.selectLawProposedCount(map);
 	}
 	 
 	

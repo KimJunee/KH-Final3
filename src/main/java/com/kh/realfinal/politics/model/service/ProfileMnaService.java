@@ -9,10 +9,9 @@ import com.kh.realfinal.politics.model.vo.ProfileMna;
 public interface ProfileMnaService {
 
 	int saveProfileMna(ProfileMna profile);
+	
 	public List<ProfileMna> getProfileList(PageInfo pageInfo, Map<String, String> param);
-	public List<ProfileMna> getProfileList(PageInfo pageInfo);
-	public int getProfileCount();
+	public int getProfileCount(Map<String, String> param);
 	public ProfileMna getProfile(int profileNo);
-	public List<ProfileMna> getProfileList(PageInfo pageInfo, String hgNm);
 
 }

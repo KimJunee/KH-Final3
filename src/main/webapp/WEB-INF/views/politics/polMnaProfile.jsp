@@ -236,7 +236,7 @@ Main START -->
 														<!-- Table head -->
 														<thead class="table-secondary ">
 															<tr>
-																<th scope="col " class="border-0 rounded-start ">번호</th>
+																<th scope="col " class="border-0 rounded-start ">의안번호</th>
 																<th scope="col " class="border-0 ">대수</th>
 																<th scope="col " class="border-0 ">의안명</th>
 																<th scope="col " class="border-0 ">제안자</th>
@@ -258,7 +258,7 @@ Main START -->
 																<c:forEach var="law" items="${lawList}">
 																	<tr>
 																		<!-- 번호 -->
-																		<td>${law.lawNo}</td>
+																		<td>${law.billNo}</td>
 																		<!-- 대수 -->
 																		<td>제21대</td>
 																		<!-- 의안명 -->
@@ -305,7 +305,7 @@ Main START -->
 		                                            <li class="page-item active"><a class="page-link">${status.current}</a></li>                                    		
                                             	</c:if>
                                             	<c:if test="${pageInfo.currentPage != status.current}">
-		                                            <li class="page-item"><a onclick="movePage('${path}/politics/polMnaProfile?page=${status.current}');" class="page-link">${status.current}</a></li>                                            	
+		                                            <li class="page-item"><a onclick="movePage('${path}/politics/polMnaProfile?profileNo=${profile.no}&page=${status.current}');" class="page-link">${status.current}</a></li>                                            	
                                             	</c:if>                                         
                                             </c:forEach>
                                             <li class="page-item">
