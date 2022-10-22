@@ -44,7 +44,7 @@ public class FixDepositController {
 		return "/common/msg";
 	}
 	
-	@GetMapping("finance/depositMain")
+	@GetMapping("/finance/depositMain")
 	public String depositList(Model model, @RequestParam Map<String, String> param) throws Exception {
 		log.debug("param : " + param.toString());
 		int page = 1;
@@ -65,7 +65,7 @@ public class FixDepositController {
 		return "finance/financeDeposit";
 	}
 	
-	@GetMapping("finance/depositDetail")
+	@GetMapping("/finance/depositDetail")
 	public String depositListDetail(Model model, int id){
 		FixDeposit fixDeposit = service.findByDepositId(id);
 		

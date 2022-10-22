@@ -2,19 +2,25 @@ package com.kh.realfinal.mypageFinPro.model.controller;
 
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.kh.realfinal.common.util.PageInfo;
 import com.kh.realfinal.member.model.vo.Member;
 import com.kh.realfinal.mypageFinPro.model.service.MypageFinProService;
 import com.kh.realfinal.mypageFinPro.model.vo.MypageFinance;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @SessionAttributes("loginMember")
 @Controller
 public class MypageFinProController {
@@ -130,15 +136,24 @@ public class MypageFinProController {
 	}
 	
 	@RequestMapping("/mypage/finPro")
-	public String findFinProLike(Model model, @ModelAttribute MypageFinance mypageFinance,
+	public String findFinProLike(Model model, @RequestParam Map<String, String> param,
 			@SessionAttribute(name= "loginMember", required = false) Member loginMember) {
+		log.debug("param : " + param.toString());
 		
-		int userNo = loginMember.getUser_no();
-		List<MypageFinance> list = service.getMypageFinList(userNo);
-		String finType = mypageFinance.getFinType();
+		int page = 1;
+		if(param.containsKey("page") == true) {
+			try {
+				page = Integer.parseInt(param.get("page"));
+			} catch (Exception e) {}
+		}
 		
-		model.addAttribute("finType", finType);
+		param.put("userNo",String.valueOf(loginMember.getUser_no()));
+		PageInfo pageInfo = new PageInfo(page, 10, service.getMypageFinCount(param), 10);				
+		List<MypageFinance> list = service.getMypageFinList(pageInfo, param);
+		
 		model.addAttribute("list", list);
+		model.addAttribute("param", param);
+		model.addAttribute("pageInfo", pageInfo);
 		return "mypage/mypageFinance";
 	}
 	

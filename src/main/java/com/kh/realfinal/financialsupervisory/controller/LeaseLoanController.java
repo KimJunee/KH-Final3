@@ -45,7 +45,7 @@ public class LeaseLoanController {
 		return "/common/msg";
 	}
 	
-	@GetMapping("finance/leaseloanMain")
+	@GetMapping("/finance/leaseloanMain")
 	public String leaseLoanList(Model model, @RequestParam Map<String, String> param) throws Exception{
 		log.debug("param : " + param.toString());
 		int page = 1;
@@ -66,7 +66,7 @@ public class LeaseLoanController {
 		return "finance/financeLeaseloan";
 	}
 	
-	@GetMapping("finance/leaseLoanDetail")
+	@GetMapping("/finance/leaseLoanDetail")
 	public String leaseLoanListDetail(Model model, int id){
 		LeaseLoan leaseLoan = service.findByLeaseLoanId(id);
 		

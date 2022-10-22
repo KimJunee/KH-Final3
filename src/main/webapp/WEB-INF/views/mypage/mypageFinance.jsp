@@ -47,12 +47,12 @@
                                 <a class="btn btn-outline-primary btn-lg w-100 mb-2 fw-bold" style="border-radius: 10px;" href="1community-board-post-lightfooter.html">+ 게시글 작성하기</a>
                                 <div class="collapse d-md-block mt-0 fw-bold" id="account-nav">
                                     <div class="card-nav">
-                                        <a class="card-nav-link" href="1myPageInfo.html"><i class="fa fa-solid fa-user" style="margin-right:10px; margin-left: 10px;"></i>회원정보</a>
-                                        <a class="card-nav-link active" href="1myPageFinance.html"><i class="fa fa-solid fa-piggy-bank" style="margin-right:10px; margin-left: 6px;"></i>내 금융상품</a>
+                                        <a class="card-nav-link" href="${path}/member/view"><i class="fa fa-solid fa-user" style="margin-right:10px; margin-left: 10px;"></i>회원정보</a>
+                                        <a class="card-nav-link active" href="${path}/mypage/finPro"><i class="fa fa-solid fa-piggy-bank" style="margin-right:10px; margin-left: 6px;"></i>내 금융상품</a>
                                         <a class="card-nav-link" href="1myPageSubscription.html"><i class="fa fa-solid fa-building" style="margin-right:10px; margin-left: 10px;"></i>부동산청약</a>
                                         <a class="card-nav-link" href="1mypage-newsscrap1003.html"><i class="fa fa-solid fa-bookmark" style="margin-right:10px; margin-left: 10px;"></i>뉴스스크랩</a>
-                                        <a class="card-nav-link" href="1myPage-board.html"><i class="fa fa-solid fa-quote-left" style="margin-right:10px; margin-left: 10px;"></i>내 글 목록</a>
-                                        <a class="card-nav-link" href="1myPage-reply.html"><i class="fa fa-solid fa-comment-dots" style="margin-right:10px; margin-left: 10px;"></i>내 댓글 목록</a>
+                                        <a class="card-nav-link" href="${path}/MypageBoard/mylist"><i class="fa fa-solid fa-quote-left" style="margin-right:10px; margin-left: 10px;"></i>내 글 목록</a>
+                                        <a class="card-nav-link" href="${path}/MypageBoard/myReply"><i class="fa fa-solid fa-comment-dots" style="margin-right:10px; margin-left: 10px;"></i>내 댓글 목록</a>
                                     </div>
                                 </div>
                             </div>
@@ -68,8 +68,8 @@
                                 <div class="row g-3 align-items-center justify-content-between mb-3">
                                     <!-- Search -->
                                     <div class="col-md-8">
-                                        <form class="rounded position-relative">
-                                            <input class="form-control pe-5 bg-transparent" type="search" placeholder="Search" aria-label="Search">
+                                        <form action="${path}/mypage/finPro" method="get" class="rounded position-relative">
+                                            <input name="searchValue" id="searchValue" value="${param.searchValue}" class="form-control pe-5 bg-transparent" type="search" placeholder="Product Search" aria-label="Search">
                                             <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
                                         </form>
                                     </div>
@@ -107,11 +107,24 @@
                                             <tr>
                                                 <!-- 금융샹품명 -->
                                                 <td>
-                                                    <h6 class="course-title mt-2 mt-md-0 mb-0"><a href="#">${finLikeList.finPrdtNm}</a></h6>
+                                                    <h6 class="course-title mt-2 mt-md-0 mb-0">
+                                                    	<c:if test="${finLikeList.finType == 1}">
+	                                                    	<a href="${path}/finance/productDetail?id=${finLikeList.prtId}"> ${finLikeList.finPrdtNm}</a>
+	                                                    </c:if>
+	                                                    <c:if test="${finLikeList.finType == 2}">
+	                                                    	<a href="${path}/finance/depositDetail?id=${finLikeList.prtId}"> ${finLikeList.finPrdtNm}</a>
+	                                                    </c:if>
+	                                                    <c:if test="${finLikeList.finType == 3}">
+	                                                    	<a href="${path}/finance/mortgageDetail?id=${finLikeList.prtId}"> ${finLikeList.finPrdtNm}</a>
+	                                                    </c:if>
+	                                                    <c:if test="${finLikeList.finType == 4}">
+	                                                    	<a href="${path}/finance/leaseLoanDetail?id=${finLikeList.prtId}"> ${finLikeList.finPrdtNm}</a>
+	                                                    </c:if>                                                   
+                                                    </h6>
                                                 </td>
                                                 <!-- 금융사명 -->
                                                 <td>
-                                                    <h6 class="mb-0"><a href="#">${finLikeList.korCoNm}</a></h6>
+                                                    <h6 class="mb-0">${finLikeList.korCoNm}</h6>
                                                 </td>
                                                 <!-- 최저금리 -->
                                                 <td class="text-center">${finLikeList.minRate}%</td>
@@ -136,24 +149,22 @@
                         <!-- 페이지넘버 시작 -->
                         <div class="mt-4" style="margin-bottom:80px;">
                             <nav class="mb-sm-0 d-flex justify-content-center mt-0 " aria-label="navigation ">
-                                <ul class="pagination pagination-sm pagination-bordered mb-3 ">
-                                    <li class="page-item disabled ">
-                                        <a class="page-link " href="# " tabindex="-1 " aria-disabled="true ">Prev</a>
-                                    </li>
-                                    <li class="page-item active "><a class="page-link " href="# ">1</a></li>
-                                    <li class="page-item "><a class="page-link " href="# ">2</a></li>
-                                    <li class="page-item "><a class="page-link " href="# ">3</a></li>
-                                    <li class="page-item "><a class="page-link " href="# ">4</a></li>
-                                    <li class="page-item "><a class="page-link " href="# ">5</a></li>
-                                    <li class="page-item "><a class="page-link " href="# ">6</a></li>
-                                    <li class="page-item "><a class="page-link " href="# ">7</a></li>
-                                    <li class="page-item "><a class="page-link " href="# ">8</a></li>
-                                    <li class="page-item "><a class="page-link " href="# ">9</a></li>
-                                    <li class="page-item "><a class="page-link " href="# ">10</a></li>
-                                    <li class="page-item ">
-                                        <a class="page-link " href="# ">Next</a>
-                                    </li>
-                                </ul>
+	                            <ul class="pagination pagination-sm pagination-bordered mb-0">
+	                                <li class="page-item">
+	                                    <a onclick="movePage('${path}/mypage/finPro?page=${pageInfo.prevPage}');" class="page-link">Prev</a>
+	                                </li>
+	                                <c:forEach begin="${pageInfo.startPage}" end="${pageInfo.endPage}" step="1" varStatus="status">
+	                                	<c:if test="${pageInfo.currentPage == status.current}">
+	                                  <li class="page-item active"><a class="page-link">${status.current}</a></li>                                    		
+	                                	</c:if>
+	                                	<c:if test="${pageInfo.currentPage != status.current}">
+	                                  <li class="page-item"><a onclick="movePage('${path}/mypage/finPro?page=${status.current}');" class="page-link">${status.current}</a></li>                                            	
+	                                	</c:if>                                         
+	                                </c:forEach>
+	                                <li class="page-item">
+	                                    <a onclick="movePage('${path}/mypage/finPro?page=${pageInfo.nextPage}');" class="page-link">Next</a>
+	                                </li>
+	                            </ul>
                             </nav>
                         </div>
                         <!-- 페이지넘버 끝 -->
@@ -162,6 +173,13 @@
             </div>
             <!-- Blog list table END -->
         </section>
+        <script type="text/javascript">
+			function movePage(pageUrl){
+				var searchValue = document.getElementById("searchValue");
+				pageUrl = pageUrl + '&searchValue=' + searchValue.value; 
+				location.href = encodeURI(pageUrl);	
+			}			
+		</script>
     </main>
    <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>

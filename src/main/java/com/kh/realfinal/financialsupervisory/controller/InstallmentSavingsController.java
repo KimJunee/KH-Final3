@@ -44,7 +44,7 @@ public class InstallmentSavingsController {
 		return "/common/msg";
 	}
 	
-	@GetMapping("finance/productMain")
+	@GetMapping("/finance/productMain")
 	public String installList(Model model, @RequestParam Map<String, String> param) throws Exception {
 		log.debug("param : " + param.toString());
 		int page = 1;
@@ -66,7 +66,7 @@ public class InstallmentSavingsController {
 		return "finance/financeProduct";
 	}
 	
-	@GetMapping("finance/productDetail")
+	@GetMapping("/finance/productDetail")
 	public String installListDetail(Model model, int id){
 		InstallmentSavings installment = service.findByInssvnId(id);
 		

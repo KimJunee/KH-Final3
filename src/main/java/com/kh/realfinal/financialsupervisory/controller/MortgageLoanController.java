@@ -41,7 +41,7 @@ public class MortgageLoanController {
 		return "/common/msg";	
 	}
 	
-	@RequestMapping("finance/mortgageMain")
+	@RequestMapping("/finance/mortgageMain")
 	public String mortgegeList(Model model, @RequestParam Map<String, String> param) throws Exception{
 		int page = 1;
 		if(param.containsKey("page") == true) {
@@ -61,7 +61,7 @@ public class MortgageLoanController {
 		return "finance/financeMortgage";
 	}
 	
-	@RequestMapping("finance/mortgageDetail")
+	@RequestMapping("/finance/mortgageDetail")
 	public String mortgageListDetail(Model model, int id) {
 		MortgageLoan mortgage = service.findByMortgageId(id);
 		
