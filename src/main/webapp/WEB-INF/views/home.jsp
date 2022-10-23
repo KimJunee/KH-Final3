@@ -63,6 +63,9 @@
 
 <h2><a href="${path}/politics/cardCut/insert.do"> 카드한컷 DB INSERT</a></h2>
 
+<h2><a href="${path}/news/insert.do"> News INSERT</a></h2>
+
+
 
 
 <%-- <iframe id="ytplayer" type="text/html" width="720" height="405"

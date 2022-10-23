@@ -54,47 +54,25 @@
                                 <h3 class="mb-3 mice text-center">뉴스 검색</h3>
                                 <!-- Search -->
                                 <div class="col-md-12">
-                                    <form class="rounded position-relative">
-                                        <input class="form-control pe-5 bg-transparent" type="search" placeholder="검색어를 입력해주세요." aria-label="Search">
-                                        <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="bi bi-search fs-5"> </i></button>
+                                    <form class="rounded position-relative" action="${path}/news/search" method="get">
+                                        <input name="searchKeyword" class="form-control pe-5 bg-transparent" type="search" placeholder="검색어를 입력해주세요." aria-label="Search">
+                                        <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="bi bi-search fs-5"></i></button>
                                     </form>
                                 </div>
                                 <br>
                                 <h3 class="mb-3 mice">최근 기사</h3>
-                                <!-- Recent post item -->
-                                <div class="card mb-3">
-                                    <h6 class="mb-1"><a href="post-single-2.html" class="btn-link stretched-link text-reset fw-bold">'인류 대멸종' 피할수 있을까…'소행성 요격' 거대한 첫발 디뎠다</a></h6>
-
-                                </div>
-                                <!-- Recent post item -->
-                                <div class="card mb-3">
-                                    <h6 class="mb-1"><a href="post-single-2.html" class="btn-link stretched-link text-reset fw-bold">손흥민 원톱, 황의조·이강인 벤치…벤투호 카메룬전 라인업</a></h6>
-
-                                </div>
-                                <!-- Recent post item -->
-                                <div class="card mb-3">
-                                    <h6 class="mb-1"><a href="post-single-2.html" class="btn-link stretched-link text-reset fw-bold">"찹스테이크처럼 썰렸다" 우크라 韓의용군이 전한 참혹한 실상</a></h6>
-                                </div>
-                                <!-- Recent post item -->
-                                <div class="card mb-3">
-                                    <h6 class="mb-1"><a href="post-single-2.html" class="btn-link stretched-link text-reset fw-bold">푸틴, 민간인 향해 미사일 맹폭격…우크라 도시 12곳 잿더미</a></h6>
-                                </div>
-                                <!-- Recent post item -->
-                                <div class="card mb-3">
-                                    <h6 class="mb-1"><a href="post-single-2.html" class="btn-link stretched-link text-reset fw-bold">크림대교 폭발에...가디언 "러 키이우 공습, 전선엔 효과없다"</a></h6>
-                                </div>
-                                <!-- Recent post item -->
-                                <div class="card mb-3">
-                                    <h6 class="mb-1"><a href="post-single-2.html" class="btn-link stretched-link text-reset fw-bold">"北 전술핵 탄두용 플루토늄 필요…추가 핵실험 강행할 것"</a></h6>
-                                </div>
-                                <!-- Recent post item -->
-                                <div class="card mb-3">
-                                    <h6 class="mb-1"><a href="post-single-2.html" class="btn-link stretched-link text-reset fw-bold">"8시간동안 한달치 폭우"…베네수엘라 사망·실종자 90여명</a></h6>
-                                </div>
-                                <!-- Recent post item -->
-                                <div class="card mb-3">
-                                    <h6 class="mb-1"><a href="post-single-2.html" class="btn-link stretched-link text-reset fw-bold">제철소 부생가스의 변신…'썩는 플라스틱'으로 재탄생 시켰다</a></h6>
-                                </div>
+                                
+                                
+                                <c:forEach var="newNews" items="${newList}">
+	                                <!-- Recent post item -->
+	                                <div class="card mb-3">
+	                                    <h6 class="mb-1"><a href="${newNews.link}" class="btn-link stretched-link text-reset fw-bold">
+	                                 	   ${newNews.title}
+	                                    </a></h6>
+	                                </div>
+                                
+                                </c:forEach>
+ 
                             </div>
                         </div>
                     </div>
@@ -113,7 +91,7 @@
                                 </div>
                             </div>
                             <div class="card-body px-0 pt-3">
-                                <h4 class="card-title mice"><a href="post-single.html" class="btn-link text-reset fw-bold">전세 사기로 ‘74억원’ 꿀꺽…범행 수법 보니</a></h4>
+                                <h4 class="card-title mice"><a href="${path}/news/post" class="btn-link text-reset fw-bold">전세 사기로 ‘74억원’ 꿀꺽…범행 수법 보니</a></h4>
                                 <p class="card-text">전입세대 열람내역서를 위조하고 허위 임대인·임차인을 내세워 청년 전세자금 대출금을 편취하는 등 총 74억여 원 규모의 전세 사기를 벌인 일당이 검거됐다. 울산경찰청은 전세 사기 1차 단속 기간(7월25일∼9월24일) 124명을 검거해 21명을 구속했다고 27일 밝혔다. 경찰은 확인된 피해 금액이 총 74억여 원이며, 전세사기범 수법은 크게 두 가지로 분석됐다고 설명했다. 하나는 속칭 ‘깡통
                                     전세’ 주택을 매입한 뒤 세입자가 없는 것처럼......</p>
                             </div>
@@ -210,58 +188,26 @@
                     <div class="col-12">
                         <h3 class="mice"> 화제의 기사 </h3>
                     </div>
-                    <!-- Card item START -->
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="card bg-transparent">
-                            <!-- Card img -->
-                            <img class="card-img rounded-0 grayscale" src="${path}/resources/resources1b/images/news/newsmain-2.jpg" style="width:400px; height:200px;" alt="Card image">
-                            <div class="card-body px-0 pt-3">
-
-                                <h5 class="card-title"><a href="#" class="btn-link text-reset fw-bold stretched-link">경찰제도발전위원장 “스토킹 피해자 보호 강화를, 무기 규정도 고쳐야”</a></h5>
-
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Card item END -->
-                    <!-- Card item START -->
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="card bg-transparent">
-                            <!-- Card img -->
-                            <img class="card-img rounded-0 grayscale" src="${path}/resources/resources1b/images/news/newsmain-3.jpg" style="width:400px; height:200px;" alt="Card image">
-                            <div class="card-body px-0 pt-3">
-
-                                <h5 class="card-title"><a href="#" class="btn-link text-reset fw-bold stretched-link">미친 환율에 수입상가 죄다 울지만…남대문서 웃는 한 사람</a></h5>
-
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Card item END -->
-                    <!-- Card item START -->
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="card bg-transparent">
-                            <!-- Card img -->
-                            <img class="card-img rounded-0 grayscale" src="${path}/resources/resources1b/images/news/newsmain-4.jpg" style="width:400px; height:200px;" alt="Card image">
-                            <div class="card-body px-0 pt-3">
-
-                                <h5 class="card-title"><a href="#" class="btn-link text-reset fw-bold stretched-link">돈스파이크, 마약 투약 혐의 체포…필로폰 1천회분 갖고있었다</a></h5>
-
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Card item END -->
-                    <!-- Card item START -->
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="card bg-transparent">
-                            <!-- Card img -->
-                            <img class="card-img rounded-0 grayscale" src="${path}/resources/resources1b/images/news/newsmain-5.jpg" style="width:400px; height:200px;" alt="Card image">
-                            <div class="card-body px-0 pt-3">
-
-                                <h5 class="card-title"><a href="#" class="btn-link text-reset fw-bold stretched-link">모친 지인 살해 뒤 7만5000원 훔쳐 달아났다…50대 붙잡혀</a></h5>
-
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Card item END -->
+                    
+                    
+                    <c:forEach var="hotNews" items="${hotList}">
+	                    <!-- Card item START -->
+	                    <div class="col-sm-6 col-lg-3">
+	                        <div class="card bg-transparent">
+	                            <!-- Card img -->
+	                            <img class="card-img rounded-0 grayscale" src="${hotNews.image}" style="width:400px; height:200px;" alt="Card image">
+	                            <div class="card-body px-0 pt-3">
+	
+	                                <h5 class="card-title"><a href="${hotNews.link}" class="btn-link text-reset fw-bold stretched-link">${hotNews.title}</a></h5>
+	
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <!-- Card item END -->
+                    </c:forEach>
+                    
+                    
+                    
                 </div>
             </div>
         </section>
