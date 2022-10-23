@@ -1,5 +1,6 @@
 package com.kh.realfinal.politics.model.controller;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -57,22 +58,23 @@ public class CardCutController {
 	
 	// 페이징 처리
 	@RequestMapping("/politics/cardCut")
-	public String cardCutList(Model model, @RequestParam Map<String, String> param) {
-		
-		int page = 1; 
+	public String cardCutList(Model model, @RequestParam Map<String, String> param) throws ParseException {  
+		int page = 1;
 		if(param.containsKey("page") == true) {
 			try {
 				page = Integer.parseInt(param.get("page"));
+				System.out.println("page : " + page);
 			} catch (Exception e) {}
 		}
 		
-		PageInfo pageInfoTop = new PageInfo(page, 3, CardCutService.getCardCutCount(), 3);
-		List<CardCut> topList = CardCutService.getCardCutList(pageInfoTop);
- 
-		PageInfo pageInfo = new PageInfo(page, 9, CardCutService.getCardCutCount(), 9);
-		List<CardCut> list = CardCutService.getCardCutList(pageInfo);
 		
-		int totalSize = CardCutService.getCardCutList();
+		PageInfo pageInfoTop = new PageInfo(page, 3, CardCutService.getCardCutCount(param), 3);
+		List<CardCut> topList = CardCutService.getCardCutList(pageInfoTop, param);
+ 
+		int totalSize = CardCutService.getCardCutCount(param);
+		PageInfo pageInfo = new PageInfo(page, 9, totalSize, 9);
+		List<CardCut> list = CardCutService.getCardCutList(pageInfo, param);
+		
 		
 //		System.out.println(list.get(0).getImages());
 //		System.out.println(list.get(0).getContent());
@@ -89,7 +91,14 @@ public class CardCutController {
 	
 	
 	@RequestMapping("/politics/cardCutDetail")
-	public String cardCutDetail(Model model) {
+	public String cardCutDetail(Model model, @RequestParam Map<String, String> param) {
+		int cardCutNo = Integer.parseInt(param.get("cardCutNo"));
+		CardCut cardCut = CardCutService.getCardCutContent(cardCutNo);
+		System.out.println(cardCut);
+
+		model.addAttribute("cardCut", cardCut);
+		model.addAttribute("param", param);
+
 		return "/politics/cardCutDetail";
 	}
 	
