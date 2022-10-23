@@ -157,5 +157,20 @@ public class MypageFinProController {
 		return "mypage/mypageFinance";
 	}
 	
+	@RequestMapping("/mypage/deleteFinPro")
+	public String deleteFinPro(Model model, int id,
+			@SessionAttribute(name= "loginMember", required = false) Member loginMember) {
+		int result = service.deleteFinLike(id);
+		
+		if(result > 0) {
+			model.addAttribute("msg", "찜 삭제에 성공하였습니다.");
+			model.addAttribute("location", "/mypage/finPro");
+		}else {
+			model.addAttribute("msg", "찜 삭제에 실패하였습니다.");
+			model.addAttribute("location", "/mypage/finPro");
+		}
+		return "common/msg"; 
+	}
+	
 	
 }

@@ -7,6 +7,7 @@ import java.util.Map;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.kh.realfinal.common.util.PageInfo;
 import com.kh.realfinal.mypageFinPro.model.mapper.MypageFinProMapper;
@@ -19,6 +20,7 @@ public class MypageFinProServiceImpl implements MypageFinProService{
 	private MypageFinProMapper mapper;
 
 	@Override
+	@Transactional(rollbackFor = Exception.class)
 	public int saveMypageFin(MypageFinance mypageFinance) {
 		int result = 0;
 		
@@ -27,6 +29,7 @@ public class MypageFinProServiceImpl implements MypageFinProService{
 	}
 
 	@Override
+	@Transactional(rollbackFor = Exception.class)
 	public int getMypageFinCount(Map<String, String> param) {
 		Map<String, String> searchMap = new HashMap<String, String>();
 		String searchValue = param.get("searchValue");
@@ -48,10 +51,18 @@ public class MypageFinProServiceImpl implements MypageFinProService{
 		Map<String, String> searchMap = new HashMap<String, String>();
 		searchMap.put("userNo", param.get("userNo"));
 		String searchValue = param.get("searchValue");
+		String sort = param.get("sort");
 		if(searchValue != null && searchValue.length() > 0) {
 			searchMap.put("finPrdtNm", searchValue);
+			searchMap.put("sort", sort);
 		}		
 		return mapper.selectFinLikeList(rowBounds, searchMap);
+	}
+
+	@Override
+	@Transactional(rollbackFor = Exception.class)
+	public int deleteFinLike(int prtId) {
+		return mapper.deleteFinLike(prtId);
 	}
 
 }

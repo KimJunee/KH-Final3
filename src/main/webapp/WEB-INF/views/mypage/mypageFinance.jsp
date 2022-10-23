@@ -67,28 +67,32 @@
                                 <!-- Search and select START -->
                                 <div class="row g-3 align-items-center justify-content-between mb-3">
                                     <!-- Search -->
-                                    <div class="col-md-8">
-                                        <form action="${path}/mypage/finPro" method="get" class="rounded position-relative">
-                                            <input name="searchValue" id="searchValue" value="${param.searchValue}" class="form-control pe-5 bg-transparent" type="search" placeholder="Product Search" aria-label="Search">
-                                            <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
-                                        </form>
-                                    </div>
-                                    <!-- Select option -->
-                                    <div class="col-md-3">
-                                        <!-- Short by filter -->
-                                        <form>
-                                            <select class="form-select z-index-9 bg-transparent" aria-label=".form-select-sm">
-                                                <option value="">최근 찜 순</option>
-                                                <option>금융사명 순</option>
-                                                <option>최고금리 순</option>
-                                            </select>
-                                        </form>
-                                    </div>
+									<form action="${path}/mypage/finPro" method="get" class="rounded position-relative">
+										<div class="row">
+											<div class="col-3">
+											 <!-- Short by filter -->		
+										       <select id="sort" name="sort" class="form-select z-index-9 bg-transparent" aria-label=".form-select-sm">
+										           <option value="likeBy" <c:if test="${param.sort == 'likeBy'}">selected</c:if>>최근 찜 순</option>
+										           <option value="maxRate" <c:if test="${param.sort == 'maxRate'}">selected</c:if>>최고금리 순</option>
+										       </select>
+											</div>
+											<div class="col-4"></div>
+											<div class="col-5">
+										       <input name="searchValue" id="searchValue" value="${param.searchValue}" class="form-control pe-5 bg-transparent" type="search" placeholder="Product Search" aria-label="Search">
+										       <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>		
+											</div>
+										<!-- Select option -->
+										</div>  
+									</form>
                                 </div>
                                 <!-- 찜한 금융상품 시작 -->
                                 <div class="table-responsive border-0">
                                     <table class="table align-middle p-4 mb-0 table-hover table-shrink">
                                         <!-- Table head -->
+                                    <c:if test="${empty list}">                                   
+										<h5 style="text-align:center;">찜한 상품이 없습니다!</h5>                                  	
+                                    </c:if>                                                                                       
+                                   	<c:if test="${!empty list}">
                                         <thead class="table-dark">
                                             <tr>
                                                 <th scope="col" class="border-0 rounded-start">금융상품</th>
@@ -102,7 +106,6 @@
                                         <!-- Table body START -->
                                         <tbody class="border-top-0">
                                             <!-- Table item -->
-                                            <c:if test="${!empty list}">
                                             <c:forEach var="finLikeList" items="${list}">
                                             <tr>
                                                 <!-- 금융샹품명 -->
@@ -133,13 +136,13 @@
                                                 <!-- delete -->
                                                 <td>
                                                     <div class="d-flex gap-2">
-                                                        <a href="#" style="margin-left: 5px;" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="bi bi-trash"></i></a>
+                                                        <a href="${path}/mypage/deleteFinPro?id=${finLikeList.prtId}" style="margin-left: 5px;" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="bi bi-trash"></i></a>
                                                     </div>
                                                 </td>
                                             </tr>
                                             </c:forEach>
-                                            </c:if>
                                         </tbody>
+                                   	</c:if>
                                         <!-- Table body END -->
                                     </table>
                                 </div>
@@ -176,7 +179,9 @@
         <script type="text/javascript">
 			function movePage(pageUrl){
 				var searchValue = document.getElementById("searchValue");
-				pageUrl = pageUrl + '&searchValue=' + searchValue.value; 
+				var sort = document.getElementById("sort");
+				var sortValue = sort.options[sort.selectedIndex].value;
+					pageUrl = pageUrl + '&searchValue=' + searchValue.value + '&sort=' + sortValue; 
 				location.href = encodeURI(pageUrl);	
 			}			
 		</script>
