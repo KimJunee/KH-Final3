@@ -276,7 +276,14 @@ Main START -->
 																		<td>${law.proposeDt}</td>
 																		<!-- 처리상태 -->
 																		<td><span
-																			class="badge bg-success bg-opacity-10 text-success mb-2 ">
+																			class="
+																				<c:if test="${law.procResult == null}">
+																					badge bg-warning bg-opacity-15 text-warning mb-2
+																				</c:if>
+																				<c:if test="${law.procResult != null}">
+																					badge bg-success bg-opacity-10 text-success mb-2
+																				</c:if>
+																			 	">
 																				<c:if test="${law.procResult == null}">
 																					계류
 																				</c:if>

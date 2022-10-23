@@ -30,7 +30,7 @@ public class LawProposedServiceImpl implements LawProposedService  {
 		return mapper.selectLawProposed(lawNo);
 	}
 
-
+	// 페이지처리
 	@Override
 	public List<LawProposed> getlawProposed(PageInfo pageInfolaw, Map<String, String> map) {
 		int offset = (pageInfolaw.getCurrentPage() - 1) * pageInfolaw.getListLimit();

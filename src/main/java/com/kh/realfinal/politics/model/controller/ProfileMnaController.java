@@ -161,7 +161,7 @@ public class ProfileMnaController {
 		// 국회의원 상세프로필
 		ProfileMna profile = profileMnaService.getProfile(profileNo);
 		
-		// 국회의원 대표발의법안
+		
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("name", profile.getHgNm());
 		System.out.println(profile);
@@ -180,6 +180,7 @@ public class ProfileMnaController {
 		return "/politics/polMnaProfile";
 	}
 
+	// 국회의원 프로필 검색 안 했을시에
 	@RequestMapping("/politics/polMnaProfileEmpty")
 	public String polMnaProfileEmpty(Model model) { // 메인으로
 		return "politics/polMnaProfileEmpty";
