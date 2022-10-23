@@ -168,7 +168,7 @@ public class ProfileMnaController {
 		System.out.println(map);
 		int totalSize = lawProposedService.getLawCount(map);
 		PageInfo pageInfo = new PageInfo(page, 10, totalSize, 10);
-		List<LawProposed> lawList = lawProposedService.getlawProposed(pageInfo, param);
+		List<LawProposed> lawList = lawProposedService.getlawProposed(pageInfo, map);
 		System.out.println(lawList);
 		
 		model.addAttribute("profile", profile);

@@ -35,6 +35,7 @@ public class LawProposedServiceImpl implements LawProposedService  {
 	public List<LawProposed> getlawProposed(PageInfo pageInfolaw, Map<String, String> map) {
 		int offset = (pageInfolaw.getCurrentPage() - 1) * pageInfolaw.getListLimit();
 		RowBounds rowBounds = new RowBounds(offset, pageInfolaw.getListLimit());
+		System.out.println(map);
 		return mapper.selectLawProposedList(rowBounds, map);
 	}
 

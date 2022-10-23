@@ -100,6 +100,9 @@ public class BoardController {
 				page = Integer.parseInt(param.get("page"));
 			} catch (Exception e) {}
 		}
+		if(param.get("sort") == null || "".equals(param.get("sort").toString())) {
+			param.put("sort","DESC");
+		}
 		
 		PageInfo pageInfo = new PageInfo(page, 10, service.getBoardCount(param), 20);
 		List<Board> list = service.getBoardList(pageInfo, param);
