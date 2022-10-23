@@ -23,9 +23,7 @@ import com.kh.realfinal.politics.model.vo.LawProposed;
 import com.kh.realfinal.politics.model.vo.MnaPhoto;
 import com.kh.realfinal.politics.model.vo.ProfileMna;
 
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 @Controller
 public class ProfileMnaController {
 	
@@ -128,11 +126,10 @@ public class ProfileMnaController {
 			}
 		}
 		
-		Map<String, String> map = new HashMap<String, String>();
-		PageInfo pageInfo = new PageInfo(page, 10, profileMnaService.getProfileCount(map), 10);
-		List<ProfileMna> list = profileMnaService.getProfileList(pageInfo, map);
-
-		int totalSize = profileMnaService.getProfileCount(map);
+		int totalSize = profileMnaService.getProfileCount(param);
+		PageInfo pageInfo = new PageInfo(page, 10, totalSize, 10);
+		List<ProfileMna> list = profileMnaService.getProfileList(pageInfo, param);
+		System.out.println(param);
 
 		model.addAttribute("politicsList", listBoard); // 인기정치게시글
 		model.addAttribute("list", list);
@@ -166,6 +163,8 @@ public class ProfileMnaController {
 		map.put("name", profile.getHgNm());
 		System.out.println(profile);
 		System.out.println(map);
+
+		map.putAll(param);
 		int totalSize = lawProposedService.getLawCount(map);
 		PageInfo pageInfo = new PageInfo(page, 10, totalSize, 10);
 		List<LawProposed> lawList = lawProposedService.getlawProposed(pageInfo, map);

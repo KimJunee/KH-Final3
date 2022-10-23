@@ -7,7 +7,7 @@ import com.kh.realfinal.common.util.PageInfo;
 import com.kh.realfinal.politics.model.vo.CardCut;
 import com.kh.realfinal.politics.model.vo.CardCutReply;
 
-public interface CardCutService { //
+public interface CardCutService {
 	int saveCardCut(CardCut card);
 	
 	List<CardCut> getCardCutList(PageInfo pageInfo, Map<String, String> param);

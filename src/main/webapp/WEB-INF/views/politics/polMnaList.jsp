@@ -99,10 +99,11 @@ Main START -->
 										<!-- Card body START -->
 										<div class="card-body">
 											<!-- Search and select START -->
+											<form action="${path}/politics/polMnaList" method="get">
 											<div
 												class="row g-3 align-items-center justify-content-between mb-3">
 												<table>
-													<!-- <caption>국회의원검색 : 대수, 이름, 정당, 위원회, 지역선거구, 성별, 연령, 당선횟수, 당선방법</caption> -->
+													<!-- <caption>국회의원검색 : 대수, 이름, 정당, 위원회, 지역선거구, 성별</caption> -->
 													<colgroup>
 														<col style="width: 15%;">
 														<col style="width: 15%;">
@@ -118,126 +119,78 @@ Main START -->
 														<td><input class="form-control pe-5 bg-transparent"
 															type="text" title="대수" value="제21대" readonly="readonly"></td>
 														<th scope="row">&emsp;이름</th>
-														<td><input id="searchValue" name="searchValue"
+														<td><input id="searchName" name="searchName"
 															class="form-control pe-5 bg-transparent" type="search"
 															placeholder="Search" aria-label="Search"
-															value="${param.searchValue}"></td>
+															value="${param.searchName}"></td>
 														<th scope="row">&emsp;정당</th>
 														<td><select class="form-select"
 															aria-label="Default select example" id="schPoly"
 															name="schPoly" title="정당">
 																<option value="">전체</option>
-																<option value="101182">더불어민주당</option>
-																<option value="101210">국민의힘</option>
-																<option value="101180">정의당</option>
-																<option value="101200">국민의당</option>
-																<option value="101203">열린민주당</option>
-																<option value="101208">기본소득당</option>
-																<option value="101209">시대전환</option>
-																<option value="101030">무소속</option>
+																<option value="더불어민주당"  ${param.schPoly == '더불어민주당' ? 'selected':''}>더불어민주당</option>
+																<option value="국민의힘" ${param.schPoly == '국민의힘' ? 'selected':''}>국민의힘</option>
+																<option value="정의당" ${param.schPoly == '정의당' ? 'selected':''}>정의당</option>
+																<option value="국민의당" ${param.schPoly == '국민의당' ? 'selected':''}>국민의당</option>
+																<option value="열린민주당" ${param.schPoly == '열린민주당' ? 'selected':''}>열린민주당</option>
+																<option value="기본소득당" ${param.schPoly == '기본소득당' ? 'selected':''}>기본소득당</option>
+																<option value="시대전환" ${param.schPoly == '시대전환' ? 'selected':''}>시대전환</option>
+																<option value="무소속" ${param.schPoly == '무소속' ? 'selected':''}>무소속</option>
 														</select></td>
 													</tr>
 													<tr>
 														<th scope="row">위원회</th>
 														<td><select class="form-select" name="schCmit"
 															title="위원회" aria-label="Default select example">
-																<option value="">전체</option>
-																<option value="9700005">국회운영위원회</option>
-																<option value="9700006">법제사법위원회</option>
-																<option value="9700008">정무위원회</option>
-																<option value="9700300">기획재정위원회</option>
-																<option value="9700512">교육위원회</option>
-																<option value="9700479">과학기술정보방송통신위원회</option>
-																<option value="9700409">외교통일위원회</option>
-																<option value="9700019">국방위원회</option>
-																<option value="9700480">행정안전위원회</option>
-																<option value="9700513">문화체육관광위원회</option>
-																<option value="9700408">농림축산식품해양수산위원회</option>
-																<option value="9700481">산업통상자원중소벤처기업위원회</option>
-																<option value="9700341">보건복지위원회</option>
-																<option value="9700038">환경노동위원회</option>
-																<option value="9700407">국토교통위원회</option>
-																<option value="9700047">정보위원회</option>
-																<option value="9700342">여성가족위원회</option>
-																<option value="9700049">예산결산특별위원회</option>
-																<option value="9700552">민생경제안정특별위원회</option>
-																<option value="9700551">중앙선거관리위원회위원(남래진)선출에관한인사청문특별위원회
-																</option>
-																<option value="9700051">윤리특별위원회</option>
-																<option value="9700544">언론·미디어 제도개선 특별위원회</option>
-																<option value="9700546">정치개혁 특별위원회</option>
-																<option value="9700547">국회 2030 부산세계박람회 유치지원
-																	특별위원회</option>
-																<option value="9700548">국무총리후보자(한덕수)에 관한
-																	인사청문특별위원회</option>
-
+																<option value="" selected>전체</option>
+																<option value="국회운영위원회"  ${param.schCmit == '국회운영위원회' ? 'selected':''} >국회운영위원회</option>
+																<option value="법제사법위원회"  ${param.schCmit == '법제사법위원회' ? 'selected':''}>법제사법위원회</option>
+																<option value="정무위원회"  ${param.schCmit == '정무위원회' ? 'selected':''}>정무위원회</option>
+																<option value="기획재정위원회"   ${param.schCmit == '기획재정위원회' ? 'selected':''}>기획재정위원회</option>
+																<option value="교육위원회"  ${param.schCmit == '교육위원회' ? 'selected':''}>교육위원회</option>
+																<option value="과학기술정보방송통신위원회"  ${param.schCmit == '과학기술정보방송통신위원회' ? 'selected':''}>과학기술정보방송통신위원회</option>
+																<option value="외교통일위원회"  ${param.schCmit == '외교통일위원회' ? 'selected':''}>외교통일위원회</option>
+																<option value="국방위원회"  ${param.schCmit == '국방위원회' ? 'selected':''}>국방위원회</option>
+																<option value="행정안전위원회"  ${param.schCmit == '행정안전위원회' ? 'selected':''}>행정안전위원회</option>
+																<option value="문화체육관광위원회"  ${param.schCmit == '문화체육관광위원회' ? 'selected':''}>문화체육관광위원회</option>
+																<option value="농림축산식품해양수산위원회"  ${param.schCmit == '농림축산식품해양수산위원회' ? 'selected':''}>농림축산식품해양수산위원회</option>
+																<option value="산업통상자원중소벤처기업위원회"  ${param.schCmit == '산업통상자원중소벤처기업위원회' ? 'selected':''}>산업통상자원중소벤처기업위원회</option>
+																<option value="보건복지위원회"  ${param.schCmit == '보건복지위원회' ? 'selected':''}>보건복지위원회</option>
+																<option value="환경노동위원회"  ${param.schCmit == '환경노동위원회' ? 'selected':''}>환경노동위원회</option>
+																<option value="국토교통위원회"  ${param.schCmit == '국토교통위원회' ? 'selected':''}>국토교통위원회</option>
+																<option value="정보위원회"  ${param.schCmit == '정보위원회' ? 'selected':''}>정보위원회</option>
+																<option value="여성가족위원회"  ${param.schCmit == '여성가족위원회' ? 'selected':''}>여성가족위원회</option>
+																<option value="예산결산특별위원회"  ${param.schCmit == '예산결산특별위원회' ? 'selected':''}>예산결산특별위원회</option>
+																<option value="민생경제안정특별위원회"  ${param.schCmit == '민생경제안정특별위원회' ? 'selected':''}>민생경제안정특별위원회</option>
 														</select></td>
 														<th scope="row">&emsp;지역선거구</th>
 														<td><select class="form-select" id="schUpOrig"
 															name="schUpOrig" title="시/도 지역 선택">
 																<option value="">전체</option>
-																<option value="021001">서울</option>
-																<option value="021002">부산</option>
-																<option value="021003">대구</option>
-																<option value="021004">인천</option>
-																<option value="021005">광주</option>
-																<option value="021006">대전</option>
-																<option value="021007">울산</option>
-																<option value="021008">경기</option>
-																<option value="021009">강원</option>
-																<option value="021010">충북</option>
-																<option value="021011">충남</option>
-																<option value="021012">전북</option>
-																<option value="021013">전남</option>
-																<option value="021014">경북</option>
-																<option value="021015">경남</option>
-																<option value="021016">제주</option>
-																<option value="021168">세종</option>
+																<option value="서울"  ${param.schUpOrig == '서울' ? 'selected':''} >서울</option>
+																<option value="부산"  ${param.schUpOrig == '부산' ? 'selected':''} >부산</option>
+																<option value="대구"  ${param.schUpOrig == '대구' ? 'selected':''} >대구</option>
+																<option value="인천"  ${param.schUpOrig == '인천' ? 'selected':''} >인천</option>
+																<option value="광주"  ${param.schUpOrig == '광주' ? 'selected':''} >광주</option>
+																<option value="대전"  ${param.schUpOrig == '대전' ? 'selected':''} >대전</option>
+																<option value="울산"  ${param.schUpOrig == '울산' ? 'selected':''} >울산</option>
+																<option value="경기"  ${param.schUpOrig == '경기' ? 'selected':''} >경기</option>
+																<option value="강원"  ${param.schUpOrig == '강원' ? 'selected':''} >강원</option>
+																<option value="충북"  ${param.schUpOrig == '충북' ? 'selected':''} >충북</option>
+																<option value="충남"  ${param.schUpOrig == '충남' ? 'selected':''} >충남</option>
+																<option value="전북"  ${param.schUpOrig == '전북' ? 'selected':''} >전북</option>
+																<option value="전남"  ${param.schUpOrig == '전남' ? 'selected':''} >전남</option>
+																<option value="경북"  ${param.schUpOrig == '경북' ? 'selected':''} >경북</option>
+																<option value="경남"  ${param.schUpOrig == '경남' ? 'selected':''} >경남</option>
+																<option value="제주"  ${param.schUpOrig == '제주' ? 'selected':''} >제주</option>
+																<option value="세종"  ${param.schUpOrig == '세종' ? 'selected':''} >세종</option>
 														</select></td>
 														<th scope="row">&emsp;성별</th>
 														<td><select class="form-select" id="schSexGbn"
 															name="schSexGbn" title="성별">
 																<option value="">전체</option>
-																<option value="1">남</option>
-																<option value="2">여</option>
-
-														</select></td>
-													</tr>
-													<tr>
-														<th scope="row">연령</th>
-														<td><select class="form-select" id="schAge"
-															name="schAge" title="연령">
-																<option value="">전체</option>
-																<option value="29">30세미만</option>
-																<option value="30">30대</option>
-																<option value="40">40대</option>
-																<option value="50">50대</option>
-																<option value="60">60대</option>
-																<option value="70">70세이상</option>
-														</select></td>
-														<th scope="row">&emsp;당선횟수</th>
-														<td><select class="form-select" id="schReeleGbn"
-															name="schReeleGbn" title="당선횟수">
-																<option value="">전체</option>
-																<option value="105001">초선</option>
-																<option value="105002">재선</option>
-																<option value="105003">3선</option>
-																<option value="105004">4선</option>
-																<option value="105005">5선</option>
-																<option value="105006">6선</option>
-																<option value="105007">7선</option>
-																<option value="105008">8선</option>
-																<option value="105009">9선</option>
-																<option value="105010">10선</option>
-														</select></td>
-														<th scope="row">&emsp;당선방법</th>
-														<td><select class="form-select" id="schElectGbn"
-															name="schElectGbn" title="당선방법">
-																<option value="">전체</option>
-
-																<option value="102010">지역구</option>
-
-																<option value="102020">비례대표</option>
+																<option value="남"  ${param.schSexGbn == '남' ? 'selected':''}>남</option>
+																<option value="여"  ${param.schSexGbn == '여' ? 'selected':''}>여</option>
 
 														</select></td>
 													</tr>
@@ -252,15 +205,10 @@ Main START -->
 														<span class="badge bg-primary bg-opacity-10 text-primary">
 															총 ${totalSize}명</span>
 													</h5>
-													<h5 class="mb-2 mb-sm-0">
-														<span class="badge bg-primary bg-opacity-10 text-primary">
-															검색 결과 총 ${size}명</span>
-													</h5>
-													<a href="#" class="btn btn-sm btn-primary mb-0">S E A R
-														C H</a>
-
+													<button type="submit" class="btn btn-sm btn-primary mb-0">S E A R C H</button>
 												</div>
 											</div>
+											</form>
 											<!-- Card header END -->
 											<!-- Blog post table START -->
 											<div class="table-responsive border-0 text-center">
@@ -444,6 +392,32 @@ Main START -->
 		</section>
 		<script type="text/javascript">
 			function movePage(pageUrl) {
+				var searchName = '${param.searchName}';
+				if(searchName.length > 0){
+					pageUrl += '&searchName=' + searchName  
+				}
+				
+				var schPoly = '${param.schPoly}';
+				if(schPoly.length > 0){
+					pageUrl += '&schPoly=' + schPoly  
+				}
+				
+				var schCmit = '${param.schCmit}';
+				if(schCmit.length > 0){
+					pageUrl += '&schCmit=' + schCmit  
+				}
+				
+				var schUpOrig = '${param.schUpOrig}';
+				if(schUpOrig.length > 0){
+					pageUrl += '&schUpOrig=' + schUpOrig  
+				}
+				
+				// schSexGbn 성별
+				var schSexGbn = '${param.schSexGbn}';
+				if(schSexGbn.length > 0){
+					pageUrl += '&schSexGbn=' + schSexGbn  
+				}
+				
 				location.href = encodeURI(pageUrl);
 			}
 		</script>

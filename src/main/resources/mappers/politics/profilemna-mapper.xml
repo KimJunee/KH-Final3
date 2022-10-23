@@ -58,12 +58,49 @@
 			ENG_NM, BTH_DATE, POLY_NM, ORIG_NM, ELECT_GBN_NM,
 			CMITS, REELE_GBN_NM, TEL_NO, E_MAIL, HOMEPAGE,
 			STAFF, SECRETARY, SECRETARY2, ASSEM_ADDR, MEM_TITLE, JPGLINK
-		FROM MNA_PROFILE ORDER BY MNA_PROFILE_NO
+		FROM MNA_PROFILE
+		WHERE 1=1
+		<if test="searchName != null">
+			AND HG_NM LIKE '%'||#{searchName}||'%'
+		</if>	
+		<if test="schPoly != null">
+			AND POLY_NM LIKE '%'||#{schPoly}||'%'
+		</if>	
+		<if test="schCmit != null">
+			AND CMITS LIKE '%'||#{schCmit}||'%'
+		</if>	
+			<if test="schUpOrig != null">
+			AND ORIG_NM LIKE '%'||#{schUpOrig}||'%'
+		</if>	
+		<if test="schSexGbn != null">
+			AND SEX_GBN_NM LIKE '%'||#{schSexGbn}||'%'
+		</if>	
+		
+		ORDER BY MNA_PROFILE_NO
 	</select>
 	
 	<select id="selectProfileMnaCount" resultType="int"  parameterType="map">
 		SELECT COUNT(*)
 		FROM MNA_PROFILE
+		
+		WHERE 1=1
+		<if test="searchName != null">
+			AND HG_NM LIKE '%'||#{searchName}||'%'
+		</if>	
+		<if test="schPoly != null">
+			AND POLY_NM LIKE '%'||#{schPoly}||'%'
+		</if>	
+		
+		<if test="schCmit != null">
+			AND CMITS LIKE '%'||#{schCmit}||'%'
+		</if>	
+			<if test="schUpOrig != null">
+			AND ORIG_NM LIKE '%'||#{schUpOrig}||'%'
+		</if>	
+		<if test="schSexGbn != null">
+			AND SEX_GBN_NM LIKE '%'||#{schSexGbn}||'%'
+		</if>	
+		
 	</select>
 	
 	

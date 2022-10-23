@@ -42,6 +42,9 @@
 		<if test="name != null">
 			 AND RST_PROPOSER = #{name}
 		</if>
+		<if test="searchKey != null">
+			 AND BILL_NAME LIKE '%' || #{searchKey} || '%'
+		</if>
 		
 	</select>
 	
@@ -53,5 +56,9 @@
 		<if test="name != null">
 			 AND  RST_PROPOSER = #{name}
 		</if>
+		<if test="searchKey != null">
+			 AND BILL_NAME LIKE '%'||#{searchKey}||'%'
+		</if>
+		
 	</select>
 </mapper>

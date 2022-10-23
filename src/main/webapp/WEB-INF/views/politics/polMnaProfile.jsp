@@ -85,7 +85,7 @@ Main START -->
 														</div>
 														<!-- Info -->
 														<div class="ms-3 ">
-															<h5 class="mb-0 ">${profile.hgNm}${profile.hjNm}</h5>
+															<h5 class="mb-0 ">${profile.hgNm}&nbsp; ${profile.hjNm}</h5>
 															<p class="mb-0 small ">${profile.engNm}</p>
 															<p class="mb-0 small ">${profile.bthDate}</p>
 															<p class="mb-0 small ">${profile.units}</p>
@@ -198,24 +198,27 @@ Main START -->
 											<div class="card-body ">
 
 												<!-- Search and select START -->
-												<div
-													class="row g-3 align-items-center justify-content-between mb-3 ">
+												<div class="row g-3 align-items-center justify-content-between mb-3 ">
 													<!-- Search -->
 													<div class="col-md-8 ">
-														<form class="rounded position-relative ">
-															<input class="form-control pe-5 bg-transparent "
-																type="search " placeholder="의안명검색 " aria-label="Search ">
-															<button
-																class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y "
-																type="submit ">
-																<i class="fas fa-search fs-6 "></i>
-															</button>
+														<form action="">
+															<input  type="hidden" name="profileNo" value="${profile.no}" >
+															<input  type="hidden" name="page" value="${pageInfo.currentPage}" >
+															<div class="rounded position-relative align-items-left " style="display: inline-block; width: 40em; ">
+																<input class="form-control bg-transparent "
+																	name="searchKey" value="${param.searchKey}"
+																	type="search" placeholder="의안명검색" aria-label="Search ">
+																<button
+																	class="btn bg-transparent border-0  position-absolute top-50 end-0 translate-middle-y "
+																	type="submit">
+																	 
+																</button>
+															</div> 
+															<button type="submit" class="btn btn-sm btn-primary mb-0 align-items-right">S E A R C H</button>
 														</form>
 													</div>
-
 													<!-- Select option -->
-													<div class="col-md-3 ">
-														<!-- Short by filter -->
+													<!-- <div class="col-md-3 ">
 														<form>
 															<select class="form-select z-index-9 bg-transparent "
 																aria-label=".form-select-sm ">
@@ -226,7 +229,7 @@ Main START -->
 															</select>
 														</form>
 													</div>
-												</div>
+												</div>-->
 												<!-- Search and select END -->
 
 												<!-- Blog post table START -->
