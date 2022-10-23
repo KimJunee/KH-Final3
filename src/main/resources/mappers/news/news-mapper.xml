@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper	namespace="com.kh.realfinal.news.model.mapper.NewsMapper">
+
+	<resultMap type="News" id="newsResultMap">
+		<id property="newsNo" column="NEWS_NO"/>
+		<result property="title" column="TITLE"/>
+		<result property="link" column="LINK"/>
+		<result property="pubDate" column="PUBDATE"/>
+		<result property="description" column="DESCRIPTION"/>
+		<result property="image" column="IMAGE"/>
+		<result property="category" column="CATEGORY"/>
+	</resultMap>
+	
+
+	<insert id="insertNews"	parameterType="News">
+		INSERT INTO NEWS(		
+			NEWS_NO, TITLE, LINK, PUBDATE, DESCRIPTION, IMAGE, CATEGORY
+		) VALUES(
+			SEQ_NEWS_NO.NEXTVAL, #{title}, #{link}, #{pubDate}, #{description}, 
+			#{image}, #{category}
+		)
+	</insert>
+	
+	<select id="selectNewsList" resultMap="newsResultMap">
+		SELECT NEWS_NO, TITLE, LINK, PUBDATE, DESCRIPTION, IMAGE, CATEGORY
+		FROM NEWS 
+		WHERE 1=1
+		<if test="category != null">
+			AND CATEGORY LIKE '%'||#{category}||'%'		
+		</if>
+		<if test="titleKeyword != null">
+			AND TITLE LIKE '%'||#{titleKeyword}||'%'		
+		</if>
+		<if test="descriptionKeyword != null">
+			AND description LIKE '%'||#{descriptionKeyword}||'%'		
+		</if>
+		<if test="sortForDate == null">
+			ORDER BY NEWS_NO
+		</if>
+		<if test="sortForDate != null">
+			ORDER BY PUBDATE ASC
+		</if>
+	</select>
+	
+	
+	
+	<select id="selectNewsCount" parameterType="map" resultType="int">
+		SELECT COUNT(*)
+		FROM NEWS
+		WHERE 1=1
+		<if test="category != null">
+			AND CATEGORY LIKE '%'||#{category}||'%'		
+		</if>
+		
+		<if test="titleKeyword != null">
+			AND TITLE LIKE '%'||#{titleKeyword}||'%'		
+		</if>
+		<if test="descriptionKeyword != null">
+			AND description LIKE '%'||#{descriptionKeyword}||'%'		
+		</if>
+	</select>
+	
+	<select id="selectByNewsByNo" parameterType="int" resultMap="newsResultMap">
+		SELECT 	NEWS_NO, TITLE, LINK, PUBDATE, DESCRIPTION, IMAGE, CATEGORY
+		FROM NEWS WHERE NEWS_NO = #{newsNo}
+	</select>
+	
+</mapper>
