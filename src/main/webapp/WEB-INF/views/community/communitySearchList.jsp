@@ -80,7 +80,7 @@
                                             <div class="col-md-8">
 	                                            <c:forEach var="board" items="${list}" begin="0" end="0" step="1" varStatus="status">
 	                                                <form action="${path}/board/searchList" method="get" class="rounded position-relative">
-	                                                    <input class="form-control pe-5 bg-transparent" type="search" id="searchValue" placeholder="Search" aria-label="Search" value="<c:out value="${param.searchValue}"/>">
+	                                                    <input class="form-control pe-5 bg-transparent" type="search" id="searchValue" name="searchValue" placeholder="Search" aria-label="Search" value="<c:out value="${param.searchValue}"/>">
 	                                                    <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
 	                                                </form>
                                                 </c:forEach>
@@ -89,9 +89,9 @@
                                             <div class="col-md-3">
                                                 <!-- Short by filter -->
                                                 <form>
-                                                    <select id="sort" class="form-select z-index-9 bg-transparent" aria-label=".form-select-sm">
-										                <option value="">최근 순 정렬</option>
-										                <option>오래된 순 정렬</option>
+                                                    <select name="sort" id="sort" class="form-select z-index-9 bg-transparent" aria-label=".form-select-sm" onchange="changeSort('${path}/board/searchList?')">
+										                <option value="DESC" <c:if test="${param.sort!=null and param.sort.equals('DESC')}">selected</c:if>>최근 순 정렬</option>
+										                <option value="ASC" <c:if test="${param.sort!=null and param.sort.equals('ASC')}">selected</c:if>>오래된 순 정렬</option>
 									                </select>
                                                 </form>
                                             </div>
@@ -207,6 +207,14 @@
 	    <script type="text/javascript">
             function movePage(pageUrl){
                 var searchValue = document.getElementById("searchValue");
+                var sort = document.getElementById("sort");
+                var sortValue = sort.options[sort.selectedIndex].value;
+                    pageUrl = pageUrl + '&searchValue=' + searchValue.value + '&sort=' + sortValue; 
+                location.href = encodeURI(pageUrl);
+            }
+            
+            function changeSort(pageUrl){
+            	var searchValue = document.getElementById("searchValue");
                 var sort = document.getElementById("sort");
                 var sortValue = sort.options[sort.selectedIndex].value;
                     pageUrl = pageUrl + '&searchValue=' + searchValue.value + '&sort=' + sortValue; 

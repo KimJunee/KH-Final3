@@ -97,7 +97,9 @@
 		<if test="titleKeyword != null">
 			AND B.BOARD_TITLE LIKE '%'||#{titleKeyword}||'%'
 		</if>
-		ORDER BY B.BOARD_NO DESC
+		<if test="sort != null and !sort.equals('')">
+			ORDER BY B.BOARD_NO ${sort}
+		</if>
 	</select>
 	
 	<!-- 메인인기글 목록 : 현재시간 기준 2일 미만의 글, 최다 조회수 -->

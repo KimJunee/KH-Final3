@@ -94,6 +94,7 @@ public class BoardServiceImpl implements BoardService{
 		searchMap.put("titleKeyword", searchValue);
 		searchMap.put("board_list_no", param.get("type"));
 		
+		searchMap.put("sort", param.get("sort"));
 //		if(searchValue != null && searchValue.length() > 0) {
 //			String type = param.get("searchType");
 //			if(type.equals("board_title")) {
