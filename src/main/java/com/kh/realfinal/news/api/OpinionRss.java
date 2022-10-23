@@ -13,23 +13,23 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import com.kh.realfinal.news.model.vo.Opinion;
+import com.kh.realfinal.news.model.vo.News;
 
 public class OpinionRss {
 
 	public static String XML_URL = "https://rss.donga.com/editorials.xml";
 
 	public static void main(String[] args) {
-		List<Opinion> list = OpinionRss.callOpinionRssByXML();
+		List<News> list = OpinionRss.callNewsRssByXML();
 		for (int i = 0; i < list.size(); i++) {
-			Opinion opinion = list.get(i);
-			System.out.println(opinion);
+			News News = list.get(i);
+			System.out.println(News);
 		}
 		System.out.println("size : " + list.size());
 	}
 
-	public static List<Opinion> callOpinionRssByXML() {
-		List<Opinion> list = new ArrayList<Opinion>();
+	public static List<News> callNewsRssByXML() {
+		List<News> list = new ArrayList<News>();
 
 		StringBuilder urlBuilder = new StringBuilder(XML_URL);
 
@@ -56,7 +56,7 @@ public class OpinionRss {
 			System.out.println("Root Element : " + doc.getDocumentElement().getNodeName());
 
 			NodeList nList = doc.getElementsByTagName("item");
-			System.out.println("Opinion 수 : " + nList.getLength());
+			System.out.println("News 수 : " + nList.getLength());
 
 			for (int i = 1; i < nList.getLength(); i++) {
 				Node node = nList.item(i);
@@ -83,8 +83,9 @@ public class OpinionRss {
 					try {
 						image =  eElement.getElementsByTagName("media:content").item(0).getAttributes().getNamedItem("url").getTextContent();
 					} catch (Exception e) {} 
-					Opinion opinion = new Opinion(0, title, link, pubdate, description, image);
-					list.add(opinion);
+					String category = "opinion"; 
+					News News = new News(0, title, link, pubdate, description, image, category);
+					list.add(News);
 				}
 			}
 		} catch (Exception e) {

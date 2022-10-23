@@ -83,7 +83,7 @@ public class NewsPoliticsRss {
 					try {
 						image =  eElement.getElementsByTagName("media:content").item(0).getAttributes().getNamedItem("url").getTextContent();
 					} catch (Exception e) {}
-					String category = "economy"; 
+					String category = "politics"; 
 					News news = new News(0, title, link, pubdate, description, image, category);
 					list.add(news);
 				}
