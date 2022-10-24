@@ -3,11 +3,16 @@ package com.kh.realfinal.opinion.model.controller;
 import java.text.ParseException;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import com.kh.realfinal.board.model.service.BoardService;
+import com.kh.realfinal.board.model.vo.Board;
 import com.kh.realfinal.common.util.PageInfo;
 import com.kh.realfinal.opinion.api.OpinionRss;
 import com.kh.realfinal.opinion.model.service.OpinionService;
@@ -18,6 +23,9 @@ public class OpinionController {
 	
 	@Autowired
 	private OpinionService service;
+	
+	@Autowired
+	private BoardService boardService;
 	
 	@RequestMapping("/opinion/insertOpinion")
 	public String initOpinionData(Model model) {
@@ -50,14 +58,22 @@ public class OpinionController {
 			} catch (Exception e) {}
 		}
 		
-		PageInfo pageInfoTop = new PageInfo(page, 3, service.getOpinionCount(param), 3);
+		Opinion topOpinion = service.getSelectOpinionMain1();
+		List<Opinion> sideList = service.getSelectOpinionMainSide();
+		List<Opinion> editoria = service.getSelectEditorialist();
+		
+		PageInfo pageInfoTop = new PageInfo(page, 10, service.getOpinionCount(param), 5);
 		List<Opinion> topList = service.getOpinionList(pageInfoTop, param);
  
 		int totalSize = service.getOpinionCount(param);
-		PageInfo pageInfo = new PageInfo(page, 9, totalSize, 9);
+		PageInfo pageInfo = new PageInfo(page, 10, totalSize, 10);
 		List<Opinion> list = service.getOpinionList(pageInfo, param);
 		
-		System.out.println(list.get(0).toString());
+		//System.out.println("뭔데 : " + sideList);
+		
+		model.addAttribute("editoria", editoria);
+		model.addAttribute("sideList", sideList);
+		model.addAttribute("topOpinion", topOpinion);
 		model.addAttribute("topList", topList);
 		model.addAttribute("list", list);
 		model.addAttribute("totalSize", totalSize);
@@ -67,15 +83,17 @@ public class OpinionController {
 		return "/news/opinion";
 	} 
 	
+	// 오피니언 상세보기
 	@RequestMapping("/opinion/opinionDetail")
 	public String opinionDetail(Model model, @RequestParam Map<String, String> param) {
 		int opinionNo = Integer.parseInt(param.get("opinionNo"));
 		Opinion opinion = service.getOpinionOne(opinionNo);
-		System.out.println(opinion);
+		List<Board> sideList = boardService.getSideBoard();
 
-		model.addAttribute("Opinion", opinion);
+		model.addAttribute("opinion", opinion);
 		model.addAttribute("param", param);
+		model.addAttribute("sideList", sideList);
 
-		return "/politics/cardCutDetail";
+		return "/news/opinionDetail";
 	}
 }

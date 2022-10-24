@@ -10,6 +10,8 @@
 		<result property="columnist" column="COLUMNIST"/>
 		<result property="content" column="CONTENT"/>
 		<result property="pubDate" column="PUBDATE"/>	
+		<result property="hit" column="HIT"/>
+		<result property="rownum" column="ROWNUM"/>
 	</resultMap>
 	
 	<insert id="insertOpinion" parameterType="Opinion">
@@ -21,6 +23,13 @@
 		)	
 	</insert>
 	
+	<!-- 갯수 -->
+	<select id="selectOpinionCount" resultType="int"  parameterType="map">
+		SELECT COUNT(1)
+		FROM OPINION
+	</select>
+	
+	<!-- 오피니언 메인 목록 전체 -->
 	<select id="selectOpinion" resultMap="opinionResultMap" parameterType="map">
 		SELECT 
 			OPINIONNO, TITLE, LINK, IMAGEURL, COLUMNIST, CONTENT, PUBDATE
@@ -28,17 +37,54 @@
 		ORDER BY OPINIONNO DESC
 	</select>
 	
-	<select id="selectOpinionCount" resultType="int"  parameterType="map">
-		SELECT COUNT(1)
+	<!-- 오피니언 메인 상단 1개 고정 -->
+	<select id="selectOpinionMain1" resultMap="opinionResultMap" parameterType="map">
+		SELECT 
+			OPINIONNO, TITLE, LINK, IMAGEURL, COLUMNIST, CONTENT, PUBDATE
 		FROM OPINION
+		WHERE OPINIONNO = 15
 	</select>
-
+	
+	<!-- 오피니언 메인 오른쪽 사이드바 4개 -->
+	<select id="selectOpinionMainSide" resultMap="opinionResultMap" parameterType="map">
+		SELECT ROWNUM, A.*
+		FROM
+			(
+			SELECT 
+				OPINIONNO, TITLE, LINK, IMAGEURL, COLUMNIST, CONTENT, PUBDATE
+			FROM OPINION
+			ORDER BY HIT DESC
+			) A
+		WHERE ROWNUM <![CDATA[<=]]> 4
+	</select>
+	
+	<!-- 오피니언 메인, 메인 논설위원 10개 -->
+	<select id="selectEditorialist" resultMap="opinionResultMap" parameterType="map">
+		SELECT *
+		FROM
+			(
+			SELECT 
+				OPINIONNO, TITLE, LINK, IMAGEURL, COLUMNIST, CONTENT, PUBDATE
+			FROM OPINION
+			ORDER BY PUBDATE
+			)
+		WHERE ROWNUM <![CDATA[<=]]> 10
+	</select>
+	
+	<!-- 정치 오피니언 2개 -->
+	<select id="selectOpinionForPolitics" resultMap="opinionResultMap" parameterType="map">
+		SELECT
+			OPINIONNO, TITLE, IMAGEURL, COLUMNIST, PUBDATE
+		FROM OPINION
+		WHERE ROWNUM <![CDATA[<=]]> 2
+		ORDER BY OPINIONNO DESC
+	</select>
+	
+	<!-- 오피니언 상세 -->
 	<select id="selectOpinionOne" resultMap="opinionResultMap">
-		SELECT OPINIONNO, TITLE, LINK, DESCRIPTION, PUBDATE
+		SELECT OPINIONNO, TITLE, LINK, IMAGEURL, COLUMNIST, CONTENT, PUBDATE
 		FROM OPINION 
 		WHERE OPINIONNO = #{opinionNo}
 	</select>
-	
-	
 	
 </mapper>

@@ -10,4 +10,8 @@ public interface OpinionService {
 	List<Opinion> getOpinionList(PageInfo pageInfo, Map<String, String> param);
 	int getOpinionCount(Map<String, String> param);
 	Opinion getOpinionOne(int opinionNo);
+	Opinion getSelectOpinionMain1();
+	List<Opinion> getSelectOpinionMainSide();
+	List<Opinion> getSelectEditorialist();
+	List<Opinion> getSelectOpinionForPolitics();
 }

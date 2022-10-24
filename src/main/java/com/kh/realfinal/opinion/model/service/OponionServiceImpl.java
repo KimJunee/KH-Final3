@@ -33,11 +33,37 @@ public class OponionServiceImpl implements OpinionService{
 		return mapper.selectOpinion(rowBounds, param);
 	}
 
+	// 갯수
 	@Override
 	public int getOpinionCount(Map<String, String> param) {
 		return mapper.selectOpinionCount(param);
 	}
 	
+	// 오피니언 메인 상단 1개 출력
+	@Override
+	public Opinion getSelectOpinionMain1() {
+		return mapper.selectOpinionMain1();
+	}
+	
+	// 오피니언 메인 사이드 4개 출력
+	@Override
+	public List<Opinion> getSelectOpinionMainSide() {
+		return mapper.selectOpinionMainSide();
+	}
+	
+	// 메인, 오피니언 메인 10개 출력
+	@Override
+	public List<Opinion> getSelectEditorialist() {
+		return mapper.selectEditorialist();
+	}
+	
+	// 정치 사이드 2개 출력
+	@Override
+	public List<Opinion> getSelectOpinionForPolitics() {
+		return mapper.selectOpinionForPolitics();
+	}
+	
+	// 오피니언 상세보기
 	public Opinion getOpinionOne(int opinionNo) {
 		Opinion opinion = mapper.selectOpinionOne(opinionNo);
 		return opinion;
