@@ -12,7 +12,7 @@
 		<result property="pubDate" column="PUBDATE"/>	
 	</resultMap>
 	
-	<insert id="insertOpinion">
+	<insert id="insertOpinion" parameterType="Opinion">
 		INSERT INTO Opinion(		
 			OPINIONNO, TITLE, LINK, IMAGEURL, COLUMNIST, CONTENT, PUBDATE
 		) VALUES(
@@ -20,9 +20,25 @@
 			#{content}, #{pubDate}
 		)	
 	</insert>
+	
+	<select id="selectOpinion" resultMap="opinionResultMap" parameterType="map">
+		SELECT 
+			OPINIONNO, TITLE, LINK, IMAGEURL, COLUMNIST, CONTENT, PUBDATE
+		FROM OPINION
+		ORDER BY OPINIONNO DESC
+	</select>
+	
+	<select id="selectOpinionCount" resultType="int"  parameterType="map">
+		SELECT COUNT(1)
+		FROM OPINION
+	</select>
 
-
-
-
-
+	<select id="selectOpinionOne" resultMap="opinionResultMap">
+		SELECT OPINIONNO, TITLE, LINK, DESCRIPTION, PUBDATE
+		FROM OPINION 
+		WHERE OPINIONNO = #{opinionNo}
+	</select>
+	
+	
+	
 </mapper>
