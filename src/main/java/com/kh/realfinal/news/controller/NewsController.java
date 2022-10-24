@@ -112,13 +112,4 @@ public class NewsController {
 		model.addAttribute("list", list);
 		return "/news/news_search";
 	}
-	
-
-	@RequestMapping("/news/opinion")
-	String newsOpinion() {
-		return "/news/opinion";
-	}
 }
-
-
-

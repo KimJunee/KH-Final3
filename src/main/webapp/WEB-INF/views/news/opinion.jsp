@@ -27,22 +27,29 @@ Main content START -->
                     <!-- Main Post START -->
                     <div class="col-lg-9">
                         <!-- Card item START -->
-                        <div class="card mb-4">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <img class="rounded-3" src="${path}/resources/resources1b/images/news/opinion.jpg" style="width: 300px; height: 250px;" alt="">
-                                </div>
-                                <div class="col-md-8 mt-4 mt-md-0">
-                                    <h3><a href="post-single-2.html" class="btn-link stretched-link text-reset">“외환 위기 경고” 나온 역환율 전쟁, 범정부 비상체제 가동을</a></h3><br>
-                                    <p>달러 대비 원화 환율이 지난 주 달러당 1400원의 마지노선을 깬 데 이어 26일엔 22원 이상 오르며 1430원을 넘어섰다. 1400원대 환율은 2009년 글로벌 금융 위기 이후 13년여 만의 일이다. 세계 경제를 침체로 몰아간 서브프라임 모기지 사태 때만큼 상황이 심각하다는 의미다. 코스피는 3%, 코스닥은 5%씩 폭락하며 금융시장을 혼란으로 몰아넣었다. 국제 금융가에선 ‘아시아
-                                        외환 위기’ 경고가 나오기 시작했다. 블룸버그 통신은 월가 전문가들을 인용해 “일본 엔과 중국 위안화 폭락으로 아시아에서 외국 자금이 대거 이탈하는 위기로 확대될 수 있다”며 1997년 사태의 재발 가능성을 지적했다.</p>
-                                    <!-- Card info -->
-                                    <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
-                                        <li class="nav-item">Jan 22, 2022</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                        <c:if test="${!empty list}">
+		                        <div class="card mb-4">
+		                            <div class="row">
+		                                <div class="col-md-3">
+		                                    <img class="rounded-3" src="${list[0].imageUrl}" style="width: 300px; height: 250px;" alt="">
+		                                </div>
+		                                <div class="col-md-8 mt-4 mt-md-0">
+		                                	<!-- 제목 -->
+		                                    <h3><a href="${list[0].link}" class="btn-link stretched-link text-reset">${list[0].title}</a></h3><br>
+		                                    <!-- 내용 -->
+		                                    <div style="overflow: hidden;height: 178px;text-overflow: ellipsis">
+		                                    <!-- <p>달러 대비 원화 환율이 지난 주 달러당 1400원의 마지노선을 깬 데 이어 26일엔 22원 이상 오르며 1430원을 넘어섰다. 1400원대 환율은 2009년 글로벌 금융 위기 이후 13년여 만의 일이다. 세계 경제를 침체로 몰아간 서브프라임 모기지 사태 때만큼 상황이 심각하다는 의미다. 코스피는 3%, 코스닥은 5%씩 폭락하며 금융시장을 혼란으로 몰아넣었다. 국제 금융가에선 ‘아시아
+		                                        외환 위기’ 경고가 나오기 시작했다. 블룸버그 통신은 월가 전문가들을 인용해 “일본 엔과 중국 위안화 폭락으로 아시아에서 외국 자금이 대거 이탈하는 위기로 확대될 수 있다”며 1997년 사태의 재발 가능성을 지적했다.</p> -->
+		                                        ${list[0].content}
+	                                        </div>
+		                                    <!-- Card info -->
+		                                    <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
+		                                        <li class="nav-item">Jan 22, 2022</li>
+		                                    </ul>
+		                                </div>
+		                            </div>
+		                        </div>
+                        </c:if>
                         <!-- Card item END -->
                     </div>
                     <!-- Main Post END -->

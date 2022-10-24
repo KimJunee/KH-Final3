@@ -121,7 +121,7 @@
                         <!-- 뉴스 메뉴 끝  -->
 
                         <!-- 오피니언 메뉴 시작 -->
-                        <li class="nav-item "> <a class="nav-link-sp" href="${path}/news/opinion">오피니언</a></li>
+                        <li class="nav-item "> <a class="nav-link-sp" href="${path}/opinion">오피니언</a></li>
                         <!-- 오피니언 메뉴 끝 -->
 
                         <!-- 커뮤니티 메뉴 시작 -->
