@@ -26,19 +26,10 @@ public class MypageBoardServiceImpl implements MypageBoardService{
 		Map<String, String> searchMap = new HashMap<String, String>();
 		String searchValue = param.get("searchValue");
 		
+		searchMap.put("titleKeyword", searchValue);
 		searchMap.put("board_list_no", param.get("type"));
 		searchMap.put("user_no", param.get("user_no"));
 		
-		if(searchValue != null && searchValue.length() > 0) {
-			String type = param.get("sdarchType");
-			if(type.equals("board_title")) {
-				searchMap.put("titleKeyword", searchValue);
-			} else if(type.equals("board_content")) {
-				searchMap.put("contentKeyword", searchValue);
-			} else if(type.equals("user_NickName")) {
-				searchMap.put("NickNameKeyword", searchValue);
-			}
-		}
 		return mapper.selectMypageBoardCount(searchMap);
 	}
 
@@ -52,17 +43,9 @@ public class MypageBoardServiceImpl implements MypageBoardService{
 		String searchValue = param.get("searchValue");
 		searchMap.put("board_list_no", param.get("type"));
 		searchMap.put("user_no", param.get("user_no"));
+		searchMap.put("titleKeyword", searchValue);
+		searchMap.put("sort", param.get("sort"));
 		
-		if(searchValue != null && searchValue.length() > 0) {
-			String type = param.get("searchType");
-			if(type.equals("board_title")) {
-				searchMap.put("titleKeyword", searchValue);
-			} else if(type.equals("board_content")) {
-				searchMap.put("contentKeyword", searchValue);
-			} else if(type.equals("user_NickName")) {
-				searchMap.put("NickNameKeyword", searchValue);
-			} 
-		}
 		return mapper.selectMypageBoardList(rowBounds, searchMap);
 	}
 

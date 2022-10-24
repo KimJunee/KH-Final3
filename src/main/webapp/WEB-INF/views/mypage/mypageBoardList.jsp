@@ -67,23 +67,21 @@
                                 <div class="row g-3 align-items-center justify-content-between mb-3">
                                     <!-- 상단 검색 -->
                                     <div class="col-md-7">
-                                        <form action="${path}/MypageBoard/mylist" method="get" class="rounded position-relative">
-                                            <input class="form-control pe-5 bg-transparent" id="searchValue" type="search" placeholder="Search" aria-label="Search">
-                                            <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
-                                        </form>
+                                    	<c:forEach var="board" items="${list}" begin="0" end="0" step="1" varStatus="status">
+	                                        <form action="${path}/MypageBoard/mylist" method="get" class="rounded position-relative">
+	                                            <input class="form-control pe-5 bg-transparent" id="searchValue" type="search" name="searchValue" placeholder="Search" aria-label="Search" value="<c:out value="${param.searchValue}"/>">
+	                                            <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
+	                                        </form>
+                                        </c:forEach>
                                     </div>
                                     <!-- Select option -->
                                     <div class="col-md-3">
                                         <!-- Short by filter -->
                                         <form>
-                                            <select id="sort" class="form-select z-index-9 bg-transparent" aria-label=".form-select-sm">
-												<option value="">최근 작성 순</option>
-												<option>오래된 작성 순</option>
-												<option>정치</option>
-												<option>부동산청약</option>
-												<option>금융</option>
-												<option>자유</option>
-											</select>
+                                            <select name="sort" id="sort" class="form-select z-index-9 bg-transparent" aria-label=".form-select-sm" onchange="changeSort('${path}/MypageBoard/mylist?')">
+								                <option value="DESC" <c:if test="${param.sort!=null and param.sort.equals('DESC')}">selected</c:if>>최근 순 정렬</option>
+								                <option value="ASC" <c:if test="${param.sort!=null and param.sort.equals('ASC')}">selected</c:if>>오래된 순 정렬</option>
+							                </select>
                                         </form>
                                     </div>
                                 </div>
@@ -188,6 +186,14 @@
         <script type="text/javascript">
             function movePage(pageUrl){
                 var searchValue = document.getElementById("searchValue");
+                var sort = document.getElementById("sort");
+                var sortValue = sort.options[sort.selectedIndex].value;
+                    pageUrl = pageUrl + '&searchValue=' + searchValue.value + '&sort=' + sortValue; 
+                location.href = encodeURI(pageUrl);
+            }
+            
+            function changeSort(pageUrl){
+            	var searchValue = document.getElementById("searchValue");
                 var sort = document.getElementById("sort");
                 var sortValue = sort.options[sort.selectedIndex].value;
                     pageUrl = pageUrl + '&searchValue=' + searchValue.value + '&sort=' + sortValue; 

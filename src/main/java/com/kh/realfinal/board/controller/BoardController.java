@@ -112,6 +112,7 @@ public class BoardController {
 		model.addAttribute("param",param);
 		model.addAttribute("pageInfo",pageInfo);
 		return "/community/communitySearchList";
+		
 	}
 	
 	// 커뮤니티 타입별 목록
@@ -123,6 +124,10 @@ public class BoardController {
 			try {
 				page = Integer.parseInt(param.get("page"));
 			} catch (Exception e) {}
+		}
+		
+		if(param.get("sort") == null || "".equals(param.get("sort").toString())) {
+			param.put("sort","DESC");
 		}
 		
 		PageInfo pageInfo = new PageInfo(page, 20, service.getBoardCount(param), 20);

@@ -45,8 +45,12 @@ public class MypageBoardController {
 				page = Integer.parseInt(param.get("page"));
 			} catch (Exception e) {}
 		}
+		if(param.get("sort") == null || "".equals(param.get("sort").toString())) {
+			param.put("sort","DESC");
+		}
 		
 		param.put("user_no",String.valueOf(loginMember.getUser_no()));
+		System.out.println(param.toString());
 		PageInfo pageInfo = new PageInfo(page, 10, service.getBoardCount(param), 10);
 		List<Board> list = service.getBoardList(pageInfo, param);
 		
@@ -55,7 +59,7 @@ public class MypageBoardController {
 //		}
 //		
 //		System.out.println("나 누구 : " + loginMember);
-		
+		System.out.println("내 글인데 검색 이거야 : " + param.toString());
 		model.addAttribute("list",list);
 		model.addAttribute("board_list_no", param.get("type"));
 		model.addAttribute("param",param);

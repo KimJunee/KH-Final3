@@ -109,11 +109,9 @@
                                             <div class="col-md-3">
                                                 <!-- Short by filter -->
                                                 <form>
-                                                    <select id="sort" class="form-select z-index-9 bg-transparent" aria-label=".form-select-sm">
-										                <option value="">Sort by</option>
-										                <option>Free</option>
-										                <option>Newest</option>
-										                <option>Oldest</option>
+                                                    <select name="sort" id="sort" class="form-select z-index-9 bg-transparent" aria-label=".form-select-sm" onchange="changeSort('${path}/board/searchList?')">
+										                <option value="DESC" <c:if test="${param.sort!=null and param.sort.equals('DESC')}">selected</c:if>>최근 순 정렬</option>
+										                <option value="ASC" <c:if test="${param.sort!=null and param.sort.equals('ASC')}">selected</c:if>>오래된 순 정렬</option>
 									                </select>
                                                 </form>
                                             </div>
