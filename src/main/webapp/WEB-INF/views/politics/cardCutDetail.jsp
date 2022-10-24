@@ -8,7 +8,7 @@
 <html lang="ko">
 
 <style>
-    /* 카드컷 아이콘 */   
+    /* 카드컷 아이콘 내용*/   
     @font-face {
         font-family: "finder-icons";
         src: url("resources/resources1b/vendor/font-awesome/webfonts/finder-icons.ttf?7648j3") format("truetype"), url("resources/resources1b/vendor/font-awesome/webfonts/finder-icons.woff?7648j3") format("woff"), url("resources/resources1b/vendor/font-awesome/webfonts/finder-icons.svg?7648j3#finder-icons") format("svg");
