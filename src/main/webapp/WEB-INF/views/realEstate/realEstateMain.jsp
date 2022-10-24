@@ -244,7 +244,7 @@
 					class="card card-body bg-primary bg-opacity-15 p-4 h-75 text-center">
 					<h3 id="current_date"></h3>
 					<h5>마감 청약</h5>
-					<h1 class="fs-1 text-primary">16개</h1>
+					<h1 class="fs-1 text-primary">8개</h1>
 					<p>
 						오늘 모집 마감되는 청약일정과 <br> 공급 대상들을 즉시 확인하실 수 있습니다!
 					</p>
