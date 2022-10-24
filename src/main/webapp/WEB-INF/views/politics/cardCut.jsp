@@ -9,7 +9,7 @@
 
 <head>
     <title>FinTouch | Politics | CardCut</title>
-    <!-- Favicon -->
+    <!-- Favicon / Link -->
     <link rel="shortcut icon" href="resources/resources1b/images/favicon.ico">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
 </head>
@@ -47,7 +47,7 @@
 											</div>
 											<div class="card-body px-0 pt-3">
 												<h4 class="card-title">
-													<a href="post-single-4.html"
+													<a href="${path}/politics/cardCutDetail?cardCutNo=${cardcutTop.cardCutNo}"
 														class="btn-link text-reset stretched-link fw-bold">${cardcutTop.title}</a>
 												</h4>
 												<!-- Card info -->
@@ -116,7 +116,7 @@
 											</div>
 											<div class="card-body px-0 pt-3">
 												<h6 class="card-title">
-													<a href="politics/cardCutDetail"
+													<a href="${path}/politics/cardCutDetail?cardCutNo=${cardcut.cardCutNo}"
 														class="btn-link text-reset stretched-link fw-bold">${cardcut.title}</a>
 												</h6>
 												<!-- Card info -->
@@ -133,30 +133,25 @@
 								</c:forEach>
 							</c:if>
 							<!-- Pagination START -->
-											<nav class="mb-sm-0 d-flex justify-content-center mt-2"
-												aria-label="navigation">
-												<ul
-													class="pagination pagination-sm pagination-bordered mb-0">
-													<li class="page-item"><a
-														onclick="movePage('${path}/politics/cardCut?page=${pageInfo.prevPage}');"
-														class="page-link">Prev</a></li>
-													<c:forEach begin="${pageInfo.startPage}"
-														end="${pageInfo.endPage}" step="1" varStatus="status">
-														<c:if test="${pageInfo.currentPage == status.current}">
-															<li class="page-item active"><a class="page-link">${status.current}</a></li>
-														</c:if>
-														<c:if test="${pageInfo.currentPage != status.current}">
-															<li class="page-item"><a
-																onclick="movePage('${path}/politics/cardCut?page=${status.current}');"
-																class="page-link">${status.current}</a></li>
-														</c:if>
-													</c:forEach>
-													<li class="page-item"><a
-														onclick="movePage('${path}/politics/cardCut?page=${pageInfo.nextPage}');"
-														class="page-link">Next</a></li>
-												</ul>
-											</nav>
-										<!-- Pagination END -->
+											<nav class="mb-sm-0 d-flex justify-content-center mt-2" aria-label="navigation">
+                                        <ul class="pagination pagination-sm pagination-bordered mb-0">
+                                            <li class="page-item">
+                                                <a onclick="movePage('${path}/politics/cardCut?page=${pageInfo.prevPage}');" class="page-link">Prev</a>
+                                            </li>
+                                            <c:forEach begin="${pageInfo.startPage}" end="${pageInfo.endPage}" step="1" varStatus="status">
+                                            	<c:if test="${pageInfo.currentPage == status.current}">
+		                                            <li class="page-item active"><a class="page-link">${status.current}</a></li>                                    		
+                                            	</c:if>
+                                            	<c:if test="${pageInfo.currentPage != status.current}">
+		                                            <li class="page-item"><a onclick="movePage('${path}/politics/cardCut?page=${status.current}');" class="page-link">${status.current}</a></li>                                            	
+                                            	</c:if>                                         
+                                            </c:forEach>
+                                            <li class="page-item">
+                                                <a onclick="movePage('${path}/politics/cardCut?page=${pageInfo.nextPage}');" class="page-link">Next</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+											<!-- Pagination END -->
 						</div>
 		                </div>
 		                <div class="col-3">

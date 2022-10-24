@@ -17,7 +17,7 @@ import com.kh.realfinal.politics.model.service.CardCutService;
 import com.kh.realfinal.politics.model.vo.CardCut;
 
 @Controller
-public class CardCutController { //
+public class CardCutController {
 	
 	@Autowired
 	CardCutService CardCutService;

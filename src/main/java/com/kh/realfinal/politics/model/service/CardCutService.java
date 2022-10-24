@@ -13,6 +13,7 @@ public interface CardCutService {
 	List<CardCut> getCardCutList(PageInfo pageInfo, Map<String, String> param);
 	int getCardCutCount(Map<String, String> param);
 	
+	// 리플작성
 	int deleteReply(int no);  
 	int saveCcReply(CardCutReply reply);
 	CardCut getCardCutContent(int cardCutNo);

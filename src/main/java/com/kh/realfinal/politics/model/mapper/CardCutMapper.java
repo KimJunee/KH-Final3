@@ -12,7 +12,7 @@ import com.kh.realfinal.politics.model.vo.CardCutReply;
 @Mapper
 public interface CardCutMapper {
 	int insertCardCut(CardCut cardCut);
-	int deleteReply(int no);
+	int deleteReply(int no); // 리플작성
 	int insertReply(CardCutReply reply);
 	List<CardCut> selectCardCut(RowBounds rowBounds, Map<String, String> param);
 	int selectCardCutCount(Map<String, String> param);

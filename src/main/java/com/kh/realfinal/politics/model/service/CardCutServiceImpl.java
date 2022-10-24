@@ -82,7 +82,7 @@ public class CardCutServiceImpl implements CardCutService {
 		}
 	}
 	
-	// 카드 컨텐츠 보기
+	// 카드 컨텐츠 확인
 	public CardCut getCardCutContent(int cardCutNo) {
 		CardCut carcut = mapper.selectCardCutOne(cardCutNo);
 		parsingImageUrl(carcut);
