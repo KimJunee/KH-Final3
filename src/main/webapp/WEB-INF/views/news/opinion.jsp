@@ -67,7 +67,7 @@ Main content START -->
 		                                <div class="d-flex position-relative mb-3">
 		                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">
 		                                    <fmt:formatNumber type="number" pattern="##" minIntegerDigits="2" value="${sideList.rownum}"/></span>
-		                                    <h6><a href="" class="stretched-link text-reset btn-link"><c:out value="${sideList.title}"/></a></h6>
+		                                    <h6><a href="${path}/opinion/opinionDetail?opinionNo=${sideList.opinionNo}" class="stretched-link text-reset btn-link"><c:out value="${sideList.title}"/></a></h6>
 		                                </div>
                                 	</c:forEach>
                                 </c:if>
@@ -132,7 +132,7 @@ Main content START -->
 	                                <div class="col-lg-5">
 	                                    <!-- Title -->
 	                                    <h2 class="card-title">
-	                                        <a href="post-single.html" class="btn-link text-reset stretched-link">${list.title}</a>
+	                                        <a href="${path}/opinion/opinionDetail?opinionNo=${list.opinionNo}" class="btn-link text-reset stretched-link">${list.title}</a>
 	                                    </h2>
 	                                    <!-- Author info -->
 	                                    <div class="d-flex align-items-center position-relative mt-3">
