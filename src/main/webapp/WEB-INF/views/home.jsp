@@ -65,6 +65,7 @@
 
 <h2><a href="${path}/news/insert.do"> News INSERT</a></h2>
 
+<h2><a href="${path}/opinion/insertOpinion"> 오피니언 INSERT</a></h2>
 
 
 

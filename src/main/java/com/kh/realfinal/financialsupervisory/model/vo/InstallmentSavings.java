@@ -31,6 +31,5 @@ public class InstallmentSavings {
 	private String dclsEndDay; // 공시 종료일
 	private String finCoSubmDay; // 금융회사 제출일 [YYYYMMDDHH24MI]
 	private List<InstallmentSavingsOption> installOptionList;
-	private MypageFinance mypageFin;
 
 }

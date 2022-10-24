@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kh.realfinal.opinion.model.mapper.OpinionMapper">
+	<resultMap type="Opinion" id="opinionResultMap">
+		<result property="opinionNo" column="OPINIONNO"/>
+		<result property="title" column="TITLE"/>
+		<result property="link" column="LINK"/>
+		<result property="imageUrl" column="IMAGEURL"/>
+		<result property="columnist" column="COLUMNIST"/>
+		<result property="content" column="CONTENT"/>
+		<result property="pubDate" column="PUBDATE"/>	
+	</resultMap>
+	
+	<insert id="insertOpinion">
+		INSERT INTO Opinion(		
+			OPINIONNO, TITLE, LINK, IMAGEURL, COLUMNIST, CONTENT, PUBDATE
+		) VALUES(
+			SEQ_OPINIONNO.NEXTVAL, #{title}, #{link}, #{imageUrl}, #{columnist}, 
+			#{content}, #{pubDate}
+		)	
+	</insert>
+
+
+
+
+
+</mapper>
