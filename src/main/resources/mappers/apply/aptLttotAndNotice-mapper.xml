@@ -284,6 +284,9 @@
 		<if test="departmentKeyword != null">
 			AND dep_nm LIKE '%'||#{departmentKeyword}||'%'
 		</if>
+		<if test="cateType != null">
+			AND ais_tp_cd_nm LIKE '%'||#{cateType}||'%'
+		</if>
 		ORDER BY RNUM ASC
 	</select>
 	
@@ -299,6 +302,9 @@
 		</if>
 		<if test="departmentKeyword != null">
 			AND dep_nm LIKE '%'||#{departmentKeyword}||'%'
+		</if>
+		<if test="cateType != null">
+			AND ais_tp_cd_nm LIKE '%'||#{cateType}||'%'
 		</if>
 		ORDER BY RNUM ASC
 	</select>

@@ -5,14 +5,17 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.RowBounds;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.kh.realfinal.apply.model.mapper.ApplyInfoMapper;
+import com.kh.realfinal.apply.model.mapper.UrbtyOfctlLttotPblancDetailMapper;
 import com.kh.realfinal.apply.model.vo.ApplyNotice;
 import com.kh.realfinal.apply.model.vo.ApplyNoticeAttach;
 import com.kh.realfinal.apply.model.vo.AptLttotPblancDetail;
 import com.kh.realfinal.apply.model.vo.AptLttotPblancMdl;
+import com.kh.realfinal.apply.model.vo.UrbtyOfctlLttotPblancDetail;
 import com.kh.realfinal.common.util.PageInfo;
 
 import lombok.RequiredArgsConstructor;
@@ -22,6 +25,7 @@ import lombok.RequiredArgsConstructor;
 public class ApplyInfoApiServiceImpl implements ApplyInfoApiService {
 
 	private final ApplyInfoMapper mapper;
+	private final UrbtyOfctlLttotPblancDetailMapper uMapper;
 	
 	@Override
 	@Transactional(rollbackFor = Exception.class)
@@ -63,7 +67,8 @@ public class ApplyInfoApiServiceImpl implements ApplyInfoApiService {
 	//----------------------
 	
 	@Override
-	public List<ApplyNotice> getApplyNoticeList(PageInfo pageInfo, Map<String, String> param) {
+	public List<ApplyNotice> getApplyNoticeList(PageInfo pageInfo, Map<String, String> param, String categoryType) {
+		System.out.println("service categoryType : " + categoryType);
 		int offset = (pageInfo.getCurrentPage() - 1) * pageInfo.getListLimit();
 		RowBounds rb = new RowBounds(offset, pageInfo.getListLimit());
 		
@@ -80,14 +85,60 @@ public class ApplyInfoApiServiceImpl implements ApplyInfoApiService {
 			} 
 		}
 		
-		
+		if(categoryType != null && categoryType.length() > 0) {
+			if(categoryType.equals("1")) {
+				searchMap.put("cateType", "주택용지");
+			} else if(categoryType.equals("2")) {
+				searchMap.put("cateType", "상가용지");
+			} else if(categoryType.equals("3")) {
+				searchMap.put("cateType", "산업시설용지");
+			} else if(categoryType.equals("4")) {
+				searchMap.put("cateType", "기타용지");
+			} else if(categoryType.equals("5")) {
+				searchMap.put("cateType", "통합공공임대");
+			} else if(categoryType.equals("6")) {
+				searchMap.put("cateType", "국민임대");
+			} else if(categoryType.equals("7")) {
+				searchMap.put("cateType", "공공임대");
+			} else if(categoryType.equals("8")) {
+				searchMap.put("cateType", "영구임대");
+			} else if(categoryType.equals("9")) {
+				searchMap.put("cateType", "행복주택");
+			} else if(categoryType.equals("10")) {
+				searchMap.put("cateType", "장기전세");
+			} else if(categoryType.equals("11")) {
+				searchMap.put("cateType", "신축다세대");
+			} else if(categoryType.equals("12")) {
+				searchMap.put("cateType", "매입임대");
+			} else if(categoryType.equals("13")) {
+				searchMap.put("cateType", "전세임대");
+			} else if(categoryType.equals("14")) {
+				searchMap.put("cateType", "집주인임대");
+			} else if(categoryType.equals("15")) {
+				searchMap.put("cateType", "분양·임대상가(입찰)");
+			} else if(categoryType.equals("16")) {
+				searchMap.put("cateType", "임대상가(입찰)");
+			} else if(categoryType.equals("17")) {
+				searchMap.put("cateType", "임대상가(공모·심사)");
+			} else if(categoryType.equals("18")) {
+				searchMap.put("cateType", "임대상가(추첨)");
+			} else if(categoryType.equals("19")) {
+				searchMap.put("cateType", "분양주택");
+			} else if(categoryType.equals("20")) {
+				searchMap.put("cateType", "신혼희망타운");
+			} else if(categoryType.equals("21")) {
+				searchMap.put("cateType", "기타");
+			}
+		}
 		
 		return mapper.selectNoticeList(rb, searchMap);
 	}
 
 
 	@Override
-	public int getApplyNoticeCount(Map<String, String> param) {
+	public int getApplyNoticeCount(Map<String, String> param, String categoryType) {
+		
+		System.out.println("service count categoryType : " + categoryType);
 		Map<String, String> searchMap = new HashMap<String, String>();
 		String searchValue = param.get("searchValue");
 		String type = param.get("searchType");
@@ -105,6 +156,54 @@ public class ApplyInfoApiServiceImpl implements ApplyInfoApiService {
 				searchMap.put("departmentKeyword", searchValue);
 			} 
 		}
+		
+		if(categoryType != null && categoryType.length() > 0) {
+			if(categoryType.equals("1")) {
+				searchMap.put("cateType", "주택용지");
+			} else if(categoryType.equals("2")) {
+				searchMap.put("cateType", "상가용지");
+			} else if(categoryType.equals("3")) {
+				searchMap.put("cateType", "산업시설용지");
+			} else if(categoryType.equals("4")) {
+				searchMap.put("cateType", "기타용지");
+			} else if(categoryType.equals("5")) {
+				searchMap.put("cateType", "통합공공임대");
+			} else if(categoryType.equals("6")) {
+				searchMap.put("cateType", "국민임대");
+			} else if(categoryType.equals("7")) {
+				searchMap.put("cateType", "공공임대");
+			} else if(categoryType.equals("8")) {
+				searchMap.put("cateType", "영구임대");
+			} else if(categoryType.equals("9")) {
+				searchMap.put("cateType", "행복주택");
+			} else if(categoryType.equals("10")) {
+				searchMap.put("cateType", "장기전세");
+			} else if(categoryType.equals("11")) {
+				searchMap.put("cateType", "신축다세대");
+			} else if(categoryType.equals("12")) {
+				searchMap.put("cateType", "매입임대");
+			} else if(categoryType.equals("13")) {
+				searchMap.put("cateType", "전세임대");
+			} else if(categoryType.equals("14")) {
+				searchMap.put("cateType", "집주인임대");
+			} else if(categoryType.equals("15")) {
+				searchMap.put("cateType", "분양·임대상가(입찰)");
+			} else if(categoryType.equals("16")) {
+				searchMap.put("cateType", "임대상가(입찰)");
+			} else if(categoryType.equals("17")) {
+				searchMap.put("cateType", "임대상가(공모·심사)");
+			} else if(categoryType.equals("18")) {
+				searchMap.put("cateType", "임대상가(추첨)");
+			} else if(categoryType.equals("19")) {
+				searchMap.put("cateType", "분양주택");
+			} else if(categoryType.equals("20")) {
+				searchMap.put("cateType", "신혼희망타운");
+			} else if(categoryType.equals("21")) {
+				searchMap.put("cateType", "기타");
+			}
+		}
+		
+		
 		
 		return mapper.selectNoticeCount(searchMap);
 	}
@@ -126,6 +225,16 @@ public class ApplyInfoApiServiceImpl implements ApplyInfoApiService {
 	@Override
 	public List<AptLttotPblancDetail> getAptLttotList(Map<String, String> param) {
 		return mapper.selectAptLttotList(param);
+	}
+	
+	@Override
+	public List<UrbtyOfctlLttotPblancDetail> getUrdtyList1(Map<String, String> param) {
+		return uMapper.selectUrbtyList1(param);
+	}
+	
+	@Override
+	public List<UrbtyOfctlLttotPblancDetail> getUrdtyList2(Map<String, String> param) {
+		return uMapper.selectUrbtyList2(param);
 	}
 
 	@Override

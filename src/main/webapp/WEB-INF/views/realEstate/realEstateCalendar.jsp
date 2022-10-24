@@ -69,7 +69,7 @@
             editable: true,
 
             /* dayMaxEvents: true, // allow "more" link when too many events */
-            dayMaxEvents: 6, // allow "more" link when too many events
+            dayMaxEvents: 4, // allow "more" link when too many events
             // 이벤트 객체 필드 document : https://fullcalendar.io/docs/event-object
             events: [
            		<c:forEach var="apt" items="${apt}">
@@ -77,6 +77,33 @@
 	    				title: '<c:out value="${apt.house_nm}"/>' ,
     					start: '<c:out value="${apt.gnrl_rnk1_crsparea_rcept_pd}"/>' ,
     					color: '#E378A6'
+    					
+	    			},
+   				</c:forEach>
+	    			
+           		<c:forEach var="apt" items="${apt}">
+	    			{
+	    				title: '<c:out value="${apt.house_nm}"/>' ,
+    					start: '<c:out value="${apt.gnrl_rnk2_crsparea_rcept_pd}"/>' ,
+    					color: '#FCC75F'
+    					
+	    			},
+   				</c:forEach>
+	    			
+           		<c:forEach var="urdty" items="${urdty}">
+	    			{
+	    				title: '<c:out value="${urdty.house_nm}"/>' ,
+    					start: '<c:out value="${urdty.subscrpt_rcept_bgnde}"/>' ,
+    					color: '#809BCA'
+    					
+	    			},
+   				</c:forEach>
+	    			
+           		<c:forEach var="gg" items="${gg}">
+	    			{
+	    				title: '<c:out value="${gg.house_nm}"/>' ,
+    					start: '<c:out value="${gg.subscrpt_rcept_bgnde}"/>' ,
+    					color: '#E3A9C2'
     					
 	    			},
    				</c:forEach>
@@ -292,12 +319,6 @@
 
 	<!-- @@@ 본문 끝 @@@ -->
 	
-
-
-
-
-
-
 	<%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 

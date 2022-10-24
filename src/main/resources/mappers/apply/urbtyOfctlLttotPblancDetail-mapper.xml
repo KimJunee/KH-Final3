@@ -146,4 +146,21 @@
 	#{excluse_ar}, #{suply_hshldco}, 
 	#{suply_amount}, #{subscrpt_reqst_amount})
 	</insert>
+	
+	
+	<!-- 캘린더용 시작 -->
+	<select id="selectUrbtyList1" resultMap="UrbtyMap">
+		SELECT * FROM URBTYOFCTLLTTOTPBLANCDETAIL
+		WHERE SEARCH_HOUSE_SECD = '201' 
+        OR SEARCH_HOUSE_SECD = '202'
+        OR SEARCH_HOUSE_SECD = '203'
+	</select>
+	
+	<select id="selectUrbtyList2" resultMap="UrbtyMap">
+		SELECT * FROM URBTYOFCTLLTTOTPBLANCDETAIL
+		WHERE SEARCH_HOUSE_SECD = '303' 
+	</select>
+	
+	<!-- 캘린더용 끝 -->
+	
 </mapper>

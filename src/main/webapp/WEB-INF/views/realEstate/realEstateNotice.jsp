@@ -13,9 +13,14 @@
 </head>
 
 <c:set var="searchType" value="${param.searchType}" />
-<c:if test="${empty searchType}">
+<%-- <c:if test="${empty searchType}">
 	<c:set var="searchType" value="${'title'}"/>
-</c:if>
+</c:if> --%>
+
+<%-- <c:set var="cateType" value="${param.cateType}" />
+<c:if test="${empty cateType}">
+	<c:set var="cateType" value="${'title2'}"/>
+</c:if> --%>
 
 <style>
 	.etc {
@@ -23,11 +28,12 @@
 		overflow: hidden;
 		text-overflow: ellipsis;
 		/* width:100%; */
-		max-width: 600px;
+		max-width: 570px;
 	}
 </style>
 
 <body>
+	<script src="${path}/resources/css/js/jquery-3.6.0.min.js"></script>
 	<!-- **************** MAIN CONTENT START **************** -->
     <section class="position-relative overflow-hidden" style="background-image:url(${path}/resources/resources1b/images/03_realEstate/03_reales_notice.jpeg); background-position: center; background-size: cover;">
         <!-- <section class="position-relative overflow-hidden" style="background-image:url(assets/images/03_reales_/03_reales_house.jpg); background-position: center; background-size: cover;"> -->
@@ -70,7 +76,7 @@
                 <!-- 유형 카테고리 시작 -->
                 <!-- Tab START -->
                 <ul class="nav nav-tabs nav-tabs-line" style="margin-top: 20px;">
-                    <li class="nav-item"> <a class="nav-link active" data-bs-toggle="tab" href="#tab-1">전체보기</a> </li>
+                    <li class="nav-item"> <a class="nav-link active" href="${path}/realEstate/notice">전체보기</a> </li>
                     <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-2">토지</a> </li>
                     <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-3">분양주택</a> </li>
                     <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-4">신혼희망타운</a> </li>
@@ -83,36 +89,39 @@
                     <div class="tab-pane show active" id="tab-1">
                     </div>
                     <div class="tab-pane" id="tab-2">
-                        <a href="#"><i class="bi bi-dot"></i>주택용지</a>&nbsp;&nbsp;
-                        <a href="#"><i class="bi bi-dot"></i>상가용지</a>&nbsp;&nbsp;
-                        <a href="#"><i class="bi bi-dot"></i>산업시설용지</a>&nbsp;&nbsp;
-                        <a href="#"><i class="bi bi-dot"></i>기타용지</a>
+                        <a href="${path}/realEstate/notice?page=1&cateType=1"><i class="bi bi-dot"></i>주택용지</a>&nbsp;&nbsp;
+                        <a href="${path}/realEstate/notice?page=1&cateType=2"><i class="bi bi-dot"></i>상가용지</a>&nbsp;&nbsp;
+                        <a href="${path}/realEstate/notice?page=1&cateType=3"><i class="bi bi-dot"></i>산업시설용지</a>&nbsp;&nbsp;
+                        <a href="${path}/realEstate/notice?page=1&cateType=4"><i class="bi bi-dot"></i>기타용지</a>
                     </div>
                     <div class="tab-pane" id="tab-3">
+                    	<a href="${path}/realEstate/notice?page=1&cateType=19"><i class="bi bi-dot"></i>분양주택</a>
                     </div>
                     <div class="tab-pane" id="tab-4">
+                    	<a href="${path}/realEstate/notice?page=1&cateType=20"><i class="bi bi-dot"></i>신혼희망타운</a>
                     </div>
                     <div class="tab-pane" id="tab-5">
-                        <a href="#"><i class="bi bi-dot"></i>통합공공임대</a>&nbsp;&nbsp;
-                        <a href="#"><i class="bi bi-dot"></i>국민임대</a>&nbsp;&nbsp;
-                        <a href="#"><i class="bi bi-dot"></i>공공임대</a>&nbsp;&nbsp;
-                        <a href="#"><i class="bi bi-dot"></i>영구임대</a>&nbsp;&nbsp;
-                        <a href="#"><i class="bi bi-dot"></i>행복주택</a>&nbsp;&nbsp;
-                        <a href="#"><i class="bi bi-dot"></i>장기전세</a>&nbsp;&nbsp;
-                        <a href="#"><i class="bi bi-dot"></i>신축다세대</a>
+                        <a href="${path}/realEstate/notice?page=1&cateType=5"><i class="bi bi-dot"></i>통합공공임대</a>&nbsp;&nbsp;
+                        <a href="${path}/realEstate/notice?page=1&cateType=6"><i class="bi bi-dot"></i>국민임대</a>&nbsp;&nbsp;
+                        <a href="${path}/realEstate/notice?page=1&cateType=7"><i class="bi bi-dot"></i>공공임대</a>&nbsp;&nbsp;
+                        <a href="${path}/realEstate/notice?page=1&cateType=8"><i class="bi bi-dot"></i>영구임대</a>&nbsp;&nbsp;
+                        <a href="${path}/realEstate/notice?page=1&cateType=9"><i class="bi bi-dot"></i>행복주택</a>&nbsp;&nbsp;
+                        <a href="${path}/realEstate/notice?page=1&cateType=10"><i class="bi bi-dot"></i>장기전세</a>&nbsp;&nbsp;
+                        <a href="${path}/realEstate/notice?page=1&cateType=11"><i class="bi bi-dot"></i>신축다세대</a>
                     </div>
                     <div class="tab-pane" id="tab-6">
-                        <a href="#"><i class="bi bi-dot"></i>매입임대</a>&nbsp;&nbsp;
-                        <a href="#"><i class="bi bi-dot"></i>전세임대</a>&nbsp;&nbsp;
-                        <a href="#"><i class="bi bi-dot"></i>집주인임대</a>
+                        <a href="${path}/realEstate/notice?page=1&cateType=12"><i class="bi bi-dot"></i>매입임대</a>&nbsp;&nbsp;
+                        <a href="${path}/realEstate/notice?page=1&cateType=13"><i class="bi bi-dot"></i>전세임대</a>&nbsp;&nbsp;
+                        <a href="${path}/realEstate/notice?page=1&cateType=14"><i class="bi bi-dot"></i>집주인임대</a>
                     </div>
                     <div class="tab-pane" id="tab-7">
-                        <a href="#"><i class="bi bi-dot"></i>분양·(구)임대상가(입찰)</a>&nbsp;&nbsp;
-                        <a href="#"><i class="bi bi-dot"></i>임대상가(입찰)</a>&nbsp;&nbsp;
-                        <a href="#"><i class="bi bi-dot"></i>임대상가(공모·심사)</a>&nbsp;&nbsp;
-                        <a href="#"><i class="bi bi-dot"></i>임대상가(추첨)</a>
+                        <a href="${path}/realEstate/notice?page=1&cateType=15"><i class="bi bi-dot"></i>분양·(구)임대상가(입찰)</a>&nbsp;&nbsp;
+                        <a href="${path}/realEstate/notice?page=1&cateType=16"><i class="bi bi-dot"></i>임대상가(입찰)</a>&nbsp;&nbsp;
+                        <a href="${path}/realEstate/notice?page=1&cateType=17"><i class="bi bi-dot"></i>임대상가(공모·심사)</a>&nbsp;&nbsp;
+                        <a href="${path}/realEstate/notice?page=1&cateType=18"><i class="bi bi-dot"></i>임대상가(추첨)</a>
                     </div>
                     <div class="tab-pane" id="tab-8">
+                    	<a href="${path}/realEstate/notice?page=1&cateType=21"><i class="bi bi-dot"></i>기타</a>
                     </div>
                 </div>
                 <!-- Tab END -->
@@ -129,9 +138,26 @@
 	                                <%-- <form action="${path}/realEstate/notice" method="get"> --%>
 	                                    <select class="form-select z-index-9 bg-transparent" name="searchType" aria-label=".form-select-sm">
 	                                        <option value="" disabled selected>검색옵션</option>
-	                                        <option value="category" <c:if test="${searchType eq '유형'}">selected</c:if>>유형</option>
-	                                        <option value="title" <c:if test="${searchType eq '제목'}">selected</c:if>>제목</option>
-	                                        <option value="department" <c:if test="${searchType eq '담당부서'}">selected</c:if>>담당부서</option>
+		                                        <c:if test="${searchType == 'category'}">
+		                                        	<option value="category" selected>유형</option>
+		                                        </c:if>
+		                                        <c:if test="${searchType != 'category'}">
+		                                        	<option value="category">유형</option>
+		                                        </c:if>
+		                                        <c:if test="${searchType == 'title'}">
+		                                        	<option value="title" selected>제목</option>
+		                                        </c:if>
+		                                        <c:if test="${searchType != 'title'}">
+		                                        	<option value="title">제목</option>
+		                                        </c:if>
+		                                        <c:if test="${searchType == 'department'}">
+		                                        	<option value="department" selected>담당부서</option>
+		                                        </c:if>
+		                                        <c:if test="${searchType != 'department'}">
+		                                        	<option value="department">담당부서</option>
+		                                        </c:if>
+	                                        <%-- <option value="title" <c:if test="${searchType eq '제목'}">selected</c:if>>제목</option>
+	                                        <option value="department" <c:if test="${searchType eq '담당부서'}">selected</c:if>>담당부서</option> --%>
 	                                    </select>
 	                                <!-- </form> -->
 	                            </div>
@@ -168,6 +194,7 @@
                                     		<tr>
 		                                        <!-- 번호 -->
 		                                        <td style="text-align: center;">
+		                                            <%-- <c:out value="${pageInfo.listCount - notice.rnum +1}"/> --%>
 		                                            <c:out value="${totalCount - notice.rnum +1}"/>
 		                                        </td>
 		                                        <!-- 유형 -->
@@ -220,23 +247,16 @@
 							</c:if>
 							<c:if test="${pageInfo.currentPage != status.current}">
 								<li class="page-item">
-									<a class="page-link" href="javascript:movePage('${path}/realEstate/notice?page=${status.current}');">
+									<%-- <c:if test="${fn:contains(cateTest, 'cateType')}">  --%>
+									<c:set var="cateTest" value="${param}"/>
+									<a class="page-link" href="javascript:void(0);" onclick="movePage('${path}/realEstate/notice?page=${status.current}');">
 										<c:out value="${status.current}"/>
 									</a>
+									<%-- </c:if> --%>
 								</li>
 							</c:if>
 						</c:forEach>
                         
-                        <!-- <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                        <li class="page-item"><a class="page-link" href="#">5</a></li>
-                        <li class="page-item"><a class="page-link" href="#">6</a></li>
-                        <li class="page-item"><a class="page-link" href="#">7</a></li>
-                        <li class="page-item"><a class="page-link" href="#">8</a></li>
-                        <li class="page-item"><a class="page-link" href="#">9</a></li>
-                        <li class="page-item"><a class="page-link" href="#">10</a></li> -->
                         <li class="page-item">
                             <a class="page-link" href="javascript:movePage('${path}/realEstate/notice?page=${pageInfo.nextPage}');" onclick="movePage('${path}/realEstate/notice/view?page=${pageInfo.nextPage}');">Next</a>
                         </li>
@@ -252,15 +272,35 @@
 				var searchValue = document.getElementById("searchValue");
 				var searchTypes = document.getElementsByName("searchType");
 				var searchType = 'title';
-				if(searchValue.value.length > 0){
-					for(var i = 0; i <searchTypes.length; i++){
-						if(searchTypes[i].checked == true){
-							searchType = searchTypes[i].value;
-						}
-					}
-					pageUrl = pageUrl + '&searchType=' + searchType + '&searchValue=' + searchValue.value; 
-				} 
-				location.href = encodeURI(pageUrl);
+				
+				var currentURL1 = window.location.search;
+				var urlsplit1 = "";
+				
+				/* test!!!! */
+				/* alert(pageUrl); */
+				alert('currentURL1! : ' + currentURL1);
+				if(currentURL1.indexOf('searchType') != -1) {
+					urlsplit1 = currentURL1.split('searchType=');
+					/* alert('split test1: ' + urlsplit1); */
+					urlsplit1 = urlsplit1[1].split('&');
+					/* alert('split test2: ' + urlsplit1); */
+					urlsplit1 = urlsplit1[0];
+					/* alert('split test3: ' + urlsplit1); */
+					
+					pageUrl = pageUrl + '&searchType=' + urlsplit1 + '&searchValue=' + searchValue.value;
+				}
+				
+				/* test!!!! */
+				var currentURL = window.location.search;
+				var urlsplit = "";
+				/* alert(currentURL); */
+				if(currentURL.indexOf('cateType') != -1) {
+					urlsplit = currentURL.split('&');
+					alert('split test: ' + urlsplit);
+					pageUrl = pageUrl + '&' + urlsplit[1];
+				}
+				/* alert(pageUrl); */
+				return location.href = encodeURI(pageUrl);
 			}
 		</script>
 
