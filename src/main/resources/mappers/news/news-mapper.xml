@@ -23,7 +23,7 @@
 		)
 	</insert>
 	
-	<select id="selectNewsList" resultMap="newsResultMap">
+	<select id="selectNewsList" resultMap="newsResultMap" parameterType="map">
 		SELECT NEWS_NO, TITLE, LINK, PUBDATE, DESCRIPTION, IMAGE, CATEGORY
 		FROM NEWS 
 		WHERE 1=1

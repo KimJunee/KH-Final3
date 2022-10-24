@@ -49,6 +49,7 @@ public class NewsController {
 	@RequestMapping("/news/main")
 	String newsMain(Model model) {
 		
+		//NewsService.economyStr
 		Map<String, String> map = new HashMap<>();
 		map.put("category", NewsService.economyStr);
 		PageInfo pageInfo = new PageInfo(1, 10, service.getNewsCount(map), 10);
@@ -87,14 +88,17 @@ public class NewsController {
 		model.addAttribute("nationalList", nationalList);
 		model.addAttribute("politicsList", politicsList);
 		model.addAttribute("opinionList", opinionList);
+		model.addAttribute("pageInfo", pageInfo);
 		
 		return "/news/news_main";
 	}
 	
 	@RequestMapping("/news/post")
-	String newsPost() {
+	String newsPost(Model model, int newsNo) {
+		News news = service.getNews(newsNo);
+		
+		model.addAttribute("news", news);
 		return "/news/news_post";
-	
 	}
 	
 	@RequestMapping("/news/search")

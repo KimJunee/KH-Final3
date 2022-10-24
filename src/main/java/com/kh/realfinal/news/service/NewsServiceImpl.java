@@ -31,6 +31,14 @@ public class NewsServiceImpl implements NewsService {
 		int offset = (pageInfo.getCurrentPage() - 1) * pageInfo.getListLimit();
 		RowBounds rowBounds = new RowBounds(offset, pageInfo.getListLimit());
 		Map<String, String> searchMap = new HashMap<String, String>();
+		String category = map.get("category");
+		searchMap.put("category",category);
+		
+		String sortForDate = map.get("sortForDate");
+		searchMap.put("sortForDate", sortForDate);
+		
+		String searchContent = map.get("descriptionKeyword");
+		searchMap.put("descriptionKeyword", searchContent);
 		
 		return mapper.selectNewsList(rowBounds, searchMap);
 	}
@@ -38,6 +46,15 @@ public class NewsServiceImpl implements NewsService {
 	@Override
 	public int getNewsCount(Map<String, String> map) {
 		Map<String, String> searchMap = new HashMap<String, String>();
+		String category = map.get("category");
+		searchMap.put("category",category);
+		
+		String sortForDate = map.get("sortForDate");
+		searchMap.put("sortForDate", sortForDate);
+		
+		String searchContent = map.get("descriptionKeyword");
+		searchMap.put("descriptionKeyword", searchContent);
+		
 		return mapper.selectNewsCount(searchMap);
 	}
 

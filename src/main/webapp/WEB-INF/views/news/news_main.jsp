@@ -10,7 +10,7 @@
 <head>
     <title>FinTouch | News | Main</title>
     <!-- Favicon -->
-    <link rel="shortcut icon" href="resources/resources1b/images/favicon.ico">
+    <link rel="shortcut icon" href="${path}/resources/resources1b/images/favicon.ico">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>   
 </head>
 
@@ -55,7 +55,7 @@
                                 <!-- Search -->
                                 <div class="col-md-12">
                                     <form class="rounded position-relative" action="${path}/news/search" method="get">
-                                        <input name="searchKeyword" class="form-control pe-5 bg-transparent" type="search" placeholder="검색어를 입력해주세요." aria-label="Search">
+                                        <input name="searchKeyword" class="form-control pe-5 bg-transparent" type="search" placeholder="검색어를 입력해주세요." aria-label="Search" value="${param.searchKeyword}">
                                         <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="bi bi-search fs-5"></i></button>
                                     </form>
                                 </div>
@@ -69,8 +69,7 @@
 	                                    <h6 class="mb-1"><a href="${newNews.link}" class="btn-link stretched-link text-reset fw-bold">
 	                                 	   ${newNews.title}
 	                                    </a></h6>
-	                                </div>
-                                
+	                                </div>                          
                                 </c:forEach>
  
                             </div>
@@ -104,92 +103,32 @@
                     <div class="col-lg-3">
                         <h3 class="mb-3 mice">많이 본 기사</h3>
                         <!-- Post item -->
+                        <c:if test="${!empty opinionList}">
+                        <c:forEach var="opinion" items="${opinionList}" varStatus="status" step="1" begin="1" end="9">
                         <div class="d-flex position-relative mb-3">
-                            <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">01</span>
+                            <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">0${status.count}</span>
                             <div>
-                                <h6><a href="#" class="stretched-link text-reset btn-link">"불황에도 기회는 있다" 실리콘밸리로 간 한국인들</a></h6>
+                                <h6><a href="${path}/news/post?newsNo=${opinion.newsNo}" class="stretched-link text-reset btn-link">${opinion.title}</a></h6>
                             </div>
                         </div>
-                        <!-- Post item -->
-                        <div class="d-flex position-relative mb-3">
-                            <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">02</span>
-                            <div>
-                                <h6><a href="#" class="stretched-link text-reset btn-link">치열해진 OTT 시장…넷플릭스·디즈니+가 요금제 손 본 이유</a></h6>
-                            </div>
-                        </div>
-                        <!-- Post item -->
-                        <div class="d-flex position-relative mb-3">
-                            <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">03</span>
-                            <div>
-                                <h6><a href="#" class="stretched-link text-reset btn-link">하버드생의 말하기 공식, 논리력 '이것' 기억하세요</a></h6>
-                            </div>
-                        </div>
-                        <!-- Post item -->
-                        <div class="d-flex position-relative mb-3">
-                            <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">04</span>
-                            <div>
-                                <h6><a href="#" class="stretched-link text-reset btn-link">한화, 14조 비스마야 사업 철수..."이라크 정부 계약위 …</a></h6>
-                            </div>
-                        </div>
-                        <!-- Post item -->
-                        <div class="d-flex position-relative mb-3">
-                            <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">05</span>
-                            <div>
-                                <h6><a href="#" class="stretched-link text-reset btn-link">"한번 타보면 또다시 사는 수입차"…계약 즉시 출고, '슈 …</a></h6>
-                            </div>
-                        </div>
-                        <!-- Post item -->
-                        <div class="d-flex position-relative mb-3">
-                            <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">06</span>
-                            <div>
-                                <h6><a href="#" class="stretched-link text-reset btn-link">'삼성 입사선물' 판 신입사원 "묵혀두다 버릴 것 같아서"</a></h6>
-                            </div>
-                        </div>
-                        <!-- Post item -->
-                        <div class="d-flex position-relative mb-3">
-                            <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">07</span>
-                            <div>
-                                <h6><a href="#" class="stretched-link text-reset btn-link">경기 광명 한 아파트 인근 도로서 추돌사고…5명 병원 이송</a></h6>
-                            </div>
-                        </div>
-                        <!-- Post item -->
-                        <div class="d-flex position-relative mb-3">
-                            <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">08</span>
-                            <div>
-                                <h6><a href="#" class="stretched-link text-reset btn-link">"100년 만에 가장 맛있답니다"…쿠팡이 탐낸 사과의 정체 …</a></h6>
-                            </div>
-                        </div>
-                        <!-- Post item -->
-                        <div class="d-flex position-relative mb-3">
-                            <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">09</span>
-                            <div>
-                                <h6><a href="#" class="stretched-link text-reset btn-link">[단독] 난공불락 ‘감사원’…법사위, 국감 자료요청에도 “양해바람” 미제출 30%</a></h6>
-                            </div>
-                        </div>
+                        </c:forEach>
+                        </c:if>
                     </div>
-                    <!-- Most read START -->
                 </div>
-                <!-- Row END -->
             </div>
         </section>
-        <!-- ======================= Recent post END -->
-
-        <!-- ======================= Divider START -->
+        
         <div class="container">
             <div class="border-bottom border-secondary opacity-2 mb-0 mt-4"></div>
         </div>
-        <!-- ======================= Divider END -->
-
-        <!-- ======================= Featured stories START -->
+        
         <section class="py-4">
             <div class="container">
                 <div class="row g-4 flex-fill">
                     <!-- Title -->
                     <div class="col-12">
                         <h3 class="mice"> 화제의 기사 </h3>
-                    </div>
-                    
-                    
+                    </div>  
                     <c:forEach var="hotNews" items="${hotList}">
 	                    <!-- Card item START -->
 	                    <div class="col-sm-6 col-lg-3">
@@ -197,17 +136,12 @@
 	                            <!-- Card img -->
 	                            <img class="card-img rounded-0 grayscale" src="${hotNews.image}" style="width:400px; height:200px;" alt="Card image">
 	                            <div class="card-body px-0 pt-3">
-	
-	                                <h5 class="card-title"><a href="${hotNews.link}" class="btn-link text-reset fw-bold stretched-link">${hotNews.title}</a></h5>
-	
+	                                <h5 class="card-title"><a href="${path}/news/post?newsNo=${hotNews.newsNo}" class="btn-link text-reset fw-bold stretched-link">${hotNews.title}</a></h5>
 	                            </div>
 	                        </div>
 	                    </div>
 	                    <!-- Card item END -->
-                    </c:forEach>
-                    
-                    
-                    
+                    </c:forEach>     
                 </div>
             </div>
         </section>
@@ -336,132 +270,79 @@
                     <!-- World politics END -->
                     <!-- Business Sidebar START -->
                     <div class="col-lg-4">
-                        <h3 class="mb-3 mice">Business</h3>
+                        <h3 class="mb-3 mice">금융</h3>
                         <div class="bg-light">
-                            <div class="card bg-light">
+                            <div class="card bg-light mb-3">
                                 <div class="card-body">
-                                    <ul class="nav nav-divider align-items-center d-none d-sm-inline-block small mb-2">
-                                        <li class="nav-item"><i class="bi bi-clock-history"></i> 56:36</li>
-                                        <li class="nav-item">With <a href="#">Larry Lawson</a> </li>
-                                    </ul>
-                                    <h4 class="card-title"><a href="post-single-6.html" class="btn-link stretched-link text-reset">'하루 37명꼴' 코로나로 줄었던 자살 다시 늘어...10대서 10% 급증</a></h4>
+                                    <h4 class="card-title"><a href="post-single-6.html" class="btn-link stretched-link text-reset">금감원장 “은행권 이자산정 문제제기 공감…하반기 검사서 조치”</a></h4>
                                 </div>
                                 <!-- Card image -->
-                                <img src="${path}/resources/resources1b/images/news/newsmain-10.jpg" class="grayscale rounded-0" alt="Card image">
+                                <img src="https://dimg.donga.com/i/150/150/90/wps/NEWS/IMAGE/2022/10/24/116126225.2.jpg" class="grayscale rounded-0" alt="Card image">
                             </div>
-                            <div class="card card-body bg-light mt-3">
-                                <h6 class="card-title"><a href="post-single-3.html" class="btn-link text-reset stretched-link fw-bold">檢 "이화영, 쌍방울 계열사 주식 차명보유...아들도 취업시켜"</a></h6>
-
-                                <div class="border-bottom border-secondary opacity-2 mb-0 mt-2"></div>
-                            </div>
+                            <c:forEach var="economy" items="${economyList}" begin="1" end="5">
                             <div class="card card-body bg-light">
-                                <h6 class="card-title"><a href="post-single-3.html" class="btn-link text-reset stretched-link fw-bold">흡연 단속했다고 아버지뻘에 발길질…수유역 20대女 논란</a></h6>
-
-                                <div class="border-bottom border-secondary opacity-2 mb-0 mt-2"></div>
+                                <h6 class="card-title"><a href="post-single-3.html" class="btn-link text-reset stretched-link fw-bold">${economy.title}</a></h6>
+                                <div class="border-bottom border-secondary opacity-2 mb-0 mt-1"></div>
                             </div>
-                            <div class="card card-body bg-light">
-                                <h6 class="card-title"><a href="post-single-3.html" class="btn-link text-reset stretched-link fw-bold">인천대공원서 치마 입고 여자 화장실에 들어간 60대 남성 입건</a></h6>
-
-                                <div class="border-bottom border-secondary opacity-2 mb-0 mt-2"></div>
-                            </div>
-                            <div class="card card-body bg-light">
-                                <h6 class="card-title"><a href="post-single-3.html" class="btn-link text-reset stretched-link fw-bold">"피곤하다" 근무 중 초소서 누워 잔 군인…전역 후 '징역형'</a></h6>
-
-                            </div>
+                            </c:forEach>
                         </div>
                     </div>
                     <!-- Business Sidebar END -->
                 </div>
             </div>
         </section>
-        <!-- =======================
-World politics and Business Sidebar END -->
 
-        <!-- =======================
-Divider START -->
         <div class="container">
             <div class="border-bottom border-secondary opacity-2 mb-0 mt-2"></div>
         </div>
-        <!-- =======================
-Divider START -->
 
-        <!-- =======================
-Sports, most read and Entertainment START -->
         <section class="pt-4 pt-sm-5 pb-3 pb-sm-5">
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
                         <!-- Title -->
-                        <h4 class="mb-3">금융</h4>
+                        <h4 class="mb-3 mice">부동산</h4>
                         <!-- Card Item START -->
+                        <c:if test="${!empty economyList}">
                         <div class="card mb-3">
                             <div class="row g-3">
                                 <div class="col-4">
                                     <!-- Card image -->
-                                    <img class="rounded-0 grayscale" src="${path}/resources/resources1b/images/news/newsmain-11.jpg" alt="">
+                                    <img class="rounded-0 grayscale" src="https://dimg.donga.com/i/150/150/90/wps/NEWS/IMAGE/2022/10/24/116117045.2.jpg" style="width:160px; height:80px;" alt="">
                                 </div>
                                 <div class="col-8">
-                                    <h6><a href="post-single-5.html" class="btn-link stretched-link text-reset">코스피, 2200선 재붕괴 마감…코스닥 4% 폭락</a></h6>
+                                    <h5><a href="post-single-5.html" class="btn-link stretched-link text-reset">수도권 아파트 7.8만가구, 2년전 전셋값보다 하락…역전세 우려 ↑</a></h5>
                                     <!-- Card info -->
-                                    <ul class="nav nav-divider align-items-center mt-3 small">
-
-                                    </ul>
+                                    <ul class="nav nav-divider align-items-center mt-3 small"></ul>
                                 </div>
                             </div>
                         </div>
                         <!-- Card Item END -->
-
+                        <c:forEach var="economy" items="${economyList}" begin="1" end="4">
                         <!-- Card Item START -->
                         <div class="card mb-3">
-                            <h6><a href="post-single-5.html" class="btn-link stretched-link text-reset">파생결합증권 정보 다 모았다…한국거래소, 통합플랫폼 오픈</a></h6>
+                            <h6><a href="post-single-5.html" class="btn-link stretched-link text-reset">${economy.title}</a></h6>
                             <!-- Card info -->
-                            <ul class="nav nav-divider align-items-center mt-1 small">
-
-                            </ul>
+                            <ul class="nav nav-divider align-items-center mt-1 small"></ul>
                         </div>
                         <!-- Card Item END -->
-
-                        <!-- Divider  -->
-                        <div class="border-bottom border-secondary opacity-2 mt-2 mb-2"></div>
-
-                        <!-- Card Item START -->
-                        <div class="card mb-3">
-                            <h6><a href="post-single-5.html" class="btn-link stretched-link text-reset">신한카드, 21년 ‘최장수’ 문화행사…꼬마피카소 그림축제 성료</a></h6>
-                            <!-- Card info -->
-                            <ul class="nav nav-divider align-items-center mt-1 small">
-
-                            </ul>
-                        </div>
-                        <!-- Card Item END -->
-
-                        <!-- Divider  -->
-                        <div class="border-bottom border-secondary opacity-2 mt-2 mb-2"></div>
-
-                        <!-- Card Item START -->
-                        <div class="card mb-3">
-                            <h6><a href="post-single-5.html" class="btn-link stretched-link text-reset">맥 못추는 보험주…금리인상 후 반등하나</a></h6>
-                            <!-- Card info -->
-                            <ul class="nav nav-divider align-items-center mt-1 small">
-
-                            </ul>
-                        </div>
-                        <!-- Card Item END -->
-
+                        <div class="border-bottom border-secondary opacity-2 mt-2 mb-2"></div>   
+                        </c:forEach>
+                        </c:if>                   
                     </div>
                     <div class="col-md-4">
-
                         <!-- Title -->
-                        <h4 class="mb-3">부동산</h4>
-
+                        <h4 class="mb-3 mice">정치</h4>
                         <!-- Card Item START -->
+                       	<c:if test="${!empty politicsList}">
                         <div class="card mb-3">
                             <div class="row g-3">
                                 <div class="col-4">
                                     <!-- Card image -->
-                                    <img class="rounded-0 grayscale" src="${path}/resources/resources1b/images/news/newsmain-12.jpg" style="width:160px; height:80px;" alt="">
+                                    <img style="height:80px;" class="rounded-0 grayscale" src="https://dimg.donga.com/i/150/150/90/wps/NEWS/IMAGE/2022/10/24/116126125.2.jpg" alt="">
                                 </div>
                                 <div class="col-8">
-                                    <h6><a href="post-single-5.html" class="btn-link stretched-link text-reset">외국인, 7년간 아파트 매수 3만건…그 중 중국인 62% 사들여</a></h6>
+                                    <h5><a href="post-single-5.html" class="btn-link stretched-link text-reset">한동훈 “로스쿨, 이미 공고한 성…문제 의식 갖고 여러 방면 연구”</a></h5>
                                     <!-- Card info -->
                                     <ul class="nav nav-divider align-items-center mt-3 small">
 
@@ -470,57 +351,33 @@ Sports, most read and Entertainment START -->
                             </div>
                         </div>
                         <!-- Card Item END -->
-
+                       	<c:forEach var="politics" items="${politicsList}" begin="1" end="4">
                         <!-- Card Item START -->
                         <div class="card mb-3">
-                            <h6><a href="post-single-5.html" class="btn-link stretched-link text-reset">"'임대아파트는 싸구려' 인식 바꾸려면 건축비 상한 풀어야"</a></h6>
+                            <h6><a href="post-single-5.html" class="btn-link stretched-link text-reset">${politics.title}</a></h6>
                             <!-- Card info -->
-                            <ul class="nav nav-divider align-items-center mt-1 small">
-
-                            </ul>
+                            <ul class="nav nav-divider align-items-center mt-1 small"></ul>
                         </div>
                         <!-- Card Item END -->
-
-                        <div class="border-bottom border-secondary opacity-2 mt-2 mb-2"></div>
-
-                        <!-- Card Item START -->
-                        <div class="card mb-3">
-                            <h6><a href="post-single-5.html" class="btn-link stretched-link text-reset">정부, 2024년 내 1기 신도시 재건축 선도지구 지정한다</a></h6>
-                            <!-- Card info -->
-                            <ul class="nav nav-divider align-items-center mt-1 small">
-
-                            </ul>
-                        </div>
-                        <!-- Card Item END -->
-
                         <!-- Divider  -->
                         <div class="border-bottom border-secondary opacity-2 mt-2 mb-2"></div>
-
-                        <!-- Card Item START -->
-                        <div class="card mb-3">
-                            <h6><a href="post-single-5.html" class="btn-link stretched-link text-reset">현대건설, 2조 규모 필리핀 남부도시철도 건설 본계약 체결</a></h6>
-                            <!-- Card info -->
-                            <ul class="nav nav-divider align-items-center mt-1 small">
-
-                            </ul>
-                        </div>
-                        <!-- Card Item END -->
+                        </c:forEach>
+                        </c:if>
                     </div>
-
                     <div class="col-md-4">
                         <!-- Title -->
-                        <h4 class="mb-3">정치</h4>
-
+                        <h4 class="mb-3 mice">사회</h4>
                         <!-- Card Item START -->
+                        <c:if test="${!empty nationalList}">
                         <div class="card mb-3">
                             <div class="row g-3">
                                 <div class="col-4">
                                     <!-- Card image -->
-                                    <img class="rounded-0 grayscale" src="${path}/resources/resources1b/images/news/newsmain-13.jpg" alt="">
+                                    <img class="rounded-0 grayscale" src="https://dimg.donga.com/i/150/150/90/wps/NEWS/IMAGE/2022/10/24/116125933.2.jpg" alt="">
                                 </div>
                                 <div class="col-8">
-                                    <h6><a href="post-single-5.html" class="btn-link stretched-link text-reset">	
-                                        尹대통령, 안보 위기 해법은…대북경고·한미일협력·담대한 구상</a></h6>
+                                    <h5><a href="post-single-5.html" class="btn-link stretched-link text-reset">	
+                                        엔데믹으로 출근 재개? 재택근무 정착한 패션업계</a></h5>
                                     <!-- Card info -->
                                     <ul class="nav nav-divider align-items-center mt-3 small">
 
@@ -529,46 +386,18 @@ Sports, most read and Entertainment START -->
                             </div>
                         </div>
                         <!-- Card Item END -->
-
                         <!-- Card Item START -->
+                        <c:forEach var="national" items="${nationalList}" begin="1" end="4">
                         <div class="card mb-3">
-                            <h6><a href="post-single-5.html" class="btn-link stretched-link text-reset">한일 외교당국, 오늘 서울서 국장급 협의‥강제징용 해법 논의 주목</a></h6>
+                            <h6><a href="post-single-5.html" class="btn-link stretched-link text-reset">${national.title}</a></h6>
                             <!-- Card info -->
-                            <ul class="nav nav-divider align-items-center mt-1 small">
-
-                            </ul>
+                            <ul class="nav nav-divider align-items-center mt-1 small"></ul>
                         </div>
                         <!-- Card Item END -->
-
                         <!-- Divider  -->
                         <div class="border-bottom border-secondary opacity-2 mt-2 mb-2"></div>
-
-                        <!-- Card Item START -->
-                        <div class="card mb-3">
-                            <h6><a href="post-single-5.html" class="btn-link stretched-link text-reset">	
-                                유승민, '일본은 조선왕조와 전쟁한 적이 없다' 언급 정진석 겨냥 "이재명의 덫에 놀아나는 천박한 발언...사퇴해야"</a></h6>
-                            <!-- Card info -->
-                            <ul class="nav nav-divider align-items-center mt-1 small">
-
-                            </ul>
-
-                        </div>
-                        <!-- Card Item END -->
-
-                        <!-- Divider  -->
-                        <div class="border-bottom border-secondary opacity-2 mt-2 mb-2"></div>
-
-                        <!-- Card Item START -->
-                        <div class="card mb-3">
-                            <h6><a href="post-single-5.html" class="btn-link stretched-link text-reset">	
-                                통일부 "北, 도발로 얻을 것 없다…전술핵 훈련 심각하게 주시"</a></h6>
-                            <!-- Card info -->
-                            <ul class="nav nav-divider align-items-center mt-1 small">
-
-                            </ul>
-                        </div>
-                        <!-- Card Item END -->
-
+                        </c:forEach>
+                        </c:if>
                     </div>
                 </div>
             </div>
