@@ -314,7 +314,7 @@
                                                         <th scope="col" class="border-0">금융상품</th>
                                                         <th scope="col" class="border-0">금융회사</th>
                                                         <th scope="col" class="border-0">가입방법</th>
-                                                        <th scope="col" class="border-0 rounded-end">적립/금리유형</th>
+                                                        <th scope="col" class="border-0 rounded-end">적립유형</th>
                                                     </tr>
                                                 </thead>
 
@@ -395,9 +395,9 @@
                                                             </div>
                                                         </td>
                                                         <!-- 금융기관명 -->
-                                                        <td><c:out value="${fixDeposit.korCoNm}"/></td>
+                                                        <td style="text-overflow:ellipsis;width:120px;overflow:hidden;"><c:out value="${fixDeposit.korCoNm}"/></td>
                                                         <!-- 가입방법 -->
-                                                        <td><c:out value="${fixDeposit.joinWay}"/></td>
+                                                        <td style="text-overflow:ellipsis;width:120px;overflow:hidden;"><c:out value="${fixDeposit.joinWay}"/></td>
                                                         <!-- 적립,금리유형 -->
                                                         <td>자유적립식</td>
                                                     </tr>   

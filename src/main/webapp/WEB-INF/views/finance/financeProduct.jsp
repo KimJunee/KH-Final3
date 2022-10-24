@@ -315,7 +315,7 @@
                                                         <th scope="col" class="border-0">금융상품</th>
                                                         <th scope="col" class="border-0">금융회사</th>
                                                         <th scope="col" class="border-0">가입방법</th>
-                                                        <th scope="col" class="border-0 rounded-end">적립/금리유형</th>
+                                                        <th scope="col" class="border-0 rounded-end">적립유형</th>
                                                     </tr>
                                                 </thead>
 
@@ -396,11 +396,16 @@
                                                             </div>
                                                         </td>
                                                         <!-- 금융기관명 -->
-                                                        <td><c:out value="${installmentSavings.korCoNm}"/></td>
+                                                       	<td style="text-overflow:ellipsis;width:120px;overflow:hidden;">
+                                                       		<c:out value="${installmentSavings.korCoNm}"/>
+                                                       	</td>                                                      		
                                                         <!-- 가입방법 -->
-                                                        <td><c:out value="${installmentSavings.joinWay}"/></td>
+                                                        <td style="text-overflow:ellipsis;width:180px;overflow:hidden;">
+                                                        	<c:out value="${installmentSavings.joinWay}"/>
+                                                        </td>
                                                         <!-- 적립,금리유형 -->
-                                                        <td><c:forEach var="installOption" items="${installmentSavings.installOptionList}"  begin="0" end="0" step="1">
+                                                        <td>
+                                                        	<c:forEach var="installOption" items="${installmentSavings.installOptionList}"  begin="0" end="0" step="1">
                                                             	<c:out value="${installOption.rsrvTypeNm}"/>                                                              			
                                                             </c:forEach>
                                                         </td>
