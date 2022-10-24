@@ -91,19 +91,16 @@
                                 <td class="p-3 h5 text-center">${remndr.tot_suply_hshldco}세대</td>
                             </tr>
                             <tr>
-                                <th class="p-3 h5 text-center" >입주예정월</th>
-                                <td class="p-3 h5 text-center">${remndr.tot_suply_hshldco}(월)</td>
+                                <th class="p-3 h5 text-center" >주택구분</th>
+                                <td class="p-3 h5 text-center">${remndr.house_secd_nm}</td>
                             </tr>
                             <tr>
                                 <th class="p-3 h5 text-center pb-4" style="border-bottom: none">문의처</th>
                                 <td class="p-3 h5 text-center pb-4" style="border-bottom: none"><i class="bi bi-telephone-fill me-2"></i>${remndr.mdhs_telno}</td>
                             </tr>
                         </table>
-                        <a class="btn btn-lg btn-warning w-100 mb-3" href="#">♥ Like This Information</a>
+                        <a class="btn btn-lg btn-warning w-100 mb-3" href="#">♥ 청약캘린더로 돌아가기</a>
                         <article class="text-end">
-                            <a class="d-inline-block text-decoration-none" href="03_reales_calendar.html">
-                            청약캘린더로 돌아가기
-                            </a>
                         </article>
                     </div>
                 </div>
@@ -153,8 +150,8 @@
 											<td class="pe-2 ">${remndr.hssply_zip}</td>
 										</tr>
 										<tr>
-											<th class="ps-2 ">주택구분</th>
-											<td class="pe-2 ">${remndr.house_secd_nm}</td>
+											<th class="ps-2 ">입주예정월</th>
+											<td class="pe-2 ">${remndr.tot_suply_hshldco}(월)</td>
 										</tr>
 										<tr>
 											<th class="ps-2 ">공급면적</th>
@@ -203,11 +200,21 @@
                                             <th class="ps-2 ">계약 종료일</th>
                                             <td class="pe-2 ">${remndr.cntrct_cncls_endde}</td>
                                         </tr>
-                                        <tr>
-                                            <th class="ps-2 ">모집공고 확인 홈페이지</th>
-                                            <td class="ps-2 p-1"><a href="${remndr.hmpg_adres}" class="badge bg-secondary bg-opacity-75 text-white mb-2"><i class="bi bi-house-door-fill me-2 fw-bold "></i>${remndr.hmpg_adres}</a></td>
-                                        </tr>
-                                    </table>
+										<tr>
+											<th class="ps-2 ">모집공고 확인 홈페이지</th>
+
+											<c:if test="${remndr.hmpg_adres == 'null'}">
+												<td class="ps-2 p-1">
+													<i class="bi bi-house-door-fill me-2 fw-bold "></i>-</td>
+											</c:if>
+											<c:if test="${remndr.hmpg_adres ne 'null'}">
+												<td class="ps-2 p-1"><a href="${remndr.hmpg_adres}"
+													class="badge bg-secondary bg-opacity-75 text-white mb-2">
+													<i class="bi bi-house-door-fill me-2 fw-bold "></i>${remndr.hmpg_adres}</a></td>
+											</c:if>
+											
+										</tr>
+									</table>
                                 </div>
                             </div>
                         </div>
@@ -272,42 +279,59 @@
     <!-- 카카오 지도 -->
 	<script type="text/javascript" src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=239fc78d5f0e8c75d0c25dc713fdd676&libraries=services"></script>
 	<script>
-	    var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-	        mapOption = {
-	            center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-	            level: 3 // 지도의 확대 레벨
-	        };
-	
-	    // 지도를 생성합니다    
-	    var map = new kakao.maps.Map(mapContainer, mapOption);
-	
-	    // 주소-좌표 변환 객체를 생성합니다
-	    var geocoder = new kakao.maps.services.Geocoder();
-	
-	    // 주소로 좌표를 검색합니다
-	    geocoder.addressSearch('서울특별시 강남구 테헤란로 14길 6 남도빌딩', function(result, status) {
-	
-	        // 정상적으로 검색이 완료됐으면 
-	        if (status === kakao.maps.services.Status.OK) {
-	
-	            var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-	
-	            // 결과값으로 받은 위치를 마커로 표시합니다
-	            var marker = new kakao.maps.Marker({
-	                map: map,
-	                position: coords
-	            });
-	
-	            // 인포윈도우로 장소에 대한 설명을 표시합니다
-	            var infowindow = new kakao.maps.InfoWindow({
-	                content: '<div style="width:150px;text-align:center;padding:6px 0;">우리회사</div>'
-	            });
-	            infowindow.open(map, marker);
-	
-	            // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-	            map.setCenter(coords);
-	        }
-	    });
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+		mapOption = {
+			center : new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+			level : 3
+		// 지도의 확대 레벨
+		};
+
+		// 지도를 생성합니다    
+		var map = new kakao.maps.Map(mapContainer, mapOption);
+
+		// 일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성합니다
+		var mapTypeControl = new kakao.maps.MapTypeControl();
+
+		// 지도에 컨트롤을 추가해야 지도위에 표시됩니다
+		// kakao.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
+		map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+
+		// 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+		var zoomControl = new kakao.maps.ZoomControl();
+		map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+
+		// 주소-좌표 변환 객체를 생성합니다
+		var geocoder = new kakao.maps.services.Geocoder();
+
+		// 주소로 좌표를 검색합니다
+		geocoder
+				.addressSearch(
+						'${remndr.hssply_adres}',
+						function(result, status) {
+
+							// 정상적으로 검색이 완료됐으면 
+							if (status === kakao.maps.services.Status.OK) {
+
+								var coords = new kakao.maps.LatLng(result[0].y,
+										result[0].x);
+
+								// 결과값으로 받은 위치를 마커로 표시합니다
+								var marker = new kakao.maps.Marker({
+									map : map,
+									position : coords
+								});
+
+								// 인포윈도우로 장소에 대한 설명을 표시합니다
+								var infowindow = new kakao.maps.InfoWindow(
+										{
+											content : '<div style="width:150px;text-align:center;padding:6px 0;">${remndr.house_nm}</div>'
+										});
+								infowindow.open(map, marker);
+
+								// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+								map.setCenter(coords);
+							}
+						});
 	</script>
 	<!-- ======================= script 끝 =======================-->
 	</c:if>

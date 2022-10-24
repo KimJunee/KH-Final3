@@ -242,14 +242,14 @@
 				<p>오늘 마감되는 청약을 확인해보세요</p>
 				<div
 					class="card card-body bg-primary bg-opacity-15 p-4 h-75 text-center">
-					<h3 class=" ">22.09.27</h3>
+					<h3 id="current_date"></h3>
 					<h5>마감 청약</h5>
 					<h1 class="fs-1 text-primary">16개</h1>
 					<p>
 						오늘 모집 마감되는 청약일정과 <br> 공급 대상들을 즉시 확인하실 수 있습니다!
 					</p>
 					<div class="mt-auto">
-						<a href="03_reales_detailList.html"
+						<a href="${path}/RealEstate/list"
 							class="btn btn-link text-reset p-0 mb-0">View posts</a>
 					</div>
 				</div>
@@ -704,11 +704,16 @@
 
 <!-- ======================= script 시작 =======================-->
 
-<!-- 지도 : 청약 일정 박스 
+<!-- 마감 청약 현재 날짜 -->
 <script>
-        document.addEventListener('contextmenu', event => event.preventDefault());
-    </script>
-    -->
+	date = new Date();
+	year = date.getFullYear();
+	month = date.getMonth() + 1;
+	day = date.getDate();
+	document.getElementById("current_date").innerHTML = year + "-" + month
+			+ "-" + day;
+</script>
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <style>
@@ -773,7 +778,7 @@ path:hover {
         })
         $(document).mousemove(function(e) {
             $('#info-box').css('top', e.pageY - $('#info-box').height() - 1100);
-            $('#info-box').css('left', e.pageX - ($('#info-box').width()) / 2 - 750);
+            $('#info-box').css('left', e.pageX - ($('#info-box').width()) / 2 - 450);
         }).mouseover();
         
 
