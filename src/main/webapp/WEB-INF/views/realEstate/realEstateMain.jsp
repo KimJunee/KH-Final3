@@ -455,8 +455,8 @@
 				<h2 class="m-0 mice">
 					<i class="bi bi-calendar-check me-2"></i>&nbsp;청약캘린더
 				</h2>
-				<p>일정별 청약을 확인해보세요</p>
-				<div class="card border h-600">
+				<p><a class="text-success">청약캘린더</a>에서 더 자세한 내용을 확인해보세요</p>
+				<div class="card border">
 					<!-- Card header END -->
 
 					<!-- Card body START -->
@@ -466,196 +466,60 @@
 							<table
 								class="table align-middle p-4 mb-0 table-hover table-shrink m-auto">
 								<!-- Table head -->
+									<colgroup>
+                                        	<col width="15%">
+                                        	<col width="40%">
+                                        	<col width="15%">
+                                        	<col width="30%">
+                                    </colgroup>
+                                    
 								<thead class="table-dark text-center">
 									<tr>
 										<th scope="col" class="border-0 rounded-start ">공급유형</th>
 										<th scope="col " class="border-0 ">주택명</th>
-										<th scope="col " class="border-0 ">청약 접수일</th>
+										<th scope="col " class="border-0 ">모집공고일</th>
 										<th scope="col " class="border-0 ">홈페이지</th>
 									</tr>
 								</thead>
 
 								<!-- Table body START -->
 								<tbody class="border-top-0 text-center">
+								
 									<!-- Table item -->
-									<tr>
-										<!-- Table data -->
-										<td>민영APT</td>
-										<!-- Table data -->
-										<td>
-											<h6 class="course-title mt-2 mt-md-0 mb-0 ">
-												<a href="# ">창동 다우아트리체 주상복합 아파트</a>
-											</h6>
-										</td>
-										<!-- Table data -->
-										<td>2023-05-23</td>
-										<!-- Table data -->
-										<td><a href="# "
-											class="badge bg-secondary bg-opacity-50 text-white mb-2"><i
-												class="bi bi-house-door-fill me-2 small fw-bold "></i>Home</a></td>
-									</tr>
-
-									<!-- Table item -->
-									<tr>
-										<!-- Table data -->
-										<td>국민APT</td>
-										<!-- Table data -->
-										<td>
-											<h6 class="course-title mt-2 mt-md-0 mb-0 ">
-												<a href="# ">힐스테이트 청량리 메트로블 (도시형생활주택)</a>
-											</h6>
-										</td>
-										<!-- Table data -->
-										<td>2023-05-23</td>
-										<!-- Table data -->
-										<td><a href="# "
-											class="badge bg-secondary bg-opacity-50 text-white mb-2"><i
-												class="bi bi-house-door-fill me-2 small fw-bold "></i>Home</a></td>
-									</tr>
-
-									<!-- Table item -->
-									<tr>
-										<!-- Table data -->
-										<td>도시형생활주택</td>
-										<!-- Table data -->
-										<td>
-											<h6 class="course-title mt-2 mt-md-0 mb-0 ">
-												<a href="# ">평택화양 휴먼빌 퍼스트시티</a>
-											</h6>
-										</td>
-										<!-- Table data -->
-										<td>2023-05-23</td>
-										<!-- Table data -->
-										<td><a href="# "
-											class="badge bg-secondary bg-opacity-50 text-white mb-2"><i
-												class="bi bi-house-door-fill me-2 small fw-bold "></i>Home</a></td>
-									</tr>
-
-									<!-- Table item -->
-									<tr>
-										<!-- Table data -->
-										<td>오피스텔</td>
-										<!-- Table data -->
-										<td>
-											<h6 class="course-title mt-2 mt-md-0 mb-0 ">
-												<a href="# ">창동 다우아트리체 주상복합 아파트</a>
-											</h6>
-										</td>
-										<!-- Table data -->
-										<td>2023-05-23</td>
-										<!-- Table data -->
-										<td><a href="# "
-											class="badge bg-secondary bg-opacity-50 text-white mb-2"><i
-												class="bi bi-house-door-fill me-2 small fw-bold "></i>Home</a></td>
-									</tr>
-
-									<!-- Table item -->
-									<tr>
-										<!-- Table data -->
-										<td>민간임대</td>
-										<!-- Table data -->
-										<td>
-											<h6 class="course-title mt-2 mt-md-0 mb-0 ">
-												<a href="# ">힐스테이트 청량리 메트로블 (도시형생활주택)</a>
-											</h6>
-										</td>
-										<!-- Table data -->
-										<td>2023-05-23</td>
-										<!-- Table data -->
-										<td><a href="# "
-											class="badge bg-secondary bg-opacity-50 text-white mb-2"><i
-												class="bi bi-house-door-fill me-2 small fw-bold "></i>Home</a></td>
-									</tr>
-
-									<!-- Table item -->
-									<tr>
-										<!-- Table data -->
-										<td>공공지원민간임대</td>
-										<!-- Table data -->
-										<td>
-											<h6 class="course-title mt-2 mt-md-0 mb-0 ">
-												<a href="# ">평택화양 휴먼빌 퍼스트시티</a>
-											</h6>
-										</td>
-										<!-- Table data -->
-										<td>2023-05-23</td>
-										<!-- Table data -->
-										<td><a href="# "
-											class="badge bg-secondary bg-opacity-50 text-white mb-2"><i
-												class="bi bi-house-door-fill me-2 small fw-bold "></i>Home</a></td>
-									</tr>
-
-									<!-- Table item -->
-									<tr>
-										<!-- Table data -->
-										<td>민영APT</td>
-										<!-- Table data -->
-										<td>
-											<h6 class="course-title mt-2 mt-md-0 mb-0 ">
-												<a href="# ">창동 다우아트리체 주상복합 아파트</a>
-											</h6>
-										</td>
-										<!-- Table data -->
-										<td>2023-05-23</td>
-										<!-- Table data -->
-										<td><a href="# "
-											class="badge bg-secondary bg-opacity-50 text-white mb-2"><i
-												class="bi bi-house-door-fill me-2 small fw-bold "></i>Home</a></td>
-									</tr>
-
-									<!-- Table item -->
-									<tr>
-										<!-- Table data -->
-										<td>국민APT</td>
-										<!-- Table data -->
-										<td>
-											<h6 class="course-title mt-2 mt-md-0 mb-0 ">
-												<a href="# ">힐스테이트 청량리 메트로블 (도시형생활주택)</a>
-											</h6>
-										</td>
-										<!-- Table data -->
-										<td>2023-05-23</td>
-										<!-- Table data -->
-										<td><a href="# "
-											class="badge bg-secondary bg-opacity-50 text-white mb-2"><i
-												class="bi bi-house-door-fill me-2 small fw-bold "></i>Home</a></td>
-									</tr>
-
-									<!-- Table item -->
-									<tr>
-										<!-- Table data -->
-										<td>도시형생활주택</td>
-										<!-- Table data -->
-										<td>
-											<h6 class="course-title mt-2 mt-md-0 mb-0 ">
-												<a href="# ">평택화양 휴먼빌 퍼스트시티</a>
-											</h6>
-										</td>
-										<!-- Table data -->
-										<td>2023-05-23</td>
-										<!-- Table data -->
-										<td><a href="# "
-											class="badge bg-secondary bg-opacity-50 text-white mb-2"><i
-												class="bi bi-house-door-fill me-2 small fw-bold "></i>Home</a></td>
-									</tr>
-
-									<!-- Table item -->
-									<tr>
-										<!-- Table data -->
-										<td>오피스텔</td>
-										<!-- Table data -->
-										<td>
-											<h6 class="course-title mt-2 mt-md-0 mb-0 ">
-												<a href="# ">창동 다우아트리체 주상복합 아파트</a>
-											</h6>
-										</td>
-										<!-- Table data -->
-										<td>2023-05-23</td>
-										<!-- Table data -->
-										<td><a href="# "
-											class="badge bg-secondary bg-opacity-50 text-white mb-2"><i
-												class="bi bi-house-door-fill me-2 small fw-bold "></i>Home</a></td>
-									</tr>
+									
+									<c:if test="${empty mainList}">
+										<h6>조회된 글이 없습니다.</h6>
+									</c:if>
+									
+									<c:if test="${!empty mainList}">
+											<c:forEach var="RealEstateList" items="${mainList}" varStatus="status" begin="1" end="10">
+												<tr>
+													
+													<td>
+														<c:out value="${RealEstateList.house_secd_nm}"/>
+													</td>
+													<td>
+														<c:out value="${RealEstateList.house_nm}"/>
+													</td>
+													<td>
+														<c:out value="${RealEstateList.rcrit_pblanc_de}"/>
+													</td>
+													
+												<c:if test="${RealEstateList.hmpg_adres == 'null'}">
+													<td>
+														<i class="bi bi-house-door-fill me-2 fw-bold "></i>-
+													</td>
+												</c:if>
+												<c:if test="${RealEstateList.hmpg_adres ne 'null'}">
+													<td>
+														<a href="${RealEstateList.hmpg_adres}"
+														class="badge bg-secondary bg-opacity-75 text-white mb-2">
+														<i class="bi bi-house-door-fill me-2 fw-bold "></i>${RealEstateList.hmpg_adres}</a>
+													</td>
+												</c:if>
+												</tr>
+											</c:forEach>
+										</c:if>									
 								</tbody>
 								<!-- Table body END -->
 							</table>
@@ -668,28 +532,11 @@
 							<!-- Content -->
 
 							<!-- 페이지넘버 시작 -->
-							<nav class="mb-sm-0 d-flex justify-content-center mt-2"
-								aria-label="navigation">
-								<ul class="pagination pagination-sm pagination-bordered mb-0">
-									<li class="page-item disabled"><a class="page-link"
-										href="#" tabindex="-1" aria-disabled="true">Prev</a></li>
-									<li class="page-item active"><a class="page-link" href="#">1</a></li>
-									<li class="page-item"><a class="page-link" href="#">2</a></li>
-									<li class="page-item"><a class="page-link" href="#">3</a></li>
-									<li class="page-item"><a class="page-link" href="#">4</a></li>
-									<li class="page-item"><a class="page-link" href="#">5</a></li>
-									<li class="page-item"><a class="page-link" href="#">6</a></li>
-									<li class="page-item"><a class="page-link" href="#">7</a></li>
-									<li class="page-item"><a class="page-link" href="#">8</a></li>
-									<li class="page-item"><a class="page-link" href="#">9</a></li>
-									<li class="page-item"><a class="page-link" href="#">10</a></li>
-									<li class="page-item"><a class="page-link" href="#">Next</a>
-									</li>
-								</ul>
-							</nav>
+							<div class="card-footer text-center p-3 ">
+						<a href="${path}/realEstate/calendar">청약캘린더 바로가기 >></a>
+					</div>
 							<!-- 페이지넘버 끝 -->
 						</div>
-						<!-- Pagination END -->
 					</div>
 				</div>
 				<!-- Blog list table END -->

@@ -133,6 +133,16 @@ public class RealEstateServiceImpl implements RealEstateService{
 		int selectCountMapList = realMapmapper.selectCountForMainMap(localName);
 		return selectCountMapList;
 	}
+	
+	
+	// 청약메인 캘린더 ---------------------------------------------------
+
+	@Override
+	public List<RealEstateList> getRealMainboardList() {
+		List<RealEstateList> mainBoardList = realmapper.RealMainboardList();
+		return mainBoardList;
+	}
+
 
 	
 

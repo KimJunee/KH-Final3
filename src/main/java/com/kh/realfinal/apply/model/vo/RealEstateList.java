@@ -14,6 +14,7 @@ public class RealEstateList {
 	private String	hssply_adres	        ; // 주소
 	private String	rcrit_pblanc_de	        ; // 모집공고일
 	private String  subscrpt_area_code_nm	; // 지역명
+	private String  hmpg_adres				; // 홈페이지
 	private String  type                    ; // HOUSE_SECD 02:도시형/오피스텔/민간임대 04:무순위/잔여세대 
 }
    

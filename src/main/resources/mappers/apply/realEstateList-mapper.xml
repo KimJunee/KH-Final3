@@ -15,8 +15,25 @@
   	<result property="hssply_adres" column="HSSPLY_ADRES"/>
   	<result property="rcrit_pblanc_de" column="RCRIT_PBLANC_DE"/>
   	<result property="subscrpt_area_code_nm" column="SUBSCRPT_AREA_CODE_NM"/>
+  	<result property="hmpg_adres" column="HMPG_ADRES"/>
   	<result property="type" column="TYPE"/>
   </resultMap>
+  
+  
+  <select id="RealMainboardList" resultMap="RealEstateListMap">
+		SELECT HOUSE_MANAGE_NO, HOUSE_SECD_NM, HOUSE_NM, RCRIT_PBLANC_DE, HMPG_ADRES, TYPE 
+		FROM (
+			SELECT HOUSE_MANAGE_NO,HOUSE_SECD_NM, HOUSE_NM,RCRIT_PBLANC_DE, HMPG_ADRES, 'U' AS TYPE FROM URBTYOFCTLLTTOTPBLANCDETAIL 
+			UNION 
+			SELECT HOUSE_MANAGE_NO, HOUSE_SECD_NM, HOUSE_NM, RCRIT_PBLANC_DE, HMPG_ADRES, 'R' AS TYPE FROM REMNDRLTTOTPBLANCDETAIL
+			UNION 
+			SELECT HOUSE_MANAGE_NO, HOUSE_SECD_NM, HOUSE_NM, RCRIT_PBLANC_DE, HMPG_ADRES, 'A' AS TYPE FROM APT_LTTOT_PBLANC_DETAIL
+			)
+		ORDER BY RCRIT_PBLANC_DE DESC
+	</select>
+	
+	
+  
   
   <select id="RealboardList" resultMap="RealEstateListMap">
 		SELECT HOUSE_MANAGE_NO, HOUSE_SECD_NM, HOUSE_NM, HSSPLY_ADRES, RCRIT_PBLANC_DE, SUBSCRPT_AREA_CODE_NM, TYPE 

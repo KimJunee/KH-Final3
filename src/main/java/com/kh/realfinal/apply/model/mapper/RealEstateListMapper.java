@@ -18,6 +18,9 @@ public interface RealEstateListMapper {
 	int RealboardListCount(Map<String, Object> map);
 	
 	
+	// 청약메인 캘린더 연결 
+	List<RealEstateList> RealMainboardList();
+	
 //	// 청약메인 지도 count
 //	List<RealMainMapList> listForMainMap(String localName);
 //	int selectCountForMainMap(String localName);

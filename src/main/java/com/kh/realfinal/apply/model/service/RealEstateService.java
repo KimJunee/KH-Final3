@@ -27,5 +27,9 @@ public interface RealEstateService {
 	// 청약메인 지도 count
 	List<RealMainMapList> getListForMainMap(String localName);
 	int getSelectCountForMainMap(String localName);
+	
+	
+	// 청약메인 캘린더 
+	List<RealEstateList> getRealMainboardList();
 
 }

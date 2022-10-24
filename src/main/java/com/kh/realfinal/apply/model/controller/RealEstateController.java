@@ -105,6 +105,10 @@ public class RealEstateController {
 		List<Board> list = boardService.getSideBoardForEstate(param);
 		model.addAttribute("estateList", list);//주니님꺼!
 		
+		List<RealEstateList> mainList = realEstateService.getRealMainboardList();
+		model.addAttribute("mainList", mainList);
+		
+		
 		Map<String, String> map = new HashMap<String, String>(); //지도에 숫자 가져올려고 쓰는놈
 		Map<String, List<RealMainMapList>> map1 = new HashMap<String, List<RealMainMapList>>(); //오른쪽에 지역별청약정보 리스트
 		
@@ -123,7 +127,7 @@ public class RealEstateController {
 		String json = new Gson().toJson(map);
 		String json1 = new Gson().toJson(map1);
 		
-		System.out.println(json);
+//		System.out.println(json);
 //		System.out.println(json1);
 		model.addAttribute("json", json);
 		model.addAttribute("json1", json1);
@@ -147,26 +151,26 @@ public class RealEstateController {
 		 List<String> scheTypeList = new ArrayList<String>();
 		
 		if(locationType == null) {
-			System.out.println("locationType null");
+//			System.out.println("locationType null");
 		}else {
 			locationTypeList = Arrays.asList(locationType);
-			System.out.println("checkbox locationType list : " + Arrays.toString(locationType));
+//			System.out.println("checkbox locationType list : " + Arrays.toString(locationType));
 		}
 		if(houseType == null) {
-			System.out.println("houseType null");
+//			System.out.println("houseType null");
 		}else {
 			houseTypeList = Arrays.asList(houseType);
-			System.out.println("checkbox houseType list : " + Arrays.toString(houseType));
+//			System.out.println("checkbox houseType list : " + Arrays.toString(houseType));
 		}if(APTsupplyType == null) {
-			System.out.println("APTsupplyType null");
+//			System.out.println("APTsupplyType null");
 		}else {
 			APTsupplyTypeList = Arrays.asList(APTsupplyType);
-			System.out.println("checkbox APTsupplyType list : " + Arrays.toString(APTsupplyType));
+//			System.out.println("checkbox APTsupplyType list : " + Arrays.toString(APTsupplyType));
 		}if(scheType == null) {
-			System.out.println("scheType null");
+//			System.out.println("scheType null");
 		}else {
 			scheTypeList = Arrays.asList(scheType);
-			System.out.println("checkbox scheType list : " + Arrays.toString(scheType));
+//			System.out.println("checkbox scheType list : " + Arrays.toString(scheType));
 		}
 				
 //		System.out.println("param : " + param.toString());
@@ -192,9 +196,9 @@ public class RealEstateController {
 		현재 페이지 , 한 페이지에 보여질 페이지의 수 , 전체 리스트의 수 , 한 페이지에 표시될 리스트의 수
 		 */
 		PageInfo pageInfo = new PageInfo(page, 10, realEstateService.getRealBoardListCount(param, locationType, houseType, APTsupplyType, scheType), 20);
-		System.out.println("getRealBoardListCount : " + realEstateService.getRealBoardListCount(param, locationType, houseType, APTsupplyType, scheType));
+//		System.out.println("getRealBoardListCount : " + realEstateService.getRealBoardListCount(param, locationType, houseType, APTsupplyType, scheType));
 		List<RealEstateList> reallist = realEstateService.getRealBoardList(pageInfo, param, locationType, houseType, APTsupplyType, scheType);
-		System.out.println("Controller reallist : " + reallist);
+//		System.out.println("Controller reallist : " + reallist);
 		
 		model.addAttribute("locationTypeList" ,locationTypeList);
 		model.addAttribute("houseTypeList" ,houseTypeList);
@@ -229,7 +233,7 @@ public class RealEstateController {
 			UrbtyMdl urbtyMdl = urbtyservice.getSelectUrbtyMdlNo(no);
 
 			if (urbty == null) {
-				System.out.println("값이 없습니다.");
+//				System.out.println("값이 없습니다.");
 			}
 
 			model.addAttribute("urbty", urbty);
@@ -241,7 +245,7 @@ public class RealEstateController {
 			AptLttotPblancMdl aptLttoMdl = realEstateService.getSelectAptMdlNo(no);
 
 			if (aptLtto == null) {
-				System.out.println("값이 없습니다.");
+//				System.out.println("값이 없습니다.");
 			}
 
 			model.addAttribute("aptLtto", aptLtto);
