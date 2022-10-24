@@ -56,7 +56,7 @@ public class CardCutController {
 		
 	}
 	
-	// 페이징 처리
+	// 페이징 처리 카드컷
 	@RequestMapping("/politics/cardCut")
 	public String cardCutList(Model model, @RequestParam Map<String, String> param) throws ParseException {  
 		int page = 1;
