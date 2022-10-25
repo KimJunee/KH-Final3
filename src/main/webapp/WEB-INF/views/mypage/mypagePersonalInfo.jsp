@@ -7,6 +7,32 @@
     
 <!DOCTYPE html>
 <html lang="ko">
+<style>
+@font-face {
+    font-family: "finder-icons";
+    src: url("${path}/resources/resources3f/dist/fonts/finder-icons.ttf?7648j3") format("truetype"), url("${path}/resources/resources3f/dist/fonts/finder-icons.woff?7648j3") format("woff"), url("${path}/resources/resources3f/dist/fonts/finder-icons.svg?7648j3#finder-icons") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+[class^=fi-],
+[class*=" fi-"] {
+    display: inline-block;
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: "finder-icons" !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    vertical-align: middle;
+    line-height: 1;
+}
+
+.fi-edit:before {
+    content: "\e96e";
+}
+</style>
 
 <head>
     <title>FinTouch | My Page | Personal Info</title>
