@@ -98,7 +98,8 @@ public class OpinionRss {
 						
 						// https://codechacha.com/ko/java-string-matches/
 
-						Opinion opinion = new Opinion(i, title, link, imageUrl, columnist, content, pubDate, 0, 0, 0, null);
+						//Opinion opinion = new Opinion(i, title, link, imageUrl, columnist, content, pubDate, 0, 0, 0, null);
+						Opinion opinion = new Opinion(i, title, link, imageUrl, columnist, content, pubDate);
 						list.add(opinion);
 //						System.out.println(opinion.getTitle());
 //						System.out.println(opinion.getDescriptionOrigin()); 

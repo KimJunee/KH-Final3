@@ -103,6 +103,10 @@ public class OpinionController {
 		Opinion opinion = service.getOpinionOne(opinionNo);
 		List<Board> sideList = boardService.getSideBoard();
 		
+		if(opinion.getReplies() != null) {
+			System.out.println(opinion.getReplies().get(0).toString());
+		}
+		
 		model.addAttribute("opinion", opinion);
 		model.addAttribute("param", param);
 		model.addAttribute("sideList", sideList);

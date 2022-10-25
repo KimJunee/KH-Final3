@@ -189,5 +189,4 @@ public class ProfileMnaController {
 	public String polMnaStats(Model model) { // 메인으로
 		return "politics/polMnaStats";
 	}
- 
 }

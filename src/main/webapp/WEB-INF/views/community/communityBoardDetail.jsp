@@ -220,37 +220,6 @@
     </main>
     
     <script>
-    // 게시글 수정, 삭제
-	$(document).ready(() => {
-		$("#btnUpdate").on("click", (e) => {
-			location.href = "${path}/board/update?board_no=${board.board_no}";
-		});
-		
-		$("#btnDelete").on("click", (e) => {
-			if(confirm("정말로 게시글을 삭제 하시겠습니까?")) {
-				location.replace("${path}/board/delete?board_no=${board.board_no}");
-			}
-		});
-	});
-	
-	// 댓글 삭제
-	$(document).on("click", ".delete_reply_btn", function(e){
-		e.preventDefault();
-		let reply_no = $(this).attr("href");
-		
-		$.ajax({
-			data : {
-				reply_no : reply_no,
-				board_no : "${board.board_no}"
-			},
-			url : "/board/replydel",
-			type : "POST",
-			success : function(result){
-				alert("댓글이 삭제되었습니다.");
-			}
-		});
-	});
-	
 	function editReply(idx){
 		console.log(idx);
 		$("#reply_content"+idx).hide();
