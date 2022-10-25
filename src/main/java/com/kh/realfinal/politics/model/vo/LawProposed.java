@@ -10,12 +10,12 @@ import lombok.NoArgsConstructor;
 
 public class LawProposed {
 
-	private int lawNo;           // 의안번호
-	private int billNo;           // 의안번호
-	private String rstProposer;     // 이름
-	private int age;             // 대수
+	private int lawNo;           	// 의안번호
+	private int billNo;          	// 의안번호
+	private String rstProposer;     // 발의자_국회의원이름
+	private int age;           		// 대수
 	private String billName;        // 의안명
-	private String proposer;        // 제안자
+	private String proposer;        // 제안자_공동
 	private String committee;       // 소관위원회
 	private String proposeDt;       // 제안일
 	private String procResult;      // 처리상태

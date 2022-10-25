@@ -10,9 +10,9 @@ import com.kh.realfinal.politics.model.vo.ProfileMna;
 
 @Mapper
 public interface ProfileMnaMapper {
+	// paging 처리를 위한 RowBounds 셋팅 방법
 	int insertProfileMna(ProfileMna profile);
 	ProfileMna selectProfileOne(int no);
-	
 	List<ProfileMna> selectProfileMnaList(RowBounds rowBounds, Map<String, String> map); 
 	int selectProfileMnaCount(Map<String, String> map); 
 	

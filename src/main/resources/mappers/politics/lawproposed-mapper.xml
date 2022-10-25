@@ -48,7 +48,7 @@
 		
 	</select>
 	
-	 
+	<!-- 카운트 (검색페이지랑 항상 쌍둥이처럼 쳐야함) : 페이징 처리할때 현재 검색되는 글이 몇개인줄 알아야함-->
 	<select id="selectLawProposedCount" resultType="int"  parameterType="map">
 		SELECT COUNT(*)
 		FROM MNA_LEGISLATION

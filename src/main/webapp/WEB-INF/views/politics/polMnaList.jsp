@@ -46,80 +46,75 @@ div.right-community {
 <head>
 <title>FinTouch | Politics | Parliamentary Profiles</title>
 <!-- Favicon -->
-<link rel="shortcut icon"
-	href="resources/resources1b/images/favicon.ico">
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+<link rel="shortcut icon" href="resources/resources1b/images/favicon.ico">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
 </head>
 
 <body>
-	<%@include file="/WEB-INF/views/common/header.jsp"%>
-	<!-- **************** MAIN CONTENT START **************** -->
-	<main>
-		<section class="bg-dark-overlay-4"
-			style="background-image:url('${path}/resources/resources1b/images/04_politics/02_gov/main_na.png'); 
+<%@include file="/WEB-INF/views/common/header.jsp"%>
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+	<section class="bg-dark-overlay-4" style="background-image:url('${path}/resources/resources1b/images/04_politics/02_gov/main_na.png'); 
         background-position: center left; background-size: cover; height: 300px;">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-8 py-md-5 my-lg-0">
-						<a href="#" class="badge text-bg-primary mb-2"><i
-							class="fas fa-circle me-2 small fw-bold"></i>Politics</a>
-						<h1 class="text-white mice">제21대 국회의원현황</h1>
-						<p class="lead text-white mice">
-							제21대 국회의원의 전체목록 및 검색, 의원별 상세정보, 정당별 의원현황등의 <br>통계를 확인하실 수
-							있습니다.
-						</p>
-					</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 py-md-5 my-lg-0">
+					<a href="#" class="badge text-bg-primary mb-2">
+						<i class="fas fa-circle me-2 small fw-bold"></i>Politics</a>
+							<h1 class="text-white mice">제21대 국회의원현황</h1>
+								<p class="lead text-white mice">
+								제21대 국회의원의 전체목록 및 검색, 의원별 상세정보, 정당별 의원현황등의 <br>통계를 확인하실 수
+								있습니다.
+								</p>
 				</div>
 			</div>
-		</section>
-		<!-- =======================
-Main START -->
-		<section class="pt-3 pt-lg-5">
-			<div class="container">
-				<div class="row">
-					<!-- Main part START -->
-					<ul class="nav nav-tabs nav-tabs-dark">
-						<li class="nav-item">
-						<li class="nav-item "><a class="nav-link active"
-							href="${path}/politics/polMnaList">국회의원목록</a></li>
-						<li class="nav-item "><a class="nav-link  "
-							href="${path}/politics/polMnaProfileEmpty"> 의원상세보기 </a></li>
-						<li class="nav-item "><a class="nav-link "
-							href="${path}/politics/polMnaStats"> 의원통계보기 </a></li>
-					</ul>
-					<!-- ===========탭메뉴 시작========== -->
-					<div class="tab-content ">
-						<!-- ===========탭1 : 국회의원목록 시작========== -->
-						<div class="tab-pane show active" id="tab-6-1">
-							<div class="container ">
-								<!-- 국회의원목록 검색 테이블 left 시작 -->
-								<div class="left">
-									<div class="card border bg-transparent rounded-3">
-										<!-- Card body START -->
-										<div class="card-body">
-											<!-- Search and select START -->
-											<form action="${path}/politics/polMnaList" method="get">
-											<div
-												class="row g-3 align-items-center justify-content-between mb-3">
-												<table>
-													<!-- <caption>국회의원검색 : 대수, 이름, 정당, 위원회, 지역선거구, 성별</caption> -->
-													<colgroup>
-														<col style="width: 15%;">
-														<col style="width: 15%;">
-														<col style="width: 15%;">
-														<col style="width: 15%;">
-														<col style="width: 15%;">
-														<col style="width: 15%;">
-													</colgroup>
-													<!-- <tbody class="col-md-8"></tbody> -->
-													<!-- </div> -->
-													<tr>
-														<th scope="row">대수</th>
-														<td><input class="form-control pe-5 bg-transparent"
+		</div>
+	</section>
+	<!-- =======================Main START======================= -->
+	<section class="pt-3 pt-lg-5">
+		<div class="container">
+			<div class="row">
+			<!-- Main part START -->
+				<ul class="nav nav-tabs nav-tabs-dark">
+					<li class="nav-item">
+					<li class="nav-item "><a class="nav-link active"
+						href="${path}/politics/polMnaList">국회의원목록</a></li>
+					<li class="nav-item "><a class="nav-link  "
+						href="${path}/politics/polMnaProfileEmpty"> 의원상세보기 </a></li>
+					<li class="nav-item "><a class="nav-link "
+						href="${path}/politics/polMnaStats"> 의원통계보기 </a></li>
+				</ul>
+				<!-- ===========탭메뉴 시작========== -->
+				<div class="tab-content ">
+				<!-- ===========탭1 : 국회의원목록 시작========== -->
+				<div class="tab-pane show active" id="tab-6-1">
+					<div class="container ">
+						<!-- 국회의원목록 검색 테이블 left 시작 -->
+						<div class="left">
+							<div class="card border bg-transparent rounded-3">
+								<!-- Card body START -->
+								<div class="card-body">
+									<!-- Search and select START -->
+									<form action="${path}/politics/polMnaList" method="get">
+										<div class="row g-3 align-items-center justify-content-between mb-3">
+											<table>
+												<!-- <caption>국회의원검색 : 대수, 이름, 정당, 위원회, 지역선거구, 성별</caption> -->
+												<colgroup>
+													<col style="width: 15%;">
+													<col style="width: 15%;">
+													<col style="width: 15%;">
+													<col style="width: 15%;">
+													<col style="width: 15%;">
+													<col style="width: 15%;">
+												</colgroup>
+												<!-- <tbody class="col-md-8"></tbody> -->
+												<!-- </div> -->
+												<tr>
+													<th scope="row">대수</th>
+													<td><input class="form-control pe-5 bg-transparent"
 															type="text" title="대수" value="제21대" readonly="readonly"></td>
-														<th scope="row">&emsp;이름</th>
-														<td><input id="searchName" name="searchName"
+													<th scope="row">&emsp;이름</th>
+													<td><input id="searchName" name="searchName"
 															class="form-control pe-5 bg-transparent" type="search"
 															placeholder="Search" aria-label="Search"
 															value="${param.searchName}"></td>
@@ -374,12 +369,13 @@ Main START -->
 											</div>
 										</c:if>
 										<c:if test="${not empty politicsList}">
-			                                <h5 class="mt-5 mb-3">실시간<span style="color:#2163E8">정치</span>커뮤니티</h5>
+			                                <h4 class="mt-5 mb-3 mice">실시간<span style="color:#2163E8">정치</span>커뮤니티</h4>
 												<c:forEach var="board" items="${politicsList}" varStatus="status">
 					                                <div class="d-flex position-relative mb-3">
 					                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">
 					                                    <fmt:formatNumber type="number" pattern="##" minIntegerDigits="2" value="${board.rownum}"/></span>
-					                                    <h6><a href="${path}/board/BoardDetail?board_no=${board.board_no}" class="stretched-link text-reset btn-link"><c:out value="${board.board_title}"/></a></h6>
+					                                    <h6><a href="${path}/board/BoardDetail?board_no=${board.board_no}" class="stretched-link text-reset btn-link">
+					                                    <c:out value="${board.board_title}"/></a></h6>
 					                                </div>
 			                                	</c:forEach>
 			                               </c:if>

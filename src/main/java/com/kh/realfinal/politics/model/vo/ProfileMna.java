@@ -38,32 +38,5 @@ public class ProfileMna {
 				+ ", email=" + email + ", homepage=" + homepage + ", staff=" + staff + ", secretary=" + secretary
 				+ ", secretary2=" + secretary2 + ", assemAddr=" + assemAddr + "]";
 	}
-	
-	
 }
-
-/*
-CREATE TABLE MNA_PROFILE (
-        MNA_PROFILE_NO NUMBER PRIMARY KEY, -- 국회의원 번호
-        HG_NM	VARCHAR2(200),	 --	이름
-        UNITS	VARCHAR2(200),	    --	대수
-        SEX_GBN_NM	VARCHAR2(100),	--	성별
-        HJ_NM	VARCHAR2(200),	    --	한자명
-        ENG_NM	VARCHAR2(200),	    --	영문명칭
-        BTH_DATE	DATE,       	--	생년월일
-        POLY_NM	VARCHAR2(200),	    --	정당명
-        ORIG_NM	VARCHAR2(200),	    --	지역
-        ELECT_GBN_NM	VARCHAR2(200),	--	선거구구분
-        CMITS	VARCHAR2(1000),  	--	소속위원회
-        REELE_GBN_NM	VARCHAR2(200),	--	당선횟수
-        TEL_NO	VARCHAR2(200),	    --	전화번호
-        E_MAIL	VARCHAR2(1000), 	--	이메일
-        HOMEPAGE	VARCHAR2(1000),	--	홈페이지
-        STAFF	VARCHAR2(1000), 	--	보좌관
-        SECRETARY	VARCHAR2(1000),	--	선임비서관
-        SECRETARY2	VARCHAR2(1000),	--	비서관
-        ASSEM_ADDR	VARCHAR2(1000),	--	의원실안내
-        MEM_TITLE	VARCHAR2(3000), --	주요약력
-        JPGLINK	    VARCHAR2(2000)	 -- 국회의원 프로필 사진
-);
- */
+ 

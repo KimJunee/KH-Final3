@@ -10,10 +10,11 @@ import com.kh.realfinal.politics.model.vo.LawProposed;
 
 @Mapper
 public interface LawProposedMapper {
-	int insertLawProposed(LawProposed proposed);
-	LawProposed selectLawProposed(int lawNo);
-	List<LawProposed> selectLawProposedList(RowBounds rowBounds, Map<String, String> map);
-	int selectLawProposedCount(Map<String, String> map);
+	// paging 처리를 위한 RowBounds 셋팅 방법
+	int insertLawProposed(LawProposed proposed); // 대표발의법안 INSERT
+	LawProposed selectLawProposed(int lawNo); // 대표발의법안 list
+	List<LawProposed> selectLawProposedList(RowBounds rowBounds, Map<String, String> map); // 대표발의법안 하단 검색 list
+	int selectLawProposedCount(Map<String, String> map); // 대표발의법안 
 	
 }
 

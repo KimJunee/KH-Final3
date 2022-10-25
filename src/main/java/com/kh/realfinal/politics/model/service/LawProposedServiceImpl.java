@@ -18,6 +18,7 @@ public class LawProposedServiceImpl implements LawProposedService  {
 	@Autowired
 	private LawProposedMapper mapper;
 	
+	// 대표발의법안 DB INSERT
 	@Override
 	@Transactional(rollbackFor = Exception.class)
 	public int saveLawProposed(LawProposed proposed) {
@@ -25,12 +26,13 @@ public class LawProposedServiceImpl implements LawProposedService  {
 		return result;
 	}
  
+	// 대표발의법안 갯수 국회의원 리스트 
 	@Override
 	public LawProposed getLawProposed(int lawNo) {
 		return mapper.selectLawProposed(lawNo);
 	}
 
-	// 페이지처리
+	// 국회의원 프로필 하단 대표발의법안 검색 리스트(상세내용은 Link 이동)
 	@Override
 	public List<LawProposed> getlawProposed(PageInfo pageInfolaw, Map<String, String> map) {
 		int offset = (pageInfolaw.getCurrentPage() - 1) * pageInfolaw.getListLimit();
@@ -39,6 +41,7 @@ public class LawProposedServiceImpl implements LawProposedService  {
 		return mapper.selectLawProposedList(rowBounds, map);
 	}
 
+	// 대표발의법안 갯수 16,000여개 
 	@Override
 	public int getLawCount(Map<String, String> map) {
 		return mapper.selectLawProposedCount(map);

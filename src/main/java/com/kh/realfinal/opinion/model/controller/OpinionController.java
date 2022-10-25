@@ -71,16 +71,38 @@ public class OpinionController {
 		Opinion topOpinion = service.getSelectOpinionMain1();
 		List<Opinion> sideList = service.getSelectOpinionMainSide();
 		List<Opinion> editoria = service.getSelectEditorialist();
+
+		String str = topOpinion.getContent();
+		str = str.replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
+		topOpinion.setContent(str);
+
+		for(Opinion item : sideList) {
+			str = item.getContent();
+			str = str.replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
+			item.setContent(str);
+		}
 		
+		for(Opinion item : editoria) {
+			str = item.getContent();
+			str = str.replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
+			item.setContent(str);
+		}
+
+
 		PageInfo pageInfoTop = new PageInfo(page, 10, service.getOpinionCount(param), 10);
 		List<Opinion> topList = service.getOpinionList(pageInfoTop, param);
- 
+		for(Opinion item : topList) {
+			str = item.getContent();
+			str = str.replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
+			item.setContent(str);
+		}
+
 		int totalSize = service.getOpinionCount(param);
 		PageInfo pageInfo = new PageInfo(page, 10, totalSize, 5);
 		List<Opinion> list = service.getOpinionList(pageInfo, param);
 		
 		for(Opinion item : list) {
-			String str = item.getContent();
+			str = item.getContent();
 			str = str.replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
 			item.setContent(str);
 		}
