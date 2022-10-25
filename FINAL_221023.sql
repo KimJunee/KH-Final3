@@ -48,10 +48,11 @@ CREATE SEQUENCE SEQ_O_REPLY_NO;
 DROP TABLE OPINION_REPLY;
 CREATE TABLE OPINION_REPLY (
 	O_REPLY_NO NUMBER PRIMARY KEY,    -- 댓글번호
-    O_USER_NO NUMBER,		          -- 사용자번호
-    O_BOARD_NO NUMBER,                -- 게시글번호
-	O_REPLY_CONTENT VARCHAR2(1000),   -- 내용
-	O_REPLY_REGISTER DATE             -- 등록날짜
+    O_WRITER_NO NUMBER,		          -- 글쓴이번호
+    OPINIONNO NUMBER,                -- 게시글번호
+	O_REPLY_CONTENT CLOB,           -- 내용
+	O_REPLY_REGISTER DATE,             -- 등록날짜
+    O_REPLY_MODIFY DATE               -- 수정날짜
 );
 
 COMMENT ON TABLE CARDCUT_REPLY IS '댓글';
