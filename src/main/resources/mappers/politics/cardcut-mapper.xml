@@ -9,9 +9,25 @@
 		<result property="link" column="LINK"/>
 		<result property="descriptionOrigin" column="DESCRIPTION"/>
 		<result property="pubDate" column="PUBDATE"/>
+		<result property="replyCnt" column="reply_cnt"/>
 	</resultMap>
 
+	<resultMap type="CardCut" id="CardCutDetailResultMap" extends="CardCutMap">
+		<collection property="replies" javaType="arrayList" columnPrefix="R_" resultMap="CardCutReplyResultMap"/>
+	</resultMap>
 
+	<resultMap type="CardCutReply" id="CardCutReplyResultMap">
+		<id property="c_reply_no" column="C_REPLY_NO"/>
+		<result property="c_reply_content" column="C_REPLY_CONTENT"/>
+		<result property="cardCutNo" column="C_CARDCUT_NO"/>
+		<result property="c_writer_no" column="C_WRITER_NO"/>
+		<result property="c_reply_writer_id" column="C_USER_ID"/>
+		<result property="c_reply_writer_nickName" column="C_USER_NICKNAME"/>
+		<result property="c_reply_register" column="C_REPLY_REGISTER"/>
+		<result property="c_reply_modify" column="C_REPLY_MODIFY"/>
+	</resultMap>
+	
+	
 	<insert id="insertCardCut" parameterType="CardCut">
 		INSERT INTO CARDCUT(		
 			CARDCUT_NO, TITLE, LINK, DESCRIPTION, PUBDATE
@@ -31,10 +47,49 @@
 		FROM CARDCUT
 	</select>
 
-	<select id="selectCardCutOne" resultMap="CardCutMap">
-		SELECT CARDCUT_NO,
-		TITLE, LINK, DESCRIPTION, PUBDATE
-		FROM CARDCUT WHERE CARDCUT_NO = #{cardCutNo}
+	<select id="selectCardCutOne" resultMap="CardCutDetailResultMap">
+		SELECT  
+		     C.CARDCUT_NO,  C.TITLE, C.LINK, C.PUBDATE, C.DESCRIPTION,
+		     (SELECT COUNT(*) FROM CARDCUT_REPLY WHERE C_CARDCUT_NO =  #{cardCutNo}) as reply_cnt,
+		      C.CARDCUT_NO AS R_C_REPLY_NO, 
+		     R.C_REPLY_NO AS R_C_REPLY_NO,  R.C_REPLY_CONTENT AS R_C_REPLY_CONTENT, 
+		     R.C_WRITER_NO AS R_C_WRITER_NO, R.C_REPLY_REGISTER AS R_C_REPLY_REGISTER, R.C_REPLY_MODIFY AS R_C_REPLY_MODIFY,
+		     U.USER_ID AS R_C_USER_ID, U.USER_NICKNAME AS R_C_USER_NICKNAME
+		FROM CARDCUT C
+		LEFT JOIN CARDCUT_REPLY R ON (C_CARDCUT_NO =  CARDCUT_NO)
+		LEFT JOIN USER_T U ON (C_WRITER_NO =  USER_NO)
+		WHERE CARDCUT_NO = #{cardCutNo}
 	</select>
+	 
+	 	
+	<!-- 댓글 등록 -->
+	<insert id="insertCardCutreply" parameterType="CardCutReply">
+		INSERT INTO CARDCUT_REPLY 
+		(C_REPLY_NO, 
+		C_CARDCUT_NO, 
+		C_REPLY_CONTENT, 
+		C_WRITER_NO, 
+		C_REPLY_REGISTER, 
+		C_REPLY_MODIFY)
+			VALUES(
+				SEQ_C_REPLY_NO.NEXTVAL, 
+				#{cardCutNo},
+				#{c_reply_content},
+				#{c_writer_no}, 
+				SYSDATE, 
+				SYSDATE)
+	</insert>
+	
+	<!-- 댓글 수정 -->
+	<update id="editCardCutReply" parameterType="CardCutReply">
+		UPDATE CARDCUT_REPLY SET C_REPLY_CONTENT = #{c_reply_content}
+		WHERE C_REPLY_NO = #{c_reply_no}
+	</update>
+	
+	<!-- 댓글 삭제 -->
+	<delete id="deleteCardCutReply" parameterType="int">
+		DELETE CARDCUT_REPLY WHERE C_REPLY_NO = #{c_reply_no} 
+	</delete>
+	 
 	 
 </mapper>

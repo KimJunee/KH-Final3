@@ -27,17 +27,6 @@ public class CardCutServiceImpl implements CardCutService {
 		return result;
 	}
 
-	@Override
-	@Transactional(rollbackFor = Exception.class)
-	public int saveCcReply(CardCutReply reply) {
-		return mapper.insertReply(reply);
-	}
-
-	@Override
-	@Transactional(rollbackFor = Exception.class)
-	public int deleteReply(int no) {
-		return mapper.deleteReply(no);
-	}
 
 	@Override
 	public List<CardCut> getCardCutList(PageInfo pageInfo, Map<String, String> param) {
@@ -89,5 +78,26 @@ public class CardCutServiceImpl implements CardCutService {
 		return carcut;
 	}
 
+	
+	// 리플 작성부
+	
+	@Override
+	@Transactional(rollbackFor = Exception.class)
+	public int saveCcReply(CardCutReply cardCutReply) {
+		return mapper.insertCardCutreply(cardCutReply);
+	}
+	
+	@Override
+	public int editCcReply(CardCutReply cardCutReply) {
+		return mapper.editCardCutReply(cardCutReply);
+	}
+	@Override
+	@Transactional(rollbackFor =  Exception.class)
+	public int deleteCcReply(int no) {
+		return mapper.deleteCardCutReply(no);
+	}
+	
+	
+ 
  
 }

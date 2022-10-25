@@ -15,6 +15,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import com.kh.realfinal.politics.model.vo.CardCut;
+import com.kh.realfinal.politics.model.vo.CardCutReply;
 
 public class CardCutRss {
 	public static final String WEEKLY_XML_URL  = "https://www.korea.kr/rss/visual.xml";
@@ -24,6 +25,7 @@ public class CardCutRss {
 		 
 	}
 	 
+		@SuppressWarnings("unchecked")
 		public static List<CardCut> callWeeklyNewsListByXML() {
 			List<CardCut> list = new ArrayList<>();
 			
@@ -59,7 +61,7 @@ public class CardCutRss {
 				NodeList nList = doc.getElementsByTagName("item");
 				
 				for(int i = 0; i < nList.getLength(); i++) {
-					Node node = nList.item(i);
+					Node node = nList.item(i); 
 					if(node.getNodeType() == Node.ELEMENT_NODE) {
 						try {
 							Element eElement = (Element) node;
@@ -68,10 +70,11 @@ public class CardCutRss {
 							String link = getStrData(eElement,"link");
 							String descriptionOrigin = getStrData(eElement,"description");
 							Date pubDate = getDateData(eElement,"pubDate");
+							//List<CardCutReply> replies = getStrData(eElement, "replies");
 							
 							// https://codechacha.com/ko/java-string-matches/
-
-							CardCut card = new CardCut(0, title, link, descriptionOrigin, null, null, pubDate);
+							CardCut card = new CardCut(0, title, link, descriptionOrigin, null, null, pubDate, null, 0);
+//							CardCut card = new CardCut(0, title, link, descriptionOrigin, pubDate, null, 0);
 							list.add(card);
 //							System.out.println(card.getDescriptionOrigin()); 
 //							System.out.println(card.getImages()); 
@@ -88,6 +91,7 @@ public class CardCutRss {
 			return list;
 		}
 		
+	 
 		
 		private static String getStrData(Element eElement, String tagName){
 			try {
@@ -96,6 +100,7 @@ public class CardCutRss {
 				return "-";
 			}
 		}
+		
 		
 		private static int getIntData(Element eElement, String tagName){
 			try {

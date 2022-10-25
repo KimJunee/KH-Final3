@@ -8,14 +8,14 @@
 <html lang="ko">
 
 <style>
-    /* 카드컷 아이콘 내용*/   
+    /* 카드컷 아이콘 내용 
     @font-face {
-        font-family: "finder-icons";
+         
         src: url("resources/resources1b/vendor/font-awesome/webfonts/finder-icons.ttf?7648j3") format("truetype"), url("resources/resources1b/vendor/font-awesome/webfonts/finder-icons.woff?7648j3") format("woff"), url("resources/resources1b/vendor/font-awesome/webfonts/finder-icons.svg?7648j3#finder-icons") format("svg");
         font-weight: normal;
         font-style: normal;
         font-display: block;
-    }
+    }*/  
     
     [class^=fi-],
     [class*=" fi-"] {
@@ -69,7 +69,6 @@
 
 <body>
 <%@include file="/WEB-INF/views/common/header.jsp" %>
-
 		<!-- **************** MAIN CONTENT START **************** -->
 		<main>
 		    <!-- 기사 title -->
@@ -97,115 +96,68 @@
                                 </div>
                             </div>
                         </div>
-
-		                        
-		
 		                    <div class="row">
-		                        <p><span class="h5">${cardCut.descriptionOrigin}</p>
+		                        <p><span class="h5">${cardCut.descriptionOrigin}</span></p>
 		                    </div>
 		                    <!-- Divider -->
 		                    <hr>
 		
 		                    <!-- 댓글 START -->
-		                    <div>
-		                        <h3>5 comments</h3>
-		                        <!-- 댓글 1-->
-		                        <div class="my-4 d-flex">
-		                            <img class="avatar avatar-md rounded-circle float-start me-3" src="resources/resources1b/images/avatar/01.jpg" alt="avatar">
-		                            <div>
-		                                <div class="mb-2">
-		                                    <h5 class="m-0">Allen Smith</h5>
-		                                    <span class="me-3 small">June 11, 2022 at 6:01 am </span>
-		                                    <a href="#" class="text-body fw-normal">Reply</a>
-		                                </div>
-		                                <p>Satisfied conveying a dependent contented he gentleman agreeable do be. Warrant private blushes removed an in equally totally if. Delivered dejection necessary objection do Mr prevailed. Mr feeling does chiefly cordial
-		                                    in do. </p>
-		                            </div>
-		                        </div>
-		                        <!-- 댓글 2 -->
-		                        <div class="my-4 d-flex">
-		                            <img class="avatar avatar-md rounded-circle float-start me-3" src="resources/resources1b/images/avatar/02.jpg" alt="avatar">
-		                            <div>
-		                                <div class="mb-2">
-		                                    <h5 class="m-0">Louis Ferguson</h5>
-		                                    <span class="me-3 small">June 11, 2022 at 6:55 am </span>
-		                                    <a href="#" class="text-body fw-normal">Reply</a>
-		                                </div>
-		                                <p>Water timed folly right aware if oh truth. Imprudence attachment him his for sympathize. Large above be to means. Dashwood does provide stronger is. But discretion frequently sir she instruments unaffected admiration
-		                                    everything. </p>
-		                            </div>
-		                        </div>
-		                        <!-- 댓글 3 -->
-		                        <div class="my-4 d-flex">
-		                            <img class="avatar avatar-md rounded-circle float-start me-3" src="resources/resources1b/images/avatar/01.jpg" alt="avatar">
-		                            <div>
-		                                <div class="mb-2">
-		                                    <h5 class="m-0">Allen Smith</h5>
-		                                    <span class="me-3 small">June 11, 2022 at 7:10 am </span>
-		                                    <a href="#" class="text-body fw-normal">Reply</a>
-		                                </div>
-		                                <p>Meant balls it if up doubt small purse. </p>
-		                            </div>
-		                        </div>
-		                        <!-- 댓글 2 -->
-		                        <div class="my-4 d-flex">
-		                            <img class="avatar avatar-md rounded-circle float-start me-3" src="resources/resources1b/images/avatar/03.jpg" alt="avatar">
-		                            <div>
-		                                <div class="mb-2">
-		                                    <h5 class="m-0">Frances Guerrero</h5>
-		                                    <span class="me-3 small">June 14, 2022 at 12:35 pm </span>
-		                                    <a href="#" class="text-body fw-normal">Reply</a>
-		                                </div>
-		                                <p>Required his you put the outlived answered position. A pleasure exertion if believed provided to. All led out world this music while asked. Paid mind even sons does he door no. Attended overcame repeated it is perceived
-		                                    Marianne in. I think on style child of. Servants moreover in sensible it ye possible. </p>
-		                            </div>
-		                        </div>
-		                        <!-- 댓글 5 -->
-		                        <div class="my-4 d-flex">
-		                            <img class="avatar avatar-md rounded-circle float-start me-3" src="resources/resources1b/images/avatar/04.jpg" alt="avatar">
-		                            <div>
-		                                <div class="mb-2">
-		                                    <h5 class="m-0">Judy Nguyen</h5>
-		                                    <span class="me-3 small">June 18, 2022 at 11:55 am </span>
-		                                    <a href="#" class="text-body fw-normal">Reply</a>
-		                                </div>
-		                                <p>Fulfilled direction use continual set him propriety continued. Saw met applauded favorite deficient engrossed concealed and her. Concluded boy perpetual old supposing. Farther related bed and passage comfort civilly.
-		                                </p>
-		                            </div>
-		                        </div>
-		
-		                    </div>
-		                    <!-- 댓글 END -->
-		                    <!-- 댓글달기 START -->
-		                    <div>
-		                        <h3>Leave a reply</h3>
-		                        <small>Your email address will not be published. Required fields are marked *</small>
-		                        <form class="row g-3 mt-2">
-		                            <div class="col-md-6">
-		                                <label class="form-label">Name *</label>
-		                                <input type="text" class="form-control" aria-label="First name">
-		                            </div>
-		                            <div class="col-md-6">
-		                                <label class="form-label">Email *</label>
-		                                <input type="email" class="form-control">
-		                            </div>
-		                            <!-- custom checkbox -->
-		                            <div class="col-md-12">
-		                                <div class="form-check">
-		                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-		                                    <label class="form-check-label" for="flexCheckDefault">Save my name and email in this browser for the next time I comment. </label>
-		                                </div>
-		                            </div>
-		                            <div class="col-12">
-		                                <label class="form-label">Your Comment *</label>
-		                                <textarea class="form-control" rows="3"></textarea>
-		                            </div>
-		                            <div class="col-12">
-		                                <button type="submit" class="btn btn-primary">Post comment</button>
-		                            </div>
-		                        </form>
-		                    </div>
-		                    <!-- 댓글달기 END -->
+		                
+		                     <!-- 댓글 시작 -->
+                        <div class="border-bottom border-top border-2 mb-3 pt-3" style="color:#a1a1a8">
+		                        <h3>${fn:length(cardCut.replyCnt)} comments</h3>
+                        		<c:forEach var="cCreply" items="${cCreply}" varStatus="status">
+                        			<c:choose>
+	                        			<c:when test="${!status.last}">
+	                            		<div class="my-4 d-flex border-bottom border-1 mb-1 reply" id="cCreply${cCreply.c_reply_no}" style="color:#a1a1a8">
+	                           			 </c:when>
+	                            	<c:otherwise>
+	                            		<div class="my-4 d-flex reply" id="cCreply${cCreply.c_reply_no}">
+	                            	</c:otherwise>
+                           			 </c:choose>
+                                <img class="avatar avatar-md rounded-circle float-start me-3" src="${path}/resources/resources1b/images/avatar_w3.png" alt="avatar">
+                        		<div style="width: 100%;">
+                                <div style="flex-container: space-between;">
+                                    <div class="mb-2" style="display:inline-block">
+                                        <h6 class="m-0 mice">${cCreply.c_reply_writer_nickName}</h6>
+                                        <span class="me-3 small"><fmt:formatDate type="both" value="${cCreply.reply_register}"/></span>
+                                    </div>
+                                    <c:if test="${not empty loginMember && (loginMember.user_id == cCreply.c_reply_writer_id)}">
+	                                    <div style="display: inline-block; flex-container: space-between; float: right;">
+		                                    <button id="reply_edit${cCreply.c_reply_no}" onclick="editReply(${cCreply.c_reply_no})" class="btn btn-outline-primary mb-0" style="font-size:13px; padding:3px 5px">수정</button>
+		                                    <button style="display:none;font-size:13px; padding:3px 5px" class="btn btn-outline-primary mb-0" id="do_reply_edit${cCreply.c_reply_no}" onclick="doEditReply(${cCreply.c_reply_no})">저장</button>
+		                                    <button style="display:none;font-size:13px; padding:3px 5px" class="btn btn-outline-primary mb-0" id="cancel_reply_edit${cCreply.c_reply_no}" onclick="cancelEditReply(${cCreply.c_reply_no})">취소</button>
+		                                    <button id="delete_reply_btn${cCreply.c_reply_no}" onclick="deleteReply(${cCreply.c_reply_no})" class="btn btn-outline-primary mb-0" style="font-size:13px; padding:3px 5px">삭제</button>
+	                                    </div>
+                                    </c:if>
+                                    <div class="mb-2" style="color:#191a1f">
+                                        <p id="reply_content${cCreply.c_reply_no}">${cCreply.c_reply_content}</p>
+                                        <textarea class="form-control" style="display:none; resize: none;" id="edit_cCreply_content${cCreply.c_reply_no}">${cCreply.c_reply_content}</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:forEach>
+                        </div>
+                        <!-- 댓글 끝 -->
+                        <!-- 댓글 작성 시작 -->
+                        <div>
+                         <c:if test="${loginMember != null}"> 
+                            <h3 class="mice">Leave a reply</h3>
+                            <form class="row g-3 mt-1" action="${path}/cCreply" method="post">
+                            	<input type="hidden" name="cardCutNo" value="${cardCut.cardCutNo}"/> 
+    							<input type="hidden" name="c_writer_no" value="${loginMember.user_no}"/> 
+                                <div class="col-12">
+                                    <textarea name="c_reply_content" class="form-control" rows="3" style="resize: none; border-radius: 5px;"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary" id="btn-insert">Post comment</button>
+                                </div>
+                            </form>
+                            </c:if>
+                        </div>
+                        <!-- 댓글 작성 끝 -->
+                        
 		                </div>
 		                <!-- Main Content END -->
 		
@@ -332,6 +284,95 @@
 		        </div>
 		    </section>
 		</main>
+		    <script>
+			// 댓글 삭제
+	$(document).on("click", ".delete_c_reply_btn", function(e){
+		e.preventDefault();
+		let c_reply_no = $(this).attr("href");
+		
+		$.ajax({
+			data : {
+				c_reply_no : c_reply_no,
+				c_board_no : "${cardcut.cardCutNo}"
+			},
+			url : "/cCreplydel",
+			type : "POST",
+			success : function(result){
+				alert("댓글이 삭제되었습니다.");
+			}
+		});
+	});
+	
+	function editReply(idx){
+		console.log(idx);
+		$("#cCreply_content"+idx).hide();
+		$("#edit_cCreply_content"+idx).show();
+		
+		$("#cCreply_edit"+idx).hide();
+		$("#do_cCreply_edit"+idx).show();
+		$("#cancel_cCreply_edit"+idx).show();
+	}
+	
+	function cancelEditReply(idx){
+		console.log("cancel Edit Reply");
+		
+		$("#edit_reply_content"+idx).val($("#reply_content"+idx).text()); //내용 원복
+		
+		$("#reply_content"+idx).show();
+		$("#edit_reply_content"+idx).hide();
+		
+		$("#reply_edit"+idx).show();
+		$("#do_reply_edit"+idx).hide();
+		$("#cancel_reply_edit"+idx).hide();
+	}
+	
+	function doEditReply(idx){
+		$.ajax({
+			data : JSON.stringify({
+				reply_no : idx,
+				board_no : "${cardcut.cardCutNo}",
+				reply_content:$("#edit_reply_content"+idx).val()
+			}),
+			url : "/realfinal/board/replyedit",
+			type : "POST",
+			contentType: 'application/json',
+			success : function(result){
+				alert("댓글이 수정되었습니다.");
+				
+				$("#reply_content"+idx).text($("#edit_reply_content"+idx).val());
+				
+				$("#reply_content"+idx).show();
+				$("#edit_reply_content"+idx).hide();
+				
+				$("#reply_edit"+idx).show();
+				$("#do_reply_edit"+idx).hide();
+				$("#cancel_reply_edit"+idx).hide();
+			}
+		});
+	}
+	
+	function deleteReply(idx){
+		$.ajax({
+			data : JSON.stringify({
+				reply_no : idx,
+				board_no : "${board.board_no}",
+				reply_content:$("#edit_reply_content"+idx).val()
+			}),
+			url : "/realfinal/board/replydel",
+			type : "POST",
+			contentType: 'application/json',
+			success : function(result){
+				alert("댓글이 삭제되었습니다.");
+
+				$("#reply"+idx).remove();
+				
+				var last_reply = $(".reply").last();
+				
+				last_reply.removeClass("border-bottom border-1 mb-1");
+			}
+		});
+	}
+	</script>
 		<%@ include file="/WEB-INF/views/common/footer.jsp" %>
 	</body>
 </html>

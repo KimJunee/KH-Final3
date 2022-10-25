@@ -3,19 +3,22 @@ package com.kh.realfinal.politics.model.service;
 import java.util.List;
 import java.util.Map;
 
+import com.kh.realfinal.board.model.vo.Reply;
 import com.kh.realfinal.common.util.PageInfo;
 import com.kh.realfinal.politics.model.vo.CardCut;
 import com.kh.realfinal.politics.model.vo.CardCutReply;
 
 public interface CardCutService {
 	int saveCardCut(CardCut card);
-	
 	List<CardCut> getCardCutList(PageInfo pageInfo, Map<String, String> param);
 	int getCardCutCount(Map<String, String> param);
 	
 	// 리플작성
-	int deleteReply(int no);  
-	int saveCcReply(CardCutReply reply);
+	int saveCcReply(CardCutReply cardCutReply);
+	int editCcReply(CardCutReply cardCutReply);
+	int deleteCcReply(int no);  
 	CardCut getCardCutContent(int cardCutNo);
+	
+
 	
 }

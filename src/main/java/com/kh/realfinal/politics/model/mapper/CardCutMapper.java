@@ -11,12 +11,16 @@ import com.kh.realfinal.politics.model.vo.CardCutReply;
 
 @Mapper
 public interface CardCutMapper {
+
 	int insertCardCut(CardCut cardCut);
-	int deleteReply(int no); // 리플작성
-	int insertReply(CardCutReply reply);
 	List<CardCut> selectCardCut(RowBounds rowBounds, Map<String, String> param);
 	int selectCardCutCount(Map<String, String> param);
-	CardCut selectCardCutOne(int cardCutNo);
+	CardCut selectCardCutOne(int cardCutNo); //게시글 누르면 해당 게시글 상세기 나오게! 그리고 댓글도 같이 나옴
+	
+	int insertCardCutreply(CardCutReply cCreply);//게시글insert
+	int editCardCutReply(CardCutReply cCreply);
+	int updateCardCutReply(CardCutReply cCreply); //댓글 update?
+	int deleteCardCutReply(int no);//댓글삭제
 }
 
 

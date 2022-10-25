@@ -1,21 +1,36 @@
 package com.kh.realfinal.politics.model.controller;
 
+//import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
+
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.kh.realfinal.common.util.PageInfo;
+import com.kh.realfinal.member.model.vo.Member;
 import com.kh.realfinal.politics.api.CardCutRss;
 import com.kh.realfinal.politics.model.service.CardCutService;
 import com.kh.realfinal.politics.model.vo.CardCut;
+import com.kh.realfinal.politics.model.vo.CardCutReply;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Controller
 public class CardCutController {
 	
@@ -91,15 +106,97 @@ public class CardCutController {
 	
 	
 	@RequestMapping("/politics/cardCutDetail")
-	public String cardCutDetail(Model model, @RequestParam Map<String, String> param) {
-		int cardCutNo = Integer.parseInt(param.get("cardCutNo"));
+	public String cardCutDetail(Model model, @RequestParam Map<String, String> param,
+			 @RequestParam("cardCutNo") int cardCutNo, HttpServletRequest request) {
+		if(param.get("cardCutNo") != null) {
+			cardCutNo = Integer.parseInt(param.get("cardCutNo"));			
+		}
+		
 		CardCut cardCut = CardCutService.getCardCutContent(cardCutNo);
-		System.out.println(cardCut);
 
+		if(cardCut == null) {
+			return "redirect:error";
+		}
+		
+		String rootPath = request.getSession().getServletContext().getRealPath("resources");
+		String savePath = rootPath + "\\upload\\cardCut\\";
+		 
+		System.out.println(cardCut.getReplyCnt());
+		System.out.println(cardCut.getReplies());
+		System.out.println( cardCut.getReplies().size() );
 		model.addAttribute("cardCut", cardCut);
+		model.addAttribute("replyList", new ArrayList<CardCutReply>());
 		model.addAttribute("param", param);
+		model.addAttribute("param", savePath);
 
 		return "/politics/cardCutDetail";
 	}
+	
+	// 댓글 작성
+	@PostMapping("/cCreply")
+	public String writeCcReply(Model model, HttpServletRequest request,
+			@SessionAttribute(name = "loginMember", required = false) Member loginMember,
+			@ModelAttribute CardCutReply cCreply
+			) {
+		log.info("리플 작성 요청");
+		
+		cCreply.setC_writer_no(loginMember.getUser_no());
+		log.debug("cCreply : " + cCreply);
+		int result = CardCutService.saveCcReply(cCreply);
+		
+		if(result > 0) {
+			model.addAttribute("msg", "리플이 등록 되었습니다.");
+		}else {
+			model.addAttribute("msg", "리플 작성에 실패하였습니다.");
+		}
+		model.addAttribute("location", "/politics/cardCutDetail?cardCutNo="+ cCreply.getCardCutNo());
+		return "/common/msg";
+	}
+	
+	// 댓글 수정
+	@RequestMapping("/cCreplyedit")
+	@ResponseBody
+	public Map<String,Object> editCcReply(Model model, 
+			@SessionAttribute(name = "loginMember", required = false) Member loginMember,
+			@RequestBody CardCutReply cCreply
+			) {
+		
+		Map<String,Object> resultMap = new HashMap<String,Object>();
+		
+		log.debug("댓글 수정 요청");
+		int result = CardCutService.editCcReply(cCreply);
+		
+		if(result > 0) {
+			resultMap.put("msg", "댓글 삭제에 성공하였습니다.");
+			resultMap.put("result", "success");
+		}else {
+			resultMap.put("msg", "댓글 삭제 실패하였습니다.");
+			resultMap.put("result", "fail");
+		}
+		return resultMap;
+	}
+	
+	// 댓글 삭제
+		@RequestMapping("/cCreplydel")
+		@ResponseBody
+		public Map<String,Object> deleteCcReply(Model model, 
+				@SessionAttribute(name = "loginMember", required = false) Member loginMember,
+				@RequestBody CardCutReply cCreply
+				) {
+			Map<String,Object> resultMap = new HashMap<String,Object>();
+			
+			log.debug("댓글 삭제 요청");
+			int result = CardCutService.deleteCcReply(cCreply.getCardCutNo());
+			
+			if(result > 0) {
+				resultMap.put("msg", "댓글 삭제에 성공하였습니다.");
+				resultMap.put("result", "success");
+			}else {
+				resultMap.put("msg", "댓글 삭제 실패하였습니다.");
+				resultMap.put("result", "fail");
+			}
+			return resultMap;
+		}
+		
 	
 }
