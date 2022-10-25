@@ -8,9 +8,9 @@
 <html lang="ko">
 
 <head>
-    <title>FinTouch | FinanceProduct | Detail</title>
+    <title>FinTouch - 신속하고 정확한 금융지식전달을 위해 노력합니다. </title>
         <!-- Favicon -->
-    <link rel="shortcut icon" href="resources/resources1b/images/favicon.ico">
+    <link rel="shortcut icon" href="${path}/resources/resources1b/images/favicon.ico">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
 </head>
 <body>
@@ -38,7 +38,7 @@
                                         </div>
                                         <div class="d-md-flex align-items-center mt-4 ">
                                             <!-- <h5 class="text-white me-3 ">Share on: </h5> -->
-                                            <a type="button " class="btn btn-outline-white" href="02_fin_main.html">S T A R T &nbsp;&nbsp; E X P L O R I N G&nbsp;&nbsp;  F I N A N C E &nbsp;&nbsp; > </a>
+                                            <a type="button " class="btn btn-outline-white" href="${path}/stockprice/fin_main.do">S T A R T &nbsp;&nbsp; E X P L O R I N G&nbsp;&nbsp;  F I N A N C E &nbsp;&nbsp; > </a>
                                         </div>
 
                                         <!-- Custom thumb START -->
@@ -53,7 +53,7 @@
                                                 <div class="col-8 ">
                                                     <a href="02_fin_main.html" class="badge text-bg-danger mb-2 "><i class="fas fa-circle me-2 small fw-bold "></i>Finance</a>
                                                     <h4 class="fw-normal text-truncate mb-1 mice text-white ">
-                                                        <a href="02_fin_main.html" class="btn-link text-reset fw-bold">오늘의 주식시장을 확인해보세요!</a></h4>
+                                                        <a href="${path}/stockprice/fin_main.do" class="btn-link text-reset fw-bold">오늘의 주식시장을 확인해보세요!</a></h4>
                                                 </div>
                                             </div>
                                             <!-- Thumb 2 -->
@@ -112,11 +112,7 @@
                                 </c:forEach>
                                 </c:if>
                             </div>
-                            <!-- <div class="col-1">
-                            <div class="text-end">
-                                <div id="new-leads-chart1" data-colors="#0acf97"></div>
-                            </div>
-                        </div> -->
+
                             <div class="col-2">
                                 <div dir="ltr" style="padding-left: 30px;">
                                     <!-- <div id="basic-area1" class="apex-charts" data-colors="#fa6767"></div> -->
