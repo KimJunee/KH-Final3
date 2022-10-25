@@ -314,7 +314,7 @@
                                                         <th scope="col" class="border-0">금융상품</th>
                                                         <th scope="col" class="border-0">금융회사</th>
                                                         <th scope="col" class="border-0">가입방법</th>
-                                                        <th scope="col" class="border-0 rounded-end">적립유형</th>
+                                                        <th scope="col" class="border-0 rounded-end">금리유형</th>
                                                     </tr>
                                                 </thead>
 
@@ -399,7 +399,25 @@
                                                         <!-- 가입방법 -->
                                                         <td style="text-overflow:ellipsis;width:120px;overflow:hidden;"><c:out value="${fixDeposit.joinWay}"/></td>
                                                         <!-- 적립,금리유형 -->
-                                                        <td>자유적립식</td>
+                                                        <td>
+                                                        	<c:forEach var="depositOption" items="${fixDeposit.fixOptionList}"  begin="0" end="0" step="1">               
+                                                           	   <span class="
+															   <c:choose>
+															   <c:when test = "${depositOption.intrRateTypeNm == '복리'}">
+															      badge bg-danger bg-opacity-15 text-danger mb-2
+															   </c:when>
+															   <c:when test="${depositOption.intrRateTypeNm == '단리'}">
+															      badge bg-success bg-opacity-15 text-success mb-2
+															   </c:when>
+															   <c:otherwise>
+															      badge bg-warning bg-opacity-10 text-warning mb-2
+															   </c:otherwise>
+															   </c:choose>
+															   ">
+															   ${depositOption.intrRateTypeNm}
+															   </span>                                                               			
+                                                            </c:forEach>
+														</td>
                                                     </tr>   
                                                 </c:forEach>
                                               	</c:if>                    

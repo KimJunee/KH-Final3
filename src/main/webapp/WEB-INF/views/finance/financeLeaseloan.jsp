@@ -403,7 +403,21 @@
                                                         <!-- 적립,금리유형 -->
                                                         <td>
                                                         	<c:forEach var="leaseLoanOption" items="${leaseLoan.leaseOptionList}"  begin="0" end="0" step="1">
-                                                            	<c:out value="${leaseLoanOption.lendRateTypeNm}"/>                                                                			
+                                                            	<span class="
+															    <c:choose>
+															    <c:when test = "${leaseLoanOption.lendRateTypeNm == '변동금리'}">
+															       badge bg-danger bg-opacity-15 text-danger mb-2
+															    </c:when>
+															    <c:when test="${leaseLoanOption.lendRateTypeNm == '고정금리'}">
+															       badge bg-success bg-opacity-15 text-success mb-2
+															    </c:when>
+															    <c:otherwise>
+															       badge bg-warning bg-opacity-10 text-warning mb-2
+															    </c:otherwise>
+															    </c:choose>
+															    ">
+															    ${leaseLoanOption.lendRateTypeNm}
+															    </span>                                                              			
                                                             </c:forEach>
 														</td>
                                                     </tr>   

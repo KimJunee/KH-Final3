@@ -405,8 +405,22 @@
                                                         </td>
                                                         <!-- 적립,금리유형 -->
                                                         <td>
-                                                        	<c:forEach var="installOption" items="${installmentSavings.installOptionList}"  begin="0" end="0" step="1">
-                                                            	<c:out value="${installOption.rsrvTypeNm}"/>                                                              			
+                                                        	<c:forEach var="installOption" items="${installmentSavings.installOptionList}"  begin="0" end="0" step="1"> 
+                                                            	<span class="
+															    <c:choose>
+															    <c:when test = "${installOption.rsrvTypeNm == '자유적립식'}">
+															       badge bg-danger bg-opacity-15 text-danger mb-2
+															    </c:when>
+															    <c:when test="${installOption.rsrvTypeNm == '정액적립식'}">
+															       badge bg-success bg-opacity-15 text-success mb-2
+															    </c:when>
+															    <c:otherwise>
+															       badge bg-warning bg-opacity-10 text-warning mb-2
+															    </c:otherwise>
+															    </c:choose>
+															    ">
+															    ${installOption.rsrvTypeNm}
+															    </span>                                                            			
                                                             </c:forEach>
                                                         </td>
                                                     </tr>   

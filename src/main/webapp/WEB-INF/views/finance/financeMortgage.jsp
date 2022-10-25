@@ -402,8 +402,22 @@
                                                         <td style="text-overflow:ellipsis;width:120px;overflow:hidden;"><c:out value="${mortgage.joinWay}"/></td>
                                                         <!-- 적립,금리유형 -->
                                                         <td>
-                                                        	<c:forEach var="mortgageOption" items="${mortgage.mortgageOptionList}" begin="0" end="0" step="1">
-                                                            	<c:out value="${mortgageOption.lendRateTypeNm}"/>                                                                			
+                                                        	<c:forEach var="mortgageOption" items="${mortgage.mortgageOptionList}" begin="0" end="0" step="1"> 
+                                                            	<span class="
+															    <c:choose>
+															    <c:when test = "${mortgageOption.lendRateTypeNm == '변동금리'}">
+															       badge bg-danger bg-opacity-15 text-danger mb-2
+															    </c:when>
+															    <c:when test="${mortgageOption.lendRateTypeNm == '고정금리'}">
+															       badge bg-success bg-opacity-15 text-success mb-2
+															    </c:when>
+															    <c:otherwise>
+															       badge bg-warning bg-opacity-10 text-warning mb-2
+															    </c:otherwise>
+															    </c:choose>
+															    ">
+															    ${mortgageOption.lendRateTypeNm}
+															    </span>                                                            			
                                                             </c:forEach>
 														</td>
                                                     </tr>   
