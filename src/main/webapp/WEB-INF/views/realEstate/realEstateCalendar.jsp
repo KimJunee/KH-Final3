@@ -90,8 +90,8 @@
 		    				/* apt-2순위 */
 		    				title: '<c:out value="${apt2.house_nm}"/>' ,
 	    					start: '<c:out value="${apt2.gnrl_rnk2_crsparea_rcept_pd}"/>' ,
-	    					color: '#809BCA'
-	    					/* url: '${path}/RealEstate/detail?type=A&no=${apt2.house_manage_no}' */
+	    					color: '#809BCA',
+	    					url: '${path}/RealEstate/detail?type=A&no=${apt2.house_manage_no}'
 		    			},
 	   				</c:forEach>
     			</c:if>
@@ -102,8 +102,8 @@
 		    				/* 도시형생활주택 */
 		    				title: '<c:out value="${city.house_nm}"/>' ,
 	    					start: '<c:out value="${city.subscrpt_rcept_bgnde}"/>' ,
-	    					color: '#F7A825'
-	   						/* url: '${path}/RealEstate/detail?type=U&no=${city.house_manage_no}' */
+	    					color: '#F7A825',
+	   						url: '${path}/RealEstate/detail?type=U&no=${city.house_manage_no}'
 		    			},
 	   				</c:forEach>
     			</c:if>
@@ -114,8 +114,8 @@
 		    				/* 오피스텔 */
 		    				title: '<c:out value="${office.house_nm}"/>' ,
 	    					start: '<c:out value="${office.subscrpt_rcept_bgnde}"/>' ,
-	    					color: '#BEABCC'
-	   						/* url: '${path}/RealEstate/detail?type=U&no=${office.house_manage_no}' */
+	    					color: '#BEABCC',
+	   						url: '${path}/RealEstate/detail?type=U&no=${office.house_manage_no}'
 		    			},
 	   				</c:forEach>
     			</c:if>
@@ -126,8 +126,8 @@
 		    				/* 민간임대 */
 		    				title: '<c:out value="${mingan.house_nm}"/>' ,
 	    					start: '<c:out value="${mingan.subscrpt_rcept_bgnde}"/>' ,
-	    					color: '#EB8770'
-	   						/* url: '${path}/RealEstate/detail?type=U&no=${mingan.house_manage_no}' */
+	    					color: '#EB8770',
+	   						url: '${path}/RealEstate/detail?type=U&no=${mingan.house_manage_no}'
 		    			},
 	   				</c:forEach>
     			</c:if>
@@ -138,8 +138,8 @@
 		    				/* 공공지원민간임대 */
 		    				title: '<c:out value="${gong.house_nm}"/>' ,
 	    					start: '<c:out value="${gong.subscrpt_rcept_bgnde}"/>' ,
-	    					color: '#E3A9C2'
-	    					/* url: '${path}/RealEstate/detail?type=U&no=${gong.house_manage_no}' */
+	    					color: '#E3A9C2',
+	    					url: '${path}/RealEstate/detail?type=U&no=${gong.house_manage_no}'
 		    			},
 	   				</c:forEach>
     			</c:if>
@@ -150,7 +150,8 @@
 		    				/* apt-무순위 */
 		    				title: '<c:out value="${nn.house_nm}"/>' ,
 	    					start: '<c:out value="${nn.subscrpt_rcept_bgnde}"/>' ,
-	    					color: '#B7C089'
+	    					color: '#B7C089',
+    						url: '${path}/RealEstate/detail?type=R&no=${nn.house_manage_no}'
 		    			},
 	   				</c:forEach>
     			</c:if>
@@ -161,7 +162,8 @@
 		    				/* apt-취소후재공급 */
 		    				title: '<c:out value="${cc.house_nm}"/>' ,
 	    					start: '<c:out value="${cc.subscrpt_rcept_bgnde}"/>' ,
-	    					color: '#467EB7'
+	    					color: '#467EB7',
+    						url: '${path}/RealEstate/detail?type=R&no=${cc.house_manage_no}'	
 		    			},
 	   				</c:forEach>
     			</c:if>
@@ -172,7 +174,8 @@
 		    				/* 특별공급 */
 		    				title: '<c:out value="${spc.house_nm}"/>' ,
 	    					start: '<c:out value="${spc.spsply_rcept_bgnde}"/>' ,
-	    					color: '#6B7CB4'
+	    					color: '#6B7CB4',
+    						url: '${path}/RealEstate/detail?type=A&no=${spc.house_manage_no}'
 		    			},
 	   				</c:forEach>
     			</c:if>
