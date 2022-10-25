@@ -137,7 +137,7 @@ public class CardCutController {
 		System.out.println(cardCut.getReplies());
 		System.out.println( cardCut.getReplies().size() );
 		model.addAttribute("cardCut", cardCut);
-		model.addAttribute("replyList", new ArrayList<CardCutReply>());
+		model.addAttribute("replyList", cardCut.getReplies());
 		model.addAttribute("param", param);
 		model.addAttribute("param", savePath);
 
