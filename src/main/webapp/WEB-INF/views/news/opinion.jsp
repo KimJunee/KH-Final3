@@ -163,18 +163,18 @@ Main content START -->
 	                    <nav class="mb-sm-0 d-flex justify-content-center mt-2" aria-label="navigation">
 	                        <ul class="pagination pagination-sm pagination-bordered mb-0">
 	                            <li class="page-item">
-	                                <a onclick="movePage('${path}/opinion?&page=${pageInfo.prevPage}');" class="page-link">Prev</a>
+	                                <a onclick="movePage('${path}/opinion?page=${pageInfo.prevPage}');" class="page-link">Prev</a>
 	                            </li>
 	                            <c:forEach begin="${pageInfo.startPage}" end="${pageInfo.endPage}" step="1" varStatus="status">
 	                            	<c:if test="${pageInfo.currentPage == status.current}">
 	                              <li class="page-item active"><a class="page-link">${status.current}</a></li>                                    		
 	                            	</c:if>
 	                            	<c:if test="${pageInfo.currentPage != status.current}">
-	                              <li class="page-item"><a onclick="movePage('${path}/opinion&page=${status.current}');" class="page-link">${status.current}</a></li>                                            	
+	                              <li class="page-item"><a onclick="movePage('${path}/opinion?page=${status.current}');" class="page-link">${status.current}</a></li>                                            	
 	                            	</c:if>                                         
 	                            </c:forEach>
 	                            <li class="page-item">
-	                                <a onclick="movePage('${path}/opinion&page=${pageInfo.nextPage}');" class="page-link">Next</a>
+	                                <a onclick="movePage('${path}/opinion?page=${pageInfo.nextPage}');" class="page-link">Next</a>
 	                            </li>
 	                        </ul>
 	                    </nav>

@@ -90,7 +90,7 @@
 	<!-- 정치 오피니언 2개 -->
 	<select id="selectOpinionForPolitics" resultMap="opinionResultMap" parameterType="map">
 		SELECT
-			OPINIONNO, TITLE, IMAGEURL, COLUMNIST, PUBDATE
+			OPINIONNO, TITLE, IMAGEURL, PUBDATE
 		FROM OPINION
 		WHERE ROWNUM <![CDATA[<=]]> 2
 		ORDER BY OPINIONNO DESC

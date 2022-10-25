@@ -63,7 +63,9 @@ public class OpinionController {
 			try {
 				page = Integer.parseInt(param.get("page"));
 				System.out.println("page : " + page);
-			} catch (Exception e) {}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 		Opinion topOpinion = service.getSelectOpinionMain1();
