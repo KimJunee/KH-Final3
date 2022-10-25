@@ -21,20 +21,20 @@
     <main>
         <!-- =======================
 Main content START -->
-        <section class="position-relative">
+        <section class=" bg-white" style="margin-top: -50px; margin-bottom: -50px;">
             <div class="container" data-sticky-container>
                 <div class="row">
                     <!-- Main Post START -->
                     <div class="col-lg-9">
                         <!-- Card item START -->
-                        <div class="card mb-4">
+                        <div class="card mb-2">
                             <div class="row">
                                 <div class="col-md-3">
                                     <img class="rounded-3" src="${topOpinion.imageUrl}" style="width: 300px; height: 250px;" alt="">
                                 </div>
-                                <div class="col-md-8 mt-4 mt-md-0">
+                                <div class="col-md-8 mt-4 mt-md-0 ">
                                 	<!-- 제목 -->
-                                    <h4><a href="${path}/opinion/opinionDetail?opinionNo=${topOpinion.opinionNo}" class="btn-link stretched-link text-reset">${topOpinion.title}</a></h4><br>
+                                    <h4 class="mice"><a href="${path}/opinion/opinionDetail?opinionNo=${topOpinion.opinionNo}" class="btn-link stretched-link text-reset">${topOpinion.title}</a></h4><br>
                                     <!-- 내용 -->
                                     <div style="overflow: hidden;height: 178px;text-overflow: ellipsis">
                                     <!-- <p>달러 대비 원화 환율이 지난 주 달러당 1400원의 마지노선을 깬 데 이어 26일엔 22원 이상 오르며 1430원을 넘어섰다. 1400원대 환율은 2009년 글로벌 금융 위기 이후 13년여 만의 일이다. 세계 경제를 침체로 몰아간 서브프라임 모기지 사태 때만큼 상황이 심각하다는 의미다. 코스피는 3%, 코스닥은 5%씩 폭락하며 금융시장을 혼란으로 몰아넣었다. 국제 금융가에선 ‘아시아
@@ -62,7 +62,7 @@ Main content START -->
 									</div>
 								</c:if>
 								<c:if test="${not empty sideList}">
-	                                <h5 class="mb-3">제일 많이 본 칼럼</h5>
+	                                <h4 class="mb-3 mice">제일 많이 본 칼럼</h5>
 									<c:forEach var="sideList" items="${sideList}" varStatus="status">
 		                                <div class="d-flex position-relative mb-3">
 		                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">
@@ -75,20 +75,19 @@ Main content START -->
                         </div>
                         <!-- Sidebar END -->
                     </div>
-                    </div>
+                   </div>
                     <!-- Row end -->
-                </div>
+               </div>
         </section>
         <!-- ======================= Main content END -->
 
         <!-- ======================= Featured Guests START -->
-        <section class="bg-light" style="margin-top: -50px;">
-            <div class="container">
+        <section class="p-0" style="margin-top: 10px;">
+            <div class="container bg-light col-12 rounded-3">
                 <div class="row g-0">
-                    <div class="col-12 ">
                         <!-- Title -->
-                        <div class="mb-4">
-                            <h2>논설 위원</h2>
+                        <div class="mb-3 d-sm-flex  text-center mt-4">
+                            <h2 class="mice ">  칼럼니스트 보기</h2>
                         </div>
                         <!-- Slider -->
                         <c:if test="${empty editoria}">
@@ -105,7 +104,7 @@ Main content START -->
 	                                    	<div class="card bg-transparent">
 		                                       <img class="card-img" src="${editoria.imageUrl}" alt="card image" style="width: 165px; height: 220px;">
 		                                       <div class="card-body ps-0">
-		                                           <h5 class="mb-0">${editoria.columnist}</h5>
+		                                           <h6 class="mb-0 mice text-center" >${editoria.columnist}</h5>
 		                                       </div>
 		                                   </div>
 	                               	   </div>
@@ -116,14 +115,13 @@ Main content START -->
                         </c:if>
                         <!-- Slider END -->
                     </div>
-                </div>
             </div>
         </section>
         
         <!-- ======================= Featured Guests END -->
         <br>
         <!-- ======================= Main content START -->
-        <section class="position-relative pt-8">
+        <section class="position-relative pt-8" style="margin-top: -40px;">
             <div class="container">
                 <div class="row">
                     <!-- Main Post START -->
@@ -134,13 +132,13 @@ Main content START -->
 	                            <div class="row g-3">
 	                                <div class="col-lg-5">
 	                                    <!-- Title -->
-	                                    <h2 class="card-title">
-	                                        <a href="${path}/opinion/opinionDetail?opinionNo=${list.opinionNo}" class="btn-link text-reset stretched-link">${list.title}</a>
+	                                    <h2 class="card-title mice">
+	                                        <a href="${path}/opinion/opinionDetail?opinionNo=${list.opinionNo}" class="btn-link text-reset stretched-link mice">${list.title}</a>
 	                                    </h2>
 	                                    <!-- Author info -->
 	                                    <div class="d-flex align-items-center position-relative mt-3">
 	                                        <div>
-	                                            <h5 class="mb-1"><a href="#" class="stretched-link text-reset btn-link">${list.columnist}</a></h5>
+	                                            <h5 class="mb-1 mice"><a href="#" class="stretched-link text-reset btn-link">${list.columnist}</a></h5>
 	                                            <ul class="nav align-items-center small">
 	                                                <li class="nav-item me-3"><fmt:formatDate type="both" value="${list.pubDate}"/></li>
 	                                            </ul>
