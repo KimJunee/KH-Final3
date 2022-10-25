@@ -46,7 +46,7 @@ div.right-community {
 <head>
 <title>FinTouch | Politics | Parliamentary Profiles</title>
 <!-- Favicon -->
-<link rel="shortcut icon" href="resources/resources1b/images/favicon.ico">
+<link rel="shortcut icon" href="${path}/resources/resources1b/images/favicon.ico">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
 </head>
 
@@ -335,19 +335,22 @@ div.right-community {
 										<div class="col-lg-3 mt-lg-0">
                         <div data-margin-top="80" data-sticky-for="767">
                             <!-- Most read -->
-                            <div>
+                            <div style="width:300px; margin-left:15px;">
 	                            <c:if test="${empty sideopinion}">
-									<div class="d-flex position-relative mb-3">
-										<h6>조회된 글이 없습니다.</h6>
+									<div class="position-relative mb-3">
+										<h6 class="mice">조회된 글이 없습니다.</h6>
 									</div>
 								</c:if>
 								<c:if test="${not empty sideopinion}">
-	                                <h5 class="mb-3">제일 많이 본 칼럼</h5>
 									<c:forEach var="Opinion" items="${sideopinion}" varStatus="status">
-		                                <div class="d-flex position-relative mb-3">
-		                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">
-		                                    <fmt:formatNumber type="number" pattern="##" minIntegerDigits="2" value="${Opinion.rownum}"/></span>
-		                                    <h6><a href="${path}/opinion/opinionDetail?opinionNo=${Opinion.opinionNo}" class="stretched-link text-reset btn-link"><c:out value="${Opinion.title}"/></a></h6>
+										<div class="row mt-3 mb-3">
+											<div class="position-relative avatar-xl col-3" style="padding-right:0px;">
+												<img class="avatar-img rounded" src="${Opinion.imageUrl}" style="width: 120px; height: 80px;" alt="">
+											</div>
+			                                <div class="position-relative col-9">
+			                                    <h6><a href="${path}/opinion/opinionDetail?opinionNo=${Opinion.opinionNo}" class="stretched-link text-reset btn-link"><c:out value="${Opinion.title}"/></a></h6>
+			                                    <h6 class="opacity-5"><fmt:formatDate type="both" value="${Opinion.pubDate}"/></h6>
+			                                </div>
 		                                </div>
                                 	</c:forEach>
                                 </c:if>
