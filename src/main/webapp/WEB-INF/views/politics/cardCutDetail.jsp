@@ -107,10 +107,10 @@
                         		<c:forEach var="cCreply" items="${replyList}" varStatus="status">
                         			<c:choose>
 	                        			<c:when test="${!status.last}">
-	                            		<div class="my-4 d-flex border-bottom border-1 mb-1 reply" id="cCreply${cCreply.c_reply_no}" style="color:#a1a1a8"><c:out value="${cCreply.c_reply_no}" /></div>
+	                            		<div class="my-4 d-flex border-bottom border-1 mb-1 reply" id="cCreply${cCreply.c_reply_no}" style="color:#a1a1a8"/>
 	                           			 </c:when>
 	                            	<c:otherwise>
-	                            		<div class="my-4 d-flex reply" id="cCreply${cCreply.c_reply_no}"></div>
+	                            		<div class="my-4 d-flex reply" id="cCreply${cCreply.c_reply_no}"/>
 	                            	</c:otherwise>
                            			 </c:choose>
                                 <img class="avatar avatar-md rounded-circle float-start me-3" src="${path}/resources/resources1b/images/avatar_w3.png" alt="avatar">
@@ -134,6 +134,7 @@
                                     </div>
                                 </div>
                             </div>
+                            </div>
                         </c:forEach>
                         </div>
                         <!-- 댓글 끝 -->
@@ -145,7 +146,7 @@
                             	<input type="hidden" name="cardCutNo" value="${cardCut.cardCutNo}"/> 
     							<input type="hidden" name="c_writer_no" value="${loginMember.user_no}"/> 
                                 <div class="col-12">
-                                    <textarea name="cCreply_content" class="form-control" rows="3" style="resize: none; border-radius: 5px;"></textarea>
+                                    <textarea name="c_reply_content" class="form-control" rows="3" style="resize: none; border-radius: 5px;"></textarea>
                                 </div>
                                 <div class="col-12">
                                     <button type="submit" class="btn btn-primary" id="btn-insert">Post comment</button>
@@ -315,7 +316,7 @@
 		
 		$("#edit_cCreply_content"+idx).val($("#cCreply_content"+idx).text()); //내용 원복
 		
-		$("#cCreply_contentt"+idx).show();
+		$("#cCreply_content"+idx).show();
 		$("#edit_cCreply_content"+idx).hide();
 		
 		$("#cCreply_edit"+idx).show();
@@ -328,7 +329,7 @@
 			data : JSON.stringify({
 				c_reply_no : idx,
 				c_board_no : "${cardcut.cardCutNo}",
-				reply_content:$("#edit_cCreply_content"+idx).val()
+				c_reply_content:$("#edit_cCreply_content"+idx).val()
 			}),
 			url : "/realfinal/cCreplyedit",
 			type : "POST",
@@ -365,96 +366,10 @@
 				
 				var last_reply = $(".cCreply").last();
 				
-				last_reply.removeClass("border-bottom border-1 mb-1");
+				last_reply.removeClass("my-4 d-flex border-bottom border-1 mb-1 reply");
 			}
 		});
 	}
-/* 	$(document).on("click", ".delete_c_reply_btn", function(e){
-		e.preventDefault();
-		let c_reply_no = $(this).attr("href");
-		
-		$.ajax({
-			data : {
-				c_reply_no : c_reply_no,
-				c_board_no : "${cardcut.cardCutNo}"
-			},
-			url : "/cCreplydel",
-			type : "POST",
-			success : function(result){
-				alert("댓글이 삭제되었습니다.");
-			}
-		});
-	});
-	
-	function editReply(idx){
-		console.log(idx);
-		$("#cCreply_content"+idx).hide();
-		$("#edit_cCreply_content"+idx).show();
-		
-		$("#cCreply_edit"+idx).hide();
-		$("#do_cCreply_edit"+idx).show();
-		$("#cancel_cCreply_edit"+idx).show();
-	}
-	
-	function cancelEditReply(idx){
-		console.log("cancel Edit Reply");
-		
-		$("#edit_reply_content"+idx).val($("#reply_content"+idx).text()); //내용 원복
-		
-		$("#reply_content"+idx).show();
-		$("#edit_reply_content"+idx).hide();
-		
-		$("#reply_edit"+idx).show();
-		$("#do_reply_edit"+idx).hide();
-		$("#cancel_reply_edit"+idx).hide();
-	}
-	
-	function doEditReply(idx){
-		$.ajax({
-			data : JSON.stringify({
-				reply_no : idx,
-				board_no : "${cardcut.cardCutNo}",
-				reply_content:$("#edit_reply_content"+idx).val()
-			}),
-			url : "/realfinal/board/replyedit",
-			type : "POST",
-			contentType: 'application/json',
-			success : function(result){
-				alert("댓글이 수정되었습니다.");
-				
-				$("#reply_content"+idx).text($("#edit_reply_content"+idx).val());
-				
-				$("#reply_content"+idx).show();
-				$("#edit_reply_content"+idx).hide();
-				
-				$("#reply_edit"+idx).show();
-				$("#do_reply_edit"+idx).hide();
-				$("#cancel_reply_edit"+idx).hide();
-			}
-		});
-	}
-	
-	function deleteReply(idx){
-		$.ajax({
-			data : JSON.stringify({
-				reply_no : idx,
-				board_no : "${board.board_no}",
-				reply_content:$("#edit_reply_content"+idx).val()
-			}),
-			url : "/realfinal/board/replydel",
-			type : "POST",
-			contentType: 'application/json',
-			success : function(result){
-				alert("댓글이 삭제되었습니다.");
-
-				$("#reply"+idx).remove();
-				
-				var last_reply = $(".reply").last();
-				
-				last_reply.removeClass("border-bottom border-1 mb-1");
-			}
-		});
-	} */
 	</script>
 		<%@ include file="/WEB-INF/views/common/footer.jsp" %>
 	</body>
