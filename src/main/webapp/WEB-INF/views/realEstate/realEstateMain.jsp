@@ -479,10 +479,10 @@
 								class="table align-middle p-4 mb-0 table-hover table-shrink m-auto">
 								<!-- Table head -->
 									<colgroup>
-                                        	<col width="20%">
+                                        	<col width="15%">
                                         	<col width="40%">
                                         	<col width="10%">
-                                        	<col width="30%">
+                                        	<col width="35%">
                                     </colgroup>
                                     
 								<thead class="table-dark text-center">
