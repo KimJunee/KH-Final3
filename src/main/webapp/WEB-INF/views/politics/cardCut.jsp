@@ -80,29 +80,27 @@
 		                    <!-- Card header END -->
 		                    <!-- Card body START -->
 		                    <div class="card-body mt-3 border-bottom mb-3 p-1">
-		                        <!-- Search and select START -->
-		                        <div class="row g-3 align-items-center justify-content-between mb-3">
-		                            <!-- Search -->
-		                            <div class="col-md-4">
-		                                <form class="rounded position-relative">
-		                                    <input class="form-control pe-5 bg-transparent" type="search" placeholder="Search" aria-label="Search">
-		                                    <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
-		                                </form>
-		                            </div>
-		                            <!-- Select option -->
-		                            <div class="col-md-4">
-		                                <!-- Short by filter -->
-		                                <form>
-		                                    <select class="form-select z-index-9 bg-transparent" aria-label=".form-select-sm">
-		                                        <option value="">Sort by</option>
-		                                        <option>최근 1년</option>
-		                                        <option>최근 1달</option>
-		                                        <option>최근 1주</option>
-		                                    </select>
-		                                </form>
-		                            </div>
-		                        </div>
-		                    </div>
+							 <!-- Search and select START -->
+								 <div class="row justify-content-between mb-3 ">
+								 <!-- Search -->
+								 <div class=" ">
+									 <form action="">
+										 <input type="hidden" name="profileNo" value="${profile.no}" >
+											 <input type="hidden" name="page" value="${pageInfo.currentPage}" >
+												 <div class="rounded position-relative align-items-left " style="display: inline-block; width: 45em; ">
+													 <input class="form-control bg-transparent " name="searchKey" value="${param.searchKey}"
+														 type="search" placeholder="원하시는 카드뉴스명을 입력하세요!" aria-label="Search ">
+													 <div align="right">	
+														 <button class="btn bg-transparent border-0  position-absolute top-50 end-0 translate-middle-y "
+															 type="submit"><i class="fas fa-search fs-6 "></i>
+														 </button>
+													 </div>
+												 </div> 
+												 <button type="submit" class="btn btn-sm btn-primary mb-0 align-items-right" style="float:right;">S E A R C H</button>
+										 </form>
+									 </div>
+								 </div>
+							  </div>
 						<!-- Card item -->
 		                    <div class="row">
 		                    <!-- Card item START -->
