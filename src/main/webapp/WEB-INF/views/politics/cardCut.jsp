@@ -48,7 +48,7 @@
 															alt="Card image" style="height: 280px;">
 											</div>
 											<div class="card-body px-0 pt-3">
-												<h4 class="card-title">
+												<h4 class="card-title mice">
 													<a href="${path}/politics/cardCutDetail?cardCutNo=${cardcutTop.cardCutNo}"
 														class="btn-link text-reset stretched-link fw-bold">${cardcutTop.title}</a>
 												</h4>
@@ -74,7 +74,7 @@
 		                <div class="col-9">
 		                    <div class="card-header bg-transparent border-bottom p-3">
 		                        <div class="d-sm-flex justify-content-between align-items-center">
-		                            <h4 class="mb-2 mb-sm-0 fw-bold">카드뉴스 검색 <span class="badge bg-primary bg-opacity-10 text-primary">105</span></h4>
+		                            <h2 class="mb-2 mb-sm-0 fw-bold mice">카드뉴스 검색&nbsp;<a class="badge text-bg-danger mb-3 " style="font-size: 50%; ">HOT</a></h2>
 		                        </div>
 		                    </div>
 		                    <!-- Card header END -->
@@ -115,10 +115,10 @@
 													alt="Card image" style="height: 270px;">
 											</div>
 											<div class="card-body px-0 pt-3">
-												<h6 class="card-title">
+												<h5 class="card-title mice">
 													<a href="${path}/politics/cardCutDetail?cardCutNo=${cardcut.cardCutNo}"
 														class="btn-link text-reset stretched-link fw-bold">${cardcut.title}</a>
-												</h6>
+												</h5>
 												<!-- Card info -->
 												<ul
 													class="nav nav-divider align-items-center text-uppercase small">
@@ -156,8 +156,8 @@
 		                </div>
 		                <div class="col-3">
 		                    <div class="card border ">
-		                        <div class="card-header border-bottom p-3 bg-white">
-		                            <h4 class="card-header-title mb-0 text-black fw-bold">오피니언</h4>
+		                        <div class="card-header border-bottom p-3 bg-dark">
+		                            <h4 class="card-header-title mb-0 text-white fw-bold mice">오피니언</h4>
 		                        </div>
 		                        <!-- Card body START -->
 		                        <div class="card-body p-3">
@@ -170,25 +170,25 @@
 										</c:if>
 										<c:if test="${not empty sideopinion}">
 			                                <c:forEach var="Opinion" items="${sideopinion}" varStatus="status">
-				                                <div class="col-12">
-				                                    <div class="d-flex align-items-center position-relative">
+				                                <div class="col-12 mb-0 ">
+				                                    <div class="d-flex align-items-center mt-0">
 				                                        <img class="rounded" src="${Opinion.imageUrl}" alt="product" style="width:60px; hight:80;">
-				                                        <div class="ms-3">
+				                                        <div class="ms-3 mt-2">
 				                                            <a href="${path}/opinion/opinionDetail?opinionNo=${Opinion.opinionNo}" class="h6 stretched-link">${Opinion.title}</a>
 				                                            <p class="small mb-0"><fmt:formatDate type="both" value="${Opinion.pubDate}"/></p>
 				                                        </div>
 				                                    </div>
 				                                </div>
 				                                <!-- Divider -->
-				                                <hr class="my-3">
 			                                </c:forEach>
 		                                </c:if>
 		                            </div>
 		                        </div>
 		                    </div>
+				             <!-- <hr class="my-3"> -->
 		
 		                    <div class="row g-2 mt-4">
-		                        <h4 class="fw-bolder">인기검색어</h4>
+		                        <h4 class="fw-bolder mice">인기검색어</h4>
 		                        <div class="d-flex justify-content-between align-items-center bg-warning bg-opacity-15 rounded p-2 position-relative">
 		                            <h6 class="m-0 text-warning">디지털 경쟁력</h6>
 		                            <a href="#" class="badge bg-warning text-dark stretched-link">01</a>
@@ -212,7 +212,7 @@
 		                    </div>
 		                  	<!-- 실시간정치커뮤니티 시작-->
 								<div class="right-community">
-									<div class="container">
+									 
 	                            		<c:if test="${empty politicsList}">
 											<div class="d-flex position-relative mb-3">
 												<div class="container">
@@ -221,7 +221,7 @@
 											</div>
 										</c:if>
 										<c:if test="${not empty politicsList}">
-			                                <h5 class="mt-5 mb-3">실시간<span style="color:#2163E8">정치</span>커뮤니티</h5>
+			                                <h4 class="mt-5 mb-3 mice">실시간<span style="color:#2163E8">정치</span>커뮤니티</h4>
 												<c:forEach var="board" items="${politicsList}" varStatus="status">
 					                                <div class="d-flex position-relative mb-3">
 					                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">
@@ -230,7 +230,7 @@
 					                                </div>
 			                                	</c:forEach>
 			                               </c:if>
-		                                </div>
+		                              
 	                            	</div>
 									<!-- 실시간정치커뮤니티 끝-->
 		                </div>
