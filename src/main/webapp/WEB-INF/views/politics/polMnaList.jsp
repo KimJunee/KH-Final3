@@ -334,41 +334,32 @@ Main START -->
 									<!-- 사이드바 오피니언 시작 -->
 									<div class="card border ">
 										<div class="card-header border-bottom p-3 bg-dark ">
-											<h5 class="card-header-title mb-0 text-white mice">오피니언</h5>
+											<h4 class="card-header-title mb-0 text-white mice">오피니언</h4>
 										</div>
 										<!-- Card body START -->
-										<div class="card-body p-3">
-											<div class="row">
-												<!-- Blog item -->
-												<div class="col-12">
-													<div class="d-flex align-items-center position-relative">
-														<img class="w-60 rounded"
-															src="resources/resources1b/images/blog/1by1/01.jpg"
-															alt="product">
-														<div class="ms-3">
-															<a href="#" class="h6 stretched-link">‘청년주간’을 맞아 생각해
-																본 ‘청년정책’이 가야할 길</a>
-															<p class="small mb-0">2022.09.22</p>
-														</div>
-													</div>
-												</div>
-												<!-- Divider -->
-												<hr class="my-3">
-												<!-- Blog item -->
-												<div class="col-12">
-													<div class="d-flex align-items-center position-relative">
-														<img class="w-60 rounded"
-															src="resources/resources1b/images/blog/1by1/02.jpg"
-															alt="product">
-														<div class="ms-3">
-															<a href="#" class="h6 stretched-link">감정이입을 통해 내면세계로
-																초대하는 예술가들</a>
-															<p class="small mb-0">2022.09.22</p>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
+										<div class="col-lg-3 mt-lg-0">
+                        <div data-margin-top="80" data-sticky-for="767">
+                            <!-- Most read -->
+                            <div>
+	                            <c:if test="${empty opinionList}">
+									<div class="d-flex position-relative mb-3">
+										<h6>조회된 글이 없습니다.</h6>
+									</div>
+								</c:if>
+								<c:if test="${not empty sideList}">
+	                                <h5 class="mb-3">제일 많이 본 칼럼</h5>
+									<c:forEach var="sideList" items="${sideList}" varStatus="status">
+		                                <div class="d-flex position-relative mb-3">
+		                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">
+		                                    <fmt:formatNumber type="number" pattern="##" minIntegerDigits="2" value="${sideList.rownum}"/></span>
+		                                    <h6><a href="${path}/opinion/opinionDetail?opinionNo=${sideList.opinionNo}" class="stretched-link text-reset btn-link"><c:out value="${sideList.title}"/></a></h6>
+		                                </div>
+                                	</c:forEach>
+                                </c:if>
+                            </div>
+                        </div>
+                        <!-- Sidebar END -->
+                    </div>
 									</div>
 								</div>
 								<!-- 오피니언 끝 -->

@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.kh.realfinal.board.model.service.BoardService;
 import com.kh.realfinal.board.model.vo.Board;
 import com.kh.realfinal.common.util.PageInfo;
+import com.kh.realfinal.opinion.model.service.OpinionService;
+import com.kh.realfinal.opinion.model.vo.Opinion;
 import com.kh.realfinal.politics.api.LawProposedAPI;
 import com.kh.realfinal.politics.api.MnaPhotoAPI;
 import com.kh.realfinal.politics.api.ProfileMnaAPI;
@@ -30,6 +32,10 @@ public class ProfileMnaController {
 	@Autowired
 	private BoardService boardService;
 	private final int RealEstate = 1;
+	
+	@Autowired
+	private OpinionService opinionService;
+	private final int Opinion = 1;
 
 	@Autowired
 	ProfileMnaService profileMnaService;
@@ -117,6 +123,12 @@ public class ProfileMnaController {
 		paramBoard.put("board_list_no",RealEstate);
 		List<Board> listBoard = boardService.getSideBoardForPolitics(paramBoard);
 		// 인기정치게시글 끝
+		
+		// 최근오피니언글
+		Map<String, Object> opinion = new HashMap<String,Object>();
+		opinion.put("opinion_list_no", opinion);
+		List<Opinion> listOpinion = opinionService.getSelectOpinionForPolitics() ;
+		// 최근오피니언글 끝
 
 		int page = 1;
 		if (param.containsKey("page") == true) {
@@ -132,6 +144,7 @@ public class ProfileMnaController {
 		System.out.println(param);
 
 		model.addAttribute("politicsList", listBoard); // 인기정치게시글
+		model.addAttribute("listOpinion", listOpinion); // 최근오피니언글
 		model.addAttribute("list", list);
 		model.addAttribute("totalSize", totalSize);
 		model.addAttribute("size", list.size());
@@ -189,4 +202,5 @@ public class ProfileMnaController {
 	public String polMnaStats(Model model) { // 메인으로
 		return "politics/polMnaStats";
 	}
+ 
 }
