@@ -137,7 +137,7 @@ Main content START -->
                             <div class="row">
                                 <!-- Recent post widget START -->
                                 <div class="col-12 col-sm-6 col-lg-12">
-                                    <h4 class="mt-4 mb-3">Recent post</h4>
+                                    <h4 class="mt-4 mb-3">최근 기사</h4>
                                     <!-- Recent post item -->
                                     <div class="card mb-3">
                                         <div class="row g-3">
@@ -210,7 +210,6 @@ Main content START -->
                                     <span class="me-3 mt-n1 fa-fw fw-bold fs-3 fc-custom">06</span>
                                     <h6><a href="#" class="stretched-link text-reset btn-link">정부, 對美 외교에 80억 쏟아<br> 붓고도 IRA 몰랐다</a></h6>
                                 </div>
-
                             </div>
                         </div>
                     </div>

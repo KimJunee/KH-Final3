@@ -73,7 +73,7 @@ public class NewsController {
 		
 		map = new HashMap<>();
 		map.put("sortForDate", "sortForDate");
-		pageInfo = new PageInfo(1, 6, service.getNewsCount(map), 8);
+		pageInfo = new PageInfo(1, 5, service.getNewsCount(map), 7);
 		List<News> newList = service.getNewsList(pageInfo, map);
 		
 		map = new HashMap<>();

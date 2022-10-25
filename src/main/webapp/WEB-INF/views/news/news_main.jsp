@@ -66,7 +66,7 @@
                                 <c:forEach var="newNews" items="${newList}">
 	                                <!-- Recent post item -->
 	                                <div class="card mb-3">
-	                                    <h6 class="mb-1"><a href="${newNews.link}" class="btn-link stretched-link text-reset fw-bold">
+	                                    <h6 class="mb-1"><a href="${path}/news/post?newsNo=${newNews.newsNo}" class="btn-link stretched-link text-reset fw-bold">
 	                                 	   ${newNews.title}
 	                                    </a></h6>
 	                                </div>                          
@@ -82,7 +82,7 @@
                         <div class="card">
                             <!-- Card img -->
                             <div class="position-relative">
-                                <img class="card-img rounded-0 grayscale" src="${path}/resources/resources1b/images/news/newsmain-1.jpg" alt="Card image">
+                                <img class="card-img rounded-0 grayscale" src="${path}/resources/resources1b/images/news/headnews.jpg" alt="Card image">
                                 <div class="card-img-overlay d-flex align-items-start flex-column p-3">
                                     <!-- Card overlay bottom -->
                                     <div class="w-100 mt-auto">
@@ -90,9 +90,8 @@
                                 </div>
                             </div>
                             <div class="card-body px-0 pt-3">
-                                <h4 class="card-title mice"><a href="${path}/news/post" class="btn-link text-reset fw-bold">전세 사기로 ‘74억원’ 꿀꺽…범행 수법 보니</a></h4>
-                                <p class="card-text">전입세대 열람내역서를 위조하고 허위 임대인·임차인을 내세워 청년 전세자금 대출금을 편취하는 등 총 74억여 원 규모의 전세 사기를 벌인 일당이 검거됐다. 울산경찰청은 전세 사기 1차 단속 기간(7월25일∼9월24일) 124명을 검거해 21명을 구속했다고 27일 밝혔다. 경찰은 확인된 피해 금액이 총 74억여 원이며, 전세사기범 수법은 크게 두 가지로 분석됐다고 설명했다. 하나는 속칭 ‘깡통
-                                    전세’ 주택을 매입한 뒤 세입자가 없는 것처럼......</p>
+                                <h4 class="card-title mice"><a href="${path}/news/post" class="btn-link text-reset fw-bold">SPC 16개사 산재사고 5년간 759건… “2인1조 엄격하게 안지켜”</a></h4><br>
+                                <p class="card-text">SPC그룹 계열사인 SPL 경기 평택시 제빵공장에서 근로자 A 씨(23)가 사망한 지 8일 만에 SPC 계열사인 경기 성남시 샤니 제빵공장에서 40대 근로자의 손가락이 절단되는 사고가 발생하며 SPC그룹의 안전관리 체계에 대한 논란이 커지고 있다. 24일 국회에서 열린 환경노동위원회의 고용노동부 국정감사에서는 여야를 막론하고 SPC그룹에 대한 질타가 이어졌다.</p>
                             </div>
                         </div>
                         <!-- Card item END -->
@@ -103,8 +102,8 @@
                     <div class="col-lg-3">
                         <h3 class="mb-3 mice">많이 본 기사</h3>
                         <!-- Post item -->
-                        <c:if test="${!empty opinionList}">
-                        <c:forEach var="opinion" items="${opinionList}" varStatus="status" step="1" begin="1" end="9">
+                        <c:if test="${!empty hotList}">
+                        <c:forEach var="opinion" items="${opinionList}" varStatus="status" step="1" begin="1" end="8">
                         <div class="d-flex position-relative mb-3">
                             <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">0${status.count}</span>
                             <div>
@@ -255,7 +254,6 @@
                                             </div>
                                             <div class="card-body px-0 pt-3">
                                                 <h5 class="card-title"><a href="podcast-single.html" class="btn-link text-dark fw-bold">채권은 왜 세계경제의 공포가 됐나?</a></h5>
-
                                             </div>
                                         </div>
                                         <!-- Card item END -->
@@ -280,7 +278,7 @@
                             </div>
                             <c:forEach var="economy" items="${economyList}" begin="1" end="5">
                             <div class="card card-body bg-light">
-                                <h6 class="card-title"><a href="post-single-3.html" class="btn-link text-reset stretched-link fw-bold">${economy.title}</a></h6>
+                                <h6 class="card-title"><a href="${path}/news/post?newsNo=${economy.newsNo}" class="btn-link text-reset stretched-link fw-bold">${economy.title}</a></h6>
                                 <div class="border-bottom border-secondary opacity-2 mb-0 mt-1"></div>
                             </div>
                             </c:forEach>
@@ -320,7 +318,7 @@
                         <c:forEach var="economy" items="${economyList}" begin="1" end="4">
                         <!-- Card Item START -->
                         <div class="card mb-3">
-                            <h6><a href="post-single-5.html" class="btn-link stretched-link text-reset">${economy.title}</a></h6>
+                            <h6><a href="${path}/news/post?newsNo=${economy.newsNo}" class="btn-link stretched-link text-reset">${economy.title}</a></h6>
                             <!-- Card info -->
                             <ul class="nav nav-divider align-items-center mt-1 small"></ul>
                         </div>
@@ -353,7 +351,7 @@
                        	<c:forEach var="politics" items="${politicsList}" begin="1" end="4">
                         <!-- Card Item START -->
                         <div class="card mb-3">
-                            <h6><a href="post-single-5.html" class="btn-link stretched-link text-reset">${politics.title}</a></h6>
+                            <h6><a href="${path}/news/post?newsNo=${politics.newsNo}" class="btn-link stretched-link text-reset">${politics.title}</a></h6>
                             <!-- Card info -->
                             <ul class="nav nav-divider align-items-center mt-1 small"></ul>
                         </div>
@@ -388,7 +386,7 @@
                         <!-- Card Item START -->
                         <c:forEach var="national" items="${nationalList}" begin="1" end="4">
                         <div class="card mb-3">
-                            <h6><a href="post-single-5.html" class="btn-link stretched-link text-reset">${national.title}</a></h6>
+                            <h6><a href="${path}/news/post?newsNo=${national.newsNo}" class="btn-link stretched-link text-reset">${national.title}</a></h6>
                             <!-- Card info -->
                             <ul class="nav nav-divider align-items-center mt-1 small"></ul>
                         </div>
