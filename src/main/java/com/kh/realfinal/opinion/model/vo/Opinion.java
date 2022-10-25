@@ -2,7 +2,6 @@ package com.kh.realfinal.opinion.model.vo;
 
 import java.util.Date;
 import java.util.List;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
