@@ -65,7 +65,7 @@ Main content START -->
                                 <c:if test="${search.category == 'opinion'}">
                                     <a href="#" class="badge bg-success mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>opinion</a>
                                 </c:if>
-                                    <h3><a href="post-single-2.html" class="btn-link stretched-link text-reset">${search.title}</a></h3>
+                                    <h3><a href="${path}/news/post?newsNo=${search.newsNo}" class="btn-link stretched-link text-reset">${search.title}</a></h3>
                                     <p>${search.description}</p>
                                     <!-- Card info -->
                                     <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
