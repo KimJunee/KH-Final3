@@ -68,6 +68,8 @@ public class OponionServiceImpl implements OpinionService{
 	@Override
 	public Opinion getOpinionOne(int opinionNo) {
 		Opinion opinion = mapper.selectOpinionOne(opinionNo);
+		opinion.setHit(opinion.getHit() + 1);
+		mapper.updateOpinionHit(opinion);
 		return opinion;
 	}
 	

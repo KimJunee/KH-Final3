@@ -24,6 +24,5 @@ public interface OpinionMapper {
 	int editOpinionReply(OpinionReply reply);
 	int updateHit(Opinion opinionNo);
 	int deleteOpinionReply(int no);
-
 	Opinion selectOpinionDetail(int opinionNo);
 }
