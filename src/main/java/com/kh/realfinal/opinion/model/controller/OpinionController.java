@@ -3,21 +3,27 @@ package com.kh.realfinal.opinion.model.controller;
 import java.text.ParseException;
 import java.util.List;
 import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
+import com.kh.realfinal.board.controller.BoardController;
 import com.kh.realfinal.board.model.service.BoardService;
 import com.kh.realfinal.board.model.vo.Board;
 import com.kh.realfinal.common.util.PageInfo;
+import com.kh.realfinal.member.model.vo.Member;
 import com.kh.realfinal.opinion.api.OpinionRss;
 import com.kh.realfinal.opinion.model.service.OpinionService;
 import com.kh.realfinal.opinion.model.vo.Opinion;
+import com.kh.realfinal.opinion.model.vo.OpinionReply;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Controller
 public class OpinionController {
 	
@@ -103,5 +109,26 @@ public class OpinionController {
 		model.addAttribute("opinionReplyList", opinion.getReplies());
 
 		return "/news/opinionDetail";
+	}
+	
+	// 댓글 작성
+	@PostMapping("/opinion/reply")
+	public String writeReply(Model model, HttpServletRequest request,
+			@SessionAttribute(name = "loginMember", required = false) Member loginMember,
+			@ModelAttribute OpinionReply reply
+			) {
+		log.info("오피니언 리플 작성 요청");
+		
+		reply.setO_reply_writer_id(loginMember.getUser_id());
+		log.debug("OpinionReply : " + reply);
+		int result = service.saveReply(reply);
+		
+		if(result > 0) {
+			model.addAttribute("msg", "리플이 등록 되었습니다.");
+		}else {
+			model.addAttribute("msg", "리플 작성에 실패하였습니다.");
+		}
+		model.addAttribute("location", "/opinion/opinionDetail?opinionNo="+ reply.getOpinionNo());
+		return "/common/msg";
 	}
 }

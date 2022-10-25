@@ -70,13 +70,22 @@ public class OponionServiceImpl implements OpinionService{
 		return opinion;
 	}
 
+	// 댓글 작성
+	@Override
+	public int saveReply(OpinionReply reply) {
+		return mapper.insertOpinionReply(reply);
+	}
+	
+	// 댓글 수정
 	@Override
 	public int editReply(OpinionReply reply) {
-		return mapper.editReply(reply);
+		return mapper.editOpinionReply(reply);
 	}
 
+	// 댓글 삭제
 	@Override
 	public int deleteReply(int no) {
-		return mapper.deleteReply(no);
+		return mapper.deleteOpinionReply(no);
 	}
+
 }

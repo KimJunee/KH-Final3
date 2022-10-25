@@ -150,11 +150,11 @@
                         <!-- 댓글 작성 시작 -->
                         <div>
                             <h3 class="mice">Leave a reply</h3>
-                            <form class="row g-3 mt-1" action="${path}/board/reply" method="post">
-                            	<input type="hidden" name="board_no" value="${board.board_no}"/> 
-    							<input type="hidden" name="reply_writer_id" value="${loginMember.user_id}"/> 
+                            <form class="row g-3 mt-1" action="${path}/opinion/reply" method="post">
+                            	<input type="hidden" name="opinionNo" value="${opinion.opinionNo}"/> 
+    							<input type="hidden" name="o_reply_writer_id" value="${loginMember.user_id}"/> 
                                 <div class="col-12">
-                                    <textarea name="reply_content" class="form-control" rows="3" style="resize: none; border-radius: 5px;"></textarea>
+                                    <textarea name="o_reply_content" class="form-control" rows="3" style="resize: none; border-radius: 5px;"></textarea>
                                 </div>
                                 <div class="col-12">
                                     <button type="submit" class="btn btn-primary" id="btn-insert">Post comment</button>
