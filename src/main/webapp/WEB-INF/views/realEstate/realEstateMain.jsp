@@ -367,7 +367,7 @@
 							<div class="col-12 ">
 								<div class="d-flex align-items-center position-relative ">
 									<div class="ms-3 ">
-										<a href="# " class="h6 stretched-link ">시흥시 매입임대주택 입주자 선착순
+										<a class="h6 stretched-link" style="color:#545454">시흥시 매입임대주택 입주자 선착순
 											수시모집</a>
 										<p class="small mb-0 ">청약 접수 : 2022. 09. 26 &nbsp; &nbsp;
 											&nbsp; 청약 마감 : 2022. 10. 06</p>
@@ -380,7 +380,7 @@
 							<div class="col-12 ">
 								<div class="d-flex align-items-center position-relative ">
 									<div class="ms-3 ">
-										<a href="# " class="h6 stretched-link ">김포마송 B-5블록 행복주택
+										<a  class="h6 stretched-link " style="color:#545454">김포마송 B-5블록 행복주택
 											입주자격완화 추가 모집</a>
 										<p class="small mb-0 ">청약 접수 : 2022. 09. 26 &nbsp; &nbsp;
 											&nbsp; 청약 마감 : 2022. 10. 06</p>
@@ -393,7 +393,7 @@
 							<div class="col-12 ">
 								<div class="d-flex align-items-center position-relative ">
 									<div class="ms-3 ">
-										<a href="# " class="h6 stretched-link ">힐스테이트 푸르지오 수원</a>
+										<a  class="h6 stretched-link " style="color:#545454">힐스테이트 푸르지오 수원</a>
 										<p class="small mb-0 ">청약 접수 : 2022-09-26 &nbsp; &nbsp;
 											&nbsp; 청약 마감 : 2022-10-06</p>
 									</div>
@@ -405,7 +405,7 @@
 							<div class="col-12 ">
 								<div class="d-flex align-items-center position-relative ">
 									<div class="ms-3 ">
-										<a href="# " class="h6 stretched-link ">경기 수원시 집주인 임대주택
+										<a  class="h6 stretched-link " style="color:#545454">경기 수원시 집주인 임대주택
 											선착순 수시모집</a>
 										<p class="small mb-0 ">청약 접수 : 2022-09-26 &nbsp; &nbsp;
 											&nbsp; 청약 마감 : 2022-10-06</p>
@@ -418,7 +418,7 @@
 							<div class="col-12 ">
 								<div class="d-flex align-items-center position-relative ">
 									<div class="ms-3 ">
-										<a href="# " class="h6 stretched-link ">반월자이 더 파크</a>
+										<a  class="h6 stretched-link " style="color:#545454">반월자이 더 파크</a>
 										<p class="small mb-0 ">청약 접수 : 2022-09-26 &nbsp; &nbsp;
 											&nbsp; 청약 마감 : 2022-10-06</p>
 									</div>
@@ -430,7 +430,7 @@
 							<div class="col-12 ">
 								<div class="d-flex align-items-center position-relative ">
 									<div class="ms-3 ">
-										<a href="# " class="h6 stretched-link ">화성비봉 A-3블록 공공분양주택
+										<a  class="h6 stretched-link " style="color:#545454">화성비봉 A-3블록 공공분양주택
 											입주자 모집</a>
 										<p class="small mb-0 ">청약 접수 : 2022-09-26 &nbsp; &nbsp;
 											&nbsp; 청약 마감 : 2022-10-06</p>
@@ -442,7 +442,7 @@
 							<div class="col-12 ">
 								<div class="d-flex align-items-center position-relative ">
 									<div class="ms-3 ">
-										<a href="# " class="h6 stretched-link ">이안 모란 센트럴파크
+										<a  class="h6 stretched-link " style="color:#545454">이안 모란 센트럴파크
 											입주자 모집</a>
 										<p class="small mb-0 ">청약 접수 : 2022-08-31 &nbsp; &nbsp;
 											&nbsp; 청약 마감 : 2022-08-31</p>
@@ -660,7 +660,7 @@ path:hover {
             	html +='<div class="col-12 ">'
     				+	'<div class="d-flex align-items-center position-relative ">'
     				+		'<div class="ms-3 ">'
-    				+			'<a href="# " class="h6 stretched-link ">'
+    				+			'<a  class="h6 stretched-link " style="color:#545454">'
     				+  			list[i].house_nm
     				+			' 입주자 모집</a>'
     				+			'<p class="small mb-0 ">청약 접수 : '
