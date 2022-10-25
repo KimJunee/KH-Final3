@@ -57,6 +57,11 @@ Main START -->
                                 <li class="list-inline-item d-lg-block my-lg-2"><i class="bi bi-chat-left-quote-fill me-1"></i>Commenets</li>
                             </ul>
                         </div>
+                        <form action="${path}/mypage/finProLikeIns" method="post">
+		                        	<input type="hidden" name="finType" value="${installment.finType}">
+		                        	<input type="hidden" name="prtId" value="${installment.id}">		                        	
+		                        	<button class="btn btn-lg btn-primary w-100 mb-3" type="submit">기사 스크랩하기</button>
+		                        </form>
                     </div>
                     <!-- Left sidebar END -->
                     <!-- Main Content START -->
