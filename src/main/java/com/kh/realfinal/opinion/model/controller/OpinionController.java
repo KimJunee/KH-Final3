@@ -71,6 +71,13 @@ public class OpinionController {
 		
 		//System.out.println("뭔데 : " + sideList);
 		
+		for(Opinion item : list) {
+			String str = item.getContent();
+			str = str.replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
+			item.setContent(str);
+		}
+		
+		
 		model.addAttribute("editoria", editoria);
 		model.addAttribute("sideList", sideList);
 		model.addAttribute("topOpinion", topOpinion);

@@ -75,6 +75,7 @@ Main content START -->
                         </div>
                         <!-- Sidebar END -->
                     </div>
+                    </div>
                     <!-- Row end -->
                 </div>
         </section>
@@ -109,6 +110,7 @@ Main content START -->
 		                                   </div>
 	                               	   </div>
 	                           	   </c:forEach>
+	                           	   
 	                            </div>
 	                        </div>
                         </c:if>
@@ -117,6 +119,7 @@ Main content START -->
                 </div>
             </div>
         </section>
+        
         <!-- ======================= Featured Guests END -->
         <br>
         <!-- ======================= Main content START -->
@@ -146,7 +149,7 @@ Main content START -->
 	                                </div>
 	                                <!-- Detail -->
 	                                <div class="col-md-6 col-lg-4" style="overflow: hidden;height: 193px;text-overflow: ellipsis">
-	                                    <p>${list.content}</p>
+	                                    <div>${list.content}</div>
 	                                </div>
 	                                <!-- Image -->
 	                                <div class="col-md-6 col-lg-3">
