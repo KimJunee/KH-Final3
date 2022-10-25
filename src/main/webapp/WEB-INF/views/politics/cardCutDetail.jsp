@@ -15,7 +15,7 @@
         font-weight: normal;
         font-style: normal;
         font-display: block;
-    }*/  
+    }  
     
     [class^=fi-],
     [class*=" fi-"] {
@@ -63,7 +63,7 @@
 <head>
     <title>FinTouch | Politics | CardCutDetail</title>
     <!-- Favicon -->
-    <link rel="shortcut icon" href="resources/resources1b/images/favicon.ico">
+    <link rel="shortcut icon" href="${path}/resources/resources1b/images/favicon.ico">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
 </head>
 
@@ -99,9 +99,6 @@
 		                    <div class="row">
 		                        <p><span class="h5">${cardCut.descriptionOrigin}</span></p>
 		                    </div>
-		                    <!-- Divider -->
-		                    <hr>
-		
 		                    <!-- 댓글 START -->
 		                
 		                     <!-- 댓글 시작 -->
@@ -110,10 +107,10 @@
                         		<c:forEach var="cCreply" items="${replyList}" varStatus="status">
                         			<c:choose>
 	                        			<c:when test="${!status.last}">
-	                            		<div class="my-4 d-flex border-bottom border-1 mb-1 reply" id="cCreply" style="color:#a1a1a8"><c:out value="${cCreply.c_reply_no}" /></div>
+	                            		<div class="my-4 d-flex border-bottom border-1 mb-1 reply" id="cCreply${cCreply.c_reply_no}" style="color:#a1a1a8"><c:out value="${cCreply.c_reply_no}" /></div>
 	                           			 </c:when>
 	                            	<c:otherwise>
-	                            		<div class="my-4 d-flex reply" id="cCreply"></div>
+	                            		<div class="my-4 d-flex reply" id="cCreply${cCreply.c_reply_no}"></div>
 	                            	</c:otherwise>
                            			 </c:choose>
                                 <img class="avatar avatar-md rounded-circle float-start me-3" src="${path}/resources/resources1b/images/avatar_w3.png" alt="avatar">
@@ -125,15 +122,15 @@
                                     </div>
                                     <c:if test="${not empty loginMember && (loginMember.user_id == cCreply.c_reply_writer_id)}">
 	                                    <div style="display: inline-block; flex-container: space-between; float: right;">
-		                                    <button id="reply_edit${cCreply.c_reply_no}" onclick="editReply(${cCreply.c_reply_no})" class="btn btn-outline-primary mb-0" style="font-size:13px; padding:3px 5px">수정</button>
-		                                    <button style="display:none;font-size:13px; padding:3px 5px" class="btn btn-outline-primary mb-0" id="do_reply_edit${cCreply.c_reply_no}" onclick="doEditReply(${cCreply.c_reply_no})">저장</button>
-		                                    <button style="display:none;font-size:13px; padding:3px 5px" class="btn btn-outline-primary mb-0" id="cancel_reply_edit${cCreply.c_reply_no}" onclick="cancelEditReply(${cCreply.c_reply_no})">취소</button>
-		                                    <button id="delete_reply_btn${cCreply.c_reply_no}" onclick="deleteReply(${cCreply.c_reply_no})" class="btn btn-outline-primary mb-0" style="font-size:13px; padding:3px 5px">삭제</button>
+		                                    <button id="cCreply_edit${cCreply.c_reply_no}" onclick="editReply(${cCreply.c_reply_no})" class="btn btn-outline-primary mb-0" style="font-size:13px; padding:3px 5px">수정</button>
+		                                    <button style="display:none;font-size:13px; padding:3px 5px" class="btn btn-outline-primary mb-0" id="do_cCreply_edit${cCreply.c_reply_no}" onclick="doEditReply(${cCreply.c_reply_no})">저장</button>
+		                                    <button style="display:none;font-size:13px; padding:3px 5px" class="btn btn-outline-primary mb-0" id="cancel_cCreply_edit${cCreply.c_reply_no}" onclick="cancelEditReply(${cCreply.c_reply_no})">취소</button>
+		                                    <button id="delete_c_reply_btn${cCreply.c_reply_no}" onclick="deleteReply(${cCreply.c_reply_no})" class="btn btn-outline-primary mb-0" style="font-size:13px; padding:3px 5px">삭제</button>
 	                                    </div>
                                     </c:if>
                                     <div class="mb-2" style="color:#191a1f">
-                                        <p id="reply_content"><c:out value="${cCreply.c_reply_content}" /></p><!-- 실페 출력되는부분 -->
-                                        <textarea class="form-control" style="display:none; resize: none;" id="edit_cCreply_content">  <c:out value="${cCreply.c_reply_content}" /></textarea>
+                                        <p id="cCreply_content${cCreply.c_reply_no}"><c:out value="${cCreply.c_reply_content}" /></p><!-- 실페 출력되는부분 -->
+                                        <textarea class="form-control" style="display:none; resize: none;" id="edit_cCreply_content${cCreply.c_reply_no}">  <c:out value="${cCreply.c_reply_content}" /></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -148,7 +145,7 @@
                             	<input type="hidden" name="cardCutNo" value="${cardCut.cardCutNo}"/> 
     							<input type="hidden" name="c_writer_no" value="${loginMember.user_no}"/> 
                                 <div class="col-12">
-                                    <textarea name="c_reply_content" class="form-control" rows="3" style="resize: none; border-radius: 5px;"></textarea>
+                                    <textarea name="cCreply_content" class="form-control" rows="3" style="resize: none; border-radius: 5px;"></textarea>
                                 </div>
                                 <div class="col-12">
                                     <button type="submit" class="btn btn-primary" id="btn-insert">Post comment</button>
@@ -286,7 +283,93 @@
 		</main>
 		    <script>
 			// 댓글 삭제
-	$(document).on("click", ".delete_c_reply_btn", function(e){
+			$(document).on("click", ".delete_c_reply_btn", function(e){
+		e.preventDefault();
+		let c_reply_no = $(this).attr("href");
+		
+		$.ajax({
+			data : {
+				c_reply_no : c_reply_no,
+				c_board_no : "${cardcut.cardCutNo}"
+			},
+			url : "/cCreplydel",
+			type : "POST",
+			success : function(result){
+				alert("댓글이 삭제되었습니다.");
+			}
+		});
+	});
+	
+	function editReply(idx){
+		console.log(idx);
+		$("#cCreply_content"+idx).hide();
+		$("#edit_cCreply_content"+idx).show();
+		
+		$("#cCreply_edit"+idx).hide();
+		$("#do_cCreply_edit"+idx).show();
+		$("#cancel_cCreply_edit"+idx).show();
+	}
+	
+	function cancelEditReply(idx){
+		console.log("cancel Edit Reply");
+		
+		$("#edit_cCreply_content"+idx).val($("#cCreply_content"+idx).text()); //내용 원복
+		
+		$("#cCreply_contentt"+idx).show();
+		$("#edit_cCreply_content"+idx).hide();
+		
+		$("#cCreply_edit"+idx).show();
+		$("#do_cCreply_edit"+idx).hide();
+		$("#cancel_cCreply_edit"+idx).hide();
+	}
+	
+	function doEditReply(idx){
+		$.ajax({
+			data : JSON.stringify({
+				c_reply_no : idx,
+				c_board_no : "${cardcut.cardCutNo}",
+				reply_content:$("#edit_cCreply_content"+idx).val()
+			}),
+			url : "/realfinal/cCreplyedit",
+			type : "POST",
+			contentType: 'application/json',
+			success : function(result){
+				alert("댓글이 수정되었습니다.");
+				
+				$("#cCreply_content"+idx).text($("#edit_cCreply_content"+idx).val());
+				
+				$("#cCreply_content"+idx).show();
+				$("#edit_cCreply_content"+idx).hide();
+				
+				$("#cCreply_edit"+idx).show();
+				$("#do_cCreply_edit"+idx).hide();
+				$("#cancel_cCreply_edit"+idx).hide();
+			}
+		});
+	}
+	
+	function deleteReply(idx){
+		$.ajax({
+			data : JSON.stringify({
+				c_reply_no : idx,
+				c_board_no : "${cardcut.cardCutNo}",
+				reply_content:$("#edit_cCreply_content"+idx).val()
+			}),
+			url : "/realfinal/cCreplydel",
+			type : "POST",
+			contentType: 'application/json',
+			success : function(result){
+				alert("댓글이 삭제되었습니다.");
+
+				$("#cCreply"+idx).remove();
+				
+				var last_reply = $(".cCreply").last();
+				
+				last_reply.removeClass("border-bottom border-1 mb-1");
+			}
+		});
+	}
+/* 	$(document).on("click", ".delete_c_reply_btn", function(e){
 		e.preventDefault();
 		let c_reply_no = $(this).attr("href");
 		
@@ -371,7 +454,7 @@
 				last_reply.removeClass("border-bottom border-1 mb-1");
 			}
 		});
-	}
+	} */
 	</script>
 		<%@ include file="/WEB-INF/views/common/footer.jsp" %>
 	</body>

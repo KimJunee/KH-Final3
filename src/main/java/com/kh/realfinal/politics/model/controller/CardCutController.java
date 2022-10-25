@@ -134,7 +134,7 @@ public class CardCutController {
 		String savePath = rootPath + "\\upload\\cardCut\\";
 		 
 		System.out.println(cardCut.getReplyCnt());
-		System.out.println(cardCut.getReplies());
+		System.out.println(cardCut.getReplies().toString());
 		System.out.println( cardCut.getReplies().size() );
 		model.addAttribute("cardCut", cardCut);
 		model.addAttribute("replyList", cardCut.getReplies());
@@ -198,7 +198,7 @@ public class CardCutController {
 			Map<String,Object> resultMap = new HashMap<String,Object>();
 			
 			log.debug("댓글 삭제 요청");
-			int result = CardCutService.deleteCcReply(cCreply.getCardCutNo());
+			int result = CardCutService.deleteCcReply(cCreply.getC_reply_no());
 			
 			if(result > 0) {
 				resultMap.put("msg", "댓글 삭제에 성공하였습니다.");
