@@ -5,6 +5,7 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.session.RowBounds;
 import com.kh.realfinal.opinion.model.vo.Opinion;
+import com.kh.realfinal.opinion.model.vo.OpinionReply;
 
 @Mapper
 public interface OpinionMapper {
@@ -18,4 +19,8 @@ public interface OpinionMapper {
 	public List<Opinion> selectOpinionMainSide();		// 오피니언 메인 사이드 4개 출력
 	public List<Opinion> selectEditorialist();			// 메인, 오피니언 메인 10개 출력
 	public List<Opinion> selectOpinionForPolitics();	// 정치 사이드 2개 출력
+	int insertReply(OpinionReply reply);
+	int editReply(OpinionReply reply);
+	int updateHit(Opinion opinionNo);
+	int deleteReply(int no);
 }

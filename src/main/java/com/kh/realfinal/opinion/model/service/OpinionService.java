@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import com.kh.realfinal.common.util.PageInfo;
 import com.kh.realfinal.opinion.model.vo.Opinion;
+import com.kh.realfinal.opinion.model.vo.OpinionReply;
 
 public interface OpinionService {
 	int saveOpinion(Opinion opinion);
@@ -14,4 +15,6 @@ public interface OpinionService {
 	List<Opinion> getSelectOpinionMainSide();
 	List<Opinion> getSelectEditorialist();
 	List<Opinion> getSelectOpinionForPolitics();
+	int editReply(OpinionReply reply);
+	int deleteReply(int no);
 }

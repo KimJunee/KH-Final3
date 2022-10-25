@@ -11,7 +11,23 @@
 		<result property="content" column="CONTENT"/>
 		<result property="pubDate" column="PUBDATE"/>	
 		<result property="hit" column="HIT"/>
+		<result property="reply_cnt" column="REPLY_CNT"/>
 		<result property="rownum" column="ROWNUM"/>
+	</resultMap>
+	
+	<resultMap type="Opinion" id="opinionDetailResultMap" extends="opinionResultMap">
+		<collection property="replies" javaType="arrayList" columnPrefix="OPR_" resultMap="opinionReplyResultMap"/>
+	</resultMap>
+	
+	<resultMap type="OpinionReply" id="opinionReplyResultMap">
+		<id property="o_reply_no" column="O_REPLY_NO"/>
+		<result property="o_reply_content" column="O_REPLY_CONTENT"/>
+		<result property="opinionNo" column="OPINIONNO"/>
+		<result property="o_reply_writer_no" column="O_REPLY_WRITER_NO"/>
+		<result property="o_reply_writer_id" column="USER_ID"/>
+		<result property="o_reply_writer_nickName" column="O_USER_NICKNAME"/>
+		<result property="o_reply_register" column="O_REPLY_REGISTER"/>
+		<result property="o_reply_modify" column="O_REPLY_MODIFY"/>
 	</resultMap>
 	
 	<insert id="insertOpinion" parameterType="Opinion">
@@ -81,10 +97,54 @@
 	</select>
 	
 	<!-- 오피니언 상세 -->
-	<select id="selectOpinionOne" resultMap="opinionResultMap">
-		SELECT OPINIONNO, TITLE, LINK, IMAGEURL, COLUMNIST, CONTENT, PUBDATE
-		FROM OPINION 
-		WHERE OPINIONNO = #{opinionNo}
+	<select id="selectOpinionOne" parameterType="int" resultMap="opinionDetailResultMap">
+		SELECT 
+		    OPI.OPINIONNO, 
+		    OPI.TITLE,
+		    OPI.HIT, 
+		    OPI.CONTENT, 
+		    OPI.PUBDATE, 
+		    OPR.O_REPLY_NO AS OPR_O_REPLY_NO, 
+		    OPR.OPINIONNO AS OPR_OPINIONNO, 
+		    OPR.O_REPLY_CONTENT AS OPR_O_REPLY_CONTENT, 
+		    OPR.O_WRITER_NO AS OPR_O_REPLY_WRITER_NO,
+		    U.USER_NICKNAME AS OPR_O_USER_NICKNAME, 
+		    OPR.O_REPLY_REGISTER AS OPR_O_REPLY_REGISTER, 
+		    OPR.O_REPLY_MODIFY AS OPR_O_REPLY_MODIFY,
+		    (SELECT COUNT(1) 
+		        FROM OPINION_REPLY OPR
+		        WHERE OPI.OPINIONNO = OPR.OPINIONNO ) AS REPLY_CNT
+		FROM OPINION OPI
+		JOIN OPINION_REPLY OPR ON(OPI.OPINIONNO = OPR.OPINIONNO)
+		LEFT OUTER JOIN USER_T U ON(OPR.O_WRITER_NO = U.USER_NO)
+		AND OPI.OPINIONNO = #{opinionNo}
+		ORDER BY OPR.O_REPLY_REGISTER ASC
 	</select>
+	
+	<!-- 댓글 등록 -->
+	<insert id="insertOpinionReply" parameterType="OpinionReply">
+		INSERT INTO OPINION_REPLY 
+			(O_REPLY_NO, O_WRITER_NO, OPINIONNO, O_REPLY_CONTENT, O_REPLY_REGISTER)
+			VALUES(
+				SEQ_REPLY_NO.NEXTVAL, #{o_reply_writer_no}, #{opinionNo}, #{o_reply_content}, SYSDATE)
+	</insert>
+	
+	<!-- 댓글 수정 -->
+	<update id="editOpinionReply" parameterType="OpinionReply">
+		UPDATE OPINION_REPLY SET O_REPLY_CONTENT = #{o_reply_content}
+		WHERE O_REPLY_NO = #{o_reply_no}
+	</update>
+	
+	<!-- 댓글 삭제 -->
+	<delete id="deleteOpinionReply" parameterType="int">
+		DELETE OPINION_REPLY WHERE O_REPLY_NO = #{o_reply_no} 
+	</delete>
+	
+	<!-- 조회수 증가 -->
+	<update id="updateOpinionHit" parameterType="int">
+		UPDATE OPINION 
+		SET HIT = #{hit}
+		WHERE OPINIONNO = #{opinionNo}
+	</update>
 	
 </mapper>

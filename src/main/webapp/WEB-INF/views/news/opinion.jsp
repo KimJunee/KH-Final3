@@ -103,7 +103,7 @@ Main content START -->
 	                           		<c:forEach var="editoria" items="${editoria}" varStatus="status">
 	                                	<div>
 	                                    	<div class="card bg-transparent">
-		                                       <img class="card-img" src="${editoria.imageUrl}" alt="card image">
+		                                       <img class="card-img" src="${editoria.imageUrl}" alt="card image" style="width: 165px; height: 220px;">
 		                                       <div class="card-body ps-0">
 		                                           <h5 class="mb-0">${editoria.columnist}</h5>
 		                                       </div>

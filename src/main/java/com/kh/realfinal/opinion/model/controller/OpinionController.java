@@ -93,10 +93,14 @@ public class OpinionController {
 		int opinionNo = Integer.parseInt(param.get("opinionNo"));
 		Opinion opinion = service.getOpinionOne(opinionNo);
 		List<Board> sideList = boardService.getSideBoard();
-
+		
+		
+		System.out.println(opinion.getReplies().get(0).toString());
+		
 		model.addAttribute("opinion", opinion);
 		model.addAttribute("param", param);
 		model.addAttribute("sideList", sideList);
+		model.addAttribute("opinionReplyList", opinion.getReplies());
 
 		return "/news/opinionDetail";
 	}

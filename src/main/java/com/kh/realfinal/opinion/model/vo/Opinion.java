@@ -1,6 +1,7 @@
 package com.kh.realfinal.opinion.model.vo;
 
 import java.util.Date;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -23,4 +24,6 @@ public class Opinion {
 	private Date pubDate;
 	private int hit;
 	private int rownum;
+	private int reply_cnt;
+	private List<OpinionReply> replies;
 }

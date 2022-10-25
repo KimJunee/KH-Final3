@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.kh.realfinal.common.util.PageInfo;
 import com.kh.realfinal.opinion.model.mapper.OpinionMapper;
 import com.kh.realfinal.opinion.model.vo.Opinion;
+import com.kh.realfinal.opinion.model.vo.OpinionReply;
 
 @Service
 public class OponionServiceImpl implements OpinionService{
@@ -67,5 +68,15 @@ public class OponionServiceImpl implements OpinionService{
 	public Opinion getOpinionOne(int opinionNo) {
 		Opinion opinion = mapper.selectOpinionOne(opinionNo);
 		return opinion;
+	}
+
+	@Override
+	public int editReply(OpinionReply reply) {
+		return mapper.editReply(reply);
+	}
+
+	@Override
+	public int deleteReply(int no) {
+		return mapper.deleteReply(no);
 	}
 }
