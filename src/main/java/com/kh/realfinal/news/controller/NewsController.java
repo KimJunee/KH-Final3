@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kh.realfinal.common.util.PageInfo;
 import com.kh.realfinal.news.api.NewsEconomyRss;
@@ -103,18 +104,28 @@ public class NewsController {
 	}
 	
 	@RequestMapping("/news/search")
-	String newsSearch(Model model, String searchKeyword) {
+	String newsSearch(Model model, @RequestParam Map<String, String> param, String searchKeyword) {
+		int page = 1;
+		if(param.containsKey("page") == true) {
+			try {
+				page = Integer.parseInt(param.get("page"));
+			} catch (Exception e) {}
+		}
 
 		Map<String, String> map = new HashMap<>();
 		map.put("titleKeyword", searchKeyword);
 		map.put("descriptionKeyword", searchKeyword);
-		PageInfo pageInfo = new PageInfo(1, 10, service.getNewsCount(map), 10);
+		int totalCount = service.getNewsCount(map);
+		PageInfo pageInfo = new PageInfo(page, 10, totalCount, 10);
 		List<News> list = service.getNewsList(pageInfo, map);
 		
 		System.out.println(searchKeyword);
 		System.out.println(list);
 		
+		model.addAttribute("totalCount", totalCount);
 		model.addAttribute("list", list);
+		model.addAttribute("param", param);
+		model.addAttribute("pageInfo", pageInfo);
 		return "/news/news_search";
 	}
 }

@@ -26,7 +26,7 @@
                 <!-- Search -->
                 <div class="row">
                     <div class="col-9 mt-3">
-                        <h3 class="mice"><i class="bi bi-search " style="font-size: 80%;"></i>&nbsp;총 <a href="#!" class="text-primary">${fn:length(list)}</a>건이 검색되었습니다.</h3>
+                        <h3 class="mice"><i class="bi bi-search " style="font-size: 80%;"></i>&nbsp;총 <a href="#!" class="text-primary">${totalCount}</a>건이 검색되었습니다.</h3>
                     </div>
                     <div class="col-3 mt-3">
                         <form action="${path}/news/search" method="get" class="rounded position-relative">
