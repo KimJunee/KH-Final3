@@ -139,7 +139,7 @@
                                     </c:if>
                                     <div class="mb-2" style="color:#191a1f">
                                         <p id="reply_content${opinionReply.o_reply_no}">${opinionReply.o_reply_content}</p>
-                                        <textarea class="form-control" style="display:none; resize: none;" id="edit_reply_content${opinionReply.o_reply_no}">${reply.reply_content}</textarea>
+                                        <textarea class="form-control" style="display:none; resize: none;" id="edit_reply_content${opinionReply.o_reply_no}">${opinionReply.o_reply_content}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -244,6 +244,96 @@
 		        </div>
 		    </section>
 		</main>
+		
+		<script>
+			// 댓글 삭제
+			$(document).on("click", ".delete_reply_btn", function(e){
+				e.preventDefault();
+				let reply_no = $(this).attr("href");
+				
+				$.ajax({
+					data : {
+						o_reply_no : o_reply_no,
+						opinionNo : "${opinion.opinionNo}"
+					},
+					url : "/opinion/replydel",
+					type : "POST",
+					success : function(result){
+						alert("댓글이 삭제되었습니다.");
+					}
+				});
+			});
+			
+			function editReply(idx){
+				console.log(idx);
+				$("#reply_content"+idx).hide();
+				$("#edit_reply_content"+idx).show();
+				
+				$("#reply_edit"+idx).hide();
+				$("#do_reply_edit"+idx).show();
+				$("#cancel_reply_edit"+idx).show();
+			}
+			
+			function cancelEditReply(idx){
+				console.log("cancel Edit Reply");
+				
+				$("#edit_reply_content"+idx).val($("#reply_content"+idx).text()); //내용 원복
+				
+				$("#reply_content"+idx).show();
+				$("#edit_reply_content"+idx).hide();
+				
+				$("#reply_edit"+idx).show();
+				$("#do_reply_edit"+idx).hide();
+				$("#cancel_reply_edit"+idx).hide();
+			}
+			
+			function doEditReply(idx){
+				$.ajax({
+					data : JSON.stringify({
+						o_reply_no : idx,
+						opinionNo : "${opinion.opinionNo}",
+						o_reply_content:$("#edit_o_reply_content"+idx).val()
+					}),
+					url : "/realfinal/opinion/replyedit",
+					type : "POST",
+					contentType: 'application/json',
+					success : function(result){
+						alert("댓글이 수정되었습니다.");
+						
+						$("#o_reply_content"+idx).text($("#edit_o_reply_content"+idx).val());
+						
+						$("#o_reply_content"+idx).show();
+						$("#edit_o_reply_content"+idx).hide();
+						
+						$("#o_reply_edit"+idx).show();
+						$("#do_o_reply_edit"+idx).hide();
+						$("#cancel_o_reply_edit"+idx).hide();
+					}
+				});
+			}
+			
+			function deleteReply(idx){
+				$.ajax({
+					data : JSON.stringify({
+						o_reply_no : idx,
+						opinionNo : "${opinion.opinionNo}",
+						o_reply_content:$("#edit_o_reply_content"+idx).val()
+					}),
+					url : "/realfinal/opinion/replydel",
+					type : "POST",
+					contentType: 'application/json',
+					success : function(result){
+						alert("댓글이 삭제되었습니다.");
+		
+						$("#opinionReply"+idx).remove();
+						
+						var last_reply = $(".opinionReply").last();
+						
+						last_reply.removeClass("border-bottom border-1 mb-1");
+					}
+				});
+			}
+			</script>
 		<%@ include file="/WEB-INF/views/common/footer.jsp" %>
 	</body>
 </html>

@@ -65,11 +65,12 @@ public class OponionServiceImpl implements OpinionService{
 	}
 	
 	// 오피니언 상세보기
+	@Override
 	public Opinion getOpinionOne(int opinionNo) {
 		Opinion opinion = mapper.selectOpinionOne(opinionNo);
 		return opinion;
 	}
-
+	
 	// 댓글 작성
 	@Override
 	public int saveReply(OpinionReply reply) {

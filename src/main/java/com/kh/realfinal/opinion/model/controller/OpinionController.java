@@ -1,6 +1,7 @@
 package com.kh.realfinal.opinion.model.controller;
 
 import java.text.ParseException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
@@ -9,10 +10,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
-import com.kh.realfinal.board.controller.BoardController;
 import com.kh.realfinal.board.model.service.BoardService;
 import com.kh.realfinal.board.model.vo.Board;
 import com.kh.realfinal.common.util.PageInfo;
@@ -97,11 +99,9 @@ public class OpinionController {
 	@RequestMapping("/opinion/opinionDetail")
 	public String opinionDetail(Model model, @RequestParam Map<String, String> param) {
 		int opinionNo = Integer.parseInt(param.get("opinionNo"));
+		System.out.println("opinionDetail : "+opinionNo);
 		Opinion opinion = service.getOpinionOne(opinionNo);
 		List<Board> sideList = boardService.getSideBoard();
-		
-		
-		System.out.println(opinion.getReplies().get(0).toString());
 		
 		model.addAttribute("opinion", opinion);
 		model.addAttribute("param", param);
@@ -119,7 +119,7 @@ public class OpinionController {
 			) {
 		log.info("오피니언 리플 작성 요청");
 		
-		reply.setO_reply_writer_id(loginMember.getUser_id());
+		reply.setO_reply_writer_no(loginMember.getUser_no());
 		log.debug("OpinionReply : " + reply);
 		int result = service.saveReply(reply);
 		
@@ -130,5 +130,50 @@ public class OpinionController {
 		}
 		model.addAttribute("location", "/opinion/opinionDetail?opinionNo="+ reply.getOpinionNo());
 		return "/common/msg";
+	}
+	
+	// 댓글 수정
+	@RequestMapping("/opinion/replyedit")
+	@ResponseBody
+	public Map<String,Object> editReply(Model model, 
+			@SessionAttribute(name = "loginMember", required = false) Member loginMember,
+			@RequestBody OpinionReply reply
+			) {
+		
+		Map<String,Object> resultMap = new HashMap<String,Object>();
+		
+		log.debug("댓글 수정 요청");
+		int result = service.editReply(reply);
+		
+		if(result > 0) {
+			resultMap.put("msg", "댓글 삭제에 성공하였습니다.");
+			resultMap.put("result", "success");
+		}else {
+			resultMap.put("msg", "댓글 삭제 실패하였습니다.");
+			resultMap.put("result", "fail");
+		}
+		return resultMap;
+	}
+	
+	// 댓글 삭제
+	@RequestMapping("/opinion/replydel")
+	@ResponseBody
+	public Map<String,Object> deleteReply(Model model, 
+			@SessionAttribute(name = "loginMember", required = false) Member loginMember,
+			@RequestBody OpinionReply reply
+			) {
+		Map<String,Object> resultMap = new HashMap<String,Object>();
+		
+		log.debug("댓글 삭제 요청");
+		int result = service.deleteReply(reply.getO_reply_no());
+		
+		if(result > 0) {
+			resultMap.put("msg", "댓글 삭제에 성공하였습니다.");
+			resultMap.put("result", "success");
+		}else {
+			resultMap.put("msg", "댓글 삭제 실패하였습니다.");
+			resultMap.put("result", "fail");
+		}
+		return resultMap;
 	}
 }
