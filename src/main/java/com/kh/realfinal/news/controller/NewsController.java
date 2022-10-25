@@ -96,7 +96,8 @@ public class NewsController {
 	@RequestMapping("/news/post")
 	String newsPost(Model model, int newsNo) {
 		News news = service.getNews(newsNo);
-		
+		String desc = news.getDescription().replace("<img", "<span");
+		news.setDescription(desc);
 		model.addAttribute("news", news);
 		return "/news/news_post";
 	}
