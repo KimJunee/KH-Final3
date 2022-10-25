@@ -144,4 +144,17 @@
 		#{suply_hshldco}, #{spsply_hshldco}, #{lttot_top_amount}
 	)
 	</insert>
+	
+	<!-- 캘린더용 시작 -->
+	<select id="selectRemndrList1" resultMap="RemndrMap" parameterType="map">
+		SELECT * FROM REMNDRLTTOTPBLANCDETAIL
+		WHERE HOUSE_SECD_NM LIKE '%무순위%'
+		
+	</select>
+	
+	<select id="selectRemndrList2" resultMap="RemndrMap" parameterType="map">
+		SELECT * FROM REMNDRLTTOTPBLANCDETAIL
+		WHERE HOUSE_SECD_NM LIKE '%계약취소%'
+	</select>
+	<!-- 캘린더용 끝 -->
 </mapper>

@@ -121,7 +121,10 @@
 		</if>
 	</select>
 	
-	
+	<select id="selectAptSpcList" resultMap="AptLttotPblancDetailMap" parameterType="map">
+		SELECT * FROM APT_LTTOT_PBLANC_DETAIL
+		WHERE spsply_rcept_bgnde IS NOT NULL
+	</select>
 	
 	<select id="aptLttotList" resultMap="AptLttotPblancDetailMap">
 		SELECT * FROM APT_LTTOT_PBLANC_DETAIL
@@ -310,7 +313,6 @@
 	</select>
 	
 	<select id="selectNoticeTotalCount" resultType="int">
-	<!-- <select id="selectNoticeTotalCount" resultType="int" parameterType="map"> -->
 		SELECT COUNT(*) 
 		FROM APPLY_NOTICE 
 	</select>
@@ -341,7 +343,6 @@
 		)
 	</insert>
 	
-	<!-- <select id="selectApplyNotiAttach" resultMap="ApplyNoticeAttachResultMap" parameterType="map"> -->
 	<select id="selectNoticeAttach" resultMap="ApplyNoticeAttachResultMap" parameterType="String">
 		SELECT 
 		    BBS_SN, 
