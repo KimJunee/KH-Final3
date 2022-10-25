@@ -270,10 +270,30 @@ Main START -->
 																	<td>${profile.origNm}</td>
 																	<!-- Table data -->
 																	<td>${profile.sexGbnNm}</td>
-																	<!-- Table data -->
+																	<!-- 당선횟수 -->
 																	<td><span
+																			class="
+																			  <c:choose>
+        																	    <c:when test = "${profile.reeleGbnNm == '초선'}">
+																					badge bg-danger bg-opacity-15 text-danger mb-2
+																				</c:when>
+																				<c:when test="${profile.reeleGbnNm == '재선'}">
+																					badge bg-success bg-opacity-15 text-success mb-2
+																				</c:when>
+																				 <c:otherwise>
+																					badge bg-warning bg-opacity-10 text-warning mb-2
+																				   </c:otherwise>
+																			 </c:choose>
+																			 	">
+																			 	 
+																				<c:if test="${profile.reeleGbnNm != null}">
+																					${profile.reeleGbnNm}
+																				</c:if>
+																			</span>
+																		</td>
+																	<!-- <td><span
 																		class="badge bg-warning bg-opacity-10 text-warning mb-2">${profile.reeleGbnNm}</span>
-																	</td>
+																	</td> -->
 																	<!-- Table data -->
 																	<td>${profile.electGbnNm}</td>
 																</tr>

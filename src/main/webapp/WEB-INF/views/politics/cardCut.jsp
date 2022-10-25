@@ -7,6 +7,8 @@
 <!DOCTYPE html>
 <html lang="ko">
 
+
+ 
 <head>
     <title>FinTouch | Politics | CardCut</title>
     <!-- Favicon / Link -->
@@ -211,32 +213,29 @@
 		                            <a href="#" class="badge bg-success stretched-link">05</a>
 		                        </div>
 		                    </div>
-		                    <h4 class="mt-5 mb-3 fw-bolder">인기<a href="#!" class="text-primary">정치</a>게시글</h4>
-		                    <div class="d-flex position-relative mb-3">
-		                        <span class="me-3 mt-n1 fa-fw fw-bold fs-3 fc-custom">01</span>
-		                        <h6><a href="#" class="stretched-link text-reset btn-link">매달 최대 20만원 월세 지원받는 법!</a></h6>
-		                        <br>
-		                    </div>
-		                    <div class="d-flex position-relative mb-3">
-		                        <span class="me-3 mt-n1 fa-fw fw-bold fs-3 fc-custom">02</span>
-		                        <h6><a href="#" class="stretched-link text-reset btn-link">한덕수 "강제징용 해결 등 소통 공감"</a></h6>
-		                    </div>
-		                    <div class="d-flex position-relative mb-3">
-		                        <span class="me-3 mt-n1 fa-fw fw-bold fs-3 fc-custom">03</span>
-		                        <h6><a href="#" class="stretched-link text-reset btn-link">해군, 5년 만에 日해상자위대와 군사훈련 재개</a></h6>
-		                    </div>
-		                    <div class="d-flex position-relative mb-3">
-		                        <span class="me-3 mt-n1 fa-fw fw-bold fs-3 fc-custom">04</span>
-		                        <h6><a href="#" class="stretched-link text-reset btn-link">감귤 선글라스 쓴 이재명 대표</a></h6>
-		                    </div>
-		                    <div class="d-flex position-relative mb-3">
-		                        <span class="me-3 mt-n1 fa-fw fw-bold fs-3 fc-custom">05</span>
-		                        <h6><a href="#" class="stretched-link text-reset btn-link">북한, 동해상에 단거리 탄도미사일 2발 발사</a></h6>
-		                    </div>
-		                    <div class="d-flex position-relative mb-3">
-		                        <span class="me-3 mt-n1 fa-fw fw-bold fs-3 fc-custom">06</span>
-		                        <h6><a href="#" class="stretched-link text-reset btn-link">정부, 對美 외교에 80억 쏟아<br> 붓고도 IRA 몰랐다</a></h6>
-		                    </div>
+		                  	<!-- 실시간정치커뮤니티 시작-->
+								<div class="right-community">
+									<div class="container">
+	                            		<c:if test="${empty politicsList}">
+											<div class="d-flex position-relative mb-3">
+												<div class="container">
+													<h6>조회된 글이 없습니다.</h6>
+												</div>
+											</div>
+										</c:if>
+										<c:if test="${not empty politicsList}">
+			                                <h5 class="mt-5 mb-3">실시간<span style="color:#2163E8">정치</span>커뮤니티</h5>
+												<c:forEach var="board" items="${politicsList}" varStatus="status">
+					                                <div class="d-flex position-relative mb-3">
+					                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">
+					                                    <fmt:formatNumber type="number" pattern="##" minIntegerDigits="2" value="${board.rownum}"/></span>
+					                                    <h6><a href="${path}/board/BoardDetail?board_no=${board.board_no}" class="stretched-link text-reset btn-link"><c:out value="${board.board_title}"/></a></h6>
+					                                </div>
+			                                	</c:forEach>
+			                               </c:if>
+		                                </div>
+	                            	</div>
+									<!-- 실시간정치커뮤니티 끝-->
 		                </div>
 		            </div>
 		        </div>

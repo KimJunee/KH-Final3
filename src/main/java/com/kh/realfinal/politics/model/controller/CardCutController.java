@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
+import com.kh.realfinal.board.model.service.BoardService;
+import com.kh.realfinal.board.model.vo.Board;
 import com.kh.realfinal.common.util.PageInfo;
 import com.kh.realfinal.member.model.vo.Member;
 import com.kh.realfinal.politics.api.CardCutRss;
@@ -33,6 +35,10 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Controller
 public class CardCutController {
+	
+	@Autowired
+	private BoardService boardService;
+	private final int RealEstate = 1;
 	
 	@Autowired
 	CardCutService CardCutService;
@@ -74,6 +80,12 @@ public class CardCutController {
 	// 페이징 처리 카드컷
 	@RequestMapping("/politics/cardCut")
 	public String cardCutList(Model model, @RequestParam Map<String, String> param) throws ParseException {  
+		// 인기정치게시글
+		Map<String, Object> paramBoard = new HashMap<String,Object>();
+		paramBoard.put("board_list_no",RealEstate);
+		List<Board> listBoard = boardService.getSideBoardForPolitics(paramBoard);
+		// 인기정치게시글 끝
+
 		int page = 1;
 		if(param.containsKey("page") == true) {
 			try {
@@ -94,7 +106,7 @@ public class CardCutController {
 //		System.out.println(list.get(0).getImages());
 //		System.out.println(list.get(0).getContent());
 
-		
+		model.addAttribute("politicsList", listBoard); // 인기정치게시글
 		model.addAttribute("topList", topList);
 		model.addAttribute("list", list);
 		model.addAttribute("totalSize", totalSize);

@@ -118,15 +118,15 @@ Main START -->
 																	<li class="list-group-item "><span>사무실전화:</span> <span
 																		class="h6 mb-0 ">${profile.telNo}</span></li>
 																	<!-- User Name -->
-																	
+																	<li class="list-group-item "><span>의원실안내:</span> <span
+																		class="h6 mb-0 ">${profile.assemAddr}</span></li>
 																</ul>
 															</div>
 													<!-- Information item -->
 													<div class="col-md-6 ">
 														<ul class="list-group list-group-borderless ">
 															<!-- Email ID -->
-															<li class="list-group-item "><span>의원실안내:</span> <span
-																		class="h6 mb-0 ">${profile.assemAddr}</span></li>
+															
 																	<li class="list-group-item "><span>의원홈페이지:</span>
 																		<span class="h6 mb-0 ">${profile.homepage}</span></li>
 																	<!-- Email ID -->
@@ -196,42 +196,26 @@ Main START -->
 
 											<!-- Card body START -->
 											<div class="card-body ">
-
 												<!-- Search and select START -->
-												<div class="row g-3 align-items-center justify-content-between mb-3 ">
+												<div class="row justify-content-between mb-3 ">
 													<!-- Search -->
-													<div class="col-md-8 ">
+													<div class=" ">
 														<form action="">
-															<input  type="hidden" name="profileNo" value="${profile.no}" >
-															<input  type="hidden" name="page" value="${pageInfo.currentPage}" >
-															<div class="rounded position-relative align-items-left " style="display: inline-block; width: 40em; ">
-																<input class="form-control bg-transparent "
-																	name="searchKey" value="${param.searchKey}"
+															<input type="hidden" name="profileNo" value="${profile.no}" >
+															<input type="hidden" name="page" value="${pageInfo.currentPage}" >
+															<div class="rounded position-relative align-items-left " style="display: inline-block; width: 60em; ">
+																<input class="form-control bg-transparent " name="searchKey" value="${param.searchKey}"
 																	type="search" placeholder="의안명검색" aria-label="Search ">
-																<button
-																	class="btn bg-transparent border-0  position-absolute top-50 end-0 translate-middle-y "
-																	type="submit">
-																	 
+																	<div align="right">	
+																<button class="btn bg-transparent border-0  position-absolute top-50 end-0 translate-middle-y "
+																	type="submit"><i class="fas fa-search fs-6 "></i>
 																</button>
+																</div>
 															</div> 
-															<button type="submit" class="btn btn-sm btn-primary mb-0 align-items-right">S E A R C H</button>
+															 <button type="submit" class="btn btn-sm btn-primary mb-0 align-items-right" style="float:right;">S E A R C H</button>
 														</form>
 													</div>
-													<!-- Select option -->
-													<!-- <div class="col-md-3 ">
-														<form>
-															<select class="form-select z-index-9 bg-transparent "
-																aria-label=".form-select-sm ">
-																<option value=" ">Sort by</option>
-																<option>Free</option>
-																<option>Newest</option>
-																<option>Oldest</option>
-															</select>
-														</form>
-													</div>
-												</div>-->
-												<!-- Search and select END -->
-
+												</div>
 												<!-- Blog post table START -->
 												<div class="table-responsive border-0 text-center ">
 													<table
