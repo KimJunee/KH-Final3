@@ -336,18 +336,18 @@ div.right-community {
                         <div data-margin-top="80" data-sticky-for="767">
                             <!-- Most read -->
                             <div>
-	                            <c:if test="${empty opinionList}">
+	                            <c:if test="${empty sideopinion}">
 									<div class="d-flex position-relative mb-3">
 										<h6>조회된 글이 없습니다.</h6>
 									</div>
 								</c:if>
-								<c:if test="${not empty sideList}">
+								<c:if test="${not empty sideopinion}">
 	                                <h5 class="mb-3">제일 많이 본 칼럼</h5>
-									<c:forEach var="sideList" items="${sideList}" varStatus="status">
+									<c:forEach var="Opinion" items="${sideopinion}" varStatus="status">
 		                                <div class="d-flex position-relative mb-3">
 		                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">
-		                                    <fmt:formatNumber type="number" pattern="##" minIntegerDigits="2" value="${sideList.rownum}"/></span>
-		                                    <h6><a href="${path}/opinion/opinionDetail?opinionNo=${sideList.opinionNo}" class="stretched-link text-reset btn-link"><c:out value="${sideList.title}"/></a></h6>
+		                                    <fmt:formatNumber type="number" pattern="##" minIntegerDigits="2" value="${Opinion.rownum}"/></span>
+		                                    <h6><a href="${path}/opinion/opinionDetail?opinionNo=${Opinion.opinionNo}" class="stretched-link text-reset btn-link"><c:out value="${Opinion.title}"/></a></h6>
 		                                </div>
                                 	</c:forEach>
                                 </c:if>
