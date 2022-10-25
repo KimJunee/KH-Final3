@@ -127,7 +127,7 @@ public class OpinionController {
 		Opinion opinion = service.getOpinionOne(opinionNo);
 		List<Board> sideList = boardService.getSideBoard();
 		
-		if(opinion.getReplies() != null) {
+		if(opinion.getReplies().size() != 0) {
 			System.out.println(opinion.getReplies().get(0).toString());
 		}
 		
