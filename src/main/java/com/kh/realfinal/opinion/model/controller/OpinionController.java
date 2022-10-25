@@ -62,21 +62,18 @@ public class OpinionController {
 		List<Opinion> sideList = service.getSelectOpinionMainSide();
 		List<Opinion> editoria = service.getSelectEditorialist();
 		
-		PageInfo pageInfoTop = new PageInfo(page, 10, service.getOpinionCount(param), 5);
+		PageInfo pageInfoTop = new PageInfo(page, 10, service.getOpinionCount(param), 10);
 		List<Opinion> topList = service.getOpinionList(pageInfoTop, param);
  
 		int totalSize = service.getOpinionCount(param);
-		PageInfo pageInfo = new PageInfo(page, 10, totalSize, 10);
+		PageInfo pageInfo = new PageInfo(page, 10, totalSize, 5);
 		List<Opinion> list = service.getOpinionList(pageInfo, param);
-		
-		//System.out.println("뭔데 : " + sideList);
 		
 		for(Opinion item : list) {
 			String str = item.getContent();
 			str = str.replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
 			item.setContent(str);
 		}
-		
 		
 		model.addAttribute("editoria", editoria);
 		model.addAttribute("sideList", sideList);

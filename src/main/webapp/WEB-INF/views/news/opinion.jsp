@@ -53,7 +53,7 @@ Main content START -->
                     <!-- Main Post END -->
                     <!-- Sidebar START -->
                     <div class="col-lg-3 mt-lg-0">
-                        <div data-sticky data-margin-top="80" data-sticky-for="767">
+                        <div data-margin-top="80" data-sticky-for="767">
                             <!-- Most read -->
                             <div>
 	                            <c:if test="${empty sideList}">
@@ -62,7 +62,7 @@ Main content START -->
 									</div>
 								</c:if>
 								<c:if test="${not empty sideList}">
-	                                <h5 class="mt-5 mb-3">제일 많이 본 칼럼</h5>
+	                                <h5 class="mb-3">제일 많이 본 칼럼</h5>
 									<c:forEach var="sideList" items="${sideList}" varStatus="status">
 		                                <div class="d-flex position-relative mb-3">
 		                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">
@@ -148,7 +148,7 @@ Main content START -->
 	                                    </div>
 	                                </div>
 	                                <!-- Detail -->
-	                                <div class="col-md-6 col-lg-4" style="overflow: hidden;height: 193px;text-overflow: ellipsis">
+	                                <div class="col-md-6 col-lg-4" style="overflow: hidden;height: 199px;text-overflow: ellipsis">
 	                                    <div>${list.content}</div>
 	                                </div>
 	                                <!-- Image -->
@@ -188,8 +188,6 @@ Main content START -->
         <!-- ======================= Main content END -->
         <script type="text/javascript">
             function movePage(pageUrl){
-                var sortValue = sort.options[sort.selectedIndex].value;
-                    pageUrl = pageUrl + '&searchValue=' + searchValue.value + '&sort=' + sortValue; 
                 location.href = encodeURI(pageUrl);
             }
         </script>
