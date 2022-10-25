@@ -23,5 +23,7 @@ public interface UrbtyOfctlLttotPblancDetailMapper {
 	// 청약 캘린더용-------------------시작
 	List<UrbtyOfctlLttotPblancDetail> selectUrbtyList1(Map<String, String> map);
 	List<UrbtyOfctlLttotPblancDetail> selectUrbtyList2(Map<String, String> map);
+	List<UrbtyOfctlLttotPblancDetail> selectUrbtyList3(Map<String, String> map);
+	List<UrbtyOfctlLttotPblancDetail> selectUrbtyList4(Map<String, String> map);
 	// 청약 캘린더용-------------------끝
 }
