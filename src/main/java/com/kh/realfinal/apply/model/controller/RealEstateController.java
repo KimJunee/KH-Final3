@@ -108,6 +108,8 @@ public class RealEstateController {
 		List<RealEstateList> mainList = realEstateService.getRealMainboardList();
 		model.addAttribute("mainList", mainList);
 		
+		int mainCount = realEstateService.getRealMainboardListCount();
+		model.addAttribute("mainCount", mainCount);
 		
 		Map<String, String> map = new HashMap<String, String>(); //지도에 숫자 가져올려고 쓰는놈
 		Map<String, List<RealMainMapList>> map1 = new HashMap<String, List<RealMainMapList>>(); //오른쪽에 지역별청약정보 리스트

@@ -143,6 +143,12 @@ public class RealEstateServiceImpl implements RealEstateService{
 		return mainBoardList;
 	}
 
+	@Override
+	public int getRealMainboardListCount() {
+		int realMainboardListCount = realmapper.RealMainboardListCount();
+		return realMainboardListCount;
+	}
+
 
 	
 

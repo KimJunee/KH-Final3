@@ -31,5 +31,5 @@ public interface RealEstateService {
 	
 	// 청약메인 캘린더 
 	List<RealEstateList> getRealMainboardList();
-
+	int getRealMainboardListCount();
 }

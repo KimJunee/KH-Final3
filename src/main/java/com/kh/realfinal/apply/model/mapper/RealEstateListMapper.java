@@ -20,6 +20,7 @@ public interface RealEstateListMapper {
 	
 	// 청약메인 캘린더 연결 
 	List<RealEstateList> RealMainboardList();
+	int RealMainboardListCount();
 	
 //	// 청약메인 지도 count
 //	List<RealMainMapList> listForMainMap(String localName);
