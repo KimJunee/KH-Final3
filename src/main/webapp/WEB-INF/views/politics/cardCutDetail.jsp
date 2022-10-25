@@ -106,22 +106,22 @@
 		                
 		                     <!-- 댓글 시작 -->
                         <div class="border-bottom border-top border-2 mb-3 pt-3" style="color:#a1a1a8">
-		                        <h3>${fn:length(cardCut.replyCnt)} comments</h3>
-                        		<c:forEach var="cCreply" items="${cCreply}" varStatus="status">
+		                        <h3>${cardCut.replyCnt} comments</h3>
+                        		<c:forEach var="cCreply" items="${replyList}" varStatus="status">
                         			<c:choose>
 	                        			<c:when test="${!status.last}">
-	                            		<div class="my-4 d-flex border-bottom border-1 mb-1 reply" id="cCreply${cCreply.c_reply_no}" style="color:#a1a1a8">
+	                            		<div class="my-4 d-flex border-bottom border-1 mb-1 reply" id="cCreply" style="color:#a1a1a8"><c:out value="${cCreply.c_reply_no}" /></div>
 	                           			 </c:when>
 	                            	<c:otherwise>
-	                            		<div class="my-4 d-flex reply" id="cCreply${cCreply.c_reply_no}">
+	                            		<div class="my-4 d-flex reply" id="cCreply"></div>
 	                            	</c:otherwise>
                            			 </c:choose>
                                 <img class="avatar avatar-md rounded-circle float-start me-3" src="${path}/resources/resources1b/images/avatar_w3.png" alt="avatar">
                         		<div style="width: 100%;">
                                 <div style="flex-container: space-between;">
                                     <div class="mb-2" style="display:inline-block">
-                                        <h6 class="m-0 mice">${cCreply.c_reply_writer_nickName}</h6>
-                                        <span class="me-3 small"><fmt:formatDate type="both" value="${cCreply.reply_register}"/></span>
+                                        <h6 class="m-0 mice"><c:out value="${cCreply.c_reply_writer_nickName}" /></h6>
+                                        <span class="me-3 small"><fmt:formatDate type="both" value="${cCreply.c_reply_register}"/></span>
                                     </div>
                                     <c:if test="${not empty loginMember && (loginMember.user_id == cCreply.c_reply_writer_id)}">
 	                                    <div style="display: inline-block; flex-container: space-between; float: right;">
@@ -132,8 +132,8 @@
 	                                    </div>
                                     </c:if>
                                     <div class="mb-2" style="color:#191a1f">
-                                        <p id="reply_content${cCreply.c_reply_no}">${cCreply.c_reply_content}</p>
-                                        <textarea class="form-control" style="display:none; resize: none;" id="edit_cCreply_content${cCreply.c_reply_no}">${cCreply.c_reply_content}</textarea>
+                                        <p id="reply_content"><c:out value="${cCreply.c_reply_content}" /></p><!-- 실페 출력되는부분 -->
+                                        <textarea class="form-control" style="display:none; resize: none;" id="edit_cCreply_content">  <c:out value="${cCreply.c_reply_content}" /></textarea>
                                     </div>
                                 </div>
                             </div>
