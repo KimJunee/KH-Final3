@@ -12,7 +12,6 @@
 		<result property="image" column="IMAGE"/>
 		<result property="category" column="CATEGORY"/>
 	</resultMap>
-	
 
 	<insert id="insertNews"	parameterType="News">
 		INSERT INTO NEWS(		
@@ -44,8 +43,7 @@
 		</if>
 	</select>
 	
-	
-	
+	<!-- 갯수 -->
 	<select id="selectNewsCount" parameterType="map" resultType="int">
 		SELECT COUNT(*)
 		FROM NEWS
@@ -62,6 +60,7 @@
 		</if>
 	</select>
 	
+	<!-- 뉴스 상세 -->
 	<select id="selectByNewsByNo" parameterType="int" resultMap="newsResultMap">
 		SELECT 	NEWS_NO, TITLE, LINK, PUBDATE, DESCRIPTION, IMAGE, CATEGORY
 		FROM NEWS WHERE NEWS_NO = #{newsNo}

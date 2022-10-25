@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.kh.realfinal.board.model.service.BoardService;
 import com.kh.realfinal.common.util.PageInfo;
 import com.kh.realfinal.news.api.NewsEconomyRss;
 import com.kh.realfinal.news.api.NewsNationalRss;
@@ -24,6 +25,9 @@ public class NewsController {
 	
 	@Autowired
 	private NewsService service;
+	
+	@Autowired
+	private BoardService boardservice;
 
 	@RequestMapping("/news/insert.do")
 	String newsInsert(Model model) {

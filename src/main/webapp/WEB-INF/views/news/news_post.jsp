@@ -47,7 +47,7 @@ Main START -->
                         <div class="text-start text-lg-center mb-5" data-sticky data-margin-top="80" data-sticky-for="991">
                             <!-- Author info -->
                             <div class="position-relative">
-                                <a href="#" class="h5 stretched-link mt-2 mb-0 d-block">서혜연 기자</a>
+                                <h5 class="mt-2 mb-0 d-block">서혜연 기자</h5>
                             </div>
                             <hr class="d-none d-lg-block">
                             <!-- Card info -->
@@ -58,10 +58,12 @@ Main START -->
                             </ul>
                         </div>
                         <form action="${path}/mypage/finProLikeIns" method="post">
-		                        	<input type="hidden" name="finType" value="${installment.finType}">
-		                        	<input type="hidden" name="prtId" value="${installment.id}">		                        	
-		                        	<button class="btn btn-lg btn-primary w-100 mb-3" type="submit">기사 스크랩하기</button>
-		                        </form>
+                        	<div>
+	                        	<input type="hidden" name="finType" value="${installment.finType}">
+	                        	<input type="hidden" name="prtId" value="${installment.id}">		                        	
+	                        	<button class="btn btn-lg btn-primary w-100 mb-3" type="submit">기사 스크랩하기</button>
+                        	</div>
+                        </form>
                     </div>
                     <!-- Left sidebar END -->
                     <!-- Main Content START -->

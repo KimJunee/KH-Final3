@@ -123,7 +123,7 @@ public class ProfileMnaController {
 		paramBoard.put("board_list_no",RealEstate);
 		List<Board> listBoard = boardService.getSideBoardForPolitics(paramBoard);
 		// 인기정치게시글 끝
-		
+		List<Opinion> sideopinion = opinionService.getSelectOpinionForPolitics();
 		// 최근오피니언글
 		Map<String, Object> opinion = new HashMap<String,Object>();
 		opinion.put("opinion_list_no", opinion);
@@ -142,7 +142,8 @@ public class ProfileMnaController {
 		PageInfo pageInfo = new PageInfo(page, 10, totalSize, 10);
 		List<ProfileMna> list = profileMnaService.getProfileList(pageInfo, param);
 		System.out.println(param);
-
+		 
+		model.addAttribute("sideopinion", sideopinion);	// 오피니언 사이드 
 		model.addAttribute("politicsList", listBoard); // 인기정치게시글
 		model.addAttribute("listOpinion", listOpinion); // 최근오피니언글
 		model.addAttribute("list", list);

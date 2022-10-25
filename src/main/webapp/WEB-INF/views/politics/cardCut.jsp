@@ -165,27 +165,26 @@
 		                        <div class="card-body p-3">
 		                            <div class="row">
 		                                <!-- Blog item -->
-		                                <div class="col-12">
-		                                    <div class="d-flex align-items-center position-relative">
-		                                        <img class="w-60 rounded" src="resources/resources1b/images/blog/1by1/01.jpg" alt="product">
-		                                        <div class="ms-3">
-		                                            <a href="#" class="h6 stretched-link">‘청년주간’을 맞아 생각해 본 ‘청년정책’이 가야할 길</a>
-		                                            <p class="small mb-0">2022.09.22</p>
-		                                        </div>
-		                                    </div>
-		                                </div>
-		                                <!-- Divider -->
-		                                <hr class="my-3">
-		                                <!-- Blog item -->
-		                                <div class="col-12">
-		                                    <div class="d-flex align-items-center position-relative">
-		                                        <img class="w-60 rounded" src="resources/resources1b/images/blog/1by1/02.jpg" alt="product">
-		                                        <div class="ms-3">
-		                                            <a href="#" class="h6 stretched-link">감정이입을 통해 내면세계로 초대하는 예술가들</a>
-		                                            <p class="small mb-0">2022.09.22</p>
-		                                        </div>
-		                                    </div>
-		                                </div>
+		                                <c:if test="${empty sideopinion}">
+											<div class="d-flex position-relative mb-3">
+												<h6>조회된 글이 없습니다.</h6>
+											</div>
+										</c:if>
+										<c:if test="${not empty sideopinion}">
+			                                <c:forEach var="Opinion" items="${sideopinion}" varStatus="status">
+				                                <div class="col-12">
+				                                    <div class="d-flex align-items-center position-relative">
+				                                        <img class="rounded" src="${Opinion.imageUrl}" alt="product" style="width:60px; hight:80;">
+				                                        <div class="ms-3">
+				                                            <a href="${path}/opinion/opinionDetail?opinionNo=${Opinion.opinionNo}" class="h6 stretched-link">${Opinion.title}</a>
+				                                            <p class="small mb-0"><fmt:formatDate type="both" value="${Opinion.pubDate}"/></p>
+				                                        </div>
+				                                    </div>
+				                                </div>
+				                                <!-- Divider -->
+				                                <hr class="my-3">
+			                                </c:forEach>
+		                                </c:if>
 		                            </div>
 		                        </div>
 		                    </div>

@@ -25,6 +25,8 @@ import com.kh.realfinal.board.model.service.BoardService;
 import com.kh.realfinal.board.model.vo.Board;
 import com.kh.realfinal.common.util.PageInfo;
 import com.kh.realfinal.member.model.vo.Member;
+import com.kh.realfinal.opinion.model.service.OpinionService;
+import com.kh.realfinal.opinion.model.vo.Opinion;
 import com.kh.realfinal.politics.api.CardCutRss;
 import com.kh.realfinal.politics.model.service.CardCutService;
 import com.kh.realfinal.politics.model.vo.CardCut;
@@ -39,6 +41,9 @@ public class CardCutController {
 	@Autowired
 	private BoardService boardService;
 	private final int RealEstate = 1;
+	
+	@Autowired
+	private OpinionService opinionService;
 	
 	@Autowired
 	CardCutService CardCutService;
@@ -85,7 +90,9 @@ public class CardCutController {
 		paramBoard.put("board_list_no",RealEstate);
 		List<Board> listBoard = boardService.getSideBoardForPolitics(paramBoard);
 		// 인기정치게시글 끝
-
+		// 오피니언 사이드 
+		List<Opinion> sideopinion = opinionService.getSelectOpinionForPolitics();
+		
 		int page = 1;
 		if(param.containsKey("page") == true) {
 			try {
@@ -106,6 +113,7 @@ public class CardCutController {
 //		System.out.println(list.get(0).getImages());
 //		System.out.println(list.get(0).getContent());
 
+		model.addAttribute("sideopinion", sideopinion);	// 오피니언 사이드 
 		model.addAttribute("politicsList", listBoard); // 인기정치게시글
 		model.addAttribute("topList", topList);
 		model.addAttribute("list", list);
