@@ -21,8 +21,7 @@
         <!-- Divider -->
         <div class="border-bottom border-primary border-1 opacity-1"></div>
 
-        <!-- =======================
-Inner intro START -->
+        <!-- ======================= Inner intro START -->
         <section class="pb-3 pb-lg-5">
             <div class="container">
                 <div class="row">
@@ -34,11 +33,9 @@ Inner intro START -->
                 </div>
             </div>
         </section>
-        <!-- =======================
-Inner intro END -->
+        <!-- ======================= Inner intro END -->
 
-        <!-- =======================
-Main START -->
+        <!-- ======================= Main START -->
         <section class="pt-0">
             <div class="container position-relative" data-sticky-container>
                 <div class="row">
@@ -189,13 +186,13 @@ Main START -->
                             <!-- 실시간 커뮤니티 인기글 -->
                             <div>
                             <h5 class="mt-5 mb-3">실시간<span style="color:#2163E8">커뮤니티</span>인기글</h5>
-                            <c:if test="${empty sideList}">
+                            <c:if test="${empty boardList}">
 								<div class="d-flex position-relative mb-3">
 									<h6>조회된 글이 없습니다.</h6>
 								</div>
 							</c:if>
-							<c:if test="${not empty sideList}">
-									<c:forEach var="board" items="${sideList}" varStatus="status">
+							<c:if test="${not empty boardList}">
+									<c:forEach var="board" items="${boardList}" varStatus="status">
 	                                <div class="d-flex position-relative mb-3">
 	                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">
 	                                    <fmt:formatNumber type="number" pattern="##" minIntegerDigits="2" value="${board.rownum}"/></span>
@@ -210,8 +207,7 @@ Main START -->
                 </div>
             </div>
         </section>
-        <!-- =======================
-Main END -->
+        <!-- ======================= Main END -->
     </main>
     <!-- **************** MAIN CONTENT END **************** -->
 	<%@ include file="/WEB-INF/views/common/footer.jsp" %>
