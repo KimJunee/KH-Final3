@@ -356,12 +356,13 @@
 			<!-- 지역별 청약 시작 -->
 			<div class="col-xl-5">
 				<h2 class="m-0 mice">
-					<i class="bi bi-geo-alt me-2"></i>&nbsp;경기도
+					<i class="bi bi-geo-alt me-2">&nbsp;</i>
+					<span id="location">경기도</span>
 				</h2>
 				<p>지역별 청약 정보입니다</p>
 				<div class="card border h-md-600">
 					<div class="card-body p-3 ">
-						<div class="row ">
+						<div id="contents" class="row ">
 							<!-- 게시글 -->
 							<div class="col-12 ">
 								<div class="d-flex align-items-center position-relative ">
@@ -393,8 +394,8 @@
 								<div class="d-flex align-items-center position-relative ">
 									<div class="ms-3 ">
 										<a href="# " class="h6 stretched-link ">힐스테이트 푸르지오 수원</a>
-										<p class="small mb-0 ">청약 접수 : 2022. 09. 26 &nbsp; &nbsp;
-											&nbsp; 청약 마감 : 2022. 10. 06</p>
+										<p class="small mb-0 ">청약 접수 : 2022-09-26 &nbsp; &nbsp;
+											&nbsp; 청약 마감 : 2022-10-06</p>
 									</div>
 								</div>
 							</div>
@@ -406,8 +407,8 @@
 									<div class="ms-3 ">
 										<a href="# " class="h6 stretched-link ">경기 수원시 집주인 임대주택
 											선착순 수시모집</a>
-										<p class="small mb-0 ">청약 접수 : 2022. 09. 26 &nbsp; &nbsp;
-											&nbsp; 청약 마감 : 2022. 10. 06</p>
+										<p class="small mb-0 ">청약 접수 : 2022-09-26 &nbsp; &nbsp;
+											&nbsp; 청약 마감 : 2022-10-06</p>
 									</div>
 								</div>
 							</div>
@@ -418,8 +419,8 @@
 								<div class="d-flex align-items-center position-relative ">
 									<div class="ms-3 ">
 										<a href="# " class="h6 stretched-link ">반월자이 더 파크</a>
-										<p class="small mb-0 ">청약 접수 : 2022. 09. 26 &nbsp; &nbsp;
-											&nbsp; 청약 마감 : 2022. 10. 06</p>
+										<p class="small mb-0 ">청약 접수 : 2022-09-26 &nbsp; &nbsp;
+											&nbsp; 청약 마감 : 2022-10-06</p>
 									</div>
 								</div>
 							</div>
@@ -431,13 +432,24 @@
 									<div class="ms-3 ">
 										<a href="# " class="h6 stretched-link ">화성비봉 A-3블록 공공분양주택
 											입주자 모집</a>
-										<p class="small mb-0 ">청약 접수 : 2022. 09. 26 &nbsp; &nbsp;
-											&nbsp; 청약 마감 : 2022. 10. 06</p>
+										<p class="small mb-0 ">청약 접수 : 2022-09-26 &nbsp; &nbsp;
+											&nbsp; 청약 마감 : 2022-10-06</p>
 									</div>
 								</div>
 							</div>
 							<!-- 구분선 -->
 							<hr class="my-3 ">
+							<div class="col-12 ">
+								<div class="d-flex align-items-center position-relative ">
+									<div class="ms-3 ">
+										<a href="# " class="h6 stretched-link ">이안 모란 센트럴파크
+											입주자 모집</a>
+										<p class="small mb-0 ">청약 접수 : 2022-08-31 &nbsp; &nbsp;
+											&nbsp; 청약 마감 : 2022-08-31</p>
+									</div>
+								</div>
+							</div>
+							
 						</div>
 					</div>
 					<!-- 지역별 청약 footer -->
@@ -589,7 +601,7 @@ path:hover {
 
 <!-- 지도 : 청약 일정 지역 -->
 <script>
-        var k_name = {
+        k_name = {
             'seoul': '서울특별시',
             'busan': '부산광역시',
             'daegu': '대구광역시',
@@ -631,12 +643,41 @@ path:hover {
 
         [].forEach.call(document.querySelectorAll('path.land'), function(item) {
             item.addEventListener('click', function() {
-            	alert('지역이름 : ' + this.getAttribute("title").toLowerCase());
             	
         	var json1 = ${json1};
        		$.each( json1, function( key, value ){ 
-            console.log( 'key:' + key + ' / ' + 'value:' + JSON.stringify(value)); 
-        });
+            	console.log( 'key:' + key + ' / ' + 'value:' + JSON.stringify(value)); 
+	        });
+       		
+            // @@@
+            location1 = this.getAttribute("title").toLowerCase();
+            document.getElementById('location').innerHTML = k_name[location1];
+            
+            var list = json1[location1];
+            
+            var html = '';
+            for(var i = 0; i < 7; i++){
+            	html +='<div class="col-12 ">'
+    				+	'<div class="d-flex align-items-center position-relative ">'
+    				+		'<div class="ms-3 ">'
+    				+			'<a href="# " class="h6 stretched-link ">'
+    				+  			list[i].house_nm
+    				+			' 입주자 모집</a>'
+    				+			'<p class="small mb-0 ">청약 접수 : '
+    				+			 	list[i].rcept_bgnde
+    				+				'&nbsp; &nbsp;'
+    				+				'&nbsp; 청약 마감 : '
+    				+				list[i].rcept_endde
+    				+			'</p>'
+    				+		'</div>'
+    				+	'</div>'
+    				+'</div>';
+    				if(i != 6){
+    					html +=	'<hr class="my-3 ">';
+    				}
+            }
+            
+            document.getElementById('contents').innerHTML = html;
             });
         })
         
@@ -662,7 +703,7 @@ path:hover {
 
 
 <!-- ======================= script 끝 =======================-->
-<%-- ${json1} --%>
+<!-- ${json1} -->
 <%@ include file="/WEB-INF/views/common/footer.jsp"%>
 
 </body>
