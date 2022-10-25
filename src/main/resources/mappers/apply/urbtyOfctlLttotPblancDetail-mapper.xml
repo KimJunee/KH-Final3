@@ -149,18 +149,24 @@
 	
 	
 	<!-- 캘린더용 시작 -->
-	<select id="selectUrbtyList1" resultMap="UrbtyMap">
+	<select id="selectUrbtyList1" resultMap="UrbtyMap" parameterType="map">
 		SELECT * FROM URBTYOFCTLLTTOTPBLANCDETAIL
-		WHERE SEARCH_HOUSE_SECD = '201' 
-        OR SEARCH_HOUSE_SECD = '202'
-        OR SEARCH_HOUSE_SECD = '203'
+		WHERE SEARCH_HOUSE_SECD = '0201' 
+        
+	</select>
+	<select id="selectUrbtyList2" resultMap="UrbtyMap" parameterType="map">
+		SELECT * FROM URBTYOFCTLLTTOTPBLANCDETAIL
+		WHERE SEARCH_HOUSE_SECD = '0202'
+	</select>
+	<select id="selectUrbtyList3" resultMap="UrbtyMap" parameterType="map">
+		SELECT * FROM URBTYOFCTLLTTOTPBLANCDETAIL
+		WHERE SEARCH_HOUSE_SECD = '0203'
 	</select>
 	
-	<select id="selectUrbtyList2" resultMap="UrbtyMap">
+	<select id="selectUrbtyList4" resultMap="UrbtyMap" parameterType="map">
 		SELECT * FROM URBTYOFCTLLTTOTPBLANCDETAIL
-		WHERE SEARCH_HOUSE_SECD = '303' 
+		WHERE SEARCH_HOUSE_SECD = '0303' 
 	</select>
-	
 	<!-- 캘린더용 끝 -->
 	
 </mapper>

@@ -7,6 +7,7 @@ import com.kh.realfinal.apply.model.vo.ApplyNotice;
 import com.kh.realfinal.apply.model.vo.ApplyNoticeAttach;
 import com.kh.realfinal.apply.model.vo.AptLttotPblancDetail;
 import com.kh.realfinal.apply.model.vo.AptLttotPblancMdl;
+import com.kh.realfinal.apply.model.vo.RemndrLttotPblancDetail;
 import com.kh.realfinal.apply.model.vo.UrbtyOfctlLttotPblancDetail;
 import com.kh.realfinal.common.util.PageInfo;
 
@@ -26,4 +27,9 @@ public interface ApplyInfoApiService {
 		List<AptLttotPblancDetail> getAptLttotList(Map<String, String> param);
 		List<UrbtyOfctlLttotPblancDetail> getUrdtyList1(Map<String, String> param);
 		List<UrbtyOfctlLttotPblancDetail> getUrdtyList2(Map<String, String> param);
+		List<UrbtyOfctlLttotPblancDetail> getUrdtyList3(Map<String, String> param);
+		List<UrbtyOfctlLttotPblancDetail> getUrdtyList4(Map<String, String> param);
+		List<RemndrLttotPblancDetail> getRemndrList1(Map<String, String> param);
+		List<RemndrLttotPblancDetail> getRemndrList2(Map<String, String> param);
+		List<AptLttotPblancDetail> getAptSpcList(Map<String, String> param);
 }

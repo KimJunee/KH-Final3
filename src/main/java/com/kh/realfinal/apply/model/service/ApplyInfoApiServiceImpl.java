@@ -10,11 +10,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.kh.realfinal.apply.model.mapper.ApplyInfoMapper;
+import com.kh.realfinal.apply.model.mapper.RemndrLttotPblancDetailMapper;
 import com.kh.realfinal.apply.model.mapper.UrbtyOfctlLttotPblancDetailMapper;
 import com.kh.realfinal.apply.model.vo.ApplyNotice;
 import com.kh.realfinal.apply.model.vo.ApplyNoticeAttach;
 import com.kh.realfinal.apply.model.vo.AptLttotPblancDetail;
 import com.kh.realfinal.apply.model.vo.AptLttotPblancMdl;
+import com.kh.realfinal.apply.model.vo.RemndrLttotPblancDetail;
 import com.kh.realfinal.apply.model.vo.UrbtyOfctlLttotPblancDetail;
 import com.kh.realfinal.common.util.PageInfo;
 
@@ -26,6 +28,7 @@ public class ApplyInfoApiServiceImpl implements ApplyInfoApiService {
 
 	private final ApplyInfoMapper mapper;
 	private final UrbtyOfctlLttotPblancDetailMapper uMapper;
+	private final RemndrLttotPblancDetailMapper rMapper;
 	
 	@Override
 	@Transactional(rollbackFor = Exception.class)
@@ -202,9 +205,6 @@ public class ApplyInfoApiServiceImpl implements ApplyInfoApiService {
 				searchMap.put("cateType", "기타");
 			}
 		}
-		
-		
-		
 		return mapper.selectNoticeCount(searchMap);
 	}
 
@@ -236,10 +236,35 @@ public class ApplyInfoApiServiceImpl implements ApplyInfoApiService {
 	public List<UrbtyOfctlLttotPblancDetail> getUrdtyList2(Map<String, String> param) {
 		return uMapper.selectUrbtyList2(param);
 	}
+	
+	@Override
+	public List<UrbtyOfctlLttotPblancDetail> getUrdtyList3(Map<String, String> param) {
+		return uMapper.selectUrbtyList3(param);
+	}
+	
+	@Override
+	public List<UrbtyOfctlLttotPblancDetail> getUrdtyList4(Map<String, String> param) {
+		return uMapper.selectUrbtyList4(param);
+	}
 
 	@Override
 	public int getApplyNotiTotalCount() {
 		return mapper.selectNoticeTotalCount();
+	}
+
+	@Override
+	public List<RemndrLttotPblancDetail> getRemndrList1(Map<String, String> param) {
+		return rMapper.selectRemndrList1(param);
+	}
+
+	@Override
+	public List<RemndrLttotPblancDetail> getRemndrList2(Map<String, String> param) {
+		return rMapper.selectRemndrList2(param);
+	}
+	
+	@Override
+	public List<AptLttotPblancDetail> getAptSpcList(Map<String, String> param) {
+		return mapper.selectAptSpcList(param);
 	}
 
 }
