@@ -5,7 +5,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-
 import org.apache.commons.collections.map.HashedMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,12 +15,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.google.gson.Gson;
 import com.kh.realfinal.board.model.service.BoardService;
 import com.kh.realfinal.board.model.vo.Board;
 import com.kh.realfinal.financialStock.model.service.StockpriceService;
 import com.kh.realfinal.financialStock.model.vo.IndexPrice;
+import com.kh.realfinal.news.model.vo.News;
+import com.kh.realfinal.news.service.NewsService;
 import com.kh.realfinal.opinion.model.service.OpinionService;
 import com.kh.realfinal.opinion.model.vo.Opinion;
 import com.kh.realfinal.politics.model.service.CardCutService;
@@ -41,6 +41,9 @@ public class HomeController {
 	
 	@Autowired
 	private CardCutService cardCutService;
+	
+	@Autowired
+	private NewsService newsService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
@@ -69,14 +72,18 @@ public class HomeController {
 		List<Board> list3 = boardService.getSideBoard();
 		List<Opinion> list4 = opinionservice.getSelectEditorialist();
 		List<CardCut> listMain = cardCutService.getCardCutMain();
+		List<News> list5 = newsService.getSelectNewsForMainBig();
+		List<News> list6 = newsService.getSelectNewsForMainCategory();
 		
 		model.addAttribute("list1", list1);
 		model.addAttribute("list2", list2);
 		model.addAttribute("sideList", list3);
 		model.addAttribute("opinion", list4);
 		model.addAttribute("listMain", listMain);
+		model.addAttribute("newsBig", list5);
+		model.addAttribute("newscategory", list6);
 		
-		System.out.println("ddd"+ list4);
+		System.out.println("ddd"+ list5);
 		
 		return "main/main";
 	}

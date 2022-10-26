@@ -40,7 +40,6 @@
         </div>
     </div>
     <!-- ======================= 뉴스 상단 끝 -->
-
     <!-- **************** MAIN CONTENT START **************** -->
     <main>
         <!-- ======================= Recent post START -->
@@ -61,8 +60,6 @@
                                 </div>
                                 <br>
                                 <h3 class="mb-3 mice">최근 기사</h3>
-                                
-                                
                                 <c:forEach var="newNews" items="${newList}">
 	                                <!-- Recent post item -->
 	                                <div class="card mb-3">
@@ -97,7 +94,6 @@
                         <!-- Card item END -->
                     </div>
                     <!-- 중앙바 끝 -->
-
                     <!-- 우측 사이드바 -->
                     <div class="col-lg-3">
                         <h3 class="mb-3 mice">많이 본 기사</h3>
@@ -116,11 +112,9 @@
                 </div>
             </div>
         </section>
-        
         <div class="container">
             <div class="border-bottom border-secondary opacity-2 mb-0 mt-4"></div>
         </div>
-        
         <section class="py-4">
             <div class="container">
                 <div class="row g-4 flex-fill">
@@ -145,7 +139,6 @@
             </div>
         </section>
         <!-- ======================= Featured stories END -->
-
         <!-- ======================= World politics and Business Sidebar START -->
         <section class="py-4">
             <div class="container">
@@ -183,7 +176,6 @@
                                         </div>
                                         <div class="card-body px-0 pt-3">
                                             <h5 class="card-title"><a href="podcast-single.html" class="btn-link text-dark fw-bold">불매운동 확산에 SPC “반품 받겠다”</a></h5>
-
                                         </div>
                                         <!-- Card item END -->
                                     </div>
@@ -206,7 +198,6 @@
                                             </div>
                                             <div class="card-body px-0 pt-3">
                                                 <h5 class="card-title"><a href="podcast-single.html" class="btn-link text-dark fw-bold">러시아 '안간힘' 써보지만...우크라 대공세 예고됐다</a></h5>
-
                                             </div>
                                         </div>
                                     </div>
@@ -277,10 +268,10 @@
                                 <img src="https://dimg.donga.com/i/150/150/90/wps/NEWS/IMAGE/2022/10/24/116126225.2.jpg" class="grayscale rounded-0" alt="Card image">
                             </div>
                             <c:forEach var="economy" items="${economyList}" begin="1" end="5">
-                            <div class="card card-body bg-light">
-                                <h6 class="card-title"><a href="${path}/news/post?newsNo=${economy.newsNo}" class="btn-link text-reset stretched-link fw-bold">${economy.title}</a></h6>
-                                <div class="border-bottom border-secondary opacity-2 mb-0 mt-1"></div>
-                            </div>
+	                            <div class="card card-body bg-light">
+	                                <h6 class="card-title"><a href="${path}/news/post?newsNo=${economy.newsNo}" class="btn-link text-reset stretched-link fw-bold">${economy.title}</a></h6>
+	                                <div class="border-bottom border-secondary opacity-2 mb-0 mt-1"></div>
+	                            </div>
                             </c:forEach>
                         </div>
                     </div>
@@ -288,11 +279,9 @@
                 </div>
             </div>
         </section>
-
         <div class="container">
             <div class="border-bottom border-secondary opacity-2 mb-0 mt-2"></div>
         </div>
-
         <section class="pt-4 pt-sm-5 pb-3 pb-sm-5">
             <div class="container">
                 <div class="row">
@@ -300,7 +289,6 @@
                         <!-- Title -->
                         <h4 class="mb-3 mice">경제</h4>
                         <!-- Card Item START -->
-                        <c:if test="${!empty economyList}">
                         <div class="card mb-3">
                             <div class="row g-3">
                                 <div class="col-4">
@@ -314,17 +302,18 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Card Item END -->
-                        <c:forEach var="economy" items="${economyList}" begin="1" end="4">
-                        <!-- Card Item START -->
-                        <div class="card mb-3">
-                            <h6><a href="${path}/news/post?newsNo=${economy.newsNo}" class="btn-link stretched-link text-reset">${economy.title}</a></h6>
-                            <!-- Card info -->
-                            <ul class="nav nav-divider align-items-center mt-1 small"></ul>
-                        </div>
-                        <!-- Card Item END -->
-                        <div class="border-bottom border-secondary opacity-2 mt-2 mb-2"></div>   
-                        </c:forEach>
+                        <c:if test="${!empty economyList}">
+	                        <!-- Card Item END -->
+	                        <c:forEach var="economy" items="${economyList}" begin="1" end="4">
+		                        <!-- Card Item START -->
+		                        <div class="card mb-3">
+		                            <h6><a href="${path}/news/post?newsNo=${economy.newsNo}" class="btn-link stretched-link text-reset">${economy.title}</a></h6>
+		                            <!-- Card info -->
+		                            <ul class="nav nav-divider align-items-center mt-1 small"></ul>
+		                        </div>
+		                        <!-- Card Item END -->
+		                        <div class="border-bottom border-secondary opacity-2 mt-2 mb-2"></div>   
+	                        </c:forEach>
                         </c:if>                   
                     </div>
                     <div class="col-md-4">
@@ -342,7 +331,6 @@
                                     <h5><a href="post-single-5.html" class="btn-link stretched-link text-reset">한동훈 “로스쿨, 이미 공고한 성…문제 의식 갖고 여러 방면 연구”</a></h5>
                                     <!-- Card info -->
                                     <ul class="nav nav-divider align-items-center mt-3 small">
-
                                     </ul>
                                 </div>
                             </div>
@@ -377,7 +365,6 @@
                                         엔데믹으로 출근 재개? 재택근무 정착한 패션업계</a></h5>
                                     <!-- Card info -->
                                     <ul class="nav nav-divider align-items-center mt-3 small">
-
                                     </ul>
                                 </div>
                             </div>
@@ -399,10 +386,7 @@
                 </div>
             </div>
         </section>
-        <!-- =======================
-Sports, most read and Entertainment END -->
-
-
+        <!-- ======================= Sports, most read and Entertainment END -->
     </main>
     <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>

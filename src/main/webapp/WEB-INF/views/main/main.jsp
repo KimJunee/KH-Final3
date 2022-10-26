@@ -26,9 +26,7 @@
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
 }
- 
 </style>
-
 
 <head>
     <title>FinTouch - 신속하고 정확한 금융지식전달을 위해 노력합니다. </title>
@@ -63,7 +61,6 @@
                                             <!-- <h5 class="text-white me-3 ">Share on: </h5> -->
                                             <a type="button " class="btn btn-outline-white" href="${path}/stockprice/fin_main.do">S T A R T &nbsp;&nbsp; E X P L O R I N G&nbsp;&nbsp;  F I N A N C E &nbsp;&nbsp; > </a>
                                         </div>
-
                                         <!-- Custom thumb START -->
                                         <div class="col-xl-4 pe-5 position-absolute top-50 end-0 translate-middle-y d-none d-xxl-block x " id="custom ">
                                             <!-- Thumb 1 -->
@@ -99,8 +96,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-8 ">
-                                                    <a href="06_opinion.html " class="badge text-bg-success mb-2 "><i class="fas fa-circle me-2 small fw-bold "></i>Opinion</a>
-                                                    <h4 class="fw-normal text-truncate mb-1 mice text-white "><a href="06_opinion.html " class="btn-link text-reset fw-bold ">각 분야 전문가들의 기고/칼럼</a></h4>
+                                                    <a href="${path}/opinion" class="badge text-bg-success mb-2 "><i class="fas fa-circle me-2 small fw-bold "></i>Opinion</a>
+                                                    <h4 class="fw-normal text-truncate mb-1 mice text-white "><a href="${path}/opinion" class="btn-link text-reset fw-bold ">각 분야 전문가들의 기고/칼럼</a></h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -135,7 +132,6 @@
                                 </c:forEach>
                                 </c:if>
                             </div>
-
                             <div class="col-2">
                                 <div dir="ltr" style="padding-left: 30px;">
                                     <!-- <div id="basic-area1" class="apex-charts" data-colors="#fa6767"></div> -->
@@ -151,7 +147,6 @@
                                     <!-- 하락장일때-->
                                 </div>
                             </div>
-
                             <div class="col-1">
                                 <h5 class="mt-0 text-truncate" style="font-weight: bold; font-size: 15px; color:rgb(71, 103, 231)">KOSDAQ</h5>
                                 <c:if test="${empty list2}">
@@ -217,116 +212,83 @@
                     </div>
                 </section>
             </div>
-
             <!-- 지수님 여기서부터 작업하시면 됩니다!!! 그래프 끝 -->
-
             <!-- ======================= 뉴스 시작 -->
             <section class="py-0 card-grid mb-4">
                 <div class="container">
                     <div class="row">
                         <!-- Slider START -->
                         <div class="col-lg-7">
-                            <div class="tiny-slider arrow-hover arrow-blur arrow-round rounded-3">
-                                <div class="tiny-slider-inner" data-autoplay="false" data-hoverpause="true" data-gutter="0" data-arrow="true" data-dots="false" data-items="1">
-                                    <div class="card card-overlay-bottom card-bg-scale h-400 h-lg-560 rounded-0" style="background-image:url(${path}/resources/resources1b/images/blog/16by9/07.jpg); background-position: center left; background-size: cover;">
-                                        <!-- 왼쪽 위 큰 기사 1 -->
-                                        <div class="card-img-overlay d-flex flex-column p-3 p-sm-5">
-                                            <div class="w-100 mt-auto">
-                                                <div class="col">
-                                                    <!-- 카테고리 -->
-                                                    <a href="#" class="badge text-bg-primary mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Politics</a>
-                                                    <!-- 기사제목 / 내용일부 -->
-                                                    <h3 class="text-white display-6 mice"><a href="post-single-4.html" class="btn-link text-reset stretched-link fw-normal">	
-                                                    BBC, 尹 '비속어 논란' 풍자에 이준석 "MBC 이상으로 대응해야 할텐데"</a></h3>
-                                                    <p class="text-white">이준석 전 국민의힘 대표는 영국 BBC의 시사코미디 프로그램이 윤석열 대통령의 '비속어 논란'을 풍자한 것을 두고 "이제 당에서 영락없이 MBC에 대응한 …</p>
-                                                    <!-- 작성일자 -->
-                                                    <ul class="nav nav-divider text-white-force align-items-center d-none d-sm-inline-block">
-                                                        <p class="nav-item">2022.10.04</p>
-                                                        <p class="nav-item">14:59:48</p>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- 왼쪽 위 큰 기사 2 -->
-                                    <div class="card card-overlay-bottom card-bg-scale h-400 h-lg-560 rounded-0" style="background-image:url(${path}/resources/resources1b/images/blog/16by9/02.jpg); background-position: center left; background-size: cover;">
-                                        <div class="card-img-overlay d-flex flex-column p-3 p-sm-5">
-                                            <!-- 왼쪽 위 큰 기사 2 -->
-                                            <div class="w-100 mt-auto">
-                                                <div class="col">
-                                                    <!-- 카테고리 -->
-                                                    <a href="#" class="badge text-bg-danger mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Finance</a>
-                                                    <!-- 기사제목 / 내용일부 -->
-                                                    <h2 class="text-white display-6 mice"><a href="post-single-4.html" class="btn-link text-reset stretched-link fw-normal">	
-                                                    신한은행, 기업·가계대출 취약차주 채무조정 확대</a></h2>
-                                                    <p class="text-white">신한은행은 기업대출 취약차주 대상 '기업 포괄 채무조정 프로그램'을 신설하고 가계대…</p>
-                                                    <!-- 작성일자 -->
-                                                    <ul class="nav nav-divider text-white-force align-items-center d-none d-sm-inline-block">
-                                                        <p class="nav-item">2022.10.04</p>
-                                                        <p class="nav-item">15:07:11</p>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        	<c:forEach var="newsBig" items="${newsBig}"  begin="0" end="0" step="5" varStatus="status">
+	                            <div class="tiny-slider arrow-hover arrow-blur arrow-round rounded-3">
+	                                <div class="tiny-slider-inner" data-autoplay="false" data-hoverpause="true" data-gutter="0" data-arrow="true" data-dots="false" data-items="1">
+	                                    <div class="card card-overlay-bottom card-bg-scale h-400 h-lg-560 rounded-0" style="background-image:url(${newsBig.image}); background-position: center left; background-size: cover;">
+	                                        <!-- 왼쪽 위 큰 기사 -->
+	                                        <div class="card-img-overlay d-flex flex-column p-3 p-sm-5">
+	                                            <div class="w-100 mt-auto">
+	                                                <div class="col">
+	                                                    <!-- 카테고리 -->
+	                                                    <c:choose>
+	                                               			<c:when test="${newsBig.category eq 'politics'}">                                                    	
+	                                                       		<a class="badge text-bg-primary mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Politics</a>
+	                                                    	</c:when>
+	                                                    	<c:when test="${newsBig.category eq 'national'}">                                                    	
+	                                                        	<a class="badge text-bg-warning mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Real Estate</a>
+	                                                    	</c:when>
+	                                                    	<c:when test="${newsBig.category eq 'economy'}">                                                    	
+	                                                        	<a class="badge text-bg-danger mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Finance</a>
+	                                                    	</c:when>
+	                                                    	<c:when test="${newsBig.category eq 'opinion'}">                                                    	
+	                                                        	<a class="badge text-bg-success mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Opinion</a>
+	                                                    	</c:when>
+	                                                   	</c:choose>
+	                                                    <!-- 기사제목 / 내용일부 -->
+	                                                    <h3 class="text-white display-6 mice"><a href="${path}/news/post?newsNo=${newsBig.newsNo}" class="btn-link text-reset stretched-link fw-normal">${newsBig.title}</a></h3>
+	                                                    <p class="text-white" style="text-overflow:ellipsis; white-space:nowrap;">${newsBig.description}</p>
+	                                                    <!-- 작성일자 -->
+	                                                    <ul class="nav nav-divider text-white-force align-items-center d-none d-sm-inline-block">
+	                                                        <p class="nav-item"><fmt:formatDate type="both" value="${newsBig.pubDate}"/></p>
+	                                                    </ul>
+	                                                </div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+                            </c:forEach>
                         </div>
                         <!-- 오른쪽 기사 -->
                         <div class="col-lg-5 mt-5 mt-lg-0">
-                            <!-- 오른쪽 기사 1 -->
-                            <div class="card mb-3">
-                                <div class="row g-3">
-                                    <div class="col-4">
-                                        <img class="rounded-3" src="${path}/resources/resources1b/images/blog/4by3/01.jpg" alt="">
-                                    </div>
-                                    <div class="col-8">
-                                        <a href="#" class="badge text-bg-danger mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Finance</a>
-                                        <h5><a href="post-single-4.html" class="btn-link text-reset stretched-link fw-bold mice">이지스자산운용, 증권부문에 장지영 신임 대표 선임</a></h5>
-                                        <p class="nav-item">2022.10.05</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- 오른쪽 기사 2 -->
-                            <div class="card mb-4">
-                                <div class="row g-3">
-                                    <div class="col-4">
-                                        <img class="rounded-3" src="${path}/resources/resources1b/images/blog/4by3/02.jpg" alt="">
-                                    </div>
-                                    <div class="col-8">
-                                        <a href="#" class="badge text-bg-warning mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Real Estate</a>
-                                        <h5><a href="post-single-4.html" class="btn-link text-reset stretched-link fw-bold mice">은평구 성락타운 재건축…대보건설, 125가구 신축</a></h5>
-                                        <p class="nav-item">2022.10.02</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- 오른쪽 기사 3 -->
-                            <div class="card mb-3">
-                                <div class="row g-3">
-                                    <div class="col-4">
-                                        <img class="rounded-3" src="${path}/resources/resources1b/images/blog/4by3/03.jpg" alt="">
-                                    </div>
-                                    <div class="col-8">
-                                        <a href="#" class="badge text-bg-primary mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Politics</a>
-                                        <h5><a href="post-single-4.html" class="btn-link text-reset stretched-link fw-bold mice">尹 "북 도발, 유엔 규범 위반"...NSC에 상응 조치 지시</a></h5>
-                                        <p class="nav-item">2022.10.04</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- 오른쪽 기사 4 -->
-                            <div class="card mb-4">
-                                <div class="row g-3">
-                                    <div class="col-4">
-                                        <img class="rounded-3" src="${path}/resources/resources1b/images/blog/4by3/04.jpg" alt="">
-                                    </div>
-                                    <div class="col-8">
-                                        <a href="#" class="badge text-bg-success mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Opinion</a>
-                                        <h5><a href="post-single-4.html" class="btn-link text-reset stretched-link fw-bold mice">[기자수첩] 재건축 부담금, 여전히 문제다</a></h5>
-                                        <p class="nav-item">2022.10.04</p>
-                                    </div>
-                                </div>
-                            </div>
+	                        <c:forEach var="newscategory" items="${newscategory}" varStatus="status">
+	                            <!-- 오른쪽 기사 1 -->
+	                            <div class="card mb-3">
+	                                <div class="row g-3">
+	                                    <div class="col-4">
+	                                        <img class="rounded-3" src="${newscategory.image}" style="width: 150px; height: 125px;">
+	                                    </div>
+	                                    <div class="col-8">
+	                                    	<!-- 카테고리 -->
+                                            <c:choose>
+                                       			<c:when test="${newscategory.category eq 'politics'}">                                                    	
+                                               		<a class="badge text-bg-primary mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Politics</a>
+                                            	</c:when>
+                                            	<c:when test="${newscategory.category eq 'national'}">                                                    	
+                                                	<a class="badge text-bg-warning mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Real Estate</a>
+                                            	</c:when>
+                                            	<c:when test="${newscategory.category eq 'economy'}">                                                    	
+                                                	<a class="badge text-bg-danger mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Finance</a>
+                                            	</c:when>
+                                            	<c:when test="${newscategory.category eq 'opinion'}">                                                    	
+                                                	<a class="badge text-bg-success mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Opinion</a>
+                                            	</c:when>
+                                           	</c:choose>
+	                                        <h5><a href="${path}/news/post?newsNo=${newscategory.newsNo}" class="btn-link text-reset stretched-link fw-bold mice">${newscategory.title}</a></h5>
+	                                        <p class="nav-item"><fmt:formatDate type="both" value="${newscategory.pubDate}"/></p>
+	                                    </div>
+	                                </div>
+	                            </div>
                             <!-- Card item END -->
+                            </c:forEach>
                         </div>
                     </div>
                     <!-- Row END -->

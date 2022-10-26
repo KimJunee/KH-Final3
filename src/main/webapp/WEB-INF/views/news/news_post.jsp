@@ -20,7 +20,6 @@
     <main>
         <!-- Divider -->
         <div class="border-bottom border-primary border-1 opacity-1"></div>
-
         <!-- ======================= Inner intro START -->
         <section class="pb-3 pb-lg-5">
             <div class="container">
@@ -34,7 +33,6 @@
             </div>
         </section>
         <!-- ======================= Inner intro END -->
-
         <!-- ======================= Main START -->
         <section class="pt-0">
             <div class="container position-relative" data-sticky-container>
@@ -42,7 +40,6 @@
                     <!-- Left sidebar START -->
                     <div class="col-lg-2">
                         <div class="text-start text-lg-center mb-5" data-sticky data-margin-top="80" data-sticky-for="991">
-                            <hr class="d-none d-lg-block">
                             <!-- Card info -->
                             <ul class="list-inline list-unstyled">
                                 <li class="list-inline-item d-lg-block my-lg-2"><fmt:formatDate type="both" value=""/></li>
@@ -54,13 +51,11 @@
                         	<div>
 	                        	<input type="hidden" name="finType" value="${installment.finType}">
 	                        	<input type="hidden" name="prtId" value="${installment.id}">		                        	
-	                        	<button class="btn btn-lg btn-primary w-100 mb-3" type="submit">기사 스크랩하기</button>
                         	</div>
                         </form>
                     </div>
                     <!-- Left sidebar END -->
                     <!-- Main Content START -->
-
                     <div class="col-lg-7 mb-5">
                         <!-- Image -->
                         <figure class="figure mt-2">
@@ -68,9 +63,7 @@
                                 <img class="rounded" src="${news.image}" style="width:700px; height:450px;" alt="Image">
                             </a>
                         </figure>
-
                         <p>${news.description}</p>
-                        
                         <div class="border-bottom border-top border-2 mb-3 pt-3" style="color:#a1a1a8">
                         <h3>${fn:length(newsReplyList)} comments</h3>
                         <c:forEach var="reply" items="${newsReplyList}" varStatus="status"> 
@@ -84,26 +77,26 @@
                             </c:choose>
                                 <img class="avatar avatar-md rounded-circle float-start me-3" src="${path}/resources/resources1b/images/avatar_w3.png" alt="avatar">
                         		<div style="width: 100%;">
-                                <div style="flex-container: space-between;">
-                                    <div class="mb-2" style="display:inline-block">
-                                        <h6 class="m-0 mice">${reply.n_reply_writer_nickName}</h6>
-                                        <span class="me-3 small"><fmt:formatDate type="both" value="${reply.n_reply_register}"/></span>
-                                    </div>
-                                    <c:if test="${not empty loginMember && (loginMember.user_id == reply.n_reply_writer_id)}">
-	                                    <div style="display: inline-block; flex-container: space-between; float: right;">
-		                                    <button id="reply_edit${reply.n_reply_no}" onclick="editReply(${reply.n_reply_no})" class="btn btn-outline-primary mb-0" style="font-size:13px; padding:3px 5px">수정</button>
-		                                    <button style="display:none;font-size:13px; padding:3px 5px" class="btn btn-outline-primary mb-0" id="do_reply_edit${reply.n_reply_no}" onclick="doEditReply(${reply.n_reply_no})">저장</button>
-		                                    <button style="display:none;font-size:13px; padding:3px 5px" class="btn btn-outline-primary mb-0" id="cancel_reply_edit${reply.n_reply_no}" onclick="cancelEditReply(${reply.n_reply_no})">취소</button>
-		                                    <button id="delete_reply_btn${reply.n_reply_no}" onclick="deleteReply(${reply.n_reply_no})" class="btn btn-outline-primary mb-0" style="font-size:13px; padding:3px 5px">삭제</button>
+	                                <div style="flex-container: space-between;">
+	                                    <div class="mb-2" style="display:inline-block">
+	                                        <h6 class="m-0 mice">${reply.n_reply_writer_nickName}</h6>
+	                                        <span class="me-3 small"><fmt:formatDate type="both" value="${reply.n_reply_register}"/></span>
 	                                    </div>
-                                    </c:if>
-                                    <div class="mb-2" style="color:#191a1f">
-                                        <p id="reply_content${reply.n_reply_no}">${reply.n_reply_content}</p>
-                                        <textarea class="form-control" style="display:none; resize: none;" id="edit_reply_content${reply.n_reply_no}">${reply.n_reply_content}</textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
+	                                    <c:if test="${not empty loginMember && (loginMember.user_id == reply.n_reply_writer_id)}">
+		                                    <div style="display: inline-block; flex-container: space-between; float: right;">
+			                                    <button id="reply_edit${reply.n_reply_no}" onclick="editReply(${reply.n_reply_no})" class="btn btn-outline-primary mb-0" style="font-size:13px; padding:3px 5px">수정</button>
+			                                    <button style="display:none;font-size:13px; padding:3px 5px" class="btn btn-outline-primary mb-0" id="do_reply_edit${reply.n_reply_no}" onclick="doEditReply(${reply.n_reply_no})">저장</button>
+			                                    <button style="display:none;font-size:13px; padding:3px 5px" class="btn btn-outline-primary mb-0" id="cancel_reply_edit${reply.n_reply_no}" onclick="cancelEditReply(${reply.n_reply_no})">취소</button>
+			                                    <button id="delete_reply_btn${reply.n_reply_no}" onclick="deleteReply(${reply.n_reply_no})" class="btn btn-outline-primary mb-0" style="font-size:13px; padding:3px 5px">삭제</button>
+		                                    </div>
+	                                    </c:if>
+	                                    <div class="mb-2" style="color:#191a1f">
+	                                        <p id="reply_content${reply.n_reply_no}">${reply.n_reply_content}</p>
+	                                        <textarea class="form-control" style="display:none; resize: none;" id="edit_reply_content${reply.n_reply_no}">${reply.n_reply_content}</textarea>
+	                                    </div>
+	                            	</div>
+	                            </div>
+	                        </div>
                         </c:forEach>
                         </div>	
                         <!-- 댓글 작성 시작 -->

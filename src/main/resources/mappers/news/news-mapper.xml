@@ -43,6 +43,7 @@
 		SELECT NEWS_NO, TITLE, LINK, PUBDATE, DESCRIPTION, IMAGE, CATEGORY
 		FROM NEWS 
 		WHERE 1=1
+		AND IMAGE IS NOT NULL
 		<if test="category != null">
 			AND CATEGORY LIKE '%'||#{category}||'%'		
 		</if>
@@ -65,6 +66,7 @@
 		SELECT COUNT(*)
 		FROM NEWS
 		WHERE 1=1
+			AND IMAGE IS NOT NULL
 		<if test="category != null">
 			AND CATEGORY LIKE '%'||#{category}||'%'		
 		</if>
@@ -112,7 +114,8 @@
 			SELECT
 				NEWS_NO, TITLE, PUBDATE, DESCRIPTION, IMAGE, CATEGORY
 			FROM NEWS
-			WHERE ROWNUM <![CDATA[<=]]> 5
+			WHERE IMAGE IS NOT NULL
+			AND ROWNUM <![CDATA[<=]]> 5
 			ORDER BY NEWS_NO DESC
 		) A
 	</select>
@@ -163,7 +166,7 @@
 		    WHERE CATEGORY = 'national'   
 		    AND IMAGE IS NOT NULL
 		    ORDER BY PUBDATE DESC
-		) WHERE ROWNUM <![CDATA[<=]]> 1;
+		) WHERE ROWNUM <![CDATA[<=]]> 1
 	</select>
 	
 	<!-- 댓글 등록 -->

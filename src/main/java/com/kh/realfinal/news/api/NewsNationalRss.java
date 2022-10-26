@@ -3,6 +3,7 @@ package com.kh.realfinal.news.api;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -77,7 +78,7 @@ public class NewsNationalRss {
 
 					String title =  eElement.getElementsByTagName("title").item(0).getTextContent();
 					String link =  eElement.getElementsByTagName("link").item(0).getTextContent();
-					String pubdate =  eElement.getElementsByTagName("pubDate").item(0).getTextContent();
+					Date pubdate =  new Date(eElement.getElementsByTagName("pubDate").item(0).getTextContent());
 					String description =  eElement.getElementsByTagName("description").item(0).getTextContent();
 					String image = null;
 					try {

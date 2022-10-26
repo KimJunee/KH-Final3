@@ -94,6 +94,7 @@ public class NewsController {
 		pageInfo = new PageInfo(1, 10, service.getNewsCount(map), 4);
 		List<News> hotList = service.getNewsList(pageInfo, map);
 		
+		
 		System.out.println(newList);
 		model.addAttribute("newList", newList);
 		model.addAttribute("hotList", hotList);
