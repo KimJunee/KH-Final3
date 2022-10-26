@@ -12,6 +12,7 @@
     <!-- Favicon -->
     <link rel="shortcut icon" href="${path}/resources/resources1b/images/favicon.ico">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="${path}/resources/resources4h/assets2/vendor/jquery/jquery.min.js"></script>
 </head>
 
 <body>
@@ -66,7 +67,7 @@
                     </div>
                     <!-- 왼쪽 사이드바 끝 -->
                     <!-- 메인 컨텐츠 시작 -->
-                    <div class="col-lg-7 mb-5">
+                    <div class="col-lg-7 mb-5" id="main_content">
                         <p>${board.board_content}</p>
                         <!-- 첨부파일 -->
                         <c:if test="${!empty board.board_renamedFileName}">
@@ -220,6 +221,14 @@
     </main>
     
     <script>
+    $(function(){
+    	var mainheight = $("#main_content").height();
+    	if(mainheight < 810){
+    		$("#main_content").css("height","800px");
+    	}
+    })
+    
+    
 	function editReply(idx){
 		console.log(idx);
 		$("#reply_content"+idx).hide();
