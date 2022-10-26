@@ -50,8 +50,8 @@
                             <!-- Card info -->
                             <ul class="list-inline list-unstyled">
                                 <li class="list-inline-item d-lg-block my-lg-2"><fmt:formatDate type="both" value=""/></li>
-                                <li class="list-inline-item d-lg-block my-lg-2"><i class="far fa-eye me-1"></i> Views</li>
-                                <li class="list-inline-item d-lg-block my-lg-2"><i class="bi bi-chat-left-quote-fill me-1"></i>Commenets</li>
+                                <li class="list-inline-item d-lg-block my-lg-2"><i class="far fa-eye me-1"></i>${news.hit} Views</li>
+                                <li class="list-inline-item d-lg-block my-lg-2"><i class="bi bi-chat-left-quote-fill me-1"></i>${fn:length(newsReplyList)}  Commenets</li>
                             </ul>
                         </div>
                         <form action="${path}/mypage/finProLikeIns" method="post">
@@ -76,47 +76,48 @@
                         <p>${news.description}</p>
                         
                         <div class="border-bottom border-top border-2 mb-3 pt-3" style="color:#a1a1a8">
-                        <h3>${fn:length(replyList)} comments</h3>
-                        <c:forEach var="reply" items="${replyList}" varStatus="status">
+                        <h3>${fn:length(newsReplyList)} comments</h3>
+                        <c:forEach var="reply" items="${newsReplyList}" varStatus="status"> 
                         	<c:choose>
 	                        	<c:when test="${!status.last}">
-	                            	<div class="my-4 d-flex border-bottom border-1 mb-1 reply" id="reply${reply.reply_no}" style="color:#a1a1a8"></div>
+	                            	<div class="my-4 d-flex border-bottom border-1 mb-1 reply" id="reply${reply.n_reply_no}" style="color:#a1a1a8">
 	                            </c:when>
 	                            <c:otherwise>
-	                            	<div class="my-4 d-flex reply" id="reply${reply.reply_no}"></div>
+	                            	<div class="my-4 d-flex reply" id="reply${reply.n_reply_no}">
 	                            </c:otherwise>
                             </c:choose>
                                 <img class="avatar avatar-md rounded-circle float-start me-3" src="${path}/resources/resources1b/images/avatar_w3.png" alt="avatar">
                         		<div style="width: 100%;">
                                 <div style="flex-container: space-between;">
                                     <div class="mb-2" style="display:inline-block">
-                                        <h6 class="m-0 mice">${reply.reply_writer_nickName}</h6>
-                                        <span class="me-3 small"><fmt:formatDate type="both" value="${reply.reply_register}"/></span>
+                                        <h6 class="m-0 mice">${reply.n_reply_writer_nickName}</h6>
+                                        <span class="me-3 small"><fmt:formatDate type="both" value="${reply.n_reply_register}"/></span>
                                     </div>
-                                    <c:if test="${not empty loginMember && (loginMember.user_id == reply.reply_writer_id)}">
+                                    <c:if test="${not empty loginMember && (loginMember.user_id == reply.n_reply_writer_id)}">
 	                                    <div style="display: inline-block; flex-container: space-between; float: right;">
-		                                    <button id="reply_edit${reply.reply_no}" onclick="editReply(${reply.reply_no})" class="btn btn-outline-primary mb-0" style="font-size:13px; padding:3px 5px">수정</button>
-		                                    <button style="display:none;font-size:13px; padding:3px 5px" class="btn btn-outline-primary mb-0" id="do_reply_edit${reply.reply_no}" onclick="doEditReply(${reply.reply_no})">저장</button>
-		                                    <button style="display:none;font-size:13px; padding:3px 5px" class="btn btn-outline-primary mb-0" id="cancel_reply_edit${reply.reply_no}" onclick="cancelEditReply(${reply.reply_no})">취소</button>
-		                                    <button id="delete_reply_btn${reply.reply_no}" onclick="deleteReply(${reply.reply_no})" class="btn btn-outline-primary mb-0" style="font-size:13px; padding:3px 5px">삭제</button>
+		                                    <button id="reply_edit${reply.n_reply_no}" onclick="editReply(${reply.n_reply_no})" class="btn btn-outline-primary mb-0" style="font-size:13px; padding:3px 5px">수정</button>
+		                                    <button style="display:none;font-size:13px; padding:3px 5px" class="btn btn-outline-primary mb-0" id="do_reply_edit${reply.n_reply_no}" onclick="doEditReply(${reply.n_reply_no})">저장</button>
+		                                    <button style="display:none;font-size:13px; padding:3px 5px" class="btn btn-outline-primary mb-0" id="cancel_reply_edit${reply.n_reply_no}" onclick="cancelEditReply(${reply.n_reply_no})">취소</button>
+		                                    <button id="delete_reply_btn${reply.n_reply_no}" onclick="deleteReply(${reply.n_reply_no})" class="btn btn-outline-primary mb-0" style="font-size:13px; padding:3px 5px">삭제</button>
 	                                    </div>
                                     </c:if>
                                     <div class="mb-2" style="color:#191a1f">
-                                        <p id="reply_content${reply.reply_no}">${reply.reply_content}</p>
-                                        <textarea class="form-control" style="display:none; resize: none;" id="edit_reply_content${reply.reply_no}">${reply.reply_content}</textarea>
+                                        <p id="reply_content${reply.n_reply_no}">${reply.n_reply_content}</p>
+                                        <textarea class="form-control" style="display:none; resize: none;" id="edit_reply_content${reply.n_reply_no}">${reply.n_reply_content}</textarea>
                                     </div>
                                 </div>
+                            </div>
                             </div>
                         </c:forEach>
                         </div>	
                         <!-- 댓글 작성 시작 -->
                         <div>
                             <h3 class="mice">Leave a reply</h3>
-                            <form class="row g-3 mt-1" action="${path}/board/reply" method="post">
-                            	<input type="hidden" name="board_no" value="${board.board_no}"/> 
-    							<input type="hidden" name="reply_writer_id" value="${loginMember.user_id}"/> 
+                            <form class="row g-3 mt-1" action="${path}/news/reply" method="post">
+                            	<input type="hidden" name="newsNo" value="${news.newsNo}"/> 
+    							<input type="hidden" name="n_reply_writer_id" value="${loginMember.user_id}"/> 
                                 <div class="col-12">
-                                    <textarea name="reply_content" class="form-control" rows="3" style="resize: none; border-radius: 5px;"></textarea>
+                                    <textarea name="n_reply_content" class="form-control" rows="3" style="resize: none; border-radius: 5px;"></textarea>
                                 </div>
                                 <div class="col-12">
                                     <button type="submit" class="btn btn-primary" id="btn-insert">Post comment</button>
@@ -124,10 +125,8 @@
                             </form>
                         </div>
                         <!-- 댓글 작성 끝 -->
-                        <!-- Reply END -->
                     </div>
                     <!-- Main Content END -->
-
                     <!-- Right sidebar START -->
                     <div class="col-lg-3">
                         <div data-sticky data-margin-top="80" data-sticky-for="991">
@@ -209,7 +208,74 @@
         </section>
         <!-- ======================= Main END -->
     </main>
-    <!-- **************** MAIN CONTENT END **************** -->
+    <script>
+		function editReply(idx){
+			console.log(idx);
+			$("#reply_content"+idx).hide();
+			$("#edit_reply_content"+idx).show();
+			
+			$("#reply_edit"+idx).hide();
+			$("#do_reply_edit"+idx).show();
+			$("#cancel_reply_edit"+idx).show();
+		}
+		
+		function cancelEditReply(idx){
+			console.log("cancel Edit Reply");
+			
+			$("#edit_reply_content"+idx).val($("#reply_content"+idx).text()); //내용 원복
+			
+			$("#reply_content"+idx).show();
+			$("#edit_reply_content"+idx).hide();
+			
+			$("#reply_edit"+idx).show();
+			$("#do_reply_edit"+idx).hide();
+			$("#cancel_reply_edit"+idx).hide();
+		}
+		
+		function doEditReply(idx){
+			$.ajax({
+				data : JSON.stringify({
+					o_reply_no : idx,
+					opinionNo : "${opinion.opinionNo}",
+					o_reply_content:$("#edit_reply_content"+idx).val()
+				}),
+				url : "/realfinal/opinion/replyedit",
+				type : "POST",
+				contentType: 'application/json',
+				success : function(result){
+					alert("댓글이 수정되었습니다.");
+					
+					$("#reply_content"+idx).text($("#edit_reply_content"+idx).val());
+					
+					$("#reply_content"+idx).show();
+					$("#edit_reply_content"+idx).hide();
+					
+					$("#reply_edit"+idx).show();
+					$("#do_reply_edit"+idx).hide();
+					$("#cancel_reply_edit"+idx).hide();
+				}
+			});
+		}
+		
+		function deleteReply(idx){
+			$.ajax({
+				data : JSON.stringify({
+					o_reply_no : idx,
+					opinionNo : "${opinion.opinionNo}",
+					o_reply_content:$("#edit_reply_content"+idx).val()
+				}),
+				url : "/realfinal/opinion/replydel",
+				type : "POST",
+				contentType: 'application/json',
+				success : function(result){
+					alert("댓글이 삭제되었습니다.");
+					$("#reply"+idx).remove();
+					var last_reply = $(".reply").last();
+					last_reply.removeClass("border-bottom border-1 mb-1");
+				}
+			});
+		}
+		</script>
 	<%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 </html>

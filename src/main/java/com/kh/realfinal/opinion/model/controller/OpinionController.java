@@ -123,7 +123,6 @@ public class OpinionController {
 	@RequestMapping("/opinion/opinionDetail")
 	public String opinionDetail(Model model, @RequestParam Map<String, String> param) {
 		int opinionNo = Integer.parseInt(param.get("opinionNo"));
-		System.out.println("opinionDetail : "+opinionNo);
 		Opinion opinion = service.getOpinionOne(opinionNo);
 		List<Board> sideList = boardService.getSideBoard();
 		
