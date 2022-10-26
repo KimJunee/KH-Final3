@@ -297,7 +297,7 @@
             <!-- ======================= Main hero END -->
 
             <!-- ======================= 카드로 보는 뉴스 시작 -->
-            <section class="position-relative" style="margin-top: -90px;">
+            <section class="position-relative" style="margin-top: -60px;">
                 <div class="container" data-sticky-container>
                     <div class="row">
                         <!-- Main Post START -->
@@ -323,13 +323,13 @@
                                             <div class="card-img-overlay d-flex align-items-start flex-column p-3">
                                             </div>
                                         </div>
-                                        <div class="card-body px-0 pt-3">
+                                        <div class="card-body px-0 pt-2">
                                             <h4 class="card-title mice"><a href="${path}/politics/cardCutDetail?cardCutNo=${cardcutTop.cardCutNo}" class="btn-link text-reset fw-bold">${cardcutTop.title}</a></h4>
                                         </div>
                                         <div class = "target" style="margin-top: -20px;">
                                             <p class="card-text "> ${cardcutTop.content}</p>
                                         </div>
-                                        <div>
+                                        <div class="mt-2">
                                             <fmt:formatDate type="date" dateStyle="full" value="${cardcutTop.pubDate}"/> 
                                         </div>
                                     </div>
@@ -455,7 +455,7 @@
             <!-- ======================= 뉴스 + 카드뉴스 + 오른쪽 사이드바 끝 -->
 
             <!-- ======================= 한 눈에 보는 90초 금융 시작 -->
-            <section class="bg-dark ">
+            <section class="bg-dark "  style="margin-top: -20px;">
                 <div class="container ">
                     <div class="row g-4 ">
                         <div class="col-md-12 ">
@@ -545,7 +545,7 @@
 	                                    </div>
 	                                    <div style="margin-top:30px;" class="card-body ps-0">
                                         	<h5 class="nav-item mb-0 mice text-center" style="width: 220px;">${opinion.columnist}</h5>
-                                        	<p class="nav-item text-center" style="width: 220px;"><fmt:formatDate type="both" value="${opinion.pubDate}"/></p>
+                                        	<p class="nav-item text-center" style="width: 220px;"><fmt:formatDate type="date" dateStyle="full" value="${opinion.pubDate}"/> </p>
                                   		</div>
                                 	</div>
                             	</c:forEach>
