@@ -365,6 +365,24 @@
                                     <!--대한민국 행정구역-->
                                    
                                    <div style="position: absolute; left: 350px; top: 100px;">강원도</div>
+                                   <div style="position: absolute; left: 250px; top: 100px;">서울특별시</div>
+                                   <div style="position: absolute; left: 150px; top: 120px;">인천광역시</div>
+                                   <div style="position: absolute; left: 260px; top: 140px;">경기도</div>
+                                   <div style="position: absolute; left: 300px; top: 200px;">충청북도</div>
+                                   <div style="position: absolute; left: 160px; top: 240px;">충청남도</div>
+                                   <div style="position: absolute; left: 240px; top: 210px;">세종시</div>
+                                   <div style="position: absolute; left: 240px; top: 270px;">대전광역시</div>
+                                   <div style="position: absolute; left: 380px; top: 230px;">경상북도</div>
+                                   <div style="position: absolute; left: 380px; top: 280px;">대구광역시</div>
+                                   <div style="position: absolute; left: 340px; top: 350px;">경상남도</div>
+                                   <div style="position: absolute; left: 470px; top: 330px;">울산광역시</div>
+                                   <div style="position: absolute; left: 440px; top: 380px;">부산광역시</div>
+                                   <div style="position: absolute; left: 240px; top: 320px;">전라북도</div>
+                                   <div style="position: absolute; left: 160px; top: 370px;">광주광역시</div>
+                                   <div style="position: absolute; left: 230px; top: 400px;">전라남도</div>
+                                   <div style="position: absolute; left: 180px; top: 540px;">제주도</div>
+                                   
+                                   
                                      
                                 </g>
                             </svg>
@@ -390,10 +408,9 @@
 							<div class="col-12 ">
 								<div class="d-flex align-items-center position-relative ">
 									<div class="ms-3 ">
-										<a class="h6 stretched-link" style="color:#545454">시흥시 매입임대주택 입주자 선착순
-											수시모집</a>
-										<p class="small mb-0 ">청약 접수 : 2022. 09. 26 &nbsp; &nbsp;
-											&nbsp; 청약 마감 : 2022. 10. 06</p>
+										<a class="h6 stretched-link" style="color:#545454">대곡역 두산위브 입주자 모집</a>
+										<p class="small mb-0 ">청약 접수 : 2022-10-17 &nbsp;
+											&nbsp; 청약 마감 : 2022-10-17</p>
 									</div>
 								</div>
 							</div>
@@ -403,10 +420,9 @@
 							<div class="col-12 ">
 								<div class="d-flex align-items-center position-relative ">
 									<div class="ms-3 ">
-										<a  class="h6 stretched-link " style="color:#545454">김포마송 B-5블록 행복주택
-											입주자격완화 추가 모집</a>
-										<p class="small mb-0 ">청약 접수 : 2022. 09. 26 &nbsp; &nbsp;
-											&nbsp; 청약 마감 : 2022. 10. 06</p>
+										<a  class="h6 stretched-link " style="color:#545454">다산 와이시티 어반플랫 입주자 모집</a>
+										<p class="small mb-0 ">청약 접수 : 2022-10-11  &nbsp;
+											&nbsp; 청약 마감 : 2022-10-12 </p>
 									</div>
 								</div>
 							</div>
@@ -416,9 +432,9 @@
 							<div class="col-12 ">
 								<div class="d-flex align-items-center position-relative ">
 									<div class="ms-3 ">
-										<a  class="h6 stretched-link " style="color:#545454">힐스테이트 푸르지오 수원</a>
-										<p class="small mb-0 ">청약 접수 : 2022-09-26 &nbsp; &nbsp;
-											&nbsp; 청약 마감 : 2022-10-06</p>
+										<a  class="h6 stretched-link " style="color:#545454">고촌역 루체비스타 입주자 모집</a>
+										<p class="small mb-0 ">청약 접수 : 2022-10-11  &nbsp;
+											&nbsp; 청약 마감 : 2022-10-11 </p>
 									</div>
 								</div>
 							</div>
@@ -428,10 +444,9 @@
 							<div class="col-12 ">
 								<div class="d-flex align-items-center position-relative ">
 									<div class="ms-3 ">
-										<a  class="h6 stretched-link " style="color:#545454">경기 수원시 집주인 임대주택
-											선착순 수시모집</a>
-										<p class="small mb-0 ">청약 접수 : 2022-09-26 &nbsp; &nbsp;
-											&nbsp; 청약 마감 : 2022-10-06</p>
+										<a  class="h6 stretched-link " style="color:#545454">대곡역 두산위브 입주자 모집</a>
+										<p class="small mb-0 ">청약 접수 : 2022-09-23  &nbsp;
+											&nbsp; 청약 마감 : 2022-09-23 </p>
 									</div>
 								</div>
 							</div>
@@ -441,9 +456,9 @@
 							<div class="col-12 ">
 								<div class="d-flex align-items-center position-relative ">
 									<div class="ms-3 ">
-										<a  class="h6 stretched-link " style="color:#545454">반월자이 더 파크</a>
-										<p class="small mb-0 ">청약 접수 : 2022-09-26 &nbsp; &nbsp;
-											&nbsp; 청약 마감 : 2022-10-06</p>
+										<a  class="h6 stretched-link " style="color:#545454">성남 수진역 파라곤 입주자 모집</a>
+										<p class="small mb-0 ">청약 접수 : 2022-09-27  &nbsp;
+											&nbsp; 청약 마감 : 2022-09-27 </p>
 									</div>
 								</div>
 							</div>
@@ -453,10 +468,9 @@
 							<div class="col-12 ">
 								<div class="d-flex align-items-center position-relative ">
 									<div class="ms-3 ">
-										<a  class="h6 stretched-link " style="color:#545454">화성비봉 A-3블록 공공분양주택
-											입주자 모집</a>
-										<p class="small mb-0 ">청약 접수 : 2022-09-26 &nbsp; &nbsp;
-											&nbsp; 청약 마감 : 2022-10-06</p>
+										<a  class="h6 stretched-link " style="color:#545454">두산위브 더 아티움 재개발임대주택 입주자 모집</a>
+										<p class="small mb-0 ">청약 접수 : 2022-08-31 &nbsp;
+											&nbsp; 청약 마감 : 2022-09-01 </p>
 									</div>
 								</div>
 							</div>
@@ -465,10 +479,9 @@
 							<div class="col-12 ">
 								<div class="d-flex align-items-center position-relative ">
 									<div class="ms-3 ">
-										<a  class="h6 stretched-link " style="color:#545454">이안 모란 센트럴파크
-											입주자 모집</a>
-										<p class="small mb-0 ">청약 접수 : 2022-08-31 &nbsp; &nbsp;
-											&nbsp; 청약 마감 : 2022-08-31</p>
+										<a  class="h6 stretched-link " style="color:#545454">고촌역 루체비스타 입주자 모집</a>
+										<p class="small mb-0 ">청약 접수 : 2022-08-31  &nbsp;
+											&nbsp; 청약 마감 : 2022-09-02 </p>
 									</div>
 								</div>
 							</div>
@@ -534,7 +547,7 @@
 														<c:out value="${RealEstateList.house_secd_nm}"/>
 													</td>
 													<td>
-														<c:out value="${RealEstateList.house_nm}"/>
+														<a href="${path}/realEstate/calendar" style="color:black"><c:out value="${RealEstateList.house_nm}"/></a>
 													</td>
 													<td>
 														<c:out value="${RealEstateList.rcrit_pblanc_de}"/>
@@ -680,20 +693,20 @@ path:hover {
             document.getElementById('location').innerHTML = k_name[location1];
             
             var list = json1[location1];
-            
+            //subscrpt_rcept_bgnde":"2022-10-31","subscrpt_rcept_endde
             var html = '';
             for(var i = 0; i < 7; i++){
             	html +='<div class="col-12 ">'
     				+	'<div class="d-flex align-items-center position-relative ">'
     				+		'<div class="ms-3 ">'
-    				+			'<a  class="h6 stretched-link " style="color:#545454">'
+    				+			'<a href="" class="h6 stretched-link " style="color:#545454">'
     				+  			list[i].house_nm
     				+			' 입주자 모집</a>'
     				+			'<p class="small mb-0 ">청약 접수 : '
-    				+			 	list[i].rcept_bgnde
+    				+			 	list[i].subscrpt_rcept_bgnde
     				+				'&nbsp; &nbsp;'
     				+				'&nbsp; 청약 마감 : '
-    				+				list[i].rcept_endde
+    				+				list[i].subscrpt_rcept_endde
     				+			'</p>'
     				+		'</div>'
     				+	'</div>'

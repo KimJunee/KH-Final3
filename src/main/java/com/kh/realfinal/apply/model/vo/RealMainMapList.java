@@ -15,6 +15,6 @@ public class RealMainMapList {
     private String 	rcept_endde;                   // 청약 접수 종료일
     private String	subscrpt_rcept_bgnde     ; // 청약접수시작일
 	private String	subscrpt_rcept_endde     ; // 청약접수종료일
-
+	private String  type                    ; // HOUSE_SECD 02:도시형/오피스텔/민간임대 04:무순위/잔여세대 
 
 }
