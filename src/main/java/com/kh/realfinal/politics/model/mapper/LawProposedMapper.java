@@ -14,7 +14,7 @@ public interface LawProposedMapper {
 	int insertLawProposed(LawProposed proposed); // 대표발의법안 INSERT
 	LawProposed selectLawProposed(int lawNo); // 대표발의법안 list
 	List<LawProposed> selectLawProposedList(RowBounds rowBounds, Map<String, String> map); // 대표발의법안 하단 검색 list
-	int selectLawProposedCount(Map<String, String> map); // 대표발의법안 
+	int selectLawProposedCount(Map<String, String> map); // 대표발의법안 Count
 	
 }
 

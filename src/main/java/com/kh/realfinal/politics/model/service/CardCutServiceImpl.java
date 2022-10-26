@@ -96,8 +96,6 @@ public class CardCutServiceImpl implements CardCutService {
 	public int deleteCcReply(int no) {
 		return mapper.deleteCardCutReply(no);
 	}
-	
-	
- 
+
  
 }

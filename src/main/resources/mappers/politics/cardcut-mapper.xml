@@ -38,14 +38,39 @@
 
 	<select id="selectCardCut" resultMap="CardCutMap" parameterType="map">
 		SELECT CARDCUT_NO, TITLE, LINK, DESCRIPTION, PUBDATE
-		FROM CARDCUT ORDER BY CARDCUT_NO
+		FROM CARDCUT
+		ORDER BY CARDCUT_NO
 	</select>
 	
+	
+	<select id="selectCardCutList" resultMap="CardCutMap"  parameterType="map">
+		SELECT CARDCUT_NO, TITLE, LINK, DESCRIPTION, PUBDATE
+		FROM CARDCUT
+		WHERE 1=1
+		
+		<if test="title != null">
+			 AND TITLE = #{title}
+		</if>
+		<if test="searchTitle != null">
+			AND TITLE LIKE '%'||#{searchTitle}||'%'
+		</if>	
+		ORDER BY CARDCUT_NO
+	</select>
+	  
 	
 	<select id="selectCardCutCount" resultType="int"  parameterType="map">
 		SELECT COUNT(*)
 		FROM CARDCUT
+		
+		WHERE 1=1
+		<if test="title != null">
+			 AND TITLE = #{title}
+		</if>
+		<if test="searchTitle != null">
+			AND TITLE LIKE '%'||#{searchTitle}||'%'
+		</if>	
 	</select>
+	 
 
 	<select id="selectCardCutOne" parameterType="int" resultMap="CardCutDetailResultMap">
 		SELECT  

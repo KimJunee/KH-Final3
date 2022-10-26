@@ -85,10 +85,10 @@
 								 <!-- Search -->
 								 <div class=" ">
 									 <form action="">
-										 <input type="hidden" name="profileNo" value="${profile.no}" >
+										 <input type="hidden" name="cardCut" value="${cardcut.searchTitle}" >
 											 <input type="hidden" name="page" value="${pageInfo.currentPage}" >
 												 <div class="rounded position-relative align-items-left " style="display: inline-block; width: 45em; ">
-													 <input class="form-control bg-transparent " name="searchKey" value="${param.searchKey}"
+													 <input class="form-control bg-transparent" id="searchTitle" name="searchTitle" value="${param.searchTitle}"
 														 type="search" placeholder="원하시는 카드뉴스명을 입력하세요!" aria-label="Search ">
 													 <div align="right">	
 														 <button class="btn bg-transparent border-0  position-absolute top-50 end-0 translate-middle-y "
@@ -242,6 +242,8 @@
 			function movePage(pageUrl) {
 				location.href = encodeURI(pageUrl);
 			}
+		 
+		
 		</script>
 		<%@ include file="/WEB-INF/views/common/footer.jsp" %>
 	</body>
