@@ -490,16 +490,16 @@
                                                         <div class="col-sm-12 col-md-9 ">
                                                             <div class="dataTables_paginate paging_simple_numbers " id="basic-datatable_paginate ">
                                                                 <ul class="pagination pagination-rounded ">
-                                                                    <li class="paginate_button page-item previous"><a class="page-link" onclick="movePage('${path}/stockprice/fin_kospiDetail.do?page=${pageInfo.prevPage}');"><i class="mdi mdi-chevron-left "></i></a></li>
+                                                                    <li class="paginate_button page-item previous"><a class="page-link" onclick="movePage('${path}/stockprice/fin_kosdaqDetail.do?page=${pageInfo.prevPage}');"><i class="mdi mdi-chevron-left "></i></a></li>
                                                                      <c:forEach begin="${pageInfo.startPage}" end="${pageInfo.endPage}" step="1" varStatus="status">
                                                                      <c:if test="${pageInfo.currentPage == status.current}">
                                                                     	<li class="paginate_button page-item active disabled "><a class="page-link " ><c:out value="${status.current}"/></a></li> 
                                                                      </c:if>
                                                                      <c:if test="${pageInfo.currentPage != status.current}">
-                                                                    	<li class="paginate_button page-item "><a  class="page-link" onclick="movePage('${path}/stockprice/fin_kospiDetail.do?page=${status.current}');"><c:out value="${status.current}"/></a></li>
+                                                                    	<li class="paginate_button page-item "><a  class="page-link" onclick="movePage('${path}/stockprice/fin_kosdaqDetail.do?page=${status.current}');"><c:out value="${status.current}"/></a></li>
                                                                      </c:if>
                                                                      </c:forEach>                       
-                                                                    <li class="paginate_button page-item next " ><a class="page-link" onclick="movePage('${path}/stockprice/fin_kospiDetail.do?page=${pageInfo.nextPage}');"><i class="mdi mdi-chevron-right "></i></a></li>
+                                                                    <li class="paginate_button page-item next " ><a class="page-link" onclick="movePage('${path}/stockprice/fin_kosdaqDetail.do?page=${pageInfo.nextPage}');"><i class="mdi mdi-chevron-right "></i></a></li>
                                                                 </ul>
                                                             </div>
                                                         </div>
