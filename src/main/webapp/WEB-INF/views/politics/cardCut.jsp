@@ -38,7 +38,7 @@
 			<div class="container">
 				<div class="row">
 					<c:if test="${!empty topList}">
-						<c:forEach var="cardcutTop" items="${topList}">
+						<c:forEach var="cardcutTop" items="${topList}" begin="0" end="2" step="1" varStatus="status">
 								<div class="col-sm-6 col-lg-4">
 									<div class="card mb-4">
 										<!-- Card img -->
@@ -84,7 +84,7 @@
 								 <div class="row justify-content-between mb-3 ">
 								 <!-- Search -->
 								 <div class=" ">
-									 <form action="">
+									 <form action="${path}/politics/cardCut">
 										 <input type="hidden" name="cardCut" value="${cardcut.searchTitle}" >
 											 <input type="hidden" name="page" value="${pageInfo.currentPage}" >
 												 <div class="rounded position-relative align-items-left " style="display: inline-block; width: 45em; ">
@@ -240,7 +240,8 @@
 		</main>
 		<script type="text/javascript">
 			function movePage(pageUrl) {
-				location.href = encodeURI(pageUrl);
+				var searchTitle = document.getElementById("searchTitle");
+				location.href = encodeURI(pageUrl) + '&searchTitle=' + searchTitle.value;
 			}
 		 
 		

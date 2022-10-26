@@ -24,6 +24,7 @@ public interface CardCutMapper {
 	int editCardCutReply(CardCutReply cCreply);
 	int updateCardCutReply(CardCutReply cCreply); //댓글 update?
 	int deleteCardCutReply(int no);//댓글삭제
+	List<CardCut> selectCardCutList1(); //그냥 리스트 뽑는거
 }
 
 

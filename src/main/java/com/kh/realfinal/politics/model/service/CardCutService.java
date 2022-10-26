@@ -10,6 +10,7 @@ import com.kh.realfinal.politics.model.vo.CardCutReply;
 public interface CardCutService {
 	int saveCardCut(CardCut card);
 	List<CardCut> getCardCutList(PageInfo pageInfo, Map<String, String> param);
+	List<CardCut> getCardCutList1();
 	int getCardCutCount(Map<String, String> param);
 	
 	// 리플작성

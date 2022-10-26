@@ -93,8 +93,12 @@
 		LEFT OUTER JOIN USER_T U ON (R.C_WRITER_NO =  U.USER_NO)
 		WHERE C.CARDCUT_NO = #{cardCutNo}
 	</select>
-	 
-	 	
+	 <!-- 그냥 리스트 전체 출력 -->
+	 <select id="selectCardCutList1" resultMap="CardCutMap">
+	 	SELECT CARDCUT_NO, TITLE, LINK, DESCRIPTION, PUBDATE
+		FROM CARDCUT
+		ORDER BY CARDCUT_NO
+	 </select>	
 	<!-- 댓글 등록 -->
 	<insert id="insertCardCutreply" parameterType="CardCutReply">
 		INSERT INTO CARDCUT_REPLY 

@@ -52,7 +52,7 @@ public class CardCutController {
 	public String initCardCutData(Model model) {
 		
 		List<CardCut> list = new ArrayList<CardCut>();
-		for(int i = 1; i< 10; i++) {
+		for(int i = 0; i< 1; i++) {
 			List<CardCut> templist = CardCutRss.callWeeklyNewsListByXML();
 			list.addAll(templist);
 		}
@@ -86,6 +86,7 @@ public class CardCutController {
 	@RequestMapping("/politics/cardCut")
 	public String cardCutList(Model model, @RequestParam Map<String, String> param) throws ParseException {  
 		// 인기정치게시글
+		System.out.println("그대이름은 파람파람파람 : " + param.toString());
 		Map<String, Object> paramBoard = new HashMap<String,Object>();
 		paramBoard.put("board_list_no",RealEstate);
 		List<Board> listBoard = boardService.getSideBoardForPolitics(paramBoard);
@@ -102,10 +103,10 @@ public class CardCutController {
 		}
 		
 		
-		PageInfo pageInfoTop = new PageInfo(page, 3, CardCutService.getCardCutCount(param), 3);
-		List<CardCut> topList = CardCutService.getCardCutList(pageInfoTop, param);
+		List<CardCut> topList = CardCutService.getCardCutList1();
  
 		int totalSize = CardCutService.getCardCutCount(param);
+		System.out.println(totalSize);
 		PageInfo pageInfo = new PageInfo(page, 9, totalSize, 9);
 		List<CardCut> list = CardCutService.getCardCutList(pageInfo, param);
 		

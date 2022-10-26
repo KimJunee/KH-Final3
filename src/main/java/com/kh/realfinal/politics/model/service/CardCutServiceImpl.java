@@ -32,7 +32,7 @@ public class CardCutServiceImpl implements CardCutService {
 	public List<CardCut> getCardCutList(PageInfo pageInfo, Map<String, String> param) {
 		int offset = (pageInfo.getCurrentPage() - 1) * pageInfo.getListLimit();
 		RowBounds rowBounds = new RowBounds(offset, pageInfo.getListLimit());
-		List<CardCut> list = mapper.selectCardCut(rowBounds, param);
+		List<CardCut> list = mapper.selectCardCutList(rowBounds, param);
 		for (CardCut item : list) {
 			parsingImageUrl(item);
 		}
@@ -95,6 +95,18 @@ public class CardCutServiceImpl implements CardCutService {
 	@Transactional(rollbackFor =  Exception.class)
 	public int deleteCcReply(int no) {
 		return mapper.deleteCardCutReply(no);
+	}
+
+
+	@Override
+	public List<CardCut> getCardCutList1() {
+		List<CardCut> list =  mapper.selectCardCutList1();
+		
+		for (CardCut item : list) {
+			parsingImageUrl(item);
+		}
+
+		return list;
 	}
 
  
