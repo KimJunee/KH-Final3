@@ -77,7 +77,7 @@
 				<!-- Buttons -->
 				<div class="d-sm-flex align-items-center justify-content-center">
 					<!-- Button -->
-					<a href="03_reales_calendar.html"
+					<a href="${path}/realEstate/calendar"
 						class="btn btn-lg btn-primary me-2 mb-4 mb-sm-0 mice">청약캘린더
 						바로가기<i class="bi bi-arrow-right ms-2"></i>
 					</a>
@@ -144,37 +144,54 @@
 				</h2>
 				<p>중요한 공지사항을 확인해보세요</p>
 				<div class="card border h-75">
-					<div class="card-body p-3 ">
-						<!-- 게시글 -->
-						<div class="col-12">
-							<div class="d-flex align-items-center ">
-								<a href="#" class="badge text-bg-danger mb-2"><i
-									class="fas small fw-bold"></i>공지</a>
-								<div class="ms-3 ">
-									<a href="# " class="h6 stretched-link ">[확인필수] 2022년
-										소규모주택정비 관리지역 후보지 공모</a>
-									<p class="small mb-0 ">2022. 09. 26</p>
+					<c:if test="${!empty noticeList}">
+						<div class="card-body p-3 ">
+							<!-- 게시글 -->
+							<div class="col-12">
+								<div class="d-flex align-items-center ">
+									<a href="#" class="badge text-bg-danger mb-2"><i
+										class="fas small fw-bold"></i>공지</a>
+									<div class="ms-3 ">
+										<a href="${path}/realEstate/notice/view?no=${noticeList[0].rnum}" class="h6">
+											<c:out value="${noticeList[0].bbs_tl}"/>
+										</a>
+										<p class="small mb-0 "><c:out value="${noticeList[0].bbs_wou_dttm}"/></p>
+									</div>
 								</div>
 							</div>
-						</div>
-						<!-- 구분선 -->
-						<hr class="my-3 ">
-						<!-- 게시글 -->
-						<div class="col-12 ">
-							<div class="d-flex align-items-center">
-								<a href="#" class="badge text-bg-primary mb-2"><i
-									class="fas small fw-bold"></i>보도</a>
-								<div class="ms-3 ">
-									<a href="# " class="h6 stretched-link ">2022년 부동산개발 전문인력 대상
-										연수교육 수강생 모집</a>
-									<p class="small mb-0 ">2022. 09. 26</p>
+							<!-- 구분선 -->
+							<hr class="my-2">
+							<!-- 게시글 -->
+							<div class="col-12">
+								<div class="d-flex align-items-center ">
+									<a href="#" class="badge text-bg-danger mb-2"><i
+										class="fas small fw-bold"></i>공지</a>
+									<div class="ms-3 ">
+										<a href="${path}/realEstate/notice/view?no=${noticeList[1].rnum}" class="h6">
+											<c:out value="${noticeList[1].bbs_tl}"/>
+										</a>
+										<p class="small mb-0 "><c:out value="${noticeList[1].bbs_wou_dttm}"/></p>
+									</div>
 								</div>
 							</div>
+							
+							<!-- <div class="col-12 ">
+								<div class="d-flex align-items-center">
+									<a href="#" class="badge text-bg-primary mb-2"><i
+										class="fas small fw-bold"></i>보도</a>
+									<div class="ms-3 ">
+										<a href="# " class="h6 stretched-link ">2022년 부동산개발 전문인력 대상
+											연수교육 수강생 모집</a>
+										<p class="small mb-0 ">2022. 09. 26</p>
+									</div>
+								</div>
+							</div> -->
+							
 						</div>
-					</div>
+					</c:if>
 					<!-- 공지사항 footer -->
-					<div class="card-footer border-top text-center p-3 ">
-						<a href="03_reales_notice.html">View all details</a>
+					<div class="card-footer border-top text-center p-3">
+						<a href="${path}/realEstate/notice">View all details</a>
 					</div>
 				</div>
 			</div>

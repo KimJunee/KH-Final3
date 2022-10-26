@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.kh.realfinal.apply.model.service.ApplyInfoApiService;
+import com.kh.realfinal.apply.model.service.ApplyInfoService;
 import com.kh.realfinal.apply.model.vo.ApplyNotice;
 import com.kh.realfinal.apply.model.vo.ApplyNoticeAttach;
 import com.kh.realfinal.apply.model.vo.AptLttotPblancDetail;
@@ -29,14 +29,8 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor 
 public class ApplyCalAndNotiController {
 	
-	private final ApplyInfoApiService reService;
+	private final ApplyInfoService reService;
 	
-	
-	@GetMapping("/error")
-	public String error() {
-		log.info("에러 페이지 호출!!");
-		return "/common/error.jsp";
-	}
 	
 	@GetMapping("/notice")
 	public String noticeList(Model model, 
@@ -82,10 +76,6 @@ public class ApplyCalAndNotiController {
 		ApplyNotice notice = reService.findNoticeByRnum(no);
 		List<ApplyNoticeAttach> attachList = reService.findApplyAttach(notice.getBbs_sn());
 		
-//		if(notice == null) {
-//			return "redirect:error";
-//		}
-		
 		model.addAttribute("notice", notice);
 		model.addAttribute("attach", attachList);
 		
@@ -102,8 +92,6 @@ public class ApplyCalAndNotiController {
 		System.out.println("캘린더 type : " + type);
 		System.out.println("캘린더 param : " + param);
 		
-//		Map<String, String> param = new HashMap<String, String>();
-		
 		List<AptLttotPblancDetail> list1 = reService.getAptLttotList(param); 
 		List<AptLttotPblancDetail> list2 = reService.getAptLttotList(param); 
 		List<UrbtyOfctlLttotPblancDetail> list3 = reService.getUrdtyList1(param); 
@@ -114,7 +102,6 @@ public class ApplyCalAndNotiController {
 		List<RemndrLttotPblancDetail> list8 = reService.getRemndrList2(param); 
 		List<AptLttotPblancDetail> list9 = reService.getAptSpcList(param); 
 		
-
 		if("a".equals(type)) {
 			model.addAttribute("apt1", list1);
 			return "realEstate/realEstateCalendar";
@@ -122,8 +109,6 @@ public class ApplyCalAndNotiController {
 			model.addAttribute("apt2", list2);
 			return "realEstate/realEstateCalendar";
 		}
-		
-		
 		
 		model.addAttribute("apt1", list1); //apt-1순위
 		model.addAttribute("apt2", list2); //apt-2순위

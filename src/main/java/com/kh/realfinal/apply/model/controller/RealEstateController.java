@@ -20,9 +20,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
+import com.kh.realfinal.apply.model.service.ApplyInfoService;
 import com.kh.realfinal.apply.model.service.RealEstateService;
 import com.kh.realfinal.apply.model.service.RemndrLttotPblancDetailService;
 import com.kh.realfinal.apply.model.service.UrbtyOfctlLttotPblancDetailService;
+import com.kh.realfinal.apply.model.vo.ApplyNotice;
 import com.kh.realfinal.apply.model.vo.AptLttotPblancDetail;
 import com.kh.realfinal.apply.model.vo.AptLttotPblancMdl;
 import com.kh.realfinal.apply.model.vo.RealEstateList;
@@ -51,6 +53,8 @@ public class RealEstateController {
 	@Autowired
 	private UrbtyOfctlLttotPblancDetailService urbtyservice;
 	
+	@Autowired
+	private ApplyInfoService applyService;
 	
 	@Autowired
 	private BoardService boardService;
@@ -107,6 +111,13 @@ public class RealEstateController {
 		
 		List<RealEstateList> mainList = realEstateService.getRealMainboardList();
 		model.addAttribute("mainList", mainList);
+		
+		//청약 공지
+		Map<String, String> noti = new HashMap<String, String>();
+		List<ApplyNotice> noticeList = applyService.getApplyNotiListForMain(noti);
+		model.addAttribute("noticeList", noticeList);
+		System.out.println("메인 noticeList1 : " + noticeList.toString());
+		System.out.println("메인 noticeList2 : " + noticeList.size());
 		
 		int mainCount = realEstateService.getRealMainboardListCount();
 		model.addAttribute("mainCount", mainCount);

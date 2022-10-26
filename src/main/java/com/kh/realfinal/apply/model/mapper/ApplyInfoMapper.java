@@ -31,6 +31,8 @@ public interface ApplyInfoMapper {
 	List<AptLttotPblancDetail> selectAptLttotList(Map<String, String> map);
 	List<AptLttotPblancDetail> selectAptSpcList(Map<String, String> map);
 	
+	//청약 메인
+	List<ApplyNotice> selectNoticeListForMain(Map<String, String> map);
 	
 	// 청약상세페이지 - apt
 	AptLttotPblancDetail selectAptNo(String no);

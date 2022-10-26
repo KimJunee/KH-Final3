@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.kh.realfinal.apply.api.ApplyNoticeApi;
 import com.kh.realfinal.apply.api.AptLttotPblancDetailApi;
-import com.kh.realfinal.apply.model.service.ApplyInfoApiService;
+import com.kh.realfinal.apply.model.service.ApplyInfoService;
 import com.kh.realfinal.apply.model.vo.ApplyNotice;
 import com.kh.realfinal.apply.model.vo.ApplyNoticeAttach;
 import com.kh.realfinal.apply.model.vo.AptLttotPblancDetail;
@@ -19,7 +19,7 @@ import com.kh.realfinal.apply.model.vo.AptLttotPblancMdl;
 public class ApplyAptAndNotiApiController {
 
 	@Autowired
-	private ApplyInfoApiService service;
+	private ApplyInfoService service;
 	
 	
 	@RequestMapping("/Aptdetail/insert.do")

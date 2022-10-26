@@ -24,7 +24,7 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class ApplyInfoApiServiceImpl implements ApplyInfoApiService {
+public class ApplyInfoServiceImpl implements ApplyInfoService {
 
 	private final ApplyInfoMapper mapper;
 	private final UrbtyOfctlLttotPblancDetailMapper uMapper;
@@ -265,6 +265,11 @@ public class ApplyInfoApiServiceImpl implements ApplyInfoApiService {
 	@Override
 	public List<AptLttotPblancDetail> getAptSpcList(Map<String, String> param) {
 		return mapper.selectAptSpcList(param);
+	}
+	
+	@Override
+	public List<ApplyNotice> getApplyNotiListForMain(Map<String, String> param) {
+		return mapper.selectNoticeListForMain(param);
 	}
 
 }

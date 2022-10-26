@@ -266,6 +266,12 @@
 		<result property="bbs_dtl_cts" column="BBS_DTL_CTS"/>
 	</resultMap>
 	
+	<select id="selectNoticeListForMain" resultMap="applyNoticeResultMap" parameterType="map">
+		SELECT * FROM APPLY_NOTICE
+		WHERE rnum &lt; '3'
+		ORDER BY RNUM ASC
+	</select>
+	
 	<select id="selectNoticeList" resultMap="applyNoticeResultMap" parameterType="map">
 		SELECT
 			RNUM, 
