@@ -46,7 +46,7 @@ public class CardCutController {
 	private OpinionService opinionService;
 	
 	@Autowired
-	CardCutService CardCutService;
+	CardCutService cardCutService;
 
 	@RequestMapping("/politics/cardCut/insert.do")
 	public String initCardCutData(Model model) {
@@ -62,7 +62,7 @@ public class CardCutController {
 		for(int i = 0; i <list.size(); i++) {
 			CardCut card = list.get(i);
 			try {
-				int result = CardCutService.saveCardCut(card);
+				int result = cardCutService.saveCardCut(card);
 				if(result > 0) {
 					count += result; 
 				}
@@ -91,6 +91,7 @@ public class CardCutController {
 		paramBoard.put("board_list_no",RealEstate);
 		List<Board> listBoard = boardService.getSideBoardForPolitics(paramBoard);
 		// 인기정치게시글 끝
+		
 		// 오피니언 사이드 
 		List<Opinion> sideopinion = opinionService.getSelectOpinionForPolitics();
 		
@@ -103,12 +104,13 @@ public class CardCutController {
 		}
 		
 		
-		List<CardCut> topList = CardCutService.getCardCutList1();
+		List<CardCut> topList = cardCutService.getCardCutList1();
+		List<CardCut> listMain = cardCutService.getCardCutMain();
  
-		int totalSize = CardCutService.getCardCutCount(param);
+		int totalSize = cardCutService.getCardCutCount(param);
 		System.out.println(totalSize);
 		PageInfo pageInfo = new PageInfo(page, 9, totalSize, 9);
-		List<CardCut> list = CardCutService.getCardCutList(pageInfo, param);
+		List<CardCut> list = cardCutService.getCardCutList(pageInfo, param);
 		
 		
 //		System.out.println(list.get(0).getImages());
@@ -117,6 +119,7 @@ public class CardCutController {
 		model.addAttribute("sideopinion", sideopinion);	// 오피니언 사이드 
 		model.addAttribute("politicsList", listBoard); // 인기정치게시글
 		model.addAttribute("topList", topList);
+		model.addAttribute("listMain", listMain);
 		model.addAttribute("list", list);
 		model.addAttribute("totalSize", totalSize);
 		model.addAttribute("size", list.size());
@@ -133,7 +136,7 @@ public class CardCutController {
 			cardCutNo = Integer.parseInt(param.get("cardCutNo"));			
 		}
 		
-		CardCut cardCut = CardCutService.getCardCutContent(cardCutNo);
+		CardCut cardCut = cardCutService.getCardCutContent(cardCutNo);
 
 		if(cardCut == null) {
 			return "redirect:error";
@@ -163,7 +166,7 @@ public class CardCutController {
 		
 		cCreply.setC_writer_no(loginMember.getUser_no());
 		log.debug("cCreply : " + cCreply);
-		int result = CardCutService.saveCcReply(cCreply);
+		int result = cardCutService.saveCcReply(cCreply);
 		
 		if(result > 0) {
 			model.addAttribute("msg", "리플이 등록 되었습니다.");
@@ -185,7 +188,7 @@ public class CardCutController {
 		Map<String,Object> resultMap = new HashMap<String,Object>();
 		
 		log.debug("댓글 수정 요청");
-		int result = CardCutService.editCcReply(cCreply);
+		int result = cardCutService.editCcReply(cCreply);
 		
 		if(result > 0) {
 			resultMap.put("msg", "댓글 삭제에 성공하였습니다.");
@@ -207,7 +210,7 @@ public class CardCutController {
 			Map<String,Object> resultMap = new HashMap<String,Object>();
 			
 			log.debug("댓글 삭제 요청");
-			int result = CardCutService.deleteCcReply(cCreply.getC_reply_no());
+			int result = cardCutService.deleteCcReply(cCreply.getC_reply_no());
 			
 			if(result > 0) {
 				resultMap.put("msg", "댓글 삭제에 성공하였습니다.");

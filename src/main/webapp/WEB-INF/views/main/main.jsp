@@ -7,6 +7,29 @@
 <!DOCTYPE html>
 <html lang="ko">
 
+<style>
+.target {
+    /* 한 줄 자르기 */
+    display: inline-block;
+    width: 420px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    /* 여러 줄 자르기 추가 스타일 */
+    white-space: normal;
+    line-height: 1.2;
+    height: 3.6em;
+    text-align: left;
+    word-wrap: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+ 
+</style>
+
+
 <head>
     <title>FinTouch - 신속하고 정확한 금융지식전달을 위해 노력합니다. </title>
         <!-- Favicon -->
@@ -324,46 +347,33 @@
                             </div>
                             <div class="tiny-slider arrow-blur arrow-round rounded-3">
                                 <div class="tiny-slider-inner" data-autoplay="true" data-hoverpause="true" data-gutter="24" data-arrow="true" data-dots="false" data-items-sm="1" data-items-xs="1" data-items="2">
-                                    <!-- 카드뉴스 1 -->
+                                    <!-- 카드뉴스 시작 -->
+                                    <c:if test="${empty listMain}">
+											<div class="d-flex position-relative mb-3">
+												<h6>조회된 카드뉴스가 없습니다.</h6>
+											</div>
+									</c:if>
+									<c:if test="${!empty listMain}">
+									<c:forEach var="cardcutTop" items="${listMain}" begin="0" end="4" step="1" varStatus="status">
                                     <div class="card">
                                         <div class="position-relative">
-                                            <img class="card-img" src="${path}/resources/resources1b/images/01_main/main_card_01.png" alt="Card image">
+                                            <img class="card-img" src="${cardcutTop.images[0]}" alt="Card image">
                                             <div class="card-img-overlay d-flex align-items-start flex-column p-3">
                                             </div>
                                         </div>
                                         <div class="card-body px-0 pt-3">
-                                            <h4 class="card-title mice"><a href="post-single-3.html" class="btn-link text-reset fw-bold">8월 18일부터 달라지는 산업안전 제도</a></h4>
-                                            <p class="card-text ">뉴스내용 뉴스내용 뉴스내용 뉴스내용 뉴스내용 뉴스내용 뉴스내용 뉴스내용 뉴스내용 뉴스내용 뉴스내용</p>
-                                            <p class="nav-item">2022.10.02</p>
+                                            <h4 class="card-title mice"><a href="${path}/politics/cardCutDetail?cardCutNo=${cardcutTop.cardCutNo}" class="btn-link text-reset fw-bold">${cardcutTop.title}</a></h4>
+                                        </div>
+                                        <div class = "target" style="margin-top: -20px;">
+                                            <p class="card-text "> ${cardcutTop.content}</p>
+                                        </div>
+                                        <div>
+                                            <fmt:formatDate type="date" dateStyle="full" value="${cardcutTop.pubDate}"/> 
                                         </div>
                                     </div>
-                                    <!-- 카드뉴스 2 -->
-                                    <div class="card">
-                                        <div class="position-relative">
-                                            <img class="card-img" src="${path}/resources/resources1b/images/01_main/main_card_02.png" alt="Card image">
-                                            <div class="card-img-overlay d-flex align-items-start flex-column p-3">
-                                            </div>
-                                        </div>
-                                        <div class="card-body px-0 pt-3">
-                                            <h4 class="card-title mice"><a href="post-single-3.html" class="btn-link text-reset fw-bold">2023년 최저임금</a></h4>
-                                            <p class="card-text ">뉴스내용 뉴스내용 뉴스내용 뉴스내용 뉴스내용 뉴스내용 뉴스내용 뉴스내용 뉴스내용 뉴스내용 뉴스내용</p>
-                                            <p class="nav-item">2022.10.02</p>
-                                        </div>
-                                    </div>
-                                    <!-- 카드뉴스 3 -->
-                                    <div class="card">
-                                        <div class="position-relative">
-                                            <img class="card-img" src="${path}/resources/resources1b/images/01_main/main_card_03.png" alt="Card image">
-                                            <div class="card-img-overlay d-flex align-items-start flex-column p-3">
-                                            </div>
-                                        </div>
-                                        <div class="card-body px-0 pt-3">
-                                            <h4 class="card-title mice"><a href="post-single-3.html" class="btn-link text-reset fw-bold">청년고용지원금 안내</a></h4>
-                                            <p class="card-text ">뉴스내용 뉴스내용 뉴스내용 뉴스내용 뉴스내용 뉴스내용 뉴스내용 뉴스내용 뉴스내용 뉴스내용 뉴스내용</p>
-                                            <p class="nav-item">2022.10.02</p>
-                                        </div>
-                                    </div>
-                                    <!-- Card item END -->
+                                    </c:forEach>
+									</c:if>
+                                    <!-- 카드뉴스 끝 -->
                                 </div>
                             </div>
                             <!-- ======================= 카드로 보는 뉴스 끝 -->
@@ -583,6 +593,8 @@
             	</div>
         	</div>
     	</section>
+    	
+   
     <!-- =======================오피니언 끝 =======================-->
 	</main>
        </main>

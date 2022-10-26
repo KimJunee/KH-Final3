@@ -109,5 +109,17 @@ public class CardCutServiceImpl implements CardCutService {
 		return list;
 	}
 
+
+	@Override
+	public List<CardCut> getCardCutMain() {
+		List<CardCut> list =  mapper.selectCardCutMain();
+		
+		for (CardCut item : list) {
+			parsingImageUrl(item);
+		}
+
+		return list;
+	}
+ 
  
 }
