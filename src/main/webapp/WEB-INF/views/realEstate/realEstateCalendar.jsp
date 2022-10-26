@@ -29,7 +29,7 @@
         padding: 0;
         font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
         font-size: 14px;
-        line-height:18px;
+        line-height:20px;
     }
     
     #calendar {
@@ -42,8 +42,6 @@
     .btn-cate {
         font-weight: 700;
     }
-    
-    
 </style>
 
 
@@ -52,7 +50,7 @@
         var calendarEl = document.getElementById('calendar');
 
         var calendar = new FullCalendar.Calendar(calendarEl, {
-        	
+        	height:1350,
             headerToolbar: {
             	left: 'prevYear,prev',
                 center: 'title',
@@ -72,7 +70,7 @@
             editable: true,
 
             /* dayMaxEvents: true, // allow "more" link when too many events */
-            dayMaxEvents: 4, // allow "more" link when too many events
+            dayMaxEvents: 6, // allow "more" link when too many events
          	// 이벤트 객체 필드 document : https://fullcalendar.io/docs/event-object
             events: [
             	<c:if test="${!empty apt1}">
@@ -194,24 +192,9 @@
     });
 </script> 
 
-<script>
-    function checkOnlyOne(element) {
-
-        const checkboxes = document.getElementsByName("calendar");
-
-        checkboxes.forEach((cb) => {
-            cb.checked = false;
-        })
-
-        element.checked = true;
-    }
-</script>
-
-
 <body>
 	
 	<!-- **************** MAIN CONTENT START **************** -->
-    <!-- <section class="position-relative overflow-hidden" style="background-image:url(re/images/03_reales_/03_reales_calendar.jpeg); background-position: center; background-size: cover;"> -->
     <section class="position-relative overflow-hidden" style="background-image:url(${path}/resources/resources1b/images/03_realEstate/03_reales_calendar.jpeg); background-position: center; background-size: cover;">
         <div class="bg-overlay bg-transparent opacity-5"></div>
         <!-- SVG decoration for curve -->
@@ -244,7 +227,6 @@
 		<div class="container">
 			<section class="pt-3">
 				<div class="container position-relative" data-sticky-container>
-					<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 					<!-- tab Start -->
 					<div style="width: 100%; margin: auto;">
 						<h2 class="mice">
@@ -252,79 +234,69 @@
 						</h2>
 						<hr>
 
-						<div class="col-12" style="margin-top: 30px; margin-bottom:50px;">
-	                        <form method="post" action="${path}/realEstate/calendar" id="calendarSearch" style="font-size: 17px;">
-	                            <h4 class="mice">분양종류</h4>
-	                            <hr style="background: black; height: 2px; border: 0; margin-top:7px;">&nbsp;
-	                            <label style="margin-right: 105px;"><input type="checkbox" name="calendar" id="calendar_t" value="total_show" onclick="checkOnlyOne(this)" <c:if test="${checkBox eq 'total_show'}">checked</c:if>> 전체</label>
-	                            <label style="margin-right: 70px;">
-	                                APT (<input type="checkbox" name="calendar" id="" value="apt_special" onclick="checkOnlyOne(this)" style="margin-left: 5px;" <c:if test="${checkBox eq 'apt_special'}">checked</c:if>> 특별공급 
-	                                <input type="checkbox" name="calendar" id="" value="apt_1" onclick="checkOnlyOne(this)" style="margin-left: 15px;" <c:if test="${checkBox eq 'apt_1'}">checked</c:if>> 1순위
-	                                <input type="checkbox" name="calendar" id="" value="apt_2" onclick="checkOnlyOne(this)" style="margin-left: 15px;" <c:if test="${checkBox eq 'apt_2'}">checked</c:if>> 2순위
-	                                <input type="checkbox" name="calendar" id="" value="apt_n" onclick="checkOnlyOne(this)" style="margin-left: 15px;" <c:if test="${checkBox eq 'apt_n'}">checked</c:if>> 무순위
-	                                <input type="checkbox" name="calendar" id="" value="apt_c" onclick="checkOnlyOne(this)" style="margin-left: 15px;" <c:if test="${checkBox eq 'apt_c'}">checked</c:if>> 취소후재공급
-	                                )
-	                            
-	                            </label>
-	                            <label style="margin-right: 70px;"><input type="checkbox" name="calendar" id="" value="office" onclick="checkOnlyOne(this)" <c:if test="${checkBox eq 'office'}">checked</c:if>> 오피스텔</label>
-	                            <label style="margin-right: 70px;"><input type="checkbox" name="calendar" id="" value="cityhouse" onclick="checkOnlyOne(this)" <c:if test="${checkBox eq 'cityhouse'}">checked</c:if>> 도시형생활주택</label><br>
-	                            <label style="margin-right: 70px; margin-left: 8px;"><input type="checkbox" name="calendar" id="" value="rent" onclick="checkOnlyOne(this)" <c:if test="${checkBox eq 'rent'}">checked</c:if>> 민간임대</label>
-	                            <label><input type="checkbox" name="calendar" id="" value="public_rent" onclick="checkOnlyOne(this)" <c:if test="${checkBox eq 'public_rent'}">checked</c:if>> 공공지원민간임대</label><br><br>
-	
-	                            <div style="display: flex; justify-content: center; margin:10px 0 15px 0; ">
-	                                <button type="submit" class="btn btn-dark" form="calendarSearch" style="text-align: center; font-size: 16px;">search</button>
-	                            </div>
-	                        </form>
-	                    </div>
+						<!-- 유형별 검색버튼 시작 -->
+                        <div class="col-12" style="margin-top: 30px; margin-bottom:50px; line-height:30px;">
+                            <form method="post" action="${path}/realEstate/calendar" id="calendarSearch" style="font-size: 17px;">
+                                <h4 class="mice">분양종류</h4>
+                                <hr style="background: black; height: 2px; border: 0; margin-top:7px;">&nbsp;
+                                <input type="radio" name="calendar" id="calendar_t" value="total_show" <c:if test="${checkBox eq 'total_show' || checkBox == null}">checked</c:if>> <label for="calendar_t" style="margin-right: 95px;" >전체</label>
+                                APT (<input type="radio" name="calendar" id="apt_special" value="apt_special" style="margin-left: 5px;" <c:if test="${checkBox eq 'apt_special'}">checked</c:if>> <label for="apt_special" >특별공급</label>
+                                <input type="radio" name="calendar" id="apt_1" value="apt_1" style="margin-left: 15px;" <c:if test="${checkBox eq 'apt_1'}">checked</c:if>> <label for="apt_1">1순위</label>
+                                <input type="radio" name="calendar" id="apt_2" value="apt_2" style="margin-left: 15px;" <c:if test="${checkBox eq 'apt_2'}">checked</c:if>> <label for="apt_2">2순위</label>
+                                <input type="radio" name="calendar" id="apt_n" value="apt_n" style="margin-left: 15px;" <c:if test="${checkBox eq 'apt_n'}">checked</c:if>> <label for="apt_n">무순위</label>
+                                <input type="radio" name="calendar" id="apt_c" value="apt_c" style="margin-left: 15px;" <c:if test="${checkBox eq 'apt_c'}">checked</c:if>> <label for="apt_c">취소후재공급</label> )
 
+                                <input type="radio" name="calendar" id="office" value="office" style="margin-left: 60px;" <c:if test="${checkBox eq 'office'}">checked</c:if>> <label for="office" style="margin-right: 60px;">오피스텔</label>
+                                <input type="radio" name="calendar" id="cityhouse" value="cityhouse" <c:if test="${checkBox eq 'cityhouse'}">checked</c:if>> <label for="cityhouse">도시형생활주택</label><br>
+                                <input type="radio" name="calendar" id="rent" value="rent" style="margin-left: 8px;" <c:if test="${checkBox eq 'rent'}">checked</c:if>> <label for="rent" style="margin-right: 60px;">민간임대</label>
+                                <input type="radio" name="calendar" id="public_rent" value="public_rent" <c:if test="${checkBox eq 'public_rent'}">checked</c:if>> <label for="public_rent">공공지원민간임대</label><br>
+
+                                <div style="display: flex; justify-content: center; margin:10px 0 15px 0; ">
+                                    <button type="submit" class="btn btn-dark" form="calendarSearch" style="text-align: center; font-size: 16px;">search</button>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- 유형별 검색버튼 끝 -->
+						
+						<!-- 유형별 색 안내 시작 -->
 						<table style="width:100%; margin:auto;">
 	                        <tr>
 	                            <td colspan="5 " style="width:40%; word-break:break-all;">
-	                                <button type="button" class="btn btn-primary btn-cate mice" style="width: 100%; font-size:16px; background-color: #436C9A;">APT</button>
-	                            </td>
-	                            <!-- <td colspan="3 " style="width:25%; word-break:break-all;">
-	                                <button type="button" class="btn btn-primary btn-cate mice" style="width: 100%; font-size:16px; background-color: #436C9A;">민간사전청약APT</button>
-	                            </td> -->
-	                            <td rowspan="2 " style="width:15%; word-break:break-all;">
-	                                <button type="button" class="btn btn-primary btn-cate mice" style="width: 100%; font-size:16px; height: 85px; background-color: #BEABCC; border:none;">오피스텔</button>
+	                                <button type="button" class="btn btn-primary btn-cate mice" onclick="location.href='${path}/realEstate/calendar?type=a'" style="width: 100%; font-size:16px; background-color: #436C9A;">APT</button>
 	                            </td>
 	                            <td rowspan="2 " style="width:15%; word-break:break-all;">
-	                                <button type="button" class="btn btn-primary btn-cate mice" style="width: 100%; font-size:16px; height: 85px; background-color: #F7A825; border:none;">도시형생활주택</button>
+	                                <button type="button" class="btn btn-primary btn-cate mice" onclick="location.href='${path}/realEstate/calendar?type=o'" style="width: 100%; font-size:16px; height: 85px; background-color: #BEABCC; border:none;">오피스텔</button>
 	                            </td>
 	                            <td rowspan="2 " style="width:15%; word-break:break-all;">
-	                                <button type="button" class="btn btn-primary btn-cate mice" style="width: 100%; font-size:16px; height: 85px; background-color: #EB8770; border:none;">민간임대</button>
+	                                <button type="button" class="btn btn-primary btn-cate mice" onclick="location.href='${path}/realEstate/calendar?type=c'" style="width: 100%; font-size:16px; height: 85px; background-color: #F7A825; border:none;">도시형생활주택</button>
 	                            </td>
 	                            <td rowspan="2 " style="width:15%; word-break:break-all;">
-	                                <button type="button" class="btn btn-primary btn-cate mice" style="width: 100%; font-size:16px; height: 85px; background-color: #E3A9C2; border:none;">공공지원민간임대</button>
+	                                <button type="button" class="btn btn-primary btn-cate mice" onclick="location.href='${path}/realEstate/calendar?type=m'" style="width: 100%; font-size:16px; height: 85px; background-color: #EB8770; border:none;">민간임대</button>
+	                            </td>
+	                            <td rowspan="2 " style="width:15%; word-break:break-all;">
+	                                <button type="button" class="btn btn-primary btn-cate mice" onclick="location.href='${path}/realEstate/calendar?type=p'" style="width: 100%; font-size:16px; height: 85px; background-color: #E3A9C2; border:none;">공공지원민간임대</button>
 	                            </td>
 	                        </tr>
 	                        <tr>
 	                            <td style="word-break:break-all;">
-	                                <button type="button" class="btn btn-primary btn-cate mice" style="width: 100%; font-size:15px; background-color: #6B7CB4; border:none;">특별공급</button>
+	                                <button type="button" value="apt_special" class="btn btn-primary btn-cate mice" onclick="location.href='${path}/realEstate/calendar?type=s'" style="width: 100%; font-size:15px; background-color: #6B7CB4; border:none;">특별공급</button>
 	                            </td>
 	                            <td style="word-break:break-all;">
-	                                <button type="button" onclick="location.href='${path}/realEstate/calendar?type=a'" class="btn btn-primary btn-cate mice" style="width: 100%; font-size:15px; background-color: #E378A6; border:none;">1순위</button>
+	                                <button type="button" class="btn btn-primary btn-cate mice" onclick="location.href='${path}/realEstate/calendar?type=f'" style="width: 100%; font-size:15px; background-color: #E378A6; border:none;">1순위</button>
 	                            </td>
 	                            <td style="word-break:break-all;">
-	                                <button type="button" class="btn btn-primary btn-cate mice" style="width: 100%; font-size:15px; background-color: #809BCA; border:none;">2순위</button>
+	                                <button type="button" class="btn btn-primary btn-cate mice" onclick="location.href='${path}/realEstate/calendar?type=t'" style="width: 100%; font-size:15px; background-color: #809BCA; border:none;">2순위</button>
 	                            </td>
 	                            <td style="word-break:break-all;">
-	                                <button type="button" class="btn btn-primary btn-cate mice" style="width: 100%; font-size:15px; background-color: #B7C089; border:none;">무순위</button>
+	                                <button type="button" class="btn btn-primary btn-cate mice" onclick="location.href='${path}/realEstate/calendar?type=n'" style="width: 100%; font-size:15px; background-color: #B7C089; border:none;">무순위</button>
 	                            </td>
 	                            <td style="word-break:break-all;">
-	                                <button type="button" class="btn btn-primary btn-cate mice" style="width: 100%; font-size:15px; background-color: #467EB7; border:none;">취소후재공급</button>
+	                                <button type="button" class="btn btn-primary btn-cate mice" onclick="location.href='${path}/realEstate/calendar?type=r'" style="width: 100%; font-size:15px; background-color: #467EB7; border:none;">취소후재공급</button>
 	                            </td>
-	                            <!-- <td style="word-break:break-all;">
-	                                <button type="button" class="btn btn-primary btn-cate mice" style="width: 100%; font-size:15px; background-color: #BEABCC; border:none;">특별공급</button>
-	                            </td>
-	                            <td style="word-break:break-all;">
-	                                <button type="button" class="btn btn-primary btn-cate mice" style="width: 100%; font-size:15px; background-color: #EB8770; border:none;">1순위</button>
-	                            </td>
-	                            <td style="word-break:break-all;">
-	                                <button type="button" class="btn btn-primary btn-cate mice" style="width: 100%; font-size:15px; background-color: #809BCA; border:none;">2순위</button>
-	                            </td> -->
 	                        </tr>
 	                    </table>
+	                    <!-- 유형별 색 안내 끝 -->
+	                    
 						<p style="font-size: 14px;">
 							<i class="bi bi-info-circle"></i> 공급유형별 색상으로 일정을 확인해보세요.
 						</p>
@@ -332,24 +304,13 @@
 					<!-- tabEnd -->
 
 					<div id='calendar'></div>
-					
-					
-					<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
-					
-					
-					
 
-					<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 				</div>
 			</section>
 
 		</div>
 	</section>
 
-
-
-	<!-- @@@ 본문 끝 @@@ -->
-	
 	<%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 

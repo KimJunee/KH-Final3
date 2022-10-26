@@ -61,12 +61,8 @@ public class ApplyCalAndNotiController {
 		model.addAttribute("param", param);
 		model.addAttribute("pageInfo", pageInfo);
 		model.addAttribute("totalCount", notiTotalCount);
-		System.out.println("catetype 뭘로 들어올까요?  " + category + ", 그 값이 필요! : " + param.get(category));
+//		System.out.println("catetype 뭘로 들어올까요?  " + category + ", 그 값이 필요! : " + param.get(category));
 		
-//		if(param.get(category) != null) {
-//			System.out.println("param test : " + param.toString());
-//		}
-//		model.addAttribute("cateType", param.get(category));
 	}
 
 	
@@ -104,9 +100,37 @@ public class ApplyCalAndNotiController {
 		
 		if("a".equals(type)) {
 			model.addAttribute("apt1", list1);
-			return "realEstate/realEstateCalendar";
-		} else if("b".equals(type)) {
 			model.addAttribute("apt2", list2);
+			model.addAttribute("nn", list7);
+			model.addAttribute("cc", list8);
+			model.addAttribute("spc", list9);
+			return "realEstate/realEstateCalendar";
+		} else if("o".equals(type)) {
+			model.addAttribute("office", list4);
+			return "realEstate/realEstateCalendar";
+		} else if("c".equals(type)) {
+			model.addAttribute("city", list3);
+			return "realEstate/realEstateCalendar";
+		} else if("m".equals(type)) {
+			model.addAttribute("mingan", list5);
+			return "realEstate/realEstateCalendar";
+		} else if("p".equals(type)) {
+			model.addAttribute("gong", list6);
+			return "realEstate/realEstateCalendar";
+		} else if("s".equals(type)) {
+			model.addAttribute("spc", list9);
+			return "realEstate/realEstateCalendar";
+		} else if("f".equals(type)) {
+			model.addAttribute("apt1", list1);
+			return "realEstate/realEstateCalendar";
+		} else if("t".equals(type)) {
+			model.addAttribute("apt2", list2);
+			return "realEstate/realEstateCalendar";
+		} else if("n".equals(type)) {
+			model.addAttribute("nn", list7);
+			return "realEstate/realEstateCalendar";
+		} else if("r".equals(type)) {
+			model.addAttribute("cc", list8);
 			return "realEstate/realEstateCalendar";
 		}
 		
