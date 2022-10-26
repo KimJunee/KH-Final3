@@ -29,7 +29,7 @@
         padding: 0;
         font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
         font-size: 14px;
-        line-height:15px;
+        line-height:18px;
     }
     
     #calendar {
