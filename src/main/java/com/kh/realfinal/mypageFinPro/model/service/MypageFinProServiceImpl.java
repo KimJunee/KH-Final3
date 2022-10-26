@@ -54,8 +54,8 @@ public class MypageFinProServiceImpl implements MypageFinProService{
 		String sort = param.get("sort");
 		if(searchValue != null && searchValue.length() > 0) {
 			searchMap.put("finPrdtNm", searchValue);
-			searchMap.put("sort", sort);
 		}		
+		searchMap.put("sort", sort);
 		return mapper.selectFinLikeList(rowBounds, searchMap);
 	}
 
