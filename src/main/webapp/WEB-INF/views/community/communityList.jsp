@@ -77,24 +77,41 @@
            			</c:if>
                 	<c:if test="${board_list_no == 1}">
                 		<div class="wirtebutton" style="margin-top:10px;">
-	                		<div>
+	                		<div class="col-md-8 ">
 		                		<a href="${path}/board/list?type=1" class="badge text-bg-primary" style="width: 100px; margin-bottom: 5px;"><i class="fas fa-circle me-2 small fw-bold"></i>Politics</a>
-								<h1 class="mice">정치 <span style="color:#2163E8;">커뮤니티</span></h1>
-							</div>
-							<button type="submit" class="btn btn-outline-primary" style="margin-top:30px; hight:30px; font-size:20px; padding:5px 5px"><b>글쓰기</b></button>
-						</div>
+							   <h1 class="mt-2 mice">&nbsp;정치<span style="color:#2163E8;">Talk</span></h1>
+                    		</div>
+                   			 <div class="col-md-4 " style="margin-left: -20px;">
+                        <a href="${path}/board/writePost"><button type="submit" class="btn btn-primary align-items-right" style="  margin-top:30px; hight:30px; font-size:20px;   float:right; "> <b> 글쓰기 </b></button></a>
+                    </div>
+                	</div>
                 	</c:if>
                 	<c:if test="${board_list_no == 2}">
+                	<div class="col-md-8 ">
                 		<a href="${path}/board/list?type=2" class="badge text-bg-warning" style="width: 100px;"><i class="fas fa-circle me-2 small fw-bold"></i>Real Estate</a>
 						<h1 class="mice">부동산 <span style="color:#F7C32E;">커뮤니티</span></h1>
+							</div>
+                   			 <div class="col-md-4 " style="margin-left: -20px;">
+                         <a href="${path}/board/writePost"><button type="submit" class="btn btn-warning align-items-right" style="  margin-top:30px; hight:30px; font-size:20px;   float:right; "><b> 글쓰기 </b></button></a>
+                    </div>
                 	</c:if>
                 	<c:if test="${board_list_no == 3}">
+                	<div class="col-md-8 ">
                 		<a href="${path}/board/list?type=3" class="badge text-bg-danger" style="width: 100px;"><i class="fas fa-circle me-2 small fw-bold"></i>Finance</a>
 						<h1 class="mice">금융 <span style="color:#D6293E;">커뮤니티</span></h1>
+						</div>
+                   			 <div class="col-md-4 " style="margin-left: -20px;">
+                        <a href="${path}/board/writePost"><button type="submit" class="btn btn-danger align-items-right" style="  margin-top:30px; hight:30px; font-size:20px;   float:right; "><b> 글쓰기 </b></button></a>
+                    </div>
                 	</c:if>
                 	<c:if test="${board_list_no == 4}">
+                	<div class="col-md-8 ">
                 		<a href="${path}/board/list?type=4" class="badge text-bg-success" style="width: 100px;"><i class="fas fa-circle me-2 small fw-bold"></i>Free</a>
 						<h1 class="mice">자유 <span style="color:#0CBC87;">광장</span></h1>
+						</div>
+                   			 <div class="col-md-4 " style="margin-left: -20px;">
+                        <a href="${path}/board/writePost"><button type="submit" class="btn btn-success align-items-right" style="  margin-top:30px; hight:30px; font-size:20px;   float:right; "><b> 글쓰기 </b></button></a>
+                    </div>
                 	</c:if>
                     <div class="col-12" style="margin-top: 35px;">
                         <!-- Counter START -->
