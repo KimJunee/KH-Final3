@@ -39,6 +39,9 @@ public class NewsServiceImpl implements NewsService {
 		String sortForDate = map.get("sortForDate");
 		searchMap.put("sortForDate", sortForDate);
 		
+		String searchKeyword = map.get("searchKeyword");
+		searchMap.put("searchKeyword", searchKeyword);
+		
 		String searchContent = map.get("descriptionKeyword");
 		searchMap.put("descriptionKeyword", searchContent);
 		
@@ -54,6 +57,9 @@ public class NewsServiceImpl implements NewsService {
 		
 		String sortForDate = map.get("sortForDate");
 		searchMap.put("sortForDate", sortForDate);
+		
+		String searchKeyword = map.get("searchKeyword");
+		searchMap.put("searchKeyword", searchKeyword);
 		
 		String searchContent = map.get("descriptionKeyword");
 		searchMap.put("descriptionKeyword", searchContent);
