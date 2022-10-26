@@ -56,7 +56,7 @@
 												<ul
 													class="nav nav-divider align-items-center text-uppercase small">
 													<li class="nav-item"><a href="#"
-														class="nav-link text-reset btn-link">${cardcutTop.pubDate}</a></li>
+														class="nav-link text-reset btn-link"><fmt:formatDate type="date" dateStyle="full" value="${cardcutTop.pubDate}"/> </a></li>
 													 
 												</ul> 
 											</div>
@@ -123,7 +123,7 @@
 												<ul
 													class="nav nav-divider align-items-center text-uppercase small">
 													<li class="nav-item"><a href="#"
-														class="nav-link text-reset btn-link">${cardcut.pubDate}</a></li>
+														class="nav-link text-reset btn-link"><fmt:formatDate type="date" dateStyle="full" value="${cardcut.pubDate}"/></a></li>
 												</ul>
 											</div>
 										</div>
