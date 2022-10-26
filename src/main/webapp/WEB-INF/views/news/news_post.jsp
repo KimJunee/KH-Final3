@@ -42,10 +42,6 @@
                     <!-- Left sidebar START -->
                     <div class="col-lg-2">
                         <div class="text-start text-lg-center mb-5" data-sticky data-margin-top="80" data-sticky-for="991">
-                            <!-- Author info -->
-                            <div class="position-relative">
-                                <h5 class="mt-2 mb-0 d-block">서혜연 기자</h5>
-                            </div>
                             <hr class="d-none d-lg-block">
                             <!-- Card info -->
                             <ul class="list-inline list-unstyled">
