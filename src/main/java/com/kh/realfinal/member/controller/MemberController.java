@@ -1,7 +1,6 @@
 package com.kh.realfinal.member.controller;
 
 import java.util.HashMap;
-
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,19 +50,22 @@ public class MemberController {
 		}
 	}
 	
+	// 로그아웃
+	@RequestMapping("/logout")
+	public String logout(Model model, @SessionAttribute(name= "loginMember", required = false) Member loginMember
+						,SessionStatus sessionStatus) {
+		if(loginMember != null) {
+			model.addAttribute("loginMember", null);
+			sessionStatus.setComplete();
+			return "redirect:/main.do";
+		}
+		return null;
+	}
+	
 	// 로그인 페이지 가기
 	@RequestMapping("/mypage/signIn")
 	public String  goLogin(Model model) {
 		return "mypage/signIn";
-	}
-	
-	// 로그아웃
-	@RequestMapping("/member/logout")
-	public String logout(SessionStatus status) {
-		log.info("status : " + status.isComplete());
-		status.setComplete(); // 세션을 종료하는 코드
-		log.info("status : " + status.isComplete());
-		return "main/main";
 	}
 	
 	@RequestMapping("/mypage/signUp")

@@ -51,20 +51,20 @@
                 </a>
                 <!-- 로고 끝-->
                 <!-- 메뉴 시작 -->
-                <button class="navbar-toggler ms-auto " type="button " data-bs-toggle="collapse " data-bs-target="#navbarCollapse " aria-controls="navbarCollapse " aria-expanded="false " aria-label="Toggle navigation ">
-                        <span class="text-body h1 d-none d-sm-inline-block ">Menu</span>
-                        <span class="navbar-toggler-icon "></span>
-                    </button>
+                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="text-body h1 d-none d-sm-inline-block ">Menu</span>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 <!-- 메인 네비바 시작 -->
-                <div class="collapse navbar-collapse  " id="navbarCollapse ">
+                <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav navbar-nav-scroll mx-auto ">
                         <!-- <li class="nav-item "> -->
-                        <a class="nav-link-sp active " href="${path}/main.do" id="homeMenu " data-bs-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">Home</a>
+                        <a class="nav-link-sp active" href="${path}/main.do" id="homeMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false ">Home</a>
 
                         <!-- 금융 메뉴 시작-->
-                        <li class="nav-item dropdown ">
-                            <a class="nav-link-sp  " href="${path}/stockprice/fin_main.do" id="postMenu " data-bs-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">금융</a>
-                            <ul class="dropdown-menu bg-dark text-white" aria-labelledby="postMenu ">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link-sp" href="${path}/stockprice/fin_main.do" id="postMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">금융</a>
+                            <ul class="dropdown-menu bg-dark text-white" aria-labelledby="postMenu">
                                 <!-- dropdown submenu -->
                                 <li class="dropdown-submenu dropend text-white">
                                     <a class="dropdown-item  text-white" href="${path}/stockprice/fin_main.do"> 금융메인</a>
@@ -148,20 +148,10 @@
                 </div>
                 <!-- 메인 네비바 끝 -->
                 <!-- 네비바 오른쪽 아이콘들 시작-->
-                <div class="nav flex-nowrap align-items-center ">
-
-                    <!-- 커뮤니티 글쓰기 아이콘-->
-                    <div class="nav-item ">
-                        <c:if test="${empty loginMember}">
-                    	<i class="bi bi-person-square fs-4" style="display: none;"></i>
-                    	</c:if>
-                    	<c:if test="${!empty loginMember}">
-                        <a class="nav-link-sp" href="${path}/board/writePost" >
-                            <i class="bi bi-pencil-square fs-4 "></i>
-                        </a>
+                <div class="nav flex-nowrap align-items-center">
+                	<c:if test="${!empty loginMember}">
+                	<a class="nav-link-sp" style="font-size: 15px; color: white;">${loginMember.user_name} 님 환영합니다!</a>
                     </c:if>
-                    </div>
-                    
                     <!-- 마이페이지 아이콘 -->
                     <div class="nav-item ">
                     <c:if test="${empty loginMember}">
@@ -180,14 +170,8 @@
                     	<a href="${path}/mypage/signIn" class="btn btn-sm btn-danger mb-0 mx-2 ">Sign In</a>
                     </c:if>
                     <c:if test="${!empty loginMember}">
-                    	<a href="${path}/member/logout" class="btn btn-sm btn-danger mb-0 mx-2 ">Sign Out</a>
+                    	<a href="${path}/logout" class="btn btn-sm btn-danger mb-0 mx-2 ">Sign Out</a>
                     </c:if>
-                    </div>
-                    <!-- Offcanvas menu toggler -->
-                    <div class="nav-item ">
-                        <a class="nav-link-sp p-0 " data-bs-toggle="offcanvas " href="#offcanvasMenu " role="button " aria-controls="offcanvasMenu ">
-                            <i class="bi bi-text-right rtl-flip fs-2 " data-bs-target="#offcanvasMenu "> </i>
-                        </a>
                     </div>
                 </div>
                 <!-- 네비바 오른쪽 아이콘들 끝-->

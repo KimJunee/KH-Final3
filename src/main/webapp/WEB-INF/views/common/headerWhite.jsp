@@ -178,19 +178,9 @@
 
                 <!-- 네비바 오른쪽 아이콘들 시작-->
                 <div class="nav flex-nowrap align-items-center ">
-
-                    <!-- 커뮤니티 글쓰기 아이콘-->
-                    <div class="nav-item ">
-                    	<c:if test="${empty loginMember}">
-                    	<i class="bi bi-pencil-square fs-4 " style="display: none;"></i>
-                    	</c:if>
-                    	<c:if test="${!empty loginMember}">
-                        <a class="nav-link-white-sp" href="${path}/board/writePost">
-                            <i class="bi bi-pencil-square fs-4 "></i>
-                        </a>
-                        </c:if>
-                    </div>
-
+                	<c:if test="${!empty loginMember}">
+                	<a class="nav-link-sp" style="font-size: 15px; color: black;">${loginMember.user_name} 님 환영합니다!</a>
+					</c:if>
                     <!-- 마이페이지 아이콘 -->
                     <div class="nav-item ">
                     <c:if test="${empty loginMember}">
@@ -209,14 +199,8 @@
                         <a href="${path}/mypage/signIn" class="btn btn-sm btn-danger mb-0 mx-2 ">Sign In</a>
                     </c:if>
                     <c:if test="${!empty loginMember}">
-                    	<a href="${path}/main/main" class="btn btn-sm btn-danger mb-0 mx-2 ">Sign Out</a>
+                    	<a href="${path}/logout" class="btn btn-sm btn-danger mb-0 mx-2 ">Sign Out</a>
                     </c:if>
-                    </div>
-                    <!-- Offcanvas menu toggler -->
-                    <div class="nav-item ">
-                        <a class="nav-link-white-sp p-0 " data-bs-toggle="offcanvas " href="#offcanvasMenu " role="button " aria-controls="offcanvasMenu ">
-                            <i class="bi bi-text-right rtl-flip fs-2 " data-bs-target="#offcanvasMenu "> </i>
-                        </a>
                     </div>
                 </div>
                 <!-- 네비바 오른쪽 아이콘들 끝-->
