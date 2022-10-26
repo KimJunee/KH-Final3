@@ -551,39 +551,32 @@
             <!-- ======================= 한 눈에 보는 90초 금융 끝 -->
 
             <!-- ======================= 오피니언 시작 -->
-            <section style="margin: top 200px;">
-                <div class="container " style="margin: top 200px;">
-                    <div class="row">
-                        <h2 class="mice"><i class="fa fa-solid fa-pen-nib" style="margin-right:10px;"></i>오피니언</h2>
-                        <div class="col-12">
+            <section style="margin: top 200px; ">
+                <div class="container " style="margin: top 200px; ">
+                    <div class="row ">
+                        <h2 class="mice "><i class="fa fa-solid fa-pen-nib" style="margin-right:10px;"></i>오피니언</h2>
+                        <div class="col-12 ">
                             <div class="tiny-slider arrow-blur arrow-round rounded-3 overflow-hidden">
-                                <div class="tiny-slider-inner" data-autoplay="true" data-hoverpause="true" data-gutter="24" data-arrow="true" data-dots="false" data-items-xl="4" data-items-lg="3" data-items-md="3" data-items-sm="2" data-items-xs="1">
-                                <!-- 오피니언 -->
-                                <c:if test="${empty opinion}">
-									<div class="d-flex position-relative mb-3">
-										<h6>논설위원이 없습니다.</h6>
-									</div>
-								</c:if>
-								<c:if test="${not empty opinion}">
-	                               	<c:forEach var="opinion" items="${opinion}" varStatus="status">
-				  						<div style="margin-right: -50px;">
-	                                    	<div class="card card-overlay-bottom card-img-scale" style="width: 220px; height: 280px;">
-		                                        <!-- Card Image -->
-		                                        <img class="card-img " src="${opinion.imageUrl}" style="width: 220px; height: 280px;">
-		                                        <!-- Card Image overlay -->
-	                                        	<div class="card-img-overlay d-flex flex-column p-3 p-sm-4">
-		                                            <div class="w-100 mt-auto" style="margin-bottom:-20px;">
-	                                               		<h5 class="text-white mice"><a href="${path}/opinion/opinionDetail?opinionNo=${opinion.opinionNo}" class="btn-link text-reset stretched-link">${opinion.title}</a></h5>
-	                                            	</div>
-	                                        	</div>
-		                                    </div>
-		                                    <div style="margin-top:30px;">
-	                                        	<h5 class="nav-item  mice" style="withd:220px;">${opinion.columnist}</h5>
-	                                        	<p class="nav-item "><fmt:formatDate type="both" value="${opinion.pubDate}"/></p>
-	                                  		</div>
-	                                	</div>
-	                            	</c:forEach>
-                            	</c:if>
+                                <div class="tiny-slider-inner " data-autoplay="true " data-hoverpause="true " data-gutter="24 " data-arrow="true " data-dots="false " data-items-xl="4 " data-items-lg="3 " data-items-md="3 " data-items-sm="2" data-items-xs="1 ">
+	                               <!-- 오피니언 4 -->
+                               	<c:forEach var="opinion" items="${opinion}" varStatus="status">
+			  						<div style="margin-right: -50px;">
+                                    	<div class="card card-overlay-bottom card-img-scale" style="width: 220px; height: 280px;">
+	                                        <!-- Card Image -->
+	                                        <img class="card-img " src="${opinion.imageUrl}" style="width: 220px; height: 280px;">
+	                                        <!-- Card Image overlay -->
+                                        	<div class="card-img-overlay d-flex flex-column p-3 p-sm-4">
+	                                            <div class="w-100 mt-auto" style="margin-bottom:-20px;">
+                                               		<h5 class="text-white mice"><a href="${path}/opinion/opinionDetail?opinionNo=${opinion.opinionNo}" class="btn-link text-reset stretched-link">${opinion.title}</a></h5>
+                                            	</div>
+                                        	</div>
+	                                    </div>
+	                                    <div style="margin-top:30px;" class="card-body ps-0">
+                                        	<h5 class="nav-item mb-0 mice text-center" style="width: 220px;">${opinion.columnist}</h5>
+                                        	<p class="nav-item text-center" style="width: 220px;"><fmt:formatDate type="both" value="${opinion.pubDate}"/></p>
+                                  		</div>
+                                	</div>
+                            	</c:forEach>
                         	</div>
                     	</div>
                 	</div>
