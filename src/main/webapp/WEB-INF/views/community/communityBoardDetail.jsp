@@ -46,7 +46,7 @@
                                 <div class="avatar avatar-xl">
                                     <img class="avatar-img rounded-circle" src="${path}/resources/resources1b/images/avatar_w1.png" alt="avatar">
                                 </div>
-                                <h5 class=" stretched-link mt-2 mb-0 d-block">${board.user_nickName}</h5>
+                                <h5 class=" stretched-link mt-2 mb-0 d-block mice">${board.user_nickName}</h5>
                             </div>
                             <hr class="d-none d-lg-block">
                             <!-- 작성일 / 조회수 / 댓글수 -->
@@ -67,7 +67,7 @@
                     </div>
                     <!-- 왼쪽 사이드바 끝 -->
                     <!-- 메인 컨텐츠 시작 -->
-                    <div class="col-lg-7 mb-5" id="main_content">
+                    <div class="col-lg-7 mb-8" id="main_content">
                         <p>${board.board_content}</p>
                         <!-- 첨부파일 -->
                         <c:if test="${!empty board.board_renamedFileName}">
@@ -84,13 +84,14 @@
                             <figcaption class="figure-caption text-center">${board.board_originalFileName}</figcaption>
                         </figure>
                         </c:if>
+                        <hr>
                         <!-- 댓글 시작 -->
-                        <div class="border-bottom border-top border-2 mb-3 pt-3" style="color:#a1a1a8">
+                        <div class=" mb-3 pt-1" style="color:#a1a1a8">
                         <h3>${fn:length(replyList)} comments</h3>
                         <c:forEach var="reply" items="${replyList}" varStatus="status">
                         	<c:choose>
 	                        	<c:when test="${!status.last}">
-	                            	<div class="my-4 d-flex border-bottom border-1 mb-1 reply" id="reply${reply.reply_no}" style="color:#a1a1a8">
+	                            	<div class="my-4 d-flex  mb-1 reply" id="reply${reply.reply_no}" style="color:#a1a1a8">
 	                            </c:when>
 	                            <c:otherwise>
 	                            	<div class="my-4 d-flex reply" id="reply${reply.reply_no}">
@@ -100,7 +101,7 @@
                         		<div style="width: 100%;">
                                 <div style="flex-container: space-between;">
                                     <div class="mb-2" style="display:inline-block">
-                                        <h6 class="m-0 mice">${reply.reply_writer_nickName}</h6>
+                                        <h5 class="m-0 mice">${reply.reply_writer_nickName}</h5>
                                         <span class="me-3 small"><fmt:formatDate type="both" value="${reply.reply_register}"/></span>
                                     </div>
                                     <c:if test="${not empty loginMember && (loginMember.user_id == reply.reply_writer_id)}">
@@ -123,7 +124,7 @@
                         <!-- 댓글 끝 -->
                         <!-- 댓글 작성 시작 -->
                         <div>
-                            <h3 class="mice">Leave a reply</h3>
+                            <h3 class=" ">Leave a reply</h3>
                             <form class="row g-3 mt-1" action="${path}/board/reply" method="post">
                             	<input type="hidden" name="board_no" value="${board.board_no}"/> 
     							<input type="hidden" name="reply_writer_id" value="${loginMember.user_id}"/> 
@@ -170,8 +171,8 @@
 	                                </li>
 	                            </ul>
                             <!-- 인기검색어 -->
-                            <div class="row g-2 mt-5">
-                                <h5>인기검색어</h5>
+                            <div class="row g-2 mt-5 ">
+                                <h4 class="mice">인기검색어</h4>
                                 <div class="d-flex justify-content-between align-items-center bg-warning bg-opacity-15 rounded p-2 position-relative">
                                     <h6 class="m-0 text-warning">디지털 경쟁력</h6>
                                     <a href="#" class="badge bg-warning text-dark stretched-link">09</a>
@@ -201,7 +202,7 @@
 								</div>
 							</c:if>
 							<c:if test="${not empty sideList}">
-                                <h5 class="mt-5 mb-3">실시간<span style="color:#2163E8">커뮤니티</span>인기글</h5>
+                                <h4 class="mt-5 mb-3 mice">실시간<span style="color:#2163E8">커뮤니티</span>인기글</h5>
 									<c:forEach var="board" items="${sideList}" varStatus="status">
 	                                <div class="d-flex position-relative mb-3">
 	                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">
