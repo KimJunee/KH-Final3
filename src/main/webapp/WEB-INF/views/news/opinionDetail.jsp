@@ -73,7 +73,7 @@
 		<!-- **************** MAIN CONTENT START **************** -->
 		<main>
 		    <!-- ======================= Inner intro START -->
-        <section class="pb-3 pb-lg-5" style="margin-top:50px;">
+        <section class="pb-3 pb-lg-5" style="margin-top:10px;">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -108,15 +108,16 @@
                     </div>
                     <!-- 왼쪽 사이드바 끝 -->
                     <!-- 메인 컨텐츠 시작 -->
-                    <div class="col-lg-7 mb-5">
+                    <div class="col-lg-7 mb-5 ">
                         <p>${opinion.content}</p>
+                        <hr>
                         <!-- 댓글 시작 -->
-                        <div class="border-bottom border-top border-2 mb-3 pt-3" style="color:#a1a1a8">
+                        <div class="   mb-3 pt-3" style="color:#a1a1a8">
                         <h3>${fn:length(opinionReplyList)} comments</h3>
                         <c:forEach var="opinionReply" items="${opinionReplyList}" varStatus="status">
                         	<c:choose>
 	                        	<c:when test="${!status.last}">
-	                            	<div class="my-4 d-flex border-bottom border-1 mb-1 reply" id="reply${opinionReply.o_reply_no}" style="color:#a1a1a8">
+	                            	<div class="my-4 d-flex  mb-1 reply" id="reply${opinionReply.o_reply_no}" style="color:#a1a1a8">
 	                            </c:when>
 	                            <c:otherwise>
 	                            	<div class="my-4 d-flex reply" id="OpinionReply${opinionReply.o_reply_no}">
@@ -197,7 +198,7 @@
 	                            </ul>
                             <!-- 인기검색어 -->
                             <div class="row g-2 mt-5">
-                                <h5>인기검색어</h5>
+                                <h4 class="mice">인기검색어</h4>
                                 <div class="d-flex justify-content-between align-items-center bg-warning bg-opacity-15 rounded p-2 position-relative">
                                     <h6 class="m-0 text-warning">디지털 경쟁력</h6>
                                     <a href="#" class="badge bg-warning text-dark stretched-link">09</a>
@@ -227,7 +228,7 @@
 								</div>
 							</c:if>
 							<c:if test="${not empty sideList}">
-                                <h5 class="mt-5 mb-3">실시간<span style="color:#2163E8">커뮤니티</span>인기글</h5>
+                                <h4 class="mt-5 mb-3 mice">실시간<span style="color:#2163E8">커뮤니티</span>인기글</h4>
 									<c:forEach var="board" items="${sideList}" varStatus="status">
 	                                <div class="d-flex position-relative mb-3">
 	                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">
