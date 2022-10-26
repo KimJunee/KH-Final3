@@ -36,8 +36,6 @@
 	<script src="${path}/resources/css/js/jquery-3.6.0.min.js"></script>
 	<!-- **************** MAIN CONTENT START **************** -->
     <section class="position-relative overflow-hidden" style="background-image:url(${path}/resources/resources1b/images/03_realEstate/03_reales_notice.jpeg); background-position: center; background-size: cover;">
-        <!-- <section class="position-relative overflow-hidden" style="background-image:url(assets/images/03_reales_/03_reales_house.jpg); background-position: center; background-size: cover;"> -->
-        <!-- <section class="position-relative overflow-hidden" style="background-image:url(assets/images/03_reales_/03_reales_etc.jpg); background-position: center; background-size: cover;"> -->
         <div class="bg-overlay bg-transparent opacity-5"></div>
         <!-- SVG decoration for curve -->
         <figure class="position-absolute bottom-0 left-0 w-100 d-md-block mb-n3 z-index-9">
@@ -65,17 +63,14 @@
     </section>
 
     <!-- =======================Main START -->
-    
     <section class="pt-3 pt-lg-5">
             <div class="container" style="margin-top: 10px; margin-bottom: 40px;">
-
-                <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 
                 <!-- Post list table START -->
                 <h2 class="mice">청약공지사항</h2>
                 <!-- 유형 카테고리 시작 -->
                 <!-- Tab START -->
-                <ul class="nav nav-tabs nav-tabs-line" style="margin-top: 20px;">
+                <ul class="nav nav-tabs nav-tabs-dark" style="margin-top: 30px;">
                     <li class="nav-item"> <a class="nav-link active" href="${path}/realEstate/notice">전체보기</a> </li>
                     <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-2">토지</a> </li>
                     <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-3">분양주택</a> </li>
@@ -85,43 +80,43 @@
                     <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-7">상가</a> </li>
                     <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-8">기타</a> </li>
                 </ul>
-                <div class="tab-content bg-light p-4">
+                <div class="tab-content bg-opacity-15 p-4" style="height: 25px; padding-bottom: 10px;">
                     <div class="tab-pane show active" id="tab-1">
                     </div>
                     <div class="tab-pane" id="tab-2">
-                        <a href="${path}/realEstate/notice?page=1&cateType=1"><i class="bi bi-dot"></i>주택용지</a>&nbsp;&nbsp;
-                        <a href="${path}/realEstate/notice?page=1&cateType=2"><i class="bi bi-dot"></i>상가용지</a>&nbsp;&nbsp;
-                        <a href="${path}/realEstate/notice?page=1&cateType=3"><i class="bi bi-dot"></i>산업시설용지</a>&nbsp;&nbsp;
-                        <a href="${path}/realEstate/notice?page=1&cateType=4"><i class="bi bi-dot"></i>기타용지</a>
+                        <a href="${path}/realEstate/notice?page=1&cateType=1" style="color: black;"><i class="bi bi-dot"></i>주택용지</a>&nbsp;&nbsp;
+                        <a href="${path}/realEstate/notice?page=1&cateType=2" style="color: black;"><i class="bi bi-dot"></i>상가용지</a>&nbsp;&nbsp;&nbsp;
+                        <a href="${path}/realEstate/notice?page=1&cateType=3" style="color: black;"><i class="bi bi-dot"></i>산업시설용지</a>&nbsp;&nbsp;&nbsp;
+                        <a href="${path}/realEstate/notice?page=1&cateType=4" style="color: black;"><i class="bi bi-dot"></i>기타용지</a>
                     </div>
                     <div class="tab-pane" id="tab-3">
-                    	<a href="${path}/realEstate/notice?page=1&cateType=19"><i class="bi bi-dot"></i>분양주택</a>
+                    	<a href="${path}/realEstate/notice?page=1&cateType=19" style="color: black;"><i class="bi bi-dot"></i>분양주택</a>
                     </div>
                     <div class="tab-pane" id="tab-4">
-                    	<a href="${path}/realEstate/notice?page=1&cateType=20"><i class="bi bi-dot"></i>신혼희망타운</a>
+                    	<a href="${path}/realEstate/notice?page=1&cateType=20" style="color: black;"><i class="bi bi-dot"></i>신혼희망타운</a>
                     </div>
                     <div class="tab-pane" id="tab-5">
-                        <a href="${path}/realEstate/notice?page=1&cateType=5"><i class="bi bi-dot"></i>통합공공임대</a>&nbsp;&nbsp;
-                        <a href="${path}/realEstate/notice?page=1&cateType=6"><i class="bi bi-dot"></i>국민임대</a>&nbsp;&nbsp;
-                        <a href="${path}/realEstate/notice?page=1&cateType=7"><i class="bi bi-dot"></i>공공임대</a>&nbsp;&nbsp;
-                        <a href="${path}/realEstate/notice?page=1&cateType=8"><i class="bi bi-dot"></i>영구임대</a>&nbsp;&nbsp;
-                        <a href="${path}/realEstate/notice?page=1&cateType=9"><i class="bi bi-dot"></i>행복주택</a>&nbsp;&nbsp;
-                        <a href="${path}/realEstate/notice?page=1&cateType=10"><i class="bi bi-dot"></i>장기전세</a>&nbsp;&nbsp;
-                        <a href="${path}/realEstate/notice?page=1&cateType=11"><i class="bi bi-dot"></i>신축다세대</a>
+                        <a href="${path}/realEstate/notice?page=1&cateType=5" style="color: black;"><i class="bi bi-dot"></i>통합공공임대</a>&nbsp;&nbsp;
+                        <a href="${path}/realEstate/notice?page=1&cateType=6" style="color: black;"><i class="bi bi-dot"></i>국민임대</a>&nbsp;&nbsp;
+                        <a href="${path}/realEstate/notice?page=1&cateType=7" style="color: black;"><i class="bi bi-dot"></i>공공임대</a>&nbsp;&nbsp;
+                        <a href="${path}/realEstate/notice?page=1&cateType=8" style="color: black;"><i class="bi bi-dot"></i>영구임대</a>&nbsp;&nbsp;
+                        <a href="${path}/realEstate/notice?page=1&cateType=9" style="color: black;"><i class="bi bi-dot"></i>행복주택</a>&nbsp;&nbsp;
+                        <a href="${path}/realEstate/notice?page=1&cateType=10" style="color: black;"><i class="bi bi-dot"></i>장기전세</a>&nbsp;&nbsp;
+                        <a href="${path}/realEstate/notice?page=1&cateType=11" style="color: black;"><i class="bi bi-dot"></i>신축다세대</a>
                     </div>
                     <div class="tab-pane" id="tab-6">
-                        <a href="${path}/realEstate/notice?page=1&cateType=12"><i class="bi bi-dot"></i>매입임대</a>&nbsp;&nbsp;
-                        <a href="${path}/realEstate/notice?page=1&cateType=13"><i class="bi bi-dot"></i>전세임대</a>&nbsp;&nbsp;
-                        <a href="${path}/realEstate/notice?page=1&cateType=14"><i class="bi bi-dot"></i>집주인임대</a>
+                        <a href="${path}/realEstate/notice?page=1&cateType=12" style="color: black;"><i class="bi bi-dot"></i>매입임대</a>&nbsp;&nbsp;
+                        <a href="${path}/realEstate/notice?page=1&cateType=13" style="color: black;"><i class="bi bi-dot"></i>전세임대</a>&nbsp;&nbsp;
+                        <a href="${path}/realEstate/notice?page=1&cateType=14" style="color: black;"><i class="bi bi-dot"></i>집주인임대</a>
                     </div>
                     <div class="tab-pane" id="tab-7">
-                        <a href="${path}/realEstate/notice?page=1&cateType=15"><i class="bi bi-dot"></i>분양·(구)임대상가(입찰)</a>&nbsp;&nbsp;
-                        <a href="${path}/realEstate/notice?page=1&cateType=16"><i class="bi bi-dot"></i>임대상가(입찰)</a>&nbsp;&nbsp;
-                        <a href="${path}/realEstate/notice?page=1&cateType=17"><i class="bi bi-dot"></i>임대상가(공모·심사)</a>&nbsp;&nbsp;
-                        <a href="${path}/realEstate/notice?page=1&cateType=18"><i class="bi bi-dot"></i>임대상가(추첨)</a>
+                        <a href="${path}/realEstate/notice?page=1&cateType=15" style="color: black;"><i class="bi bi-dot"></i>분양·(구)임대상가(입찰)</a>&nbsp;&nbsp;
+                        <a href="${path}/realEstate/notice?page=1&cateType=16" style="color: black;"><i class="bi bi-dot"></i>임대상가(입찰)</a>&nbsp;&nbsp;
+                        <a href="${path}/realEstate/notice?page=1&cateType=17" style="color: black;"><i class="bi bi-dot"></i>임대상가(공모·심사)</a>&nbsp;&nbsp;
+                        <a href="${path}/realEstate/notice?page=1&cateType=18" style="color: black;"><i class="bi bi-dot"></i>임대상가(추첨)</a>
                     </div>
                     <div class="tab-pane" id="tab-8">
-                    	<a href="${path}/realEstate/notice?page=1&cateType=21"><i class="bi bi-dot"></i>기타</a>
+                    	<a href="${path}/realEstate/notice?page=1&cateType=21" style="color: black;"><i class="bi bi-dot"></i>기타</a>
                     </div>
                 </div>
                 <!-- Tab END -->
@@ -178,11 +173,11 @@
                                 <!-- Table head -->
                                 <thead class="table-dark">
                                     <tr>
-                                        <th scope="col" style="width: 5%; text-align: center;" class="border-0 rounded-start">번호</th>
-                                        <th scope="col" style="width: 15%; text-align: center;">유형</th>
+                                        <th scope="col" style="width: 7%; text-align: center;" class="border-0 rounded-start">번호</th>
+                                        <th scope="col" style="width: 16%; text-align: center;">유형</th>
                                         <th scope="col" style="width: 50%; text-align: center; class="border-0">제목</th>
                                         <th scope="col" style="width: 15%; text-align: center;" class="border-0">담당부서</th>
-                                        <th scope="col" style="width: 15%; text-align: center;" class="border-0 rounded-end">공지일</th>
+                                        <th scope="col" style="width: 12%; text-align: center;" class="border-0 rounded-end">공지일</th>
                                     </tr>
                                 </thead>
                                 <!-- Table body START -->
@@ -194,7 +189,6 @@
                                     		<tr>
 		                                        <!-- 번호 -->
 		                                        <td style="text-align: center;">
-		                                            <%-- <c:out value="${pageInfo.listCount - notice.rnum +1}"/> --%>
 		                                            <c:out value="${totalCount - notice.rnum +1}"/>
 		                                        </td>
 		                                        <!-- 유형 -->
