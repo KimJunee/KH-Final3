@@ -87,7 +87,7 @@
 									<table class="table text-sm mb-0">
 										<tr>
 											<th class="ps-0 mice">본 문 보 기</th>
-											<td class="pe-0 "><a href="${notice.link_url}">페이지 바로가기</a></td>
+											<td class="pe-0 "><a href="${notice.link_url}" style="color: black;">페이지 바로가기</a></td>
 										</tr>
 										<tr>
 											<th class="ps-0 mice" style="width: 100px">담 당 부 서</th>
@@ -100,10 +100,11 @@
 											<td class="pe-0" style="border-bottom: none">
 												<c:if test="${!empty attach}">
 													<c:forEach var="attach" items="${attach}">
-															<a href="${attach.ahfl_url}"><c:out value="${attach.cmn_ahfl_nm}"/></a><br>
+															<a href="${attach.ahfl_url}" style="color: black;"><c:out value="${attach.cmn_ahfl_nm}"/></a><br>
 															
 													</c:forEach>
 												</c:if>
+												
 											</td>
 										</tr>
 									</table>
@@ -161,7 +162,7 @@
 												<!-- Image -->
 												<div class="position-relative">
 													<img class="card-img-top"
-														src="${path}/resources/resources1b/images/02_realEstate/pic01.png"
+														src="${path}/resources/resources1b/images/03_realEstate/pic01.png"
 														style="width: 300px; height: 200px;" alt="">
 													<div class="card-img-overlay d-flex"></div>
 												</div>
@@ -189,7 +190,7 @@
 												<!-- Image -->
 												<div class="position-relative">
 													<img class="card-img-top"
-														src="${path}/resources/resources1b/images/02_realEstate/apt_01.jpg"
+														src="${path}/resources/resources1b/images/03_realEstate/apt_01.jpg"
 														style="width: 300px; height: 200px;" alt="">
 													<div class="card-img-overlay d-flex"></div>
 												</div>
@@ -217,7 +218,7 @@
 												<!-- Image -->
 												<div class="position-relative">
 													<img class="card-img-top"
-														src="${path}/resources/resources1b/images/02_realEstate/apt_02.png"
+														src="${path}/resources/resources1b/images/03_realEstate/apt_02.png"
 														style="width: 300px; height: 200px;" alt="">
 													<div class="card-img-overlay d-flex"></div>
 												</div>
