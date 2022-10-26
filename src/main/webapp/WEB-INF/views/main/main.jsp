@@ -120,7 +120,7 @@
                                 </c:if>
                                 <c:if test="${!empty list1}">
                                 <c:forEach var="indexPrice" items="${list1}"  begin="0" end="0" step="1" varStatus="status">									
-                                <h3 class="my-2 py-1" style="font-weight: bold; font-size: 30px;"><c:out value="${indexPrice.clpr}" /></h3>
+                                <h3 class="my-2 py-1" style="font-weight: bold; font-size: 30px;"><c:out value="${fn:substring(indexPrice.clpr,0,1)}" />,<c:out value="${fn:substring(indexPrice.clpr,1,7)}" /></h3>
                                 <p class="mb-0 text-muted">
                                 	<c:if  test="${indexPrice.fltRt < 0}">
 	                                    <span class="text-danger me-2"><i class="mdi mdi-arrow-up-bold" style="color:red"></i><c:out value="${indexPrice.vs}" />(<c:out value="${indexPrice.fltRt}"/>%)</span>                                	
