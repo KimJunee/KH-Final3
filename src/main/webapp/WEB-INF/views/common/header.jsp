@@ -59,11 +59,11 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav navbar-nav-scroll mx-auto ">
                         <!-- <li class="nav-item "> -->
-                        <a class="nav-link-sp active" href="${path}/main.do" id="homeMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false ">Home</a>
+                        <a class="nav-link-sp active " href="${path}/main.do" id="homeMenu " data-bs-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">Home</a>
 
                         <!-- 금융 메뉴 시작-->
                         <li class="nav-item dropdown">
-                            <a class="nav-link-sp" href="${path}/stockprice/fin_main.do" id="postMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">금융</a>
+                            <a class="nav-link-sp  " href="${path}/stockprice/fin_main.do" id="postMenu " data-bs-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">금융</a>
                             <ul class="dropdown-menu bg-dark text-white" aria-labelledby="postMenu">
                                 <!-- dropdown submenu -->
                                 <li class="dropdown-submenu dropend text-white">

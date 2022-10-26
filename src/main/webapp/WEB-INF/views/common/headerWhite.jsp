@@ -51,7 +51,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
     
-    <!-- Plugins CSS -->
+    <!-- Plugins CSS 뭔경로?-->
     <link rel="stylesheet" type="text/css" href="${path}/resources/resources1b/vendor/font-awesome/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="${path}/resources/resources1b/vendor/bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" type="text/css" href="${path}/resources/resources1b/vendor/tiny-slider/tiny-slider.css">
