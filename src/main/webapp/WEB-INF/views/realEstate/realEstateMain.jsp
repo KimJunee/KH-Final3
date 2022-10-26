@@ -408,7 +408,7 @@
 							<div class="col-12 ">
 								<div class="d-flex align-items-center position-relative ">
 									<div class="ms-3 ">
-										<a class="h6 stretched-link" style="color:#545454">대곡역 두산위브 입주자 모집</a>
+										<a href="#" class="h6 stretched-link" style="color:#545454">대곡역 두산위브 입주자 모집</a>
 										<p class="small mb-0 ">청약 접수 : 2022-10-17 &nbsp;
 											&nbsp; 청약 마감 : 2022-10-17</p>
 									</div>
@@ -420,7 +420,7 @@
 							<div class="col-12 ">
 								<div class="d-flex align-items-center position-relative ">
 									<div class="ms-3 ">
-										<a  class="h6 stretched-link " style="color:#545454">다산 와이시티 어반플랫 입주자 모집</a>
+										<a href="#" class="h6 stretched-link " style="color:#545454">다산 와이시티 어반플랫 입주자 모집</a>
 										<p class="small mb-0 ">청약 접수 : 2022-10-11  &nbsp;
 											&nbsp; 청약 마감 : 2022-10-12 </p>
 									</div>
@@ -432,7 +432,7 @@
 							<div class="col-12 ">
 								<div class="d-flex align-items-center position-relative ">
 									<div class="ms-3 ">
-										<a  class="h6 stretched-link " style="color:#545454">고촌역 루체비스타 입주자 모집</a>
+										<a href="#" class="h6 stretched-link " style="color:#545454">고촌역 루체비스타 입주자 모집</a>
 										<p class="small mb-0 ">청약 접수 : 2022-10-11  &nbsp;
 											&nbsp; 청약 마감 : 2022-10-11 </p>
 									</div>
@@ -444,7 +444,7 @@
 							<div class="col-12 ">
 								<div class="d-flex align-items-center position-relative ">
 									<div class="ms-3 ">
-										<a  class="h6 stretched-link " style="color:#545454">대곡역 두산위브 입주자 모집</a>
+										<a href="#" class="h6 stretched-link " style="color:#545454">대곡역 두산위브 입주자 모집</a>
 										<p class="small mb-0 ">청약 접수 : 2022-09-23  &nbsp;
 											&nbsp; 청약 마감 : 2022-09-23 </p>
 									</div>
@@ -456,7 +456,7 @@
 							<div class="col-12 ">
 								<div class="d-flex align-items-center position-relative ">
 									<div class="ms-3 ">
-										<a  class="h6 stretched-link " style="color:#545454">성남 수진역 파라곤 입주자 모집</a>
+										<a href="#" class="h6 stretched-link " style="color:#545454">성남 수진역 파라곤 입주자 모집</a>
 										<p class="small mb-0 ">청약 접수 : 2022-09-27  &nbsp;
 											&nbsp; 청약 마감 : 2022-09-27 </p>
 									</div>
@@ -468,7 +468,7 @@
 							<div class="col-12 ">
 								<div class="d-flex align-items-center position-relative ">
 									<div class="ms-3 ">
-										<a  class="h6 stretched-link " style="color:#545454">두산위브 더 아티움 재개발임대주택 입주자 모집</a>
+										<a href="#" class="h6 stretched-link " style="color:#545454">두산위브 더 아티움 재개발임대주택 입주자 모집</a>
 										<p class="small mb-0 ">청약 접수 : 2022-08-31 &nbsp;
 											&nbsp; 청약 마감 : 2022-09-01 </p>
 									</div>
@@ -479,7 +479,7 @@
 							<div class="col-12 ">
 								<div class="d-flex align-items-center position-relative ">
 									<div class="ms-3 ">
-										<a  class="h6 stretched-link " style="color:#545454">고촌역 루체비스타 입주자 모집</a>
+										<a href="#" class="h6 stretched-link " style="color:#545454">고촌역 루체비스타 입주자 모집</a>
 										<p class="small mb-0 ">청약 접수 : 2022-08-31  &nbsp;
 											&nbsp; 청약 마감 : 2022-09-02 </p>
 									</div>

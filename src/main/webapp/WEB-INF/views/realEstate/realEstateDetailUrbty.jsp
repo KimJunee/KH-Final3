@@ -99,7 +99,7 @@
                                 <td class="p-3 h5 text-center pb-4" style="border-bottom: none"><i class="bi bi-telephone-fill me-2"></i>${urbty.mdhs_telno}</td>
                             </tr>
                         </table>
-                        <a class="btn btn-lg btn-warning w-100 mb-3" href="#">♥ 청약캘린더로 돌아가기</a>
+                        <a class="btn btn-lg btn-warning w-100 mb-3" href="${path}/realEstate/calendar">♥ 청약캘린더로 돌아가기</a>
                         <article class="text-end">
                         </article>
                     </div>
