@@ -578,7 +578,7 @@
 	                                        	</div>
 		                                    </div>
 		                                    <div style="margin-top:30px;">
-	                                        	<h5 class="nav-item  mice">${opinion.columnist}</h5>
+	                                        	<h5 class="nav-item  mice" style="withd:220px;">${opinion.columnist}</h5>
 	                                        	<p class="nav-item "><fmt:formatDate type="both" value="${opinion.pubDate}"/></p>
 	                                  		</div>
 	                                	</div>
