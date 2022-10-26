@@ -44,6 +44,13 @@
         /*스크롤바 트랙 색상*/
     }
     /* 스크롤바 css 끝 */
+    /* 글쓰기 버튼 정렬 */
+    .wirtebutton {
+    	display: inline-flex;
+    	justify-content: space-between;
+    }
+    /* 글쓰기 버튼 정렬 끝 */
+    
 </style>
 
 <head>
@@ -69,22 +76,27 @@
 		                <h1 class="mice">검색하신 "<span class="mice" style="color:#2163E8;"><c:out value="${param.searchValue}" /></span>"에 대한 결과입니다.</h1>
            			</c:if>
                 	<c:if test="${board_list_no == 1}">
-                		<a href="${path}/board/list?type=1" class="badge text-bg-primary" style="width: 100px; margin-left: 15px;"><i class="fas fa-circle me-2 small fw-bold"></i>Politics</a>
-						<h1 class="mice">정치 <span style="color:#2163E8;">커뮤니티</span></h1>
+                		<div class="wirtebutton" style="margin-top:10px;">
+	                		<div>
+		                		<a href="${path}/board/list?type=1" class="badge text-bg-primary" style="width: 100px; margin-bottom: 5px;"><i class="fas fa-circle me-2 small fw-bold"></i>Politics</a>
+								<h1 class="mice">정치 <span style="color:#2163E8;">커뮤니티</span></h1>
+							</div>
+							<button type="submit" class="btn btn-outline-primary" style="margin-top:30px; hight:30px; font-size:20px; padding:5px 5px"><b>글쓰기</b></button>
+						</div>
                 	</c:if>
                 	<c:if test="${board_list_no == 2}">
-                		<a href="${path}/board/list?type=2" class="badge text-bg-warning" style="width: 100px; margin-left: 15px;"><i class="fas fa-circle me-2 small fw-bold"></i>Real Estate</a>
+                		<a href="${path}/board/list?type=2" class="badge text-bg-warning" style="width: 100px;"><i class="fas fa-circle me-2 small fw-bold"></i>Real Estate</a>
 						<h1 class="mice">부동산 <span style="color:#F7C32E;">커뮤니티</span></h1>
                 	</c:if>
                 	<c:if test="${board_list_no == 3}">
-                		<a href="${path}/board/list?type=3" class="badge text-bg-danger" style="width: 100px; margin-left: 15px;"><i class="fas fa-circle me-2 small fw-bold"></i>Finance</a>
+                		<a href="${path}/board/list?type=3" class="badge text-bg-danger" style="width: 100px;"><i class="fas fa-circle me-2 small fw-bold"></i>Finance</a>
 						<h1 class="mice">금융 <span style="color:#D6293E;">커뮤니티</span></h1>
                 	</c:if>
                 	<c:if test="${board_list_no == 4}">
-                		<a href="${path}/board/list?type=4" class="badge text-bg-success" style="width: 100px; margin-left: 15px;"><i class="fas fa-circle me-2 small fw-bold"></i>Free</a>
+                		<a href="${path}/board/list?type=4" class="badge text-bg-success" style="width: 100px;"><i class="fas fa-circle me-2 small fw-bold"></i>Free</a>
 						<h1 class="mice">자유 <span style="color:#0CBC87;">광장</span></h1>
                 	</c:if>
-                    <div class="col-12">
+                    <div class="col-12" style="margin-top: 35px;">
                         <!-- Counter START -->
                         <div class="row g-4">
                             <div class="col-12">
