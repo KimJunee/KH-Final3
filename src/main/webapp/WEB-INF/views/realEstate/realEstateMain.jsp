@@ -754,7 +754,7 @@ path:hover {
 
 
 <!-- ======================= script 끝 =======================-->
-${json1}
+<%-- ${json1} --%>
 <%@ include file="/WEB-INF/views/common/footer.jsp"%>
 
 </body>
