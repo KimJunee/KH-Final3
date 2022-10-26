@@ -54,7 +54,7 @@ public class AptLttotPblancDetailApi {
                     return null;
                 }
 
-                InputStreamReader isr = new InputStreamReader(conn.getInputStream());
+                InputStreamReader isr = new InputStreamReader(conn.getInputStream(), "UTF-8");
                 BufferedReader br = new BufferedReader(isr);
                 JSONParser parser = new JSONParser();
                 Object obj = parser.parse(br);
@@ -207,7 +207,7 @@ public class AptLttotPblancDetailApi {
                 return null;
             }
 
-            InputStreamReader isr = new InputStreamReader(conn.getInputStream());
+            InputStreamReader isr = new InputStreamReader(conn.getInputStream(), "UTF-8");
             BufferedReader br = new BufferedReader(isr);
             
             JSONParser parser = new JSONParser();

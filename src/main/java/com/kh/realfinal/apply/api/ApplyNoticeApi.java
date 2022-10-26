@@ -59,7 +59,7 @@ public class ApplyNoticeApi {
                     return null;
                 }
                 
-                InputStreamReader isr = new InputStreamReader(conn.getInputStream());
+                InputStreamReader isr = new InputStreamReader(conn.getInputStream(), "UTF-8");
 				BufferedReader br = new BufferedReader(isr);
 				JSONParser parser = new JSONParser();
                 Object obj = parser.parse(br);
@@ -99,7 +99,7 @@ public class ApplyNoticeApi {
                             return null;
                         }
                 		
-                        InputStreamReader isr2 = new InputStreamReader(conn2.getInputStream());
+                        InputStreamReader isr2 = new InputStreamReader(conn2.getInputStream(), "UTF-8");
         				BufferedReader br2 = new BufferedReader(isr2);
         				JSONParser parser2 = new JSONParser();
                         Object obj2 = parser2.parse(br2);
@@ -159,7 +159,7 @@ public class ApplyNoticeApi {
             }
             
     		
-            InputStreamReader isr = new InputStreamReader(conn.getInputStream());
+            InputStreamReader isr = new InputStreamReader(conn.getInputStream(), "UTF-8");
 			BufferedReader br = new BufferedReader(isr);
 			
 			//-------------------
