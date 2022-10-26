@@ -46,18 +46,18 @@
             </div>
         </section>
 
-        <section class="py-4 mt-0">
+<section class="py-4 mt-0">
             <div class="container">
                 <div class="row g-4 mb-2">
                     <div class="col-12" style="margin-left: 10px;">
-                        <h2 class="mb-0 mice">BEST 예금상품&nbsp;<a class="badge text-bg-danger mb-3" style="font-size: 50%;">BEST</a></h2>
+                        <h2 class="mb-0 mice">BEST 금리상품&nbsp;<a class="badge text-bg-danger mb-3" style="font-size: 50%;">BEST</a></h2>
                     </div>
                 </div>
                 <div class="row g-4">
                     <div class="col-md-6 col-xl-3">
-                        <!-- BEST 예금상품 START -->
+                        <!-- BEST 고금리상품 START -->
                         <div class="card border h-100">
-                            <!-- 예금상품명 -->
+                            <!-- 고금리상품명 -->
                             <div class="card-header border-bottom p-3">
                                 <div class="d-flex align-items-center">
                                     <ul class="avatar-group mb-0">
@@ -65,26 +65,26 @@
                                             <img class="avatar-img rounded-circle" src="${path}/resources/resources1b/images/02_fin_financePro/BankDetail.jpg" alt="avatar">
                                         </li>
                                     </ul>
-                                    <h4 class="mb-0 ms-3 mice">e-금리우대 예금</h4>
+                                    <h4 class="mb-0 ms-3 mice">SUPER주거래적금</h4>
                                 </div>
                             </div>
 
                             <!-- 예금상품 정보 -->
                             <div class="card-body">
                                 <ul style="padding-left: 10px;">
-                                    <li>가입대상 : 개인</li>
-                                    <li>저축기간 : 12개월</li>
-                                    <li>금리유형 : 단리</li>
+                                    <li>가입대상 : 실명의 개인</li>
+                                    <li>저축기간 : 36개월</li>
+                                    <li>금리유형 : 정액적립식, 단리</li>
                                 </ul>
                                 <div class="d-flex justify-content-between">
                                     <!-- 최고금리 -->
                                     <div>
-                                        <h4 class="mb-0">3.1%</h4>
+                                        <h4 class="mb-0">4.25%</h4>
                                     </div>
                                     <!-- 금융사 이미지 -->
                                     <ul class="avatar-group mb-0">
                                         <li class="avatar avatar-xl">
-                                            <img class="avatar-img rounded-circle" src="${path}/resources/resources1b/images/02_fin_financePro/nhBank.png" alt="avatar">
+                                            <img class="avatar-img rounded-circle" src="${path}/resources/resources1b/images/02_fin_financePro/wooriBank.png" alt="avatar">
                                         </li>
                                     </ul>
                                 </div>
@@ -93,7 +93,7 @@
 
                             <!-- Card footer -->
                             <div class="card-footer border-top text-center p-3">
-                                <a href="${path}/finance/depositDetail?id=35" class" class="btn btn-primary-soft w-100 mb-0 fw-bold mice">상세보기</a>
+                                <a href="${path}/finance/productDetail?id=0" class="btn btn-primary-soft w-100 mb-0 fw-bold mice">상세보기</a>
                             </div>
                         </div>
                     </div>
@@ -123,7 +123,7 @@
                                 <div class="d-flex justify-content-between">
                                     <!-- Total post -->
                                     <div>
-                                        <h4 class="mb-0">3.91%</h4>
+                                        <h4 class="mb-0">4.39%</h4>
                                     </div>
                                     <!-- Avatar group -->
                                     <ul class="avatar-group mb-0">
@@ -154,7 +154,7 @@
                                             <img class="avatar-img rounded-circle" src="${path}/resources/resources1b/images/02_fin_financePro/BankDetail.jpg" alt="avatar">
                                         </li>
                                     </ul>
-                                    <h4 class="mb-0 ms-3 mice">1석7조통장</h4>
+                                    <h4 class="mb-0 ms-3 mice">IBK탄소제로적금</h4>
                                 </div>
                             </div>
 
@@ -162,12 +162,12 @@
                             <div class="card-body">
                                 <ul style="padding-left: 10px;">
                                     <li>가입대상 : 실명의 개인</li>
-                                    <li>저축기간 : 24개월</li>
-                                    <li>금리유형 : 단리</li>
+                                    <li>저축기간 : 12개월</li>
+                                    <li>금리유형 : 자유적립식, 단리</li>
                                 </ul>
                                 <div class="d-flex justify-content-between">
                                     <div>
-                                        <h4 class="mb-0">4.64%</h4>
+                                        <h4 class="mb-0">6.5%</h4>
                                     </div>
 
                                     <ul class="avatar-group mb-0">
@@ -181,7 +181,7 @@
 
                             <!-- Card footer -->
                             <div class="card-footer border-top text-center p-3">
-                                <a href="${path}/finance/depositDetail?id=27" class="btn btn-primary-soft w-100 mb-0 fw-bold mice">상세보기</a>
+                                <a href="${path}/finance/productDetail?id=32" class="btn btn-primary-soft w-100 mb-0 fw-bold mice">상세보기</a>
                             </div>
                         </div>
                         <!-- Category item END -->
@@ -206,12 +206,12 @@
                             <div class="card-body">
                                 <ul style="padding-left: 10px;">
                                     <li>가입대상 : 만14세이상 개인고객</li>
-                                    <li>저축기간 : 24개월</li>
+                                    <li>저축기간 : 36개월</li>
                                     <li>금리유형 : 단리</li>
                                 </ul>
                                 <div class="d-flex justify-content-between">
                                     <div>
-                                        <h4 class="mb-0">4.2%</h4>
+                                        <h4 class="mb-0">4.65%</h4>
                                     </div>
 
                                     <ul class="avatar-group mb-0">
@@ -230,11 +230,9 @@
                         </div>
                         <!-- Category item END -->
                     </div>
-
                 </div>
-
         </section>
-
+        
         <section class="py-4 mt-0 mb-5">
             <div class="container">
                 <div class="row g-4 mb-2">

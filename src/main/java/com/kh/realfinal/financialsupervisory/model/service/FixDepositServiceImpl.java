@@ -43,10 +43,12 @@ public class FixDepositServiceImpl implements FixDepositService{
 	public int getDepositCount(Map<String, String> param) throws Exception {
 		Map<String, String> searchMap = new HashMap<String, String>();
 		String searchValue = param.get("searchValue");
+		String sort = param.get("sort");
 		try {		
 			if(searchValue != null && searchValue.length() > 0) {
 				searchMap.put("korCoNm", searchValue);
 			}
+			searchMap.put("sort", sort);
 		} catch (Exception e) {}
 		
 		return mapper.selectDepositCount(searchMap);
@@ -63,8 +65,8 @@ public class FixDepositServiceImpl implements FixDepositService{
 		
 		if(searchValue != null && searchValue.length() > 0) {
 			searchMap.put("korCoNm", searchValue);
-			searchMap.put("sort", sort);
 		}
+		searchMap.put("sort", sort);
 		return mapper.selectDepositList(rowBounds, searchMap);
 	}
 

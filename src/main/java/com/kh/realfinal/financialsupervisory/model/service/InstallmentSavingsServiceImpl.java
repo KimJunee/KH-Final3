@@ -41,20 +41,16 @@ public class InstallmentSavingsServiceImpl implements InstallmentSavingsService{
 	}
 
 	@Override
-	public int savesaveInstallmentSavingsOption(InstallmentSavingsOption installOption) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
 	public int getInstallCount(Map<String, String> param) throws Exception{
 		Map<String, String> searchMap = new HashMap<String, String>();
 		String searchValue = param.get("searchValue");
+		String sort = param.get("sort");
 		log.debug(searchValue);
 		try {		
 			if(searchValue != null && searchValue.length() > 0) {
 				searchMap.put("korCoNm", searchValue);
 			}
+			searchMap.put("sort", sort);
 		} catch (Exception e) {}
 		return mapper.selectInstallCount(searchMap);
 	}
@@ -67,18 +63,14 @@ public class InstallmentSavingsServiceImpl implements InstallmentSavingsService{
 		Map<String, String> searchMap = new HashMap<String, String>();
 		String searchValue = param.get("searchValue");
 		String sort = param.get("sort");
+		System.out.println("ServiceImpl : " + searchValue);
+		System.out.println("ServiceImpl : " + sort);
 		
 		if(searchValue != null && searchValue.length() > 0) {
 			searchMap.put("korCoNm", searchValue);
-			searchMap.put("sort", sort);
 		}
+		searchMap.put("sort", sort);
 		return mapper.selectInstallList(rowBounds, searchMap);
-	}
-
-	@Override
-	public List<InstallmentSavings> getInstallList() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
