@@ -105,6 +105,67 @@
 		ORDER BY NR.N_REPLY_REGISTER ASC
 	</select>
 	
+	<!-- 메인 큰 뉴스 5개 -->
+	<select id="selectNewsForMainBig" resultMap="newsResultMap" parameterType="map">
+		SELECT ROWNUM, A.*
+		FROM (
+			SELECT
+				NEWS_NO, TITLE, PUBDATE, DESCRIPTION, IMAGE, CATEGORY
+			FROM NEWS
+			WHERE ROWNUM <![CDATA[<=]]> 5
+			ORDER BY NEWS_NO DESC
+		) A
+	</select>
+	
+	<!-- 메인 카테고리별 뉴스 1개 -->
+	<select id="selectNewsForMainCategory" resultMap="newsResultMap" parameterType="map">
+		SELECT *
+		FROM (
+		    SELECT 
+		    	NEWS_NO, TITLE, PUBDATE, IMAGE, CATEGORY
+		    FROM NEWS        
+		    WHERE CATEGORY = 'politics' 
+		    AND IMAGE IS NOT NULL
+		    ORDER BY PUBDATE DESC
+		) WHERE ROWNUM <![CDATA[<=]]> 1
+		
+		UNION ALL
+		
+		SELECT *
+		FROM (
+		    SELECT 
+		    	NEWS_NO, TITLE, PUBDATE, IMAGE, CATEGORY
+		    FROM NEWS        
+		    WHERE CATEGORY = 'economy'  
+		    AND IMAGE IS NOT NULL
+		    ORDER BY PUBDATE DESC
+		) WHERE ROWNUM <![CDATA[<=]]> 1
+		
+		UNION ALL
+		
+		SELECT *
+		FROM (
+		    SELECT 
+		    	NEWS_NO, TITLE, PUBDATE, IMAGE, CATEGORY
+		    FROM NEWS        
+		    WHERE CATEGORY = 'opinion'   
+		    AND IMAGE IS NOT NULL
+		    ORDER BY PUBDATE DESC
+		) WHERE ROWNUM <![CDATA[<=]]> 1
+		
+		UNION ALL
+		
+		SELECT *
+		FROM (
+		    SELECT 
+		    	NEWS_NO, TITLE, PUBDATE, IMAGE, CATEGORY
+		    FROM NEWS        
+		    WHERE CATEGORY = 'national'   
+		    AND IMAGE IS NOT NULL
+		    ORDER BY PUBDATE DESC
+		) WHERE ROWNUM <![CDATA[<=]]> 1;
+	</select>
+	
 	<!-- 댓글 등록 -->
 	<insert id="insertNewsReply" parameterType="NewsReply">
 		INSERT INTO NEWS_REPLY 

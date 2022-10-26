@@ -20,4 +20,7 @@ public interface NewsService {
 	int saveReply(NewsReply reply);
 	int editReply(NewsReply reply);
 	int deleteReply(int no);
+	
+	List<News> getSelectNewsForMainBig();
+	List<News> getSelectNewsForMainCategory();
 }

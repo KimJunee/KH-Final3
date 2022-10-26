@@ -75,7 +75,6 @@ public class NewsController {
 		pageInfo = new PageInfo(1, 10, service.getNewsCount(map), 10);
 		List<News> nationalList = service.getNewsList(pageInfo, map);
 		
-		
 		map = new HashMap<>();
 		map.put("category", NewsService.politicsStr);
 		pageInfo = new PageInfo(1, 10, service.getNewsCount(map), 10);

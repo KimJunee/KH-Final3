@@ -3,12 +3,10 @@ package com.kh.realfinal.news.service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.kh.realfinal.common.util.PageInfo;
 import com.kh.realfinal.news.model.mapper.NewsMapper;
 import com.kh.realfinal.news.model.vo.News;
@@ -74,7 +72,6 @@ public class NewsServiceImpl implements NewsService {
 		news.setHit(news.getHit() + 1);
 		mapper.updateNewsHit(news);
 		return news;
-		
 	}
 	
 	// 댓글 작성
@@ -93,5 +90,17 @@ public class NewsServiceImpl implements NewsService {
 	@Override
 	public int deleteReply(int no) {
 		return mapper.deleteNewsReply(no);
+	}
+
+	// 메인 큰 뉴스 5개
+	@Override
+	public List<News> getSelectNewsForMainBig() {
+		return mapper.selectNewsForMainBig();
+	}
+
+	// 메인 카테고리별 뉴스 1개
+	@Override
+	public List<News> getSelectNewsForMainCategory() {
+		return mapper.selectNewsForMainCategory();
 	}
 }
