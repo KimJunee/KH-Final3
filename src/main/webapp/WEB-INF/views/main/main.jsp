@@ -551,230 +551,47 @@
             <!-- ======================= 한 눈에 보는 90초 금융 끝 -->
 
             <!-- ======================= 오피니언 시작 -->
-            <section style="margin: top 200px; ">
-                <div class="container " style="margin: top 200px; ">
-                    <div class="row ">
-                        <h2 class="mice "><i class="fa fa-solid fa-pen-nib " style="margin-right:10px; "></i>오피니언</h2>
-                        <div class="col-12 ">
-                            <div class="tiny-slider arrow-blur arrow-round rounded-3 overflow-hidden ">
-                                <div class="tiny-slider-inner " data-autoplay="true " data-hoverpause="true " data-gutter="24 " data-arrow="true " data-dots="false " data-items-xl="4 " data-items-lg="3 " data-items-md="3 " data-items-sm="2
-                                                " data-items-xs="1 ">
-                                      <!-- 오피니언 4 -->
-                                     <div style="margin-right: -50px;">
-                                        <div class="card card-overlay-bottom card-img-scale " style="width: 220px; height: 280px; ">
-                                            <!-- Card Image -->
-                                            <img class="card-img " src="${path}/resources/resources1b/images/01_main/main_opi_04.jpg " alt=" " style="width: 220px; height: 280px; ">
-                                            <!-- Card Image overlay -->
-                                            <div class="card-img-overlay d-flex flex-column p-3 p-sm-4 ">
-                                               <div class="w-100 mt-auto" style="margin-bottom:-20px;">
-                                                   <h5 class="text-white mice"><a href="post-single-2.html " class="btn-link text-reset stretched-link ">7번 [시각과 전망] '음식디미방’과 ‘맛의 방주’</a></h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div style="margin-top:30px; ">
-                                            <h5 class="nav-item  mice">배성훈 경북본사장</h5>
-                                            <p class="nav-item ">2022.10.04</p>
-                                        </div>
-                                    </div>
-                                    <!-- 오피니언 2 -->
-                                     <div style="margin-right: -50px;">
-                                        <div class="card card-overlay-bottom card-img-scale " style="width: 220px; height: 280px; ">
-                                            <!-- Card Image -->
-                                            <img class="card-img " src="${path}/resources/resources1b/images/01_main/main_opi_02.jpg " alt=" " style="width: 220px; height: 280px; ">
-                                            <!-- Card Image overlay -->
-                                            <div class="card-img-overlay d-flex flex-column p-3 p-sm-4 ">
-                                                <div class="w-100 mt-auto" style="margin-bottom:-20px;">
-                                                    <h5 class="text-white mice ">
-                                                        <a href="post-single-2.html " class="btn-link text-reset stretched-link ">1번 &lt;시평&gt;‘당당한 군대’ 복원 절실하다</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div style="margin-top:30px; ">
-                                            <h5 class="nav-item mice ">배성훈 경북본사장</h5>
-                                            <p class="nav-item ">2022.10.04</p>
-                                        </div>
-                                    </div>
-                                    <!-- 오피니언 3 -->
-                                     <div style="margin-right: -50px;">
-                                        <div class="card card-overlay-bottom card-img-scale " style="width: 220px; height: 280px; ">
-                                            <!-- Card Image -->
-                                            <img class="card-img " src="${path}/resources/resources1b/images/01_main/main_opi_03.jpg " alt=" " style="width: 220px; height: 280px; ">
-                                            <!-- Card Image overlay -->
-                                            <div class="card-img-overlay d-flex flex-column p-3 p-sm-4 ">
-                                                <div class="w-100 mt-auto" style="margin-bottom:-20px;">
-                                                    <h5 class="text-white mice"><a href="post-single-2.html " class="btn-link text-reset stretched-link ">2번 [기고]탄소장벽 세워지는데…기업들은 속이 탄다</a></h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div style="margin-top:30px; ">
-                                            <h5 class="nav-item ">배성훈 경북본사장</h5>
-                                            <p class="nav-item ">2022.10.04</p>
-                                        </div>
-                                    </div>
-                                    <!-- 오피니언 4 -->
-                                     <div style="margin-right: -50px;">
-                                        <div class="card card-overlay-bottom card-img-scale " style="width: 220px; height: 280px; ">
-                                            <!-- Card Image -->
-                                            <img class="card-img " src="${path}/resources/resources1b/images/01_main/main_opi_04.jpg " alt=" " style="width: 220px; height: 280px; ">
-                                            <!-- Card Image overlay -->
-                                            <div class="card-img-overlay d-flex flex-column p-3 p-sm-4 ">
-                                               <div class="w-100 mt-auto" style="margin-bottom:-20px;">
-                                                    <h5 class="text-white mice"><a href="post-single-2.html " class="btn-link text-reset stretched-link ">3번 [시각과 전망] '음식디미방’과 ‘맛의 방주’</a></h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div style="margin-top:30px; ">
-                                            <h5 class="nav-item  mice">배성훈 경북본사장</h5>
-                                            <p class="nav-item ">2022.10.04</p>
-                                        </div>
-                                    </div>
-                                   <!-- 오피니언 1 -->
-                                     <div style="margin-right: -50px;">
-                                        <div class="card card-overlay-bottom card-img-scale " style="width: 220px; height: 280px; ">
-                                            <!-- Card Image -->
-                                            <img class="card-img " src="${path}/resources/resources1b/images/01_main/main_opi_01.jpg " alt=" " style="width: 220px; height: 280px; ">
-                                            <!-- Card Image overlay -->
-                                            <div class="card-img-overlay d-flex flex-column p-3 p-sm-4 ">
-                                                <div class="w-100 mt-auto" style="margin-bottom:-20px;">
-                                                    <h5 class="text-white mice"><a href="post-single-2.html " class="btn-link text-reset stretched-link ">5번 [시각과 전망] '음식디미방’과 ‘맛의 방주’</a></h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div style="margin-top:30px; ">
-                                            <h5 class="nav-item mice">배성훈 경북본사장</h5>
-                                            <p class="nav-item ">2022.10.04</p>
-                                        </div>
-                                    </div>
-                                    <!-- 오피니언 1 -->
-                                     <div style="margin-right: -50px;">
-                                        <div class="card card-overlay-bottom card-img-scale " style="width: 220px; height: 280px; ">
-                                            <!-- Card Image -->
-                                            <img class="card-img " src="${path}/resources/resources1b/images/01_main/main_opi_01.jpg " alt=" " style="width: 220px; height: 280px; ">
-                                            <!-- Card Image overlay -->
-                                            <div class="card-img-overlay d-flex flex-column p-3 p-sm-4 ">
-                                                <div class="w-100 mt-auto" style="margin-bottom:-20px;">
-                                                    <h5 class="text-white mice"><a href="post-single-2.html " class="btn-link text-reset stretched-link ">5번 [시각과 전망] '음식디미방’과 ‘맛의 방주’</a></h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div style="margin-top:30px; ">
-                                            <h5 class="nav-item mice">배성훈 경북본사장</h5>
-                                            <p class="nav-item ">2022.10.04</p>
-                                        </div>
-                                    </div>
-                                    <!-- 오피니언 2 -->
-                                     <div style="margin-right: -50px;">
-                                        <div class="card card-overlay-bottom card-img-scale " style="width: 220px; height: 280px; ">
-                                            <!-- Card Image -->
-                                            <img class="card-img " src="${path}/resources/resources1b/images/01_main/main_opi_02.jpg " alt=" " style="width: 220px; height: 280px; ">
-                                            <!-- Card Image overlay -->
-                                            <div class="card-img-overlay d-flex flex-column p-3 p-sm-4 ">
-                                               <div class="w-100 mt-auto" style="margin-bottom:-20px;">
-                                                    <h5 class="text-white ">
-                                                        <a href="post-single-2.html " class="btn-link text-reset stretched-link mice">5번 &lt;시평&gt;‘당당한 군대’ 복원 절실하다</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div style="margin-top:30px; ">
-                                            <h5 class="nav-item mice">배성훈 경북본사장</h5>
-                                            <p class="nav-item ">2022.10.04</p>
-                                        </div>
-                                    </div>
-                                    <!-- 오피니언 3 -->
-                                     <div style="margin-right: -50px;">
-                                        <div class="card card-overlay-bottom card-img-scale " style="width: 220px; height: 280px; ">
-                                            <!-- Card Image -->
-                                            <img class="card-img " src="${path}/resources/resources1b/images/01_main/main_opi_03.jpg " alt=" " style="width: 220px; height: 280px; ">
-                                            <!-- Card Image overlay -->
-                                            <div class="card-img-overlay d-flex flex-column p-3 p-sm-4 ">
-                                                <div class="w-100 mt-auto" style="margin-bottom:-20px;">
-                                                    <h5 class="text-white mice"><a href="post-single-2.html " class="btn-link text-reset stretched-link ">6번 [기고]탄소장벽 세워지는데…기업들은 속이 탄다</a></h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div style="margin-top:30px; ">
-                                            <h5 class="nav-item  mice">배성훈 경북본사장</h5>
-                                            <p class="nav-item ">2022.10.04</p>
-                                        </div>
-                                    </div>
-                                    <!-- 오피니언 4 -->
-                                     <div style="margin-right: -50px;">
-                                        <div class="card card-overlay-bottom card-img-scale " style="width: 220px; height: 280px; ">
-                                            <!-- Card Image -->
-                                            <img class="card-img " src="${path}/resources/resources1b/images/01_main/main_opi_04.jpg " alt=" " style="width: 220px; height: 280px; ">
-                                            <!-- Card Image overlay -->
-                                            <div class="card-img-overlay d-flex flex-column p-3 p-sm-4 ">
-                                               <div class="w-100 mt-auto" style="margin-bottom:-20px;">
-                                                   <h5 class="text-white mice"><a href="post-single-2.html " class="btn-link text-reset stretched-link ">7번 [시각과 전망] '음식디미방’과 ‘맛의 방주’</a></h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div style="margin-top:30px; ">
-                                            <h5 class="nav-item  mice">배성훈 경북본사장</h5>
-                                            <p class="nav-item ">2022.10.04</p>
-                                        </div>
-                                    </div>
-                                 <!-- 오피니언 1 -->
-                                     <div style="margin-right: -50px;">
-                                        <div class="card card-overlay-bottom card-img-scale " style="width: 220px; height: 280px; ">
-                                            <!-- Card Image -->
-                                            <img class="card-img " src="${path}/resources/resources1b/images/01_main/main_opi_01.jpg " alt=" " style="width: 220px; height: 280px; ">
-                                            <!-- Card Image overlay -->
-                                            <div class="card-img-overlay d-flex flex-column p-3 p-sm-4 ">
-                                                <div class="w-100 mt-auto" style="margin-bottom:-20px;">
-                                                    <h5 class="text-white mice"><a href="post-single-2.html " class="btn-link text-reset stretched-link ">5번 [시각과 전망] '음식디미방’과 ‘맛의 방주’</a></h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div style="margin-top:30px; ">
-                                            <h5 class="nav-item mice">배성훈 경북본사장</h5>
-                                            <p class="nav-item ">2022.10.04</p>
-                                        </div>
-                                    </div>
-                                   <!-- 오피니언 1 -->
-                                     <div style="margin-right: -50px;">
-                                        <div class="card card-overlay-bottom card-img-scale " style="width: 220px; height: 280px; ">
-                                            <!-- Card Image -->
-                                            <img class="card-img " src="${path}/resources/resources1b/images/01_main/main_opi_01.jpg " alt=" " style="width: 220px; height: 280px; ">
-                                            <!-- Card Image overlay -->
-                                            <div class="card-img-overlay d-flex flex-column p-3 p-sm-4 ">
-                                                <div class="w-100 mt-auto" style="margin-bottom:-20px;">
-                                                    <h5 class="text-white mice"><a href="post-single-2.html " class="btn-link text-reset stretched-link ">5번 [시각과 전망] '음식디미방’과 ‘맛의 방주’</a></h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div style="margin-top:30px; ">
-                                            <h5 class="nav-item mice">배성훈 경북본사장</h5>
-                                            <p class="nav-item ">2022.10.04</p>
-                                        </div>
-                                    </div>
-                                   <!-- 오피니언 1 -->
-                                     <div style="margin-right: -50px;">
-                                        <div class="card card-overlay-bottom card-img-scale " style="width: 220px; height: 280px; ">
-                                            <!-- Card Image -->
-                                            <img class="card-img " src="${path}/resources/resources1b/images/01_main/main_opi_01.jpg " alt=" " style="width: 220px; height: 280px; ">
-                                            <!-- Card Image overlay -->
-                                            <div class="card-img-overlay d-flex flex-column p-3 p-sm-4 ">
-                                                <div class="w-100 mt-auto" style="margin-bottom:-20px;">
-                                                    <h5 class="text-white mice"><a href="post-single-2.html " class="btn-link text-reset stretched-link ">5번 [시각과 전망] '음식디미방’과 ‘맛의 방주’</a></h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div style="margin-top:30px; ">
-                                            <h5 class="nav-item mice">배성훈 경북본사장</h5>
-                                            <p class="nav-item ">2022.10.04</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- =======================오피니언 끝 =======================-->
-    </main>
+            <section style="margin: top 200px;">
+                <div class="container " style="margin: top 200px;">
+                    <div class="row">
+                        <h2 class="mice"><i class="fa fa-solid fa-pen-nib" style="margin-right:10px;"></i>오피니언</h2>
+                        <div class="col-12">
+                            <div class="tiny-slider arrow-blur arrow-round rounded-3 overflow-hidden">
+                                <div class="tiny-slider-inner" data-autoplay="true" data-hoverpause="true" data-gutter="24" data-arrow="true" data-dots="false" data-items-xl="4" data-items-lg="3" data-items-md="3" data-items-sm="2" data-items-xs="1">
+                                <!-- 오피니언 -->
+                                <c:if test="${empty opinion}">
+									<div class="d-flex position-relative mb-3">
+										<h6>논설위원이 없습니다.</h6>
+									</div>
+								</c:if>
+								<c:if test="${not empty opinion}">
+	                               	<c:forEach var="opinion" items="${opinion}" varStatus="status">
+				  						<div style="margin-right: -50px;">
+	                                    	<div class="card card-overlay-bottom card-img-scale" style="width: 220px; height: 280px;">
+		                                        <!-- Card Image -->
+		                                        <img class="card-img " src="${opinion.imageUrl}" style="width: 220px; height: 280px;">
+		                                        <!-- Card Image overlay -->
+	                                        	<div class="card-img-overlay d-flex flex-column p-3 p-sm-4">
+		                                            <div class="w-100 mt-auto" style="margin-bottom:-20px;">
+	                                               		<h5 class="text-white mice"><a href="${path}/opinion/opinionDetail?opinionNo=${opinion.opinionNo}" class="btn-link text-reset stretched-link">${opinion.title}</a></h5>
+	                                            	</div>
+	                                        	</div>
+		                                    </div>
+		                                    <div style="margin-top:30px;">
+	                                        	<h5 class="nav-item  mice">${opinion.columnist}</h5>
+	                                        	<p class="nav-item "><fmt:formatDate type="both" value="${opinion.pubDate}"/></p>
+	                                  		</div>
+	                                	</div>
+	                            	</c:forEach>
+                            	</c:if>
+                        	</div>
+                    	</div>
+                	</div>
+            	</div>
+        	</div>
+    	</section>
+    <!-- =======================오피니언 끝 =======================-->
+	</main>
        </main>
 	<%@ include file="/WEB-INF/views/common/footerDark.jsp" %>
   

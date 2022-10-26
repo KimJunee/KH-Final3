@@ -19,8 +19,7 @@
     <br><br>
     <!-- **************** MAIN CONTENT START **************** -->
     <main>
-        <!-- =======================
-Main content START -->
+        <!-- ======================= Main content START -->
         <section class=" bg-white" style="margin-top: -50px; margin-bottom: -50px;">
             <div class="container" data-sticky-container>
                 <div class="row">
@@ -87,7 +86,7 @@ Main content START -->
                 <div class="row g-0">
                         <!-- Title -->
                         <div class="mb-3 d-sm-flex  text-center mt-4">
-                            <h2 class="mice ">  칼럼니스트 보기</h2>
+                            <h2 class="mice">  칼럼니스트 보기</h2>
                         </div>
                         <!-- Slider -->
                         <c:if test="${empty editoria}">
@@ -104,7 +103,7 @@ Main content START -->
 	                                    	<div class="card bg-transparent">
 		                                       <img class="card-img" src="${editoria.imageUrl}" alt="card image" style="width: 165px; height: 220px;">
 		                                       <div class="card-body ps-0">
-		                                           <h6 class="mb-0 mice text-center" >${editoria.columnist}</h5>
+		                                           <h6 class="mb-0 mice text-center" >${editoria.columnist}</h6>
 		                                       </div>
 		                                   </div>
 	                               	   </div>

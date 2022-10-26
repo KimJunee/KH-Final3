@@ -22,6 +22,8 @@ import com.kh.realfinal.board.model.service.BoardService;
 import com.kh.realfinal.board.model.vo.Board;
 import com.kh.realfinal.financialStock.model.service.StockpriceService;
 import com.kh.realfinal.financialStock.model.vo.IndexPrice;
+import com.kh.realfinal.opinion.model.service.OpinionService;
+import com.kh.realfinal.opinion.model.vo.Opinion;
 
 @Controller
 public class HomeController {
@@ -31,6 +33,9 @@ public class HomeController {
 	
 	@Autowired
 	private StockpriceService service;
+	
+	@Autowired
+	private OpinionService opinionservice;
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
@@ -57,10 +62,13 @@ public class HomeController {
 		List<IndexPrice> list1 = service.getIndexKospiList();
 		List<IndexPrice> list2 = service.getIndexKosdaqList();
 		List<Board> list3 = boardService.getSideBoard();
+		List<Opinion> list4 = opinionservice.getSelectEditorialist();
 		model.addAttribute("list1", list1);
 		model.addAttribute("list2", list2);
 		model.addAttribute("sideList", list3);
+		model.addAttribute("opinion", list4);
 		
+		System.out.println("ddd"+ list4);
 		
 		return "main/main";
 	}
