@@ -128,7 +128,7 @@ Main START -->
 															<!-- Email ID -->
 															
 																	<li class="list-group-item "><span>의원홈페이지:</span>
-																		<span class="h6 mb-0 ">${profile.homepage}</span></li>
+																		<span class="h6 mb-0 "><a href="${profile.homepage}">${profile.homepage}</a></span></li>
 																	<!-- Email ID -->
 																	<!-- Mobile Number -->
 																	<li class="list-group-item "><span>이메일: </span> <span

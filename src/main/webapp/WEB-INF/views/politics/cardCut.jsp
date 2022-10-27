@@ -154,36 +154,36 @@
 											<!-- Pagination END -->
 						</div>
 		                </div>
+		              <!-- 사이드바 오피니언 시작 -->
 		                <div class="col-3">
-		                   	<!-- 사이드바 오피니언 시작 -->
-									<div class="card border ">
-										<div class="card-header border-bottom p-3 bg-dark ">
-											<h4 class="card-header-title mb-0 text-white mice">오피니언</h4>
-										</div>
-										<!-- Card body START -->
-										<div class="col-lg-3 mt-lg-0">
-                        <div data-margin-top="80" data-sticky-for="767">
-                            <!-- Most read -->
-                            <div style="width:300px; margin-left:15px;">
-	                            <c:if test="${empty sideopinion}">
-									<div class="position-relative mb-3">
-										<h6 class="mice">조회된 글이 없습니다.</h6>
-									</div>
-								</c:if>
-								<c:if test="${not empty sideopinion}">
-									<c:forEach var="Opinion" items="${sideopinion}" varStatus="status">
-										<div class="row mt-3 mb-3" style="padding-left:-10px;">
-											<div class="position-relative avatar-xl col-3" style="padding-right:0px;">
-												<img class="avatar-img rounded" src="${Opinion.imageUrl}" style="width: 90px; height: 60px; " alt="">
+							<div class="card border ">
+								<div class="card-header border-bottom p-3 bg-dark ">
+									<h4 class="card-header-title mb-0 text-white mice">오피니언</h4>
+								</div>
+								<!-- Card body START -->
+								<div class="col-lg-3 mt-lg-0">
+                        			<div data-margin-top="80" data-sticky-for="767">
+                         		   <!-- Most read -->
+                          			  <div style="width:300px; margin-left:15px;">
+	                         		   <c:if test="${empty sideopinion}">
+											<div class="position-relative mb-3">
+												<h6 class="mice">조회된 글이 없습니다.</h6>
 											</div>
-			                                <div class="position-relative col-7" style="padding-right:-20px;">
-			                                    <h6><a href="${path}/opinion/opinionDetail?opinionNo=${Opinion.opinionNo}" class="stretched-link text-reset btn-link"><c:out value="${Opinion.title}"/></a></h6>
-			                                    <h6 class="opacity-5"><fmt:formatDate pattern="yyyy. MM. dd. HH:mm" dateStyle="full" value="${Opinion.pubDate}"/></h6>
-			                                </div>
-		                                </div>
-                                	</c:forEach>
-                                </c:if>
-	                            </div>
+											</c:if>
+											<c:if test="${not empty sideopinion}">
+											<c:forEach var="Opinion" items="${sideopinion}" varStatus="status">
+												<div class="row mt-3 mb-3" style="padding-left:-10px;">
+													<div class="position-relative avatar-xl col-3" style="padding-right:0px;">
+														<img class="avatar-img rounded" src="${Opinion.imageUrl}" style="width: 90px; height: 60px; " alt="">
+													</div>
+					                                <div class="position-relative col-7" style="padding-right:-20px;">
+					                                    <h6><a href="${path}/opinion/opinionDetail?opinionNo=${Opinion.opinionNo}" class="stretched-link text-reset btn-link"><c:out value="${Opinion.title}"/></a></h6>
+					                                    <h6 class="opacity-5"><fmt:formatDate pattern="yyyy. MM. dd. HH:mm" dateStyle="full" value="${Opinion.pubDate}"/></h6>
+					                                </div>
+				                                </div>
+		                                	</c:forEach>
+		                                </c:if>
+			                            </div>
 	                        <!-- Sidebar END -->
              		       </div>
 						 </div>
@@ -191,41 +191,41 @@
 								<!-- 오피니언 끝 -->
 				             <!-- <hr class="my-3"> -->
 		
-		                    <div class="row g-2 mt-4">
-		                        <h4 class="fw-bolder mice">인기검색어</h4>
-		                        <div class="d-flex justify-content-between align-items-center bg-warning bg-opacity-15 rounded p-2 position-relative">
-		                            <h6 class="m-0 text-warning">디지털 경쟁력</h6>
-		                            <a href="#" class="badge bg-warning text-dark stretched-link">01</a>
-		                        </div>
-		                        <div class="d-flex justify-content-between align-items-center bg-info bg-opacity-10 rounded p-2 position-relative">
-		                            <h6 class="m-0 text-info">소상공인 대출</h6>
-		                            <a href="#" class="badge bg-info stretched-link">02</a>
-		                        </div>
-		                        <div class="d-flex justify-content-between align-items-center bg-danger bg-opacity-10 rounded p-2 position-relative">
-		                            <h6 class="m-0 text-danger">전세피해지원센터</h6>
-		                            <a href="#" class="badge bg-danger stretched-link">03</a>
-		                        </div>
-		                        <div class="d-flex justify-content-between align-items-center bg-primary bg-opacity-10 rounded p-2 position-relative">
-		                            <h6 class="m-0 text-primary">세계 전기차 점유율</h6>
-		                            <a href="#" class="badge bg-primary stretched-link">04</a>
-		                        </div>
-		                        <div class="d-flex justify-content-between align-items-center bg-success bg-opacity-10 rounded p-2 position-relative">
-		                            <h6 class="m-0 text-success">복지멤버십</h6>
-		                            <a href="#" class="badge bg-success stretched-link">05</a>
-		                        </div>
-		                    </div>
+		                    <!-- 인기검색어 -->
+                                <div class="row g-2 mt-5 ">
+                                    <h4 class="mice ">인기검색어</h4>
+                                    <div class="d-flex justify-content-between align-items-center bg-warning bg-opacity-15 rounded p-2 position-relative ">
+                                        <h6 class="m-0 text-warning ">디지털 경쟁력</h6>
+                                        <a class="badge bg-warning text-dark stretched-link ">09</a>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center bg-info bg-opacity-10 rounded p-2 position-relative ">
+                                        <h6 class="m-0 text-info ">소상공인 대출</h6>
+                                        <a class="badge bg-info stretched-link ">25</a>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center bg-danger bg-opacity-10 rounded p-2 position-relative ">
+                                        <h6 class="m-0 text-danger ">전세피해지원센터</h6>
+                                        <a class="badge bg-danger stretched-link ">75</a>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center bg-primary bg-opacity-10 rounded p-2 position-relative ">
+                                        <h6 class="m-0 text-primary ">세계 전기차 점유율</h6>
+                                        <a class="badge bg-primary stretched-link ">19</a>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center bg-success bg-opacity-10 rounded p-2 position-relative ">
+                                        <h6 class="m-0 text-success ">복지멤버십</h6>
+                                        <a class="badge bg-success stretched-link ">35</a>
+                                    </div>
+                                </div>
 		                  	<!-- 실시간정치커뮤니티 시작-->
 								<div class="right-community">
-									 
-	                            		<c:if test="${empty politicsList}">
-											<div class="d-flex position-relative mb-3">
-												<div class="container">
-													<h6>조회된 글이 없습니다.</h6>
-												</div>
-											</div>
-										</c:if>
-										<c:if test="${not empty politicsList}">
-			                                <h4 class="mt-5 mb-3 mice">실시간<span style="color:#2163E8">정치</span>커뮤니티</h4>
+	                             <c:if test="${empty politicsList}">
+									 <div class="d-flex position-relative mb-3">
+										 <div class="container">
+											 <h6>조회된 글이 없습니다.</h6>
+										 </div>
+									 </div>
+									 </c:if>
+									 <c:if test="${not empty politicsList}">
+			                           <h4 class="mt-5 mb-3 mice">실시간<span style="color:#2163E8">정치</span>커뮤니티</h4>
 												<c:forEach var="board" items="${politicsList}" varStatus="status">
 					                                <div class="d-flex position-relative mb-3">
 					                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">
@@ -234,7 +234,6 @@
 					                                </div>
 			                                	</c:forEach>
 			                               </c:if>
-		                              
 	                            	</div>
 									<!-- 실시간정치커뮤니티 끝-->
 		                </div>

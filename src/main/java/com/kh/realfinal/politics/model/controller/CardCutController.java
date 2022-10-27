@@ -137,6 +137,17 @@ public class CardCutController {
 		}
 		
 		CardCut cardCut = cardCutService.getCardCutContent(cardCutNo);
+		
+		// 인기정치게시글
+				System.out.println("그대이름은 파람파람파람 : " + param.toString());
+				Map<String, Object> paramBoard = new HashMap<String,Object>();
+				paramBoard.put("board_list_no",RealEstate);
+				List<Board> listBoard = boardService.getSideBoardForPolitics(paramBoard);
+				// 인기정치게시글 끝
+		
+		
+		// 오피니언 사이드 
+		List<Opinion> sideopinion = opinionService.getSelectOpinionForPolitics();
 
 		if(cardCut == null) {
 			return "redirect:error";
@@ -148,6 +159,9 @@ public class CardCutController {
 		System.out.println(cardCut.getReplyCnt());
 		System.out.println(cardCut.getReplies().toString());
 		System.out.println( cardCut.getReplies().size() );
+		
+		model.addAttribute("sideopinion", sideopinion);	// 오피니언 사이드 
+		model.addAttribute("politicsList", listBoard); // 인기정치게시글
 		model.addAttribute("cardCut", cardCut);
 		model.addAttribute("replyList", cardCut.getReplies());
 		model.addAttribute("param", param);

@@ -123,6 +123,7 @@ public class ProfileMnaController {
 		paramBoard.put("board_list_no",RealEstate);
 		List<Board> listBoard = boardService.getSideBoardForPolitics(paramBoard);
 		// 인기정치게시글 끝
+		
 		List<Opinion> sideopinion = opinionService.getSelectOpinionForPolitics();
 		// 최근오피니언글
 		Map<String, Object> opinion = new HashMap<String,Object>();

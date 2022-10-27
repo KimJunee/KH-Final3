@@ -35,6 +35,10 @@ public class OpinionController {
 	@Autowired
 	private BoardService boardService;
 	
+	@Autowired
+	private OpinionService opinionService;
+	private final int Opinion = 1;
+	
 	@RequestMapping("/opinion/insertOpinion")
 	public String initOpinionData(Model model) {
 		List<Opinion> list = OpinionRss.callOpinionListByXML();
