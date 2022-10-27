@@ -71,7 +71,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-8 ">
-                                                    <a href="02_fin_main.html" class="badge text-bg-danger mb-2 "><i class="fas fa-circle me-2 small fw-bold "></i>Finance</a>
+                                                    <a href="${path}/stockprice/fin_main.do" class="badge text-bg-danger mb-2 "><i class="fas fa-circle me-2 small fw-bold "></i>Finance</a>
                                                     <h4 class="fw-normal text-truncate mb-1 mice text-white ">
                                                         <a href="${path}/stockprice/fin_main.do" class="btn-link text-reset fw-bold">오늘의 주식시장을 확인해보세요!</a></h4>
                                                 </div>
@@ -84,8 +84,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-8 ">
-                                                    <a href="03_reales_main.html " class="badge text-bg-warning mb-2 "><i class="fas fa-circle me-2 small fw-bold "></i>Real Estate</a>
-                                                    <h4 class="fw-normal text-truncate mb-1 mice text-white "><a href="03_reales_main.html " class="btn-link text-reset fw-bold ">주거고민이 있으신가요?</a></h4>
+                                                    <a href="${path}/RealEstate/main" class="badge text-bg-warning mb-2 "><i class="fas fa-circle me-2 small fw-bold "></i>Real Estate</a>
+                                                    <h4 class="fw-normal text-truncate mb-1 mice text-white "><a href="${path}/RealEstate/main" class="btn-link text-reset fw-bold ">주거고민이 있으신가요?</a></h4>
                                                 </div>
                                             </div>
                                             <!-- Thumb 3 -->
@@ -541,7 +541,7 @@
                                         	</div>
 	                                    </div>
 	                                    <div style="margin-top:30px;" class="card-body ps-0">
-                                        	<h5 class="nav-item mb-0 mice text-center" style="width: 220px;">${opinion.columnist}</h5>
+                                        	<h5 class="nav-item mb-0 mice text-center" style="width: 220px;"><a href="${path}/opinion/opinionDetail?opinionNo=${opinion.opinionNo}">${opinion.columnist}</a></h5>
                                         	<p class="nav-item text-center" style="width: 220px;"><fmt:formatDate type="date" dateStyle="full" value="${opinion.pubDate}"/> </p>
                                   		</div>
                                 	</div>
