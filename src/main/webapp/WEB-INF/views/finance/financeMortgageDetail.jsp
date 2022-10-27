@@ -213,13 +213,13 @@
 		                                        <div class="pe-3">
 		                                            <h6 class="mb-0">김태임 재무설계사</h6>
 		                                            <div class="text-secondary fw-normal fs-sm mb-1">KH자산관리법인</div>
-		                                            <a class="btn btn-icon btn-light-primary btn-xs shadow-sm rounded-circle me-2 mb-2" href="#">
+		                                            <a class="btn btn-icon btn-light-primary btn-xs shadow-sm rounded-circle me-2 mb-2">
 		                                                <i class="fab fa-facebook-square"></i>
 		                                            </a>
-		                                            <a class="btn btn-icon btn-light-primary btn-xs shadow-sm rounded-circle me-2 mb-2" href="#">
+		                                            <a class="btn btn-icon btn-light-primary btn-xs shadow-sm rounded-circle me-2 mb-2">
 		                                                <i class="fab fa-linkedin"></i>
 		                                            </a>
-		                                            <a class="btn btn-icon btn-light-primary btn-xs shadow-sm rounded-circle me-2 mb-2" href="#">
+		                                            <a class="btn btn-icon btn-light-primary btn-xs shadow-sm rounded-circle me-2 mb-2">
 		                                                <i class="fab fa-twitter-square"></i>
 		                                            </a>
 		                                        </div>
