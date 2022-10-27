@@ -347,15 +347,12 @@
                                 <div class="row g-3">
                                     <div class="col-md-4 order-sm-2">
                                         <div class="rounded-3 overflow-hidden">
-                                            <h2 class="m-0 mice "><i class="bi bi-bell-fill m-2"></i><a class="text-dark">&nbsp;오늘<a class="text-danger">마감</a>청약</a>
-                                            </h2>
-                                            <!-- <p>오늘 마감되는 청약을 확인해보세요</p> -->
+                                            <h3 class="m-0 mice "><i class="bi bi-bell-fill m-2"></i><a class="text-dark">&nbsp;오늘<a class="text-danger">모집시작</a>청약</a>
+                                            </h3>
                                             <div class="card card-body bg-warning bg-opacity-15 p-4 h-75 text-center">
-                                                <h3 class=" ">22.09.27</h3>
-                                                <!-- <h5>마감 청약</h5> -->
-                                                <h1 class="fs-1 text-danger">16개</h1>
-                                                <!-- <p>오늘 모집 마감되는 청약일정과 <br> 공급 대상들을 즉시 확인하실 수 있습니다!</p> -->
-                                                <div class="mt-auto"><a href="03_reales_detailList.html" class="btn btn-link text-reset p-0 mb-0">일정 확인하러 가기!</a></div>
+                                                <h3 id="current_date"></h3>
+                                                <h1 class="fs-1 text-danger">${mainCount}개</h1>
+                                                <div class="mt-auto"><a href="${path}/RealEstate/list" class="btn btn-link text-reset p-0 mb-0">일정 확인하러 가기!</a></div>
                                             </div>
                                         </div>
                                     </div>
@@ -555,11 +552,21 @@
             	</div>
         	</div>
     	</section>
-    	
-   
+
+
+<!-- ======================= script 시작 =======================-->
+
+<!-- 모집시작 청약 현재 날짜 -->
+   <script>
+	date = new Date();
+	year = date.getFullYear();
+	month = date.getMonth() + 1;
+	day = date.getDate();
+	document.getElementById("current_date").innerHTML = year + "-" + month
+			+ "-" + day;
+</script>
     <!-- =======================오피니언 끝 =======================-->
 	</main>
-       </main>
 	<%@ include file="/WEB-INF/views/common/footerDark.jsp" %>
   
 </body>

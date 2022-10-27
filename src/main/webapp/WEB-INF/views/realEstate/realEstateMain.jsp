@@ -214,7 +214,7 @@
 						<c:if test="${not empty estateList}">
 							<c:forEach var="board" items="${estateList}" varStatus="status">
 								<div class="col-12 ">
-									<div class="d-flex align-items-center my-2">
+									<div class="d-flex align-items-center">
 										<div class="avatar avatar-xs">
 											<img class="avatar-img rounded-circle"
 												src="${path}/resources/resources1b/images/avatar_m1.png"
@@ -230,7 +230,7 @@
 											<span class="ms-0"><c:out
 													value="${board.user_nickName}" /></span>
 											<!-- 작성일 -->
-											<p class="small mb-3">
+											<p class="pb-0">
 												<fmt:formatDate type="date" value="${board.board_register}" />
 											</p>
 										</div>
@@ -238,12 +238,12 @@
 								</div>
 								<!-- 구분선 -->
 								<c:if test="${!status.last}">
-									<hr>
+									<hr class="mt-0">
 								</c:if>
 							</c:forEach>
 						</c:if>
 						<!-- 커뮤니티 footer -->
-						<div class="card-footer border-top text-center p-3">
+						<div class="card-footer border-top text-center p-3 pb-0">
 							<a href="${path}/board/list?type=2">View all details</a>
 						</div>
 					</div>
@@ -606,7 +606,7 @@
 
 <!-- ======================= script 시작 =======================-->
 
-<!-- 마감 청약 현재 날짜 -->
+<!-- 모집시작 청약 현재 날짜 -->
 <script>
 	date = new Date();
 	year = date.getFullYear();

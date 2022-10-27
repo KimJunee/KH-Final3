@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.google.gson.Gson;
+import com.kh.realfinal.apply.model.service.RealEstateService;
 import com.kh.realfinal.board.model.service.BoardService;
 import com.kh.realfinal.board.model.vo.Board;
 import com.kh.realfinal.financialStock.model.service.StockpriceService;
@@ -29,6 +30,9 @@ import com.kh.realfinal.politics.model.vo.CardCut;
 
 @Controller
 public class HomeController {
+	
+	@Autowired
+	private RealEstateService realEstateService;
 	
 	@Autowired
 	private BoardService boardService;
@@ -84,6 +88,9 @@ public class HomeController {
 		model.addAttribute("newscategory", list6);
 		
 		System.out.println("ddd"+ list5);
+		
+		int mainCount = realEstateService.getRealMainboardListCount();
+		model.addAttribute("mainCount", mainCount);
 		
 		return "main/main";
 	}
