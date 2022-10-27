@@ -83,10 +83,10 @@
                     		</div>
                    			<div class="col-md-4 " style="margin-left: -20px;">
 	                   			<c:if test="${empty loginMember}">
-	                        		<a href="${path}/board/writePost"><button type="submit" class="btn btn-primary align-items-right" style="margin-top:30px; hight:30px; font-size:20px; float:right; display: none;"> <b> 글쓰기 </b></button></a>
+	                        		<a href="${path}/board/writePost?postType=${board_list_no}"><button type="submit" class="btn btn-primary align-items-right" style="margin-top:30px; hight:30px; font-size:20px; float:right; display: none;"> <b> 글쓰기 </b></button></a>
 	                    		</c:if>
 	                    		<c:if test="${!empty loginMember}">
-	                    			<a href="${path}/board/writePost" class="mice"><button type="submit" class="btn btn-primary align-items-right" style="margin-top:30px; hight:30px; font-size:20px; float:right;"> <b> 글쓰기 </b></button></a>
+	                    			<a href="${path}/board/writePost?postType=${board_list_no}" class="mice"><button type="submit" class="btn btn-primary align-items-right" style="margin-top:30px; hight:30px; font-size:20px; float:right;"> <b> 글쓰기 </b></button></a>
 	                    		</c:if>
                     		</div>
                 		</div>
@@ -99,10 +99,10 @@
 							</div>
 							<div class="col-md-4 " style="margin-left: -20px;">
 								<c:if test="${empty loginMember}">
-									<a href="${path}/board/writePost"><button type="submit" class="btn btn-warning align-items-right" style="margin-top:30px; hight:30px; font-size:20px; float:right; display: none;"> <b> 글쓰기 </b></button></a>
+									<a href="${path}/board/writePost?postType=${board_list_no}"><button type="submit" class="btn btn-warning align-items-right" style="margin-top:30px; hight:30px; font-size:20px; float:right; display: none;"> <b> 글쓰기 </b></button></a>
 								</c:if>
 								<c:if test="${!empty loginMember}">
-									<a href="${path}/board/writePost" class="mice"><button type="submit" class="btn btn-warning align-items-right mice" style="margin-top:30px; hight:30px; font-size:20px; float:right;"> <b> 글쓰기 </b></button></a>
+									<a href="${path}/board/writePost?postType=${board_list_no}" class="mice"><button type="submit" class="btn btn-warning align-items-right mice" style="margin-top:30px; hight:30px; font-size:20px; float:right;"> <b> 글쓰기 </b></button></a>
 								</c:if>
 							</div>
 						</div>
@@ -115,10 +115,10 @@
 							</div>
 							<div class="col-md-4 " style="margin-left: -20px;">
 								<c:if test="${empty loginMember}">
-									<a href="${path}/board/writePost"><button type="submit" class="btn btn-danger align-items-right" style="margin-top:30px; hight:30px; font-size:20px; float:right; display: none;"> <b> 글쓰기 </b></button></a>
+									<a href="${path}/board/writePost?postType=${board_list_no}"><button type="submit" class="btn btn-danger align-items-right" style="margin-top:30px; hight:30px; font-size:20px; float:right; display: none;"> <b> 글쓰기 </b></button></a>
 								</c:if>
 								<c:if test="${!empty loginMember}">
-									<a href="${path}/board/writePost" class="mice"><button type="submit" class="btn btn-danger align-items-right mice" style="margin-top:30px; hight:30px; font-size:20px; float:right;"> <b> 글쓰기 </b></button></a>
+									<a href="${path}/board/writePost?postType=${board_list_no}" class="mice"><button type="submit" class="btn btn-danger align-items-right mice" style="margin-top:30px; hight:30px; font-size:20px; float:right;"> <b> 글쓰기 </b></button></a>
 								</c:if>
 							</div>
 						</div>
@@ -131,10 +131,10 @@
 							</div>
 							<div class="col-md-4 " style="margin-left: -20px;">
 								<c:if test="${empty loginMember}">
-									<a href="${path}/board/writePost"><button type="submit" class="btn btn-success align-items-right" style="margin-top:30px; hight:30px; font-size:20px; float:right; display: none;"> <b> 글쓰기 </b></button></a>
+									<a href="${path}/board/writePost?postType=${board_list_no}"><button type="submit" class="btn btn-success align-items-right" style="margin-top:30px; hight:30px; font-size:20px; float:right; display: none;"> <b> 글쓰기 </b></button></a>
 								</c:if>
 								<c:if test="${!empty loginMember}">
-									<a href="${path}/board/writePost" class="mice"><button type="submit" class="btn btn-success align-items-right mice" style="margin-top:30px; hight:30px; font-size:20px; float:right;"> <b> 글쓰기 </b></button></a>
+									<a href="${path}/board/writePost?postType=${board_list_no}" class="mice"><button type="submit" class="btn btn-success align-items-right mice" style="margin-top:30px; hight:30px; font-size:20px; float:right;"> <b> 글쓰기 </b></button></a>
 								</c:if>
 							</div>
 						</div>

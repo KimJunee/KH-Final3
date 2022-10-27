@@ -6,6 +6,11 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="path" value="${pageContext.request.contextPath}"/>  
+
+<c:set var="postType" value="${param.postType}"/>
+<c:if test="${empty postType}">
+	<c:set var="postType" value="${'title'}"/>
+</c:if>
     
 <!DOCTYPE html>
 <html lang="ko">
@@ -59,7 +64,12 @@
                                                 <div class="d-flex flex-wrap gap-3">
                                                     <!-- 자유 -->
                                                     <div class="flex-fill">
-                                                        <input type="radio" class="btn-check" name="board_list_no" id="option4" value="4"checked>
+                                                    <c:if test="${postType == '4'}">
+                                                        <input type="radio" class="btn-check" name="board_list_no" id="option4" value="4" checked>
+                                                    </c:if>  
+                                                    <c:if test="${postType != '4'}">
+                                                        <input type="radio" class="btn-check" name="board_list_no" id="option4" value="4">
+                                                    </c:if>  
                                                         <label class="btn btn-outline-success w-100" for="option4">
 															<i class="bi bi-balloon fs-1"></i>
 															<span class="d-block"> Free </span>
@@ -67,7 +77,12 @@
                                                     </div>
                                                     <!-- 정치 -->
                                                     <div class="flex-fill">
+                                                    <c:if test="${postType == '1'}">
+                                                        <input type="radio" class="btn-check" name="board_list_no" id="option" value="1" checked>
+                                                    </c:if>    
+                                                    <c:if test="${postType != '1'}">
                                                         <input type="radio" class="btn-check" name="board_list_no" id="option" value="1">
+                                                    </c:if>
                                                         <label class="btn btn-outline-primary w-100" for="option">
                           									<i i class="bi bi-bank2 fs-1"></i>
                           									<span class="d-block"> Politics </span>
@@ -75,7 +90,12 @@
                                                     </div>
                                                     <!-- 부동산 -->
                                                     <div class="flex-fill">
+                                                    <c:if test="${postType == '2'}">
+                                                        <input type="radio" class="btn-check" name="board_list_no" id="option2" value="2" checked>
+                                                    </c:if>
+                                                    <c:if test="${postType != '2'}">
                                                         <input type="radio" class="btn-check" name="board_list_no" id="option2" value="2">
+                                                    </c:if>    
                                                         <label class="btn btn-outline-warning w-100" for="option2">
 															<i class="bi bi-building fs-1"></i>
 															<span class="d-block"> Real Estate </span>
@@ -83,7 +103,12 @@
                                                     </div>
                                                     <!-- 금융 -->
                                                     <div class="flex-fill">
+                                                    <c:if test="${postType == '3'}">
+                                                        <input type="radio" class="btn-check" name="board_list_no" id="option3" value="3" checked>
+                                                    </c:if>
+                                                    <c:if test="${postType != '3'}">
                                                         <input type="radio" class="btn-check" name="board_list_no" id="option3" value="3">
+                                                    </c:if>
                                                         <label class="btn btn-outline-danger w-100" for="option3">
 															<i class="bi bi-coin fs-1"></i>
 															<span class="d-block"> Finance </span>

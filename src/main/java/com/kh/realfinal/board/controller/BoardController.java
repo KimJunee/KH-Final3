@@ -169,8 +169,11 @@ public class BoardController {
 	
 	// 글 작성 페이지 가기
 	@GetMapping("/writePost")
-	public String gowrite() {
+	public String gowrite(Model model, @RequestParam Map<String, String> param) {
 		log.info("게시글 작성 페이지 가기");
+		System.out.println("그대이름은 파람파람파람 : " + param.toString());
+		
+		model.addAttribute("param",param);
 		return "community/communityBoardPost";
 	}
 	
