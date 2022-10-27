@@ -231,7 +231,6 @@
 							<i class="bi bi-calendar-minus"></i> 청약캘린더
 						</h2>
 						<hr>
-
 						<!-- 유형별 검색버튼 시작 -->
                         <div class="col-12" style="margin-top: 30px; margin-bottom:50px; line-height:30px;">
                             <form method="post" action="${path}/realEstate/calendar" id="calendarSearch" style="font-size: 17px;">

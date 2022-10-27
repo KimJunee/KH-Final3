@@ -66,7 +66,6 @@
 
                 <!-- Post list table START -->
                 <h2 class="mice">청약공지사항</h2>
-                <!-- 유형 카테고리 시작 -->
                 <!-- Tab START -->
                 <ul class="nav nav-tabs nav-tabs-dark" style="margin-top: 30px;">
                     <li class="nav-item"> <a class="nav-link <c:if test="${cateTab eq null}">active</c:if>" href="${path}/realEstate/notice">전체보기</a> </li>

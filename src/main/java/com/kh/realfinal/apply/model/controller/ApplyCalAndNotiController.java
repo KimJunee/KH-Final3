@@ -54,16 +54,13 @@ public class ApplyCalAndNotiController {
 		}
 		
 		PageInfo pageInfo = new PageInfo(page, 10, reService.getApplyNoticeCount(param, param.get("cateType")), 20);
-		
 		List<ApplyNotice> list = reService.getApplyNoticeList(pageInfo, param, param.get("cateType"));
-		
 		noticeExtracted(model, param, pageInfo, list);
 		
 		return "realEstate/realEstateNotice";
 	}
 	
-	private void noticeExtracted(Model model,
-			Map<String, String> param, 
+	private void noticeExtracted(Model model, Map<String, String> param, 
 			PageInfo pageInfo, 
 			List<ApplyNotice> list) {
 		
