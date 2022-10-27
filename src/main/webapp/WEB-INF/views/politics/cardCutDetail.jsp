@@ -105,9 +105,9 @@
 		                        <h5 class="arti">${cardCut.descriptionOrigin}</h5>
 		                    </div>
 		                    <!-- 댓글 START -->
-		                
+		                <hr>
 		                     <!-- 댓글 시작 -->
-                        <div class="border-bottom border-top border-2 mb-3 pt-3" style="color:#a1a1a8">
+                        <div class="mb-3 pt-3" style="color:#a1a1a8">
 		                        <h3>${cardCut.replyCnt} comments</h3>
                         		<c:forEach var="cCreply" items="${replyList}" varStatus="status">
                         			<c:choose>

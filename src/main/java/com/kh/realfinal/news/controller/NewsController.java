@@ -141,11 +141,16 @@ public class NewsController {
 		PageInfo pageInfo = new PageInfo(page, 10, totalCount, 10);
 		List<News> list = service.getNewsList(pageInfo, map);
 		
+		map = new HashMap<>();
+		pageInfo = new PageInfo(1, 10, service.getNewsCount(map), 4);
+		List<News> sideList = service.getNewsList(pageInfo, map);
+		
 		System.out.println(searchKeyword);
 		System.out.println(list);
 		
 		model.addAttribute("totalCount", totalCount);
 		model.addAttribute("list", list);
+		model.addAttribute("sideList", sideList);
 		model.addAttribute("param", param);
 		model.addAttribute("pageInfo", pageInfo);
 		return "/news/news_search";
