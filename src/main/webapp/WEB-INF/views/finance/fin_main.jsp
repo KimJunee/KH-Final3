@@ -653,25 +653,40 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-6  border-secondary mt-2 " style="height: 330px; width: 440px; ">
-                                <div class="bd-example">
-                                    <div class="card ">
-                                        <div class="card-body">
-                                            <svg class="bd-placeholder-img bd-placeholder-img-lg card-img" width="530" height="220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Card image" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                        <title>Placeholder</title><rect width="500px" height="280px"></rect><text x="50%" y="50%"  dy=".3em"></text></svg>
-                                            <div class="card-img-overlay" style="background-color: #7a95c3;">
-                                                <span class="mice" style="font-weight: bold; font-size: 25px; color:white;">
-                                            <img src="${path}/resources/resources4h/assets1/images/dailyfinance.png" width="80" height="50">데일리금융용어</span><span style="padding-left:70px;"><a href="https://20191118.tistory.com/category/%EA%B8%88%EC%9C%B5%EA%B2%BD%EC%A0%9C/%EB%8D%B0%EC%9D%BC%EB%A6%AC%20%EA%B8%88%EC%9C%B5%EA%B2%BD%EC%A0%9C%EC%8B%9C%EC%82%AC%EC%9A%A9%EC%96%B4" style="color:white">View all</a></span>
-                                                <div class="mt-2">
-                                                    <h3 class="mice" style="font-size: 20px; color:#ffec44;">시가총액(時價總額)</h3>
-                                                    <p class="card-text" style="color:white;">주가와 발행 주식수를 곱한 것으로 상장회사 혹은 기업 가치를 평가하는 지표이다. 시가총액이 크다는 것은 실적뿐 아니라 미래의 성장에 대한 기대도 크다는 것을 의미한다.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
+							<div class="col-6 ">
+								<div class="card ">
+									<div class="card-body mb-2">
+										<svg class="bd-placeholder-img bd-placeholder-img-lg card-img"
+											width="530" height="220" xmlns="http://www.w3.org/2000/svg"
+											role="img" aria-label="Placeholder: Card image"
+											preserveAspectRatio="xMidYMid slice" focusable="false">
+                                        <title>Placeholder</title><rect
+												width="500px" height="280px"></rect>
+											<text x="50%" y="50%" dy=".3em"></text></svg>
+										<div class="card-img-overlay"
+											style="background-color: #7a95c3;">
+											<span class="mice"
+												style="font-weight: bold; font-size: 25px; color: white;">
+												<img
+												src="${path}/resources/resources4h/assets1/images/dailyfinance.png"
+												width="80" height="50">데일리금융용어
+											</span><span style="padding-left: 70px;"><a
+												href="https://20191118.tistory.com/category/%EA%B8%88%EC%9C%B5%EA%B2%BD%EC%A0%9C/%EB%8D%B0%EC%9D%BC%EB%A6%AC%20%EA%B8%88%EC%9C%B5%EA%B2%BD%EC%A0%9C%EC%8B%9C%EC%82%AC%EC%9A%A9%EC%96%B4"
+												style="color: white">View all</a></span>
+											<div class="mt-2">
+												<h3 class="mice" style="font-size: 20px; color: #ffec44;">시가총액(時價總額)</h3>
+												<p class="card-text" style="color: white;">주가와 발행 주식수를
+													곱한 것으로 상장회사 혹은 기업 가치를 평가하는 지표이다. 시가총액이 크다는 것은 실적뿐 아니라 미래의
+													성장에 대한 기대도 크다는 것을 의미한다.</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+						</div>
                     </div>
                     <div class="col-3">
                         <img src="${path}/resources/resources4h/assets2/images/Stockconsultationbanner.png" alt="">
