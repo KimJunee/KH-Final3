@@ -319,7 +319,7 @@
 									<c:forEach var="cardcutTop" items="${listMain}" begin="0" end="4" step="1" varStatus="status">
                                     <div class="card">
                                         <div class="position-relative">
-                                            <img class="card-img" src="${cardcutTop.images[0]}" alt="Card image">
+                                            <img class="card-img" src="${cardcutTop.images[0]}" alt="Card image" style="width:400px; height:400px;">
                                             <div class="card-img-overlay d-flex align-items-start flex-column p-3">
                                             </div>
                                         </div>
