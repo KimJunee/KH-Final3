@@ -56,7 +56,7 @@
 <%@ include file="/WEB-INF/views/common/headerWhite.jsp" %>
     <main>
         <!-- ============ 메뉴소개 시작 ============ -->
-        <section style="background-image:url('${path}/resources/resources1b/images/avatar/fintouch/community04.png'); background-position: center; height:570px; width:99%;">
+        <section style="background-image:url('${path}/resources/resources1b/images/avatar/fintouch/communityImg.png'); background-position: center; height:570px; width:99%;">
             <div style="margin-left: 365px; margin-top: 430px;">
                 <h1 class="mice">검색하신 "<span class="mice" style="color:#2163E8;"><c:out value="${param.searchValue}"/></span>"에 대한 결과입니다.</h1>
             </div>

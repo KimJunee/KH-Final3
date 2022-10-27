@@ -19,7 +19,7 @@
 <%@ include file="/WEB-INF/views/common/headerWhite.jsp" %>
     <main>
         <!-- ============ 메뉴소개 시작 ============ -->
-        <section style="background-image:url('${path}/resources/resources1b/images/avatar/fintouch/community04.png'); background-position: center; height:570px; width:99%;"></section>
+        <section style="background-image:url('${path}/resources/resources1b/images/avatar/fintouch/communityImg.png'); background-position: center; height:570px; width:99%;"></section>
         <!-- ============ 메뉴소개 끝 ============ -->
         <!-- Divider -->
         <div class="border-primary border-1 opacity-1"></div>
