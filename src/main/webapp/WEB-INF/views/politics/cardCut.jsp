@@ -56,8 +56,7 @@
 												<ul
 													class="nav nav-divider align-items-center text-uppercase small">
 													<li class="nav-item"><a href="#"
-														class="nav-link text-reset btn-link"><fmt:formatDate type="date" dateStyle="full" value="${cardcutTop.pubDate}"/> </a></li>
-													 
+														class="nav-link text-reset btn-link"><fmt:formatDate pattern="yyyy. MM. dd. HH:mm" dateStyle="full" value="${cardcutTop.pubDate}"/> </a></li>
 												</ul> 
 											</div>
 									</div>
@@ -85,8 +84,8 @@
 								 <!-- Search -->
 								 <div class=" ">
 									 <form action="${path}/politics/cardCut">
-										 <input type="hidden" name="cardCut" value="${cardcut.searchTitle}" >
-											 <input type="hidden" name="page" value="${pageInfo.currentPage}" >
+										 <input type="hidden" name="cardCut" value="${cardcut.searchTitle}" > 
+											<!-- <input type="hidden" name="page" value="${pageInfo.currentPage}" >  페이지 넘어가버림 -->
 												 <div class="rounded position-relative align-items-left " style="display: inline-block; width: 45em; ">
 													 <input class="form-control bg-transparent" id="searchTitle" name="searchTitle" value="${param.searchTitle}"
 														 type="search" placeholder="원하시는 카드뉴스명을 입력하세요!" aria-label="Search ">
@@ -123,7 +122,8 @@
 												<ul
 													class="nav nav-divider align-items-center text-uppercase small">
 													<li class="nav-item"><a href="#"
-														class="nav-link text-reset btn-link"><fmt:formatDate type="date" dateStyle="full" value="${cardcut.pubDate}"/></a></li>
+														class="nav-link text-reset btn-link"><fmt:formatDate pattern="yyyy. MM. dd. HH:mm" dateStyle="full" value="${cardcut.pubDate}"/></a></li>
+														
 												</ul>
 											</div>
 										</div>
@@ -155,36 +155,40 @@
 						</div>
 		                </div>
 		                <div class="col-3">
-		                    <div class="card border ">
-		                        <div class="card-header border-bottom p-3 bg-dark">
-		                            <h4 class="card-header-title mb-0 text-white fw-bold mice">오피니언</h4>
-		                        </div>
-		                        <!-- Card body START -->
-		                        <div class="card-body p-3">
-		                            <div class="row">
-		                                <!-- Blog item -->
-		                                <c:if test="${empty sideopinion}">
-											<div class="d-flex position-relative mb-3">
-												<h6>조회된 글이 없습니다.</h6>
+		                   	<!-- 사이드바 오피니언 시작 -->
+									<div class="card border ">
+										<div class="card-header border-bottom p-3 bg-dark ">
+											<h4 class="card-header-title mb-0 text-white mice">오피니언</h4>
+										</div>
+										<!-- Card body START -->
+										<div class="col-lg-3 mt-lg-0">
+                        <div data-margin-top="80" data-sticky-for="767">
+                            <!-- Most read -->
+                            <div style="width:300px; margin-left:15px;">
+	                            <c:if test="${empty sideopinion}">
+									<div class="position-relative mb-3">
+										<h6 class="mice">조회된 글이 없습니다.</h6>
+									</div>
+								</c:if>
+								<c:if test="${not empty sideopinion}">
+									<c:forEach var="Opinion" items="${sideopinion}" varStatus="status">
+										<div class="row mt-3 mb-3" style="padding-left:-10px;">
+											<div class="position-relative avatar-xl col-3" style="padding-right:0px;">
+												<img class="avatar-img rounded" src="${Opinion.imageUrl}" style="width: 90px; height: 60px; " alt="">
 											</div>
-										</c:if>
-										<c:if test="${not empty sideopinion}">
-			                                <c:forEach var="Opinion" items="${sideopinion}" varStatus="status">
-				                                <div class="col-12 mb-0 ">
-				                                    <div class="d-flex align-items-center mt-0">
-				                                        <img class="rounded" src="${Opinion.imageUrl}" alt="product" style="width:60px; hight:80;">
-				                                        <div class="ms-3 mt-2">
-				                                            <a href="${path}/opinion/opinionDetail?opinionNo=${Opinion.opinionNo}" class="h6 stretched-link">${Opinion.title}</a>
-				                                            <p class="small mb-0"><fmt:formatDate type="both" value="${Opinion.pubDate}"/></p>
-				                                        </div>
-				                                    </div>
-				                                </div>
-				                                <!-- Divider -->
-			                                </c:forEach>
-		                                </c:if>
-		                            </div>
-		                        </div>
-		                    </div>
+			                                <div class="position-relative col-7" style="padding-right:-20px;">
+			                                    <h6><a href="${path}/opinion/opinionDetail?opinionNo=${Opinion.opinionNo}" class="stretched-link text-reset btn-link"><c:out value="${Opinion.title}"/></a></h6>
+			                                    <h6 class="opacity-5"><fmt:formatDate pattern="yyyy. MM. dd. HH:mm" dateStyle="full" value="${Opinion.pubDate}"/></h6>
+			                                </div>
+		                                </div>
+                                	</c:forEach>
+                                </c:if>
+	                            </div>
+	                        <!-- Sidebar END -->
+             		       </div>
+						 </div>
+					 </div>
+								<!-- 오피니언 끝 -->
 				             <!-- <hr class="my-3"> -->
 		
 		                    <div class="row g-2 mt-4">
