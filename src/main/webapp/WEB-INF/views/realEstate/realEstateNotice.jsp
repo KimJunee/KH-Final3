@@ -35,7 +35,7 @@
 <body>
 	<script src="${path}/resources/css/js/jquery-3.6.0.min.js"></script>
 	<!-- **************** MAIN CONTENT START **************** -->
-    <section class="position-relative overflow-hidden" style="background-image:url(${path}/resources/resources1b/images/03_realEstate/03_reales_notice.jpeg); background-position: center; background-size: cover;">
+    <section class="position-relative overflow-hidden" style="background-image:url(${path}/resources/resources1b/images/03_realEstate/03_reales_notice.jpeg); background-position: center; background-size: cover; height:350px;">
         <div class="bg-overlay bg-transparent opacity-5"></div>
         <!-- SVG decoration for curve -->
         <figure class="position-absolute bottom-0 left-0 w-100 d-md-block mb-n3 z-index-9">
@@ -44,17 +44,15 @@
             </svg>
         </figure>
 
-        <div class="container z-index-9 position-relative">
-
+        <div class="container z-index-9 position-relative mice">
             <div class="row py-0 align-items-center text-center text-sm-start">
                 <div class="col-sm-12 all-text-white mt-md-0">
-                    <div class="py-0 py-md-5 my-2">
-
+                    <div class="py-0 py-md-5 my-2 mt-0">
                         <!-- Badge with content -->
                         <a href="#" class="badge text-bg-warning mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Real Estate</a>
-
                         <!-- Title -->
-                        <h1 class="display-5 mice" style="color:black;">청약공지사항</h1>
+                        <h1 class="text-black display-5 mice">청약공지사항</h1>
+                        <p class="text-white" style="font-size:20px"> </p>
 
                     </div>
                 </div>
@@ -71,51 +69,51 @@
                 <!-- 유형 카테고리 시작 -->
                 <!-- Tab START -->
                 <ul class="nav nav-tabs nav-tabs-dark" style="margin-top: 30px;">
-                    <li class="nav-item"> <a class="nav-link active" href="${path}/realEstate/notice">전체보기</a> </li>
-                    <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-2">토지</a> </li>
-                    <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-3">분양주택</a> </li>
-                    <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-4">신혼희망타운</a> </li>
-                    <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-5">임대주택</a> </li>
-                    <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-6">매입임대/전세임대</a> </li>
-                    <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-7">상가</a> </li>
-                    <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-8">기타</a> </li>
+                    <li class="nav-item"> <a class="nav-link <c:if test="${cateTab eq null}">active</c:if>" href="${path}/realEstate/notice">전체보기</a> </li>
+                    <li class="nav-item"> <a class="nav-link <c:if test="${cateTab eq 'act2'}">active</c:if>" data-bs-toggle="tab" href="#tab-2">토지</a> </li>
+                    <li class="nav-item"> <a class="nav-link <c:if test="${cateTab eq 'act3'}">active</c:if>" data-bs-toggle="tab" href="#tab-3">분양주택</a> </li>
+                    <!-- <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-4">신혼희망타운</a> </li> -->
+                    <li class="nav-item"> <a class="nav-link <c:if test="${cateTab eq 'act5'}">active</c:if>" data-bs-toggle="tab" href="#tab-5">임대주택</a> </li>
+                    <li class="nav-item"> <a class="nav-link <c:if test="${cateTab eq 'act6'}">active</c:if>" data-bs-toggle="tab" href="#tab-6">매입임대/전세임대</a> </li>
+                    <li class="nav-item"> <a class="nav-link <c:if test="${cateTab eq 'act7'}">active</c:if>" data-bs-toggle="tab" href="#tab-7">상가</a> </li>
+                    <li class="nav-item"> <a class="nav-link <c:if test="${cateTab eq 'act8'}">active</c:if>" data-bs-toggle="tab" href="#tab-8">기타</a> </li>
                 </ul>
                 <div class="tab-content bg-opacity-15 p-4" style="height: 25px; padding-bottom: 10px;">
                     <div class="tab-pane show active" id="tab-1">
                     </div>
-                    <div class="tab-pane" id="tab-2">
+                    <div class="tab-pane <c:if test="${cateTab eq 'act2'}"> show active</c:if>" id="tab-2">
                         <a href="${path}/realEstate/notice?page=1&cateType=1" style="color: black;"><i class="bi bi-dot"></i>주택용지</a>&nbsp;&nbsp;
                         <a href="${path}/realEstate/notice?page=1&cateType=2" style="color: black;"><i class="bi bi-dot"></i>상가용지</a>&nbsp;&nbsp;&nbsp;
                         <a href="${path}/realEstate/notice?page=1&cateType=3" style="color: black;"><i class="bi bi-dot"></i>산업시설용지</a>&nbsp;&nbsp;&nbsp;
                         <a href="${path}/realEstate/notice?page=1&cateType=4" style="color: black;"><i class="bi bi-dot"></i>기타용지</a>
                     </div>
-                    <div class="tab-pane" id="tab-3">
+                    <div class="tab-pane <c:if test="${cateTab eq 'act3'}"> show active</c:if>" id="tab-3">
                     	<a href="${path}/realEstate/notice?page=1&cateType=19" style="color: black;"><i class="bi bi-dot"></i>분양주택</a>
                     </div>
-                    <div class="tab-pane" id="tab-4">
+                    <%-- <div class="tab-pane" id="tab-4">
                     	<a href="${path}/realEstate/notice?page=1&cateType=20" style="color: black;"><i class="bi bi-dot"></i>신혼희망타운</a>
-                    </div>
-                    <div class="tab-pane" id="tab-5">
+                    </div> --%>
+                    <div class="tab-pane <c:if test="${cateTab eq 'act5'}"> show active</c:if>" id="tab-5">
                         <a href="${path}/realEstate/notice?page=1&cateType=5" style="color: black;"><i class="bi bi-dot"></i>통합공공임대</a>&nbsp;&nbsp;
                         <a href="${path}/realEstate/notice?page=1&cateType=6" style="color: black;"><i class="bi bi-dot"></i>국민임대</a>&nbsp;&nbsp;
                         <a href="${path}/realEstate/notice?page=1&cateType=7" style="color: black;"><i class="bi bi-dot"></i>공공임대</a>&nbsp;&nbsp;
-                        <a href="${path}/realEstate/notice?page=1&cateType=8" style="color: black;"><i class="bi bi-dot"></i>영구임대</a>&nbsp;&nbsp;
+                        <%-- <a href="${path}/realEstate/notice?page=1&cateType=8" style="color: black;"><i class="bi bi-dot"></i>영구임대</a>&nbsp;&nbsp; --%>
                         <a href="${path}/realEstate/notice?page=1&cateType=9" style="color: black;"><i class="bi bi-dot"></i>행복주택</a>&nbsp;&nbsp;
                         <a href="${path}/realEstate/notice?page=1&cateType=10" style="color: black;"><i class="bi bi-dot"></i>장기전세</a>&nbsp;&nbsp;
                         <a href="${path}/realEstate/notice?page=1&cateType=11" style="color: black;"><i class="bi bi-dot"></i>신축다세대</a>
                     </div>
-                    <div class="tab-pane" id="tab-6">
+                    <div class="tab-pane <c:if test="${cateTab eq 'act6'}"> show active</c:if>" id="tab-6">
                         <a href="${path}/realEstate/notice?page=1&cateType=12" style="color: black;"><i class="bi bi-dot"></i>매입임대</a>&nbsp;&nbsp;
-                        <a href="${path}/realEstate/notice?page=1&cateType=13" style="color: black;"><i class="bi bi-dot"></i>전세임대</a>&nbsp;&nbsp;
+                        <%-- <a href="${path}/realEstate/notice?page=1&cateType=13" style="color: black;"><i class="bi bi-dot"></i>전세임대</a>&nbsp;&nbsp; --%>
                         <a href="${path}/realEstate/notice?page=1&cateType=14" style="color: black;"><i class="bi bi-dot"></i>집주인임대</a>
                     </div>
-                    <div class="tab-pane" id="tab-7">
-                        <a href="${path}/realEstate/notice?page=1&cateType=15" style="color: black;"><i class="bi bi-dot"></i>분양·(구)임대상가(입찰)</a>&nbsp;&nbsp;
+                    <div class="tab-pane <c:if test="${cateTab eq 'act7'}"> show active</c:if>" id="tab-7">
+                        <%-- <a href="${path}/realEstate/notice?page=1&cateType=15" style="color: black;"><i class="bi bi-dot"></i>분양·(구)임대상가(입찰)</a>&nbsp;&nbsp; --%>
                         <a href="${path}/realEstate/notice?page=1&cateType=16" style="color: black;"><i class="bi bi-dot"></i>임대상가(입찰)</a>&nbsp;&nbsp;
-                        <a href="${path}/realEstate/notice?page=1&cateType=17" style="color: black;"><i class="bi bi-dot"></i>임대상가(공모·심사)</a>&nbsp;&nbsp;
-                        <a href="${path}/realEstate/notice?page=1&cateType=18" style="color: black;"><i class="bi bi-dot"></i>임대상가(추첨)</a>
+                        <%-- <a href="${path}/realEstate/notice?page=1&cateType=17" style="color: black;"><i class="bi bi-dot"></i>임대상가(공모·심사)</a>&nbsp;&nbsp; --%>
+                        <%-- <a href="${path}/realEstate/notice?page=1&cateType=18" style="color: black;"><i class="bi bi-dot"></i>임대상가(추첨)</a> --%>
                     </div>
-                    <div class="tab-pane" id="tab-8">
+                    <div class="tab-pane <c:if test="${cateTab eq 'act8'}"> show active</c:if>" id="tab-8">
                     	<a href="${path}/realEstate/notice?page=1&cateType=21" style="color: black;"><i class="bi bi-dot"></i>기타</a>
                     </div>
                 </div>
@@ -151,8 +149,6 @@
 		                                        <c:if test="${searchType != 'department'}">
 		                                        	<option value="department">담당부서</option>
 		                                        </c:if>
-	                                        <%-- <option value="title" <c:if test="${searchType eq '제목'}">selected</c:if>>제목</option>
-	                                        <option value="department" <c:if test="${searchType eq '담당부서'}">selected</c:if>>담당부서</option> --%>
 	                                    </select>
 	                                <!-- </form> -->
 	                            </div>
@@ -257,7 +253,6 @@
                     </ul>
                 </nav>
                 <!-- 페이지넘버 끝 -->
-                <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
             </div>
         </section>
         

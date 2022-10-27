@@ -195,7 +195,7 @@
 <body>
 	
 	<!-- **************** MAIN CONTENT START **************** -->
-    <section class="position-relative overflow-hidden" style="background-image:url(${path}/resources/resources1b/images/03_realEstate/03_reales_calendar.jpeg); background-position: center; background-size: cover;">
+    <section class="position-relative overflow-hidden" style="background-image:url(${path}/resources/resources1b/images/03_realEstate/03_reales_calendar.jpeg); background-position: center; background-size: cover; height:350px;">
         <div class="bg-overlay bg-transparent opacity-5"></div>
         <!-- SVG decoration for curve -->
         <figure class="position-absolute bottom-0 left-0 w-100 d-md-block mb-n3 z-index-9">
@@ -204,18 +204,16 @@
             </svg>
         </figure>
 
-        <div class="container z-index-9 position-relative">
-
+        <div class="container z-index-9 position-relative mice">
             <div class="row py-0 align-items-center text-center text-sm-start">
                 <div class="col-sm-12 all-text-white mt-md-0">
-                    <div class="py-0 py-md-5 my-2">
-
+                    <div class="py-0 py-md-5 my-2 mt-0">
                         <!-- Badge with content -->
                         <a href="#" class="badge text-bg-warning mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Real Estate</a>
-
                         <!-- Title -->
-                        <h1 class="display-5 mice" style="color:black;">청약캘린더</h1>
-						<p style="color:black;">월별 청약 일정 정보를 한눈에 확인하실 수 있습니다.</p>
+                        <h1 class="text-white display-5 mice">청약캘린더</h1>
+                        <p class="text-white" style="font-size:20px">월별 청약 일정 정보를 한눈에 확인하실 수 있습니다.</p>
+
                     </div>
                 </div>
             </div>

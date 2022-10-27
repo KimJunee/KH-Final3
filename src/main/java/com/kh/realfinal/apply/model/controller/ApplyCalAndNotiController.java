@@ -31,37 +31,47 @@ public class ApplyCalAndNotiController {
 	
 	private final ApplyInfoService reService;
 	
-	
 	@GetMapping("/notice")
 	public String noticeList(Model model, 
 			@RequestParam(required = false) Map<String, String> param,
 			@RequestParam(required = false, defaultValue = "1") int page) {
-		String category = "";
-
+		
+		if("1".equals(param.get("cateType")) || "2".equals(param.get("cateType"))
+				|| "3".equals(param.get("cateType")) || "4".equals(param.get("cateType"))) {
+			model.addAttribute("cateTab", "act2");
+		} else if("19".equals(param.get("cateType"))) {
+			model.addAttribute("cateTab", "act3");
+		} else if("5".equals(param.get("cateType")) || "6".equals(param.get("cateType"))
+				|| "7".equals(param.get("cateType")) || "9".equals(param.get("cateType"))
+				|| "10".equals(param.get("cateType")) || "11".equals(param.get("cateType"))) {
+			model.addAttribute("cateTab", "act5");
+		} else if("12".equals(param.get("cateType")) || "14".equals(param.get("cateType"))) {
+			model.addAttribute("cateTab", "act6");
+		} else if("16".equals(param.get("cateType"))) {
+			model.addAttribute("cateTab", "act7");
+		} else if("21".equals(param.get("cateType"))) {
+			model.addAttribute("cateTab", "act8");
+		}
+		
 		PageInfo pageInfo = new PageInfo(page, 10, reService.getApplyNoticeCount(param, param.get("cateType")), 20);
 		
 		List<ApplyNotice> list = reService.getApplyNoticeList(pageInfo, param, param.get("cateType"));
 		
-		noticeExtracted(model, param, category, pageInfo, list);
+		noticeExtracted(model, param, pageInfo, list);
 		
 		return "realEstate/realEstateNotice";
 	}
 	
 	private void noticeExtracted(Model model,
 			Map<String, String> param, 
-			String category, 
 			PageInfo pageInfo, 
 			List<ApplyNotice> list) {
-		
-		
-		System.out.println("param 값 내용! " );
 		
 		int notiTotalCount = reService.getApplyNotiTotalCount();
 		model.addAttribute("list", list);
 		model.addAttribute("param", param);
 		model.addAttribute("pageInfo", pageInfo);
 		model.addAttribute("totalCount", notiTotalCount);
-//		System.out.println("catetype 뭘로 들어올까요?  " + category + ", 그 값이 필요! : " + param.get(category));
 		
 	}
 
@@ -75,8 +85,6 @@ public class ApplyCalAndNotiController {
 		model.addAttribute("notice", notice);
 		model.addAttribute("attach", attachList);
 		
-		System.out.println("첨부파일 : " + attachList.toString());
-		
 		return "realEstate/realEstateNoticeDetail";
 	}
 	
@@ -85,8 +93,8 @@ public class ApplyCalAndNotiController {
 			@RequestParam(required = false) Map<String, String> param,
 			@RequestParam(required = false) String type) {
 		
-		System.out.println("캘린더 type : " + type);
-		System.out.println("캘린더 param : " + param);
+//		System.out.println("캘린더 type : " + type);
+//		System.out.println("캘린더 param : " + param);
 		
 		List<AptLttotPblancDetail> list1 = reService.getAptLttotList(param); 
 		List<AptLttotPblancDetail> list2 = reService.getAptLttotList(param); 
@@ -154,7 +162,7 @@ public class ApplyCalAndNotiController {
 		
 		String[] check = request.getParameterValues("calendar");
 		String checkBox = check[0].toString();
-		System.out.println("check 테스트! : " + check[0].toString());
+//		System.out.println("check 테스트! : " + check[0].toString());
 		
 		List<AptLttotPblancDetail> list1 = reService.getAptLttotList(param); 
 		List<AptLttotPblancDetail> list2 = reService.getAptLttotList(param); 
