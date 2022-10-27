@@ -67,10 +67,17 @@ public class NewsServiceImpl implements NewsService {
 
 	// 상세보기
 	@Override
-	public News getNews(int no) {
-		News news = mapper.selectByNewsByNo(no);
+	public News getNews(int newsNo) {
+		News news = mapper.selectByNewsByNo(newsNo);
+		System.out.println(news.toString());
+		System.out.println("news hit : "+news.getHit());
 		news.setHit(news.getHit() + 1);
-		mapper.updateNewsHit(news);
+		System.out.println(news.toString());
+		
+		int result = mapper.updateNewsHit(news);
+		
+		System.out.println(result);
+		
 		return news;
 	}
 	

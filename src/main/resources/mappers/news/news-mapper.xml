@@ -89,6 +89,7 @@
 		    N.DESCRIPTION, 
 		    N.IMAGE, 
 		    N.CATEGORY,
+		    N.HIT,
 		    NR.N_REPLY_NO AS R_N_REPLY_NO, 
 		    NR.N_REPLY_CONTENT AS R_N_REPLY_CONTENT, 
 		    NR.NEWS_NO AS R_NEWS_NO, 
@@ -189,7 +190,7 @@
 	</delete>
 	
 	<!-- 조회수 증가 -->
-	<update id="updateNewsHit" parameterType="int">
+	<update id="updateNewsHit" parameterType="News">
 		UPDATE NEWS
 		SET HIT = #{hit}
 		WHERE NEWS_NO = #{newsNo}

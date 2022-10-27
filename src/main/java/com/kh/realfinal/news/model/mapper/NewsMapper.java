@@ -17,7 +17,7 @@ public interface NewsMapper {
 	int updateNewsHit(News news);
 	int insertNewsReply(NewsReply reply);
 	int editNewsReply(NewsReply reply);
-	int updateHit(News news);
+	int updateHit(News newsNo);
 	int deleteNewsReply(int no);
 	
 	public List<News> selectNewsForMainBig();		// 메인 큰사진 5개 출력
