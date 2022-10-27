@@ -59,7 +59,7 @@
                     <div class="row g-2">
                         <div class="col-12">
                             <div class="bg-white rounded-2 glightbox-bg p-1 position-relative">
-                                <img src="${path}/resources/resources1b/images/03_realEstate/pic01.png" style="width:650px; height:455px;" alt="">
+                                <img src="${path}/resources/resources1b/images/03_realEstate/apt_01.jpg" style="width:650px; height:455px;" alt="">
                                 </a>
                             </div>
                         </div>

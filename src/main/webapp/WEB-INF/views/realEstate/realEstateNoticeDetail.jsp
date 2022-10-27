@@ -169,16 +169,17 @@
 
 												<!-- Card body -->
 												<div class="card-body">
-													<h5 class="card-title mice">대곡역 두산위브 입주자 모집</h5>
-													<p class="mb-2">경기도 고양시 덕양구 호수로16번길 7,대곡역두산위브 202동</p>
+													<h5 class="card-title mice">서면경남아너스빌엔테로까사</h5>
+													<p class="mb-2">부산광역시 부산진구 부암동 80-53번지 일원</p>
 													<h6 class="mb-0">
-														<i class="bi bi-patch-check text-primary me-2"></i>주택구분 : 도시형/오피스텔/민간임대
+														<i class="bi bi-patch-check text-primary me-2"></i>공급규모 :
+														80세대
 													</h6>
 												</div>
 
 												<!-- Card footer -->
 												<div class="card-footer d-grid pt-0">
-													<a href="${path}/RealEstate/detail?type=U&no=2022950108"
+													<a href="${path}/RealEstate/detail?type=A&no=2022000678"
 														class="btn btn-sm btn-dark mb-0">View all details</a>
 												</div>
 											</div>
@@ -189,24 +190,24 @@
 												<!-- Image -->
 												<div class="position-relative">
 													<img class="card-img-top"
-														src="${path}/resources/resources1b/images/03_realEstate/apt_01.jpg"
+														src="${path}/resources/resources1b/images/03_realEstate/pic04.jpg"
 														style="width: 300px; height: 200px;" alt="">
 													<div class="card-img-overlay d-flex"></div>
 												</div>
 
 												<!-- Card body -->
 												<div class="card-body">
-													<h5 class="card-title mice">다산 와이시티 어반플랫 입주자 모집</h5>
-													<p class="mb-2">경기도 남양주시 다산동 668-1번지</p>
+													<h5 class="card-title mice">심곡본동 한울 에이치밸리움 디그니어스</h5>
+													<p class="mb-2">경기도 부천시 심곡본동 660-2번지</p>
 													<h6 class="mb-0">
 														<i class="bi bi-patch-check text-primary me-2"></i>공급규모 :
-														23세대
+														2세대
 													</h6>
 												</div>
 
 												<!-- Card footer -->
 												<div class="card-footer d-grid pt-0">
-													<a href="${path}/RealEstate/detail?type=U&no=2022950104"
+													<a href="${path}/RealEstate/detail?type=R&no=2022910329"
 														class="btn btn-sm btn-dark mb-0">View all details</a>
 												</div>
 											</div>
@@ -217,7 +218,7 @@
 												<!-- Image -->
 												<div class="position-relative">
 													<img class="card-img-top"
-														src="${path}/resources/resources1b/images/03_realEstate/apt_02.png"
+														src="${path}/resources/resources1b/images/03_realEstate/apt_01.jpg"
 														style="width: 300px; height: 200px;" alt="">
 													<div class="card-img-overlay d-flex"></div>
 												</div>
