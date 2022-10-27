@@ -272,7 +272,7 @@
 				
 				/* test!!!! */
 				/* alert(pageUrl); */
-				alert('currentURL1! : ' + currentURL1);
+				/* alert('currentURL1! : ' + currentURL1); */
 				if(currentURL1.indexOf('searchType') != -1) {
 					urlsplit1 = currentURL1.split('searchType=');
 					/* alert('split test1: ' + urlsplit1); */
@@ -290,7 +290,7 @@
 				/* alert(currentURL); */
 				if(currentURL.indexOf('cateType') != -1) {
 					urlsplit = currentURL.split('&');
-					alert('split test: ' + urlsplit);
+					/* alert('split test: ' + urlsplit); */
 					pageUrl = pageUrl + '&' + urlsplit[1];
 				}
 				/* alert(pageUrl); */
