@@ -471,7 +471,7 @@
                                 </div>
                             </div>
                             <div class="card-body px-0 pt-3 ">
-                                <h5 class="card-title "><a href="podcast-single.html " class="btn-link text-white fw-bold mice ">은행 창구에서 이것 보여주면 계좌 개설 가능</a></h5>
+                                <h5 class="card-title "><a href="https://www.youtube.com/watch?v=-B8F1x9o1VM&list=PL-xjmiIBCfhyVoE-dmIYrSD3NLxMt3xHh" class="btn-link text-white fw-bold mice ">은행 창구에서 이것 보여주면 계좌 개설 가능</a></h5>
                                 <p class="nav-item text-white mt-2 ">금융위원회</p>
                                 <p class="nav-item text-white " style="margin-top:-10px; ">2022.08.25</p>
                             </div>
@@ -484,7 +484,7 @@
                                 </div>
                             </div>
                             <div class="card-body px-0 pt-3 ">
-                                <h5 class="card-title "><a href="podcast-single.html " class="btn-link text-white fw-bold mice ">뭐니! 뭐니? 이건 Money 어디 숨어있니? 내 돈?</a></h5>
+                                <h5 class="card-title "><a href="https://www.youtube.com/watch?v=TPEFszY7j90&list=PL-xjmiIBCfhyVoE-dmIYrSD3NLxMt3xHh&index=2" class="btn-link text-white fw-bold mice ">뭐니! 뭐니? 이건 Money 어디 숨어있니? 내 돈?</a></h5>
                                 <p class="nav-item text-white mt-2 ">금융위원회</p>
                                 <p class="nav-item text-white " style="margin-top:-10px; ">2022.08.25</p>
                             </div>
@@ -497,7 +497,7 @@
                                 </div>
                             </div>
                             <div class="card-body px-0 pt-3 ">
-                                <h5 class="card-title "><a href="podcast-single.html " class="btn-link text-white fw-bold mice ">청년층에 유리한 조건으로 바뀐 "통합 채무조정 " [2022년 달라지는 금융제도]</a></h5>
+                                <h5 class="card-title "><a href="https://www.youtube.com/watch?v=zR0lM7o3AhU&list=PL-xjmiIBCfhyVoE-dmIYrSD3NLxMt3xHh&index=4" class="btn-link text-white fw-bold mice ">청년층에 유리한 조건으로 바뀐 "통합 채무조정 " [2022년 달라지는 금융제도]</a></h5>
                                 <p class="nav-item text-white mt-2 ">금융위원회</p>
                                 <p class="nav-item text-white " style="margin-top:-10px; ">2022.08.25</p>
                             </div>
@@ -510,7 +510,7 @@
                                 </div>
                             </div>
                             <div class="card-body px-0 pt-3 ">
-                                <h5 class="card-title "><a href="podcast-single.html " class="btn-link text-white fw-bold ">DSR 계산 어떻게? 금융위가 알려드립니다.[2022년 달라지는 금융제도]</a></h5>
+                                <h5 class="card-title "><a href="https://www.youtube.com/watch?v=CUSqakVeEB0&list=PL-xjmiIBCfhyVoE-dmIYrSD3NLxMt3xHh&index=6" class="btn-link text-white fw-bold ">DSR 계산 어떻게? 금융위가 알려드립니다.[2022년 달라지는 금융제도]</a></h5>
                                 <p class="nav-item text-white mt-2 ">금융위원회</p>
                                 <p class="nav-item text-white " style="margin-top:-10px; ">2022.08.25</p>
                             </div>
