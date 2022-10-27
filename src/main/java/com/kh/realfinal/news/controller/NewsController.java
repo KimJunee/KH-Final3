@@ -142,14 +142,25 @@ public class NewsController {
 		List<News> list = service.getNewsList(pageInfo, map);
 		
 		map = new HashMap<>();
+		map.put("category", NewsService.opinionStr);
+		pageInfo = new PageInfo(1, 10, service.getNewsCount(map), 10);
+		List<News> opinionList = service.getNewsList(pageInfo, map);
+		
+		map = new HashMap<>();
 		pageInfo = new PageInfo(1, 10, service.getNewsCount(map), 4);
 		List<News> sideList = service.getNewsList(pageInfo, map);
+		
+		map = new HashMap<>();
+		pageInfo = new PageInfo(1, 10, service.getNewsCount(map), 6);
+		List<News> sideOpinion = service.getNewsList(pageInfo, map);
 		
 		System.out.println(searchKeyword);
 		System.out.println(list);
 		
 		model.addAttribute("totalCount", totalCount);
 		model.addAttribute("list", list);
+		model.addAttribute("opinionList", opinionList);
+		model.addAttribute("sideOpinion", sideOpinion);
 		model.addAttribute("sideList", sideList);
 		model.addAttribute("param", param);
 		model.addAttribute("pageInfo", pageInfo);

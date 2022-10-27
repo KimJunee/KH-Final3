@@ -154,31 +154,15 @@ Main content START -->
                                 </div>
                                 <!-- Recent post widget END -->
                                 <h4 class="mt-5 mb-3 mice">인기<a href="#!" class="text-primary">오피니언</a></h4>
+                                <c:if test="${!empty opinionList}">
+                                <c:forEach var="opinion" items="${opinionList}" varStatus="status" step="1" begin="1" end="6">
                                 <div class="d-flex position-relative mb-3">
-                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 fc-custom">01</span>
-                                    <h6><a href="#" class="stretched-link text-reset btn-link">매달 최대 20만원 월세 지원받는 법!</a></h6>
+                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 fc-custom">0${status.count}</span>
+                                    <h6><a href="${path}/news/post?newsNo=${opinion.newsNo}" class="stretched-link text-reset btn-link">${opinion.title}</a></h6>
                                     <br>
                                 </div>
-                                <div class="d-flex position-relative mb-3">
-                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 fc-custom">02</span>
-                                    <h6><a href="#" class="stretched-link text-reset btn-link">한덕수 "강제징용 해결 등 소통 공감"</a></h6>
-                                </div>
-                                <div class="d-flex position-relative mb-3">
-                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 fc-custom">03</span>
-                                    <h6><a href="#" class="stretched-link text-reset btn-link">해군, 5년 만에 日해상자위대와 군사훈련 재개</a></h6>
-                                </div>
-                                <div class="d-flex position-relative mb-3">
-                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 fc-custom">04</span>
-                                    <h6><a href="#" class="stretched-link text-reset btn-link">감귤 선글라스 쓴 이재명 대표</a></h6>
-                                </div>
-                                <div class="d-flex position-relative mb-3">
-                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 fc-custom">05</span>
-                                    <h6><a href="#" class="stretched-link text-reset btn-link">북한, 동해상에 단거리 탄도미사일 2발 발사</a></h6>
-                                </div>
-                                <div class="d-flex position-relative mb-3">
-                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 fc-custom">06</span>
-                                    <h6><a href="#" class="stretched-link text-reset btn-link">정부, 對美 외교에 80억 쏟아<br> 붓고도 IRA 몰랐다</a></h6>
-                                </div>
+                                </c:forEach>
+                                </c:if>
                             </div>
                         </div>
                     </div>
