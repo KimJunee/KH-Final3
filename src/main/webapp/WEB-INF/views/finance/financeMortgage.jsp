@@ -327,7 +327,7 @@
                                                         <td><c:out value="${status.count + (pageInfo.currentPage - 1) * 10}"/></td>
                                                         <td>
                                                             <div class="row">
-                                                                <div class="col-4" style="padding-right: 0px;">
+                                                                <div class="col-2">
                                                                     <div class="align-items-center">
                                                                         <!-- 금융사 Image -->
                                                                         <div class="avatar avatar-md">
@@ -367,13 +367,13 @@
 	                                                                            <img src="${path}/resources/resources1b/images/02_fin_financePro/kebBank.png" class="avatar-img" alt="">
 	                                                                        </c:when>
 	                                                                        <c:otherwise>
-	                                                                            <img src="${path}/resources/resources1b/images/02_fin_financePro/iconBank.png" class="avatar-img" alt="">	                                                                        
+	                                                                            <img src="${path}/resources/resources1b/images/02_fin_financePro/iconBank.png" class="avatar-img avatar-sm mt-1" style="margin-right:10px;" alt="">	                                                                        
 	                                                                        </c:otherwise>
                                                                         </c:choose>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-8" style="text-align: left; padding-left: 0px;">
+                                                                <div class="col-10" style="text-align: left; padding-left: 0px;">
                                                                     <div class="mb-0 mt-1 ms-2">
                                                                         <!-- 금융상품명 -->
                                                                         <h5 class="mb-0">
@@ -395,9 +395,9 @@
                                                             </div>
                                                         </td>
                                                         <!-- 금융기관명 -->
-                                                        <td style="text-overflow:ellipsis;width:120px;overflow:hidden;"><c:out value="${mortgage.korCoNm}"/></td>
+                                                        <td style="overflow: hidden;height: 24px;text-overflow: ellipsis"><c:out value="${mortgage.korCoNm}"/></td>
                                                         <!-- 가입방법 -->
-                                                        <td style="text-overflow:ellipsis;width:120px;overflow:hidden;"><c:out value="${mortgage.joinWay}"/></td>
+                                                        <td><c:out value="${mortgage.joinWay}"/></td>
                                                         <!-- 적립,금리유형 -->
                                                         <td>
                                                         	<c:forEach var="mortgageOption" items="${mortgage.mortgageOptionList}" begin="0" end="0" step="1"> 
