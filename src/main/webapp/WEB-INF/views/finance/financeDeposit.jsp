@@ -277,23 +277,22 @@
                             <div class="card-header border-bottom p-3">
                                 <!-- Search and select START -->
                                 <div class="row g-3 align-items-center justify-content-between">
-								<form action="${path}/finance/depositMain" method="get" class="rounded position-relative">
-                                	<div class="row">
-                                		<div class="col-2">
-                                        <!-- Short by filter -->
-                                            <select id="sort" name="sort" class="form-select z-index-9 bg-transparent" aria-label=".form-select-sm">
-	                                            <option value="sortBy" <c:if test="${param.sort == 'sortBy'}">selected</c:if>>Sort by</option>
-	                                            <option value="intRate" <c:if test="${param.sort == 'intRate'}">selected</c:if>>금리순</option>
-	                                            <option value="prtNm" <c:if test="${param.sort == 'prtNm'}">selected</c:if>>금융상품순</option>
-                                            </select>
-                                    	</div>
-                                    	<div class="col-5"></div>         
-                                    	<div class="col-5">
-                                            <input id="searchValue" name="searchValue" class="form-control bg-transparent" type="search" style="padding-right:25px;" placeholder="금융회사명을 입력하세요!" aria-label="Search" value="${param.searchValue}" />
-                                            <button class="btn bg-transparent border-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6"></i></button>
-                                    	</div>                      		
-                                	</div>
-                                </form>
+                               		<div class="col-2">
+                                       <!-- Short by filter -->
+	                                    <select id="sort" name="sort" class="form-select z-index-9 bg-transparent" aria-label=".form-select-sm" onchange="movePage('${path}/finance/depositMain?page=${pageInfo.currentPage}');">
+		                                    <option value="sortBy" <c:if test="${param.sort == 'sortBy'}">selected</c:if>>Sort by</option>
+		                                    <option value="intRate" <c:if test="${param.sort == 'intRate'}">selected</c:if>>금리순</option>
+		                                    <option value="prtNm" <c:if test="${param.sort == 'prtNm'}">selected</c:if>>금융상품순</option>
+	                                    </select>
+                                   	</div>
+                                   	<div class="col-5"></div>         
+                                   	<div class="col-5">
+										<form action="${path}/finance/depositMain" method="get" class="rounded position-relative">
+											<input type="hidden" name="sort" value="${param.sort}">
+		                                    <input id="searchValue" name="searchValue" class="form-control bg-transparent" type="search" style="padding-right:25px;" placeholder="금융회사명을 입력하세요!" aria-label="Search" value="${param.searchValue}" />
+		                                    <button class="btn bg-transparent border-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6"></i></button>
+	                               		</form>
+                                   	</div>                      		
                                 </div>
                             </div>
                             <!-- 금융상품 검색 List START -->
@@ -395,7 +394,7 @@
                                                         <!-- 금융기관명 -->
                                                         <td><c:out value="${fixDeposit.korCoNm}"/></td>
                                                         <!-- 가입방법 -->
-                                                        <td><c:out value="${fixDeposit.joinWay}"/></td>
+                                                        <td  style="overflow:hidden;width:120px;text-overflow:ellipsis"><c:out value="${fixDeposit.joinWay}"/></td>
                                                         <!-- 적립,금리유형 -->
                                                         <td>
                                                         	<c:forEach var="depositOption" items="${fixDeposit.fixOptionList}"  begin="0" end="0" step="1">               

@@ -279,23 +279,22 @@
                                 <!-- Search and select START -->
                                 <div class="row g-3 align-items-center justify-content-between">
                                     <!-- Search bar -->
-                               	<form action="${path}/finance/mortgageMain" method="get" class="rounded position-relative">
-                                    <div class="row">
-	                                    <div class="col-2">
-	                                        <!-- Short by filter -->                                     
-		                                    <select id="sort" name="sort" class="form-select z-index-9 bg-transparent" aria-label=".form-select-sm">
-	                                            <option value="sortBy" <c:if test="${param.sort == 'sortBy'}">selected</c:if>>Sort by</option>
-	                                            <option value="intRate" <c:if test="${param.sort == 'intRate'}">selected</c:if>>금리순</option>
-	                                            <option value="prtNm" <c:if test="${param.sort == 'prtNm'}">selected</c:if>>금융상품순</option>
-		                                    </select>
-	                                    </div>
-	                                    <div class="col-5"></div>
-	                                    <div class="col-5">
-	                                        <input id="searchValue" name="searchValue" class="form-control bg-transparent" type="search" style="padding-right:25px;" placeholder="금융회사명을 입력하세요!" aria-label="Search" value="${param.searchValue}">
-	                                        <button class="btn bg-transparent border-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6"></i></button>                                       
-	                                    </div>
-                                    </div>
-                                </form>
+	                                <div class="col-2">
+	                                    <!-- Short by filter -->                                     
+	                                 	<select id="sort" name="sort" class="form-select z-index-9 bg-transparent" onchange="movePage('${path}/finance/mortgageMain?page=${status.current}');" aria-label=".form-select-sm">
+	                                        <option value="sortBy" <c:if test="${param.sort == 'sortBy'}">selected</c:if>>Sort by</option>
+	                                        <option value="intRate" <c:if test="${param.sort == 'intRate'}">selected</c:if>>금리순</option>
+	                                        <option value="prtNm" <c:if test="${param.sort == 'prtNm'}">selected</c:if>>금융상품순</option>
+	                                 	</select>
+	                                </div>
+	                                <div class="col-5"></div>
+	                                <div class="col-5">
+	                          			<form action="${path}/finance/mortgageMain" method="get" class="rounded position-relative">
+	                          				<input type="hidden" name="sort" value="${param.sort}">
+	                                    	<input id="searchValue" name="searchValue" class="form-control bg-transparent" type="search" style="padding-right:25px;" placeholder="금융회사명을 입력하세요!" aria-label="Search" value="${param.searchValue}">
+	                                    	<button class="btn bg-transparent border-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6"></i></button>                                       
+	                           			</form>
+	                                </div>
                                 </div>
                             </div>
                             <!-- 금융상품 검색 List START -->
