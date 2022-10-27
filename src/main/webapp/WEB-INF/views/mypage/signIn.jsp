@@ -93,8 +93,8 @@
                         <button class="btn btn-lg btn-primary w-100 mb-2" type="submit">Sign In</button>
                         <h2 class="h6 text-center pt-3 pt-lg-4 mb-4">Or sign in with your social account</h2>
                     </form>
-                        <div class="row row-cols-1 row-cols-sm-2 gy-3">
-                            <button onclick="location.href='https://kauth.kakao.com/oauth/authorize?client_id=bb1b195fa1cb4272d2535902db3d9984&redirect_uri=http://localhost/realfinal/kakao/callback&response_type=code'" class="btn btn-lg btn-kakao w-100" style="background-color: #FEE500; border-color: #FEE500; border-radius: 12px;" type="button" id="kakaologin"><img src="${path}/resources/resources2a/assets/img/account/kakao_logo01.png" width: 50%; height: 50%;>&nbsp Login with Kakao</button>
+                        <div class="pb-3 mb-3 row-cols-3 row-cols-sm-2 gy-3">
+                            <button onclick="location.href='https://kauth.kakao.com/oauth/authorize?client_id=bb1b195fa1cb4272d2535902db3d9984&redirect_uri=http://localhost/realfinal/kakao/callback&response_type=code'" class="btn btn-lg btn-primary w-100 mb-2" style="background-color: #FEE500; border-color: #FEE500; border-radius: 12px; height:57px;" type="button" id="kakaologin" ><img src="${path}/resources/resources2a/assets/img/account/kakao_logo01.png" width: 50%; height: 50%;>&nbsp Login with Kakao</button>
                         </div>
                 </div>
                 <!-- <script type="text/javascript" src="https://developers.kakao.com/sdk/js/kakao.min.js" charset="utf-8"></script>
