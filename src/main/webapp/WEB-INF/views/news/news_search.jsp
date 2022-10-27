@@ -139,49 +139,18 @@ Main content START -->
                                 <div class="col-12 col-sm-6 col-lg-12">
                                     <h4 class="mt-4 mb-3">최근 기사</h4>
                                     <!-- Recent post item -->
+                                    <c:forEach var="sideList" items="${sideList}">
                                     <div class="card mb-3">
                                         <div class="row g-3">
                                             <div class="col-4">
-                                                <img class="rounded" src="${path}/resources/resources1b/images/05_news/news01.jpg" style="height: 65px;" alt="">
+                                                <img class="rounded" src="${sideList.image}" style="height: 65px;" alt="">
                                             </div>
                                             <div class="col-8">
-                                                <h6><a href="post-single-2.html" class="btn-link stretched-link text-reset fw-bold">25일까지 예정부가세 납부…코로나·태풍피해 사업자는 직권제외</a></h6>
+                                                <h6><a href="${path}/news/post?newsNo=${sideList.newsNo}" class="btn-link stretched-link text-reset fw-bold">${sideList.title}</a></h6>
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- Recent post item -->
-                                    <div class="card mb-3">
-                                        <div class="row g-3">
-                                            <div class="col-4">
-                                                <img class="rounded" src="${path}/resources/resources1b/images/05_news/news02.jpg" style="height: 65px;" alt="">
-                                            </div>
-                                            <div class="col-8">
-                                                <h6><a href="post-single-2.html" class="btn-link stretched-link text-reset fw-bold">경상수지 체질 개선에 총력…내년 초까지 18개 신규대책 마련</a></h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Recent post item -->
-                                    <div class="card mb-3">
-                                        <div class="row g-3">
-                                            <div class="col-4">
-                                                <img class="rounded" src="${path}/resources/resources1b/images/05_news/news03.jpg" style="height: 65px;" alt="">
-                                            </div>
-                                            <div class="col-8">
-                                                <h6><a href="post-single-2.html" class="btn-link stretched-link text-reset fw-bold">“우선분양 받으려면 3억원 내세요”… 장기민간임대 ‘매매예약금’ 논란</a></h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Recent post item -->
-                                    <div class="card mb-3">
-                                        <div class="row g-3">
-                                            <div class="col-4">
-                                                <img class="rounded" src="${path}/resources/resources1b/images/05_news/news04.jpg" style="height: 65px;" alt="">
-                                            </div>
-                                            <div class="col-8">
-                                                <h6><a href="post-single-2.html" class="btn-link stretched-link text-reset fw-bold">“매매계약 기억 가물”…'5억이 3억대' 노도강 아파트 '거래' 단절</a></h6>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    </c:forEach>
                                 </div>
                                 <!-- Recent post widget END -->
                                 <h4 class="mt-5 mb-3 mice">인기<a href="#!" class="text-primary">오피니언</a></h4>
