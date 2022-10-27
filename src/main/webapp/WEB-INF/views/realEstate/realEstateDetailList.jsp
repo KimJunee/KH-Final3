@@ -109,8 +109,6 @@
 												name="locationType" id="amenitiesType4" value="대구" /> <label
 												class="form-check-label" for="amenitiesType4">대구</label>
 										</div>
-										<!-- Collapse body -->
-										<div class="multi-collapse collapse" id="amenitiesCollapes">
 											<!-- Checkbox -->
 											<div class="form-check">
 												<input class="form-check-input" type="checkbox"
@@ -139,6 +137,8 @@
 													name="locationType" id="amenitiesType8" value="울산" /> <label
 													class="form-check-label" for="amenitiesType8">울산</label>
 											</div>
+										<!-- Collapse body -->
+										<div class="multi-collapse collapse" id="amenitiesCollapes">
 											<!-- Checkbox -->
 											<div class="form-check">
 												<input class="form-check-input" type="checkbox"
@@ -257,40 +257,6 @@
 								</div>
 								<!------------- filter 3 END ------------->
 
-								<hr class="my-0">
-								<!-- Divider -->
-
-								<!------------- filter 4 START ------------->
-								<div class="card card-body">
-									<!-- Title -->
-									<h6 class="mb-3">청약일정</h6>
-
-									<!-- Checkbox -->
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox"
-											${fn:contains(scheTypeList, '분양중') ? 'checked' : ''}
-											id="amenitiesType23" name="scheType" value="분양중"> <label
-											class="form-check-label" for="amenitiesType23">분양중</label>
-									</div>
-									<!-- Checkbox -->
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox"
-											${fn:contains(scheTypeList, '분양예정') ? 'checked' : ''}
-											id="amenitiesType24" name="scheType" value="분양예정"> <label
-											class="form-check-label" for="amenitiesType24">분양예정</label>
-									</div>
-									<!-- Checkbox -->
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox"
-											${fn:contains(scheTypeList, '분양완료') ? 'checked' : ''}
-											id="amenitiesType25" name="scheType" value="분양완료"> <label
-											class="form-check-label" for="amenitiesType25">분양완료</label>
-									</div>
-								</div>
-								<!------------- filter 4 END ------------->
-
-								<hr class="my-0">
-								<!-- Divider -->
 
 								<!-- Form End -->
 							</div>

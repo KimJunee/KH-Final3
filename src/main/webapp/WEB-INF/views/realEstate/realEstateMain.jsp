@@ -214,13 +214,13 @@
 						<c:if test="${not empty estateList}">
 							<c:forEach var="board" items="${estateList}" varStatus="status">
 								<div class="col-12 ">
-									<div class="d-flex align-items-center">
+									<div class="d-flex align-items-center my-2">
 										<div class="avatar avatar-xs">
 											<img class="avatar-img rounded-circle"
 												src="${path}/resources/resources1b/images/avatar_m1.png"
 												alt="avatar">
 										</div>
-										<div class="ms-3">
+										<div>
 											<!-- 제목 -->
 											<h6 class="mb-0">
 												<a href="${path}/board/BoardDetail?board_no=${board.board_no}"><c:out value="${board.board_title}" /></a>
@@ -230,7 +230,7 @@
 											<span class="ms-0"><c:out
 													value="${board.user_nickName}" /></span>
 											<!-- 작성일 -->
-											<p class="small mb-0">
+											<p class="small mb-3">
 												<fmt:formatDate type="date" value="${board.board_register}" />
 											</p>
 										</div>
@@ -238,7 +238,7 @@
 								</div>
 								<!-- 구분선 -->
 								<c:if test="${!status.last}">
-									<hr class="my-3 ">
+									<hr>
 								</c:if>
 							</c:forEach>
 						</c:if>
