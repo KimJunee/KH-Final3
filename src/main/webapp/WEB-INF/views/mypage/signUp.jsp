@@ -93,8 +93,8 @@
                         <!-- 약관동의 -->
                         <div class="pb-4">
                             <div class="form-check my-2">
-                                <input class="form-check-input" type="checkbox" id="terms">
-                                <label class="form-check-label ms-1" for="terms"><a href="#">개인정보 제3자 제공 및 약관에 동의합니다.</a></label>
+                                <input class="form-check-input" type="checkbox" id="terms" checked>
+                                <label class="form-check-label ms-1" for="terms"><a>개인정보 제3자 제공 및 약관에 동의합니다.</a></label>
                             </div>
                         </div>
                         <!-- 회원가입 버튼 -->

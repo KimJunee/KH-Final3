@@ -42,7 +42,7 @@
                                        </div>
                                     <!-- Card info -->
                                     <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
-                                        <li class="nav-item"><fmt:formatDate type="both" value="${topOpinion.pubDate}"/></li>
+                                        <li class="nav-item"><fmt:formatDate pattern="yyyy. MM. dd. HH:mm" value="${topOpinion.pubDate}"/></li>
                                     </ul>
                                 </div>
                             </div>
@@ -139,7 +139,7 @@
 	                                        <div>
 	                                            <h5 class="mb-1 mice"><a href="#" class="stretched-link text-reset btn-link">${list.columnist}</a></h5>
 	                                            <ul class="nav align-items-center small">
-	                                                <li class="nav-item me-3"><fmt:formatDate type="both" value="${list.pubDate}"/></li>
+	                                                <li class="nav-item me-3"><fmt:formatDate pattern="yyyy. MM. dd. HH:mm" value="${list.pubDate}"/></li>
 	                                            </ul>
 	                                        </div>
 	                                    </div>

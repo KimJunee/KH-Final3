@@ -87,7 +87,7 @@
                             <form-check class="my-1">
                                 <input class="form-check-input" type="checkbox" id="keep-signedin">
                                 <label class="form-check-label ms-1" for="keep-signedin">아이디 저장</label>
-                            </form-check><a class="fs-sm fw-semibold text-decoration-none my-1" href="account-password-recovery.html">비밀번호를 잊었어요.</a>
+                            </form-check><a class="fs-sm fw-semibold text-decoration-none my-1" href="${path}/error">비밀번호를 잊었어요.</a>
                         </div>
                         <!-- 회원가입 버튼 -->
                         <button class="btn btn-lg btn-primary w-100 mb-2" type="submit">Sign In</button>

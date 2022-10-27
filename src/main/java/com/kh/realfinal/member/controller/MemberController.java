@@ -183,4 +183,11 @@ public class MemberController {
 		model.addAttribute("script", "self.close()");
 		return "common/msg";
 	}
+	
+	// 마이페이지 회원정보확인
+	@GetMapping("/error")
+	public String goerror() {
+		log.info("에러페이지 가기");
+		return "common/error";
+	}
 }
