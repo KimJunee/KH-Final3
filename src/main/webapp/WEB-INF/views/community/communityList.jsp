@@ -154,6 +154,7 @@
                                             	<c:forEach var="board" items="${list}" begin="0" end="0" step="1" varStatus="status">
                                             		<!-- <div><c:out value="${board.board_list_no}"/></div> -->
 	                                                <form action="${path}/board/list" method="get" class="rounded position-relative">
+	                                                	<input type="hidden" name="sort" value="${param.sort}">
 	                                                	<input type="hidden" id="type" name="type" value="${board.board_list_no}" />
 	                                                    <input class="form-control pe-5 bg-transparent" id="searchValue" name="searchValue" type="${board.board_list_no}" placeholder="Search" aria-label="Search" value="${param.searchValue}" />
 	                                                    <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
@@ -164,7 +165,7 @@
                                             <div class="col-md-3">
                                                 <!-- Short by filter -->
                                                 <form>
-                                                    <select name="sort" id="sort" class="form-select z-index-9 bg-transparent" aria-label=".form-select-sm" onchange="changeSort('${path}/board/searchList?')">
+                                                    <select name="sort" id="sort" class="form-select z-index-9 bg-transparent" aria-label=".form-select-sm" onchange="movePage('${path}/board/list?type=${board_list_no}&page=${status.current}');">
 										                <option value="DESC" <c:if test="${param.sort!=null and param.sort.equals('DESC')}">selected</c:if>>최근 순 정렬</option>
 										                <option value="ASC" <c:if test="${param.sort!=null and param.sort.equals('ASC')}">selected</c:if>>오래된 순 정렬</option>
 									                </select>
