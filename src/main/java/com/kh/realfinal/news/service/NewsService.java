@@ -16,7 +16,7 @@ public interface NewsService {
 	int saveNews(News news);
 	List<News> getNewsList(PageInfo pageinfo, Map<String, String> map);
 	int getNewsCount(Map<String, String> map);
-	News getNews(int no);
+	News getNews(int newsNo);
 	int saveReply(NewsReply reply);
 	int editReply(NewsReply reply);
 	int deleteReply(int no);

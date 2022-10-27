@@ -260,7 +260,7 @@
                     <div class="col-lg-4">
                         <h3 class="mb-3 mice">금융</h3>
                         <div class="bg-light rounded-3">
-                        	<c:forEach var="categoryList" items="${categoryList}"  begin="0" end="0" step="5" varStatus="status">
+                        	<c:forEach var="categoryList" items="${categoryList}" varStatus="status">
                         		<c:if test="${categoryList.category eq 'economy'}">
 		                            <div class="card bg-light mb-3">
 		                                <div class="card-body">
@@ -292,20 +292,24 @@
                     <div class="col-md-4">
                         <!-- Title -->
                         <h4 class="mb-3 mice">경제</h4>
-                        <!-- Card Item START -->
-                        <div class="card mb-3">
-                            <div class="row g-3">
-                                <div class="col-4">
-                                    <!-- Card image -->
-                                    <img class="rounded-0 grayscale" src="https://dimg.donga.com/i/150/150/90/wps/NEWS/IMAGE/2022/10/24/116117045.2.jpg" style="width:160px; height:80px;" alt="">
-                                </div>
-                                <div class="col-8">
-                                    <h5><a href="post-single-5.html" class="btn-link stretched-link text-reset">수도권 아파트 7.8만가구, 2년전 전셋값보다 하락…역전세 우려 ↑</a></h5>
-                                    <!-- Card info -->
-                                    <ul class="nav nav-divider align-items-center mt-3 small"></ul>
-                                </div>
-                            </div>
-                        </div>
+                        	<!-- Card Item START -->
+	                        <c:forEach var="categoryList" items="${categoryList}" varStatus="status">
+                       			<c:if test="${categoryList.category eq 'opinion'}">
+			                        <div class="card mb-3">
+			                            <div class="row g-3">
+			                                <div class="col-4">
+			                                    <!-- Card image -->
+			                                    <img class="rounded-0 grayscale" src="${categoryList.image}" style="width:160px; height:80px;">
+			                                </div>
+			                                <div class="col-8">
+			                                    <h5><a href="${path}/news/post?newsNo=${categoryList.newsNo}" class="btn-link stretched-link text-reset">${categoryList.title}</a></h5>
+			                                    <!-- Card info -->
+			                                    <ul class="nav nav-divider align-items-center mt-3 small"></ul>
+			                                </div>
+			                            </div>
+			                        </div>
+		                        </c:if>
+                            </c:forEach>
                         <c:if test="${!empty economyList}">
 	                        <!-- Card Item END -->
 	                        <c:forEach var="economy" items="${economyList}" begin="1" end="4">
@@ -323,57 +327,61 @@
                     <div class="col-md-4">
                         <!-- Title -->
                         <h4 class="mb-3 mice">정치</h4>
-                        <!-- Card Item START -->
-                       	<c:if test="${!empty politicsList}">
-                        <div class="card mb-3">
-                            <div class="row g-3">
-                                <div class="col-4">
-                                    <!-- Card image -->
-                                    <img style="height:80px;" class="rounded-0 grayscale" src="https://dimg.donga.com/i/150/150/90/wps/NEWS/IMAGE/2022/10/24/116126125.2.jpg" alt="">
-                                </div>
-                                <div class="col-8">
-                                    <h5><a href="post-single-5.html" class="btn-link stretched-link text-reset">한동훈 “로스쿨, 이미 공고한 성…문제 의식 갖고 여러 방면 연구”</a></h5>
-                                    <!-- Card info -->
-                                    <ul class="nav nav-divider align-items-center mt-3 small">
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Card Item END -->
-                       	<c:forEach var="politics" items="${politicsList}" begin="1" end="4">
-                        <!-- Card Item START -->
-                        <div class="card mb-3">
-                            <h6><a href="${path}/news/post?newsNo=${politics.newsNo}" class="btn-link stretched-link text-reset">${politics.title}</a></h6>
-                            <!-- Card info -->
-                            <ul class="nav nav-divider align-items-center mt-1 small"></ul>
-                        </div>
-                        <!-- Card Item END -->
-                        <!-- Divider  -->
-                        <div class="border-bottom border-secondary opacity-2 mt-2 mb-2"></div>
-                        </c:forEach>
-                        </c:if>
-                    </div>
+	                        <!-- Card Item START -->
+	                        <c:forEach var="categoryList" items="${categoryList}" varStatus="status">
+                       			<c:if test="${categoryList.category eq 'politics'}">
+			                        <div class="card mb-3">
+			                            <div class="row g-3">
+			                                <div class="col-4">
+			                                    <!-- Card image -->
+			                                    <img style="height:80px;" class="rounded-0 grayscale" src="${categoryList.image}">
+			                                </div>
+			                                <div class="col-8">
+			                                    <h5><a href="${path}/news/post?newsNo=${categoryList.newsNo}" class="btn-link stretched-link text-reset">${categoryList.title}</a></h5>
+			                                    <!-- Card info -->
+			                                    <ul class="nav nav-divider align-items-center mt-3 small"></ul>
+			                                </div>
+			                            </div>
+			                        </div>
+		                        </c:if>
+                            </c:forEach>
+                        	<!-- Card Item END -->
+	                       	<c:if test="${!empty politicsList}">
+	                       		<c:forEach var="politics" items="${politicsList}" begin="1" end="4">
+			                        <!-- Card Item START -->
+			                        <div class="card mb-3">
+			                            <h6><a href="${path}/news/post?newsNo=${politics.newsNo}" class="btn-link stretched-link text-reset">${politics.title}</a></h6>
+			                            <!-- Card info -->
+			                            <ul class="nav nav-divider align-items-center mt-1 small"></ul>
+			                        </div>
+			                        <!-- Card Item END -->
+			                        <div class="border-bottom border-secondary opacity-2 mt-2 mb-2"></div>
+		                        </c:forEach>
+	                        </c:if>
+	                    </div>
                     <div class="col-md-4">
                         <!-- Title -->
                         <h4 class="mb-3 mice">사회</h4>
-                        <!-- Card Item START -->
-                        <c:if test="${!empty nationalList}">
-                        <div class="card mb-3">
-                            <div class="row g-3">
-                                <div class="col-4">
-                                    <!-- Card image -->
-                                    <img class="rounded-0 grayscale" src="https://dimg.donga.com/i/150/150/90/wps/NEWS/IMAGE/2022/10/24/116125933.2.jpg" alt="">
-                                </div>
-                                <div class="col-8">
-                                    <h5><a href="post-single-5.html" class="btn-link stretched-link text-reset">	
-                                        엔데믹으로 출근 재개? 재택근무 정착한 패션업계</a></h5>
-                                    <!-- Card info -->
-                                    <ul class="nav nav-divider align-items-center mt-3 small">
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+	                        <!-- Card Item START -->
+	                        <c:forEach var="categoryList" items="${categoryList}" varStatus="status">
+	                   			<c:if test="${categoryList.category eq 'national'}">
+			                        <div class="card mb-3">
+			                            <div class="row g-3">
+			                                <div class="col-4">
+			                                    <!-- Card image -->
+			                                    <img class="rounded-0 grayscale" src="${categoryList.image}">
+			                                </div>
+			                                <div class="col-8">
+			                                    <h5><a href="${path}/news/post?newsNo=${categoryList.newsNo}" class="btn-link stretched-link text-reset">${categoryList.title}</a></h5>
+			                                    <!-- Card info -->
+			                                    <ul class="nav nav-divider align-items-center mt-3 small"></ul>
+			                                </div>
+			                            </div>
+			                        </div>
+                       			</c:if>
+                            </c:forEach>
                         <!-- Card Item END -->
+                        <c:if test="${!empty nationalList}">
                         <!-- Card Item START -->
                         <c:forEach var="national" items="${nationalList}" begin="1" end="4">
                         <div class="card mb-3">

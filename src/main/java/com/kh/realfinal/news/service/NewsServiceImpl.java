@@ -69,14 +69,7 @@ public class NewsServiceImpl implements NewsService {
 	@Override
 	public News getNews(int newsNo) {
 		News news = mapper.selectByNewsByNo(newsNo);
-		System.out.println(news.toString());
-		System.out.println("news hit : "+news.getHit());
 		news.setHit(news.getHit() + 1);
-		System.out.println(news.toString());
-		
-		int result = mapper.updateNewsHit(news);
-		
-		System.out.println(result);
 		
 		return news;
 	}
@@ -99,7 +92,7 @@ public class NewsServiceImpl implements NewsService {
 		return mapper.deleteNewsReply(no);
 	}
 
-	// 메인 큰 뉴스 5개
+	// 메인 큰 뉴스 1개
 	@Override
 	public List<News> getSelectNewsForMainBig() {
 		return mapper.selectNewsForMainBig();

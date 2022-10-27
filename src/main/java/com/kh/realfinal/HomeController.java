@@ -71,6 +71,7 @@ public class HomeController {
 	
 	@RequestMapping("/main.do")
 	public String mainGo(Model model) {
+		
 		List<IndexPrice> list1 = service.getIndexKospiList();
 		List<IndexPrice> list2 = service.getIndexKosdaqList();
 		List<Board> list3 = boardService.getSideBoard();
