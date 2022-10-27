@@ -564,8 +564,8 @@
 	year = date.getFullYear();
 	month = date.getMonth() + 1;
 	day = date.getDate();
-	document.getElementById("current_date").innerHTML = year + "-" + month
-			+ "-" + day;
+	document.getElementById("current_date").innerHTML = year + "." + month
+			+ "." + day;
 </script>
     <!-- =======================오피니언 끝 =======================-->
 	</main>
