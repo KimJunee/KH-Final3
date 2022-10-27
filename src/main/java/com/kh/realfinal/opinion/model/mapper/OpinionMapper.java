@@ -17,7 +17,8 @@ public interface OpinionMapper {
 	
 	public Opinion selectOpinionMain1();			// 오피니언 메인 상단 1개 출력
 	public List<Opinion> selectOpinionMainSide();		// 오피니언 메인 사이드 4개 출력
-	public List<Opinion> selectEditorialist();			// 메인, 오피니언 메인 10개 출력
+	public List<Opinion> selectEditorialistAll();		// 오피니언 메인 컬럼니스트 출력
+	public List<Opinion> selectEditorialist();			// 메인 10개 출력
 	public List<Opinion> selectOpinionForPolitics();	// 정치 사이드 2개 출력
 	int updateOpinionHit(Opinion opinion);
 	int insertOpinionReply(OpinionReply reply);

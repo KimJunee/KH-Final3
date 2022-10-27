@@ -35,10 +35,6 @@ public class OpinionController {
 	@Autowired
 	private BoardService boardService;
 	
-	@Autowired
-	private OpinionService opinionService;
-	private final int Opinion = 1;
-	
 	@RequestMapping("/opinion/insertOpinion")
 	public String initOpinionData(Model model) {
 		List<Opinion> list = OpinionRss.callOpinionListByXML();
@@ -74,7 +70,7 @@ public class OpinionController {
 		
 		Opinion topOpinion = service.getSelectOpinionMain1();
 		List<Opinion> sideList = service.getSelectOpinionMainSide();
-		List<Opinion> editoria = service.getSelectEditorialist();
+		List<Opinion> editoria = service.getSelectEditorialistAll();
 
 		String str = topOpinion.getContent();
 		str = str.replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
@@ -86,11 +82,11 @@ public class OpinionController {
 			item.setContent(str);
 		}
 		
-		for(Opinion item : editoria) {
-			str = item.getContent();
-			str = str.replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
-			item.setContent(str);
-		}
+//		for(Opinion item : editoria) {
+//			str = item.getContent();
+//			str = str.replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
+//			item.setContent(str);
+//		}
 
 
 		PageInfo pageInfoTop = new PageInfo(page, 10, service.getOpinionCount(param), 10);

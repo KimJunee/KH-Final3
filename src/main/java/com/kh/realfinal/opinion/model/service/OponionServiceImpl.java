@@ -52,7 +52,13 @@ public class OponionServiceImpl implements OpinionService{
 		return mapper.selectOpinionMainSide();
 	}
 	
-	// 메인, 오피니언 메인 10개 출력
+	// 오피니언 메인 컬럼니스트 출력
+	@Override
+	public List<Opinion> getSelectEditorialistAll() {
+		return mapper.selectEditorialistAll();
+	}
+	
+	// 메인 10개 출력
 	@Override
 	public List<Opinion> getSelectEditorialist() {
 		return mapper.selectEditorialist();
@@ -90,5 +96,4 @@ public class OponionServiceImpl implements OpinionService{
 	public int deleteReply(int no) {
 		return mapper.deleteOpinionReply(no);
 	}
-
 }

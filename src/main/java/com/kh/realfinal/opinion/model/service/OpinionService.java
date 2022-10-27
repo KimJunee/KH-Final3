@@ -15,6 +15,7 @@ public interface OpinionService {
 	List<Opinion> getSelectOpinionMainSide();
 	List<Opinion> getSelectEditorialist();
 	List<Opinion> getSelectOpinionForPolitics();
+	List<Opinion> getSelectEditorialistAll();
 	int saveReply(OpinionReply reply);
 	int editReply(OpinionReply reply);
 	int deleteReply(int no);
