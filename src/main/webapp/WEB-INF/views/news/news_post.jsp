@@ -42,7 +42,7 @@
                         <div class="text-start text-lg-center mb-5" data-sticky data-margin-top="80" data-sticky-for="991">
                             <!-- Card info -->
                             <ul class="list-inline list-unstyled">
-                                <li class="list-inline-item d-lg-block my-lg-2"><fmt:formatDate type="both" value=""/></li>
+                                <li class="list-inline-item d-lg-block my-lg-2"><fmt:formatDate pattern="yyyy. MM. dd. HH:mm" value="${news.pubDate}"/></li>
                                 <li class="list-inline-item d-lg-block my-lg-2"><i class="far fa-eye me-1"></i>${news.hit} Views</li>
                                 <li class="list-inline-item d-lg-block my-lg-2"><i class="bi bi-chat-left-quote-fill me-1"></i>${fn:length(newsReplyList)}  Commenets</li>
                             </ul>
@@ -122,27 +122,27 @@
                             <h4>Share this article</h4>
 	                            <ul class="nav text-white-force">
 	                                <li class="nav-item">
-	                                    <a class="nav-link icon-md rounded-circle me-2 mb-2 p-0 fs-5 bg-facebook" href="#">
+	                                    <a class="nav-link icon-md rounded-circle me-2 mb-2 p-0 fs-5 bg-facebook">
 	                                        <i class="fab fa-facebook-square align-middle"></i>
 	                                    </a>
 	                                </li>
 	                                <li class="nav-item">
-	                                    <a class="nav-link icon-md rounded-circle me-2 mb-2 p-0 fs-5 bg-twitter" href="#">
+	                                    <a class="nav-link icon-md rounded-circle me-2 mb-2 p-0 fs-5 bg-twitter">
 	                                        <i class="fab fa-twitter-square align-middle"></i>
 	                                    </a>
 	                                </li>
 	                                <li class="nav-item">
-	                                    <a class="nav-link icon-md rounded-circle me-2 mb-2 p-0 fs-5 bg-linkedin" href="#">
+	                                    <a class="nav-link icon-md rounded-circle me-2 mb-2 p-0 fs-5 bg-linkedin">
 	                                        <i class="fab fa-linkedin align-middle"></i>
 	                                    </a>
 	                                </li>
 	                                <li class="nav-item">
-	                                    <a class="nav-link icon-md rounded-circle me-2 mb-2 p-0 fs-5 bg-pinterest" href="#">
+	                                    <a class="nav-link icon-md rounded-circle me-2 mb-2 p-0 fs-5 bg-pinterest">
 	                                        <i class="fab fa-pinterest align-middle"></i>
 	                                    </a>
 	                                </li>
 	                                <li class="nav-item">
-	                                    <a class="nav-link icon-md rounded-circle me-2 mb-2 p-0 fs-5 bg-primary" href="#">
+	                                    <a class="nav-link icon-md rounded-circle me-2 mb-2 p-0 fs-5 bg-primary">
 	                                        <i class="far fa-envelope align-middle"></i>
 	                                    </a>
 	                                </li>
@@ -152,23 +152,23 @@
                                 <h5>인기검색어</h5>
                                 <div class="d-flex justify-content-between align-items-center bg-warning bg-opacity-15 rounded p-2 position-relative">
                                     <h6 class="m-0 text-warning">디지털 경쟁력</h6>
-                                    <a href="#" class="badge bg-warning text-dark stretched-link">09</a>
+                                    <a class="badge bg-warning text-dark stretched-link">09</a>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center bg-info bg-opacity-10 rounded p-2 position-relative">
                                     <h6 class="m-0 text-info">소상공인 대출</h6>
-                                    <a href="#" class="badge bg-info stretched-link">25</a>
+                                    <a class="badge bg-info stretched-link">25</a>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center bg-danger bg-opacity-10 rounded p-2 position-relative">
                                     <h6 class="m-0 text-danger">전세피해지원센터</h6>
-                                    <a href="#" class="badge bg-danger stretched-link">75</a>
+                                    <a class="badge bg-danger stretched-link">75</a>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center bg-primary bg-opacity-10 rounded p-2 position-relative">
                                     <h6 class="m-0 text-primary">세계 전기차 점유율</h6>
-                                    <a href="#" class="badge bg-primary stretched-link">19</a>
+                                    <a class="badge bg-primary stretched-link">19</a>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center bg-success bg-opacity-10 rounded p-2 position-relative">
                                     <h6 class="m-0 text-success">복지멤버십</h6>
-                                    <a href="#" class="badge bg-success stretched-link">35</a>
+                                    <a class="badge bg-success stretched-link">35</a>
                                 </div>
                             </div>
                             <!-- 실시간 커뮤니티 인기글 -->
