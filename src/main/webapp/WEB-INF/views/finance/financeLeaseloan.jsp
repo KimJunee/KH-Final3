@@ -8,7 +8,7 @@
 <html lang="ko">
 
 <head>
-    <title>FinTouch | FinanceProduct</title>
+    <title>FinTouch | FinancialProduct</title>
         <!-- Favicon -->
     <link rel="shortcut icon" href="${path}/resources/resources1b/images/favicon.ico">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
@@ -291,8 +291,8 @@
 	                                    </div>
 	                                    <div class="col-5"></div>
 	                                    <div class="col-5">
-	                                        <input id="searchValue" name="searchValue" class="form-control bg-transparent" type="search" placeholder="금융회사명을 입력하세요!" aria-label="Search" value="${param.searchValue}">
-	                                        <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6"></i></button>                                       
+	                                        <input id="searchValue" name="searchValue" class="form-control bg-transparent" style="padding-right:25px;" type="search" placeholder="금융회사명을 입력하세요!" aria-label="Search" value="${param.searchValue}">
+	                                        <button class="btn bg-transparent border-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6"></i></button>                                       
 	                                    </div>
                                     </div>
                                 </form>
