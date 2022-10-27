@@ -18,13 +18,21 @@
 <%@ include file="/WEB-INF/views/common/headerWhite.jsp" %>
     <main>
         <!-- ============ 메뉴소개 시작 ============ -->
-        <section style="background-image:url('${path}/resources/resources1b/images/avatar/fintouch/communityImg.png'); background-position: center; height:570px; width:99%;">
-            <div style="margin-left: 385px; margin-top: 430px;">
-                <h5 class="mice"><span style="color:#2163E8;">C&nbsp;O&nbsp;M&nbsp;M&nbsp;U&nbsp;N&nbsp;I&nbsp;T&nbsp;Y</span></h5>
-                <h1 class="mice">실시간<span class="mice" style="color:#2163E8;">커뮤니티</span>인기글</h1>
-            </div>
-        </section>
-        <!-- ============ 메뉴소개 끝 ============ -->
+		<section
+			style="background-image:url('${path}/resources/resources1b/images/avatar/fintouch/communityImg.png'); background-position: center; height:570px; width:99%;">
+
+			<div class="container p-5 pt-0" style="margin-top: 380px;">
+				<div class="card-body">
+					<h5 class="mice">
+						<span style="color: #2163E8;">C&nbsp;O&nbsp;M&nbsp;M&nbsp;U&nbsp;N&nbsp;I&nbsp;T&nbsp;Y</span>
+					</h5>
+					<h1 class="mice">
+						실시간<span class="mice" style="color: #2163E8;">커뮤니티</span>인기글
+					</h1>
+				</div>
+			</div>
+		</section>
+		<!-- ============ 메뉴소개 끝 ============ -->
         <!-- ======================= 커뮤니티 메인 시작 -->
         <section class="py-4 mb-5" style="margin-top: -50px;">
             <div class="container">
