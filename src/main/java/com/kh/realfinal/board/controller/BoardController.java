@@ -164,7 +164,7 @@ public class BoardController {
 	@GetMapping("/error")
 	public String error() {
 		log.info("에러 페이지 호출!!!!!");
-		return "/common/error";
+		return "common/error";
 	}
 	
 	// 글 작성 페이지 가기
