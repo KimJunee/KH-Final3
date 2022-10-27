@@ -61,7 +61,7 @@
 									</div>
 								</c:if>
 								<c:if test="${not empty sideList}">
-	                                <h4 class="mb-3 mice">제일 많이 본 칼럼</h5>
+	                                <h4 class="mb-3 mice">제일 많이 본 칼럼</h4>
 									<c:forEach var="sideList" items="${sideList}" varStatus="status">
 		                                <div class="d-flex position-relative mb-3">
 		                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">
@@ -74,49 +74,46 @@
                         </div>
                         <!-- Sidebar END -->
                     </div>
-                   </div>
-                    <!-- Row end -->
-               </div>
+	            </div>
+	            <!-- Row end -->
+	        </div>
         </section>
         <!-- ======================= Main content END -->
-
         <!-- ======================= Featured Guests START -->
         <section class="p-0" style="margin-top: 10px;">
             <div class="container bg-light col-12 rounded-3">
                 <div class="row g-0">
-                        <!-- Title -->
-                        <div class="mb-3 d-sm-flex  text-center mt-4">
-                            <h2 class="mice">  칼럼니스트 보기</h2>
-                        </div>
-                        <!-- Slider -->
-                        <c:if test="${empty editoria}">
-							<div class="d-flex position-relative mb-3">
-								<h6>논설위원이 없습니다.</h6>
-							</div>
-						</c:if>
-						<c:if test="${not empty editoria}">
-	                        <div class="tiny-slider arrow-hover arrow-dark arrow-blur arrow-round">
-	                        	<div class="tiny-slider-inner" data-autoplay="false" data-hoverpause="true" data-gutter="24" data-arrow="true" data-dots="false" data-items-xl="6" data-items-lg="4" data-items-md="3" data-items-sm="2" data-items-xs="2">
-	                            	<!-- Guest item -->
-	                           		<c:forEach var="editoria" items="${editoria}" varStatus="status">
-	                                	<div>
-	                                    	<div class="card bg-transparent">
-		                                       <img class="card-img" src="${editoria.imageUrl}" alt="card image" style="width: 165px; height: 220px;">
-		                                       <div class="card-body ps-0">
-		                                           <h6 class="mb-0 mice text-center" >${editoria.columnist}</h6>
-		                                       </div>
-		                                   </div>
-	                               	   </div>
-	                           	   </c:forEach>
-	                           	   
-	                            </div>
-	                        </div>
-                        </c:if>
-                        <!-- Slider END -->
+                    <!-- Title -->
+                    <div class="mb-3 d-sm-flex  text-center mt-4">
+                        <h2 class="mice">  칼럼니스트 보기</h2>
                     </div>
-            </div>
+                    <!-- Slider -->
+                    <c:if test="${empty editoria}">
+						<div class="d-flex position-relative mb-3">
+						<h6>논설위원이 없습니다.</h6>
+					</div>
+				</c:if>
+				<c:if test="${not empty editoria}">
+			        <div class="tiny-slider arrow-hover arrow-dark arrow-blur arrow-round">
+			        	<div class="tiny-slider-inner" data-autoplay="false" data-hoverpause="true" data-gutter="24" data-arrow="true" data-dots="false" data-items-xl="6" data-items-lg="4" data-items-md="3" data-items-sm="2" data-items-xs="2">
+			            	<!-- Guest item -->
+			           		<c:forEach var="editoria" items="${editoria}" varStatus="status">
+			                	<div>
+			                    	<div class="card bg-transparent">
+			                        	<img class="card-img" src="${editoria.imageUrl}" alt="card image" style="width: 165px; height: 220px;">
+			                        	<div class="card-body ps-0">
+			                            	<h6 class="mb-0 mice text-center" >${editoria.columnist}</h6>
+			                        	</div>
+			                    	</div>
+		               	   		</div>
+		           	   		</c:forEach>
+		            	</div>
+		        	</div>
+		  		</c:if>
+		        <!-- Slider END -->
+		        </div>
+	        </div>
         </section>
-        
         <!-- ======================= Featured Guests END -->
         <br>
         <!-- ======================= Main content START -->

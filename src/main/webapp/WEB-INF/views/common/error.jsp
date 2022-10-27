@@ -43,7 +43,7 @@
                         <h1 class="display-1 text-primary">404</h1>
                         <h2>Page Not Found!</h2>
                         <p>문제가 발생했거나 이 페이지가 더 이상 존재하지 않습니다. 이럴수가!</p>
-                        <a href="index.html" class="btn btn-danger-soft mt-3"><i class="fas fa-long-arrow-alt-left me-3"></i>Back to home page</a>
+                        <a href="${path}/main.do" class="btn btn-danger-soft mt-3"><i class="fas fa-long-arrow-alt-left me-3"></i>Back to home page</a>
                     </div>
                 </div>
             </div>

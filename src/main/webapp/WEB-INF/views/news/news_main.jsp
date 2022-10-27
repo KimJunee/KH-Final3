@@ -100,14 +100,14 @@
                         <h3 class="mb-3 mice">많이 본 기사</h3>
                         <!-- Post item -->
                         <c:if test="${!empty hotList}">
-                        <c:forEach var="opinion" items="${opinionList}" varStatus="status" step="1" begin="1" end="8">
-                        <div class="d-flex position-relative mb-3">
-                            <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">0${status.count}</span>
-                            <div>
-                                <h6><a href="${path}/news/post?newsNo=${opinion.newsNo}" class="stretched-link text-reset btn-link">${opinion.title}</a></h6>
-                            </div>
-                        </div>
-                        </c:forEach>
+	                        <c:forEach var="opinion" items="${opinionList}" varStatus="status" step="1" begin="1" end="8">
+		                        <div class="d-flex position-relative mb-3">
+		                            <span class="me-3 mt-n1 fa-fw fw-bold fs-3 opacity-5">0${status.count}</span>
+		                            <div>
+		                                <h6><a href="${path}/news/post?newsNo=${opinion.newsNo}" class="stretched-link text-reset btn-link">${opinion.title}</a></h6>
+		                            </div>
+		                        </div>
+	                        </c:forEach>
                         </c:if>
                     </div>
                 </div>
