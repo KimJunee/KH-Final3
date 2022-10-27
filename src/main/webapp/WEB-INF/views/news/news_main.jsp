@@ -146,13 +146,13 @@
                     <!-- World politics START -->
                     <div class="col-lg-8">
                         <!-- ======================= 유튜브 시작 -->
-                        <section class="bg-light">
+                        <section class="bg-light rounded-3">
                             <div class="container">
                                 <div class="row g-4">
                                     <div class="col-md-12">
                                         <!-- Title -->
                                         <div class="d-sm-flex justify-content-between align-items-center">
-                                            <h2 class="m-sm-0 text-dark">영상 뉴스</h2>
+                                            <h2 class="m-sm-0 text-dark mice">영상 뉴스</h2>
                                             <a href="#" class="btn btn-sm bg-youtube"><i class="bi bi-youtube me-2 align-middle"></i>Subscribe us on YouTube</a>
                                         </div>
                                     </div>
@@ -259,14 +259,18 @@
                     <!-- Business Sidebar START -->
                     <div class="col-lg-4">
                         <h3 class="mb-3 mice">금융</h3>
-                        <div class="bg-light">
-                            <div class="card bg-light mb-3">
-                                <div class="card-body">
-                                    <h4 class="card-title"><a href="post-single-6.html" class="btn-link stretched-link text-reset">금감원장 “은행권 이자산정 문제제기 공감…하반기 검사서 조치”</a></h4>
-                                </div>
-                                <!-- Card image -->
-                                <img src="https://dimg.donga.com/i/150/150/90/wps/NEWS/IMAGE/2022/10/24/116126225.2.jpg" class="grayscale rounded-0" alt="Card image">
-                            </div>
+                        <div class="bg-light rounded-3">
+                        	<c:forEach var="categoryList" items="${categoryList}"  begin="0" end="0" step="5" varStatus="status">
+                        		<c:if test="${categoryList.category eq 'economy'}">
+		                            <div class="card bg-light mb-3">
+		                                <div class="card-body">
+		                                    <h4 class="card-title"><a href="${path}/news/post?newsNo=${categoryList.newsNo}" class="btn-link stretched-link text-reset">${categoryList.title}</a></h4>
+		                                </div>
+		                                <!-- Card image -->
+		                                <img src="${categoryList.image}" class="grayscale rounded-0" alt="Card image">
+		                            </div>
+                               	</c:if>
+                            </c:forEach>
                             <c:forEach var="economy" items="${economyList}" begin="1" end="5">
 	                            <div class="card card-body bg-light">
 	                                <h6 class="card-title"><a href="${path}/news/post?newsNo=${economy.newsNo}" class="btn-link text-reset stretched-link fw-bold">${economy.title}</a></h6>

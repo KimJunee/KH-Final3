@@ -94,8 +94,8 @@ public class NewsController {
 		pageInfo = new PageInfo(1, 10, service.getNewsCount(map), 4);
 		List<News> hotList = service.getNewsList(pageInfo, map);
 		
+		List<News> categoryList = service.getSelectNewsForMainCategory();
 		
-		System.out.println(newList);
 		model.addAttribute("newList", newList);
 		model.addAttribute("hotList", hotList);
 		model.addAttribute("economyList", economyList);
@@ -103,6 +103,7 @@ public class NewsController {
 		model.addAttribute("politicsList", politicsList);
 		model.addAttribute("opinionList", opinionList);
 		model.addAttribute("pageInfo", pageInfo);
+		model.addAttribute("categoryList", categoryList);
 		
 		return "/news/news_main";
 	}

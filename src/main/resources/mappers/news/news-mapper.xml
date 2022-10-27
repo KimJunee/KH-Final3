@@ -57,7 +57,7 @@
 			ORDER BY NEWS_NO
 		</if>
 		<if test="sortForDate != null">
-			ORDER BY PUBDATE ASC
+			ORDER BY PUBDATE DESC
 		</if>
 	</select>
 	
@@ -116,8 +116,8 @@
 				NEWS_NO, TITLE, PUBDATE, DESCRIPTION, IMAGE, CATEGORY
 			FROM NEWS
 			WHERE IMAGE IS NOT NULL
-			AND ROWNUM <![CDATA[<=]]> 5
-			ORDER BY NEWS_NO DESC
+			AND NEWS_NO <![CDATA[=]]> 10
+			ORDER BY PUBDATE DESC
 		) A
 	</select>
 	

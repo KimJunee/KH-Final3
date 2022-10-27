@@ -109,7 +109,7 @@
                     <!-- Custom thumb END -->
                 </div>
                 <!-- ======================= Inner intro END -->
-                <!-- 지수님 여기서부터 작업하시면 됩니다!!! 그래프자리 -->
+                <!-- =======================  그래프 시작 -->
                 <section style="margin-top: -10px; margin-bottom: -20px;">
                     <div class="container" style="margin: top 50px;">
                         <div class="row">
@@ -212,7 +212,7 @@
                     </div>
                 </section>
             </div>
-            <!-- 지수님 여기서부터 작업하시면 됩니다!!! 그래프 끝 -->
+            <!-- ======================= 그래프 끝 -->
             <!-- ======================= 뉴스 시작 -->
             <section class="py-0 card-grid mb-4">
                 <div class="container">
@@ -244,10 +244,10 @@
 	                                                   	</c:choose>
 	                                                    <!-- 기사제목 / 내용일부 -->
 	                                                    <h3 class="text-white display-6 mice"><a href="${path}/news/post?newsNo=${newsBig.newsNo}" class="btn-link text-reset stretched-link fw-normal">${newsBig.title}</a></h3>
-	                                                    <p class="text-white" style="text-overflow:ellipsis; white-space:nowrap;">${newsBig.description}</p>
+	                                                    <div style="oveerflow:hidden; white-space:nowrap; text-overflow:ellipsis;" class="text-white">${newsBig.description}</div>
 	                                                    <!-- 작성일자 -->
 	                                                    <ul class="nav nav-divider text-white-force align-items-center d-none d-sm-inline-block">
-	                                                        <p class="nav-item"><fmt:formatDate type="both" value="${newsBig.pubDate}"/></p>
+	                                                        <p class="nav-item"><fmt:formatDate pattern="yyyy. MM. dd. HH:mm" value="${newsBig.pubDate}"/></p>
 	                                                    </ul>
 	                                                </div>
 	                                            </div>
@@ -283,7 +283,7 @@
                                             	</c:when>
                                            	</c:choose>
 	                                        <h5><a href="${path}/news/post?newsNo=${newscategory.newsNo}" class="btn-link text-reset stretched-link fw-bold mice">${newscategory.title}</a></h5>
-	                                        <p class="nav-item"><fmt:formatDate type="both" value="${newscategory.pubDate}"/></p>
+	                                        <p class="nav-item"><fmt:formatDate pattern="yyyy. MM. dd. HH:mm" value="${newscategory.pubDate}"/></p>
 	                                    </div>
 	                                </div>
 	                            </div>
@@ -330,7 +330,7 @@
                                             <p class="card-text "> ${cardcutTop.content}</p>
                                         </div>
                                         <div class="mt-2">
-                                            <fmt:formatDate type="date" dateStyle="full" value="${cardcutTop.pubDate}"/> 
+                                            <fmt:formatDate pattern="yyyy. MM. dd. HH:mm" value="${cardcutTop.pubDate}"/> 
                                         </div>
                                     </div>
                                     </c:forEach>
@@ -378,21 +378,21 @@
                             <div data-sticky data-margin-top="80 " data-sticky-for="767 ">
                                 <!-- Social links -->
                                 <div class="row g-2 ">
-                                    <a href="# " class="d-flex justify-content-between align-items-center bg-facebook text-white-force rounded p-2 position-relative ">
+                                    <a class="d-flex justify-content-between align-items-center bg-facebook text-white-force rounded p-2 position-relative ">
                                         <i class="fab fa-facebook-square fs-3 "></i>
                                         <div class="d-flex ">
                                             <h6 class="me-1 mb-0 ">1.5K</h6>
                                             <small class="small ">Fans</small>
                                         </div>
                                     </a>
-                                    <a href="# " class="d-flex justify-content-between align-items-center bg-instagram-gradient text-white-force rounded p-2 position-relative ">
+                                    <a class="d-flex justify-content-between align-items-center bg-instagram-gradient text-white-force rounded p-2 position-relative ">
                                         <i class="fab fa-instagram fs-3 "></i>
                                         <div class="d-flex ">
                                             <h6 class="me-1 mb-0 ">1.8M</h6>
                                             <small class="small ">Followers</small>
                                         </div>
                                     </a>
-                                    <a href="# " class="d-flex justify-content-between align-items-center bg-youtube text-white-force rounded p-2 position-relative ">
+                                    <a class="d-flex justify-content-between align-items-center bg-youtube text-white-force rounded p-2 position-relative ">
                                         <i class="fab fa-youtube-square fs-3 "></i>
                                         <div class="d-flex ">
                                             <h6 class="me-1 mb-0 ">22K</h6>
@@ -405,23 +405,23 @@
                                     <h4 class="mice ">인기검색어</h4>
                                     <div class="d-flex justify-content-between align-items-center bg-warning bg-opacity-15 rounded p-2 position-relative ">
                                         <h6 class="m-0 text-warning ">디지털 경쟁력</h6>
-                                        <a href="# " class="badge bg-warning text-dark stretched-link ">09</a>
+                                        <a class="badge bg-warning text-dark stretched-link ">09</a>
                                     </div>
                                     <div class="d-flex justify-content-between align-items-center bg-info bg-opacity-10 rounded p-2 position-relative ">
                                         <h6 class="m-0 text-info ">소상공인 대출</h6>
-                                        <a href="# " class="badge bg-info stretched-link ">25</a>
+                                        <a class="badge bg-info stretched-link ">25</a>
                                     </div>
                                     <div class="d-flex justify-content-between align-items-center bg-danger bg-opacity-10 rounded p-2 position-relative ">
                                         <h6 class="m-0 text-danger ">전세피해지원센터</h6>
-                                        <a href="# " class="badge bg-danger stretched-link ">75</a>
+                                        <a class="badge bg-danger stretched-link ">75</a>
                                     </div>
                                     <div class="d-flex justify-content-between align-items-center bg-primary bg-opacity-10 rounded p-2 position-relative ">
                                         <h6 class="m-0 text-primary ">세계 전기차 점유율</h6>
-                                        <a href="# " class="badge bg-primary stretched-link ">19</a>
+                                        <a class="badge bg-primary stretched-link ">19</a>
                                     </div>
                                     <div class="d-flex justify-content-between align-items-center bg-success bg-opacity-10 rounded p-2 position-relative ">
                                         <h6 class="m-0 text-success ">복지멤버십</h6>
-                                        <a href="# " class="badge bg-success stretched-link ">35</a>
+                                        <a class="badge bg-success stretched-link ">35</a>
                                     </div>
                                 </div>
                                 <!-- 커뮤니티 실시간 -->
@@ -542,7 +542,7 @@
 	                                    </div>
 	                                    <div style="margin-top:30px;" class="card-body ps-0">
                                         	<h5 class="nav-item mb-0 mice text-center" style="width: 220px;"><a href="${path}/opinion/opinionDetail?opinionNo=${opinion.opinionNo}">${opinion.columnist}</a></h5>
-                                        	<p class="nav-item text-center" style="width: 220px;"><fmt:formatDate type="date" dateStyle="full" value="${opinion.pubDate}"/> </p>
+                                        	<p class="nav-item text-center" style="width: 220px;"><fmt:formatDate pattern="yyyy. MM. dd. HH:mm" value="${opinion.pubDate}"/></p>
                                   		</div>
                                 	</div>
                             	</c:forEach>
