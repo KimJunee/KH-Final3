@@ -132,7 +132,7 @@
 						청약상품을 클릭하시면 청약정보 <br> 페이지로 이동하실 수 있습니다.
 					</p>
 					<h4 class="">
-						<a href="03_reales_detailList.html" class="btn btn-dark mb-0 mice">청약상세조회
+						<a href="${path}/RealEstate/list" class="btn btn-dark mb-0 mice">청약상세조회
 							바로가기</a>
 					</h4>
 
@@ -169,17 +169,16 @@
 
 												<!-- Card body -->
 												<div class="card-body">
-													<h5 class="card-title mice">성남 금토지구 A-3블록 중흥S-클래스</h5>
-													<p class="mb-2">경기도 성남시 수정구 금토로 44-5(금토동)</p>
+													<h5 class="card-title mice">대곡역 두산위브 입주자 모집</h5>
+													<p class="mb-2">경기도 고양시 덕양구 호수로16번길 7,대곡역두산위브 202동</p>
 													<h6 class="mb-0">
-														<i class="bi bi-patch-check text-primary me-2"></i>공급규모 :
-														288세대
+														<i class="bi bi-patch-check text-primary me-2"></i>주택구분 : 도시형/오피스텔/민간임대
 													</h6>
 												</div>
 
 												<!-- Card footer -->
 												<div class="card-footer d-grid pt-0">
-													<a href="03_reales_detail.html"
+													<a href="${path}/RealEstate/detail?type=U&no=2022950108"
 														class="btn btn-sm btn-dark mb-0">View all details</a>
 												</div>
 											</div>
@@ -197,17 +196,17 @@
 
 												<!-- Card body -->
 												<div class="card-body">
-													<h5 class="card-title mice">김포마송 B-5블록 행복주택</h5>
-													<p class="mb-2">경기도 김포시 통진읍 마송리 579번지 김포마송LH5단지</p>
+													<h5 class="card-title mice">다산 와이시티 어반플랫 입주자 모집</h5>
+													<p class="mb-2">경기도 남양주시 다산동 668-1번지</p>
 													<h6 class="mb-0">
 														<i class="bi bi-patch-check text-primary me-2"></i>공급규모 :
-														288세대
+														23세대
 													</h6>
 												</div>
 
 												<!-- Card footer -->
 												<div class="card-footer d-grid pt-0">
-													<a href="03_reales_detail.html"
+													<a href="${path}/RealEstate/detail?type=U&no=2022950104"
 														class="btn btn-sm btn-dark mb-0">View all details</a>
 												</div>
 											</div>
@@ -225,17 +224,17 @@
 
 												<!-- Card body -->
 												<div class="card-body">
-													<h5 class="card-title mice">힐스테이트 푸르지오 수원</h5>
-													<p class="mb-2">경기도 수원시 팔달구 교동 155-41</p>
+													<h5 class="card-title mice">고촌역 루체비스타 입주자 모집</h5>
+													<p class="mb-2">경기도 김포시 고촌읍 신곡리 1064-1</p>
 													<h6 class="mb-0">
 														<i class="bi bi-patch-check text-primary me-2"></i>공급규모 :
-														288세대
+														15세대
 													</h6>
 												</div>
 
 												<!-- Card footer -->
 												<div class="card-footer d-grid pt-0">
-													<a href="03_reales_detail.html"
+													<a href="${path}/RealEstate/detail?type=U&no=2022950100"
 														class="btn btn-sm btn-dark mb-0">View all details</a>
 												</div>
 											</div>
