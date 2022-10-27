@@ -68,18 +68,18 @@
 	                                    </a></h6>
 	                                </div>                          
                                 </c:forEach>
- 
                             </div>
                         </div>
                     </div>
                     <!-- 좌측 사이드바 끝 -->
                     <!-- 중앙바 -->
+                    <c:forEach var="bigList" items="${bigList}" varStatus="status">
                     <div class="col-lg-6">
                         <!-- Card item START -->
                         <div class="card">
                             <!-- Card img -->
                             <div class="position-relative">
-                                <img class="card-img rounded-0 grayscale" src="${path}/resources/resources1b/images/news/headnews.jpg" alt="Card image">
+                                <img class="card-img rounded-0 grayscale" src="${bigList.image}" alt="Card image">
                                 <div class="card-img-overlay d-flex align-items-start flex-column p-3">
                                     <!-- Card overlay bottom -->
                                     <div class="w-100 mt-auto">
@@ -87,12 +87,13 @@
                                 </div>
                             </div>
                             <div class="card-body px-0 pt-3">
-                                <h4 class="card-title mice"><a href="${path}/news/post" class="btn-link text-reset fw-bold">SPC 16개사 산재사고 5년간 759건… “2인1조 엄격하게 안지켜”</a></h4><br>
-                                <p class="card-text">SPC그룹 계열사인 SPL 경기 평택시 제빵공장에서 근로자 A 씨(23)가 사망한 지 8일 만에 SPC 계열사인 경기 성남시 샤니 제빵공장에서 40대 근로자의 손가락이 절단되는 사고가 발생하며 SPC그룹의 안전관리 체계에 대한 논란이 커지고 있다. 24일 국회에서 열린 환경노동위원회의 고용노동부 국정감사에서는 여야를 막론하고 SPC그룹에 대한 질타가 이어졌다.</p>
+                                <h4 class="card-title mice"><a href="${path}/news/post?newsNo=${bigList.newsNo}" class="btn-link text-reset fw-bold">${bigList.title}</a></h4><br>
+                                <p class="card-text">${bigList.description}</p>
                             </div>
                         </div>
                         <!-- Card item END -->
                     </div>
+                    </c:forEach>
                     <!-- 중앙바 끝 -->
                     <!-- 우측 사이드바 -->
                     <div class="col-lg-3">

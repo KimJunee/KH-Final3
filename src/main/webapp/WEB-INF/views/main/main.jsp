@@ -243,8 +243,10 @@
 	                                                    	</c:when>
 	                                                   	</c:choose>
 	                                                    <!-- 기사제목 / 내용일부 -->
-	                                                    <h3 class="text-white display-6 mice"><a href="${path}/news/post?newsNo=${newsBig.newsNo}" class="btn-link text-reset stretched-link fw-normal">${newsBig.title}</a></h3>
-	                                                    <div style="oveerflow:hidden; white-space:nowrap; text-overflow:ellipsis;" class="text-white">${newsBig.description}</div>
+	                                                    <div>
+		                                                    <h3 class="text-white display-6 mice"><a href="${path}/news/post?newsNo=${newsBig.newsNo}" class="btn-link text-reset stretched-link fw-normal">${newsBig.title}</a></h3>
+		                                                    <div style="oveerflow:hidden; white-space:nowrap; text-overflow:ellipsis;" class="text-white">${newsBig.description}</div>
+	                                                    </div>
 	                                                    <!-- 작성일자 -->
 	                                                    <ul class="nav nav-divider text-white-force align-items-center d-none d-sm-inline-block">
 	                                                        <p class="nav-item"><fmt:formatDate pattern="yyyy. MM. dd. HH:mm" value="${newsBig.pubDate}"/></p>
