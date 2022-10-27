@@ -58,6 +58,11 @@
         content: "\e98d";
     }
     /* 카드컷 아이콘끝 */
+    
+    .arti {
+        font-weight: 400;
+        line-height: 160%;
+      }
 </style>
 
 <head>
@@ -95,7 +100,7 @@
                                 <div class="avatar avatar-xl">
                                     <img class="avatar-img rounded-circle" src="${opinion.imageUrl}" alt="avatar">
                                 </div>
-                                <h5 class=" stretched-link mt-2 mb-0 d-block">${opinion.columnist}</h5>
+                                <h5 class=" stretched-link mt-2 mb-0 d-block mice">${opinion.columnist}</h5>
                             </div>
                             <hr class="d-none d-lg-block">
                             <!-- 작성일 / 조회수 / 댓글수 -->
