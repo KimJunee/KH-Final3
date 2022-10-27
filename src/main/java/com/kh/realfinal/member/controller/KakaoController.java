@@ -56,8 +56,9 @@ public class KakaoController {
 		
 		model.addAttribute("loginMember", userInfo);
 		model.addAttribute("msg", "카카오 로그인이 완료 되었습니다.");
+		model.addAttribute("location", "/main.do");
 		
-		return "main/main";
+		return "/common/msg";
 	}
 	
 

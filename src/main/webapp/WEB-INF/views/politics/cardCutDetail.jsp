@@ -58,6 +58,11 @@
         content: "\e98d";
     }
     /* 카드컷 아이콘끝 */
+    
+      .arti {
+        font-weight: 400;
+        line-height: 160%;
+      }
 </style>
 
 <head>
@@ -77,9 +82,9 @@
 		            <div class="row">
 		                <div class="col-12">
 		                    <a href="#" class="badge text-bg-primary mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Politics</a>
-		                    <h1>${cardCut.title}</h1>
+		                    <h1 class="mice">${cardCut.title}</h1>
 		                </div>
-		                <p class="lead">2022.09.16 정책브리핑 이정운</p>
+		                <p class="lead mice"><fmt:formatDate pattern="yyyy. MM. dd. HH:mm" dateStyle="full" value="${cardCut.pubDate}"/> | 대한민국 정책브리핑</p>
 		            </div>
 		        </div>
 		    </section>
@@ -92,17 +97,17 @@
                         <div class="order-lg-1 order-2">
                             <div class="tns-carousel-wrapper">
                                 <div class="tns-slides-count text-light"><i class="fi-image fs-lg me-2"></i>
-                                    <div class="ps-1"><span class="tns-current-slide fs-5 fw-bold"></span><span class="fs-5 fw-bold">/</span><span class="tns-total-slides fs-5 fw-bold"></span></div>
+                                    <div class="ps-1"><span class="tns-current-slide fs-5 fw-bold"></span><span class="fs-5 fw-bold"></span><span class="tns-total-slides fs-5 fw-bold"></span></div>
                                 </div>
                             </div>
                         </div>
 		                    <div class="row">
-		                        <p><span class="h5">${cardCut.descriptionOrigin}</span></p>
+		                        <h5 class="arti">${cardCut.descriptionOrigin}</h5>
 		                    </div>
 		                    <!-- 댓글 START -->
-		                
+		                <hr>
 		                     <!-- 댓글 시작 -->
-                        <div class="border-bottom border-top border-2 mb-3 pt-3" style="color:#a1a1a8">
+                        <div class="mb-3 pt-3" style="color:#a1a1a8">
 		                        <h3>${cardCut.replyCnt} comments</h3>
                         		<c:forEach var="cCreply" items="${replyList}" varStatus="status">
                         			<c:choose>
@@ -273,6 +278,7 @@
 		            </div>
 		        </div>
 		    </section>
+		    
 		</main>
 		    <script>
 			// 댓글 삭제
@@ -365,4 +371,5 @@
 	</script>
 		<%@ include file="/WEB-INF/views/common/footer.jsp" %>
 	</body>
+	
 </html>

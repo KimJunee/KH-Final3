@@ -7,6 +7,14 @@
 <!DOCTYPE html>
 <html lang="ko">
 
+<style>
+ .arti {
+        font-weight: 400;
+        line-height: 160%;
+      }
+
+</style>
+
 <head>
     <title>FinTouch | Community | ${board.board_title}</title>
     <!-- Favicon -->
@@ -68,7 +76,7 @@
                     <!-- 왼쪽 사이드바 끝 -->
                     <!-- 메인 컨텐츠 시작 -->
                     <div class="col-lg-7 mb-8" id="main_content">
-                        <p>${board.board_content}</p>
+                         <h5 class="arti">${board.board_content}</h5>
                         <!-- 첨부파일 -->
                         <c:if test="${!empty board.board_renamedFileName}">
                         <figure class="figure mt-2">
