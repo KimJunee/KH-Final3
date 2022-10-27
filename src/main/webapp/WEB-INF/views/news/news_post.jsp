@@ -45,6 +45,7 @@
                                 <li class="list-inline-item d-lg-block my-lg-2"><fmt:formatDate pattern="yyyy. MM. dd. HH:mm" value="${news.pubDate}"/></li>
                                 <li class="list-inline-item d-lg-block my-lg-2"><i class="far fa-eye me-1"></i>${news.hit} Views</li>
                                 <li class="list-inline-item d-lg-block my-lg-2"><i class="bi bi-chat-left-quote-fill me-1"></i>${fn:length(newsReplyList)}  Commenets</li>
+                                <a href="${news.link}" class="badge bg-secondary bg-opacity-75 text-white mb-2">해당기사 보러가기</a>
                             </ul>
                         </div>
                         <form action="${path}/mypage/finProLikeIns" method="post">
