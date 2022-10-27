@@ -86,7 +86,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="card-body px-0 pt-3">
+                            <div class="card-body px-0 pt-3" style="overflow: hidden;height: 167px;text-overflow: ellipsis">
                                 <h4 class="card-title mice"><a href="${path}/news/post?newsNo=${bigList.newsNo}" class="btn-link text-reset fw-bold">${bigList.title}</a></h4><br>
                                 <p class="card-text">${bigList.description}</p>
                             </div>
@@ -176,7 +176,7 @@
                                             </div>
                                         </div>
                                         <div class="card-body px-0 pt-3">
-                                            <h5 class="card-title"><a href="podcast-single.html" class="btn-link text-dark fw-bold">불매운동 확산에 SPC “반품 받겠다”</a></h5>
+                                            <h5 class="card-title mice"><a href="podcast-single.html" class="btn-link text-dark fw-bold">불매운동 확산에 SPC “반품 받겠다”</a></h5>
                                         </div>
                                         <!-- Card item END -->
                                     </div>
@@ -198,7 +198,7 @@
                                                 </div>
                                             </div>
                                             <div class="card-body px-0 pt-3">
-                                                <h5 class="card-title"><a href="podcast-single.html" class="btn-link text-dark fw-bold">러시아 '안간힘' 써보지만...우크라 대공세 예고됐다</a></h5>
+                                                <h5 class="card-title mice"><a href="podcast-single.html" class="btn-link text-dark fw-bold">러시아 '안간힘' 써보지만...우크라 대공세 예고됐다</a></h5>
                                             </div>
                                         </div>
                                     </div>
@@ -221,8 +221,7 @@
                                                 </div>
                                             </div>
                                             <div class="card-body px-0 pt-3">
-                                                <h5 class="card-title"><a href="podcast-single.html" class="btn-link text-dark fw-bold">장소 불문 수억씩 '싹둑'..서울 집값 전방위 하락</a></h5>
-
+                                                <h5 class="card-title mice"><a href="podcast-single.html" class="btn-link text-dark fw-bold">장소 불문 수억씩 '싹둑'..서울 집값 전방위 하락</a></h5>
                                             </div>
                                         </div>
                                         <!-- Card item END -->
@@ -245,7 +244,7 @@
                                                 </div>
                                             </div>
                                             <div class="card-body px-0 pt-3">
-                                                <h5 class="card-title"><a href="podcast-single.html" class="btn-link text-dark fw-bold">채권은 왜 세계경제의 공포가 됐나?</a></h5>
+                                                <h5 class="card-title mice"><a href="podcast-single.html" class="btn-link text-dark fw-bold">채권은 왜 세계경제의 공포가 됐나?</a></h5>
                                             </div>
                                         </div>
                                         <!-- Card item END -->
