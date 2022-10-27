@@ -326,7 +326,7 @@
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <div>
                                                     <p class="font-17 mb-1">오늘 지수 총거래량</p>
-                                                    <h3 class="text-success my-0"><fmt:formatNumber value="${indexPrice.trqu}" groupingUsed="true" /></h3>
+                                                    <h3 class="text-success my-0" style="font-size: 25px"><fmt:formatNumber value="${indexPrice.trqu}" groupingUsed="true" /></h3>
                                                 </div>
                                                 <div class="avatar-sm">
                                                     <span class="avatar-title bg-success rounded-circle h3 my-0" style="color:white">
