@@ -145,48 +145,35 @@
 				<p>중요한 공지사항을 확인해보세요</p>
 				<div class="card border h-75">
 					<c:if test="${!empty noticeList}">
-						<div class="card-body p-3 ">
+						<div class="card-body p-1">
 							<!-- 게시글 -->
 							<div class="col-12">
-								<div class="d-flex align-items-center ">
-									<a href="#" class="badge text-bg-danger mb-2"><i
+								<div class="d-flex align-items-center m-2 mb-0">
+									<a class="badge text-bg-danger mb-2"><i
 										class="fas small fw-bold"></i>공지</a>
 									<div class="ms-3 ">
 										<a href="${path}/realEstate/notice/view?no=${noticeList[0].rnum}" class="h6">
 											<c:out value="${noticeList[0].bbs_tl}"/>
 										</a>
-										<p class="small mb-0 "><c:out value="${noticeList[0].bbs_wou_dttm}"/></p>
+										<p class="mb-0 "><c:out value="${noticeList[0].bbs_wou_dttm}"/></p>
 									</div>
 								</div>
 							</div>
 							<!-- 구분선 -->
-							<hr class="my-2">
+							<hr>
 							<!-- 게시글 -->
-							<div class="col-12">
-								<div class="d-flex align-items-center ">
-									<a href="#" class="badge text-bg-danger mb-2"><i
+							<div class="col-12 mb-0">
+								<div class="d-flex align-items-center m-2 mb-0">
+									<a class="badge text-bg-danger mb-2"><i
 										class="fas small fw-bold"></i>공지</a>
 									<div class="ms-3 ">
 										<a href="${path}/realEstate/notice/view?no=${noticeList[1].rnum}" class="h6">
 											<c:out value="${noticeList[1].bbs_tl}"/>
 										</a>
-										<p class="small mb-0 "><c:out value="${noticeList[1].bbs_wou_dttm}"/></p>
+										<p class="pb-0 "><c:out value="${noticeList[1].bbs_wou_dttm}"/></p>
 									</div>
 								</div>
 							</div>
-							
-							<!-- <div class="col-12 ">
-								<div class="d-flex align-items-center">
-									<a href="#" class="badge text-bg-primary mb-2"><i
-										class="fas small fw-bold"></i>보도</a>
-									<div class="ms-3 ">
-										<a href="# " class="h6 stretched-link ">2022년 부동산개발 전문인력 대상
-											연수교육 수강생 모집</a>
-										<p class="small mb-0 ">2022. 09. 26</p>
-									</div>
-								</div>
-							</div> -->
-							
 						</div>
 					</c:if>
 					<!-- 공지사항 footer -->
@@ -204,7 +191,7 @@
 				</h2>
 				<p>부동산 관련 이슈에 대해 함께 나누어보세요</p>
 				<div class="card border h-75">
-					<div class="card-body p-3">
+					<div class="card-body p-1">
 						<!-- 게시글 -->
 						<c:if test="${empty estateList}">
 							<div class="ms-3">
@@ -214,13 +201,13 @@
 						<c:if test="${not empty estateList}">
 							<c:forEach var="board" items="${estateList}" varStatus="status">
 								<div class="col-12 ">
-									<div class="d-flex align-items-center">
-										<div class="avatar avatar-xs">
+									<div class="d-flex align-items-center mb-0">
+										<div class="avatar avatar-xs m-2">
 											<img class="avatar-img rounded-circle"
 												src="${path}/resources/resources1b/images/avatar_m1.png"
 												alt="avatar">
 										</div>
-										<div>
+										<div class="m-2 mb-0">
 											<!-- 제목 -->
 											<h6 class="mb-0">
 												<a href="${path}/board/BoardDetail?board_no=${board.board_no}"><c:out value="${board.board_title}" /></a>
@@ -243,7 +230,7 @@
 							</c:forEach>
 						</c:if>
 						<!-- 커뮤니티 footer -->
-						<div class="card-footer border-top text-center p-3 pb-0">
+						<div class="card-footer border-top text-center p-3">
 							<a href="${path}/board/list?type=2">View all details</a>
 						</div>
 					</div>
