@@ -37,9 +37,9 @@
 
 <%-- <h2><a href="${path}/landterm/insert.do">부동산용어 DB INSERT</a></h2> --%>
 
-<h2><a href="${path}/UrbtyOfctlLttotPblancDetail/insert.do">청약 분양상세 : 도시형/오피스텔/민간임대 (UrbtyOfctlLttotPblancDetail)</a></h2>
+<h2><a href="${path}/urbtyOfctlLttotPblancDetail/insert.do">청약 분양상세 : 도시형/오피스텔/민간임대 (UrbtyOfctlLttotPblancDetail)</a></h2>
 
-<h2><a href="${path}/RemndrLttotPblancDetail/insert.do">청약 분양상세 : APT 무순위/잔여세대 (RemndrLttotPblancDetail)</a></h2>
+<h2><a href="${path}/remndrLttotPblancDetail/insert.do">청약 분양상세 : APT 무순위/잔여세대 (RemndrLttotPblancDetail)</a></h2>
 
 <!--  <h2><a href="${path}/UrbtyMdl/insert.do">청약 주택형별 : 오피스텔/도시형/민간임대 (UrbtyMdl)</a></h2>  -->
 

@@ -509,8 +509,8 @@
 								class="table align-middle p-4 mb-0 table-hover table-shrink m-auto">
 								<!-- Table head -->
 									<colgroup>
-                                        	<col width="15%">
-                                        	<col width="40%">
+                                        	<col width="20%">
+                                        	<col width="35%">
                                         	<col width="10%">
                                         	<col width="35%">
                                     </colgroup>
@@ -670,7 +670,7 @@ path:hover {
         })
         $(document).mousemove(function(e) {
             $('#info-box').css('top', e.pageY - $('#info-box').height() - 1100);
-            $('#info-box').css('left', e.pageX - ($('#info-box').width()) / 2 - 450);
+            $('#info-box').css('left', e.pageX - ($('#info-box').width()) / 2 - 400);
         }).mouseover();
         
 
