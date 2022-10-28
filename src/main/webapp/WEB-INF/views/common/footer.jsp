@@ -50,7 +50,7 @@
                             <ul class="nav flex-column ">
                                 <li class="nav-item "><a class="nav-link " href="https://www.assembly.go.kr/portal/main/main.do">대한민국 국회</a></li>
                                 <li class="nav-item "><a class="nav-link pt-0 " href="https://www.fss.or.kr/fss/main/main.do">금융감독원</a></li>
-                                <li class="nav-item "><a class="nav-link pt-0 " >금융감독위원회 </a></li>
+                                <li class="nav-item "><a class="nav-link pt-0 " href="https://www.fsc.go.kr/index">금융감독위원회 </a></li>
                             </ul>
                         </div>
                         <div class="col-6 ">
