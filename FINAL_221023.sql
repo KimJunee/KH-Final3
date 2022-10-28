@@ -378,23 +378,23 @@ CREATE TABLE FINANCIALTERM(
 --INSERT INTO financialterm (fnceDictNm, ksdFnceDictDescContent) VALUES('직접청약(直接請約)', '유가증권예탁관련 실무용어로서 신주인수권이 배정된 실질주주가 발행회사에 대하여 그 주식을 인수할 것을 직접 신청하는 행위를 말한다.');
 
 --########## 주식시세정보
-DROP TABLE STOCKPRICE;  --주식 시세 정보
-CREATE TABLE STOCKPRICE( --주식시세정보 테이블
-	BASDT VARCHAR2(1000), -- 기준일자
-	SRTNCD VARCHAR2(1000), -- 종목 코드보다 짧으면서 유일성이 보장되는 코드(6자리)
-	ISINCD 	VARCHAR2(1000), -- 국제 채권 식별 번호. 유가증권(채권)의 국제인증 고유번호
-	ITMSNM 	VARCHAR2(1000), -- 유가증권 국제인증 고유번호 코드 이름
-	MRKTCTG VARCHAR2(1000), -- 주식의 시장 구분 (KOSPI/KOSDAQ/KONEX 중 1)
-	CLPR NUMBER, -- 정규시장의 매매시간종료시까지 형성되는 최종가격
-	VS NUMBER, -- 전일 대비 등락
-	FLTRT NUMBER, -- 전일 대비 등락에 따른 비율
-	MKP NUMBER, -- 정규시장의 매매시간개시후 형성되는 최초가격
-	HIPR NUMBER, -- 하루 중 가격의 최고치
-	LOPR NUMBER, -- 하루 중 가격의 최저치
-	TRQU NUMBER, -- 체결수량의 누적 합계
-	TRPRC NUMBER, -- 거래건 별 체결가격 * 체결수량의 누적 합계
-	LSTGSTCNT NUMBER, -- 종목의 상장주식수
-	MRKTTOTAMT NUMBER --종가 * 상장주식수
+DROP TABLE STOCKPRICE;    --주식 시세 정보
+CREATE TABLE STOCKPRICE(  --주식시세정보 테이블
+BASDT VARCHAR2(1000),     -- 기준일자 --★
+SRTNCD VARCHAR2(1000),    -- 종목 코드보다 짧으면서 유일성이 보장되는 코드(6자리)
+ISINCD 	VARCHAR2(1000),   -- 국제 채권 식별 번호. 유가증권(채권)의 국제인증 고유번호
+ITMSNM 	VARCHAR2(1000),   -- 유가증권 국제인증 고유번호 코드 이름
+MRKTCTG VARCHAR2(1000),   -- 주식의 시장 구분 (KOSPI/KOSDAQ/KONEX 중 1)
+CLPR number,              -- 정규시장의 매매시간종료시까지 형성되는 최종가격 --종가 ★
+VS number,                -- 전일 대비 등락 -- 어제보다 얼마나 떨어지고 올랐는지(원) ★
+FLTRT number,             -- 전일 대비 등락에 따른 비율 --어제보다 얼마나 떨어지고 올랐는지(%) ★
+MKP number,               -- 정규시장의 매매시간개시후 형성되는 최초가격 --시가(처음 막 시장열렸을때 생성된 주식가격)★
+HIPR number,              -- 하루 중 가격의 최고치 --고가 ★
+LOPR number,              -- 하루 중 가격의 최저치 --저가 ★
+TRQU number,              -- 체결수량의 누적 합계 --누적거래량 ★
+TRPRC number,             -- 거래건 별 체결가격 * 체결수량의 누적 합계
+LSTGSTCNT number,         -- 종목의 상장주식수
+MRKTTOTAMT number         --종가 * 상장주식수
 );
 
 --INSERT INTO STOCKPRICE (basDt, srtnCd, isinCd, itmsNm, mrktCtg, clpr, vs, fltRt, mkp, hipr, lopr, trqu, trPrc, lstgStCnt, mrktTotAmt) 
@@ -403,9 +403,9 @@ CREATE TABLE STOCKPRICE( --주식시세정보 테이블
 --########## 환율정보
 DROP TABLE EXCHANGERATE; -- 환율정보
 CREATE TABLE EXCHANGERATE(
-	DOLLAR NUMBER, --달러(원)
-	YUAN NUMBER,   --위안(원)
-	THEDATE VARCHAR2(1000) --일자(년월일)
+DOLLAR NUMBER, --달러(원)
+YUAN NUMBER,   --위안(원)
+THEDATE VARCHAR2(1000) --일자(년월일)
 );
 
 --INSERT INTO EXCHANGERATE (DOLLAR, YUAN, THEDATE) VALUES(1157.20, 179.20, '2021-09-01');
@@ -413,24 +413,24 @@ CREATE TABLE EXCHANGERATE(
 --########## 지수시세
 DROP TABLE INDEXPRICE; --지수시세 테이블
 CREATE TABLE INDEXPRICE(
-	BASDT  VARCHAR2(1000), --기준일자         
-	IDXNM  VARCHAR2(1000), --지수의 명칭       
-	IDXCSF VARCHAR2(1000), --지수의 분류명칭   
-	CLPR   NUMBER, --정규시장의 매매시간종료시까지 형성되는 최종가격(종가)       
-	VS     NUMBER, --전일 대비 등락            
-	FLTRT  NUMBER, --전일 대비 등락에 따른 비율     
-	MKP    NUMBER, --정규시장의 매매시간개시후 형성되는 최초가격       
-	HIPR   NUMBER, --하루 중 지수의 최고치     
-	LOPR   NUMBER, --하루 중 지수의 최저치
-	TRQU   NUMBER, --지수에 포함된 종목의 거래량 총합
-	TRPRC  NUMBER, --지수에 포함된 종목의 거래대금 총합
-	LSTGMRKTTOTAMT NUMBER, --지수에 포함된 종목의 시가총액
-	LSYREDVSFLTRG NUMBER, --지수의 전년말대비 등락폭
-	LSYREDVSFLTRT NUMBER, --지수의 전년말대비 등락율
-	YRWRCRDHGST   NUMBER, --지수의 연중최고치
-	YRWRCRDHGSTDT VARCHAR2(1000), --지수가 연중최고치를 기록한 날짜
-	YRWRCRDLWST NUMBER,  --지수의 연중최저치
-	YRWRCRDLWSTDT VARCHAR2(1000) --지수가 연중최저치를 기록한 날짜
+BASDT  VARCHAR2(1000), --기준일자         
+IDXNM  VARCHAR2(1000), --지수의 명칭       
+IDXCSF VARCHAR2(1000), --지수의 분류명칭   
+CLPR   NUMBER, --정규시장의 매매시간종료시까지 형성되는 최종가격(종가)       
+VS     NUMBER, --전일 대비 등락            
+FLTRT  NUMBER, --전일 대비 등락에 따른 비율     
+MKP    NUMBER, --정규시장의 매매시간개시후 형성되는 최초가격       
+HIPR   NUMBER, --하루 중 지수의 최고치     
+LOPR   NUMBER, --하루 중 지수의 최저치
+TRQU   NUMBER, --지수에 포함된 종목의 거래량 총합
+TRPRC  NUMBER, --지수에 포함된 종목의 거래대금 총합
+LSTGMRKTTOTAMT NUMBER, --지수에 포함된 종목의 시가총액
+LSYREDVSFLTRG NUMBER, --지수의 전년말대비 등락폭
+LSYREDVSFLTRT NUMBER, --지수의 전년말대비 등락율
+YRWRCRDHGST   NUMBER, --지수의 연중최고치
+YRWRCRDHGSTDT VARCHAR2(1000), --지수가 연중최고치를 기록한 날짜
+YRWRCRDLWST NUMBER,  --지수의 연중최저치
+YRWRCRDLWSTDT VARCHAR2(1000) --지수가 연중최저치를 기록한 날짜
 );
 
 --########## 부동산청약 ###################################################################
