@@ -42,7 +42,7 @@ public class ApplyNoticeApi {
 				urlBuilder.append("?" + "serviceKey=" + KEY);
 				urlBuilder.append("&" + "PG_SZ=" + 100); // 1page에 나오는 
 				urlBuilder.append("&" + "PAGE=" + pageNum); // page 수
-				urlBuilder.append("&" + "SCH_ST_DT=" + "2022-01-01"); // 2022-01-01부터
+				urlBuilder.append("&" + "SCH_ST_DT=" + "2022-07-01"); // 2022-07-01부터
 				urlBuilder.append("&" + "SCH_ED_DT=" + "2022-11-01"); // 2022-11-01까지
 				
 				System.out.println("pageNum : " + pageNum);
@@ -102,7 +102,25 @@ public class ApplyNoticeApi {
                         InputStreamReader isr2 = new InputStreamReader(conn2.getInputStream(), "UTF-8");
         				BufferedReader br2 = new BufferedReader(isr2);
         				JSONParser parser2 = new JSONParser();
-                        Object obj2 = parser2.parse(br2);
+        				
+//        				System.out.println("test1 : " + parser2.toString());
+        				//----
+        				StringBuilder sbb = new StringBuilder();
+        	            String line1 = "";
+        	            try {
+        					while((line1 = br2.readLine()) != null) {
+        						sbb.append(line1).append("\n");
+        					}
+        				} catch (Exception e) {
+        					System.out.println("청약공지 test!");
+        					e.printStackTrace();
+        				} 
+        				//----
+        	            String response = sbb.toString();
+//        	            System.out.println("121번줄 : " + response);
+        				
+                        Object obj2 = parser2.parse(response);
+//                        Object obj2 = parser2.parse(br2);
                         JSONArray jsonArr3 = (JSONArray)obj2;
                         JSONObject jsonObj2 = (JSONObject)jsonArr3.get(1);
                         
@@ -129,7 +147,6 @@ public class ApplyNoticeApi {
                 				.bbs_dtl_cts(bbs_dtl_cts)
                 				.build();
                 		noticeList.add(applyNotice);
-                		
                 	}
                 }
                 pageNum++;
@@ -158,11 +175,9 @@ public class ApplyNoticeApi {
                 return null;
             }
             
-    		
             InputStreamReader isr = new InputStreamReader(conn.getInputStream(), "UTF-8");
 			BufferedReader br = new BufferedReader(isr);
 			
-			//-------------------
             StringBuilder sb = new StringBuilder();
             String line = "";
             try {
@@ -175,12 +190,10 @@ public class ApplyNoticeApi {
 			} 
             
             String responseBody = sb.toString();
+//            System.out.println("198번째줄 : " + responseBody);
             
             JSONParser parser = new JSONParser();
-            
             Object obj = parser.parse(responseBody);
-            //-------------------
-			
             JSONArray jsonArr = (JSONArray)obj;
             JSONObject jsonObj = (JSONObject)jsonArr.get(1);
         	
@@ -200,7 +213,6 @@ public class ApplyNoticeApi {
     					.ahfl_url(ahfl_url)
     					.build();
     			noticeAttach.add(attach);		
-    			
         	} else {
         		JSONArray jsonArr2 = (JSONArray) jsonObj.get("dsBbsAhflInfo");
         		
@@ -222,7 +234,6 @@ public class ApplyNoticeApi {
             	}
         		
         	}
-
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("청약 공지사항 첨부파일 api 문제!");
