@@ -11,7 +11,7 @@
 <head>
     <title>FinTouch | RealEstate | Detail</title>
 </head>
-<form  action="${path}/RealEstate/list" >
+<form  action="${path}/realEstate/list" >
 
     <!-- **************** MAIN CONTENT START **************** -->
 
@@ -354,7 +354,7 @@
 														<c:out value="${RealEstateList.subscrpt_area_code_nm}"/>
 													</td>
 													<td>
-														<a href="${path}/RealEstate/detail?type=${RealEstateList.type}&no=${RealEstateList.house_manage_no}" style="color:black"><c:out value="${RealEstateList.house_nm}"/></a>
+														<a href="${path}/realEstate/detail?type=${RealEstateList.type}&no=${RealEstateList.house_manage_no}" style="color:black"><c:out value="${RealEstateList.house_nm}"/></a>
 													</td>
 													<td>
 														<c:out value="${RealEstateList.house_secd_nm}"/>
@@ -379,7 +379,7 @@
                                     <nav class="mb-sm-0 d-flex justify-content-center mt-2" aria-label="navigation">
                                         <ul class="pagination pagination-sm pagination-bordered mb-0">
                                             <li class="page-item">
-                                                <a class="page-link" onclick="movePage('${path}/RealEstate/list?page=${pageInfo.prevPage}');">Prev</a>
+                                                <a class="page-link" onclick="movePage('${path}/realEstate/list?page=${pageInfo.prevPage}');">Prev</a>
                                             </li>
                                             
                                             
@@ -392,7 +392,7 @@
                                             	
                                             	<c:if test="${pageInfo.currentPage != status.current}">
 		                                            <li class="page-item">
-		                                            	<a class="page-link" onclick="movePage('${path}/RealEstate/list?page=${status.current}');">
+		                                            	<a class="page-link" onclick="movePage('${path}/realEstate/list?page=${status.current}');">
 			                                            	${status.current}
 		                                            	</a>
 		                                            </li>                                            	
@@ -400,7 +400,7 @@
                                             </c:forEach>
                                             
                                             <li class="page-item">
-                                                <a class="page-link" onclick="movePage('${path}/RealEstate/list?page=${pageInfo.nextPage}');">Next</a>
+                                                <a class="page-link" onclick="movePage('${path}/realEstate/list?page=${pageInfo.nextPage}');">Next</a>
                                             </li>
                                         </ul>
                                     </nav>

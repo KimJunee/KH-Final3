@@ -132,7 +132,7 @@
 						청약상품을 클릭하시면 청약정보 <br> 페이지로 이동하실 수 있습니다.
 					</p>
 					<h4 class="">
-						<a href="${path}/RealEstate/list" class="btn btn-dark mb-0 mice">청약상세조회
+						<a href="${path}/realEstate/list" class="btn btn-dark mb-0 mice">청약상세조회
 							바로가기</a>
 					</h4>
 
@@ -179,7 +179,7 @@
 
 												<!-- Card footer -->
 												<div class="card-footer d-grid pt-0">
-													<a href="${path}/RealEstate/detail?type=A&no=2022000678"
+													<a href="${path}/realEstate/detail?type=A&no=2022000678"
 														class="btn btn-sm btn-dark mb-0">View all details</a>
 												</div>
 											</div>
@@ -207,7 +207,7 @@
 
 												<!-- Card footer -->
 												<div class="card-footer d-grid pt-0">
-													<a href="${path}/RealEstate/detail?type=R&no=2022910329"
+													<a href="${path}/realEstate/detail?type=R&no=2022910329"
 														class="btn btn-sm btn-dark mb-0">View all details</a>
 												</div>
 											</div>
@@ -235,7 +235,7 @@
 
 												<!-- Card footer -->
 												<div class="card-footer d-grid pt-0">
-													<a href="${path}/RealEstate/detail?type=U&no=2022950100"
+													<a href="${path}/realEstate/detail?type=U&no=2022950100"
 														class="btn btn-sm btn-dark mb-0">View all details</a>
 												</div>
 											</div>

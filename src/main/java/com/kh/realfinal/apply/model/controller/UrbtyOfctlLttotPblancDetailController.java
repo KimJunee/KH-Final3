@@ -41,7 +41,7 @@ public class UrbtyOfctlLttotPblancDetailController {
 	
 	// ---------------------------------------- 파싱
 	
-	@RequestMapping("/UrbtyOfctlLttotPblancDetail/insert.do")
+	@RequestMapping("/urbtyOfctlLttotPblancDetail/insert.do")
 	public String initUrbtyOfctlLttotPblancDetailData(Model model) {
 		List<UrbtyOfctlLttotPblancDetail> list1 = ApplyApi.callUrbtyOfctlLttotPblancDetailByJSON();
 		

@@ -46,7 +46,7 @@ public class RemndrLttotPblancDetailController {
 	
 	// ---------------------------------------- 파싱
 	
-	@RequestMapping("/RemndrLttotPblancDetail/insert.do")
+	@RequestMapping("/remndrLttotPblancDetail/insert.do")
 	public String initRemndrLttotPblancDetailData(Model model) {
 		List<RemndrLttotPblancDetail> list1 = ApplyApi.callRemndrLttotPblancDetailByJSON();
 		

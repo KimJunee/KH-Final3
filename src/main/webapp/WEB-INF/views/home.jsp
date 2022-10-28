@@ -55,7 +55,7 @@
 
 <h2><a href="${path}/finance/productMain">금융상품 페이지 가기</a></h2>
 
-<h2><a href="${path}/RealEstate/main">내집 마련 ***청약*** 메인 페이지</a></h2>
+<h2><a href="${path}/realEstate/main">내집 마련 ***청약*** 메인 페이지</a></h2>
 
 <h2><a href="${path}/politics/lawProposed/insert.do">국회의원별 대표발의법안 DB Insert</a></h2>
 

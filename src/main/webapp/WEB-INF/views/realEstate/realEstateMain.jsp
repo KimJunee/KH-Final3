@@ -253,7 +253,7 @@
 						오늘 모집 시작되는 청약일정과 <br> 공급 대상들을 즉시 확인하실 수 있습니다!
 					</p>
 					<div class="mt-auto">
-						<a href="${path}/RealEstate/list"
+						<a href="${path}/realEstate/list"
 							class="btn btn-link text-reset p-0 mb-0">View posts</a>
 					</div>
 				</div>
@@ -395,7 +395,7 @@
 							<div class="col-12 ">
 								<div class="d-flex align-items-center position-relative ">
 									<div class="ms-3 ">
-									<a href="${path}/RealEstate/detail?type=U&no=2022950108" class="h6 stretched-link" style="color:#545454">
+									<a href="${path}/realEstate/detail?type=U&no=2022950108" class="h6 stretched-link" style="color:#545454">
 										대곡역 두산위브 입주자 모집</a>
 										<p class="small mb-0 ">청약 접수 : 2022-10-17 &nbsp;
 											&nbsp; 청약 마감 : 2022-10-17</p>
@@ -408,7 +408,7 @@
 							<div class="col-12 ">
 								<div class="d-flex align-items-center position-relative ">
 									<div class="ms-3 ">
-										<a href="${path}/RealEstate/detail?type=U&no=2022950104" class="h6 stretched-link" style="color:#545454">
+										<a href="${path}/realEstate/detail?type=U&no=2022950104" class="h6 stretched-link" style="color:#545454">
 										다산 와이시티 어반플랫 입주자 모집</a>
 										<p class="small mb-0 ">청약 접수 : 2022-10-11  &nbsp;
 											&nbsp; 청약 마감 : 2022-10-12 </p>
@@ -421,7 +421,7 @@
 							<div class="col-12 ">
 								<div class="d-flex align-items-center position-relative ">
 									<div class="ms-3 ">
-										<a href="${path}/RealEstate/detail?type=U&no=2022950100" class="h6 stretched-link" style="color:#545454">
+										<a href="${path}/realEstate/detail?type=U&no=2022950100" class="h6 stretched-link" style="color:#545454">
 										고촌역 루체비스타 입주자 모집</a>
 										<p class="small mb-0 ">청약 접수 : 2022-10-11  &nbsp;
 											&nbsp; 청약 마감 : 2022-10-11 </p>
@@ -434,7 +434,7 @@
 							<div class="col-12 ">
 								<div class="d-flex align-items-center position-relative ">
 									<div class="ms-3 ">
-										<a href="${path}/RealEstate/detail?type=U&no=2022950094" class="h6 stretched-link" style="color:#545454">
+										<a href="${path}/realEstate/detail?type=U&no=2022950094" class="h6 stretched-link" style="color:#545454">
 										대곡역 두산위브 입주자 모집</a>
 										<p class="small mb-0 ">청약 접수 : 2022-09-23  &nbsp;
 											&nbsp; 청약 마감 : 2022-09-23 </p>
@@ -447,7 +447,7 @@
 							<div class="col-12 ">
 								<div class="d-flex align-items-center position-relative ">
 									<div class="ms-3 ">
-										<a href="${path}/RealEstate/detail?type=U&no=2022950093" class="h6 stretched-link" style="color:#545454">
+										<a href="${path}/realEstate/detail?type=U&no=2022950093" class="h6 stretched-link" style="color:#545454">
 										성남 수진역 파라곤 입주자 모집</a>
 										<p class="small mb-0 ">청약 접수 : 2022-09-27  &nbsp;
 											&nbsp; 청약 마감 : 2022-09-27 </p>
@@ -460,7 +460,7 @@
 							<div class="col-12 ">
 								<div class="d-flex align-items-center position-relative ">
 									<div class="ms-3 ">
-										<a href="${path}/RealEstate/detail?type=U&no=2022950092" class="h6 stretched-link" style="color:#545454">
+										<a href="${path}/realEstate/detail?type=U&no=2022950092" class="h6 stretched-link" style="color:#545454">
 										두산위브 더 아티움 재개발임대주택 입주자 모집</a>
 										<p class="small mb-0 ">청약 접수 : 2022-08-31 &nbsp;
 											&nbsp; 청약 마감 : 2022-09-01 </p>
@@ -472,7 +472,7 @@
 							<div class="col-12 ">
 								<div class="d-flex align-items-center position-relative ">
 									<div class="ms-3 ">
-										<a href="${path}/RealEstate/detail?type=U&no=2022950090" class="h6 stretched-link" style="color:#545454">
+										<a href="${path}/realEstate/detail?type=U&no=2022950090" class="h6 stretched-link" style="color:#545454">
 										고촌역 루체비스타 입주자 모집</a>
 										<p class="small mb-0 ">청약 접수 : 2022-08-31  &nbsp;
 											&nbsp; 청약 마감 : 2022-09-02 </p>
@@ -484,7 +484,7 @@
 					</div>
 					<!-- 지역별 청약 footer -->
 					<div class="card-footer border-top text-center p-3 ">
-						<a href="${path}/RealEstate/list">View all details</a>
+						<a href="${path}/realEstate/list">View all details</a>
 					</div>
 				</div>
 			</div>
@@ -693,7 +693,7 @@ path:hover {
             	html +='<div class="col-12 ">'
     				+	'<div class="d-flex align-items-center position-relative ">'
     				+		'<div class="ms-3 ">'
-    				+			'<a href="http://localhost/realfinal/RealEstate/detail?type='
+    				+			'<a href="http://localhost/realfinal/realEstate/detail?type='
     				+		    list[i].type
     				+           '&no='
     				+           list[i].house_manage_no

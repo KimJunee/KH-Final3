@@ -82,14 +82,14 @@
 
                         <!-- 부동산청약 메뉴 시작 -->
                         <li class="nav-item dropdown ">
-                            <a class="nav-link-sp  " href="${path}/RealEstate/main" id="postMenu " data-bs-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">부동산청약</a>
+                            <a class="nav-link-sp  " href="${path}/realEstate/main" id="postMenu " data-bs-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">부동산청약</a>
                             <ul class="dropdown-menu bg-dark text-white" aria-labelledby="postMenu ">
                                 <!-- dropdown submenu -->
                                 <li class="dropdown-submenu dropend text-white">
-                                    <a class="dropdown-item text-white" href="${path}/RealEstate/main">청약메인</a>
+                                    <a class="dropdown-item text-white" href="${path}/realEstate/main">청약메인</a>
                                 </li>
                                 <li> <a class="dropdown-item text-white" href="${path}/realEstate/calendar">청약캘린더 <span class="badge bg-danger smaller me-1">New</span></a> </li>
-                                <li> <a class="dropdown-item text-white" href="${path}/RealEstate/list">청약상세조회</a> </li>
+                                <li> <a class="dropdown-item text-white" href="${path}/realEstate/list">청약상세조회</a> </li>
                                 <li class="dropdown-submenu dropend text-white">
                                     <a class="dropdown-item text-white" href="${path}/realEstate/notice">청약공지사항</a>
                                 </li>

@@ -102,7 +102,7 @@ public class RealEstateController {
 		
 	}
 	
-	@RequestMapping("/RealEstate/main")
+	@RequestMapping("/realEstate/main")
 	public String goRealEMain(Model model) {
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("board_list_no", RealEstate);
@@ -147,7 +147,7 @@ public class RealEstateController {
 		return "realEstate/realEstateMain";
 	}
 	
-	@GetMapping("/RealEstate/list")
+	@GetMapping("/realEstate/list")
 	public String list(Model model,
 			@RequestParam Map<String, String> param,
 			@RequestParam(value = "locationType" , required = false) String[] locationType,
@@ -227,7 +227,7 @@ public class RealEstateController {
 	
 	
 	
-	@RequestMapping("/RealEstate/detail")
+	@RequestMapping("/realEstate/detail")
 	public String goRealEDetail(Model model, @RequestParam("type") String type, @RequestParam("no") String no){
 		if(type.equals("R")) {
 			RemndrLttotPblancDetail remndr = remndrservice.getSelectRemndrNo(no);

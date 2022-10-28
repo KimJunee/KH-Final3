@@ -84,8 +84,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-8 ">
-                                                    <a href="${path}/RealEstate/main" class="badge text-bg-warning mb-2 "><i class="fas fa-circle me-2 small fw-bold "></i>Real Estate</a>
-                                                    <h4 class="fw-normal text-truncate mb-1 mice text-white "><a href="${path}/RealEstate/main" class="btn-link text-reset fw-bold ">주거고민이 있으신가요?</a></h4>
+                                                    <a href="${path}/realEstate/main" class="badge text-bg-warning mb-2 "><i class="fas fa-circle me-2 small fw-bold "></i>Real Estate</a>
+                                                    <h4 class="fw-normal text-truncate mb-1 mice text-white "><a href="${path}/realEstate/main" class="btn-link text-reset fw-bold ">주거고민이 있으신가요?</a></h4>
                                                 </div>
                                             </div>
                                             <!-- Thumb 3 -->
@@ -354,7 +354,7 @@
                                             <div class="card card-body bg-warning bg-opacity-15 p-4 h-75 text-center">
                                                 <h3 id="current_date"></h3>
                                                 <h1 class="fs-1 text-danger">${mainCount}개</h1>
-                                                <div class="mt-auto"><a href="${path}/RealEstate/list" class="btn btn-link text-reset p-0 mb-0">일정 확인하러 가기!</a></div>
+                                                <div class="mt-auto"><a href="${path}/realEstate/list" class="btn btn-link text-reset p-0 mb-0">일정 확인하러 가기!</a></div>
                                             </div>
                                         </div>
                                     </div>
