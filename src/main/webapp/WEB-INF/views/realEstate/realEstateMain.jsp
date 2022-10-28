@@ -178,7 +178,7 @@
 					</c:if>
 					<!-- 공지사항 footer -->
 					<div class="card-footer border-top text-center p-3">
-						<a href="${path}/realEstate/notice">View all details</a>
+						<a href="${path}/realEstate/notice">View all</a>
 					</div>
 				</div>
 			</div>
@@ -231,7 +231,7 @@
 						</c:if>
 						<!-- 커뮤니티 footer -->
 						<div class="card-footer border-top text-center p-3">
-							<a href="${path}/board/list?type=2">View all details</a>
+							<a href="${path}/board/list?type=2">View all</a>
 						</div>
 					</div>
 				</div>
@@ -254,7 +254,7 @@
 					</p>
 					<div class="mt-auto">
 						<a href="${path}/realEstate/list"
-							class="btn btn-link text-reset p-0 mb-0">View posts</a>
+							class="btn btn-link text-reset p-0 mb-0">View all</a>
 					</div>
 				</div>
 			</div>
@@ -484,7 +484,7 @@
 					</div>
 					<!-- 지역별 청약 footer -->
 					<div class="card-footer border-top text-center p-3 ">
-						<a href="${path}/realEstate/list">View all details</a>
+						<a href="${path}/realEstate/list">View all</a>
 					</div>
 				</div>
 			</div>
@@ -575,7 +575,7 @@
 
 							<!-- 페이지넘버 시작 -->
 							<div class="card-footer text-center p-3 ">
-						<a href="${path}/realEstate/calendar">청약캘린더 바로가기 >></a>
+						<a href="${path}/realEstate/calendar">View all >></a>
 					</div>
 							<!-- 페이지넘버 끝 -->
 						</div>

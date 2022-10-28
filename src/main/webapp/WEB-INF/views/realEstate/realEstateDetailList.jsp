@@ -294,7 +294,7 @@
                                 	<!-- Select -->
                                     <div class="col-md-4 col-xl-4">
                                         <select id="searchType" name ="searchType" class="form-select" aria-label="Default select example">
-                                            <option value="검색필터" <c:if test="${param.sort == 'sortBy'}"> selected </c:if>>검색필터</option>
+                                            <option value="검색필터" <c:if test="${param.sort == 'sortBy'}"> selected </c:if>>검색옵션</option>
                                             <option value="content" <c:if test="${param.searchType == 'content'}"> selected </c:if>>주택명</option>
                                             <option value="localName" <c:if test="${param.searchType == 'localName'}"> selected </c:if>>지역명</option>
                                         </select>
