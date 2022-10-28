@@ -153,7 +153,7 @@
                                         </div>
                                         <div>
                                             <a href="${path}/board/list?type=1" class="text-body ">
-                                                <p><b>정치글 더보기&nbsp;&nbsp;</b><i class="bi bi-arrow-right "></i></p>
+                                                <p><b>View all&nbsp;&nbsp;</b><i class="bi bi-arrow-right "></i></p>
                                             </a>
                                         </div>
                                     </div>
@@ -215,7 +215,7 @@
                                         </div>
                                         <div>
                                             <a href="${path}/board/list?type=2" class="text-body ">
-                                                <p><b>부동산글 더보기&nbsp;&nbsp;</b><i class="bi bi-arrow-right "></i></p>
+                                                <p><b>View all&nbsp;&nbsp;</b><i class="bi bi-arrow-right "></i></p>
                                             </a>
                                         </div>
                                     </div>
@@ -277,7 +277,7 @@
                                         </div>
                                         <div>
                                             <a href="${path}/board/list?type=3" class="text-body ">
-                                                <p><b>금융글 더보기&nbsp;&nbsp;</b><i class="bi bi-arrow-right "></i></p>
+                                                <p><b>View all&nbsp;&nbsp;</b><i class="bi bi-arrow-right "></i></p>
                                             </a>
                                         </div>
                                     </div>
@@ -339,7 +339,7 @@
                                         </div>
                                         <div>
                                             <a href="${path}/board/list?type=4" class="text-body ">
-                                                <p><b>자유글 더보기&nbsp;&nbsp;</b><i class="bi bi-arrow-right "></i></p>
+                                                <p><b>View all&nbsp;&nbsp;</b><i class="bi bi-arrow-right "></i></p>
                                             </a>
                                         </div>
                                     </div>
