@@ -218,7 +218,7 @@
 												<!-- Image -->
 												<div class="position-relative">
 													<img class="card-img-top"
-														src="${path}/resources/resources1b/images/03_realEstate/apt_01.jpg"
+														src="${path}/resources/resources1b/images/03_realEstate/apply011.png"
 														style="width: 300px; height: 200px;" alt="">
 													<div class="card-img-overlay d-flex"></div>
 												</div>
