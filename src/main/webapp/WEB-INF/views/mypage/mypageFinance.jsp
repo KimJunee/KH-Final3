@@ -65,23 +65,22 @@
                                 <!-- Search and select START -->
                                 <div class="row g-3 align-items-center justify-content-between mb-3">
                                     <!-- Search -->
-									<form action="${path}/mypage/finPro" method="get" class="rounded position-relative">
-										<div class="row">
-											<div class="col-3">
-											 <!-- Short by filter -->		
-										       <select id="sort" name="sort" class="form-select z-index-9 bg-transparent" aria-label=".form-select-sm">
-										           <option value="likeBy" <c:if test="${param.sort == 'likeBy'}">selected</c:if>>최근 찜 순</option>
-										           <option value="maxRate" <c:if test="${param.sort == 'maxRate'}">selected</c:if>>최고금리 순</option>
-										       </select>
-											</div>
-											<div class="col-4"></div>
-											<div class="col-5">
-										       <input name="searchValue" id="searchValue" value="${param.searchValue}" class="form-control pe-5 bg-transparent" type="search" placeholder="Product Search" aria-label="Search">
-										       <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>		
-											</div>
-										<!-- Select option -->
-										</div>  
-									</form>
+									<div class="col-3">
+									 <!-- Short by filter -->		
+								       <select id="sort" name="sort" onchange="movePage('${path}/mypage/finPro?page=${status.current}');"  class="form-select z-index-9 bg-transparent" aria-label=".form-select-sm">
+								           <option value="likeBy" <c:if test="${param.sort == 'likeBy'}">selected</c:if>>최근 찜 순</option>
+								           <option value="maxRate" <c:if test="${param.sort == 'maxRate'}">selected</c:if>>최고금리 순</option>
+								       </select>
+									</div>
+									<div class="col-4"></div>
+									<div class="col-5">
+										<form action="${path}/mypage/finPro" method="get" class="rounded position-relative">
+											<input type="hidden" name="sort" value="${param.sort}">
+								        	<input name="searchValue" id="searchValue" value="${param.searchValue}" class="form-control pe-5 bg-transparent" type="search" placeholder="Product Search" aria-label="Search">
+								        	<button class="btn bg-transparent border-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>		
+										</form>
+									</div>
+									<!-- Select option -->
                                 </div>
                                 <!-- 찜한 금융상품 시작 -->
                                 <div class="table-responsive border-0">
@@ -134,7 +133,7 @@
                                                 <!-- delete -->
                                                 <td>
                                                     <div class="d-flex gap-2">
-                                                        <a href="${path}/mypage/deleteFinPro?id=${finLikeList.prtId}" style="margin-left: 5px;" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="bi bi-trash"></i></a>
+                                                        <a href="${path}/mypage/deleteFinPro?id=${finLikeList.prtId}&finType=${finLikeList.finType}" style="margin-left: 5px;" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="bi bi-trash"></i></a>
                                                     </div>
                                                 </td>
                                             </tr>

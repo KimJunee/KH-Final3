@@ -61,8 +61,12 @@ public class MypageFinProServiceImpl implements MypageFinProService{
 
 	@Override
 	@Transactional(rollbackFor = Exception.class)
-	public int deleteFinLike(int prtId) {
-		return mapper.deleteFinLike(prtId);
+	public int deleteFinLike(int id, String finType) {
+		Map<String, String> searchMap = new HashMap<String, String>();
+		searchMap.put("finType", finType);
+		searchMap.put("prtId", String.valueOf(id));
+		
+		return mapper.deleteFinLike(searchMap);
 	}
 
 }

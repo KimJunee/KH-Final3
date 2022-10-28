@@ -158,9 +158,9 @@ public class MypageFinProController {
 	}
 	
 	@RequestMapping("/mypage/deleteFinPro")
-	public String deleteFinPro(Model model, int id,
+	public String deleteFinPro(Model model, int id, String finType,
 			@SessionAttribute(name= "loginMember", required = false) Member loginMember) {
-		int result = service.deleteFinLike(id);
+		int result = service.deleteFinLike(id, finType);
 		
 		if(result > 0) {
 			model.addAttribute("msg", "찜 삭제에 성공하였습니다.");

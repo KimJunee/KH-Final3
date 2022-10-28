@@ -10,5 +10,5 @@ public interface MypageFinProService {
 	int saveMypageFin(MypageFinance mypageFinance);
 	List<MypageFinance> getMypageFinList(PageInfo pageInfo, Map<String, String> param);
 	int getMypageFinCount(Map<String, String> param);
-	int deleteFinLike(int prtId);
+	int deleteFinLike(int id, String finType);
 }

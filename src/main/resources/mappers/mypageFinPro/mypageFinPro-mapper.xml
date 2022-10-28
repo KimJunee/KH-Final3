@@ -100,8 +100,8 @@
 		ORDER BY LIKENO DESC)	
 	</select>
 	
-	<delete id="deleteFinLike" parameterType="int">
-		DELETE FROM MYPAGEFINANCE WHERE PRTID = #{prtId}
+	<delete id="deleteFinLike" parameterType="map">
+		DELETE FROM MYPAGEFINANCE WHERE PRTID = #{prtId} AND FINTYPE = #{finType}
 	</delete>
 
 </mapper>

@@ -13,6 +13,6 @@ public interface MypageFinProMapper {
 	int insertMypageFin(MypageFinance mypageFinance);
 	List<MypageFinance> selectFinLikeList(RowBounds rowBounds,  Map<String, String> map);
 	int selectFinLikeCount(Map<String, String> map);
-	int deleteFinLike(int prtId);
+	int deleteFinLike(Map<String, String> map);
 	
 }
