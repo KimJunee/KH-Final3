@@ -77,11 +77,11 @@
 		<if test="korCoNm != null">
 			WHERE f.fixdepo_kor_co_nm LIKE '%'||#{korCoNm}||'%'			
 		</if>
-		<if test="sort != null"> ORDER BY
+		<if test="sort != null"> 
 			<choose>
-				<when test="sort == 'sortBy'">f.fixdeposit_id</when>
-				<when test="sort == 'intRate'">o.intr_rate2 DESC</when>
-				<when test="sort == 'prtNm'">f.fixdepo_fin_prdt_nm</when>
+				<when test="sort == 'sortBy'">ORDER BY f.fixdeposit_id</when>
+				<when test="sort == 'intRate'">ORDER BY o.intr_rate2 DESC</when>
+				<when test="sort == 'prtNm'">ORDER BY f.fixdepo_fin_prdt_nm</when>
 			</choose>
 		</if>
 	</select>

@@ -79,11 +79,11 @@
 		<if test="korCoNm != null">
 			WHERE l.leaseloan_kor_co_nm LIKE '%'||#{korCoNm}||'%'			
 		</if>
-		<if test="sort != null"> ORDER BY
+		<if test="sort != null"> 
 			<choose>
-				<when test="sort == 'sortBy'">l.leaseloan_id</when>
-				<when test="sort == 'intRate'">o.leaseloan_lend_rate_min</when>
-				<when test="sort == 'prtNm'">l.leaseloan_fin_prdt_nm</when>
+				<when test="sort == 'sortBy'">ORDER BY l.leaseloan_id</when>
+				<when test="sort == 'intRate'">ORDER BY o.leaseloan_lend_rate_min</when>
+				<when test="sort == 'prtNm'">ORDER BY l.leaseloan_fin_prdt_nm</when>
 			</choose>
 		</if>
 	</select>

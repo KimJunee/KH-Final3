@@ -74,11 +74,11 @@
 		<if test="korCoNm != null">
 			WHERE m.mortgage_kor_co_nm LIKE '%'||#{korCoNm}||'%'			
 		</if>
-		<if test="sort != null"> ORDER BY
+		<if test="sort != null"> 
 			<choose>
-				<when test="sort == 'sortBy'">m.mortgage_id</when>
-				<when test="sort == 'intRate'">o.mortgage_lend_rate_min</when>
-				<when test="sort == 'prtNm'">m.mortgage_fin_prdt_nm</when>
+				<when test="sort == 'sortBy'">ORDER BY m.mortgage_id</when>
+				<when test="sort == 'intRate'">ORDER BY o.mortgage_lend_rate_min</when>
+				<when test="sort == 'prtNm'">ORDER BY m.mortgage_fin_prdt_nm</when>
 			</choose>
 		</if>
 	</select>

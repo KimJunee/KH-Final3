@@ -53,11 +53,11 @@
 		<if test="korCoNm != null">
 			WHERE I.inssvn_kor_co_nm LIKE '%'||#{korCoNm}||'%'	
 		</if>
-		<if test="sort != null"> ORDER BY
+		<if test="sort != null"> 
 			<choose>
-				<when test="sort == 'sortBy'">I.inssvn_id</when>
-				<when test="sort == 'intRate'">O.intr_rate2 DESC</when>
-				<when test="sort == 'prtNm'">I.inssvn_fin_prdt_nm</when>
+				<when test="sort == 'sortBy'">ORDER BY I.inssvn_id</when>
+				<when test="sort == 'intRate'">ORDER BY O.intr_rate2 DESC</when>
+				<when test="sort == 'prtNm'">ORDER BY I.inssvn_fin_prdt_nm</when>
 			</choose>
 		</if>
 	</select>
@@ -74,13 +74,6 @@
 		AND C.MAX_RATE = O.intr_rate2
 		<if test="korCoNm != null">
 			WHERE I.inssvn_kor_co_nm LIKE '%'||#{korCoNm}||'%'
-		</if>
-		<if test="sort != null"> ORDER BY
-			<choose>
-				<when test="sort == 'sortBy'">I.inssvn_id</when>
-				<when test="sort == 'intRate'">O.intr_rate2 DESC</when>
-				<when test="sort == 'prtNm'">I.inssvn_fin_prdt_nm</when>
-			</choose>
 		</if>
 		)
 	</select>
