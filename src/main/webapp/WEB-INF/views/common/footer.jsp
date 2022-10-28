@@ -38,7 +38,7 @@
                     <h5 class="mb-4 text-dark ">Recent post</h5>
                     <!-- Item -->
                     <div class="mb-4 position-relative ">
-                        <div><a href="# " class="badge text-bg-danger mb-2 "><i class="fas fa-circle me-2 small fw-bold "></i>Finance</a></div>
+                        <div><a class="badge text-bg-danger mb-2 "><i class="fas fa-circle me-2 small fw-bold "></i>Finance</a></div>
                         <a href="post-single-3.html " class="btn-link text-dark fw-normal ">10조로 커진 액티브 ETF…금리연동·채권형 대세로</a>
                     </div>
                 </div>
@@ -48,16 +48,16 @@
                     <div class="row ">
                         <div class="col-6 ">
                             <ul class="nav flex-column ">
-                                <li class="nav-item "><a class="nav-link " href="# ">대한민국 국회</a></li>
-                                <li class="nav-item "><a class="nav-link pt-0 " href="# ">금융감독원</a></li>
-                                <li class="nav-item "><a class="nav-link pt-0 " href="# ">금융감독위원회 </a></li>
+                                <li class="nav-item "><a class="nav-link " href="https://www.assembly.go.kr/portal/main/main.do">대한민국 국회</a></li>
+                                <li class="nav-item "><a class="nav-link pt-0 " href="https://www.fss.or.kr/fss/main/main.do">금융감독원</a></li>
+                                <li class="nav-item "><a class="nav-link pt-0 " >금융감독위원회 </a></li>
                             </ul>
                         </div>
                         <div class="col-6 ">
                             <ul class="nav flex-column ">
-                                <li class="nav-item "><a class="nav-link " href="# ">기획재정부</a></li>
-                                <li class="nav-item "><a class="nav-link " href="# ">국토교통부</a></li>
-                                <li class="nav-item "><a class="nav-link " href="# ">주택도시기금</a></li>
+                                <li class="nav-item "><a class="nav-link " href="https://www.moef.go.kr">기획재정부</a></li>
+                                <li class="nav-item "><a class="nav-link " href="http://www.molit.go.kr/portal.do">국토교통부</a></li>
+                                <li class="nav-item "><a class="nav-link " href="https://nhuf.molit.go.kr">주택도시기금</a></li>
                             </ul>
                         </div>
                     </div>
@@ -67,12 +67,12 @@
                     <h5 class="mb-4 text-dark ">Get Regular Updates</h5>
                     <ul class="nav flex-column ">
                         <li class="nav-item ">
-                            <a class="nav-link pt-0 " href="# ">
+                            <a class="nav-link pt-0 ">
                                 <i class="fab fa-whatsapp fa-fw me-2 "></i>WhatsApp
                             </a>
                         </li>
-                        <li class="nav-item "><a class="nav-link " href="# "><i class="fab fa-youtube fa-fw me-2 "></i>YouTube</a></li>
-                        <li class="nav-item "><a class="nav-link " href="# "><i class="far fa-bell fa-fw me-2 "></i>Website Notifications</a></li>
+                        <li class="nav-item "><a class="nav-link " href="https://www.youtube.com"><i class="fab fa-youtube fa-fw me-2 "></i>YouTube</a></li>
+                        <li class="nav-item "><a class="nav-link " ><i class="far fa-bell fa-fw me-2 "></i>Website Notifications</a></li>
                     </ul>
                 </div>
                 <!-- Footer Widget -->
