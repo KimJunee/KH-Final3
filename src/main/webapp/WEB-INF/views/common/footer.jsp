@@ -39,7 +39,7 @@
                     <!-- Item -->
                     <div class="mb-4 position-relative ">
                         <div><a class="badge text-bg-danger mb-2 "><i class="fas fa-circle me-2 small fw-bold "></i>Finance</a></div>
-                        <a href="post-single-3.html " class="btn-link text-dark fw-normal ">10조로 커진 액티브 ETF…금리연동·채권형 대세로</a>
+                        <a class="btn-link text-dark fw-normal ">10조로 커진 액티브 ETF…금리연동·채권형 대세로</a>
                     </div>
                 </div>
                 <!-- Footer Widget -->
