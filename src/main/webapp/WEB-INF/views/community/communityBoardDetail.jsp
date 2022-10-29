@@ -149,7 +149,7 @@
                     <!-- Main Content END -->
                     <!-- 오른쪽 사이드바 시작 -->
                     <div class="col-lg-3">
-                        <div data-sticky data-margin-top="80" data-sticky-for="991">
+                        <div data-margin-top="80" data-sticky-for="991">
                             <h4>Share this article</h4>
 	                            <ul class="nav text-white-force">
 	                                <li class="nav-item">
