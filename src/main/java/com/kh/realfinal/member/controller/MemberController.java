@@ -41,8 +41,10 @@ public class MemberController {
 		Member loginMember = service.login(user_id, user_password);
 		
 		if(loginMember != null) {
+			model.addAttribute("msg", "로그인이 완료 되었습니다.");
+			model.addAttribute("location", "/main.do");
 			model.addAttribute("loginMember", loginMember);
-			return "main/main";
+			return "/common/msg";
 		}else {
 			model.addAttribute("msg", "아이디나 패스워드가 잘못되었습니다.");
 			model.addAttribute("location", "/mypage/signIn");
