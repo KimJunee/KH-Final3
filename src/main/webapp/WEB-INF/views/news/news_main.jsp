@@ -163,12 +163,12 @@
                                         <div class="card bg-transparent overflow-hidden">
                                             <!-- Card img -->
                                             <div class="position-relative rounded-3 overflow-hidden">
-                                                <img class="card-img" class=".graysclae_img_2" src="https://i.ytimg.com/an_webp/VjCL9IL2reE/mqdefault_6s.webp?du=3000&sqp=COGu3JoG&rs=AOn4CLD99ZvaSuK0qXNLWDSTxoYlnoifcw" style="height:200px;" alt="Card image">
+                                                <img class="card-img" class=".graysclae_img_2" src="${path}/resources/resources1b/images/news/mainvideo1.jpg" style="height:200px;" alt="Card image">
                                                 <div class="card-img-overlay d-flex align-items-start flex-column p-3">
                                                     <!-- Card overlay -->
                                                     <div class="w-100 my-auto">
                                                         <!-- Popup video -->
-                                                        <a href="https://www.youtube.com/watch?v=VjCL9IL2reE&ab_channel=KBSNews" class="icon-md bg-primary d-block mx-auto text-white rounded-circle" data-glightbox data-gallery="y-video">
+                                                        <a href="https://www.youtube.com/watch?v=MrLCV-bOnxg&ab_channel=MBCNEWS" class="icon-md bg-primary d-block mx-auto text-white rounded-circle" data-glightbox data-gallery="y-video">
                                                             <i class="bi bi-play-btn"></i>
                                                         </a>
                                                     </div>
@@ -176,7 +176,7 @@
                                             </div>
                                         </div>
                                         <div class="card-body px-0 pt-3">
-                                            <h5 class="card-title mice"><a href="podcast-single.html" class="btn-link text-dark fw-bold">불매운동 확산에 SPC “반품 받겠다”</a></h5>
+                                            <h5 class="card-title mice"><a href="https://www.youtube.com/watch?v=MrLCV-bOnxg&ab_channel=MBCNEWS" class="btn-link text-dark fw-bold">"엔화 추락은 국력저하 탓".. "일본은 중진국" 경고까지</a></h5>
                                         </div>
                                         <!-- Card item END -->
                                     </div>
@@ -186,19 +186,19 @@
                                         <div class="card bg-transparent overflow-hidden">
                                             <!-- Card img -->
                                             <div class="position-relative rounded-3 overflow-hidden">
-                                                <img class="card-img" src="https://i.ytimg.com/an_webp/Max4Nby9mJE/mqdefault_6s.webp?du=3000&sqp=CKvB3JoG&rs=AOn4CLBtwwgLHFqdx41NGESbUeLxTe-Y-A" style="height:200px;" alt="Card image">
+                                                <img class="card-img" src="/resources/resources1b/images/news/mainvideo2.jpg" style="height:200px;" alt="Card image">
                                                 <div class="card-img-overlay d-flex align-items-start flex-column p-3">
                                                     <!-- Card overlay -->
                                                     <div class="w-100 my-auto">
                                                         <!-- Popup video -->
-                                                        <a href="https://www.youtube.com/watch?v=Max4Nby9mJE&ab_channel=YTN" class="icon-md bg-primary d-block mx-auto text-white rounded-circle" data-glightbox data-gallery="y-video">
+                                                        <a href="https://www.youtube.com/watch?v=FXl_1offYJU&ab_channel=KBSNews" class="icon-md bg-primary d-block mx-auto text-white rounded-circle" data-glightbox data-gallery="y-video">
                                                             <i class="bi bi-play-btn"></i>
                                                         </a>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="card-body px-0 pt-3">
-                                                <h5 class="card-title mice"><a href="podcast-single.html" class="btn-link text-dark fw-bold">러시아 '안간힘' 써보지만...우크라 대공세 예고됐다</a></h5>
+                                                <h5 class="card-title mice"><a href="https://www.youtube.com/watch?v=FXl_1offYJU&ab_channel=KBSNews" class="btn-link text-dark fw-bold">한국 경제 ‘사면초가’</a></h5>
                                             </div>
                                         </div>
                                     </div>
@@ -209,19 +209,19 @@
                                         <div class="card bg-transparent overflow-hidden">
                                             <!-- Card img -->
                                             <div class="position-relative rounded-3 overflow-hidden">
-                                                <img class="card-img" src="https://i.ytimg.com/an_webp/Lx7g7npI6po/mqdefault_6s.webp?du=3000&sqp=CJr825oG&rs=AOn4CLAWIR59LNkmYxoCkoZHbKCSck_vzQ" style="height:200px;" alt="Card image">
+                                                <img class="card-img" src="/resources/resources1b/images/news/mainvideo3.jpg" style="height:200px;" alt="Card image">
                                                 <div class="card-img-overlay d-flex align-items-start flex-column p-3">
                                                     <!-- Card overlay -->
                                                     <div class="w-100 my-auto">
                                                         <!-- Popup video -->
-                                                        <a href="https://www.youtube.com/watch?v=Lx7g7npI6po&ab_channel=MBCNEWS" class="icon-md bg-primary d-block mx-auto text-white rounded-circle" data-glightbox data-gallery="y-video">
+                                                        <a href="https://www.youtube.com/watch?v=l8bDuSaMwQ0&ab_channel=YTN" class="icon-md bg-primary d-block mx-auto text-white rounded-circle" data-glightbox data-gallery="y-video">
                                                             <i class="bi bi-play-btn"></i>
                                                         </a>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="card-body px-0 pt-3">
-                                                <h5 class="card-title mice"><a href="podcast-single.html" class="btn-link text-dark fw-bold">장소 불문 수억씩 '싹둑'..서울 집값 전방위 하락</a></h5>
+                                                <h5 class="card-title mice"><a href="https://www.youtube.com/watch?v=l8bDuSaMwQ0&ab_channel=YTN" class="btn-link text-dark fw-bold">흔들리는 미국 경제...소비 위축에 집값은 '추락'</a></h5>
                                             </div>
                                         </div>
                                         <!-- Card item END -->
@@ -232,19 +232,19 @@
                                         <div class="card bg-transparent overflow-hidden">
                                             <!-- Card img -->
                                             <div class="position-relative rounded-3 overflow-hidden">
-                                                <img class="card-img" src="https://i.ytimg.com/an_webp/U7_xs0dvYJs/mqdefault_6s.webp?du=3000&sqp=CMuW3JoG&rs=AOn4CLDj4yKzyEDFBWbkVIP-P1zeHgE6ww" style="height:200px;" alt="Card image">
+                                                <img class="card-img" src="/resources/resources1b/images/news/mainvideo4.jpg" style="height:200px;" alt="Card image">
                                                 <div class="card-img-overlay d-flex align-items-start flex-column p-3">
                                                     <!-- Card overlay -->
                                                     <div class="w-100 my-auto">
                                                         <!-- Popup video -->
-                                                        <a href="https://www.youtube.com/watch?v=U7_xs0dvYJs&ab_channel=MBCNEWS" class="icon-md bg-primary d-block mx-auto text-white rounded-circle" data-glightbox data-gallery="y-video">
+                                                        <a href="https://www.youtube.com/watch?v=0HyGDcESyMo&ab_channel=MBCNEWS" class="icon-md bg-primary d-block mx-auto text-white rounded-circle" data-glightbox data-gallery="y-video">
                                                             <i class="bi bi-play-btn"></i>
                                                         </a>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="card-body px-0 pt-3">
-                                                <h5 class="card-title mice"><a href="podcast-single.html" class="btn-link text-dark fw-bold">채권은 왜 세계경제의 공포가 됐나?</a></h5>
+                                                <h5 class="card-title mice"><a href="https://www.youtube.com/watch?v=0HyGDcESyMo&ab_channel=MBCNEWS" class="btn-link text-dark fw-bold">"미국 주택 가격 이제 떨어지기 시작‥지나치게 과대평가"</a></h5>
                                             </div>
                                         </div>
                                         <!-- Card item END -->
