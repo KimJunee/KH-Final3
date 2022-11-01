@@ -349,7 +349,7 @@
                                 <div class="row g-3">
                                     <div class="col-md-4 order-sm-2">
                                         <div class="rounded-3 overflow-hidden">
-                                            <h3 class="m-0 mice "><i class="bi bi-bell-fill m-2"></i><a class="text-dark">&nbsp;오늘<a class="text-danger">모집시작</a>청약</a>
+                                            <h3 class="m-0 mice "><i class="bi bi-bell-fill m-2"></i><a class="text-dark">&nbsp;오늘<a class="text-danger">접수시작</a>청약</a>
                                             </h3>
                                             <div class="card card-body bg-warning bg-opacity-15 p-4 h-75 text-center">
                                                 <h3 id="current_date"></h3>

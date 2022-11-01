@@ -396,9 +396,9 @@
 								<div class="d-flex align-items-center position-relative ">
 									<div class="ms-3 ">
 									<a href="${path}/realEstate/detail?type=U&no=2022950108" class="h6 stretched-link" style="color:#545454">
-										대곡역 두산위브 입주자 모집</a>
-										<p class="small mb-0 ">청약 접수 : 2022-10-17 &nbsp;
-											&nbsp; 청약 마감 : 2022-10-17</p>
+										수원 아이파크 시티 10단지(재당첨제한 10년 / 수원시거주, 무주택세대구성원만 가능) 입주자 모집</a>
+										<p class="small mb-0 ">청약 접수 : 2022-11-07 &nbsp;
+											&nbsp; 청약 마감 : 2022-11-07</p>
 									</div>
 								</div>
 							</div>
@@ -409,9 +409,9 @@
 								<div class="d-flex align-items-center position-relative ">
 									<div class="ms-3 ">
 										<a href="${path}/realEstate/detail?type=U&no=2022950104" class="h6 stretched-link" style="color:#545454">
-										다산 와이시티 어반플랫 입주자 모집</a>
-										<p class="small mb-0 ">청약 접수 : 2022-10-11  &nbsp;
-											&nbsp; 청약 마감 : 2022-10-12 </p>
+										파주 운정신도시 A39BL 호반써밋 입주자 모집</a>
+										<p class="small mb-0 ">청약 접수 : 2022-11-07  &nbsp;
+											&nbsp; 청약 마감 : 2022-11-09 </p>
 									</div>
 								</div>
 							</div>
@@ -422,9 +422,9 @@
 								<div class="d-flex align-items-center position-relative ">
 									<div class="ms-3 ">
 										<a href="${path}/realEstate/detail?type=U&no=2022950100" class="h6 stretched-link" style="color:#545454">
-										고촌역 루체비스타 입주자 모집</a>
-										<p class="small mb-0 ">청약 접수 : 2022-10-11  &nbsp;
-											&nbsp; 청약 마감 : 2022-10-11 </p>
+										파주 운정신도시 A49블록 시티프라디움 (본청약) 입주자 모집</a>
+										<p class="small mb-0 ">청약 접수 : 2022-11-07  &nbsp;
+											&nbsp; 청약 마감 : 2022-11-09 </p>
 									</div>
 								</div>
 							</div>
@@ -435,9 +435,9 @@
 								<div class="d-flex align-items-center position-relative ">
 									<div class="ms-3 ">
 										<a href="${path}/realEstate/detail?type=U&no=2022950094" class="h6 stretched-link" style="color:#545454">
-										대곡역 두산위브 입주자 모집</a>
-										<p class="small mb-0 ">청약 접수 : 2022-09-23  &nbsp;
-											&nbsp; 청약 마감 : 2022-09-23 </p>
+										오산 세교2지구 A-21블록 모아미래도 입주자 모집</a>
+										<p class="small mb-0 ">청약 접수 : 2022-11-07  &nbsp;
+											&nbsp; 청약 마감 : 2022-11-09 </p>
 									</div>
 								</div>
 							</div>
@@ -448,9 +448,9 @@
 								<div class="d-flex align-items-center position-relative ">
 									<div class="ms-3 ">
 										<a href="${path}/realEstate/detail?type=U&no=2022950093" class="h6 stretched-link" style="color:#545454">
-										성남 수진역 파라곤 입주자 모집</a>
-										<p class="small mb-0 ">청약 접수 : 2022-09-27  &nbsp;
-											&nbsp; 청약 마감 : 2022-09-27 </p>
+										오산 세교2지구 A10블록 칸타빌 더퍼스트(2차) 입주자 모집</a>
+										<p class="small mb-0 ">청약 접수 : 2022-11-02  &nbsp;
+											&nbsp; 청약 마감 : 2022-11-02 </p>
 									</div>
 								</div>
 							</div>
@@ -461,9 +461,9 @@
 								<div class="d-flex align-items-center position-relative ">
 									<div class="ms-3 ">
 										<a href="${path}/realEstate/detail?type=U&no=2022950092" class="h6 stretched-link" style="color:#545454">
-										두산위브 더 아티움 재개발임대주택 입주자 모집</a>
-										<p class="small mb-0 ">청약 접수 : 2022-08-31 &nbsp;
-											&nbsp; 청약 마감 : 2022-09-01 </p>
+										성남판교대장 A-10블록 신혼희망타운 입주자 모집</a>
+										<p class="small mb-0 ">청약 접수 : 2022-11-07 &nbsp;
+											&nbsp; 청약 마감 : 2022-11-08 </p>
 									</div>
 								</div>
 							</div>
@@ -473,9 +473,9 @@
 								<div class="d-flex align-items-center position-relative ">
 									<div class="ms-3 ">
 										<a href="${path}/realEstate/detail?type=U&no=2022950090" class="h6 stretched-link" style="color:#545454">
-										고촌역 루체비스타 입주자 모집</a>
-										<p class="small mb-0 ">청약 접수 : 2022-08-31  &nbsp;
-											&nbsp; 청약 마감 : 2022-09-02 </p>
+										힐스테이트 금정역 입주자 모집</a>
+										<p class="small mb-0 ">청약 접수 : 2022-11-01  &nbsp;
+											&nbsp; 청약 마감 : 2022-11-01 </p>
 									</div>
 								</div>
 							</div>
