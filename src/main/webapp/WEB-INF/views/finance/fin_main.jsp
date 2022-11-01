@@ -177,7 +177,7 @@
                                     			<div style="font-weight: bold; font-size: 25px; color:blue"><c:out value="${fn:substring(indexPrice.clpr,0,1)}" />,<c:out value="${fn:substring(indexPrice.clpr,1,7)}" /> ▼<c:out value="${fn:substring(indexPrice.vs,1,5)}" /> <c:out value="${indexPrice.fltRt}"/>%</div>
                                     		</c:if>
                                     		<c:if test="${indexPrice.fltRt > 0}">                                    		
-                                    			<div style="font-weight: bold; font-size: 25px; color:red"><c:out value="${fn:substring(indexPrice.clpr,0,1)}" />,<c:out value="${fn:substring(indexPrice.clpr,1,7)}" /> ▲ <c:out value="${fn:substring(indexPrice.vs,0,5)}" /> <c:out value="${indexPrice.fltRt}"/>%</div>
+                                    			<div style="font-weight: bold; font-size: 25px; color:red"><c:out value="${fn:substring(indexPrice.clpr,0,1)}" />,<c:out value="${fn:substring(indexPrice.clpr,1,7)}" /> ▲<c:out value="${fn:substring(indexPrice.vs,0,5)}" /> <c:out value="${indexPrice.fltRt}"/>%</div>
                                     		</c:if>                                	
                                     <div dir="ltr">
                                     	<c:if test="${indexPrice.fltRt < 0}">

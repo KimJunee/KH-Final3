@@ -176,7 +176,7 @@
                                              		   <h4 class="header-title mb-0" style="font-size:30px; color:blue;"><c:out value="${fn:substring(indexPrice.clpr,0,1)}" />,<c:out value="${fn:substring(indexPrice.clpr,1,7)}" /> ▼<c:out value="${fn:substring(indexPrice.vs,1,5)}" /> <c:out value="${indexPrice.fltRt}"/>%</h4>					            			    		
 					            			    	</c:if>
 													<c:if test="${indexPrice.fltRt > 0}">
-                                             		   <h4 class="header-title mb-0" style="font-size:30px; color:red;"><c:out value="${fn:substring(indexPrice.clpr,0,1)}" />,<c:out value="${fn:substring(indexPrice.clpr,1,7)}" /> ▲ <c:out value="${fn:substring(indexPrice.vs,0,5)}" /> <c:out value="${indexPrice.fltRt}"/>%</h4>					            			    		
+                                             		   <h4 class="header-title mb-0" style="font-size:30px; color:red;"><c:out value="${fn:substring(indexPrice.clpr,0,1)}" />,<c:out value="${fn:substring(indexPrice.clpr,1,7)}" /> ▲<c:out value="${fn:substring(indexPrice.vs,0,5)}" /> <c:out value="${indexPrice.fltRt}"/>%</h4>					            			    		
 					            			    	</c:if>
                                                 <!--  <ul class="nav nav-pills bg-nav-pills p-1 rounded" id="pills-tab" role="tablist">
                                                 <li class="nav-item" role="presentation">
