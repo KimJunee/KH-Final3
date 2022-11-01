@@ -27,26 +27,26 @@
 	</resultMap>
 
 	<select id="selectKospiList" resultMap="StockpriceList">
-		SELECT * FROM STOCKPRICE WHERE MRKTCTG ='KOSPI' AND basDt ='20221013' ORDER BY mrktTotAmt DESC
+		SELECT * FROM STOCKPRICE WHERE MRKTCTG ='KOSPI' AND basDt ='20221031' ORDER BY mrktTotAmt DESC
 	</select>
 	<select id="selectKosdaqList" resultMap="StockpriceList">
-		SELECT * FROM STOCKPRICE WHERE MRKTCTG ='KOSDAQ' AND basDt ='20221013' ORDER BY mrktTotAmt DESC
+		SELECT * FROM STOCKPRICE WHERE MRKTCTG ='KOSDAQ' AND basDt ='20221031' ORDER BY mrktTotAmt DESC
 	</select>
 	
 	<select id="selectKospistockCount" resultType="int">
-		SELECT COUNT(*) FROM STOCKPRICE WHERE MRKTCTG ='KOSPI' AND basDt ='20221013' ORDER BY mrktTotAmt DESC
+		SELECT COUNT(*) FROM STOCKPRICE WHERE MRKTCTG ='KOSPI' AND basDt ='20221031' ORDER BY mrktTotAmt DESC
 	</select>
 	
 	<select id="selectKospistockList" resultMap="StockpriceList">
-		SELECT * FROM STOCKPRICE WHERE MRKTCTG ='KOSPI' AND basDt ='20221013' ORDER BY mrktTotAmt DESC
+		SELECT * FROM STOCKPRICE WHERE MRKTCTG ='KOSPI' AND basDt ='20221031' ORDER BY mrktTotAmt DESC
 	</select>
 	
 	<select id="selectKosdaqstockCount" resultType="int">
-		SELECT COUNT(*) FROM STOCKPRICE WHERE MRKTCTG ='KOSDAQ' AND basDt ='20221013' ORDER BY mrktTotAmt DESC
+		SELECT COUNT(*) FROM STOCKPRICE WHERE MRKTCTG ='KOSDAQ' AND basDt ='20221031' ORDER BY mrktTotAmt DESC
 	</select>
 	
 	<select id="selectKosdaqstockList" resultMap="StockpriceList">
-		SELECT * FROM STOCKPRICE WHERE MRKTCTG ='KOSDAQ' AND basDt ='20221013' ORDER BY mrktTotAmt DESC
+		SELECT * FROM STOCKPRICE WHERE MRKTCTG ='KOSDAQ' AND basDt ='20221031' ORDER BY mrktTotAmt DESC
 	</select>
 	
 	
