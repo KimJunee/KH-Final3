@@ -4,21 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper	namespace="com.kh.realfinal.apply.model.mapper.UrbtyOfctlLttotPblancDetailMapper">
-	<sql id="UrbtySql">
-	SELECT 	U.HOUSE_MANAGE_NO,		U.PBLANC_NO,
-			U.HOUSE_NM,				U.HOUSE_SECD,			
-			U.HOUSE_SECD_NM,		u.house_dtl_secd,
-			u.house_dtl_secd_nm,	u.search_house_secd,
-			U.HSSPLY_ZIP,			U.TOT_SUPLY_HSHLDCO,
-			U.RCRIT_PBLANC_DE,		U.SUBSCRPT_RCEPT_BGNDE,	
-			U.SUBSCRPT_RCEPT_ENDDE,	U.PRZWNER_PRESNATN_DE,	
-			U.CNTRCT_CNCLS_BGNDE,	U.CNTRCT_CNCLS_ENDDE,	
-			U.HMPG_ADRES,			U.BSNS_MBY_NM,
-			U.MDHS_TELNO,			U.MVN_PREARNGE_YM,
-			U.HSSPLY_ADRES,			U.LOCAL_NM
-	FROM URBTYOFCTLLTTOTPBLANCDETAIL U
-	</sql>
-
+	
 	
 	<resultMap type="UrbtyOfctlLttotPblancDetail" id="UrbtyMap">
 		<id property="house_manage_no" column="HOUSE_MANAGE_NO"/>
@@ -42,7 +28,7 @@
 		<result property="mdhs_telno" column="MDHS_TELNO"/>
 		<result property="mvn_prearnge_ym" column="MVN_PREARNGE_YM"/>
 		<result property="hssply_adres" column="HSSPLY_ADRES"/>
-		<result property="local_nm" column="LOCAL_NM"/>
+		<result property="subscrpt_area_code_nm" column="SUBSCRPT_AREA_CODE_NM"/>
 	</resultMap>
 	
 	

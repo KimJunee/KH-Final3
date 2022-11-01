@@ -4,22 +4,6 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper	namespace="com.kh.realfinal.apply.model.mapper.RemndrLttotPblancDetailMapper">
-	<sql id="RemndrSql" >
-	SELECT 	R.HOUSE_MANAGE_NO,		R.PBLANC_NO,R.HOUSE_NM,
-			R.HOUSE_SECD,			R.HOUSE_SECD_NM,	
-			R.HSSPLY_ZIP,			R.HSSPLY_ADRES,	
-			R.TOT_SUPLY_HSHLDCO,	R.RCRIT_PBLANC_DE,
-			R.SUBSCRPT_RCEPT_BGNDE,	R.SUBSCRPT_RCEPT_ENDDE,
-			R.SPSPLY_RCEPT_BGNDE,	R.SPSPLY_RCEPT_ENDDE,
-			R.GNRL_RCEPT_RCPTDE,	R.GNRL_RCEPT_ENDDE,
-			R.PRZWNER_PRESNATN_DE,	R.CNTRCT_CNCLS_BGNDE,
-			R.CNTRCT_CNCLS_ENDDE,	R.HMPG_ADRES,
-			R.BSNS_MBY_NM,			R.MDHS_TELNO,
-			R.MVN_PREARNGE_YM,		R.LOCAL_NM	
-	FROM REMNDRLTTOTPBLANCDETAIL R
-	</sql>
-	
-
 
 	<resultMap type="RemndrLttotPblancDetail" id="RemndrMap">
 		<id property="house_manage_no" column="HOUSE_MANAGE_NO"/>
@@ -44,7 +28,7 @@
 		<result property="bsns_mby_nm" column="BSNS_MBY_NM"/>
 		<result property="mdhs_telno" column="MDHS_TELNO"/>
 		<result property="mvn_prearnge_ym" column="MVN_PREARNGE_YM"/>
-		<result property="local_nm" column="LOCAL_NM"/>
+		<result property="subscrpt_area_code_nm" column="SUBSCRPT_AREA_CODE_NM"/>
 	</resultMap>
 	
 	<resultMap type="RemndrLttotPblancDetail" id="RemndrLttotPblancDetailMap" extends="RemndrMap">
