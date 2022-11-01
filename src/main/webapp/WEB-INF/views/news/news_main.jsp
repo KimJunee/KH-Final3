@@ -186,7 +186,7 @@
                                         <div class="card bg-transparent overflow-hidden">
                                             <!-- Card img -->
                                             <div class="position-relative rounded-3 overflow-hidden">
-                                                <img class="card-img" src="/resources/resources1b/images/news/mainvideo2.jpg" style="height:200px;" alt="Card image">
+                                                <img class="card-img" src="${path}/resources/resources1b/images/news/mainvideo2.jpg" style="height:200px;" alt="Card image">
                                                 <div class="card-img-overlay d-flex align-items-start flex-column p-3">
                                                     <!-- Card overlay -->
                                                     <div class="w-100 my-auto">
@@ -209,7 +209,7 @@
                                         <div class="card bg-transparent overflow-hidden">
                                             <!-- Card img -->
                                             <div class="position-relative rounded-3 overflow-hidden">
-                                                <img class="card-img" src="/resources/resources1b/images/news/mainvideo3.jpg" style="height:200px;" alt="Card image">
+                                                <img class="card-img" src="${path}/resources/resources1b/images/news/mainvideo3.jpg" style="height:200px;" alt="Card image">
                                                 <div class="card-img-overlay d-flex align-items-start flex-column p-3">
                                                     <!-- Card overlay -->
                                                     <div class="w-100 my-auto">
@@ -232,7 +232,7 @@
                                         <div class="card bg-transparent overflow-hidden">
                                             <!-- Card img -->
                                             <div class="position-relative rounded-3 overflow-hidden">
-                                                <img class="card-img" src="/resources/resources1b/images/news/mainvideo4.jpg" style="height:200px;" alt="Card image">
+                                                <img class="card-img" src="${path}/resources/resources1b/images/news/mainvideo4.jpg" style="height:200px;" alt="Card image">
                                                 <div class="card-img-overlay d-flex align-items-start flex-column p-3">
                                                     <!-- Card overlay -->
                                                     <div class="w-100 my-auto">
