@@ -247,10 +247,10 @@
 				<div
 					class="card card-body bg-primary bg-opacity-15 p-4 h-75 text-center">
 					<h3 id="current_date"></h3>
-					<h5>모집 시작 청약</h5>
+					<h5>접수 시작 청약</h5>
 					<h1 class="fs-1 text-primary">${mainCount}개</h1>
 					<p>
-						오늘 모집 시작되는 청약일정과 <br> 공급 대상들을 즉시 확인하실 수 있습니다!
+						오늘 접수가 시작되는 청약일정과 <br> 공급 대상들을 즉시 확인하실 수 있습니다!
 					</p>
 					<div class="mt-auto">
 						<a href="${path}/realEstate/list"
