@@ -27,7 +27,7 @@ $.ajax({
                 stroke: { width: 3, curve: "straight" },
                 colors: colors = dataColors ? dataColors.split(",") : colors,
                 series: [{
-                    name: "코스피지수",
+                    name: "코스닥지수",
                     data: list,
                 }],
                 title: { text: "", align: "left" },
